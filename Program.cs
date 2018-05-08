@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using CppSharp;
 
 namespace FlounderSharp
 {
@@ -10,6 +7,8 @@ namespace FlounderSharp
     {
         static void Main(string[] args)
         {
+            ConsoleDriver.Run(new FlounderLibrary(@"C:\Testing\include", @"C:\Testing\lib", @"C:\Testing\csharp"));
+            Console.ReadLine();
         }
     }
 }

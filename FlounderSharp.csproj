@@ -32,6 +32,33 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CppSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\CppSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CppSharp.AST, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\CppSharp.AST.dll</HintPath>
+    </Reference>
+    <Reference Include="CppSharp.Generator, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\CppSharp.Generator.dll</HintPath>
+    </Reference>
+    <Reference Include="CppSharp.Parser, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\CppSharp.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="CppSharp.Parser.CLI, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\CppSharp.Parser.CLI.dll</HintPath>
+    </Reference>
+    <Reference Include="CppSharp.Runtime, Version=0.0.0.0, Culture=neutral, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>External\CppSharp.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="CSharp.CSharp">
+      <HintPath>External\CSharp.CSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,11 +69,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlounderLibrary.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>xcopy /y /d  "$(ProjectDir)External\*.dll" "$(ProjectDir)$(OutDir)"</PostBuildEvent>
+  </PropertyGroup>
 </Project>
