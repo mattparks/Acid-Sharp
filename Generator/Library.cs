@@ -46,23 +46,23 @@ namespace Generator
             var options = driver.Options;
             options.OutputDir = _outPath;
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateFinalizers = true;
-            options.CheckSymbols = true;
+            options.GenerateFinalizers = false;
+            options.CheckSymbols = false;
             options.Verbose = true;
 
             var module = options.AddModule(_moduleName);
             module.OutputNamespace = "";
-            module.LibraryName = _moduleName; //  _libraryName
+            module.LibraryName = _moduleName;
             
-        //    module.Defines.Add("FL_BUILD_WINDOWS");
-        //    module.Defines.Add("FL_BUILD_MSVC");
-        //    module.Defines.Add("FL_EXPORTS");
+        //   module.Defines.Add("FL_BUILD_WINDOWS");
+        //   module.Defines.Add("FL_BUILD_MSVC");
+        //   module.Defines.Add("FL_EXPORTS");
             
             module.IncludeDirs.Add(_headerPath);
             module.Headers.Add($"{_libraryName}.hpp");
             
             module.LibraryDirs.Add(_libPath);
-            module.Libraries.Add($"{_libraryName}.lib");
+            module.Libraries.Add($"{_libraryName}.dll");
         }
 
         /// <summary>

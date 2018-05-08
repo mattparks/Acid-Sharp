@@ -11,9 +11,10 @@ namespace Generator
             // Setup.
             var libraryName = "Flounder";
             var moduleName = "FlounderSharp";
-            var sourceFolder = $@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp\Source\{libraryName}";
+            var includeFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder";
+            var libFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\bin\Debug";
             var outputFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
-            var library = new Library($@"{sourceFolder}\include", $@"{sourceFolder}\lib", outputFolder, libraryName, moduleName);
+            var library = new Library(includeFolder, libFolder, outputFolder, libraryName, moduleName);
 
             // Generate.
             ConsoleDriver.Run(library);

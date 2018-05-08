@@ -10,90 +10,1871 @@ using System.Security;
 
 namespace FlounderSharp
 {
-    /// <summary>A helper for C++ files.</summary>
-    public unsafe partial class FileSystem : IDisposable
+    /// <summary>Holds a RGBA colour.</summary>
+    public unsafe partial class Colour : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 0)]
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public partial struct __Internal
         {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Colour._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Colour@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWorkingDirectory@FileSystem@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
-            internal static extern void GetWorkingDirectory(global::System.IntPtr @return);
+                EntryPoint="??Hfl@@YA?AVColour@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorPlus(global::FlounderSharp.Colour.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVColour@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorMinus(global::FlounderSharp.Colour.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVColour@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorStar(global::FlounderSharp.Colour.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVColour@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorSlash(global::FlounderSharp.Colour.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVColour@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorPlus_1(float value, global::FlounderSharp.Colour.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVColour@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorMinus_1(float value, global::FlounderSharp.Colour.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVColour@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorStar_1(float value, global::FlounderSharp.Colour.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVColour@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Colour.__Internal OperatorSlash_1(float value, global::FlounderSharp.Colour.__Internal left);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 16)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Colour._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Colour._.__.__Internal __1;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 16)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal float m_r;
+
+                    [FieldOffset(4)]
+                    internal float m_g;
+
+                    [FieldOffset(8)]
+                    internal float m_b;
+
+                    [FieldOffset(12)]
+                    internal float m_a;
+                }
+            }
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.FileSystem> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.FileSystem>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Colour> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Colour>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.FileSystem __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::FlounderSharp.Colour __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.FileSystem(native.ToPointer(), skipVTables);
+            return new global::FlounderSharp.Colour(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.FileSystem __CreateInstance(global::FlounderSharp.FileSystem.__Internal native, bool skipVTables = false)
+        internal static global::FlounderSharp.Colour __CreateInstance(global::FlounderSharp.Colour.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.FileSystem(native, skipVTables);
+            return new global::FlounderSharp.Colour(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.FileSystem.__Internal native)
+        private static void* __CopyValue(global::FlounderSharp.Colour.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FileSystem.__Internal));
-            *(global::FlounderSharp.FileSystem.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Colour.__Internal));
+            *(global::FlounderSharp.Colour.__Internal*) ret = native;
             return ret.ToPointer();
         }
 
-        private FileSystem(global::FlounderSharp.FileSystem.__Internal native, bool skipVTables = false)
+        private Colour(global::FlounderSharp.Colour.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
         }
 
-        protected FileSystem(void* native, bool skipVTables = false)
+        protected Colour(void* native, bool skipVTables = false)
         {
             if (native == null)
                 return;
             __Instance = new global::System.IntPtr(native);
         }
 
-        ~FileSystem()
-        {
-            Dispose(false);
-        }
-
         public void Dispose()
         {
             Dispose(disposing: true);
-            GC.SuppressFinalize(this);
         }
 
         public virtual void Dispose(bool disposing)
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.FileSystem __dummy;
+            global::FlounderSharp.Colour __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        /// <summary>Gets the current working directory.</summary>
-        public static string WorkingDirectory
+        public static global::FlounderSharp.Colour operator +(global::FlounderSharp.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus(__arg0, value);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour operator -(global::FlounderSharp.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus(__arg0, value);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour operator *(global::FlounderSharp.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar(__arg0, value);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour operator /(global::FlounderSharp.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash(__arg0, value);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour operator +(float value, global::FlounderSharp.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus_1(value, __arg1);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour operator -(float value, global::FlounderSharp.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus_1(value, __arg1);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour operator *(float value, global::FlounderSharp.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_1(value, __arg1);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour operator /(float value, global::FlounderSharp.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_1(value, __arg1);
+            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Colour CLEAR
         {
             get
             {
-                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                __Internal.GetWorkingDirectory(new IntPtr(&__ret));
-                var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                __basicStringRet.Dispose(false);
-                return __stringRet;
+                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?CLEAR@Colour@fl@@2V12@B");
+                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Colour WHITE
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?WHITE@Colour@fl@@2V12@B");
+                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Colour BLACK
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?BLACK@Colour@fl@@2V12@B");
+                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>A class that holds many various math functions.</summary>
+    public unsafe partial class Maths : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 0)]
+        public partial struct __Internal
+        {
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Random@Maths@fl@@SAMXZ")]
+            internal static extern float Random();
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Maths> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Maths>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Maths __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Maths(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Maths __CreateInstance(global::FlounderSharp.Maths.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Maths(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Maths.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Maths.__Internal));
+            *(global::FlounderSharp.Maths.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Maths(global::FlounderSharp.Maths.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Maths(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Maths __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        /// <summary>Gets a random number.</summary>
+        public static float Random
+        {
+            get
+            {
+                var __ret = __Internal.Random();
+                return __ret;
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Holds a 2-tuple vector.</summary>
+    public unsafe partial class Vector2 : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Vector2._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Vector2@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector2@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorPlus(global::FlounderSharp.Vector2.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector2@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorMinus(global::FlounderSharp.Vector2.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector2@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorStar(global::FlounderSharp.Vector2.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector2@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorSlash(global::FlounderSharp.Vector2.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector2@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorPlus_1(float value, global::FlounderSharp.Vector2.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector2@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorMinus_1(float value, global::FlounderSharp.Vector2.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector2@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorStar_1(float value, global::FlounderSharp.Vector2.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector2@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector2.__Internal OperatorSlash_1(float value, global::FlounderSharp.Vector2.__Internal left);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 8)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Vector2._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Vector2._.__.__Internal __1;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 8)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal float m_x;
+
+                    [FieldOffset(4)]
+                    internal float m_y;
+                }
+            }
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector2> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector2>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Vector2 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Vector2(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Vector2 __CreateInstance(global::FlounderSharp.Vector2.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Vector2(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Vector2.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Vector2.__Internal));
+            *(global::FlounderSharp.Vector2.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Vector2(global::FlounderSharp.Vector2.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Vector2(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Vector2 __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public static global::FlounderSharp.Vector2 operator +(global::FlounderSharp.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus(__arg0, value);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 operator -(global::FlounderSharp.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus(__arg0, value);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 operator *(global::FlounderSharp.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar(__arg0, value);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 operator /(global::FlounderSharp.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash(__arg0, value);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 operator +(float value, global::FlounderSharp.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus_1(value, __arg1);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 operator -(float value, global::FlounderSharp.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus_1(value, __arg1);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 operator *(float value, global::FlounderSharp.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_1(value, __arg1);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 operator /(float value, global::FlounderSharp.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_1(value, __arg1);
+            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector2 ZERO
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector2 ONE
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector2 LEFT
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?LEFT@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector2 RIGHT
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?RIGHT@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector2 UP
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?UP@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector2 DOWN
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?DOWN@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector2 POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector2 NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector2@fl@@2V12@B");
+                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Holds a 2x2 matrix.</summary>
+    public unsafe partial class Matrix2 : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Matrix2._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Matrix2@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix2@0@V10@VVector2@0@@Z")]
+            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorStar(global::FlounderSharp.Matrix2.__Internal left, global::FlounderSharp.Vector2.__Internal value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix2@0@V10@VVector2@0@@Z")]
+            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorSlash(global::FlounderSharp.Matrix2.__Internal left, global::FlounderSharp.Vector2.__Internal value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix2@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorStar_1(global::FlounderSharp.Matrix2.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix2@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorSlash_1(global::FlounderSharp.Matrix2.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix2@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorStar_2(float value, global::FlounderSharp.Matrix2.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix2@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorSlash_2(float value, global::FlounderSharp.Matrix2.__Internal left);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 16)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix2._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix2._.__.__Internal __1;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix2._.__.__Internal __2;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 8)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal global::System.IntPtr m_0;
+
+                    [FieldOffset(4)]
+                    internal global::System.IntPtr m_1;
+                }
+            }
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix2> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix2>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Matrix2 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Matrix2(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Matrix2 __CreateInstance(global::FlounderSharp.Matrix2.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Matrix2(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Matrix2.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Matrix2.__Internal));
+            *(global::FlounderSharp.Matrix2.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Matrix2(global::FlounderSharp.Matrix2.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Matrix2(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Matrix2 __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public static global::FlounderSharp.Matrix2 operator *(global::FlounderSharp.Matrix2 left, global::FlounderSharp.Vector2 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) value.__Instance;
+            var __ret = __Internal.OperatorStar(__arg0, __arg1);
+            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix2 operator /(global::FlounderSharp.Matrix2 left, global::FlounderSharp.Vector2 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) value.__Instance;
+            var __ret = __Internal.OperatorSlash(__arg0, __arg1);
+            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix2 operator *(global::FlounderSharp.Matrix2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_1(__arg0, value);
+            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix2 operator /(global::FlounderSharp.Matrix2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_1(__arg0, value);
+            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix2 operator *(float value, global::FlounderSharp.Matrix2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_2(value, __arg1);
+            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix2 operator /(float value, global::FlounderSharp.Matrix2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_2(value, __arg1);
+            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix2 IDENTITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Matrix2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix2@fl@@2V12@B");
+                return global::FlounderSharp.Matrix2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Matrix2 ZERO
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Matrix2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix2@fl@@2V12@B");
+                return global::FlounderSharp.Matrix2.__CreateInstance(*__ptr);
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Holds a 3-tuple vector.</summary>
+    public unsafe partial class Vector3 : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 12)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Vector3._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Vector3@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector3@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorPlus(global::FlounderSharp.Vector3.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector3@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorMinus(global::FlounderSharp.Vector3.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector3@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorStar(global::FlounderSharp.Vector3.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector3@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorSlash(global::FlounderSharp.Vector3.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector3@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorPlus_1(float value, global::FlounderSharp.Vector3.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector3@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorMinus_1(float value, global::FlounderSharp.Vector3.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector3@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorStar_1(float value, global::FlounderSharp.Vector3.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector3@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector3.__Internal OperatorSlash_1(float value, global::FlounderSharp.Vector3.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?RandomUnitVector@Vector3@fl@@SA?AV12@XZ")]
+            internal static extern void RandomUnitVector(global::System.IntPtr @return);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 12)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Vector3._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Vector3._.__.__Internal __1;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 12)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal float m_x;
+
+                    [FieldOffset(4)]
+                    internal float m_y;
+
+                    [FieldOffset(8)]
+                    internal float m_z;
+                }
+            }
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector3> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector3>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Vector3 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Vector3(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Vector3 __CreateInstance(global::FlounderSharp.Vector3.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Vector3(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Vector3.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Vector3.__Internal));
+            *(global::FlounderSharp.Vector3.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Vector3(global::FlounderSharp.Vector3.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Vector3(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Vector3 __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public static global::FlounderSharp.Vector3 operator +(global::FlounderSharp.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus(__arg0, value);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 operator -(global::FlounderSharp.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus(__arg0, value);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 operator *(global::FlounderSharp.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar(__arg0, value);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 operator /(global::FlounderSharp.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash(__arg0, value);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 operator +(float value, global::FlounderSharp.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus_1(value, __arg1);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 operator -(float value, global::FlounderSharp.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus_1(value, __arg1);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 operator *(float value, global::FlounderSharp.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_1(value, __arg1);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 operator /(float value, global::FlounderSharp.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_1(value, __arg1);
+            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector3 ZERO
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 ONE
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 LEFT
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?LEFT@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 RIGHT
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?RIGHT@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 UP
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?UP@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 DOWN
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?DOWN@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 FRONT
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?FRONT@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 BACK
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?BACK@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector3 NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector3@fl@@2V12@B");
+                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>Generates a random unit vector.</summary>
+        public static global::FlounderSharp.Vector3 RandomUnitVector
+        {
+            get
+            {
+                var __ret = new global::FlounderSharp.Vector3.__Internal();
+                __Internal.RandomUnitVector(new IntPtr(&__ret));
+                return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Holds a 3x3 matrix.</summary>
+    public unsafe partial class Matrix3 : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 36)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Matrix3._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Matrix3@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix3@0@V10@VVector3@0@@Z")]
+            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorStar(global::FlounderSharp.Matrix3.__Internal left, global::FlounderSharp.Vector3.__Internal value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix3@0@V10@VVector3@0@@Z")]
+            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorSlash(global::FlounderSharp.Matrix3.__Internal left, global::FlounderSharp.Vector3.__Internal value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix3@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorStar_1(global::FlounderSharp.Matrix3.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix3@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorSlash_1(global::FlounderSharp.Matrix3.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix3@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorStar_2(float value, global::FlounderSharp.Matrix3.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix3@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorSlash_2(float value, global::FlounderSharp.Matrix3.__Internal left);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 36)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix3._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix3._.__.__Internal __1;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix3._.__.__Internal __2;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 12)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal global::System.IntPtr m_0;
+
+                    [FieldOffset(4)]
+                    internal global::System.IntPtr m_1;
+
+                    [FieldOffset(8)]
+                    internal global::System.IntPtr m_2;
+                }
+            }
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix3> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix3>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Matrix3 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Matrix3(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Matrix3 __CreateInstance(global::FlounderSharp.Matrix3.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Matrix3(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Matrix3.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Matrix3.__Internal));
+            *(global::FlounderSharp.Matrix3.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Matrix3(global::FlounderSharp.Matrix3.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Matrix3(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Matrix3 __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public static global::FlounderSharp.Matrix3 operator *(global::FlounderSharp.Matrix3 left, global::FlounderSharp.Vector3 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) value.__Instance;
+            var __ret = __Internal.OperatorStar(__arg0, __arg1);
+            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix3 operator /(global::FlounderSharp.Matrix3 left, global::FlounderSharp.Vector3 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) value.__Instance;
+            var __ret = __Internal.OperatorSlash(__arg0, __arg1);
+            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix3 operator *(global::FlounderSharp.Matrix3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_1(__arg0, value);
+            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix3 operator /(global::FlounderSharp.Matrix3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_1(__arg0, value);
+            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix3 operator *(float value, global::FlounderSharp.Matrix3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_2(value, __arg1);
+            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix3 operator /(float value, global::FlounderSharp.Matrix3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_2(value, __arg1);
+            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix3 IDENTITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Matrix3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix3@fl@@2V12@B");
+                return global::FlounderSharp.Matrix3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Matrix3 ZERO
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Matrix3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix3@fl@@2V12@B");
+                return global::FlounderSharp.Matrix3.__CreateInstance(*__ptr);
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Holds a 4-tuple vector.</summary>
+    public unsafe partial class Vector4 : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Vector4._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Vector4@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector4@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorPlus(global::FlounderSharp.Vector4.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector4@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorMinus(global::FlounderSharp.Vector4.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector4@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorStar(global::FlounderSharp.Vector4.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector4@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorSlash(global::FlounderSharp.Vector4.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector4@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorPlus_1(float value, global::FlounderSharp.Vector4.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector4@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorMinus_1(float value, global::FlounderSharp.Vector4.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector4@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorStar_1(float value, global::FlounderSharp.Vector4.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector4@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Vector4.__Internal OperatorSlash_1(float value, global::FlounderSharp.Vector4.__Internal left);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 16)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Vector4._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Vector4._.__.__Internal __1;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Vector4._.__.__Internal __2;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 16)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal float m_x;
+
+                    [FieldOffset(4)]
+                    internal float m_y;
+
+                    [FieldOffset(8)]
+                    internal float m_z;
+
+                    [FieldOffset(12)]
+                    internal float m_w;
+                }
+            }
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector4> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector4>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Vector4 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Vector4(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Vector4 __CreateInstance(global::FlounderSharp.Vector4.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Vector4(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Vector4.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Vector4.__Internal));
+            *(global::FlounderSharp.Vector4.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Vector4(global::FlounderSharp.Vector4.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Vector4(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Vector4 __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public static global::FlounderSharp.Vector4 operator +(global::FlounderSharp.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus(__arg0, value);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 operator -(global::FlounderSharp.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus(__arg0, value);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 operator *(global::FlounderSharp.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar(__arg0, value);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 operator /(global::FlounderSharp.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash(__arg0, value);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 operator +(float value, global::FlounderSharp.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorPlus_1(value, __arg1);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 operator -(float value, global::FlounderSharp.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorMinus_1(value, __arg1);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 operator *(float value, global::FlounderSharp.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_1(value, __arg1);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 operator /(float value, global::FlounderSharp.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_1(value, __arg1);
+            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Vector4 ZERO
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector4@fl@@2V12@B");
+                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector4 ONE
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector4@fl@@2V12@B");
+                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector4 POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector4@fl@@2V12@B");
+                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Vector4 NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector4@fl@@2V12@B");
+                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Holds a 4x4 matrix.</summary>
+    public unsafe partial class Matrix4 : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 64)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Matrix4._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Matrix4@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix4@0@V10@VVector4@0@@Z")]
+            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorStar(global::FlounderSharp.Matrix4.__Internal left, global::FlounderSharp.Vector4.__Internal value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix4@0@V10@VVector4@0@@Z")]
+            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorSlash(global::FlounderSharp.Matrix4.__Internal left, global::FlounderSharp.Vector4.__Internal value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix4@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorStar_1(global::FlounderSharp.Matrix4.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix4@0@V10@M@Z")]
+            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorSlash_1(global::FlounderSharp.Matrix4.__Internal left, float value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix4@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorStar_2(float value, global::FlounderSharp.Matrix4.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix4@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorSlash_2(float value, global::FlounderSharp.Matrix4.__Internal left);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 64)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix4._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix4._.__.__Internal __1;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Matrix4._.__.__Internal __2;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 16)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal global::System.IntPtr m_0;
+
+                    [FieldOffset(4)]
+                    internal global::System.IntPtr m_1;
+
+                    [FieldOffset(8)]
+                    internal global::System.IntPtr m_2;
+
+                    [FieldOffset(12)]
+                    internal global::System.IntPtr m_3;
+                }
+            }
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix4> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix4>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Matrix4 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Matrix4(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Matrix4 __CreateInstance(global::FlounderSharp.Matrix4.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Matrix4(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Matrix4.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Matrix4.__Internal));
+            *(global::FlounderSharp.Matrix4.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Matrix4(global::FlounderSharp.Matrix4.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Matrix4(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Matrix4 __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public static global::FlounderSharp.Matrix4 operator *(global::FlounderSharp.Matrix4 left, global::FlounderSharp.Vector4 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) value.__Instance;
+            var __ret = __Internal.OperatorStar(__arg0, __arg1);
+            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix4 operator /(global::FlounderSharp.Matrix4 left, global::FlounderSharp.Vector4 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) value.__Instance;
+            var __ret = __Internal.OperatorSlash(__arg0, __arg1);
+            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix4 operator *(global::FlounderSharp.Matrix4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_1(__arg0, value);
+            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix4 operator /(global::FlounderSharp.Matrix4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_1(__arg0, value);
+            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix4 operator *(float value, global::FlounderSharp.Matrix4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar_2(value, __arg1);
+            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix4 operator /(float value, global::FlounderSharp.Matrix4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorSlash_2(value, __arg1);
+            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Matrix4 IDENTITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Matrix4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix4@fl@@2V12@B");
+                return global::FlounderSharp.Matrix4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Matrix4 ZERO
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Matrix4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix4@fl@@2V12@B");
+                return global::FlounderSharp.Matrix4.__CreateInstance(*__ptr);
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>A vector like object of the form w + xi + yj + zk, where w, x, y, z are real numbers and i, j, k are imaginary units.</summary>
+    public unsafe partial class Quaternion : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.Quaternion._.__Internal _;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
+                EntryPoint="??1Quaternion@fl@@QAE@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVQuaternion@0@MV10@@Z")]
+            internal static extern global::FlounderSharp.Quaternion.__Internal OperatorStar(float value, global::FlounderSharp.Quaternion.__Internal left);
+        }
+
+        public unsafe partial struct _
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 16)]
+            public partial struct __Internal
+            {
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Quaternion._.__.__Internal __;
+
+                [FieldOffset(0)]
+                internal global::FlounderSharp.Quaternion._.__.__Internal __1;
+            }
+
+            public unsafe partial class __
+            {
+                [StructLayout(LayoutKind.Explicit, Size = 16)]
+                public partial struct __Internal
+                {
+                    [FieldOffset(0)]
+                    internal float m_x;
+
+                    [FieldOffset(4)]
+                    internal float m_y;
+
+                    [FieldOffset(8)]
+                    internal float m_z;
+
+                    [FieldOffset(12)]
+                    internal float m_w;
+                }
+            }
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Quaternion> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Quaternion>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Quaternion __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Quaternion(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Quaternion __CreateInstance(global::FlounderSharp.Quaternion.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Quaternion(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Quaternion.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Quaternion.__Internal));
+            *(global::FlounderSharp.Quaternion.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Quaternion(global::FlounderSharp.Quaternion.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Quaternion(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Quaternion __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public static global::FlounderSharp.Quaternion operator *(float value, global::FlounderSharp.Quaternion left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Quaternion.__Internal() : *(global::FlounderSharp.Quaternion.__Internal*) left.__Instance;
+            var __ret = __Internal.OperatorStar(value, __arg1);
+            return global::FlounderSharp.Quaternion.__CreateInstance(__ret);
+        }
+
+        public static global::FlounderSharp.Quaternion ZERO
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Quaternion@fl@@2V12@B");
+                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Quaternion ONE
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Quaternion@fl@@2V12@B");
+                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Quaternion POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Quaternion@fl@@2V12@B");
+                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::FlounderSharp.Quaternion NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Quaternion@fl@@2V12@B");
+                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
             }
         }
     }

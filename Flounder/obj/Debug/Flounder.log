@@ -1,0 +1,13 @@
+﻿  Colour.cpp
+c:\users\mattp\documents\flounder workspace\floundersharp\flounder\colour.cpp(161): warning C4996: 'sscanf': This function or variable may be unsafe. Consider using sscanf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17134.0\ucrt\stdio.h(2263): note: see declaration of 'sscanf'
+  Matrix2.cpp
+  Matrix3.cpp
+  Matrix4.cpp
+  Quaternion.cpp
+  Vector2.cpp
+  Vector3.cpp
+  Vector4.cpp
+  Generating Code...
+     Creating library C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\bin\Debug\Flounder.lib and object C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\bin\Debug\Flounder.exp
+  Flounder.vcxproj -> C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\bin\Debug\Flounder.dll
