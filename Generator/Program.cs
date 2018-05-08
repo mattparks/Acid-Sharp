@@ -9,12 +9,11 @@ namespace Generator
         static void Main(string[] args)
         {
             // Setup.
-            var libraryName = "Testing";
-            var moduleName = "TestingSharp";
-            var outSpace = "";
-            var sourceFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\Source\Testing";
-            var outputFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder";
-            var library = new Library($@"{sourceFolder}\include", $@"{sourceFolder}\lib", outputFolder, libraryName, moduleName, outSpace);
+            var libraryName = "Flounder";
+            var moduleName = "FlounderSharp";
+            var sourceFolder = $@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp\Source\{libraryName}";
+            var outputFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
+            var library = new Library($@"{sourceFolder}\include", $@"{sourceFolder}\lib", outputFolder, libraryName, moduleName);
 
             // Generate.
             ConsoleDriver.Run(library);

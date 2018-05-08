@@ -1,13 +1,18 @@
 ﻿using System;
+using FlounderSharp;
 
-namespace Flounder
+namespace Testing
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Maths.Random);
-            /*{
+            Console.WriteLine(FileSystem.WorkingDirectory);
+
+            // Maths tests.
+            /*Console.WriteLine(Maths.Random);
+
+            {
                 Console.WriteLine("Vector2:");
                 Vector2 a = new Vector2(3.0f, -7.2f);
                 Vector2 b = new Vector2(-1.74f, 15.4f);
@@ -44,6 +49,8 @@ namespace Flounder
                 Console.WriteLine("");
             }*/
 
+            // End program.
+            Console.WriteLine("Press enter to continue...");
             Console.ReadLine();
         }
     }

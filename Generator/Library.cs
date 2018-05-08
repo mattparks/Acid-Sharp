@@ -12,18 +12,16 @@ namespace Generator
         private string _outPath;
         private string _libraryName;
         private string _moduleName;
-        private string _outSpace;
 
         private PassXmlTranslation _xmlExportPass;
 
-        public Library(string headerPath, string libPath, string outPath, string libraryName, string moduleName, string outSpace)
+        public Library(string headerPath, string libPath, string outPath, string libraryName, string moduleName)
         {
             _headerPath = headerPath;
             _libPath = libPath;
             _outPath = outPath;
             _libraryName = libraryName;
             _moduleName = moduleName;
-            _outSpace = outSpace;
             _xmlExportPass = new PassXmlTranslation();
         }
 
@@ -50,11 +48,11 @@ namespace Generator
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateFinalizers = true;
             options.CheckSymbols = true;
-            options.Verbose = false;
+            options.Verbose = true;
 
             var module = options.AddModule(_moduleName);
-            module.OutputNamespace = _outSpace; 
-            module.LibraryName = _libraryName; 
+            module.OutputNamespace = "";
+            module.LibraryName = _moduleName; //  _libraryName
             
         //    module.Defines.Add("FL_BUILD_WINDOWS");
         //    module.Defines.Add("FL_BUILD_MSVC");
@@ -63,8 +61,8 @@ namespace Generator
             module.IncludeDirs.Add(_headerPath);
             module.Headers.Add($"{_libraryName}.hpp");
             
-        //    module.LibraryDirs.Add(_libPath);
-        //    module.Libraries.Add($"{_libraryName}.dll");
+            module.LibraryDirs.Add(_libPath);
+            module.Libraries.Add($"{_libraryName}.lib");
         }
 
         /// <summary>
