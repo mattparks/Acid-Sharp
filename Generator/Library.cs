@@ -1,8 +1,9 @@
 ﻿using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
+using System.Xml.Linq;
 
-namespace FlounderSharp
+namespace Generator
 {
     class Library : ILibrary
     {
@@ -10,13 +11,32 @@ namespace FlounderSharp
         private string _libPath;
         private string _outPath;
         private string _libraryName;
+        private string _moduleName;
+        private string _outSpace;
 
-        public Library(string headerPath, string libPath, string outPath, string libraryName)
+        private PassXmlTranslation _xmlExportPass;
+
+        public Library(string headerPath, string libPath, string outPath, string libraryName, string moduleName, string outSpace)
         {
             _headerPath = headerPath;
             _libPath = libPath;
             _outPath = outPath;
             _libraryName = libraryName;
+            _moduleName = moduleName;
+            _outSpace = outSpace;
+            _xmlExportPass = new PassXmlTranslation();
+        }
+
+
+        /// <summary>
+        /// Gets the XDocument of the xml representation.
+        /// </summary>
+        public XDocument XmlExport
+        {
+            get
+            {
+                return _xmlExportPass.Document;
+            }
         }
 
         /// <summary>
@@ -29,16 +49,16 @@ namespace FlounderSharp
             options.OutputDir = _outPath;
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateFinalizers = true;
-            options.Verbose = true;
             options.CheckSymbols = true;
+            options.Verbose = false;
 
-            var module = options.AddModule(_libraryName);
-            module.OutputNamespace = _libraryName; // "Flounder"
-            module.LibraryName = _libraryName; // "Flounder"
+            var module = options.AddModule(_moduleName);
+            module.OutputNamespace = _outSpace; 
+            module.LibraryName = _libraryName; 
             
-            module.Defines.Add("FL_BUILD_WINDOWS");
-            module.Defines.Add("FL_BUILD_MSVC");
-            module.Defines.Add("FL_EXPORTS");
+        //    module.Defines.Add("FL_BUILD_WINDOWS");
+        //    module.Defines.Add("FL_BUILD_MSVC");
+        //    module.Defines.Add("FL_EXPORTS");
             
             module.IncludeDirs.Add(_headerPath);
             module.Headers.Add($"{_libraryName}.hpp");
@@ -53,7 +73,10 @@ namespace FlounderSharp
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
-            // https://github.com/BaristaLabs/ChakraSharp/blob/master/ChakraSharp/ChakraSharp.cs#L61
+            driver.AddTranslationUnitPass(new PassOutParamsFix());
+            driver.AddTranslationUnitPass(_xmlExportPass);
+            driver.AddTranslationUnitPass(new PassObjectNamesFix());
+            driver.AddTranslationUnitPass(new PassCommentsFix());
         }
 
         /// <summary>

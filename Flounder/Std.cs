@@ -62,9 +62,15 @@ namespace Std
             __Instance = new global::System.IntPtr(native);
         }
 
+        ~CharTraits()
+        {
+            Dispose(false);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
 
         public virtual void Dispose(bool disposing)
@@ -144,9 +150,15 @@ namespace Std
             __Instance = new global::System.IntPtr(native);
         }
 
+        ~Allocator()
+        {
+            Dispose(false);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
 
         public virtual void Dispose(bool disposing)
@@ -220,9 +232,15 @@ namespace Std
             __Instance = new global::System.IntPtr(native);
         }
 
+        ~BasicString()
+        {
+            Dispose(false);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
+            GC.SuppressFinalize(this);
         }
 
         public virtual void Dispose(bool disposing)
