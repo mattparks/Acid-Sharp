@@ -1,0 +1,233 @@
+#pragma once
+
+#include <ostream>
+#include <string>
+#include "Engine/Exports.hpp"
+#include "Files/LoadedValue.hpp"
+
+namespace fl
+{
+	class Vector3;
+	class Vector4;
+
+	/// <summary>
+	/// Holds a RGBA colour.
+	/// </summary>
+	class FL_EXPORT Colour
+	{
+	public:
+		union
+		{
+			struct
+			{
+				float m_r, m_g, m_b, m_a;
+			};
+
+			struct
+			{
+				float m_elements[4];
+			};
+		};
+
+		static const Colour CLEAR;
+		static const Colour WHITE;
+		static const Colour BLACK;
+
+		/// <summary>
+		/// Constructor for colour.
+		/// </summary>
+		Colour();
+
+		/// <summary>
+		/// Constructor for colour.
+		/// </summary>
+		/// <param name="r"> The new R value. </param>
+		/// <param name="g"> The new G value. </param>
+		/// <param name="b"> The new B value. </param>
+		/// <param name="a"> The new A value. </param>
+		Colour(const float &r, const float &g, const float &b, const float &a = 1.0f);
+
+		/// <summary>
+		/// Constructor for colour.
+		/// </summary>
+		/// <param name="hex"> The new values from HEX. </param>
+		/// <param name="a"> The new A value. </param>
+		Colour(const std::string &hex, const float &a = 1.0f);
+
+		/// <summary>
+		/// Constructor for colour.
+		/// </summary>
+		/// <param name="source"> Creates this colour out of a existing one. </param>
+		Colour(const Colour &source);
+
+		/// <summary>
+		/// Constructor for colour.
+		/// </summary>
+		/// <param name="source"> Creates this colour out of a existing vector. </param>
+		Colour(const Vector3 &source);
+
+		/// <summary>
+		/// Constructor for colour.
+		/// </summary>
+		/// <param name="source"> Creates this colour out of a existing vector. </param>
+		Colour(const Vector4 &source);
+
+		/// <summary>
+		/// Deconstructor for colour.
+		/// </summary>
+		~Colour();
+
+		/// <summary>
+		/// Adds this vector to another vector.
+		/// </summary>
+		/// <param name="other"> The other vector. </param>
+		/// <returns> The resultant vector. </returns>
+		Colour Add(const Colour &other) const;
+
+		/// <summary>
+		/// Subtracts this vector to another vector.
+		/// </summary>
+		/// <param name="other"> The other vector. </param>
+		/// <returns> The resultant vector. </returns>
+		Colour Subtract(const Colour &other) const;
+
+		/// <summary>
+		/// Multiplies this vector with another vector.
+		/// </summary>
+		/// <param name="other"> The other vector. </param>
+		/// <returns> The resultant vector. </returns>
+		Colour Multiply(const Colour &other) const;
+
+		/// <summary>
+		/// Divides this vector by another vector.
+		/// </summary>
+		/// <param name="other"> The other vector. </param>
+		/// <returns> The resultant vector. </returns>
+		Colour Divide(const Colour &other) const;
+
+		/// <summary>
+		/// Scales this vector by a scalar.
+		/// </summary>
+		/// <param name="scalar"> The scalar value. </param>
+		/// <returns> The scaled vector. </returns>
+		Colour Scale(const float &scalar) const;
+
+		/// <summary>
+		/// Normalizes this vector.
+		/// </summary>
+		/// <returns> The normalized vector. </returns>
+		Colour Normalize() const;
+
+		/// <summary>
+		/// Gets the length squared of this vector.
+		/// </summary>
+		/// <returns> The length squared. </returns>
+		float LengthSquared() const;
+
+		/// <summary>
+		/// Gets the length of this vector.
+		/// </summary>
+		/// <returns> The length. </returns>
+		float Length() const;
+
+		/// <summary>
+		/// Interpolates between this and another colour.
+		/// </summary>
+		/// <param name="other"> The other colour. </param>
+		/// <param name="blend"> The blend factor. </param>
+		/// <returns> The interpolated colour. </returns>
+		Colour Interpolate(const Colour &other, float blend) const;
+
+		/// <summary>
+		/// Gradually changes this vector to a target.
+		/// </summary>
+		/// <param name="target"> The target vector. </param>
+		/// <param name="rate"> The rate to go from current to the target. </param>
+		/// <returns> The changed vector. </returns>
+		Colour SmoothDamp(const Colour &target, const Colour &rate) const;
+
+		/// <summary>
+		/// Gets a colour representing the unit value of this colour.
+		/// </summary>
+		/// <returns> The unit colour. </returns>
+		Colour GetUnit();
+
+		/// <summary>
+		/// Gets the hex code from this colour.
+		/// </summary>
+		/// <returns> The hex code. </returns>
+		std::string GetHex();
+
+		/// <summary>
+		/// Saves this vector into a loaded value.
+		/// </summary>
+		/// <param name="destination"> The destination loaded value. </param>
+		void Write(LoadedValue *destination);
+
+		Colour &operator=(const Colour &other);
+
+		Colour &operator=(const std::string &hex);
+
+		Colour &operator=(LoadedValue *value);
+
+		bool operator==(const Colour &other) const;
+
+		bool operator!=(const Colour &other) const;
+
+		bool operator<(const Colour &other) const;
+
+		bool operator<=(const Colour &other) const;
+
+		bool operator>(const Colour &other) const;
+
+		bool operator>=(const Colour &other) const;
+
+		bool operator==(const float &value) const;
+
+		bool operator!=(const float &value) const;
+
+		FL_EXPORT friend Colour operator+(Colour left, const Colour &right);
+
+		FL_EXPORT friend Colour operator-(Colour left, const Colour &right);
+
+		FL_EXPORT friend Colour operator*(Colour left, const Colour &right);
+
+		FL_EXPORT friend Colour operator/(Colour left, const Colour &right);
+
+		FL_EXPORT friend Colour operator+(Colour left, float value);
+
+		FL_EXPORT friend Colour operator-(Colour left, float value);
+
+		FL_EXPORT friend Colour operator*(Colour left, float value);
+
+		FL_EXPORT friend Colour operator/(Colour left, float value);
+
+		FL_EXPORT friend Colour operator+(float value, Colour left);
+
+		FL_EXPORT friend Colour operator-(float value, Colour left);
+
+		FL_EXPORT friend Colour operator*(float value, Colour left);
+
+		FL_EXPORT friend Colour operator/(float value, Colour left);
+
+		Colour &operator+=(const Colour &other);
+
+		Colour &operator-=(const Colour &other);
+
+		Colour &operator*=(const Colour &other);
+
+		Colour &operator/=(const Colour &other);
+
+		Colour &operator+=(float value);
+
+		Colour &operator-=(float value);
+
+		Colour &operator*=(float value);
+
+		Colour &operator/=(float value);
+
+		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Colour &vector);
+
+		std::string ToString() const;
+	};
+}
