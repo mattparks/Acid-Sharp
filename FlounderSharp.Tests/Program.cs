@@ -48,6 +48,28 @@ namespace FlounderSharp.Tests
                Console.WriteLine("");
            }
 
+            // Creates the engine and updater objects.
+            var engine = new Engine();
+            engine.SetUpdater(new MainUpdater());
+
+            var configManager = new ConfigManager();
+            Console.WriteLine($"Working Directory: '{FileSystem.GetWorkingDirectory()}'");
+
+            // Registers modules.
+
+            // Registers components.
+
+            // Initializes modules.
+            Display.Get().SetTitle("Testing Guis");
+            Display.Get().SetIcon("Resources/Logos/Tail.png");
+            Mouse.Get().SetCustomMouse("Resources/Guis/Cursor.png");
+            Renderer.Get().SetManager(new MainRenderer());
+            Scenes.Get().SetScene(new Scene1());
+
+            // Runs the game loop.
+            var exitCode = engine.Run();
+            configManager.Save();
+
             // End program.
             Console.WriteLine("Press enter to continue...");
             Console.ReadLine();
