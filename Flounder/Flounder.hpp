@@ -1,16 +1,21 @@
 #pragma once
 
 //
-// Testing header file.
+// Flounder header file.
 //
 
-#include "Colour.hpp"
-#include "Exports.hpp"
-#include "Maths.hpp"
-#include "Matrix2.hpp"
-#include "Matrix3.hpp"
-#include "Matrix4.hpp"
-#include "Quaternion.hpp"
-#include "Vector2.hpp"
-#include "Vector3.hpp"
-#include "Vector4.hpp"
+namespace fl
+{
+	class Foo
+	{
+	private:
+		int m_a;
+		float m_b;
+	public:
+		Foo(int a);
+
+		~Foo();
+
+		int Add(Foo* foo) const;
+	};
+}

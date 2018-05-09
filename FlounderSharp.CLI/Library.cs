@@ -44,33 +44,29 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void Setup(Driver driver)
         {
+            // Sets up the parser.
             var parserOptions = driver.ParserOptions;
-            parserOptions.MicrosoftMode = false;
-            parserOptions.NoBuiltinIncludes = false;
-            parserOptions.EnableRTTI = false;
-            parserOptions.Abi = CppSharp.Parser.AST.CppAbi.Itanium;
             parserOptions.LanguageVersion = LanguageVersion.CPP17;
+            parserOptions.MicrosoftMode = true;
+            parserOptions.EnableRTTI = false;
 
+            // Sets up other options.
             var options = driver.Options;
             options.OutputDir = _outPath;
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateFinalizers = false;
-            options.GenerateDefaultValuesForArguments = true;
-            options.MarshalCharAsManagedChar = true;
-            options.CommentKind = CommentKind.BCPLSlash;
-            options.CheckSymbols = true;
+        //    options.CheckSymbols = true;
             options.Verbose = true;
 
+            // Creates a new module.
             var module = options.AddModule(_moduleName);
+            module.SharedLibraryName = _libraryName;
             module.OutputNamespace = "";
-            module.LibraryName = _moduleName;
-            
-            module.IncludeDirs.Add(_headerPath);
-            module.Headers.Add($"{_libraryName}.hpp");
 
             module.LibraryDirs.Add(_libPath);
             module.Libraries.Add($"{_libraryName}.dll");
-            
+
+            module.IncludeDirs.Add(_headerPath);
+            module.Headers.Add($"{_libraryName}.hpp");
         }
 
         /// <summary>
@@ -79,10 +75,10 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
-        //    driver.AddTranslationUnitPass(new PassOutParamsFix());
-        //    driver.AddTranslationUnitPass(_xmlExportPass);
-        //    driver.AddTranslationUnitPass(new PassObjectNamesFix());
-        //    driver.AddTranslationUnitPass(new PassCommentsFix());
+            driver.AddTranslationUnitPass(new PassOutParamsFix());
+            driver.AddTranslationUnitPass(_xmlExportPass);
+            driver.AddTranslationUnitPass(new PassObjectNamesFix());
+            driver.AddTranslationUnitPass(new PassCommentsFix());
         }
 
         /// <summary>

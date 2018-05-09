@@ -12,7 +12,7 @@ namespace FlounderSharp.CLI
             var libraryName = "Flounder";
             var moduleName = "FlounderSharp";
             var includeFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder";
-            var libFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\bin\Debug x64";
+            var libFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\bin\Debug";
             var outputFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             var library = new Library(includeFolder, libFolder, outputFolder, libraryName, moduleName);
 
