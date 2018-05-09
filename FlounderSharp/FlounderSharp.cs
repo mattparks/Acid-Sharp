@@ -8,7 +8,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>Holds a RGBA colour.</summary>
     public unsafe partial class Colour : IDisposable
@@ -17,52 +17,215 @@ namespace FlounderSharp
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Colour._.__Internal _;
+            internal global::Fl.Colour._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Colour@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Colour@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Colour@fl@@QEAA@AEBM000@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float* r, float* g, float* b, float* a);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Colour@fl@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBM@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr hex, float* a);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Colour@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Colour@fl@@QEAA@AEBVVector3@1@@Z")]
+            internal static extern global::System.IntPtr ctor_1(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Colour@fl@@QEAA@AEBVVector4@1@@Z")]
+            internal static extern global::System.IntPtr ctor_2(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Colour@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Add@Colour@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Add(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Subtract@Colour@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Subtract(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Colour@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Divide@Colour@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Divide(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Colour@fl@@QEBA?AV12@AEBM@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, float* scalar);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Normalize@Colour@fl@@QEBA?AV12@XZ")]
+            internal static extern void Normalize(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Interpolate@Colour@fl@@QEBA?AV12@AEBV12@M@Z")]
+            internal static extern void Interpolate(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other, float blend);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SmoothDamp@Colour@fl@@QEBA?AV12@AEBV12@0@Z")]
+            internal static extern void SmoothDamp(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr target, global::System.IntPtr rate);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Colour@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Colour@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??MColour@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLess(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??NColour@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLessEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??OColour@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreater(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??PColour@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreaterEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Colour@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Colour@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Colour@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVColour@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Colour.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVColour@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Colour.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVColour@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Colour.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVColour@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Colour.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVColour@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorPlus(global::FlounderSharp.Colour.__Internal left, float value);
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Colour.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVColour@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorMinus(global::FlounderSharp.Colour.__Internal left, float value);
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Colour.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVColour@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorStar(global::FlounderSharp.Colour.__Internal left, float value);
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Colour.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVColour@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorSlash(global::FlounderSharp.Colour.__Internal left, float value);
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Colour.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVColour@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorPlus_1(float value, global::FlounderSharp.Colour.__Internal left);
+            internal static extern void OperatorPlus_1(global::System.IntPtr @return, float value, global::Fl.Colour.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVColour@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorMinus_1(float value, global::FlounderSharp.Colour.__Internal left);
+            internal static extern void OperatorMinus_1(global::System.IntPtr @return, float value, global::Fl.Colour.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVColour@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorStar_1(float value, global::FlounderSharp.Colour.__Internal left);
+            internal static extern void OperatorStar_1(global::System.IntPtr @return, float value, global::Fl.Colour.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVColour@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Colour.__Internal OperatorSlash_1(float value, global::FlounderSharp.Colour.__Internal left);
+            internal static extern void OperatorSlash_1(global::System.IntPtr @return, float value, global::Fl.Colour.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LengthSquared@Colour@fl@@QEBAMXZ")]
+            internal static extern float LengthSquared(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Length@Colour@fl@@QEBAMXZ")]
+            internal static extern float Length(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetUnit@Colour@fl@@QEAA?AV12@XZ")]
+            internal static extern void GetUnit(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetHex@Colour@fl@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void GetHex(global::System.IntPtr instance, global::System.IntPtr @return);
         }
 
         public unsafe partial struct _
@@ -71,10 +234,10 @@ namespace FlounderSharp
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Colour._.__.__Internal __;
+                internal global::Fl.Colour._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Colour._.__.__Internal __1;
+                internal global::Fl.Colour._.__.__Internal __1;
             }
 
             public unsafe partial class __
@@ -100,29 +263,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Colour> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Colour>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Colour> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Colour>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Colour __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Colour __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Colour(native.ToPointer(), skipVTables);
+            return new global::Fl.Colour(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Colour __CreateInstance(global::FlounderSharp.Colour.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Colour __CreateInstance(global::Fl.Colour.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Colour(native, skipVTables);
+            return new global::Fl.Colour(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Colour.__Internal native)
+        private static void* __CopyValue(global::Fl.Colour.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Colour.__Internal));
-            *(global::FlounderSharp.Colour.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Colour.__Internal));
+            global::Fl.Colour.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Colour(global::FlounderSharp.Colour.__Internal native, bool skipVTables = false)
+        private Colour(global::Fl.Colour.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -136,6 +299,118 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for colour.</summary>
+        public Colour()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Colour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for colour.</para>
+        /// <para></para>
+        /// <para>name=&quot;r&quot;&gt; The new R value.</para>
+        /// <para>name=&quot;g&quot;&gt; The new G value.</para>
+        /// <para>name=&quot;b&quot;&gt; The new B value.</para>
+        /// <para>name=&quot;a&quot;&gt; The new A value.</para>
+        /// </summary>
+        public Colour(ref float r, ref float g, ref float b, ref float a)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Colour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            fixed (float* __refParamPtr0 = &r)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &g)
+                {
+                    var __arg1 = __refParamPtr1;
+                    fixed (float* __refParamPtr2 = &b)
+                    {
+                        var __arg2 = __refParamPtr2;
+                        fixed (float* __refParamPtr3 = &a)
+                        {
+                            var __arg3 = __refParamPtr3;
+                            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2, __arg3);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for colour.</para>
+        /// <para></para>
+        /// <para>name=&quot;hex&quot;&gt; The new values from HEX.</para>
+        /// <para>name=&quot;a&quot;&gt; The new A value.</para>
+        /// </summary>
+        public Colour(string hex, ref float a)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Colour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(hex, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            fixed (float* __refParamPtr1 = &a)
+            {
+                var __arg1 = __refParamPtr1;
+                __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1);
+                __basicString0.Dispose(false);
+                __allocator0.Dispose();
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for colour.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this colour out of a existing one.</para>
+        /// </summary>
+        public Colour(global::Fl.Colour source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Colour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for colour.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this colour out of a existing vector.</para>
+        /// </summary>
+        public Colour(global::Fl.Vector3 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Colour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor_1((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for colour.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this colour out of a existing vector.</para>
+        /// </summary>
+        public Colour(global::Fl.Vector4 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Colour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor_2((__Instance + __PointerAdjustment), __arg0);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -145,99 +420,483 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Colour __dummy;
+            global::Fl.Colour __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Colour operator +(global::FlounderSharp.Colour left, float value)
+        /// <summary>
+        /// <para>Adds this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Colour Add(global::Fl.Colour other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus(__arg0, value);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.Add((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Colour.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Colour operator -(global::FlounderSharp.Colour left, float value)
+        /// <summary>
+        /// <para>Subtracts this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Colour Subtract(global::Fl.Colour other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus(__arg0, value);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.Subtract((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Colour.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Colour operator *(global::FlounderSharp.Colour left, float value)
+        /// <summary>
+        /// <para>Multiplies this vector with another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Colour Multiply(global::Fl.Colour other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar(__arg0, value);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Colour.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Colour operator /(global::FlounderSharp.Colour left, float value)
+        /// <summary>
+        /// <para>Divides this vector by another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Colour Divide(global::Fl.Colour other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash(__arg0, value);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.Divide((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Colour.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Colour operator +(float value, global::FlounderSharp.Colour left)
+        /// <summary>
+        /// <para>Scales this vector by a scalar.</para>
+        /// <para></para>
+        /// <para>name=&quot;scalar&quot;&gt; The scalar value.</para>
+        /// <para>The scaled vector.</para>
+        /// </summary>
+        public global::Fl.Colour Scale(ref float scalar)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus_1(value, __arg1);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Colour operator -(float value, global::FlounderSharp.Colour left)
-        {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus_1(value, __arg1);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Colour operator *(float value, global::FlounderSharp.Colour left)
-        {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_1(value, __arg1);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Colour operator /(float value, global::FlounderSharp.Colour left)
-        {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Colour.__Internal() : *(global::FlounderSharp.Colour.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_1(value, __arg1);
-            return global::FlounderSharp.Colour.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Colour CLEAR
-        {
-            get
+            fixed (float* __refParamPtr0 = &scalar)
             {
-                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?CLEAR@Colour@fl@@2V12@B");
-                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                var __ret = new global::Fl.Colour.__Internal();
+                __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+                return global::Fl.Colour.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Colour WHITE
+        /// <summary>
+        /// <para>Normalizes this vector.</para>
+        /// <para></para>
+        /// <para>The normalized vector.</para>
+        /// </summary>
+        public global::Fl.Colour Normalize()
         {
-            get
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.Normalize((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Interpolates between this and another colour.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other colour.</para>
+        /// <para>name=&quot;blend&quot;&gt; The blend factor.</para>
+        /// <para>The interpolated colour.</para>
+        /// </summary>
+        public global::Fl.Colour Interpolate(global::Fl.Colour other, float blend)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.Interpolate((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, blend);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gradually changes this vector to a target.</para>
+        /// <para></para>
+        /// <para>name=&quot;target&quot;&gt; The target vector.</para>
+        /// <para>name=&quot;rate&quot;&gt; The rate to go from current to the target.</para>
+        /// <para>The changed vector.</para>
+        /// </summary>
+        public global::Fl.Colour SmoothDamp(global::Fl.Colour target, global::Fl.Colour rate)
+        {
+            if (ReferenceEquals(target, null))
+                throw new global::System.ArgumentNullException("target", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = target.__Instance;
+            if (ReferenceEquals(rate, null))
+                throw new global::System.ArgumentNullException("rate", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = rate.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.SmoothDamp((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static bool operator ==(global::Fl.Colour __op, global::Fl.Colour other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Colour;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Colour.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Colour __op, global::Fl.Colour other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <(global::Fl.Colour __op, global::Fl.Colour other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLess(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <=(global::Fl.Colour __op, global::Fl.Colour other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLessEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >(global::Fl.Colour __op, global::Fl.Colour other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreater(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >=(global::Fl.Colour __op, global::Fl.Colour other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreaterEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Colour __op, ref float value)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return __opNull && valueNull;
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?WHITE@Colour@fl@@2V12@B");
-                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Colour BLACK
+        public static bool operator !=(global::Fl.Colour __op, ref float value)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return !(__opNull && valueNull);
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
+            {
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+                return __ret;
+            }
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Colour(string hex)
+        {
+            return new global::Fl.Colour(hex);
+        }
+
+        public static implicit operator global::Fl.Colour(global::Fl.Vector3 source)
+        {
+            return new global::Fl.Colour(source);
+        }
+
+        public static implicit operator global::Fl.Colour(global::Fl.Vector4 source)
+        {
+            return new global::Fl.Colour(source);
+        }
+
+        public static global::Fl.Colour operator +(global::Fl.Colour left, global::Fl.Colour right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator -(global::Fl.Colour left, global::Fl.Colour right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator *(global::Fl.Colour left, global::Fl.Colour right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator /(global::Fl.Colour left, global::Fl.Colour right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator +(global::Fl.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator -(global::Fl.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator *(global::Fl.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator /(global::Fl.Colour left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator +(float value, global::Fl.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorPlus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator -(float value, global::Fl.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorMinus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator *(float value, global::Fl.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorStar_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour operator /(float value, global::Fl.Colour left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Colour.__Internal() : *(global::Fl.Colour.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Colour.__Internal();
+            __Internal.OperatorSlash_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Colour.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Colour CLEAR
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?BLACK@Colour@fl@@2V12@B");
-                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?CLEAR@Colour@fl@@2V12@B");
+                return global::Fl.Colour.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Colour WHITE
+        {
+            get
+            {
+                var __ptr = (global::Fl.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?WHITE@Colour@fl@@2V12@B");
+                return global::Fl.Colour.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Colour BLACK
+        {
+            get
+            {
+                var __ptr = (global::Fl.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?BLACK@Colour@fl@@2V12@B");
+                return global::Fl.Colour.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length squared of this vector.</para>
+        /// <para></para>
+        /// <para>The length squared.</para>
+        /// </summary>
+        public float LengthSquared
+        {
+            get
+            {
+                var __ret = __Internal.LengthSquared((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length of this vector.</para>
+        /// <para></para>
+        /// <para>The length.</para>
+        /// </summary>
+        public float Length
+        {
+            get
+            {
+                var __ret = __Internal.Length((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets a colour representing the unit value of this colour.</para>
+        /// <para></para>
+        /// <para>The unit colour.</para>
+        /// </summary>
+        public global::Fl.Colour Unit
+        {
+            get
+            {
+                var __ret = new global::Fl.Colour.__Internal();
+                __Internal.GetUnit((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Colour.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the hex code from this colour.</para>
+        /// <para></para>
+        /// <para>The hex code.</para>
+        /// </summary>
+        public string Hex
+        {
+            get
+            {
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                __Internal.GetHex((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
             }
         }
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>A class that holds many various math functions.</summary>
     public unsafe partial class Maths : IDisposable
@@ -247,6 +906,16 @@ namespace FlounderSharp
         {
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LogRandom@Maths@fl@@SANAEBN0@Z")]
+            internal static extern double LogRandom(double* lowerLimit, double* upperLimit);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?NormallyDistributedSingle@Maths@fl@@SAMAEBM0@Z")]
+            internal static extern float NormallyDistributedSingle(float* standardDeviation, float* mean);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?Random@Maths@fl@@SAMXZ")]
             internal static extern float Random();
         }
@@ -254,29 +923,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Maths> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Maths>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Maths> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Maths>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Maths __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Maths __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Maths(native.ToPointer(), skipVTables);
+            return new global::Fl.Maths(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Maths __CreateInstance(global::FlounderSharp.Maths.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Maths __CreateInstance(global::Fl.Maths.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Maths(native, skipVTables);
+            return new global::Fl.Maths(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Maths.__Internal native)
+        private static void* __CopyValue(global::Fl.Maths.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Maths.__Internal));
-            *(global::FlounderSharp.Maths.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Maths.__Internal));
+            *(global::Fl.Maths.__Internal*) ret = native;
             return ret.ToPointer();
         }
 
-        private Maths(global::FlounderSharp.Maths.__Internal native, bool skipVTables = false)
+        private Maths(global::Fl.Maths.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -299,14 +968,61 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Maths __dummy;
+            global::Fl.Maths __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        /// <summary>Gets a random number.</summary>
+        /// <summary>
+        /// <para>Creates a number between two numbers, logarithmic.</para>
+        /// <para></para>
+        /// <para>name=&quot;lowerLimit&quot;&gt; The lower number.</para>
+        /// <para>name=&quot;upperLimit&quot;&gt; The upper number.</para>
+        /// <para>The final random number.</para>
+        /// </summary>
+        public static double LogRandom(ref double lowerLimit, ref double upperLimit)
+        {
+            fixed (double* __refParamPtr0 = &lowerLimit)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (double* __refParamPtr1 = &upperLimit)
+                {
+                    var __arg1 = __refParamPtr1;
+                    var __ret = __Internal.LogRandom(__arg0, __arg1);
+                    return __ret;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Generates a single value from a normal distribution, using Box-Muller.</para>
+        /// <para>https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform</para>
+        /// <para></para>
+        /// <para>name=&quot;standardDeviation&quot;&gt; The standards deviation of the distribution.</para>
+        /// <para>name=&quot;mean&quot;&gt; The mean of the distribution.</para>
+        /// <para>A normally distributed value.</para>
+        /// </summary>
+        public static float NormallyDistributedSingle(ref float standardDeviation, ref float mean)
+        {
+            fixed (float* __refParamPtr0 = &standardDeviation)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &mean)
+                {
+                    var __arg1 = __refParamPtr1;
+                    var __ret = __Internal.NormallyDistributedSingle(__arg0, __arg1);
+                    return __ret;
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets a random number.</para>
+        /// <para></para>
+        /// <para>The random number.</para>
+        /// </summary>
         public static float Random
         {
             get
@@ -318,7 +1034,7 @@ namespace FlounderSharp
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>Holds a 2-tuple vector.</summary>
     public unsafe partial class Vector2 : IDisposable
@@ -327,52 +1043,261 @@ namespace FlounderSharp
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Vector2._.__Internal _;
+            internal global::Fl.Vector2._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Vector2@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector2@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector2@fl@@QEAA@AEBM0@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float* x, float* y);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector2@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector2@fl@@QEAA@AEBVVector3@1@@Z")]
+            internal static extern global::System.IntPtr ctor_1(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Vector2@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Add@Vector2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Add(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Subtract@Vector2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Subtract(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Vector2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Divide@Vector2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Divide(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Angle@Vector2@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Angle(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Dot@Vector2@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Dot(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Vector2@fl@@QEBA?AV12@AEBM@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, float* scalar);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Rotate@Vector2@fl@@QEBA?AV12@AEBM@Z")]
+            internal static extern void Rotate(global::System.IntPtr instance, global::System.IntPtr @return, float* angle);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Rotate@Vector2@fl@@QEBA?AV12@AEBMAEBV12@@Z")]
+            internal static extern void Rotate(global::System.IntPtr instance, global::System.IntPtr @return, float* angle, global::System.IntPtr rotationAxis);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Negate@Vector2@fl@@QEBA?AV12@XZ")]
+            internal static extern void Negate(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Normalize@Vector2@fl@@QEBA?AV12@XZ")]
+            internal static extern void Normalize(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DistanceSquared@Vector2@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float DistanceSquared(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Distance@Vector2@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Distance(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DistanceVector@Vector2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void DistanceVector(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?InTriangle@Vector2@fl@@QEBA_NAEBV12@00@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool InTriangle(global::System.IntPtr instance, global::System.IntPtr v1, global::System.IntPtr v2, global::System.IntPtr v3);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SmoothDamp@Vector2@fl@@QEBA?AV12@AEBV12@0@Z")]
+            internal static extern void SmoothDamp(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr target, global::System.IntPtr rate);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Vector2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Vector2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??MVector2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLess(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??NVector2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLessEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??OVector2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreater(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??PVector2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreaterEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Vector2@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Vector2@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??GVector2@fl@@QEAA?AV01@XZ")]
+            internal static extern void OperatorMinus(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Vector2@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVVector2@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorPlus(global::FlounderSharp.Vector2.__Internal left, float value);
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVVector2@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorMinus(global::FlounderSharp.Vector2.__Internal left, float value);
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVVector2@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorStar(global::FlounderSharp.Vector2.__Internal left, float value);
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVVector2@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorSlash(global::FlounderSharp.Vector2.__Internal left, float value);
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Vector2.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVVector2@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorPlus_1(float value, global::FlounderSharp.Vector2.__Internal left);
+            internal static extern void OperatorPlus_1(global::System.IntPtr @return, float value, global::Fl.Vector2.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVVector2@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorMinus_1(float value, global::FlounderSharp.Vector2.__Internal left);
+            internal static extern void OperatorMinus_1(global::System.IntPtr @return, float value, global::Fl.Vector2.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVVector2@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorStar_1(float value, global::FlounderSharp.Vector2.__Internal left);
+            internal static extern void OperatorStar_1(global::System.IntPtr @return, float value, global::Fl.Vector2.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVVector2@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector2.__Internal OperatorSlash_1(float value, global::FlounderSharp.Vector2.__Internal left);
+            internal static extern void OperatorSlash_1(global::System.IntPtr @return, float value, global::Fl.Vector2.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LengthSquared@Vector2@fl@@QEBAMXZ")]
+            internal static extern float LengthSquared(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Length@Vector2@fl@@QEBAMXZ")]
+            internal static extern float Length(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MaxComponent@Vector2@fl@@QEBAMXZ")]
+            internal static extern float MaxComponent(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MinComponent@Vector2@fl@@QEBAMXZ")]
+            internal static extern float MinComponent(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?CartesianToPolar@Vector2@fl@@QEBA?AV12@XZ")]
+            internal static extern void CartesianToPolar(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?PolarToCartesian@Vector2@fl@@QEBA?AV12@XZ")]
+            internal static extern void PolarToCartesian(global::System.IntPtr instance, global::System.IntPtr @return);
         }
 
         public unsafe partial struct _
@@ -381,10 +1306,10 @@ namespace FlounderSharp
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Vector2._.__.__Internal __;
+                internal global::Fl.Vector2._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Vector2._.__.__Internal __1;
+                internal global::Fl.Vector2._.__.__Internal __1;
             }
 
             public unsafe partial class __
@@ -404,29 +1329,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector2> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector2>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Vector2> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Vector2>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Vector2 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Vector2 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Vector2(native.ToPointer(), skipVTables);
+            return new global::Fl.Vector2(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Vector2 __CreateInstance(global::FlounderSharp.Vector2.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Vector2 __CreateInstance(global::Fl.Vector2.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Vector2(native, skipVTables);
+            return new global::Fl.Vector2(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Vector2.__Internal native)
+        private static void* __CopyValue(global::Fl.Vector2.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Vector2.__Internal));
-            *(global::FlounderSharp.Vector2.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Vector2.__Internal));
+            global::Fl.Vector2.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Vector2(global::FlounderSharp.Vector2.__Internal native, bool skipVTables = false)
+        private Vector2(global::Fl.Vector2.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -440,6 +1365,69 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for Vector2.</summary>
+        public Vector2()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector2.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector2.</para>
+        /// <para></para>
+        /// <para>name=&quot;x&quot;&gt; Start x.</para>
+        /// <para>name=&quot;y&quot;&gt; Start y.</para>
+        /// </summary>
+        public Vector2(ref float x, ref float y)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector2.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            fixed (float* __refParamPtr0 = &x)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &y)
+                {
+                    var __arg1 = __refParamPtr1;
+                    __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1);
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector2.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.</para>
+        /// </summary>
+        public Vector2(global::Fl.Vector2 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector2.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector2.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.</para>
+        /// </summary>
+        public Vector2(global::Fl.Vector3 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector2.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor_1((__Instance + __PointerAdjustment), __arg0);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -449,144 +1437,685 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Vector2 __dummy;
+            global::Fl.Vector2 __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Vector2 operator +(global::FlounderSharp.Vector2 left, float value)
+        /// <summary>
+        /// <para>Adds this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Add(global::Fl.Vector2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus(__arg0, value);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.Add((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector2 operator -(global::FlounderSharp.Vector2 left, float value)
+        /// <summary>
+        /// <para>Subtracts this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Subtract(global::Fl.Vector2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus(__arg0, value);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.Subtract((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector2 operator *(global::FlounderSharp.Vector2 left, float value)
+        /// <summary>
+        /// <para>Multiplies this vector with another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Multiply(global::Fl.Vector2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar(__arg0, value);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector2 operator /(global::FlounderSharp.Vector2 left, float value)
+        /// <summary>
+        /// <para>Divides this vector by another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Divide(global::Fl.Vector2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash(__arg0, value);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.Divide((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector2 operator +(float value, global::FlounderSharp.Vector2 left)
+        /// <summary>
+        /// <para>Calculates the angle between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The angle, in radians.</para>
+        /// </summary>
+        public float Angle(global::Fl.Vector2 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus_1(value, __arg1);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Angle((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
         }
 
-        public static global::FlounderSharp.Vector2 operator -(float value, global::FlounderSharp.Vector2 left)
+        /// <summary>
+        /// <para>Calculates the dot product of the this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The dot product.</para>
+        /// </summary>
+        public float Dot(global::Fl.Vector2 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus_1(value, __arg1);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Dot((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
         }
 
-        public static global::FlounderSharp.Vector2 operator *(float value, global::FlounderSharp.Vector2 left)
+        /// <summary>
+        /// <para>Scales this vector by a scalar.</para>
+        /// <para></para>
+        /// <para>name=&quot;scalar&quot;&gt; The scalar value.</para>
+        /// <para>The scaled vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Scale(ref float scalar)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_1(value, __arg1);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Vector2 operator /(float value, global::FlounderSharp.Vector2 left)
-        {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_1(value, __arg1);
-            return global::FlounderSharp.Vector2.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Vector2 ZERO
-        {
-            get
+            fixed (float* __refParamPtr0 = &scalar)
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                var __ret = new global::Fl.Vector2.__Internal();
+                __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+                return global::Fl.Vector2.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector2 ONE
+        /// <summary>
+        /// <para>Rotates this vector by a angle around the origin.</para>
+        /// <para></para>
+        /// <para>name=&quot;angle&quot;&gt; The angle to rotate by, in radians.</para>
+        /// <para>The rotated vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Rotate(ref float angle)
         {
-            get
+            fixed (float* __refParamPtr0 = &angle)
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                var __ret = new global::Fl.Vector2.__Internal();
+                __Internal.Rotate((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+                return global::Fl.Vector2.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector2 LEFT
+        /// <summary>
+        /// <para>Rotates this vector by a angle around a rotation axis.</para>
+        /// <para></para>
+        /// <para>name=&quot;angle&quot;&gt; The angle to rotate by, in radians.</para>
+        /// <para>name=&quot;rotationAxis&quot;&gt; The point to rotate the vector around.</para>
+        /// <para>The rotated vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Rotate(ref float angle, global::Fl.Vector2 rotationAxis)
         {
-            get
+            fixed (float* __refParamPtr0 = &angle)
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?LEFT@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                if (ReferenceEquals(rotationAxis, null))
+                    throw new global::System.ArgumentNullException("rotationAxis", "Cannot be null because it is a C++ reference (&).");
+                var __arg1 = rotationAxis.__Instance;
+                var __ret = new global::Fl.Vector2.__Internal();
+                __Internal.Rotate((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+                return global::Fl.Vector2.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector2 RIGHT
+        /// <summary>
+        /// <para>Negates this vector.</para>
+        /// <para></para>
+        /// <para>The negated vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Negate()
         {
-            get
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.Negate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Normalizes this vector.</para>
+        /// <para></para>
+        /// <para>The normalized vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Normalize()
+        {
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.Normalize((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gets the distance between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The squared distance.</para>
+        /// </summary>
+        public float DistanceSquared(global::Fl.Vector2 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.DistanceSquared((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Gets the between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The distance.</para>
+        /// </summary>
+        public float Distance(global::Fl.Vector2 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Distance((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Gets the vector distance between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The vector distance.</para>
+        /// </summary>
+        public global::Fl.Vector2 DistanceVector(global::Fl.Vector2 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.DistanceVector((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gets if this vector is in a triangle.</para>
+        /// <para></para>
+        /// <para>name=&quot;v1&quot;&gt; The first triangle vertex.</para>
+        /// <para>name=&quot;v2&quot;&gt; The second triangle vertex.</para>
+        /// <para>name=&quot;v3&quot;&gt; The third triangle vertex.</para>
+        /// <para>If this vector is in a triangle.</para>
+        /// </summary>
+        public bool InTriangle(global::Fl.Vector2 v1, global::Fl.Vector2 v2, global::Fl.Vector2 v3)
+        {
+            if (ReferenceEquals(v1, null))
+                throw new global::System.ArgumentNullException("v1", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = v1.__Instance;
+            if (ReferenceEquals(v2, null))
+                throw new global::System.ArgumentNullException("v2", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = v2.__Instance;
+            if (ReferenceEquals(v3, null))
+                throw new global::System.ArgumentNullException("v3", "Cannot be null because it is a C++ reference (&).");
+            var __arg2 = v3.__Instance;
+            var __ret = __Internal.InTriangle((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Gradually changes this vector to a target.</para>
+        /// <para></para>
+        /// <para>name=&quot;target&quot;&gt; The target vector.</para>
+        /// <para>name=&quot;rate&quot;&gt; The rate to go from current to the target.</para>
+        /// <para>The changed vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 SmoothDamp(global::Fl.Vector2 target, global::Fl.Vector2 rate)
+        {
+            if (ReferenceEquals(target, null))
+                throw new global::System.ArgumentNullException("target", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = target.__Instance;
+            if (ReferenceEquals(rate, null))
+                throw new global::System.ArgumentNullException("rate", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = rate.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.SmoothDamp((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static bool operator ==(global::Fl.Vector2 __op, global::Fl.Vector2 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Vector2;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Vector2.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Vector2 __op, global::Fl.Vector2 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <(global::Fl.Vector2 __op, global::Fl.Vector2 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLess(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <=(global::Fl.Vector2 __op, global::Fl.Vector2 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLessEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >(global::Fl.Vector2 __op, global::Fl.Vector2 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreater(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >=(global::Fl.Vector2 __op, global::Fl.Vector2 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreaterEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Vector2 __op, ref float value)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return __opNull && valueNull;
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?RIGHT@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Vector2 UP
+        public static bool operator !=(global::Fl.Vector2 __op, ref float value)
         {
-            get
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return !(__opNull && valueNull);
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?UP@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Vector2 DOWN
+        public static global::Fl.Vector2 operator -(global::Fl.Vector2 __op)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Vector2(global::Fl.Vector3 source)
+        {
+            return new global::Fl.Vector2(source);
+        }
+
+        public static global::Fl.Vector2 operator +(global::Fl.Vector2 left, global::Fl.Vector2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator -(global::Fl.Vector2 left, global::Fl.Vector2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator *(global::Fl.Vector2 left, global::Fl.Vector2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator /(global::Fl.Vector2 left, global::Fl.Vector2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator +(global::Fl.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator -(global::Fl.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator *(global::Fl.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator /(global::Fl.Vector2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator +(float value, global::Fl.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorPlus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator -(float value, global::Fl.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorMinus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator *(float value, global::Fl.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorStar_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 operator /(float value, global::Fl.Vector2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.OperatorSlash_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector2 ZERO
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?DOWN@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
             }
         }
 
-        public static global::FlounderSharp.Vector2 POSITIVE_INFINITY
+        public static global::Fl.Vector2 ONE
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
             }
         }
 
-        public static global::FlounderSharp.Vector2 NEGATIVE_INFINITY
+        public static global::Fl.Vector2 LEFT
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector2@fl@@2V12@B");
-                return global::FlounderSharp.Vector2.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?LEFT@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector2 RIGHT
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?RIGHT@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector2 UP
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?UP@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector2 DOWN
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?DOWN@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector2 POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector2 NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector2@fl@@2V12@B");
+                return global::Fl.Vector2.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length squared of this vector.</para>
+        /// <para></para>
+        /// <para>The length squared.</para>
+        /// </summary>
+        public float LengthSquared
+        {
+            get
+            {
+                var __ret = __Internal.LengthSquared((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length of this vector.</para>
+        /// <para></para>
+        /// <para>The length.</para>
+        /// </summary>
+        public float Length
+        {
+            get
+            {
+                var __ret = __Internal.Length((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the maximum value in this vector.</para>
+        /// <para></para>
+        /// <para>The largest components.</para>
+        /// </summary>
+        public float MaxComponent
+        {
+            get
+            {
+                var __ret = __Internal.MaxComponent((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the lowest value in this vector.</para>
+        /// <para></para>
+        /// <para>The smallest components.</para>
+        /// </summary>
+        public float MinComponent
+        {
+            get
+            {
+                var __ret = __Internal.MinComponent((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Converts from rectangular to spherical coordinates, this vector is in cartesian (x, y).</para>
+        /// <para></para>
+        /// <para>The polar coordinates (radius, theta).</para>
+        /// </summary>
+        public global::Fl.Vector2 CartesianToPolar
+        {
+            get
+            {
+                var __ret = new global::Fl.Vector2.__Internal();
+                __Internal.CartesianToPolar((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Vector2.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Converts from spherical to rectangular coordinates, this vector is in polar (radius, theta).</para>
+        /// <para></para>
+        /// <para>The cartesian coordinates (x, y).</para>
+        /// </summary>
+        public global::Fl.Vector2 PolarToCartesian
+        {
+            get
+            {
+                var __ret = new global::Fl.Vector2.__Internal();
+                __Internal.PolarToCartesian((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Vector2.__CreateInstance(__ret);
             }
         }
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>Holds a 2x2 matrix.</summary>
     public unsafe partial class Matrix2 : IDisposable
@@ -595,42 +2124,164 @@ namespace FlounderSharp
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Matrix2._.__Internal _;
+            internal global::Fl.Matrix2._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Matrix2@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix2@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix2@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix2@fl@@QEAA@QEBM@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float[] source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Matrix2@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Add@Matrix2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Add(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Subtract@Matrix2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Subtract(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Matrix2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Divide@Matrix2@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Divide(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Transform@Matrix2@fl@@QEBA?AVVector2@2@AEBV32@@Z")]
+            internal static extern void Transform(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Matrix2@fl@@QEBA?AV12@AEBVVector2@2@@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Negate@Matrix2@fl@@QEBA?AV12@XZ")]
+            internal static extern void Negate(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetZero@Matrix2@fl@@QEAA?AV12@XZ")]
+            internal static extern void SetZero(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetIdentity@Matrix2@fl@@QEAA?AV12@XZ")]
+            internal static extern void SetIdentity(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToArray@Matrix2@fl@@QEBAPEAMXZ")]
+            internal static extern float* ToArray(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Matrix2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Matrix2@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??GMatrix2@fl@@QEAA?AV01@XZ")]
+            internal static extern void OperatorMinus(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Matrix2@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVMatrix2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVMatrix2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix2@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix2@0@V10@VVector2@0@@Z")]
-            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorStar(global::FlounderSharp.Matrix2.__Internal left, global::FlounderSharp.Vector2.__Internal value);
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, global::Fl.Vector2.__Internal value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix2@0@V10@VVector2@0@@Z")]
-            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorSlash(global::FlounderSharp.Matrix2.__Internal left, global::FlounderSharp.Vector2.__Internal value);
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, global::Fl.Vector2.__Internal value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix2@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorStar_1(global::FlounderSharp.Matrix2.__Internal left, float value);
+            internal static extern void OperatorStar_1(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix2@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorSlash_1(global::FlounderSharp.Matrix2.__Internal left, float value);
+            internal static extern void OperatorSlash_1(global::System.IntPtr @return, global::Fl.Matrix2.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix2@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorStar_2(float value, global::FlounderSharp.Matrix2.__Internal left);
+            internal static extern void OperatorStar_2(global::System.IntPtr @return, float value, global::Fl.Matrix2.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix2@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Matrix2.__Internal OperatorSlash_2(float value, global::FlounderSharp.Matrix2.__Internal left);
+            internal static extern void OperatorSlash_2(global::System.IntPtr @return, float value, global::Fl.Matrix2.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Invert@Matrix2@fl@@QEBA?AV12@XZ")]
+            internal static extern void Invert(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Transpose@Matrix2@fl@@QEBA?AV12@XZ")]
+            internal static extern void Transpose(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Determinant@Matrix2@fl@@QEBAMXZ")]
+            internal static extern float Determinant(global::System.IntPtr instance);
         }
 
         public unsafe partial struct _
@@ -639,24 +2290,24 @@ namespace FlounderSharp
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix2._.__.__Internal __;
+                internal global::Fl.Matrix2._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix2._.__.__Internal __1;
+                internal global::Fl.Matrix2._.__.__Internal __1;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix2._.__.__Internal __2;
+                internal global::Fl.Matrix2._.__.__Internal __2;
             }
 
             public unsafe partial class __
             {
-                [StructLayout(LayoutKind.Explicit, Size = 8)]
+                [StructLayout(LayoutKind.Explicit, Size = 16)]
                 public partial struct __Internal
                 {
                     [FieldOffset(0)]
                     internal global::System.IntPtr m_0;
 
-                    [FieldOffset(4)]
+                    [FieldOffset(8)]
                     internal global::System.IntPtr m_1;
                 }
             }
@@ -665,29 +2316,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix2> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix2>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Matrix2> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Matrix2>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Matrix2 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Matrix2 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Matrix2(native.ToPointer(), skipVTables);
+            return new global::Fl.Matrix2(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Matrix2 __CreateInstance(global::FlounderSharp.Matrix2.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Matrix2 __CreateInstance(global::Fl.Matrix2.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Matrix2(native, skipVTables);
+            return new global::Fl.Matrix2(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Matrix2.__Internal native)
+        private static void* __CopyValue(global::Fl.Matrix2.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Matrix2.__Internal));
-            *(global::FlounderSharp.Matrix2.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix2.__Internal));
+            global::Fl.Matrix2.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Matrix2(global::FlounderSharp.Matrix2.__Internal native, bool skipVTables = false)
+        private Matrix2(global::Fl.Matrix2.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -701,6 +2352,46 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for Matrix2. The matrix is initialised to the identity.</summary>
+        public Matrix2()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix2.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for Matrix2.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this matrix out of a existing one.</para>
+        /// </summary>
+        public Matrix2(global::Fl.Matrix2 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix2.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Matrix2.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this matrix out of a 4 element array.</para>
+        /// </summary>
+        public Matrix2(float[] source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix2.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (source == null || source.Length != 4)
+                throw new ArgumentOutOfRangeException("source", "The dimensions of the provided array don't match the required size.");
+            __Internal.ctor((__Instance + __PointerAdjustment), source);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -710,78 +2401,378 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Matrix2 __dummy;
+            global::Fl.Matrix2 __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Matrix2 operator *(global::FlounderSharp.Matrix2 left, global::FlounderSharp.Vector2 value)
+        /// <summary>
+        /// <para>Adds this matrix to another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Add(global::Fl.Matrix2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
-            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) value.__Instance;
-            var __ret = __Internal.OperatorStar(__arg0, __arg1);
-            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.Add((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix2 operator /(global::FlounderSharp.Matrix2 left, global::FlounderSharp.Vector2 value)
+        /// <summary>
+        /// <para>Subtracts this matrix to another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Subtract(global::Fl.Matrix2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
-            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector2.__Internal() : *(global::FlounderSharp.Vector2.__Internal*) value.__Instance;
-            var __ret = __Internal.OperatorSlash(__arg0, __arg1);
-            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.Subtract((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix2 operator *(global::FlounderSharp.Matrix2 left, float value)
+        /// <summary>
+        /// <para>Multiplies this matrix by another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Multiply(global::Fl.Matrix2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_1(__arg0, value);
-            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix2 operator /(global::FlounderSharp.Matrix2 left, float value)
+        /// <summary>
+        /// <para>Divides this matrix by another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Divide(global::Fl.Matrix2 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_1(__arg0, value);
-            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.Divide((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix2 operator *(float value, global::FlounderSharp.Matrix2 left)
+        /// <summary>
+        /// <para>Transforms this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector2 Transform(global::Fl.Vector2 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_2(value, __arg1);
-            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector2.__Internal();
+            __Internal.Transform((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix2 operator /(float value, global::FlounderSharp.Matrix2 left)
+        /// <summary>
+        /// <para>Scales this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Scale(global::Fl.Vector2 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix2.__Internal() : *(global::FlounderSharp.Matrix2.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_2(value, __arg1);
-            return global::FlounderSharp.Matrix2.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix2 IDENTITY
+        /// <summary>
+        /// <para>Inverts this matrix.</para>
+        /// <para></para>
+        /// <para>The inverted matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Negate()
+        {
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.Negate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Sets this matrix to 0.</para>
+        /// <para></para>
+        /// <para>The identity matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 SetZero()
+        {
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.SetZero((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Sets this matrix to be the identity matrix.</para>
+        /// <para></para>
+        /// <para>The identity matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 SetIdentity()
+        {
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.SetIdentity((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Turns this 2x2 matrix into an array.</para>
+        /// <para></para>
+        /// <para>A 4 float array.</para>
+        /// </summary>
+        public float* ToArray()
+        {
+            var __ret = __Internal.ToArray((__Instance + __PointerAdjustment));
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Matrix2 __op, global::Fl.Matrix2 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Matrix2;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Matrix2.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Matrix2 __op, global::Fl.Matrix2 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static global::Fl.Matrix2 operator -(global::Fl.Matrix2 __op)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Matrix2(float[] source)
+        {
+            return new global::Fl.Matrix2(source);
+        }
+
+        public static global::Fl.Matrix2 operator +(global::Fl.Matrix2 left, global::Fl.Matrix2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator -(global::Fl.Matrix2 left, global::Fl.Matrix2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator *(global::Fl.Matrix2 left, global::Fl.Matrix2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator /(global::Fl.Matrix2 left, global::Fl.Matrix2 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator *(global::Fl.Matrix2 left, global::Fl.Vector2 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) value.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator /(global::Fl.Matrix2 left, global::Fl.Vector2 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::Fl.Vector2.__Internal() : *(global::Fl.Vector2.__Internal*) value.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator *(global::Fl.Matrix2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorStar_1(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator /(global::Fl.Matrix2 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorSlash_1(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator *(float value, global::Fl.Matrix2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorStar_2(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 operator /(float value, global::Fl.Matrix2 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Matrix2.__Internal() : *(global::Fl.Matrix2.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix2.__Internal();
+            __Internal.OperatorSlash_2(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Matrix2.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix2 IDENTITY
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Matrix2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix2@fl@@2V12@B");
-                return global::FlounderSharp.Matrix2.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Matrix2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix2@fl@@2V12@B");
+                return global::Fl.Matrix2.__CreateInstance(*__ptr);
             }
         }
 
-        public static global::FlounderSharp.Matrix2 ZERO
+        public static global::Fl.Matrix2 ZERO
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Matrix2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix2@fl@@2V12@B");
-                return global::FlounderSharp.Matrix2.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Matrix2.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix2@fl@@2V12@B");
+                return global::Fl.Matrix2.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Negates this matrix.</para>
+        /// <para></para>
+        /// <para>The negated matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Invert
+        {
+            get
+            {
+                var __ret = new global::Fl.Matrix2.__Internal();
+                __Internal.Invert((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Matrix2.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Transposes this matrix.</para>
+        /// <para></para>
+        /// <para>The transposed matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix2 Transpose
+        {
+            get
+            {
+                var __ret = new global::Fl.Matrix2.__Internal();
+                __Internal.Transpose((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Matrix2.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Takes the determinant of this matrix.</para>
+        /// <para></para>
+        /// <para>The determinant.</para>
+        /// </summary>
+        public float Determinant
+        {
+            get
+            {
+                var __ret = __Internal.Determinant((__Instance + __PointerAdjustment));
+                return __ret;
             }
         }
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>Holds a 3-tuple vector.</summary>
     public unsafe partial class Vector3 : IDisposable
@@ -790,52 +2781,295 @@ namespace FlounderSharp
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Vector3._.__Internal _;
+            internal global::Fl.Vector3._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Vector3@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector3@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector3@fl@@QEAA@AEBM00@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float* x, float* y, float* z);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector3@fl@@QEAA@AEBVVector2@1@AEBM@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr source, float* z);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector3@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector3@fl@@QEAA@AEBVVector4@1@@Z")]
+            internal static extern global::System.IntPtr ctor_1(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector3@fl@@QEAA@AEBVColour@1@@Z")]
+            internal static extern global::System.IntPtr ctor_2(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Vector3@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Add@Vector3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Add(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Subtract@Vector3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Subtract(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Vector3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Divide@Vector3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Divide(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Angle@Vector3@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Angle(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Dot@Vector3@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Dot(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Cross@Vector3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Cross(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Vector3@fl@@QEBA?AV12@AEBM@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, float* scalar);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Rotate@Vector3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Rotate(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr rotation);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Negate@Vector3@fl@@QEBA?AV12@XZ")]
+            internal static extern void Negate(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Normalize@Vector3@fl@@QEBA?AV12@XZ")]
+            internal static extern void Normalize(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DistanceSquared@Vector3@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float DistanceSquared(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Distance@Vector3@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Distance(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DistanceVector@Vector3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void DistanceVector(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SmoothDamp@Vector3@fl@@QEBA?AV12@AEBV12@0@Z")]
+            internal static extern void SmoothDamp(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr target, global::System.IntPtr rate);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ProjectCubeToSphere@Vector3@fl@@QEAA?AV12@AEBM@Z")]
+            internal static extern void ProjectCubeToSphere(global::System.IntPtr instance, global::System.IntPtr @return, float* radius);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?BaryCentric@Vector3@fl@@QEAAMAEBV12@00@Z")]
+            internal static extern float BaryCentric(global::System.IntPtr instance, global::System.IntPtr p1, global::System.IntPtr p2, global::System.IntPtr p3);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MinVector@Vector3@fl@@SA?AV12@AEBV12@0@Z")]
+            internal static extern void MinVector(global::System.IntPtr @return, global::System.IntPtr a, global::System.IntPtr b);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MaxVector@Vector3@fl@@SA?AV12@AEBV12@0@Z")]
+            internal static extern void MaxVector(global::System.IntPtr @return, global::System.IntPtr a, global::System.IntPtr b);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?RandomPointOnCircle@Vector3@fl@@SA?AV12@AEBV12@AEBM@Z")]
+            internal static extern void RandomPointOnCircle(global::System.IntPtr @return, global::System.IntPtr normal, float* radius);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?RandomUnitVectorWithinCone@Vector3@fl@@SA?AV12@AEBV12@AEBM@Z")]
+            internal static extern void RandomUnitVectorWithinCone(global::System.IntPtr @return, global::System.IntPtr coneDirection, float* angle);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Vector3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Vector3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??MVector3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLess(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??NVector3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLessEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??OVector3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreater(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??PVector3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreaterEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Vector3@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Vector3@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??GVector3@fl@@QEAA?AV01@XZ")]
+            internal static extern void OperatorMinus(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Vector3@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVVector3@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorPlus(global::FlounderSharp.Vector3.__Internal left, float value);
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVVector3@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorMinus(global::FlounderSharp.Vector3.__Internal left, float value);
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVVector3@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorStar(global::FlounderSharp.Vector3.__Internal left, float value);
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVVector3@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorSlash(global::FlounderSharp.Vector3.__Internal left, float value);
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Vector3.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVVector3@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorPlus_1(float value, global::FlounderSharp.Vector3.__Internal left);
+            internal static extern void OperatorPlus_1(global::System.IntPtr @return, float value, global::Fl.Vector3.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVVector3@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorMinus_1(float value, global::FlounderSharp.Vector3.__Internal left);
+            internal static extern void OperatorMinus_1(global::System.IntPtr @return, float value, global::Fl.Vector3.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVVector3@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorStar_1(float value, global::FlounderSharp.Vector3.__Internal left);
+            internal static extern void OperatorStar_1(global::System.IntPtr @return, float value, global::Fl.Vector3.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVVector3@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector3.__Internal OperatorSlash_1(float value, global::FlounderSharp.Vector3.__Internal left);
+            internal static extern void OperatorSlash_1(global::System.IntPtr @return, float value, global::Fl.Vector3.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LengthSquared@Vector3@fl@@QEBAMXZ")]
+            internal static extern float LengthSquared(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Length@Vector3@fl@@QEBAMXZ")]
+            internal static extern float Length(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MaxComponent@Vector3@fl@@QEBAMXZ")]
+            internal static extern float MaxComponent(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MinComponent@Vector3@fl@@QEBAMXZ")]
+            internal static extern float MinComponent(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?CartesianToPolar@Vector3@fl@@QEBA?AV12@XZ")]
+            internal static extern void CartesianToPolar(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?PolarToCartesian@Vector3@fl@@QEBA?AV12@XZ")]
+            internal static extern void PolarToCartesian(global::System.IntPtr instance, global::System.IntPtr @return);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -849,10 +3083,10 @@ namespace FlounderSharp
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Vector3._.__.__Internal __;
+                internal global::Fl.Vector3._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Vector3._.__.__Internal __1;
+                internal global::Fl.Vector3._.__.__Internal __1;
             }
 
             public unsafe partial class __
@@ -875,29 +3109,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector3> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector3>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Vector3> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Vector3>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Vector3 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Vector3 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Vector3(native.ToPointer(), skipVTables);
+            return new global::Fl.Vector3(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Vector3 __CreateInstance(global::FlounderSharp.Vector3.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Vector3 __CreateInstance(global::Fl.Vector3.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Vector3(native, skipVTables);
+            return new global::Fl.Vector3(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Vector3.__Internal native)
+        private static void* __CopyValue(global::Fl.Vector3.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Vector3.__Internal));
-            *(global::FlounderSharp.Vector3.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Vector3.__Internal));
+            global::Fl.Vector3.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Vector3(global::FlounderSharp.Vector3.__Internal native, bool skipVTables = false)
+        private Vector3(global::Fl.Vector3.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -911,6 +3145,111 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for Vector3.</summary>
+        public Vector3()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector3.</para>
+        /// <para></para>
+        /// <para>name=&quot;x&quot;&gt; Start x.</para>
+        /// <para>name=&quot;y&quot;&gt; Start y.</para>
+        /// <para>name=&quot;z&quot;&gt; Start z.</para>
+        /// </summary>
+        public Vector3(ref float x, ref float y, ref float z)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            fixed (float* __refParamPtr0 = &x)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &y)
+                {
+                    var __arg1 = __refParamPtr1;
+                    fixed (float* __refParamPtr2 = &z)
+                    {
+                        var __arg2 = __refParamPtr2;
+                        __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector3.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.</para>
+        /// <para>name=&quot;z&quot;&gt; Start z.</para>
+        /// </summary>
+        public Vector3(global::Fl.Vector2 source, ref float z)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            fixed (float* __refParamPtr1 = &z)
+            {
+                var __arg1 = __refParamPtr1;
+                __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1);
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector3.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.</para>
+        /// </summary>
+        public Vector3(global::Fl.Vector3 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector3.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.</para>
+        /// </summary>
+        public Vector3(global::Fl.Vector4 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor_1((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector3.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing colour.</para>
+        /// </summary>
+        public Vector3(global::Fl.Colour source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor_2((__Instance + __PointerAdjustment), __arg0);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -920,246 +3259,1016 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Vector3 __dummy;
+            global::Fl.Vector3 __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Vector3 operator +(global::FlounderSharp.Vector3 left, float value)
+        /// <summary>
+        /// <para>Adds this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Add(global::Fl.Vector3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus(__arg0, value);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Add((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector3 operator -(global::FlounderSharp.Vector3 left, float value)
+        /// <summary>
+        /// <para>Subtracts this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Subtract(global::Fl.Vector3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus(__arg0, value);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Subtract((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector3 operator *(global::FlounderSharp.Vector3 left, float value)
+        /// <summary>
+        /// <para>Multiplies this vector with another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Multiply(global::Fl.Vector3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar(__arg0, value);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector3 operator /(global::FlounderSharp.Vector3 left, float value)
+        /// <summary>
+        /// <para>Divides this vector by another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Divide(global::Fl.Vector3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash(__arg0, value);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Divide((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector3 operator +(float value, global::FlounderSharp.Vector3 left)
+        /// <summary>
+        /// <para>Calculates the angle between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The angle, in radians.</para>
+        /// </summary>
+        public float Angle(global::Fl.Vector3 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus_1(value, __arg1);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Angle((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
         }
 
-        public static global::FlounderSharp.Vector3 operator -(float value, global::FlounderSharp.Vector3 left)
+        /// <summary>
+        /// <para>Calculates the dot product of the this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The dot product.</para>
+        /// </summary>
+        public float Dot(global::Fl.Vector3 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus_1(value, __arg1);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Dot((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
         }
 
-        public static global::FlounderSharp.Vector3 operator *(float value, global::FlounderSharp.Vector3 left)
+        /// <summary>
+        /// <para>Calculates the cross product of the this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The cross product.</para>
+        /// </summary>
+        public global::Fl.Vector3 Cross(global::Fl.Vector3 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_1(value, __arg1);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Cross((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector3 operator /(float value, global::FlounderSharp.Vector3 left)
+        /// <summary>
+        /// <para>Scales this vector by a scalar.</para>
+        /// <para></para>
+        /// <para>name=&quot;scalar&quot;&gt; The scalar value.</para>
+        /// <para>The scaled vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Scale(ref float scalar)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_1(value, __arg1);
-            return global::FlounderSharp.Vector3.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Vector3 ZERO
-        {
-            get
+            fixed (float* __refParamPtr0 = &scalar)
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                var __ret = new global::Fl.Vector3.__Internal();
+                __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+                return global::Fl.Vector3.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector3 ONE
+        /// <summary>
+        /// <para>Rotates this vector by a angle around the origin.</para>
+        /// <para></para>
+        /// <para>name=&quot;rotation&quot;&gt; The rotation amount.</para>
+        /// <para>The rotated vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Rotate(global::Fl.Vector3 rotation)
         {
-            get
+            if (ReferenceEquals(rotation, null))
+                throw new global::System.ArgumentNullException("rotation", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = rotation.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Rotate((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Negates this vector.</para>
+        /// <para></para>
+        /// <para>The negated vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Negate()
+        {
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Negate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Normalizes this vector.</para>
+        /// <para></para>
+        /// <para>The normalized vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Normalize()
+        {
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Normalize((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gets the distance between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The squared distance.</para>
+        /// </summary>
+        public float DistanceSquared(global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.DistanceSquared((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Gets the between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The distance.</para>
+        /// </summary>
+        public float Distance(global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Distance((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Gets the vector distance between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The vector distance.</para>
+        /// </summary>
+        public global::Fl.Vector3 DistanceVector(global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.DistanceVector((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gradually changes this vector to a target.</para>
+        /// <para></para>
+        /// <para>name=&quot;target&quot;&gt; The target vector.</para>
+        /// <para>name=&quot;rate&quot;&gt; The rate to go from current to the target.</para>
+        /// <para>The changed vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 SmoothDamp(global::Fl.Vector3 target, global::Fl.Vector3 rate)
+        {
+            if (ReferenceEquals(target, null))
+                throw new global::System.ArgumentNullException("target", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = target.__Instance;
+            if (ReferenceEquals(rate, null))
+                throw new global::System.ArgumentNullException("rate", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = rate.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.SmoothDamp((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Projects this cube coordinate onto a sphere.</para>
+        /// <para></para>
+        /// <para>name=&quot;radius&quot;&gt; The sphere radius.</para>
+        /// <para>The projected cartesian coordinates.</para>
+        /// </summary>
+        public global::Fl.Vector3 ProjectCubeToSphere(ref float radius)
+        {
+            fixed (float* __refParamPtr0 = &radius)
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                var __ret = new global::Fl.Vector3.__Internal();
+                __Internal.ProjectCubeToSphere((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+                return global::Fl.Vector3.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector3 LEFT
+        /// <summary>
+        /// <para>Gets the height of this vector on a point off of a 3d triangle.</para>
+        /// <para></para>
+        /// <para>name=&quot;p1&quot;&gt; Point 1 on the triangle.</para>
+        /// <para>name=&quot;p2&quot;&gt; Point 2 on the triangle.</para>
+        /// <para>name=&quot;p3&quot;&gt; Point 3 on the triangle.</para>
+        /// <para>Height of the triangle.</para>
+        /// </summary>
+        public float BaryCentric(global::Fl.Vector3 p1, global::Fl.Vector3 p2, global::Fl.Vector3 p3)
         {
-            get
+            if (ReferenceEquals(p1, null))
+                throw new global::System.ArgumentNullException("p1", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = p1.__Instance;
+            if (ReferenceEquals(p2, null))
+                throw new global::System.ArgumentNullException("p2", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = p2.__Instance;
+            if (ReferenceEquals(p3, null))
+                throw new global::System.ArgumentNullException("p3", "Cannot be null because it is a C++ reference (&).");
+            var __arg2 = p3.__Instance;
+            var __ret = __Internal.BaryCentric((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Vector3 __op, global::Fl.Vector3 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Vector3;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Vector3.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Vector3 __op, global::Fl.Vector3 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <(global::Fl.Vector3 __op, global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLess(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <=(global::Fl.Vector3 __op, global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLessEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >(global::Fl.Vector3 __op, global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreater(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >=(global::Fl.Vector3 __op, global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreaterEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Vector3 __op, ref float value)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return __opNull && valueNull;
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?LEFT@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Vector3 RIGHT
+        public static bool operator !=(global::Fl.Vector3 __op, ref float value)
         {
-            get
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return !(__opNull && valueNull);
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?RIGHT@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Vector3 UP
+        public static global::Fl.Vector3 operator -(global::Fl.Vector3 __op)
         {
-            get
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Vector3(global::Fl.Vector2 source)
+        {
+            return new global::Fl.Vector3(source);
+        }
+
+        public static implicit operator global::Fl.Vector3(global::Fl.Vector4 source)
+        {
+            return new global::Fl.Vector3(source);
+        }
+
+        public static implicit operator global::Fl.Vector3(global::Fl.Colour source)
+        {
+            return new global::Fl.Vector3(source);
+        }
+
+        /// <summary>
+        /// <para>Gets the lowest vector size.</para>
+        /// <para></para>
+        /// <para>name=&quot;a&quot;&gt; The first vector to get values from.</para>
+        /// <para>name=&quot;b&quot;&gt; The second vector to get values from.</para>
+        /// <para>The lowest vector.</para>
+        /// </summary>
+        public static global::Fl.Vector3 MinVector(global::Fl.Vector3 a, global::Fl.Vector3 b)
+        {
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = b.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.MinVector(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gets the maximum vector size.</para>
+        /// <para></para>
+        /// <para>name=&quot;a&quot;&gt; The first vector to get values from.</para>
+        /// <para>name=&quot;b&quot;&gt; The second vector to get values from.</para>
+        /// <para>The maximum vector.</para>
+        /// </summary>
+        public static global::Fl.Vector3 MaxVector(global::Fl.Vector3 a, global::Fl.Vector3 b)
+        {
+            if (ReferenceEquals(a, null))
+                throw new global::System.ArgumentNullException("a", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = a.__Instance;
+            if (ReferenceEquals(b, null))
+                throw new global::System.ArgumentNullException("b", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = b.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.MaxVector(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gets a random point from on a circle.</para>
+        /// <para></para>
+        /// <para>name=&quot;normal&quot;&gt; The circles normal.</para>
+        /// <para>name=&quot;radius&quot;&gt; The circles radius.</para>
+        /// <para>The random point in a circle.</para>
+        /// </summary>
+        public static global::Fl.Vector3 RandomPointOnCircle(global::Fl.Vector3 normal, ref float radius)
+        {
+            if (ReferenceEquals(normal, null))
+                throw new global::System.ArgumentNullException("normal", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = normal.__Instance;
+            fixed (float* __refParamPtr1 = &radius)
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?UP@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = new global::Fl.Vector3.__Internal();
+                __Internal.RandomPointOnCircle(new IntPtr(&__ret), __arg0, __arg1);
+                return global::Fl.Vector3.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector3 DOWN
+        /// <summary>
+        /// <para>Generates a random unit vector from within a cone.</para>
+        /// <para></para>
+        /// <para>name=&quot;coneDirection&quot;&gt; The cones direction.</para>
+        /// <para>name=&quot;angle&quot;&gt; The cones major angle.</para>
+        /// <para>The random unitt vector in a code.</para>
+        /// </summary>
+        public static global::Fl.Vector3 RandomUnitVectorWithinCone(global::Fl.Vector3 coneDirection, ref float angle)
         {
-            get
+            if (ReferenceEquals(coneDirection, null))
+                throw new global::System.ArgumentNullException("coneDirection", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = coneDirection.__Instance;
+            fixed (float* __refParamPtr1 = &angle)
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?DOWN@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = new global::Fl.Vector3.__Internal();
+                __Internal.RandomUnitVectorWithinCone(new IntPtr(&__ret), __arg0, __arg1);
+                return global::Fl.Vector3.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector3 FRONT
+        public static global::Fl.Vector3 operator +(global::Fl.Vector3 left, global::Fl.Vector3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator -(global::Fl.Vector3 left, global::Fl.Vector3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator *(global::Fl.Vector3 left, global::Fl.Vector3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator /(global::Fl.Vector3 left, global::Fl.Vector3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator +(global::Fl.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator -(global::Fl.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator *(global::Fl.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator /(global::Fl.Vector3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator +(float value, global::Fl.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorPlus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator -(float value, global::Fl.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorMinus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator *(float value, global::Fl.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorStar_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 operator /(float value, global::Fl.Vector3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.OperatorSlash_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector3 ZERO
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?FRONT@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
             }
         }
 
-        public static global::FlounderSharp.Vector3 BACK
+        public static global::Fl.Vector3 ONE
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?BACK@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
             }
         }
 
-        public static global::FlounderSharp.Vector3 POSITIVE_INFINITY
+        public static global::Fl.Vector3 LEFT
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?LEFT@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
             }
         }
 
-        public static global::FlounderSharp.Vector3 NEGATIVE_INFINITY
+        public static global::Fl.Vector3 RIGHT
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector3@fl@@2V12@B");
-                return global::FlounderSharp.Vector3.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?RIGHT@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
             }
         }
 
-        /// <summary>Generates a random unit vector.</summary>
-        public static global::FlounderSharp.Vector3 RandomUnitVector
+        public static global::Fl.Vector3 UP
         {
             get
             {
-                var __ret = new global::FlounderSharp.Vector3.__Internal();
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?UP@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector3 DOWN
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?DOWN@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector3 FRONT
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?FRONT@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector3 BACK
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?BACK@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector3 POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector3 NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector3@fl@@2V12@B");
+                return global::Fl.Vector3.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length squared of this vector.</para>
+        /// <para></para>
+        /// <para>The length squared.</para>
+        /// </summary>
+        public float LengthSquared
+        {
+            get
+            {
+                var __ret = __Internal.LengthSquared((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length of this vector.</para>
+        /// <para></para>
+        /// <para>The length.</para>
+        /// </summary>
+        public float Length
+        {
+            get
+            {
+                var __ret = __Internal.Length((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the maximum value in this vector.</para>
+        /// <para></para>
+        /// <para>The largest components.</para>
+        /// </summary>
+        public float MaxComponent
+        {
+            get
+            {
+                var __ret = __Internal.MaxComponent((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the lowest value in this vector.</para>
+        /// <para></para>
+        /// <para>The smallest components.</para>
+        /// </summary>
+        public float MinComponent
+        {
+            get
+            {
+                var __ret = __Internal.MinComponent((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Converts from rectangular to spherical coordinates, this vector is in cartesian (x, y, z).</para>
+        /// <para></para>
+        /// <para>The polar coordinates (radius, theta, phi).</para>
+        /// </summary>
+        public global::Fl.Vector3 CartesianToPolar
+        {
+            get
+            {
+                var __ret = new global::Fl.Vector3.__Internal();
+                __Internal.CartesianToPolar((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Vector3.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Converts from spherical to rectangular coordinates, this vector is in polar (radius, theta, phi).</para>
+        /// <para></para>
+        /// <para>The cartesian coordinates (x, y, z).</para>
+        /// </summary>
+        public global::Fl.Vector3 PolarToCartesian
+        {
+            get
+            {
+                var __ret = new global::Fl.Vector3.__Internal();
+                __Internal.PolarToCartesian((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Vector3.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Generates a random unit vector.</para>
+        /// <para></para>
+        /// <para>The random unit vector.</para>
+        /// </summary>
+        public static global::Fl.Vector3 RandomUnitVector
+        {
+            get
+            {
+                var __ret = new global::Fl.Vector3.__Internal();
                 __Internal.RandomUnitVector(new IntPtr(&__ret));
-                return global::FlounderSharp.Vector3.__CreateInstance(__ret);
+                return global::Fl.Vector3.__CreateInstance(__ret);
             }
         }
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>Holds a 3x3 matrix.</summary>
     public unsafe partial class Matrix3 : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 36)]
+        [StructLayout(LayoutKind.Explicit, Size = 40)]
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Matrix3._.__Internal _;
+            internal global::Fl.Matrix3._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Matrix3@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix3@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix3@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix3@fl@@QEAA@QEBM@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float[] source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Matrix3@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Add@Matrix3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Add(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Subtract@Matrix3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Subtract(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Matrix3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Divide@Matrix3@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Divide(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Transform@Matrix3@fl@@QEBA?AVVector3@2@AEBV32@@Z")]
+            internal static extern void Transform(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Matrix3@fl@@QEBA?AV12@AEBVVector3@2@@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Negate@Matrix3@fl@@QEBA?AV12@XZ")]
+            internal static extern void Negate(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetZero@Matrix3@fl@@QEAA?AV12@XZ")]
+            internal static extern void SetZero(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetIdentity@Matrix3@fl@@QEAA?AV12@XZ")]
+            internal static extern void SetIdentity(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToArray@Matrix3@fl@@QEBAPEAMXZ")]
+            internal static extern float* ToArray(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Matrix3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Matrix3@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??GMatrix3@fl@@QEAA?AV01@XZ")]
+            internal static extern void OperatorMinus(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Matrix3@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVMatrix3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVMatrix3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix3@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix3@0@V10@VVector3@0@@Z")]
-            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorStar(global::FlounderSharp.Matrix3.__Internal left, global::FlounderSharp.Vector3.__Internal value);
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, global::Fl.Vector3.__Internal value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix3@0@V10@VVector3@0@@Z")]
-            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorSlash(global::FlounderSharp.Matrix3.__Internal left, global::FlounderSharp.Vector3.__Internal value);
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, global::Fl.Vector3.__Internal value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix3@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorStar_1(global::FlounderSharp.Matrix3.__Internal left, float value);
+            internal static extern void OperatorStar_1(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix3@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorSlash_1(global::FlounderSharp.Matrix3.__Internal left, float value);
+            internal static extern void OperatorSlash_1(global::System.IntPtr @return, global::Fl.Matrix3.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix3@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorStar_2(float value, global::FlounderSharp.Matrix3.__Internal left);
+            internal static extern void OperatorStar_2(global::System.IntPtr @return, float value, global::Fl.Matrix3.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix3@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Matrix3.__Internal OperatorSlash_2(float value, global::FlounderSharp.Matrix3.__Internal left);
+            internal static extern void OperatorSlash_2(global::System.IntPtr @return, float value, global::Fl.Matrix3.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Invert@Matrix3@fl@@QEBA?AV12@XZ")]
+            internal static extern void Invert(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Transpose@Matrix3@fl@@QEBA?AV12@XZ")]
+            internal static extern void Transpose(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Determinant@Matrix3@fl@@QEBAMXZ")]
+            internal static extern float Determinant(global::System.IntPtr instance);
         }
 
         public unsafe partial struct _
         {
-            [StructLayout(LayoutKind.Explicit, Size = 36)]
+            [StructLayout(LayoutKind.Explicit, Size = 40)]
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix3._.__.__Internal __;
+                internal global::Fl.Matrix3._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix3._.__.__Internal __1;
+                internal global::Fl.Matrix3._.__.__Internal __1;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix3._.__.__Internal __2;
+                internal global::Fl.Matrix3._.__.__Internal __2;
             }
 
             public unsafe partial class __
             {
-                [StructLayout(LayoutKind.Explicit, Size = 12)]
+                [StructLayout(LayoutKind.Explicit, Size = 24)]
                 public partial struct __Internal
                 {
                     [FieldOffset(0)]
                     internal global::System.IntPtr m_0;
 
-                    [FieldOffset(4)]
+                    [FieldOffset(8)]
                     internal global::System.IntPtr m_1;
 
-                    [FieldOffset(8)]
+                    [FieldOffset(16)]
                     internal global::System.IntPtr m_2;
                 }
             }
@@ -1168,29 +4277,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix3> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix3>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Matrix3> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Matrix3>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Matrix3 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Matrix3 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Matrix3(native.ToPointer(), skipVTables);
+            return new global::Fl.Matrix3(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Matrix3 __CreateInstance(global::FlounderSharp.Matrix3.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Matrix3 __CreateInstance(global::Fl.Matrix3.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Matrix3(native, skipVTables);
+            return new global::Fl.Matrix3(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Matrix3.__Internal native)
+        private static void* __CopyValue(global::Fl.Matrix3.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Matrix3.__Internal));
-            *(global::FlounderSharp.Matrix3.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix3.__Internal));
+            global::Fl.Matrix3.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Matrix3(global::FlounderSharp.Matrix3.__Internal native, bool skipVTables = false)
+        private Matrix3(global::Fl.Matrix3.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -1204,6 +4313,46 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for Matrix3. The matrix is initialised to the identity.</summary>
+        public Matrix3()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for Matrix3.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this matrix out of a existing one.</para>
+        /// </summary>
+        public Matrix3(global::Fl.Matrix3 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Matrix3.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this matrix out of a 9 element array.</para>
+        /// </summary>
+        public Matrix3(float[] source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix3.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (source == null || source.Length != 9)
+                throw new ArgumentOutOfRangeException("source", "The dimensions of the provided array don't match the required size.");
+            __Internal.ctor((__Instance + __PointerAdjustment), source);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -1213,78 +4362,378 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Matrix3 __dummy;
+            global::Fl.Matrix3 __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Matrix3 operator *(global::FlounderSharp.Matrix3 left, global::FlounderSharp.Vector3 value)
+        /// <summary>
+        /// <para>Adds this matrix to another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Add(global::Fl.Matrix3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
-            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) value.__Instance;
-            var __ret = __Internal.OperatorStar(__arg0, __arg1);
-            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.Add((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix3 operator /(global::FlounderSharp.Matrix3 left, global::FlounderSharp.Vector3 value)
+        /// <summary>
+        /// <para>Subtracts this matrix to another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Subtract(global::Fl.Matrix3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
-            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) value.__Instance;
-            var __ret = __Internal.OperatorSlash(__arg0, __arg1);
-            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.Subtract((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix3 operator *(global::FlounderSharp.Matrix3 left, float value)
+        /// <summary>
+        /// <para>Multiplies this matrix by another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Multiply(global::Fl.Matrix3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_1(__arg0, value);
-            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix3 operator /(global::FlounderSharp.Matrix3 left, float value)
+        /// <summary>
+        /// <para>Divides this matrix by another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Divide(global::Fl.Matrix3 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_1(__arg0, value);
-            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.Divide((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix3 operator *(float value, global::FlounderSharp.Matrix3 left)
+        /// <summary>
+        /// <para>Transforms this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector3 Transform(global::Fl.Vector3 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_2(value, __arg1);
-            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.Transform((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix3 operator /(float value, global::FlounderSharp.Matrix3 left)
+        /// <summary>
+        /// <para>Scales this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Scale(global::Fl.Vector3 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix3.__Internal() : *(global::FlounderSharp.Matrix3.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_2(value, __arg1);
-            return global::FlounderSharp.Matrix3.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix3 IDENTITY
+        /// <summary>
+        /// <para>Inverts this matrix.</para>
+        /// <para></para>
+        /// <para>The inverted matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Negate()
+        {
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.Negate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Sets this matrix to 0.</para>
+        /// <para></para>
+        /// <para>The identity matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 SetZero()
+        {
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.SetZero((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Sets this matrix to be the identity matrix.</para>
+        /// <para></para>
+        /// <para>The identity matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 SetIdentity()
+        {
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.SetIdentity((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Turns this 3x3 matrix into an array.</para>
+        /// <para></para>
+        /// <para>A 9 float array.</para>
+        /// </summary>
+        public float* ToArray()
+        {
+            var __ret = __Internal.ToArray((__Instance + __PointerAdjustment));
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Matrix3 __op, global::Fl.Matrix3 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Matrix3;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Matrix3.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Matrix3 __op, global::Fl.Matrix3 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static global::Fl.Matrix3 operator -(global::Fl.Matrix3 __op)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Matrix3(float[] source)
+        {
+            return new global::Fl.Matrix3(source);
+        }
+
+        public static global::Fl.Matrix3 operator +(global::Fl.Matrix3 left, global::Fl.Matrix3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator -(global::Fl.Matrix3 left, global::Fl.Matrix3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator *(global::Fl.Matrix3 left, global::Fl.Matrix3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator /(global::Fl.Matrix3 left, global::Fl.Matrix3 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator *(global::Fl.Matrix3 left, global::Fl.Vector3 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) value.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator /(global::Fl.Matrix3 left, global::Fl.Vector3 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::Fl.Vector3.__Internal() : *(global::Fl.Vector3.__Internal*) value.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator *(global::Fl.Matrix3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorStar_1(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator /(global::Fl.Matrix3 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorSlash_1(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator *(float value, global::Fl.Matrix3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorStar_2(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 operator /(float value, global::Fl.Matrix3 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Matrix3.__Internal() : *(global::Fl.Matrix3.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix3.__Internal();
+            __Internal.OperatorSlash_2(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Matrix3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix3 IDENTITY
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Matrix3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix3@fl@@2V12@B");
-                return global::FlounderSharp.Matrix3.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Matrix3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix3@fl@@2V12@B");
+                return global::Fl.Matrix3.__CreateInstance(*__ptr);
             }
         }
 
-        public static global::FlounderSharp.Matrix3 ZERO
+        public static global::Fl.Matrix3 ZERO
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Matrix3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix3@fl@@2V12@B");
-                return global::FlounderSharp.Matrix3.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Matrix3.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix3@fl@@2V12@B");
+                return global::Fl.Matrix3.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Negates this matrix.</para>
+        /// <para></para>
+        /// <para>The negated matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Invert
+        {
+            get
+            {
+                var __ret = new global::Fl.Matrix3.__Internal();
+                __Internal.Invert((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Matrix3.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Transposes this matrix.</para>
+        /// <para></para>
+        /// <para>The transposed matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix3 Transpose
+        {
+            get
+            {
+                var __ret = new global::Fl.Matrix3.__Internal();
+                __Internal.Transpose((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Matrix3.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Takes the determinant of this matrix.</para>
+        /// <para></para>
+        /// <para>The determinant.</para>
+        /// </summary>
+        public float Determinant
+        {
+            get
+            {
+                var __ret = __Internal.Determinant((__Instance + __PointerAdjustment));
+                return __ret;
             }
         }
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>Holds a 4-tuple vector.</summary>
     public unsafe partial class Vector4 : IDisposable
@@ -1293,52 +4742,240 @@ namespace FlounderSharp
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Vector4._.__Internal _;
+            internal global::Fl.Vector4._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Vector4@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector4@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector4@fl@@QEAA@AEBM000@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float* x, float* y, float* z, float* w);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector4@fl@@QEAA@AEBVVector3@1@AEBM@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr source, float* w);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector4@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Vector4@fl@@QEAA@AEBVColour@1@@Z")]
+            internal static extern global::System.IntPtr ctor_1(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Vector4@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Add@Vector4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Add(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Subtract@Vector4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Subtract(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Vector4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Divide@Vector4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Divide(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Angle@Vector4@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Angle(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Dot@Vector4@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Dot(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Vector4@fl@@QEBA?AV12@AEBM@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, float* scalar);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Negate@Vector4@fl@@QEBA?AV12@XZ")]
+            internal static extern void Negate(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Normalize@Vector4@fl@@QEBA?AV12@XZ")]
+            internal static extern void Normalize(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DistanceSquared@Vector4@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float DistanceSquared(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Distance@Vector4@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Distance(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DistanceVector@Vector4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void DistanceVector(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SmoothDamp@Vector4@fl@@QEBA?AV12@AEBV12@0@Z")]
+            internal static extern void SmoothDamp(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr target, global::System.IntPtr rate);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Vector4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Vector4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??MVector4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLess(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??NVector4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLessEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??OVector4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreater(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??PVector4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreaterEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Vector4@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Vector4@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??GVector4@fl@@QEAA?AV01@XZ")]
+            internal static extern void OperatorMinus(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Vector4@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVVector4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVVector4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVVector4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVVector4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVVector4@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorPlus(global::FlounderSharp.Vector4.__Internal left, float value);
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVVector4@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorMinus(global::FlounderSharp.Vector4.__Internal left, float value);
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVVector4@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorStar(global::FlounderSharp.Vector4.__Internal left, float value);
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVVector4@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorSlash(global::FlounderSharp.Vector4.__Internal left, float value);
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Vector4.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Hfl@@YA?AVVector4@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorPlus_1(float value, global::FlounderSharp.Vector4.__Internal left);
+            internal static extern void OperatorPlus_1(global::System.IntPtr @return, float value, global::Fl.Vector4.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Gfl@@YA?AVVector4@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorMinus_1(float value, global::FlounderSharp.Vector4.__Internal left);
+            internal static extern void OperatorMinus_1(global::System.IntPtr @return, float value, global::Fl.Vector4.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVVector4@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorStar_1(float value, global::FlounderSharp.Vector4.__Internal left);
+            internal static extern void OperatorStar_1(global::System.IntPtr @return, float value, global::Fl.Vector4.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVVector4@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Vector4.__Internal OperatorSlash_1(float value, global::FlounderSharp.Vector4.__Internal left);
+            internal static extern void OperatorSlash_1(global::System.IntPtr @return, float value, global::Fl.Vector4.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LengthSquared@Vector4@fl@@QEBAMXZ")]
+            internal static extern float LengthSquared(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Length@Vector4@fl@@QEBAMXZ")]
+            internal static extern float Length(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MaxComponent@Vector4@fl@@QEBAMXZ")]
+            internal static extern float MaxComponent(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MinComponent@Vector4@fl@@QEBAMXZ")]
+            internal static extern float MinComponent(global::System.IntPtr instance);
         }
 
         public unsafe partial struct _
@@ -1347,13 +4984,13 @@ namespace FlounderSharp
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Vector4._.__.__Internal __;
+                internal global::Fl.Vector4._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Vector4._.__.__Internal __1;
+                internal global::Fl.Vector4._.__.__Internal __1;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Vector4._.__.__Internal __2;
+                internal global::Fl.Vector4._.__.__Internal __2;
             }
 
             public unsafe partial class __
@@ -1379,29 +5016,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector4> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Vector4>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Vector4> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Vector4>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Vector4 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Vector4 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Vector4(native.ToPointer(), skipVTables);
+            return new global::Fl.Vector4(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Vector4 __CreateInstance(global::FlounderSharp.Vector4.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Vector4 __CreateInstance(global::Fl.Vector4.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Vector4(native, skipVTables);
+            return new global::Fl.Vector4(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Vector4.__Internal native)
+        private static void* __CopyValue(global::Fl.Vector4.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Vector4.__Internal));
-            *(global::FlounderSharp.Vector4.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Vector4.__Internal));
+            global::Fl.Vector4.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Vector4(global::FlounderSharp.Vector4.__Internal native, bool skipVTables = false)
+        private Vector4(global::Fl.Vector4.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -1415,6 +5052,100 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for Vector4.</summary>
+        public Vector4()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector4.</para>
+        /// <para></para>
+        /// <para>name=&quot;x&quot;&gt; Start x.</para>
+        /// <para>name=&quot;y&quot;&gt; Start y.</para>
+        /// <para>name=&quot;z&quot;&gt; Start z.</para>
+        /// <para>name=&quot;w&quot;&gt; Start w.</para>
+        /// </summary>
+        public Vector4(ref float x, ref float y, ref float z, ref float w)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            fixed (float* __refParamPtr0 = &x)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &y)
+                {
+                    var __arg1 = __refParamPtr1;
+                    fixed (float* __refParamPtr2 = &z)
+                    {
+                        var __arg2 = __refParamPtr2;
+                        fixed (float* __refParamPtr3 = &w)
+                        {
+                            var __arg3 = __refParamPtr3;
+                            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2, __arg3);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector4.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.&gt;</para>
+        /// <para>name=&quot;w&quot;&gt; Start w.</para>
+        /// </summary>
+        public Vector4(global::Fl.Vector3 source, ref float w)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            fixed (float* __refParamPtr1 = &w)
+            {
+                var __arg1 = __refParamPtr1;
+                __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1);
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector4.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.</para>
+        /// </summary>
+        public Vector4(global::Fl.Vector4 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Vector4.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing colour.</para>
+        /// </summary>
+        public Vector4(global::Fl.Colour source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Vector4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor_1((__Instance + __PointerAdjustment), __arg0);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -1424,108 +5155,563 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Vector4 __dummy;
+            global::Fl.Vector4 __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Vector4 operator +(global::FlounderSharp.Vector4 left, float value)
+        /// <summary>
+        /// <para>Adds this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Add(global::Fl.Vector4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus(__arg0, value);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Add((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector4 operator -(global::FlounderSharp.Vector4 left, float value)
+        /// <summary>
+        /// <para>Subtracts this vector to another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Subtract(global::Fl.Vector4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus(__arg0, value);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Subtract((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector4 operator *(global::FlounderSharp.Vector4 left, float value)
+        /// <summary>
+        /// <para>Multiplies this vector with another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Multiply(global::Fl.Vector4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar(__arg0, value);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector4 operator /(global::FlounderSharp.Vector4 left, float value)
+        /// <summary>
+        /// <para>Divides this vector by another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Divide(global::Fl.Vector4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash(__arg0, value);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Divide((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Vector4 operator +(float value, global::FlounderSharp.Vector4 left)
+        /// <summary>
+        /// <para>Calculates the angle between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The angle, in radians.</para>
+        /// </summary>
+        public float Angle(global::Fl.Vector4 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorPlus_1(value, __arg1);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Angle((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
         }
 
-        public static global::FlounderSharp.Vector4 operator -(float value, global::FlounderSharp.Vector4 left)
+        /// <summary>
+        /// <para>Calculates the dot product of the this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The dot product.</para>
+        /// </summary>
+        public float Dot(global::Fl.Vector4 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorMinus_1(value, __arg1);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Dot((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
         }
 
-        public static global::FlounderSharp.Vector4 operator *(float value, global::FlounderSharp.Vector4 left)
+        /// <summary>
+        /// <para>Scales this vector by a scalar.</para>
+        /// <para></para>
+        /// <para>name=&quot;scalar&quot;&gt; The scalar value.</para>
+        /// <para>The scaled vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Scale(ref float scalar)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_1(value, __arg1);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Vector4 operator /(float value, global::FlounderSharp.Vector4 left)
-        {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_1(value, __arg1);
-            return global::FlounderSharp.Vector4.__CreateInstance(__ret);
-        }
-
-        public static global::FlounderSharp.Vector4 ZERO
-        {
-            get
+            fixed (float* __refParamPtr0 = &scalar)
             {
-                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector4@fl@@2V12@B");
-                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                var __ret = new global::Fl.Vector4.__Internal();
+                __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+                return global::Fl.Vector4.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Vector4 ONE
+        /// <summary>
+        /// <para>Negates this vector.</para>
+        /// <para></para>
+        /// <para>The negated vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Negate()
         {
-            get
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Negate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Normalizes this vector.</para>
+        /// <para></para>
+        /// <para>The normalized vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Normalize()
+        {
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Normalize((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gets the distance between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The squared distance.</para>
+        /// </summary>
+        public float DistanceSquared(global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.DistanceSquared((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Gets the between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The distance.</para>
+        /// </summary>
+        public float Distance(global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Distance((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Gets the vector distance between this vector and another vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The vector distance.</para>
+        /// </summary>
+        public global::Fl.Vector4 DistanceVector(global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.DistanceVector((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Gradually changes this vector to a target.</para>
+        /// <para></para>
+        /// <para>name=&quot;target&quot;&gt; The target vector.</para>
+        /// <para>name=&quot;rate&quot;&gt; The rate to go from current to the target.</para>
+        /// <para>The changed vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 SmoothDamp(global::Fl.Vector4 target, global::Fl.Vector4 rate)
+        {
+            if (ReferenceEquals(target, null))
+                throw new global::System.ArgumentNullException("target", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = target.__Instance;
+            if (ReferenceEquals(rate, null))
+                throw new global::System.ArgumentNullException("rate", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = rate.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.SmoothDamp((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static bool operator ==(global::Fl.Vector4 __op, global::Fl.Vector4 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Vector4;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Vector4.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Vector4 __op, global::Fl.Vector4 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <(global::Fl.Vector4 __op, global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLess(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <=(global::Fl.Vector4 __op, global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLessEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >(global::Fl.Vector4 __op, global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreater(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >=(global::Fl.Vector4 __op, global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreaterEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Vector4 __op, ref float value)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return __opNull && valueNull;
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector4@fl@@2V12@B");
-                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Vector4 POSITIVE_INFINITY
+        public static bool operator !=(global::Fl.Vector4 __op, ref float value)
         {
-            get
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return !(__opNull && valueNull);
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector4@fl@@2V12@B");
-                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Vector4 NEGATIVE_INFINITY
+        public static global::Fl.Vector4 operator -(global::Fl.Vector4 __op)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Vector4(global::Fl.Vector3 source)
+        {
+            return new global::Fl.Vector4(source);
+        }
+
+        public static implicit operator global::Fl.Vector4(global::Fl.Colour source)
+        {
+            return new global::Fl.Vector4(source);
+        }
+
+        public static global::Fl.Vector4 operator +(global::Fl.Vector4 left, global::Fl.Vector4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator -(global::Fl.Vector4 left, global::Fl.Vector4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator *(global::Fl.Vector4 left, global::Fl.Vector4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator /(global::Fl.Vector4 left, global::Fl.Vector4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator +(global::Fl.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator -(global::Fl.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator *(global::Fl.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator /(global::Fl.Vector4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator +(float value, global::Fl.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorPlus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator -(float value, global::Fl.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorMinus_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator *(float value, global::Fl.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorStar_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 operator /(float value, global::Fl.Vector4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.OperatorSlash_1(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Vector4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Vector4 ZERO
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector4@fl@@2V12@B");
-                return global::FlounderSharp.Vector4.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Vector4@fl@@2V12@B");
+                return global::Fl.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector4 ONE
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Vector4@fl@@2V12@B");
+                return global::Fl.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector4 POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Vector4@fl@@2V12@B");
+                return global::Fl.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Vector4 NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Vector4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Vector4@fl@@2V12@B");
+                return global::Fl.Vector4.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length squared of this vector.</para>
+        /// <para></para>
+        /// <para>The length squared.</para>
+        /// </summary>
+        public float LengthSquared
+        {
+            get
+            {
+                var __ret = __Internal.LengthSquared((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length of this vector.</para>
+        /// <para></para>
+        /// <para>The length.</para>
+        /// </summary>
+        public float Length
+        {
+            get
+            {
+                var __ret = __Internal.Length((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the maximum value in this vector.</para>
+        /// <para></para>
+        /// <para>The largest components.</para>
+        /// </summary>
+        public float MaxComponent
+        {
+            get
+            {
+                var __ret = __Internal.MaxComponent((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the lowest value in this vector.</para>
+        /// <para></para>
+        /// <para>The smallest components.</para>
+        /// </summary>
+        public float MinComponent
+        {
+            get
+            {
+                var __ret = __Internal.MinComponent((__Instance + __PointerAdjustment));
+                return __ret;
             }
         }
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>Holds a 4x4 matrix.</summary>
     public unsafe partial class Matrix4 : IDisposable
@@ -1534,42 +5720,229 @@ namespace FlounderSharp
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Matrix4._.__Internal _;
+            internal global::Fl.Matrix4._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Matrix4@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix4@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix4@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Matrix4@fl@@QEAA@QEBM@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float[] source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Matrix4@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Add@Matrix4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Add(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Subtract@Matrix4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Subtract(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Matrix4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Matrix4@fl@@QEBA?AVVector4@2@AEBV32@@Z")]
+            internal static extern void Multiply_1(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Divide@Matrix4@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Divide(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Transform@Matrix4@fl@@QEBA?AVVector4@2@AEBV32@@Z")]
+            internal static extern void Transform(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Translate@Matrix4@fl@@QEBA?AV12@AEBVVector2@2@@Z")]
+            internal static extern void Translate(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Translate@Matrix4@fl@@QEBA?AV12@AEBVVector3@2@@Z")]
+            internal static extern void Translate_1(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Matrix4@fl@@QEBA?AV12@AEBVVector3@2@@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Matrix4@fl@@QEBA?AV12@AEBVVector4@2@@Z")]
+            internal static extern void Scale_1(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Rotate@Matrix4@fl@@QEBA?AV12@AEBMAEBVVector3@2@@Z")]
+            internal static extern void Rotate(global::System.IntPtr instance, global::System.IntPtr @return, float* angle, global::System.IntPtr axis);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Negate@Matrix4@fl@@QEBA?AV12@XZ")]
+            internal static extern void Negate(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?TransformationMatrix@Matrix4@fl@@SA?AV12@AEBVVector3@2@00@Z")]
+            internal static extern void TransformationMatrix(global::System.IntPtr @return, global::System.IntPtr translation, global::System.IntPtr rotation, global::System.IntPtr scale);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?TransformationMatrix@Matrix4@fl@@SA?AV12@AEBVVector2@2@AEBM@Z")]
+            internal static extern void TransformationMatrix(global::System.IntPtr @return, global::System.IntPtr translation, float* scale);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?TransformationMatrix@Matrix4@fl@@SA?AV12@AEBVVector2@2@AEBVVector3@2@@Z")]
+            internal static extern void TransformationMatrix(global::System.IntPtr @return, global::System.IntPtr translation, global::System.IntPtr scale);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?TransformationMatrix@Matrix4@fl@@SA?AV12@AEBVVector3@2@0AEBM@Z")]
+            internal static extern void TransformationMatrix(global::System.IntPtr @return, global::System.IntPtr translation, global::System.IntPtr rotation, float* scale);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?PerspectiveMatrix@Matrix4@fl@@SA?AV12@AEBM000@Z")]
+            internal static extern void PerspectiveMatrix(global::System.IntPtr @return, float* fov, float* aspectRatio, float* zNear, float* zFar);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?OrthographicMatrix@Matrix4@fl@@SA?AV12@AEBM00000@Z")]
+            internal static extern void OrthographicMatrix(global::System.IntPtr @return, float* left, float* right, float* bottom, float* top, float* near, float* far);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ViewMatrix@Matrix4@fl@@SA?AV12@AEBVVector3@2@0@Z")]
+            internal static extern void ViewMatrix(global::System.IntPtr @return, global::System.IntPtr position, global::System.IntPtr rotation);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?WorldToScreenSpace@Matrix4@fl@@SA?AVVector3@2@AEBV32@AEBV12@1@Z")]
+            internal static extern void WorldToScreenSpace(global::System.IntPtr @return, global::System.IntPtr worldSpace, global::System.IntPtr viewMatrix, global::System.IntPtr projectionMatrix);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetZero@Matrix4@fl@@QEAA?AV12@XZ")]
+            internal static extern void SetZero(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetIdentity@Matrix4@fl@@QEAA?AV12@XZ")]
+            internal static extern void SetIdentity(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToArray@Matrix4@fl@@QEBAPEAMXZ")]
+            internal static extern float* ToArray(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Matrix4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Matrix4@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??GMatrix4@fl@@QEAA?AV01@XZ")]
+            internal static extern void OperatorMinus(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Matrix4@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Hfl@@YA?AVMatrix4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorPlus(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Gfl@@YA?AVMatrix4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorMinus(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVMatrix4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Kfl@@YA?AVMatrix4@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix4@0@V10@VVector4@0@@Z")]
-            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorStar(global::FlounderSharp.Matrix4.__Internal left, global::FlounderSharp.Vector4.__Internal value);
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, global::Fl.Vector4.__Internal value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix4@0@V10@VVector4@0@@Z")]
-            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorSlash(global::FlounderSharp.Matrix4.__Internal left, global::FlounderSharp.Vector4.__Internal value);
+            internal static extern void OperatorSlash(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, global::Fl.Vector4.__Internal value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix4@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorStar_1(global::FlounderSharp.Matrix4.__Internal left, float value);
+            internal static extern void OperatorStar_1(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix4@0@V10@M@Z")]
-            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorSlash_1(global::FlounderSharp.Matrix4.__Internal left, float value);
+            internal static extern void OperatorSlash_1(global::System.IntPtr @return, global::Fl.Matrix4.__Internal left, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVMatrix4@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorStar_2(float value, global::FlounderSharp.Matrix4.__Internal left);
+            internal static extern void OperatorStar_2(global::System.IntPtr @return, float value, global::Fl.Matrix4.__Internal left);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Kfl@@YA?AVMatrix4@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Matrix4.__Internal OperatorSlash_2(float value, global::FlounderSharp.Matrix4.__Internal left);
+            internal static extern void OperatorSlash_2(global::System.IntPtr @return, float value, global::Fl.Matrix4.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Invert@Matrix4@fl@@QEBA?AV12@XZ")]
+            internal static extern void Invert(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Transpose@Matrix4@fl@@QEBA?AV12@XZ")]
+            internal static extern void Transpose(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Determinant@Matrix4@fl@@QEBAMXZ")]
+            internal static extern float Determinant(global::System.IntPtr instance);
         }
 
         public unsafe partial struct _
@@ -1578,30 +5951,30 @@ namespace FlounderSharp
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix4._.__.__Internal __;
+                internal global::Fl.Matrix4._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix4._.__.__Internal __1;
+                internal global::Fl.Matrix4._.__.__Internal __1;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Matrix4._.__.__Internal __2;
+                internal global::Fl.Matrix4._.__.__Internal __2;
             }
 
             public unsafe partial class __
             {
-                [StructLayout(LayoutKind.Explicit, Size = 16)]
+                [StructLayout(LayoutKind.Explicit, Size = 32)]
                 public partial struct __Internal
                 {
                     [FieldOffset(0)]
                     internal global::System.IntPtr m_0;
 
-                    [FieldOffset(4)]
+                    [FieldOffset(8)]
                     internal global::System.IntPtr m_1;
 
-                    [FieldOffset(8)]
+                    [FieldOffset(16)]
                     internal global::System.IntPtr m_2;
 
-                    [FieldOffset(12)]
+                    [FieldOffset(24)]
                     internal global::System.IntPtr m_3;
                 }
             }
@@ -1610,29 +5983,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix4> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Matrix4>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Matrix4> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Matrix4>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Matrix4 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Matrix4 __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Matrix4(native.ToPointer(), skipVTables);
+            return new global::Fl.Matrix4(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Matrix4 __CreateInstance(global::FlounderSharp.Matrix4.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Matrix4 __CreateInstance(global::Fl.Matrix4.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Matrix4(native, skipVTables);
+            return new global::Fl.Matrix4(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Matrix4.__Internal native)
+        private static void* __CopyValue(global::Fl.Matrix4.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Matrix4.__Internal));
-            *(global::FlounderSharp.Matrix4.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix4.__Internal));
+            global::Fl.Matrix4.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Matrix4(global::FlounderSharp.Matrix4.__Internal native, bool skipVTables = false)
+        private Matrix4(global::Fl.Matrix4.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -1646,6 +6019,46 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for Matrix4. The matrix is initialised to the identity.</summary>
+        public Matrix4()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for Matrix4.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this matrix out of a existing one.</para>
+        /// </summary>
+        public Matrix4(global::Fl.Matrix4 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Matrix4.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this matrix out of a 16 element array.</para>
+        /// </summary>
+        public Matrix4(float[] source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Matrix4.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (source == null || source.Length != 16)
+                throw new ArgumentOutOfRangeException("source", "The dimensions of the provided array don't match the required size.");
+            __Internal.ctor((__Instance + __PointerAdjustment), source);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -1655,78 +6068,672 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Matrix4 __dummy;
+            global::Fl.Matrix4 __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Matrix4 operator *(global::FlounderSharp.Matrix4 left, global::FlounderSharp.Vector4 value)
+        /// <summary>
+        /// <para>Adds this matrix to another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Add(global::Fl.Matrix4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
-            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) value.__Instance;
-            var __ret = __Internal.OperatorStar(__arg0, __arg1);
-            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Add((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix4 operator /(global::FlounderSharp.Matrix4 left, global::FlounderSharp.Vector4 value)
+        /// <summary>
+        /// <para>Subtracts this matrix to another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Subtract(global::Fl.Matrix4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
-            var __arg1 = ReferenceEquals(value, null) ? new global::FlounderSharp.Vector4.__Internal() : *(global::FlounderSharp.Vector4.__Internal*) value.__Instance;
-            var __ret = __Internal.OperatorSlash(__arg0, __arg1);
-            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Subtract((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix4 operator *(global::FlounderSharp.Matrix4 left, float value)
+        /// <summary>
+        /// <para>Multiplies this matrix by another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Multiply(global::Fl.Matrix4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_1(__arg0, value);
-            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix4 operator /(global::FlounderSharp.Matrix4 left, float value)
+        /// <summary>
+        /// <para>Multiplies this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Multiply(global::Fl.Vector4 other)
         {
-            var __arg0 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_1(__arg0, value);
-            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Multiply_1((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix4 operator *(float value, global::FlounderSharp.Matrix4 left)
+        /// <summary>
+        /// <para>Divides this matrix by another matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other matrix.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Divide(global::Fl.Matrix4 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar_2(value, __arg1);
-            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Divide((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix4 operator /(float value, global::FlounderSharp.Matrix4 left)
+        /// <summary>
+        /// <para>Transforms this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant vector.</para>
+        /// </summary>
+        public global::Fl.Vector4 Transform(global::Fl.Vector4 other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Matrix4.__Internal() : *(global::FlounderSharp.Matrix4.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorSlash_2(value, __arg1);
-            return global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Vector4.__Internal();
+            __Internal.Transform((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Vector4.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Matrix4 IDENTITY
+        /// <summary>
+        /// <para>Translates this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The vector.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Translate(global::Fl.Vector2 other)
         {
-            get
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Translate((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Translates this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The vector.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Translate(global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Translate_1((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Scales this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Scale(global::Fl.Vector3 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Scales this matrix by a vector.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other vector.</para>
+        /// <para>The resultant matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Scale(global::Fl.Vector4 other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Scale_1((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Rotates this matrix around the given axis the specified angle.</para>
+        /// <para></para>
+        /// <para>name=&quot;angle&quot;&gt; the angle, in radians.</para>
+        /// <para>name=&quot;axis&quot;&gt; The vector representing the rotation axis.</para>
+        /// <para>The rotated matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Rotate(ref float angle, global::Fl.Vector3 axis)
+        {
+            fixed (float* __refParamPtr0 = &angle)
             {
-                var __ptr = (global::FlounderSharp.Matrix4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix4@fl@@2V12@B");
-                return global::FlounderSharp.Matrix4.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                if (ReferenceEquals(axis, null))
+                    throw new global::System.ArgumentNullException("axis", "Cannot be null because it is a C++ reference (&).");
+                var __arg1 = axis.__Instance;
+                var __ret = new global::Fl.Matrix4.__Internal();
+                __Internal.Rotate((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+                return global::Fl.Matrix4.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Matrix4 ZERO
+        /// <summary>
+        /// <para>Inverts this matrix.</para>
+        /// <para></para>
+        /// <para>The inverted matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Negate()
+        {
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.Negate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Sets this matrix to 0.</para>
+        /// <para></para>
+        /// <para>The identity matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 SetZero()
+        {
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.SetZero((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Sets this matrix to be the identity matrix.</para>
+        /// <para></para>
+        /// <para>The identity matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 SetIdentity()
+        {
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.SetIdentity((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Turns this 4x4 matrix into an array.</para>
+        /// <para></para>
+        /// <para>A 16 float array.</para>
+        /// </summary>
+        public float* ToArray()
+        {
+            var __ret = __Internal.ToArray((__Instance + __PointerAdjustment));
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Matrix4 __op, global::Fl.Matrix4 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Matrix4;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Matrix4.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Matrix4 __op, global::Fl.Matrix4 other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static global::Fl.Matrix4 operator -(global::Fl.Matrix4 __op)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Matrix4(float[] source)
+        {
+            return new global::Fl.Matrix4(source);
+        }
+
+        /// <summary>
+        /// <para>Creates a new transformation matrix for a object in 3d space.</para>
+        /// <para></para>
+        /// <para>name=&quot;translation&quot;&gt; Translation amount the XYZ.</para>
+        /// <para>name=&quot;rotation&quot;&gt; Rotation amount the XYZ.</para>
+        /// <para>name=&quot;scale&quot;&gt; How much to scale the matrix.</para>
+        /// <para>Returns the transformation matrix.</para>
+        /// </summary>
+        public static global::Fl.Matrix4 TransformationMatrix(global::Fl.Vector3 translation, global::Fl.Vector3 rotation, global::Fl.Vector3 scale)
+        {
+            if (ReferenceEquals(translation, null))
+                throw new global::System.ArgumentNullException("translation", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = translation.__Instance;
+            if (ReferenceEquals(rotation, null))
+                throw new global::System.ArgumentNullException("rotation", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = rotation.__Instance;
+            if (ReferenceEquals(scale, null))
+                throw new global::System.ArgumentNullException("scale", "Cannot be null because it is a C++ reference (&).");
+            var __arg2 = scale.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.TransformationMatrix(new IntPtr(&__ret), __arg0, __arg1, __arg2);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Creates a new transformation matrix for a object in 2d space.</para>
+        /// <para></para>
+        /// <para>name=&quot;translation&quot;&gt; Translation amount the XY.</para>
+        /// <para>name=&quot;scale&quot;&gt; How much to scale the matrix.</para>
+        /// <para>Returns the transformation matrix.</para>
+        /// </summary>
+        public static global::Fl.Matrix4 TransformationMatrix(global::Fl.Vector2 translation, ref float scale)
+        {
+            if (ReferenceEquals(translation, null))
+                throw new global::System.ArgumentNullException("translation", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = translation.__Instance;
+            fixed (float* __refParamPtr1 = &scale)
+            {
+                var __arg1 = __refParamPtr1;
+                var __ret = new global::Fl.Matrix4.__Internal();
+                __Internal.TransformationMatrix(new IntPtr(&__ret), __arg0, __arg1);
+                return global::Fl.Matrix4.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Creates a new transformation matrix for a object in 2d space.</para>
+        /// <para></para>
+        /// <para>name=&quot;translation&quot;&gt; Translation amount the XY.</para>
+        /// <para>name=&quot;scale&quot;&gt; How much to scale the matrix.</para>
+        /// <para>Returns the transformation matrix.</para>
+        /// </summary>
+        public static global::Fl.Matrix4 TransformationMatrix(global::Fl.Vector2 translation, global::Fl.Vector3 scale)
+        {
+            if (ReferenceEquals(translation, null))
+                throw new global::System.ArgumentNullException("translation", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = translation.__Instance;
+            if (ReferenceEquals(scale, null))
+                throw new global::System.ArgumentNullException("scale", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = scale.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.TransformationMatrix(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Creates a new transformation matrix for a object in 3d space.</para>
+        /// <para></para>
+        /// <para>name=&quot;translation&quot;&gt; Translation amount the XYZ.</para>
+        /// <para>name=&quot;rotation&quot;&gt; Rotation amount the XYZ.</para>
+        /// <para>name=&quot;scale&quot;&gt; How much to scale the matrix.</para>
+        /// <para>Returns the transformation matrix.</para>
+        /// </summary>
+        public static global::Fl.Matrix4 TransformationMatrix(global::Fl.Vector3 translation, global::Fl.Vector3 rotation, ref float scale)
+        {
+            if (ReferenceEquals(translation, null))
+                throw new global::System.ArgumentNullException("translation", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = translation.__Instance;
+            if (ReferenceEquals(rotation, null))
+                throw new global::System.ArgumentNullException("rotation", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = rotation.__Instance;
+            fixed (float* __refParamPtr2 = &scale)
+            {
+                var __arg2 = __refParamPtr2;
+                var __ret = new global::Fl.Matrix4.__Internal();
+                __Internal.TransformationMatrix(new IntPtr(&__ret), __arg0, __arg1, __arg2);
+                return global::Fl.Matrix4.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Creates a new perspective matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;fov&quot;&gt; The cameras FOV.</para>
+        /// <para>name=&quot;aspectRatio&quot;&gt; The cameras aspect ratio.</para>
+        /// <para>name=&quot;zNear&quot;&gt; The cameras near plane.</para>
+        /// <para>name=&quot;zFar&quot;&gt; The cameras far plane.</para>
+        /// <para>The transformation matrix.</para>
+        /// </summary>
+        public static global::Fl.Matrix4 PerspectiveMatrix(ref float fov, ref float aspectRatio, ref float zNear, ref float zFar)
+        {
+            fixed (float* __refParamPtr0 = &fov)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &aspectRatio)
+                {
+                    var __arg1 = __refParamPtr1;
+                    fixed (float* __refParamPtr2 = &zNear)
+                    {
+                        var __arg2 = __refParamPtr2;
+                        fixed (float* __refParamPtr3 = &zFar)
+                        {
+                            var __arg3 = __refParamPtr3;
+                            var __ret = new global::Fl.Matrix4.__Internal();
+                            __Internal.PerspectiveMatrix(new IntPtr(&__ret), __arg0, __arg1, __arg2, __arg3);
+                            return global::Fl.Matrix4.__CreateInstance(__ret);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Creates a new orthographic matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;left&quot;&gt; The left plane.</para>
+        /// <para>name=&quot;right&quot;&gt; The right plane.</para>
+        /// <para>name=&quot;bottom&quot;&gt; The bottom plane.</para>
+        /// <para>name=&quot;top&quot;&gt; The top plane.</para>
+        /// <para>name=&quot;near&quot;&gt; The near plane.</para>
+        /// <para>name=&quot;far&quot;&gt; The far plane.</para>
+        /// <para>name=&quot;destination&quot;&gt; The destination matrix or nullptr if a new matrix is to be created.</para>
+        /// <para>The transformation matrix.</para>
+        /// </summary>
+        public static global::Fl.Matrix4 OrthographicMatrix(ref float left, ref float right, ref float bottom, ref float top, ref float near, ref float far)
+        {
+            fixed (float* __refParamPtr0 = &left)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &right)
+                {
+                    var __arg1 = __refParamPtr1;
+                    fixed (float* __refParamPtr2 = &bottom)
+                    {
+                        var __arg2 = __refParamPtr2;
+                        fixed (float* __refParamPtr3 = &top)
+                        {
+                            var __arg3 = __refParamPtr3;
+                            fixed (float* __refParamPtr4 = &near)
+                            {
+                                var __arg4 = __refParamPtr4;
+                                fixed (float* __refParamPtr5 = &far)
+                                {
+                                    var __arg5 = __refParamPtr5;
+                                    var __ret = new global::Fl.Matrix4.__Internal();
+                                    __Internal.OrthographicMatrix(new IntPtr(&__ret), __arg0, __arg1, __arg2, __arg3, __arg4, __arg5);
+                                    return global::Fl.Matrix4.__CreateInstance(__ret);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Creates a new view matrix.</para>
+        /// <para></para>
+        /// <para>name=&quot;position&quot;&gt; The cameras position.</para>
+        /// <para>name=&quot;rotation&quot;&gt; The cameras rotation.</para>
+        /// <para>The transformation matrix.</para>
+        /// </summary>
+        public static global::Fl.Matrix4 ViewMatrix(global::Fl.Vector3 position, global::Fl.Vector3 rotation)
+        {
+            if (ReferenceEquals(position, null))
+                throw new global::System.ArgumentNullException("position", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = position.__Instance;
+            if (ReferenceEquals(rotation, null))
+                throw new global::System.ArgumentNullException("rotation", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = rotation.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.ViewMatrix(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Transforms a 3D world point into screen space.</para>
+        /// <para></para>
+        /// <para>name=&quot;worldSpace&quot;&gt; The point to get into screen space.</para>
+        /// <para>name=&quot;viewMatrix&quot;&gt; The cameras view matrix.</para>
+        /// <para>name=&quot;projectionMatrix&quot;&gt; The cameras projection matrix.</para>
+        /// <para>A 2D point stored in XY, and the distance (Z, if negative the point is behind the screen).</para>
+        /// </summary>
+        public static global::Fl.Vector3 WorldToScreenSpace(global::Fl.Vector3 worldSpace, global::Fl.Matrix4 viewMatrix, global::Fl.Matrix4 projectionMatrix)
+        {
+            if (ReferenceEquals(worldSpace, null))
+                throw new global::System.ArgumentNullException("worldSpace", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = worldSpace.__Instance;
+            if (ReferenceEquals(viewMatrix, null))
+                throw new global::System.ArgumentNullException("viewMatrix", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = viewMatrix.__Instance;
+            if (ReferenceEquals(projectionMatrix, null))
+                throw new global::System.ArgumentNullException("projectionMatrix", "Cannot be null because it is a C++ reference (&).");
+            var __arg2 = projectionMatrix.__Instance;
+            var __ret = new global::Fl.Vector3.__Internal();
+            __Internal.WorldToScreenSpace(new IntPtr(&__ret), __arg0, __arg1, __arg2);
+            return global::Fl.Vector3.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator +(global::Fl.Matrix4 left, global::Fl.Matrix4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorPlus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator -(global::Fl.Matrix4 left, global::Fl.Matrix4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorMinus(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator *(global::Fl.Matrix4 left, global::Fl.Matrix4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator /(global::Fl.Matrix4 left, global::Fl.Matrix4 right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator *(global::Fl.Matrix4 left, global::Fl.Vector4 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) value.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator /(global::Fl.Matrix4 left, global::Fl.Vector4 value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            var __arg1 = ReferenceEquals(value, null) ? new global::Fl.Vector4.__Internal() : *(global::Fl.Vector4.__Internal*) value.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorSlash(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator *(global::Fl.Matrix4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorStar_1(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator /(global::Fl.Matrix4 left, float value)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorSlash_1(new IntPtr(&__ret), __arg0, value);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator *(float value, global::Fl.Matrix4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorStar_2(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 operator /(float value, global::Fl.Matrix4 left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Matrix4.__Internal() : *(global::Fl.Matrix4.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.OperatorSlash_2(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Matrix4 IDENTITY
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Matrix4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix4@fl@@2V12@B");
-                return global::FlounderSharp.Matrix4.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Matrix4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?IDENTITY@Matrix4@fl@@2V12@B");
+                return global::Fl.Matrix4.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Matrix4 ZERO
+        {
+            get
+            {
+                var __ptr = (global::Fl.Matrix4.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Matrix4@fl@@2V12@B");
+                return global::Fl.Matrix4.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Negates this matrix.</para>
+        /// <para></para>
+        /// <para>The negated matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Invert
+        {
+            get
+            {
+                var __ret = new global::Fl.Matrix4.__Internal();
+                __Internal.Invert((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Matrix4.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Transposes this matrix.</para>
+        /// <para></para>
+        /// <para>The transposed matrix.</para>
+        /// </summary>
+        public global::Fl.Matrix4 Transpose
+        {
+            get
+            {
+                var __ret = new global::Fl.Matrix4.__Internal();
+                __Internal.Transpose((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::Fl.Matrix4.__CreateInstance(__ret);
+            }
+        }
+
+        /// <summary>
+        /// <para>Takes the determinant of this matrix.</para>
+        /// <para></para>
+        /// <para>The determinant.</para>
+        /// </summary>
+        public float Determinant
+        {
+            get
+            {
+                var __ret = __Internal.Determinant((__Instance + __PointerAdjustment));
+                return __ret;
             }
         }
     }
 }
 
-namespace FlounderSharp
+namespace Fl
 {
     /// <summary>A vector like object of the form w + xi + yj + zk, where w, x, y, z are real numbers and i, j, k are imaginary units.</summary>
     public unsafe partial class Quaternion : IDisposable
@@ -1735,17 +6742,170 @@ namespace FlounderSharp
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::FlounderSharp.Quaternion._.__Internal _;
+            internal global::Fl.Quaternion._.__Internal _;
 
             [SuppressUnmanagedCodeSecurity]
-            [DllImport("FlounderSharp", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.ThisCall,
-                EntryPoint="??1Quaternion@fl@@QAE@XZ")]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Quaternion@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Quaternion@fl@@QEAA@AEBM000@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float* x, float* y, float* z, float* w);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Quaternion@fl@@QEAA@AEBVVector4@1@@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Quaternion@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor_1(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Quaternion@fl@@QEAA@AEBVMatrix4@1@@Z")]
+            internal static extern global::System.IntPtr ctor_2(global::System.IntPtr instance, global::System.IntPtr source);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Quaternion@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Multiply@Quaternion@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void Multiply(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MultiplyInverse@Quaternion@fl@@QEBA?AV12@AEBV12@@Z")]
+            internal static extern void MultiplyInverse(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Dot@Quaternion@fl@@QEBAMAEBV12@@Z")]
+            internal static extern float Dot(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Slerp@Quaternion@fl@@QEAA?AV12@AEBV12@AEBM@Z")]
+            internal static extern void Slerp(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other, float* progression);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Scale@Quaternion@fl@@QEBA?AV12@AEBM@Z")]
+            internal static extern void Scale(global::System.IntPtr instance, global::System.IntPtr @return, float* scalar);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Negate@Quaternion@fl@@QEBA?AV12@XZ")]
+            internal static extern void Negate(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Normalize@Quaternion@fl@@QEBA?AV12@XZ")]
+            internal static extern void Normalize(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToMatrix@Quaternion@fl@@QEAA?AVMatrix4@2@XZ")]
+            internal static extern void ToMatrix(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToRotationMatrix@Quaternion@fl@@QEAA?AVMatrix4@2@XZ")]
+            internal static extern void ToRotationMatrix(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Quaternion@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Quaternion@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??MQuaternion@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLess(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??NQuaternion@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorLessEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??OQuaternion@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreater(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??PQuaternion@fl@@QEBA_NAEBV01@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorGreaterEqual(global::System.IntPtr instance, global::System.IntPtr other);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??8Quaternion@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorEqualEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??9Quaternion@fl@@QEBA_NAEBM@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool OperatorExclaimEqual(global::System.IntPtr instance, float* value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??GQuaternion@fl@@QEAA?AV01@XZ")]
+            internal static extern void OperatorMinus(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?ToString@Quaternion@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void ToString(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??Dfl@@YA?AVQuaternion@0@V10@AEBV10@@Z")]
+            internal static extern void OperatorStar(global::System.IntPtr @return, global::Fl.Quaternion.__Internal left, global::System.IntPtr right);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??Dfl@@YA?AVQuaternion@0@MV10@@Z")]
-            internal static extern global::FlounderSharp.Quaternion.__Internal OperatorStar(float value, global::FlounderSharp.Quaternion.__Internal left);
+            internal static extern void OperatorStar(global::System.IntPtr @return, float value, global::Fl.Quaternion.__Internal left);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LengthSquared@Quaternion@fl@@QEBAMXZ")]
+            internal static extern float LengthSquared(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Length@Quaternion@fl@@QEBAMXZ")]
+            internal static extern float Length(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MaxComponent@Quaternion@fl@@QEBAMXZ")]
+            internal static extern float MaxComponent(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?MinComponent@Quaternion@fl@@QEBAMXZ")]
+            internal static extern float MinComponent(global::System.IntPtr instance);
         }
 
         public unsafe partial struct _
@@ -1754,10 +6914,10 @@ namespace FlounderSharp
             public partial struct __Internal
             {
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Quaternion._.__.__Internal __;
+                internal global::Fl.Quaternion._.__.__Internal __;
 
                 [FieldOffset(0)]
-                internal global::FlounderSharp.Quaternion._.__.__Internal __1;
+                internal global::Fl.Quaternion._.__.__Internal __1;
             }
 
             public unsafe partial class __
@@ -1783,29 +6943,29 @@ namespace FlounderSharp
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Quaternion> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Quaternion>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Quaternion> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::Fl.Quaternion>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.Quaternion __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::Fl.Quaternion __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Quaternion(native.ToPointer(), skipVTables);
+            return new global::Fl.Quaternion(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Quaternion __CreateInstance(global::FlounderSharp.Quaternion.__Internal native, bool skipVTables = false)
+        internal static global::Fl.Quaternion __CreateInstance(global::Fl.Quaternion.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.Quaternion(native, skipVTables);
+            return new global::Fl.Quaternion(native, skipVTables);
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Quaternion.__Internal native)
+        private static void* __CopyValue(global::Fl.Quaternion.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Quaternion.__Internal));
-            *(global::FlounderSharp.Quaternion.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::Fl.Quaternion.__Internal));
+            global::Fl.Quaternion.__Internal.cctor_1(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        private Quaternion(global::FlounderSharp.Quaternion.__Internal native, bool skipVTables = false)
+        private Quaternion(global::Fl.Quaternion.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
@@ -1819,6 +6979,95 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
+        /// <summary>Constructor for Quaternion.</summary>
+        public Quaternion()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Quaternion.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>
+        /// <para>Constructor for Quaternion.</para>
+        /// <para></para>
+        /// <para>name=&quot;x&quot;&gt; Start x.</para>
+        /// <para>name=&quot;y&quot;&gt; Start y.</para>
+        /// <para>name=&quot;z&quot;&gt; Start z.</para>
+        /// <para>name=&quot;w&quot;&gt; Start w.</para>
+        /// </summary>
+        public Quaternion(ref float x, ref float y, ref float z, ref float w)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Quaternion.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            fixed (float* __refParamPtr0 = &x)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &y)
+                {
+                    var __arg1 = __refParamPtr1;
+                    fixed (float* __refParamPtr2 = &z)
+                    {
+                        var __arg2 = __refParamPtr2;
+                        fixed (float* __refParamPtr3 = &w)
+                        {
+                            var __arg3 = __refParamPtr3;
+                            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2, __arg3);
+                        }
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// <para>Constructor for Quaternion.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this quaternion out of a existing vector.&gt;</para>
+        /// </summary>
+        public Quaternion(global::Fl.Vector4 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Quaternion.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Quaternion.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing one.</para>
+        /// </summary>
+        public Quaternion(global::Fl.Quaternion source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Quaternion.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.cctor_1((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>
+        /// <para>Constructor for Quaternion.</para>
+        /// <para></para>
+        /// <para>name=&quot;source&quot;&gt; Creates this vector out of a existing matrix.</para>
+        /// </summary>
+        public Quaternion(global::Fl.Matrix4 source)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::Fl.Quaternion.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(source, null))
+                throw new global::System.ArgumentNullException("source", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = source.__Instance;
+            __Internal.ctor_2((__Instance + __PointerAdjustment), __arg0);
+        }
+
         public void Dispose()
         {
             Dispose(disposing: true);
@@ -1828,53 +7077,403 @@ namespace FlounderSharp
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.Quaternion __dummy;
+            global::Fl.Quaternion __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
         }
 
-        public static global::FlounderSharp.Quaternion operator *(float value, global::FlounderSharp.Quaternion left)
+        /// <summary>
+        /// <para>Sets the value of this quaternion to the quaternion product of quaternions left and right (this = left * right). Note that this is safe for aliasing (e.g. this can be left or right).</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other quaternion.</para>
+        /// <para>The resultant quaternion.</para>
+        /// </summary>
+        public global::Fl.Quaternion Multiply(global::Fl.Quaternion other)
         {
-            var __arg1 = ReferenceEquals(left, null) ? new global::FlounderSharp.Quaternion.__Internal() : *(global::FlounderSharp.Quaternion.__Internal*) left.__Instance;
-            var __ret = __Internal.OperatorStar(value, __arg1);
-            return global::FlounderSharp.Quaternion.__CreateInstance(__ret);
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Quaternion.__Internal();
+            __Internal.Multiply((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Quaternion.__CreateInstance(__ret);
         }
 
-        public static global::FlounderSharp.Quaternion ZERO
+        /// <summary>
+        /// <para>Multiplies quaternion left by the inverse of quaternion right and places the value into this quaternion. The value of both argument quaternions is persevered (this = left * right^-1).</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other quaternion.</para>
+        /// <para>The resultant quaternion.</para>
+        /// </summary>
+        public global::Fl.Quaternion MultiplyInverse(global::Fl.Quaternion other)
         {
-            get
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = new global::Fl.Quaternion.__Internal();
+            __Internal.MultiplyInverse((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+            return global::Fl.Quaternion.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Calculates the dot product of the this quaternion and another quaternion.</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other quaternion.</para>
+        /// <para>The dot product.</para>
+        /// </summary>
+        public float Dot(global::Fl.Quaternion other)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            var __ret = __Internal.Dot((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>
+        /// <para>Calculates the slerp between this quaternion and another quaternion, they must be normalized!</para>
+        /// <para></para>
+        /// <para>name=&quot;other&quot;&gt; The other quaternion.</para>
+        /// <para>name=&quot;progression&quot;&gt; The progression.</para>
+        /// <para>Left slerp right.</para>
+        /// </summary>
+        public global::Fl.Quaternion Slerp(global::Fl.Quaternion other, ref float progression)
+        {
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = other.__Instance;
+            fixed (float* __refParamPtr1 = &progression)
             {
-                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Quaternion@fl@@2V12@B");
-                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = new global::Fl.Quaternion.__Internal();
+                __Internal.Slerp((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+                return global::Fl.Quaternion.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Quaternion ONE
+        /// <summary>
+        /// <para>Scales this quaternion by a scalar.</para>
+        /// <para></para>
+        /// <para>name=&quot;scalar&quot;&gt; The scalar value.</para>
+        /// <para>The scaled quaternion.</para>
+        /// </summary>
+        public global::Fl.Quaternion Scale(ref float scalar)
         {
-            get
+            fixed (float* __refParamPtr0 = &scalar)
             {
-                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Quaternion@fl@@2V12@B");
-                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
+                var __arg0 = __refParamPtr0;
+                var __ret = new global::Fl.Quaternion.__Internal();
+                __Internal.Scale((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
+                return global::Fl.Quaternion.__CreateInstance(__ret);
             }
         }
 
-        public static global::FlounderSharp.Quaternion POSITIVE_INFINITY
+        /// <summary>
+        /// <para>Negates this quaternion.</para>
+        /// <para></para>
+        /// <para>The negated quaternion.</para>
+        /// </summary>
+        public global::Fl.Quaternion Negate()
         {
-            get
+            var __ret = new global::Fl.Quaternion.__Internal();
+            __Internal.Negate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Quaternion.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Normalizes this quaternion.</para>
+        /// <para></para>
+        /// <para>The normalized quaternion.</para>
+        /// </summary>
+        public global::Fl.Quaternion Normalize()
+        {
+            var __ret = new global::Fl.Quaternion.__Internal();
+            __Internal.Normalize((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Quaternion.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Converts this quaternion to a 4x4 matrix.</para>
+        /// <para></para>
+        /// <para>The rotation matrix which represents the exact same rotation as this quaternion.</para>
+        /// </summary>
+        public global::Fl.Matrix4 ToMatrix()
+        {
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.ToMatrix((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        /// <summary>
+        /// <para>Converts this quaternion to a 4x4 matrix representing the exact same</para>
+        /// <para>rotation as this quaternion. (The rotation is only contained in the</para>
+        /// <para>top-left 3x3 part, but a 4x4 matrix is returned here for convenience</para>
+        /// <para>seeing as it will be multiplied with other 4x4 matrices).</para>
+        /// <para></para>
+        /// <para>The rotation matrix which represents the exact same rotation as this quaternion.</para>
+        /// </summary>
+        public global::Fl.Matrix4 ToRotationMatrix()
+        {
+            var __ret = new global::Fl.Matrix4.__Internal();
+            __Internal.ToRotationMatrix((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            return global::Fl.Matrix4.__CreateInstance(__ret);
+        }
+
+        public static bool operator ==(global::Fl.Quaternion __op, global::Fl.Quaternion other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return __opNull && otherNull;
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return this == obj as global::Fl.Quaternion;
+        }
+
+        public override int GetHashCode()
+        {
+            if (__Instance == global::System.IntPtr.Zero)
+                return global::System.IntPtr.Zero.GetHashCode();
+            return (*(global::Fl.Quaternion.__Internal*) __Instance).GetHashCode();
+        }
+
+        public static bool operator !=(global::Fl.Quaternion __op, global::Fl.Quaternion other)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool otherNull = ReferenceEquals(other, null);
+            if (__opNull || otherNull)
+                return !(__opNull && otherNull);
+            var __arg0 = __op.__Instance;
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <(global::Fl.Quaternion __op, global::Fl.Quaternion other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLess(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator <=(global::Fl.Quaternion __op, global::Fl.Quaternion other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorLessEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >(global::Fl.Quaternion __op, global::Fl.Quaternion other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreater(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator >=(global::Fl.Quaternion __op, global::Fl.Quaternion other)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            if (ReferenceEquals(other, null))
+                throw new global::System.ArgumentNullException("other", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = other.__Instance;
+            var __ret = __Internal.OperatorGreaterEqual(__arg0, __arg1);
+            return __ret;
+        }
+
+        public static bool operator ==(global::Fl.Quaternion __op, ref float value)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return __opNull && valueNull;
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
             {
-                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Quaternion@fl@@2V12@B");
-                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorEqualEqual(__arg0, __arg1);
+                return __ret;
             }
         }
 
-        public static global::FlounderSharp.Quaternion NEGATIVE_INFINITY
+        public static bool operator !=(global::Fl.Quaternion __op, ref float value)
+        {
+            bool __opNull = ReferenceEquals(__op, null);
+            bool valueNull = ReferenceEquals(value, null);
+            if (__opNull || valueNull)
+                return !(__opNull && valueNull);
+            var __arg0 = __op.__Instance;
+            fixed (float* __refParamPtr1 = &value)
+            {
+                var __arg1 = __refParamPtr1;
+                var __ret = __Internal.OperatorExclaimEqual(__arg0, __arg1);
+                return __ret;
+            }
+        }
+
+        public static global::Fl.Quaternion operator -(global::Fl.Quaternion __op)
+        {
+            if (ReferenceEquals(__op, null))
+                throw new global::System.ArgumentNullException("__op", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = __op.__Instance;
+            var __ret = new global::Fl.Quaternion.__Internal();
+            __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
+            return global::Fl.Quaternion.__CreateInstance(__ret);
+        }
+
+        public string ToString()
+        {
+            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+            __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+            __basicStringRet.Dispose(false);
+            return __stringRet;
+        }
+
+        public static implicit operator global::Fl.Quaternion(global::Fl.Vector4 source)
+        {
+            return new global::Fl.Quaternion(source);
+        }
+
+        public static implicit operator global::Fl.Quaternion(global::Fl.Matrix4 source)
+        {
+            return new global::Fl.Quaternion(source);
+        }
+
+        public static global::Fl.Quaternion operator *(global::Fl.Quaternion left, global::Fl.Quaternion right)
+        {
+            var __arg0 = ReferenceEquals(left, null) ? new global::Fl.Quaternion.__Internal() : *(global::Fl.Quaternion.__Internal*) left.__Instance;
+            if (ReferenceEquals(right, null))
+                throw new global::System.ArgumentNullException("right", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = right.__Instance;
+            var __ret = new global::Fl.Quaternion.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), __arg0, __arg1);
+            return global::Fl.Quaternion.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Quaternion operator *(float value, global::Fl.Quaternion left)
+        {
+            var __arg1 = ReferenceEquals(left, null) ? new global::Fl.Quaternion.__Internal() : *(global::Fl.Quaternion.__Internal*) left.__Instance;
+            var __ret = new global::Fl.Quaternion.__Internal();
+            __Internal.OperatorStar(new IntPtr(&__ret), value, __arg1);
+            return global::Fl.Quaternion.__CreateInstance(__ret);
+        }
+
+        public static global::Fl.Quaternion ZERO
         {
             get
             {
-                var __ptr = (global::FlounderSharp.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Quaternion@fl@@2V12@B");
-                return global::FlounderSharp.Quaternion.__CreateInstance(*__ptr);
+                var __ptr = (global::Fl.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ZERO@Quaternion@fl@@2V12@B");
+                return global::Fl.Quaternion.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Quaternion ONE
+        {
+            get
+            {
+                var __ptr = (global::Fl.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?ONE@Quaternion@fl@@2V12@B");
+                return global::Fl.Quaternion.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Quaternion POSITIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?POSITIVE_INFINITY@Quaternion@fl@@2V12@B");
+                return global::Fl.Quaternion.__CreateInstance(*__ptr);
+            }
+        }
+
+        public static global::Fl.Quaternion NEGATIVE_INFINITY
+        {
+            get
+            {
+                var __ptr = (global::Fl.Quaternion.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?NEGATIVE_INFINITY@Quaternion@fl@@2V12@B");
+                return global::Fl.Quaternion.__CreateInstance(*__ptr);
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length squared of this quaternion.</para>
+        /// <para></para>
+        /// <para>The length squared.</para>
+        /// </summary>
+        public float LengthSquared
+        {
+            get
+            {
+                var __ret = __Internal.LengthSquared((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the length of this quaternion.</para>
+        /// <para></para>
+        /// <para>The length.</para>
+        /// </summary>
+        public float Length
+        {
+            get
+            {
+                var __ret = __Internal.Length((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the maximum value in this quaternion.</para>
+        /// <para></para>
+        /// <para>The largest components.</para>
+        /// </summary>
+        public float MaxComponent
+        {
+            get
+            {
+                var __ret = __Internal.MaxComponent((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>
+        /// <para>Gets the lowest value in this quaternion.</para>
+        /// <para></para>
+        /// <para>The smallest components.</para>
+        /// </summary>
+        public float MinComponent
+        {
+            get
+            {
+                var __ret = __Internal.MinComponent((__Instance + __PointerAdjustment));
+                return __ret;
             }
         }
     }
