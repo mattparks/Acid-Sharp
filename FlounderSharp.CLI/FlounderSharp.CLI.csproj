@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library.cs" />
+    <Compile Include="NamespacePair.cs" />
     <Compile Include="PassCommentsFix.cs" />
     <Compile Include="PassObjectNamesFix.cs" />
     <Compile Include="PassOutParamsFix.cs" />

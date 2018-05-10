@@ -12,13 +12,14 @@ namespace FlounderSharp.CLI
         private readonly Regex m_rx = new Regex(@"///(?<text>.*)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
         private readonly XDocument m_document;
         private readonly XElement m_root;
+        private string _libraryName;
 
         public XDocument Document
         {
             get { return m_document; }
         }
 
-        public PassXmlTranslation()
+        public PassXmlTranslation(string libraryName)
         {
             m_document = new XDocument
             {
@@ -26,6 +27,7 @@ namespace FlounderSharp.CLI
             };
             m_root = new XElement("Definitions");
             m_document.Add(m_root);
+            _libraryName = libraryName;
         }
 
         public override bool VisitFunctionDecl(Function decl)
@@ -35,12 +37,12 @@ namespace FlounderSharp.CLI
                 return false;
             }
 
-            if (ASTUtils.CheckIgnoreFunction(decl)) // , Options
+            if (ASTUtils.CheckIgnoreFunction(decl))
             {
                 return false;
             }
 
-            if (decl.TranslationUnit.Module.LibraryName != "Testing")
+            if (decl.TranslationUnit.Module.LibraryName != _libraryName)
             {
                 return false;
             }
@@ -50,32 +52,12 @@ namespace FlounderSharp.CLI
                 return false;
             }
             
-            //if (!decl.TranslationUnit.FileName.StartsWith("Flounder"))
-            //{
-            //    return false;
-            //}
-
-            // Skip TTD functions for now.
-            if (decl.Name.StartsWith("JsTTD"))
-            {
-                return false;
-            }
-
+            // Export Elements.
             var exportElement = new XElement("Export");
             exportElement.SetAttributeValue("name", decl.Name);
             exportElement.SetAttributeValue("target", "Common");
             exportElement.SetAttributeValue("source", decl.TranslationUnit.FileName);
-
-            // Manual attribute defs
-            if (decl.Name == "JsCreateStringUtf16")
-            {
-                exportElement.SetAttributeValue("dllImportEx", ", CharSet = CharSet.Unicode");
-            }
-            else if (decl.Name == "JsCopyString")
-            {
-                exportElement.SetAttributeValue("dllImportEx", ", CharSet = CharSet.Ansi");
-            }
-
+            
             // Normalize Comments.
             var commentBuilder = new StringBuilder();
 
@@ -165,18 +147,7 @@ namespace FlounderSharp.CLI
             switch (type)
             {
                 case "void**":
-                    if (param.DebugText.StartsWith("JsModuleRecord*"))
-                        type = "JsModuleRecord";
-                    else if (param.DebugText.StartsWith("JsValueRef*") || param.DebugText.StartsWith("JsValueRef *"))
-                        type = "JsValueRef";
-                    else if (param.DebugText.StartsWith("JsContextRef *"))
-                        type = "JsContextRef";
-                    else if (param.DebugText.StartsWith("JsRuntimeHandle *"))
-                        type = "JsRuntimeHandle";
-                    else if (param.DebugText.StartsWith("JsPropertyIdRef *"))
-                        type = "JsPropertyIdRef";
-                    else
-                        type = "IntPtr";
+                    type = "IntPtr";
                     break;
                 case "BYTE":
                     type = "byte[]";
@@ -204,14 +175,6 @@ namespace FlounderSharp.CLI
             else if (type == "uint16_t" && param.DebugText == "const uint16_t *content")
             {
                 type = "string";
-            }
-            else if (type == "JsValueRef" && param.DebugText == "JsValueRef *arguments")
-            {
-                type = "JsValueRef[]";
-            }
-            else if (type == "JsRuntimeHandle" && decl.Name == "JsDisposeRuntime")
-            {
-                type = "IntPtr";
             }
 
             return type;

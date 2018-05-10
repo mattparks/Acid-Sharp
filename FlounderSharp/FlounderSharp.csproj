@@ -41,9 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlounderSharp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Std.cs" />
-    <Compile Include="VulkanSharp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

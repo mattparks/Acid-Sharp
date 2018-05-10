@@ -13,26 +13,27 @@ namespace FlounderSharp.CLI
     {
         private string _originalName;
         private string _targetName;
+        private List<NamespacePair> _namespaces;
         private List<string> _headerPaths;
         private string _headerFile;
-        private string _sharedLibrary;
-        private string _libPath;
+        private List<string> _libraryPaths;
+        private string _libraryFile;
         private string _outPath;
 
         private PassXmlTranslation _xmlExportPass;
 
-        public Library(string originalName, string targetName, List<string> headerPaths, string headerFile, string sharedLibrary, string libPath, string outPath)
+        public Library(string originalName, string targetName, List<NamespacePair> namespaces, List<string> headerPaths, string headerFile, List<string> libraryPaths, string libraryFile, string outPath)
         {
             _originalName = originalName;
             _targetName = targetName;
+            _namespaces = namespaces;
             _headerPaths = headerPaths;
             _headerFile = headerFile;
-            _sharedLibrary = sharedLibrary;
-            _libPath = libPath;
+            _libraryPaths = libraryPaths;
+            _libraryFile = libraryFile;
             _outPath = outPath;
-            _xmlExportPass = new PassXmlTranslation();
+            _xmlExportPass = new PassXmlTranslation(_targetName);
         }
-
 
         /// <summary>
         /// Gets the XDocument of the xml representation.
@@ -71,21 +72,19 @@ namespace FlounderSharp.CLI
         //    module.Defines.Add("FL_BUILD_MSVC");
         //    module.Defines.Add("FL_EXPORTS");
 
-            module.LibraryDirs.Add(_libPath);
-
-            foreach (var library in Directory.GetFiles(_libPath))
-            {
-                Console.WriteLine(Path.GetFileName(library));
-            //    module.Libraries.Add(library);
-            }
-            module.Libraries.Add(_sharedLibrary);
-
             foreach (var path in _headerPaths)
             {
                 module.IncludeDirs.Add(path);
             }
 
             module.Headers.Add(_headerFile);
+        
+            foreach (var path in _libraryPaths)
+            {
+                module.LibraryDirs.Add(path);
+            }
+
+            module.Libraries.Add(_libraryFile);
         }
 
         /// <summary>
@@ -96,7 +95,7 @@ namespace FlounderSharp.CLI
         {
             driver.AddTranslationUnitPass(new PassOutParamsFix());
             driver.AddTranslationUnitPass(_xmlExportPass);
-            driver.AddTranslationUnitPass(new PassObjectNamesFix());
+            driver.AddTranslationUnitPass(new PassObjectNamesFix(_namespaces));
             driver.AddTranslationUnitPass(new PassCommentsFix());
         }
 

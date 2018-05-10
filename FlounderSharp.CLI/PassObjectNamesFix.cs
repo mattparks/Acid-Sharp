@@ -1,22 +1,32 @@
 ﻿using CppSharp.AST;
 using CppSharp.Passes;
+using System.Collections.Generic;
 
 namespace FlounderSharp.CLI
 {
     public class PassObjectNamesFix : TranslationUnitPass
     {
+        private List<NamespacePair> _namespaces;
+
+        public PassObjectNamesFix(List<NamespacePair> namespaces)
+        {
+            _namespaces = namespaces;
+        }
+
         public override bool VisitClassDecl(Class @class)
         {
             if (!VisitDeclaration(@class))
             {
                 return false;
             }
-            
-            // TODO: Modularize namespace refractor.
-            if (@class.Namespace.Name == "fl")
+
+            foreach (var ns in _namespaces)
             {
-                @class.Namespace.Name = "FlounderSharp";
-                return true;
+                if (@class.Namespace.Name == ns._original)
+                {
+                    @class.Namespace.Name = ns._target;
+                    return true;
+                }
             }
 
             return false;

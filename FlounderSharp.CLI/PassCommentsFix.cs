@@ -12,18 +12,17 @@ namespace FlounderSharp.CLI
     {
         private readonly Regex m_rx = new Regex(@"///(?<text>.*)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
 
+        public PassCommentsFix()
+        {
+        }
+
         public override bool VisitDeclaration(Declaration declaration)
         {
             if (AlreadyVisited(declaration))
             {
                 return false;
             }
-
-            //if (declaration.TranslationUnit == null || !declaration.TranslationUnit.FileName.StartsWith("Flounder"))
-            //{ 
-            //    return false;
-            //}
-
+            
             if (declaration.Comment != null)
             {
                 var xDoc = GetOriginalDocumentationDocument(declaration.Comment.Text);

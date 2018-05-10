@@ -12,14 +12,19 @@ namespace FlounderSharp.CLI
             // Setup.
             var originalName = "Flounder";
             var targetName = "FlounderSharp";
-            var headerPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Release\include",
+            var namespaces = new List<NamespacePair> {
+                new NamespacePair("fl", "FlounderSharp")
             };
-            var headerFile = @"AL\Flounder.hpp";
-            var sharedLibrary = "libFlounder.lib";
-            var libPath = @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Release\lib";
+            var headerPaths = new List<string>{
+                @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Debug\include",
+            };
+            var headerFile = @"fl\Flounder.hpp";
+            var libraryPaths = new List<string>{
+                @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Debug\lib\Debug",
+            };
+            var libraryFile = "Flounder.lib";
             var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
-            var library = new Library(originalName, targetName, headerPaths, headerFile, sharedLibrary, libPath, outPath);
+            var library = new Library(originalName, targetName, namespaces, headerPaths, headerFile, libraryPaths, libraryFile, outPath);
 
             // Generate.
             ConsoleDriver.Run(library);
