@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Xml;
 using CppSharp;
 
@@ -9,12 +10,16 @@ namespace FlounderSharp.CLI
         static void Main(string[] args)
         {
             // Setup.
-            var libraryName = "Flounder";
-            var moduleName = "FlounderSharp";
-            var includeFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder";
-            var libFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\bin\Debug";
-            var outputFolder = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
-            var library = new Library(includeFolder, libFolder, outputFolder, libraryName, moduleName);
+            var originalName = "Flounder";
+            var targetName = "FlounderSharp";
+            var headerPaths = new List<string>{
+                @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Release\include",
+            };
+            var headerFile = @"fl\Flounder.hpp";
+            var sharedLibrary = "libFlounder.dll.a";
+            var libPath = @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Release\lib";
+            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
+            var library = new Library(originalName, targetName, headerPaths, headerFile, sharedLibrary, libPath, outPath);
 
             // Generate.
             ConsoleDriver.Run(library);
@@ -26,12 +31,12 @@ namespace FlounderSharp.CLI
                 Indent = true
             };
 
-            using (var writer = XmlWriter.Create($@"{outputFolder}/ExternalDefinitions.xml", settings))
+            using (var writer = XmlWriter.Create($@"{outPath}/ExternalDefinitions.xml", settings))
             {
                 library.XmlExport.WriteTo(writer);
             }
 
-            Console.WriteLine($@"Generated '{outputFolder}/ExternalDefinitions.xml'");
+            Console.WriteLine($@"Generated '{outPath}/ExternalDefinitions.xml'");
 
             // End program.
             Console.WriteLine("Press enter to continue...");

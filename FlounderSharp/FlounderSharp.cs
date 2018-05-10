@@ -8,123 +8,2474 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace FlounderSharp
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWglproc();
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWvkproc();
+
+
+
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWerrorfun(int _0, [MarshalAs(UnmanagedType.LPStr)] string _1);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowposfun(global::System.IntPtr _0, int _1, int _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowsizefun(global::System.IntPtr _0, int _1, int _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowclosefun(global::System.IntPtr _0);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowrefreshfun(global::System.IntPtr _0);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowfocusfun(global::System.IntPtr _0, int _1);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowiconifyfun(global::System.IntPtr _0, int _1);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowmaximizefun(global::System.IntPtr _0, int _1);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWframebuffersizefun(global::System.IntPtr _0, int _1, int _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWwindowcontentscalefun(global::System.IntPtr _0, float _1, float _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWmousebuttonfun(global::System.IntPtr _0, int _1, int _2, int _3);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWcursorposfun(global::System.IntPtr _0, double _1, double _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWcursorenterfun(global::System.IntPtr _0, int _1);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWscrollfun(global::System.IntPtr _0, double _1, double _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWkeyfun(global::System.IntPtr _0, int _1, int _2, int _3, int _4);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWcharfun(global::System.IntPtr _0, uint _1);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWcharmodsfun(global::System.IntPtr _0, uint _1, int _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWdropfun(global::System.IntPtr _0, int _1, sbyte** _2);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWmonitorfun(global::System.IntPtr _0, int _1);
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void GLFWjoystickfun(int _0, int _1);
+
+public unsafe partial class GLFWmonitor
 {
-    public unsafe partial class Foo : IDisposable
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
     {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
-        public partial struct __Internal
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWmonitor> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWmonitor>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::GLFWmonitor __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::GLFWmonitor(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::GLFWmonitor __CreateInstance(global::GLFWmonitor.__Internal native, bool skipVTables = false)
+    {
+        return new global::GLFWmonitor(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::GLFWmonitor.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::GLFWmonitor.__Internal));
+        *(global::GLFWmonitor.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private GLFWmonitor(global::GLFWmonitor.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected GLFWmonitor(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~GLFWmonitor()
+    {
+    //    Dispose(false);
+    }
+}
+
+public unsafe partial class GLFWwindow
+{
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
+    {
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWwindow> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWwindow>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::GLFWwindow __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::GLFWwindow(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::GLFWwindow __CreateInstance(global::GLFWwindow.__Internal native, bool skipVTables = false)
+    {
+        return new global::GLFWwindow(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::GLFWwindow.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::GLFWwindow.__Internal));
+        *(global::GLFWwindow.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private GLFWwindow(global::GLFWwindow.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected GLFWwindow(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~GLFWwindow()
+    {
+    //    Dispose(false);
+    }
+}
+
+public unsafe partial class GLFWcursor
+{
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
+    {
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWcursor> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWcursor>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::GLFWcursor __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::GLFWcursor(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::GLFWcursor __CreateInstance(global::GLFWcursor.__Internal native, bool skipVTables = false)
+    {
+        return new global::GLFWcursor(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::GLFWcursor.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::GLFWcursor.__Internal));
+        *(global::GLFWcursor.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private GLFWcursor(global::GLFWcursor.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected GLFWcursor(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~GLFWcursor()
+    {
+    //    Dispose(false);
+    }
+}
+
+
+public unsafe partial class GLFWvidmode : IDisposable
+{
+    [StructLayout(LayoutKind.Explicit, Size = 24)]
+    public partial struct __Internal
+    {
+        [FieldOffset(0)]
+        internal int width;
+
+        [FieldOffset(4)]
+        internal int height;
+
+        [FieldOffset(8)]
+        internal int redBits;
+
+        [FieldOffset(12)]
+        internal int greenBits;
+
+        [FieldOffset(16)]
+        internal int blueBits;
+
+        [FieldOffset(20)]
+        internal int refreshRate;
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="??0GLFWvidmode@@QEAA@AEBU0@@Z")]
+        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWvidmode> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWvidmode>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::GLFWvidmode __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::GLFWvidmode(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::GLFWvidmode __CreateInstance(global::GLFWvidmode.__Internal native, bool skipVTables = false)
+    {
+        return new global::GLFWvidmode(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::GLFWvidmode.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::GLFWvidmode.__Internal));
+        *(global::GLFWvidmode.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private GLFWvidmode(global::GLFWvidmode.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected GLFWvidmode(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    public GLFWvidmode()
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWvidmode.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    public GLFWvidmode(global::GLFWvidmode _0)
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWvidmode.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+        *((global::GLFWvidmode.__Internal*) __Instance) = *((global::GLFWvidmode.__Internal*) _0.__Instance);
+    }
+
+    ~GLFWvidmode()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    public virtual void Dispose(bool disposing)
+    {
+        if (__Instance == IntPtr.Zero)
+            return;
+        global::GLFWvidmode __dummy;
+        NativeToManagedMap.TryRemove(__Instance, out __dummy);
+        if (__ownsNativeInstance)
+            Marshal.FreeHGlobal(__Instance);
+        __Instance = IntPtr.Zero;
+    }
+
+    public int Width
+    {
+        get
         {
-            [FieldOffset(0)]
-            internal int m_a;
-
-            [FieldOffset(4)]
-            internal float m_b;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Foo@fl@@QEAA@H@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, int a);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Foo@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1Foo@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Add@Foo@fl@@QEBAHPEAV12@@Z")]
-            internal static extern int Add(global::System.IntPtr instance, global::System.IntPtr foo);
+            return ((global::GLFWvidmode.__Internal*) __Instance)->width;
         }
 
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Foo> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Foo>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.Foo __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        set
         {
-            return new global::FlounderSharp.Foo(native.ToPointer(), skipVTables);
+            ((global::GLFWvidmode.__Internal*)__Instance)->width = value;
+        }
+    }
+
+    public int Height
+    {
+        get
+        {
+            return ((global::GLFWvidmode.__Internal*) __Instance)->height;
         }
 
-        internal static global::FlounderSharp.Foo __CreateInstance(global::FlounderSharp.Foo.__Internal native, bool skipVTables = false)
+        set
         {
-            return new global::FlounderSharp.Foo(native, skipVTables);
+            ((global::GLFWvidmode.__Internal*)__Instance)->height = value;
+        }
+    }
+
+    public int RedBits
+    {
+        get
+        {
+            return ((global::GLFWvidmode.__Internal*) __Instance)->redBits;
         }
 
-        private static void* __CopyValue(global::FlounderSharp.Foo.__Internal native)
+        set
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Foo.__Internal));
-            *(global::FlounderSharp.Foo.__Internal*) ret = native;
-            return ret.ToPointer();
+            ((global::GLFWvidmode.__Internal*)__Instance)->redBits = value;
+        }
+    }
+
+    public int GreenBits
+    {
+        get
+        {
+            return ((global::GLFWvidmode.__Internal*) __Instance)->greenBits;
         }
 
-        private Foo(global::FlounderSharp.Foo.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
+        set
         {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
+            ((global::GLFWvidmode.__Internal*)__Instance)->greenBits = value;
+        }
+    }
+
+    public int BlueBits
+    {
+        get
+        {
+            return ((global::GLFWvidmode.__Internal*) __Instance)->blueBits;
         }
 
-        protected Foo(void* native, bool skipVTables = false)
+        set
         {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
+            ((global::GLFWvidmode.__Internal*)__Instance)->blueBits = value;
+        }
+    }
+
+    public int RefreshRate
+    {
+        get
+        {
+            return ((global::GLFWvidmode.__Internal*) __Instance)->refreshRate;
         }
 
-        public Foo(int a)
+        set
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Foo.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment), a);
+            ((global::GLFWvidmode.__Internal*)__Instance)->refreshRate = value;
+        }
+    }
+}
+
+
+public unsafe partial class GLFWgammaramp : IDisposable
+{
+    [StructLayout(LayoutKind.Explicit, Size = 32)]
+    public partial struct __Internal
+    {
+        [FieldOffset(0)]
+        internal global::System.IntPtr red;
+
+        [FieldOffset(8)]
+        internal global::System.IntPtr green;
+
+        [FieldOffset(16)]
+        internal global::System.IntPtr blue;
+
+        [FieldOffset(24)]
+        internal uint size;
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="??0GLFWgammaramp@@QEAA@AEBU0@@Z")]
+        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWgammaramp> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWgammaramp>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::GLFWgammaramp __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::GLFWgammaramp(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::GLFWgammaramp __CreateInstance(global::GLFWgammaramp.__Internal native, bool skipVTables = false)
+    {
+        return new global::GLFWgammaramp(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::GLFWgammaramp.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::GLFWgammaramp.__Internal));
+        *(global::GLFWgammaramp.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private GLFWgammaramp(global::GLFWgammaramp.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected GLFWgammaramp(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    public GLFWgammaramp()
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWgammaramp.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    public GLFWgammaramp(global::GLFWgammaramp _0)
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWgammaramp.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+        *((global::GLFWgammaramp.__Internal*) __Instance) = *((global::GLFWgammaramp.__Internal*) _0.__Instance);
+    }
+
+    ~GLFWgammaramp()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    public virtual void Dispose(bool disposing)
+    {
+        if (__Instance == IntPtr.Zero)
+            return;
+        global::GLFWgammaramp __dummy;
+        NativeToManagedMap.TryRemove(__Instance, out __dummy);
+        if (__ownsNativeInstance)
+            Marshal.FreeHGlobal(__Instance);
+        __Instance = IntPtr.Zero;
+    }
+
+    public ushort* Red
+    {
+        get
+        {
+            return (ushort*) ((global::GLFWgammaramp.__Internal*) __Instance)->red;
         }
 
-        public Foo(global::FlounderSharp.Foo _0)
+        set
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Foo.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            *((global::FlounderSharp.Foo.__Internal*) __Instance) = *((global::FlounderSharp.Foo.__Internal*) _0.__Instance);
+            ((global::GLFWgammaramp.__Internal*)__Instance)->red = (global::System.IntPtr) value;
+        }
+    }
+
+    public ushort* Green
+    {
+        get
+        {
+            return (ushort*) ((global::GLFWgammaramp.__Internal*) __Instance)->green;
         }
 
-        public void Dispose()
+        set
         {
-            Dispose(disposing: true);
+            ((global::GLFWgammaramp.__Internal*)__Instance)->green = (global::System.IntPtr) value;
+        }
+    }
+
+    public ushort* Blue
+    {
+        get
+        {
+            return (ushort*) ((global::GLFWgammaramp.__Internal*) __Instance)->blue;
         }
 
-        public virtual void Dispose(bool disposing)
+        set
         {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.Foo __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
+            ((global::GLFWgammaramp.__Internal*)__Instance)->blue = (global::System.IntPtr) value;
+        }
+    }
+
+    public uint Size
+    {
+        get
+        {
+            return ((global::GLFWgammaramp.__Internal*) __Instance)->size;
         }
 
-        public int Add(global::FlounderSharp.Foo foo)
+        set
         {
-            var __arg0 = ReferenceEquals(foo, null) ? global::System.IntPtr.Zero : foo.__Instance;
-            var __ret = __Internal.Add((__Instance + __PointerAdjustment), __arg0);
+            ((global::GLFWgammaramp.__Internal*)__Instance)->size = value;
+        }
+    }
+}
+
+
+public unsafe partial class GLFWimage : IDisposable
+{
+    [StructLayout(LayoutKind.Explicit, Size = 16)]
+    public partial struct __Internal
+    {
+        [FieldOffset(0)]
+        internal int width;
+
+        [FieldOffset(4)]
+        internal int height;
+
+        [FieldOffset(8)]
+        internal global::System.IntPtr pixels;
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="??0GLFWimage@@QEAA@AEBU0@@Z")]
+        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWimage> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWimage>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::GLFWimage __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::GLFWimage(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::GLFWimage __CreateInstance(global::GLFWimage.__Internal native, bool skipVTables = false)
+    {
+        return new global::GLFWimage(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::GLFWimage.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::GLFWimage.__Internal));
+        *(global::GLFWimage.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private GLFWimage(global::GLFWimage.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected GLFWimage(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    public GLFWimage()
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWimage.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    public GLFWimage(global::GLFWimage _0)
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWimage.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+        *((global::GLFWimage.__Internal*) __Instance) = *((global::GLFWimage.__Internal*) _0.__Instance);
+    }
+
+    ~GLFWimage()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    public virtual void Dispose(bool disposing)
+    {
+        if (__Instance == IntPtr.Zero)
+            return;
+        global::GLFWimage __dummy;
+        NativeToManagedMap.TryRemove(__Instance, out __dummy);
+        if (__ownsNativeInstance)
+            Marshal.FreeHGlobal(__Instance);
+        __Instance = IntPtr.Zero;
+    }
+
+    public int Width
+    {
+        get
+        {
+            return ((global::GLFWimage.__Internal*) __Instance)->width;
+        }
+
+        set
+        {
+            ((global::GLFWimage.__Internal*)__Instance)->width = value;
+        }
+    }
+
+    public int Height
+    {
+        get
+        {
+            return ((global::GLFWimage.__Internal*) __Instance)->height;
+        }
+
+        set
+        {
+            ((global::GLFWimage.__Internal*)__Instance)->height = value;
+        }
+    }
+
+    public byte* Pixels
+    {
+        get
+        {
+            return (byte*) ((global::GLFWimage.__Internal*) __Instance)->pixels;
+        }
+
+        set
+        {
+            ((global::GLFWimage.__Internal*)__Instance)->pixels = (global::System.IntPtr) value;
+        }
+    }
+}
+
+
+public unsafe partial class GLFWgamepadstate : IDisposable
+{
+    [StructLayout(LayoutKind.Explicit, Size = 40)]
+    public partial struct __Internal
+    {
+        [FieldOffset(0)]
+        internal fixed byte buttons[15];
+
+        [FieldOffset(16)]
+        internal fixed float axes[6];
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="??0GLFWgamepadstate@@QEAA@AEBU0@@Z")]
+        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWgamepadstate> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::GLFWgamepadstate>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::GLFWgamepadstate __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::GLFWgamepadstate(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::GLFWgamepadstate __CreateInstance(global::GLFWgamepadstate.__Internal native, bool skipVTables = false)
+    {
+        return new global::GLFWgamepadstate(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::GLFWgamepadstate.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::GLFWgamepadstate.__Internal));
+        *(global::GLFWgamepadstate.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private GLFWgamepadstate(global::GLFWgamepadstate.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected GLFWgamepadstate(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    public GLFWgamepadstate()
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWgamepadstate.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    public GLFWgamepadstate(global::GLFWgamepadstate _0)
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::GLFWgamepadstate.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+        *((global::GLFWgamepadstate.__Internal*) __Instance) = *((global::GLFWgamepadstate.__Internal*) _0.__Instance);
+    }
+
+    ~GLFWgamepadstate()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    public virtual void Dispose(bool disposing)
+    {
+        if (__Instance == IntPtr.Zero)
+            return;
+        global::GLFWgamepadstate __dummy;
+        NativeToManagedMap.TryRemove(__Instance, out __dummy);
+        if (__ownsNativeInstance)
+            Marshal.FreeHGlobal(__Instance);
+        __Instance = IntPtr.Zero;
+    }
+
+    public byte[] Buttons
+    {
+        get
+        {
+            byte[] __value = null;
+            if (((global::GLFWgamepadstate.__Internal*) __Instance)->buttons != null)
+            {
+                __value = new byte[15];
+                for (int i = 0; i < 15; i++)
+                    __value[i] = ((global::GLFWgamepadstate.__Internal*) __Instance)->buttons[i];
+            }
+            return __value;
+        }
+
+        set
+        {
+            if (value != null)
+            {
+                for (int i = 0; i < 15; i++)
+                    ((global::GLFWgamepadstate.__Internal*)__Instance)->buttons[i] = value[i];
+            }
+        }
+    }
+
+    public float[] Axes
+    {
+        get
+        {
+            float[] __value = null;
+            if (((global::GLFWgamepadstate.__Internal*) __Instance)->axes != null)
+            {
+                __value = new float[6];
+                for (int i = 0; i < 6; i++)
+                    __value[i] = ((global::GLFWgamepadstate.__Internal*) __Instance)->axes[i];
+            }
+            return __value;
+        }
+
+        set
+        {
+            if (value != null)
+            {
+                for (int i = 0; i < 6; i++)
+                    ((global::GLFWgamepadstate.__Internal*)__Instance)->axes[i] = value[i];
+            }
+        }
+    }
+}
+
+public unsafe partial class glfw3
+{
+    public partial struct __Internal
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwInit")]
+        internal static extern int GlfwInit();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwTerminate")]
+        internal static extern void GlfwTerminate();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwInitHint")]
+        internal static extern void GlfwInitHint(int hint, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetVersion")]
+        internal static extern void GlfwGetVersion(int* major, int* minor, int* rev);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetVersionString")]
+        internal static extern global::System.IntPtr GlfwGetVersionString();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetError")]
+        internal static extern int GlfwGetError(sbyte** description);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetErrorCallback")]
+        internal static extern global::System.IntPtr GlfwSetErrorCallback(global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetMonitors")]
+        internal static extern global::System.IntPtr GlfwGetMonitors(int* count);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetPrimaryMonitor")]
+        internal static extern global::System.IntPtr GlfwGetPrimaryMonitor();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetMonitorPos")]
+        internal static extern void GlfwGetMonitorPos(global::System.IntPtr monitor, int* xpos, int* ypos);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetMonitorPhysicalSize")]
+        internal static extern void GlfwGetMonitorPhysicalSize(global::System.IntPtr monitor, int* widthMM, int* heightMM);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetMonitorContentScale")]
+        internal static extern void GlfwGetMonitorContentScale(global::System.IntPtr monitor, float* xscale, float* yscale);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetMonitorName")]
+        internal static extern global::System.IntPtr GlfwGetMonitorName(global::System.IntPtr monitor);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetMonitorUserPointer")]
+        internal static extern void GlfwSetMonitorUserPointer(global::System.IntPtr monitor, global::System.IntPtr pointer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetMonitorUserPointer")]
+        internal static extern global::System.IntPtr GlfwGetMonitorUserPointer(global::System.IntPtr monitor);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetMonitorCallback")]
+        internal static extern global::System.IntPtr GlfwSetMonitorCallback(global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetVideoModes")]
+        internal static extern global::System.IntPtr GlfwGetVideoModes(global::System.IntPtr monitor, int* count);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetVideoMode")]
+        internal static extern global::System.IntPtr GlfwGetVideoMode(global::System.IntPtr monitor);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetGamma")]
+        internal static extern void GlfwSetGamma(global::System.IntPtr monitor, float gamma);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetGammaRamp")]
+        internal static extern global::System.IntPtr GlfwGetGammaRamp(global::System.IntPtr monitor);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetGammaRamp")]
+        internal static extern void GlfwSetGammaRamp(global::System.IntPtr monitor, global::System.IntPtr ramp);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwDefaultWindowHints")]
+        internal static extern void GlfwDefaultWindowHints();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwWindowHint")]
+        internal static extern void GlfwWindowHint(int hint, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwWindowHintString")]
+        internal static extern void GlfwWindowHintString(int hint, [MarshalAs(UnmanagedType.LPStr)] string value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwCreateWindow")]
+        internal static extern global::System.IntPtr GlfwCreateWindow(int width, int height, [MarshalAs(UnmanagedType.LPStr)] string title, global::System.IntPtr monitor, global::System.IntPtr share);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwDestroyWindow")]
+        internal static extern void GlfwDestroyWindow(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwWindowShouldClose")]
+        internal static extern int GlfwWindowShouldClose(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowShouldClose")]
+        internal static extern void GlfwSetWindowShouldClose(global::System.IntPtr window, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowTitle")]
+        internal static extern void GlfwSetWindowTitle(global::System.IntPtr window, [MarshalAs(UnmanagedType.LPStr)] string title);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowIcon")]
+        internal static extern void GlfwSetWindowIcon(global::System.IntPtr window, int count, global::System.IntPtr images);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowPos")]
+        internal static extern void GlfwGetWindowPos(global::System.IntPtr window, int* xpos, int* ypos);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowPos")]
+        internal static extern void GlfwSetWindowPos(global::System.IntPtr window, int xpos, int ypos);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowSize")]
+        internal static extern void GlfwGetWindowSize(global::System.IntPtr window, int* width, int* height);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowSizeLimits")]
+        internal static extern void GlfwSetWindowSizeLimits(global::System.IntPtr window, int minwidth, int minheight, int maxwidth, int maxheight);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowAspectRatio")]
+        internal static extern void GlfwSetWindowAspectRatio(global::System.IntPtr window, int numer, int denom);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowSize")]
+        internal static extern void GlfwSetWindowSize(global::System.IntPtr window, int width, int height);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetFramebufferSize")]
+        internal static extern void GlfwGetFramebufferSize(global::System.IntPtr window, int* width, int* height);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowFrameSize")]
+        internal static extern void GlfwGetWindowFrameSize(global::System.IntPtr window, int* left, int* top, int* right, int* bottom);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowContentScale")]
+        internal static extern void GlfwGetWindowContentScale(global::System.IntPtr window, float* xscale, float* yscale);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowOpacity")]
+        internal static extern float GlfwGetWindowOpacity(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowOpacity")]
+        internal static extern void GlfwSetWindowOpacity(global::System.IntPtr window, float opacity);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwIconifyWindow")]
+        internal static extern void GlfwIconifyWindow(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwRestoreWindow")]
+        internal static extern void GlfwRestoreWindow(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwMaximizeWindow")]
+        internal static extern void GlfwMaximizeWindow(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwShowWindow")]
+        internal static extern void GlfwShowWindow(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwHideWindow")]
+        internal static extern void GlfwHideWindow(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwFocusWindow")]
+        internal static extern void GlfwFocusWindow(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwRequestWindowAttention")]
+        internal static extern void GlfwRequestWindowAttention(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowMonitor")]
+        internal static extern global::System.IntPtr GlfwGetWindowMonitor(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowMonitor")]
+        internal static extern void GlfwSetWindowMonitor(global::System.IntPtr window, global::System.IntPtr monitor, int xpos, int ypos, int width, int height, int refreshRate);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowAttrib")]
+        internal static extern int GlfwGetWindowAttrib(global::System.IntPtr window, int attrib);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowAttrib")]
+        internal static extern void GlfwSetWindowAttrib(global::System.IntPtr window, int attrib, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowUserPointer")]
+        internal static extern void GlfwSetWindowUserPointer(global::System.IntPtr window, global::System.IntPtr pointer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetWindowUserPointer")]
+        internal static extern global::System.IntPtr GlfwGetWindowUserPointer(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowPosCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowPosCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowSizeCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowSizeCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowCloseCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowCloseCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowRefreshCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowRefreshCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowFocusCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowFocusCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowIconifyCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowIconifyCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowMaximizeCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowMaximizeCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetFramebufferSizeCallback")]
+        internal static extern global::System.IntPtr GlfwSetFramebufferSizeCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetWindowContentScaleCallback")]
+        internal static extern global::System.IntPtr GlfwSetWindowContentScaleCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwPollEvents")]
+        internal static extern void GlfwPollEvents();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwWaitEvents")]
+        internal static extern void GlfwWaitEvents();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwWaitEventsTimeout")]
+        internal static extern void GlfwWaitEventsTimeout(double timeout);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwPostEmptyEvent")]
+        internal static extern void GlfwPostEmptyEvent();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetInputMode")]
+        internal static extern int GlfwGetInputMode(global::System.IntPtr window, int mode);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetInputMode")]
+        internal static extern void GlfwSetInputMode(global::System.IntPtr window, int mode, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetKeyName")]
+        internal static extern global::System.IntPtr GlfwGetKeyName(int key, int scancode);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetKeyScancode")]
+        internal static extern int GlfwGetKeyScancode(int key);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetKey")]
+        internal static extern int GlfwGetKey(global::System.IntPtr window, int key);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetMouseButton")]
+        internal static extern int GlfwGetMouseButton(global::System.IntPtr window, int button);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetCursorPos")]
+        internal static extern void GlfwGetCursorPos(global::System.IntPtr window, double* xpos, double* ypos);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetCursorPos")]
+        internal static extern void GlfwSetCursorPos(global::System.IntPtr window, double xpos, double ypos);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwCreateCursor")]
+        internal static extern global::System.IntPtr GlfwCreateCursor(global::System.IntPtr image, int xhot, int yhot);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwCreateStandardCursor")]
+        internal static extern global::System.IntPtr GlfwCreateStandardCursor(int shape);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwDestroyCursor")]
+        internal static extern void GlfwDestroyCursor(global::System.IntPtr cursor);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetCursor")]
+        internal static extern void GlfwSetCursor(global::System.IntPtr window, global::System.IntPtr cursor);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetKeyCallback")]
+        internal static extern global::System.IntPtr GlfwSetKeyCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetCharCallback")]
+        internal static extern global::System.IntPtr GlfwSetCharCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetCharModsCallback")]
+        internal static extern global::System.IntPtr GlfwSetCharModsCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetMouseButtonCallback")]
+        internal static extern global::System.IntPtr GlfwSetMouseButtonCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetCursorPosCallback")]
+        internal static extern global::System.IntPtr GlfwSetCursorPosCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetCursorEnterCallback")]
+        internal static extern global::System.IntPtr GlfwSetCursorEnterCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetScrollCallback")]
+        internal static extern global::System.IntPtr GlfwSetScrollCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetDropCallback")]
+        internal static extern global::System.IntPtr GlfwSetDropCallback(global::System.IntPtr window, global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwJoystickPresent")]
+        internal static extern int GlfwJoystickPresent(int jid);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetJoystickAxes")]
+        internal static extern float* GlfwGetJoystickAxes(int jid, int* count);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetJoystickButtons")]
+        internal static extern byte* GlfwGetJoystickButtons(int jid, int* count);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetJoystickHats")]
+        internal static extern byte* GlfwGetJoystickHats(int jid, int* count);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetJoystickName")]
+        internal static extern global::System.IntPtr GlfwGetJoystickName(int jid);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetJoystickGUID")]
+        internal static extern global::System.IntPtr GlfwGetJoystickGUID(int jid);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetJoystickUserPointer")]
+        internal static extern void GlfwSetJoystickUserPointer(int jid, global::System.IntPtr pointer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetJoystickUserPointer")]
+        internal static extern global::System.IntPtr GlfwGetJoystickUserPointer(int jid);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwJoystickIsGamepad")]
+        internal static extern int GlfwJoystickIsGamepad(int jid);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetJoystickCallback")]
+        internal static extern global::System.IntPtr GlfwSetJoystickCallback(global::System.IntPtr cbfun);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwUpdateGamepadMappings")]
+        internal static extern int GlfwUpdateGamepadMappings([MarshalAs(UnmanagedType.LPStr)] string @string);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetGamepadName")]
+        internal static extern global::System.IntPtr GlfwGetGamepadName(int jid);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetGamepadState")]
+        internal static extern int GlfwGetGamepadState(int jid, global::System.IntPtr state);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetClipboardString")]
+        internal static extern void GlfwSetClipboardString(global::System.IntPtr window, [MarshalAs(UnmanagedType.LPStr)] string @string);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetClipboardString")]
+        internal static extern global::System.IntPtr GlfwGetClipboardString(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetTime")]
+        internal static extern double GlfwGetTime();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSetTime")]
+        internal static extern void GlfwSetTime(double time);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetTimerValue")]
+        internal static extern ulong GlfwGetTimerValue();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetTimerFrequency")]
+        internal static extern ulong GlfwGetTimerFrequency();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwMakeContextCurrent")]
+        internal static extern void GlfwMakeContextCurrent(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetCurrentContext")]
+        internal static extern global::System.IntPtr GlfwGetCurrentContext();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSwapBuffers")]
+        internal static extern void GlfwSwapBuffers(global::System.IntPtr window);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwSwapInterval")]
+        internal static extern void GlfwSwapInterval(int interval);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwExtensionSupported")]
+        internal static extern int GlfwExtensionSupported([MarshalAs(UnmanagedType.LPStr)] string extension);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetProcAddress")]
+        internal static extern global::System.IntPtr GlfwGetProcAddress([MarshalAs(UnmanagedType.LPStr)] string procname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwVulkanSupported")]
+        internal static extern int GlfwVulkanSupported();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="glfwGetRequiredInstanceExtensions")]
+        internal static extern sbyte** GlfwGetRequiredInstanceExtensions(uint* count);
+    }
+
+
+    public static int GlfwInit()
+    {
+        var __ret = __Internal.GlfwInit();
+        return __ret;
+    }
+
+
+    public static void GlfwTerminate()
+    {
+        __Internal.GlfwTerminate();
+    }
+
+
+    public static void GlfwInitHint(int hint, int value)
+    {
+        __Internal.GlfwInitHint(hint, value);
+    }
+
+
+    public static void GlfwGetVersion(ref int major, ref int minor, ref int rev)
+    {
+        fixed (int* __refParamPtr0 = &major)
+        {
+            var __arg0 = __refParamPtr0;
+            fixed (int* __refParamPtr1 = &minor)
+            {
+                var __arg1 = __refParamPtr1;
+                fixed (int* __refParamPtr2 = &rev)
+                {
+                    var __arg2 = __refParamPtr2;
+                    __Internal.GlfwGetVersion(__arg0, __arg1, __arg2);
+                }
+            }
+        }
+    }
+
+
+    public static string GlfwGetVersionString()
+    {
+        var __ret = __Internal.GlfwGetVersionString();
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+
+    public static int GlfwGetError(sbyte** description)
+    {
+        var __ret = __Internal.GlfwGetError(description);
+        return __ret;
+    }
+
+
+    public static global::GLFWerrorfun GlfwSetErrorCallback(global::GLFWerrorfun cbfun)
+    {
+        var __arg0 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetErrorCallback(__arg0);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWerrorfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWerrorfun));
+    }
+
+
+    public static global::GLFWmonitor GlfwGetMonitors(ref int count)
+    {
+        fixed (int* __refParamPtr0 = &count)
+        {
+            var __arg0 = __refParamPtr0;
+            var __ret = __Internal.GlfwGetMonitors(__arg0);
+            global::GLFWmonitor __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::GLFWmonitor.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::GLFWmonitor) global::GLFWmonitor.NativeToManagedMap[__ret];
+            else __result0 = global::GLFWmonitor.__CreateInstance(__ret);
+            return __result0;
+        }
+    }
+
+
+    public static global::GLFWmonitor GlfwGetPrimaryMonitor()
+    {
+        var __ret = __Internal.GlfwGetPrimaryMonitor();
+        global::GLFWmonitor __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWmonitor.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWmonitor) global::GLFWmonitor.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWmonitor.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static void GlfwGetMonitorPos(global::GLFWmonitor monitor, ref int xpos, ref int ypos)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        fixed (int* __refParamPtr1 = &xpos)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &ypos)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetMonitorPos(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static void GlfwGetMonitorPhysicalSize(global::GLFWmonitor monitor, ref int widthMM, ref int heightMM)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        fixed (int* __refParamPtr1 = &widthMM)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &heightMM)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetMonitorPhysicalSize(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static void GlfwGetMonitorContentScale(global::GLFWmonitor monitor, ref float xscale, ref float yscale)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        fixed (float* __refParamPtr1 = &xscale)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (float* __refParamPtr2 = &yscale)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetMonitorContentScale(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static string GlfwGetMonitorName(global::GLFWmonitor monitor)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        var __ret = __Internal.GlfwGetMonitorName(__arg0);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+
+    public static void GlfwSetMonitorUserPointer(global::GLFWmonitor monitor, global::System.IntPtr pointer)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        __Internal.GlfwSetMonitorUserPointer(__arg0, pointer);
+    }
+
+
+    public static global::System.IntPtr GlfwGetMonitorUserPointer(global::GLFWmonitor monitor)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        var __ret = __Internal.GlfwGetMonitorUserPointer(__arg0);
+        return __ret;
+    }
+
+
+    public static global::GLFWmonitorfun GlfwSetMonitorCallback(global::GLFWmonitorfun cbfun)
+    {
+        var __arg0 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetMonitorCallback(__arg0);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWmonitorfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWmonitorfun));
+    }
+
+
+    public static global::GLFWvidmode GlfwGetVideoModes(global::GLFWmonitor monitor, ref int count)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        fixed (int* __refParamPtr1 = &count)
+        {
+            var __arg1 = __refParamPtr1;
+            var __ret = __Internal.GlfwGetVideoModes(__arg0, __arg1);
+            global::GLFWvidmode __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::GLFWvidmode.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::GLFWvidmode) global::GLFWvidmode.NativeToManagedMap[__ret];
+            else __result0 = global::GLFWvidmode.__CreateInstance(__ret);
+            return __result0;
+        }
+    }
+
+
+    public static global::GLFWvidmode GlfwGetVideoMode(global::GLFWmonitor monitor)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        var __ret = __Internal.GlfwGetVideoMode(__arg0);
+        global::GLFWvidmode __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWvidmode.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWvidmode) global::GLFWvidmode.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWvidmode.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static void GlfwSetGamma(global::GLFWmonitor monitor, float gamma)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        __Internal.GlfwSetGamma(__arg0, gamma);
+    }
+
+
+    public static global::GLFWgammaramp GlfwGetGammaRamp(global::GLFWmonitor monitor)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        var __ret = __Internal.GlfwGetGammaRamp(__arg0);
+        global::GLFWgammaramp __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWgammaramp.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWgammaramp) global::GLFWgammaramp.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWgammaramp.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static void GlfwSetGammaRamp(global::GLFWmonitor monitor, global::GLFWgammaramp ramp)
+    {
+        var __arg0 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        var __arg1 = ReferenceEquals(ramp, null) ? global::System.IntPtr.Zero : ramp.__Instance;
+        __Internal.GlfwSetGammaRamp(__arg0, __arg1);
+    }
+
+
+    public static void GlfwDefaultWindowHints()
+    {
+        __Internal.GlfwDefaultWindowHints();
+    }
+
+
+    public static void GlfwWindowHint(int hint, int value)
+    {
+        __Internal.GlfwWindowHint(hint, value);
+    }
+
+
+    public static void GlfwWindowHintString(int hint, string value)
+    {
+        __Internal.GlfwWindowHintString(hint, value);
+    }
+
+
+    public static global::GLFWwindow GlfwCreateWindow(int width, int height, string title, global::GLFWmonitor monitor, global::GLFWwindow share)
+    {
+        var __arg3 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        var __arg4 = ReferenceEquals(share, null) ? global::System.IntPtr.Zero : share.__Instance;
+        var __ret = __Internal.GlfwCreateWindow(width, height, title, __arg3, __arg4);
+        global::GLFWwindow __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWwindow.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWwindow) global::GLFWwindow.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWwindow.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static void GlfwDestroyWindow(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwDestroyWindow(__arg0);
+    }
+
+
+    public static int GlfwWindowShouldClose(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwWindowShouldClose(__arg0);
+        return __ret;
+    }
+
+
+    public static void GlfwSetWindowShouldClose(global::GLFWwindow window, int value)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowShouldClose(__arg0, value);
+    }
+
+
+    public static void GlfwSetWindowTitle(global::GLFWwindow window, string title)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowTitle(__arg0, title);
+    }
+
+
+    public static void GlfwSetWindowIcon(global::GLFWwindow window, int count, global::GLFWimage images)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg2 = ReferenceEquals(images, null) ? global::System.IntPtr.Zero : images.__Instance;
+        __Internal.GlfwSetWindowIcon(__arg0, count, __arg2);
+    }
+
+
+    public static void GlfwGetWindowPos(global::GLFWwindow window, ref int xpos, ref int ypos)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        fixed (int* __refParamPtr1 = &xpos)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &ypos)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetWindowPos(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static void GlfwSetWindowPos(global::GLFWwindow window, int xpos, int ypos)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowPos(__arg0, xpos, ypos);
+    }
+
+
+    public static void GlfwGetWindowSize(global::GLFWwindow window, ref int width, ref int height)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        fixed (int* __refParamPtr1 = &width)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &height)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetWindowSize(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static void GlfwSetWindowSizeLimits(global::GLFWwindow window, int minwidth, int minheight, int maxwidth, int maxheight)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowSizeLimits(__arg0, minwidth, minheight, maxwidth, maxheight);
+    }
+
+
+    public static void GlfwSetWindowAspectRatio(global::GLFWwindow window, int numer, int denom)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowAspectRatio(__arg0, numer, denom);
+    }
+
+
+    public static void GlfwSetWindowSize(global::GLFWwindow window, int width, int height)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowSize(__arg0, width, height);
+    }
+
+
+    public static void GlfwGetFramebufferSize(global::GLFWwindow window, ref int width, ref int height)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        fixed (int* __refParamPtr1 = &width)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &height)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetFramebufferSize(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static void GlfwGetWindowFrameSize(global::GLFWwindow window, ref int left, ref int top, ref int right, ref int bottom)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        fixed (int* __refParamPtr1 = &left)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &top)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &right)
+                {
+                    var __arg3 = __refParamPtr3;
+                    fixed (int* __refParamPtr4 = &bottom)
+                    {
+                        var __arg4 = __refParamPtr4;
+                        __Internal.GlfwGetWindowFrameSize(__arg0, __arg1, __arg2, __arg3, __arg4);
+                    }
+                }
+            }
+        }
+    }
+
+
+    public static void GlfwGetWindowContentScale(global::GLFWwindow window, ref float xscale, ref float yscale)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        fixed (float* __refParamPtr1 = &xscale)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (float* __refParamPtr2 = &yscale)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetWindowContentScale(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static float GlfwGetWindowOpacity(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetWindowOpacity(__arg0);
+        return __ret;
+    }
+
+
+    public static void GlfwSetWindowOpacity(global::GLFWwindow window, float opacity)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowOpacity(__arg0, opacity);
+    }
+
+
+    public static void GlfwIconifyWindow(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwIconifyWindow(__arg0);
+    }
+
+
+    public static void GlfwRestoreWindow(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwRestoreWindow(__arg0);
+    }
+
+
+    public static void GlfwMaximizeWindow(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwMaximizeWindow(__arg0);
+    }
+
+
+    public static void GlfwShowWindow(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwShowWindow(__arg0);
+    }
+
+
+    public static void GlfwHideWindow(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwHideWindow(__arg0);
+    }
+
+
+    public static void GlfwFocusWindow(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwFocusWindow(__arg0);
+    }
+
+
+    public static void GlfwRequestWindowAttention(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwRequestWindowAttention(__arg0);
+    }
+
+
+    public static global::GLFWmonitor GlfwGetWindowMonitor(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetWindowMonitor(__arg0);
+        global::GLFWmonitor __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWmonitor.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWmonitor) global::GLFWmonitor.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWmonitor.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static void GlfwSetWindowMonitor(global::GLFWwindow window, global::GLFWmonitor monitor, int xpos, int ypos, int width, int height, int refreshRate)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = ReferenceEquals(monitor, null) ? global::System.IntPtr.Zero : monitor.__Instance;
+        __Internal.GlfwSetWindowMonitor(__arg0, __arg1, xpos, ypos, width, height, refreshRate);
+    }
+
+
+    public static int GlfwGetWindowAttrib(global::GLFWwindow window, int attrib)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetWindowAttrib(__arg0, attrib);
+        return __ret;
+    }
+
+
+    public static void GlfwSetWindowAttrib(global::GLFWwindow window, int attrib, int value)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowAttrib(__arg0, attrib, value);
+    }
+
+
+    public static void GlfwSetWindowUserPointer(global::GLFWwindow window, global::System.IntPtr pointer)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetWindowUserPointer(__arg0, pointer);
+    }
+
+
+    public static global::System.IntPtr GlfwGetWindowUserPointer(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetWindowUserPointer(__arg0);
+        return __ret;
+    }
+
+
+    public static global::GLFWwindowposfun GlfwSetWindowPosCallback(global::GLFWwindow window, global::GLFWwindowposfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowPosCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowposfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowposfun));
+    }
+
+
+    public static global::GLFWwindowsizefun GlfwSetWindowSizeCallback(global::GLFWwindow window, global::GLFWwindowsizefun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowSizeCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowsizefun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowsizefun));
+    }
+
+
+    public static global::GLFWwindowclosefun GlfwSetWindowCloseCallback(global::GLFWwindow window, global::GLFWwindowclosefun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowCloseCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowclosefun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowclosefun));
+    }
+
+
+    public static global::GLFWwindowrefreshfun GlfwSetWindowRefreshCallback(global::GLFWwindow window, global::GLFWwindowrefreshfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowRefreshCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowrefreshfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowrefreshfun));
+    }
+
+
+    public static global::GLFWwindowfocusfun GlfwSetWindowFocusCallback(global::GLFWwindow window, global::GLFWwindowfocusfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowFocusCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowfocusfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowfocusfun));
+    }
+
+
+    public static global::GLFWwindowiconifyfun GlfwSetWindowIconifyCallback(global::GLFWwindow window, global::GLFWwindowiconifyfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowIconifyCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowiconifyfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowiconifyfun));
+    }
+
+
+    public static global::GLFWwindowmaximizefun GlfwSetWindowMaximizeCallback(global::GLFWwindow window, global::GLFWwindowmaximizefun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowMaximizeCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowmaximizefun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowmaximizefun));
+    }
+
+
+    public static global::GLFWframebuffersizefun GlfwSetFramebufferSizeCallback(global::GLFWwindow window, global::GLFWframebuffersizefun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetFramebufferSizeCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWframebuffersizefun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWframebuffersizefun));
+    }
+
+
+    public static global::GLFWwindowcontentscalefun GlfwSetWindowContentScaleCallback(global::GLFWwindow window, global::GLFWwindowcontentscalefun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetWindowContentScaleCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWwindowcontentscalefun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWwindowcontentscalefun));
+    }
+
+
+    public static void GlfwPollEvents()
+    {
+        __Internal.GlfwPollEvents();
+    }
+
+
+    public static void GlfwWaitEvents()
+    {
+        __Internal.GlfwWaitEvents();
+    }
+
+
+    public static void GlfwWaitEventsTimeout(double timeout)
+    {
+        __Internal.GlfwWaitEventsTimeout(timeout);
+    }
+
+
+    public static void GlfwPostEmptyEvent()
+    {
+        __Internal.GlfwPostEmptyEvent();
+    }
+
+
+    public static int GlfwGetInputMode(global::GLFWwindow window, int mode)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetInputMode(__arg0, mode);
+        return __ret;
+    }
+
+
+    public static void GlfwSetInputMode(global::GLFWwindow window, int mode, int value)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetInputMode(__arg0, mode, value);
+    }
+
+
+    public static string GlfwGetKeyName(int key, int scancode)
+    {
+        var __ret = __Internal.GlfwGetKeyName(key, scancode);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+
+    public static int GlfwGetKeyScancode(int key)
+    {
+        var __ret = __Internal.GlfwGetKeyScancode(key);
+        return __ret;
+    }
+
+
+    public static int GlfwGetKey(global::GLFWwindow window, int key)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetKey(__arg0, key);
+        return __ret;
+    }
+
+
+    public static int GlfwGetMouseButton(global::GLFWwindow window, int button)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetMouseButton(__arg0, button);
+        return __ret;
+    }
+
+
+    public static void GlfwGetCursorPos(global::GLFWwindow window, ref double xpos, ref double ypos)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        fixed (double* __refParamPtr1 = &xpos)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (double* __refParamPtr2 = &ypos)
+            {
+                var __arg2 = __refParamPtr2;
+                __Internal.GlfwGetCursorPos(__arg0, __arg1, __arg2);
+            }
+        }
+    }
+
+
+    public static void GlfwSetCursorPos(global::GLFWwindow window, double xpos, double ypos)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetCursorPos(__arg0, xpos, ypos);
+    }
+
+
+    public static global::GLFWcursor GlfwCreateCursor(global::GLFWimage image, int xhot, int yhot)
+    {
+        var __arg0 = ReferenceEquals(image, null) ? global::System.IntPtr.Zero : image.__Instance;
+        var __ret = __Internal.GlfwCreateCursor(__arg0, xhot, yhot);
+        global::GLFWcursor __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWcursor.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWcursor) global::GLFWcursor.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWcursor.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static global::GLFWcursor GlfwCreateStandardCursor(int shape)
+    {
+        var __ret = __Internal.GlfwCreateStandardCursor(shape);
+        global::GLFWcursor __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWcursor.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWcursor) global::GLFWcursor.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWcursor.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static void GlfwDestroyCursor(global::GLFWcursor cursor)
+    {
+        var __arg0 = ReferenceEquals(cursor, null) ? global::System.IntPtr.Zero : cursor.__Instance;
+        __Internal.GlfwDestroyCursor(__arg0);
+    }
+
+
+    public static void GlfwSetCursor(global::GLFWwindow window, global::GLFWcursor cursor)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = ReferenceEquals(cursor, null) ? global::System.IntPtr.Zero : cursor.__Instance;
+        __Internal.GlfwSetCursor(__arg0, __arg1);
+    }
+
+
+    public static global::GLFWkeyfun GlfwSetKeyCallback(global::GLFWwindow window, global::GLFWkeyfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetKeyCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWkeyfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWkeyfun));
+    }
+
+
+    public static global::GLFWcharfun GlfwSetCharCallback(global::GLFWwindow window, global::GLFWcharfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetCharCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWcharfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWcharfun));
+    }
+
+
+    public static global::GLFWcharmodsfun GlfwSetCharModsCallback(global::GLFWwindow window, global::GLFWcharmodsfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetCharModsCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWcharmodsfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWcharmodsfun));
+    }
+
+
+    public static global::GLFWmousebuttonfun GlfwSetMouseButtonCallback(global::GLFWwindow window, global::GLFWmousebuttonfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetMouseButtonCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWmousebuttonfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWmousebuttonfun));
+    }
+
+
+    public static global::GLFWcursorposfun GlfwSetCursorPosCallback(global::GLFWwindow window, global::GLFWcursorposfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetCursorPosCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWcursorposfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWcursorposfun));
+    }
+
+
+    public static global::GLFWcursorenterfun GlfwSetCursorEnterCallback(global::GLFWwindow window, global::GLFWcursorenterfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetCursorEnterCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWcursorenterfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWcursorenterfun));
+    }
+
+
+    public static global::GLFWscrollfun GlfwSetScrollCallback(global::GLFWwindow window, global::GLFWscrollfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetScrollCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWscrollfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWscrollfun));
+    }
+
+
+    public static global::GLFWdropfun GlfwSetDropCallback(global::GLFWwindow window, global::GLFWdropfun cbfun)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __arg1 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetDropCallback(__arg0, __arg1);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWdropfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWdropfun));
+    }
+
+
+    public static int GlfwJoystickPresent(int jid)
+    {
+        var __ret = __Internal.GlfwJoystickPresent(jid);
+        return __ret;
+    }
+
+
+    public static float* GlfwGetJoystickAxes(int jid, ref int count)
+    {
+        fixed (int* __refParamPtr1 = &count)
+        {
+            var __arg1 = __refParamPtr1;
+            var __ret = __Internal.GlfwGetJoystickAxes(jid, __arg1);
             return __ret;
         }
+    }
 
-        public static implicit operator global::FlounderSharp.Foo(int a)
+
+    public static byte* GlfwGetJoystickButtons(int jid, ref int count)
+    {
+        fixed (int* __refParamPtr1 = &count)
         {
-            return new global::FlounderSharp.Foo(a);
+            var __arg1 = __refParamPtr1;
+            var __ret = __Internal.GlfwGetJoystickButtons(jid, __arg1);
+            return __ret;
+        }
+    }
+
+
+    public static byte* GlfwGetJoystickHats(int jid, ref int count)
+    {
+        fixed (int* __refParamPtr1 = &count)
+        {
+            var __arg1 = __refParamPtr1;
+            var __ret = __Internal.GlfwGetJoystickHats(jid, __arg1);
+            return __ret;
+        }
+    }
+
+
+    public static string GlfwGetJoystickName(int jid)
+    {
+        var __ret = __Internal.GlfwGetJoystickName(jid);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+
+    public static string GlfwGetJoystickGUID(int jid)
+    {
+        var __ret = __Internal.GlfwGetJoystickGUID(jid);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+
+    public static void GlfwSetJoystickUserPointer(int jid, global::System.IntPtr pointer)
+    {
+        __Internal.GlfwSetJoystickUserPointer(jid, pointer);
+    }
+
+
+    public static global::System.IntPtr GlfwGetJoystickUserPointer(int jid)
+    {
+        var __ret = __Internal.GlfwGetJoystickUserPointer(jid);
+        return __ret;
+    }
+
+
+    public static int GlfwJoystickIsGamepad(int jid)
+    {
+        var __ret = __Internal.GlfwJoystickIsGamepad(jid);
+        return __ret;
+    }
+
+
+    public static global::GLFWjoystickfun GlfwSetJoystickCallback(global::GLFWjoystickfun cbfun)
+    {
+        var __arg0 = cbfun == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(cbfun);
+        var __ret = __Internal.GlfwSetJoystickCallback(__arg0);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWjoystickfun) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWjoystickfun));
+    }
+
+
+    public static int GlfwUpdateGamepadMappings(string @string)
+    {
+        var __ret = __Internal.GlfwUpdateGamepadMappings(@string);
+        return __ret;
+    }
+
+
+    public static string GlfwGetGamepadName(int jid)
+    {
+        var __ret = __Internal.GlfwGetGamepadName(jid);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+
+    public static int GlfwGetGamepadState(int jid, global::GLFWgamepadstate state)
+    {
+        var __arg1 = ReferenceEquals(state, null) ? global::System.IntPtr.Zero : state.__Instance;
+        var __ret = __Internal.GlfwGetGamepadState(jid, __arg1);
+        return __ret;
+    }
+
+
+    public static void GlfwSetClipboardString(global::GLFWwindow window, string @string)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSetClipboardString(__arg0, @string);
+    }
+
+
+    public static string GlfwGetClipboardString(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        var __ret = __Internal.GlfwGetClipboardString(__arg0);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+
+    public static double GlfwGetTime()
+    {
+        var __ret = __Internal.GlfwGetTime();
+        return __ret;
+    }
+
+
+    public static void GlfwSetTime(double time)
+    {
+        __Internal.GlfwSetTime(time);
+    }
+
+
+    public static ulong GlfwGetTimerValue()
+    {
+        var __ret = __Internal.GlfwGetTimerValue();
+        return __ret;
+    }
+
+
+    public static ulong GlfwGetTimerFrequency()
+    {
+        var __ret = __Internal.GlfwGetTimerFrequency();
+        return __ret;
+    }
+
+
+    public static void GlfwMakeContextCurrent(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwMakeContextCurrent(__arg0);
+    }
+
+
+    public static global::GLFWwindow GlfwGetCurrentContext()
+    {
+        var __ret = __Internal.GlfwGetCurrentContext();
+        global::GLFWwindow __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::GLFWwindow.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::GLFWwindow) global::GLFWwindow.NativeToManagedMap[__ret];
+        else __result0 = global::GLFWwindow.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static void GlfwSwapBuffers(global::GLFWwindow window)
+    {
+        var __arg0 = ReferenceEquals(window, null) ? global::System.IntPtr.Zero : window.__Instance;
+        __Internal.GlfwSwapBuffers(__arg0);
+    }
+
+
+    public static void GlfwSwapInterval(int interval)
+    {
+        __Internal.GlfwSwapInterval(interval);
+    }
+
+
+    public static int GlfwExtensionSupported(string extension)
+    {
+        var __ret = __Internal.GlfwExtensionSupported(extension);
+        return __ret;
+    }
+
+
+    public static global::GLFWglproc GlfwGetProcAddress(string procname)
+    {
+        var __ret = __Internal.GlfwGetProcAddress(procname);
+        var __ptr0 = __ret;
+        return __ptr0 == IntPtr.Zero? null : (global::GLFWglproc) Marshal.GetDelegateForFunctionPointer(__ptr0, typeof(global::GLFWglproc));
+    }
+
+
+    public static int GlfwVulkanSupported()
+    {
+        var __ret = __Internal.GlfwVulkanSupported();
+        return __ret;
+    }
+
+
+    public static sbyte** GlfwGetRequiredInstanceExtensions(ref uint count)
+    {
+        fixed (uint* __refParamPtr0 = &count)
+        {
+            var __arg0 = __refParamPtr0;
+            var __ret = __Internal.GlfwGetRequiredInstanceExtensions(__arg0);
+            return __ret;
         }
     }
 }

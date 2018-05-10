@@ -1,4 +1,7 @@
-﻿using CppSharp;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
 using System.Xml.Linq;
@@ -8,21 +11,25 @@ namespace FlounderSharp.CLI
 {
     class Library : ILibrary
     {
-        private string _headerPath;
+        private string _originalName;
+        private string _targetName;
+        private List<string> _headerPaths;
+        private string _headerFile;
+        private string _sharedLibrary;
         private string _libPath;
         private string _outPath;
-        private string _libraryName;
-        private string _moduleName;
 
         private PassXmlTranslation _xmlExportPass;
 
-        public Library(string headerPath, string libPath, string outPath, string libraryName, string moduleName)
+        public Library(string originalName, string targetName, List<string> headerPaths, string headerFile, string sharedLibrary, string libPath, string outPath)
         {
-            _headerPath = headerPath;
+            _originalName = originalName;
+            _targetName = targetName;
+            _headerPaths = headerPaths;
+            _headerFile = headerFile;
+            _sharedLibrary = sharedLibrary;
             _libPath = libPath;
             _outPath = outPath;
-            _libraryName = libraryName;
-            _moduleName = moduleName;
             _xmlExportPass = new PassXmlTranslation();
         }
 
@@ -46,27 +53,39 @@ namespace FlounderSharp.CLI
         {
             // Sets up the parser.
             var parserOptions = driver.ParserOptions;
-            parserOptions.LanguageVersion = LanguageVersion.CPP17;
-            parserOptions.MicrosoftMode = true;
-            parserOptions.EnableRTTI = false;
+            parserOptions.EnableRTTI = true;
 
             // Sets up other options.
             var options = driver.Options;
             options.OutputDir = _outPath;
             options.GeneratorKind = GeneratorKind.CSharp;
-        //    options.CheckSymbols = true;
+            options.GenerateFinalizers = true;
             options.Verbose = true;
 
             // Creates a new module.
-            var module = options.AddModule(_moduleName);
-            module.SharedLibraryName = _libraryName;
+            var module = options.AddModule(_targetName);
+            module.SharedLibraryName = _originalName;
             module.OutputNamespace = "";
 
-            module.LibraryDirs.Add(_libPath);
-            module.Libraries.Add($"{_libraryName}.dll");
+            module.Defines.Add("FL_BUILD_WINDOWS");
+            module.Defines.Add("FL_BUILD_MSVC");
+            module.Defines.Add("FL_EXPORTS");
 
-            module.IncludeDirs.Add(_headerPath);
-            module.Headers.Add($"{_libraryName}.hpp");
+            module.LibraryDirs.Add(_libPath);
+
+            foreach (var library in Directory.GetFiles(_libPath))
+            {
+                Console.WriteLine(Path.GetFileName(library));
+            //    module.Libraries.Add(library);
+            }
+            module.Libraries.Add(_sharedLibrary);
+
+            foreach (var path in _headerPaths)
+            {
+                module.IncludeDirs.Add(path);
+            }
+
+            module.Headers.Add(_headerFile);
         }
 
         /// <summary>
