@@ -15,8 +15,8 @@ namespace FlounderSharp.CLI
             var headerPaths = new List<string>{
                 @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Release\include",
             };
-            var headerFile = @"fl\Flounder.hpp";
-            var sharedLibrary = "libFlounder.dll.a";
+            var headerFile = @"AL\Flounder.hpp";
+            var sharedLibrary = "libFlounder.lib";
             var libPath = @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Release\lib";
             var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             var library = new Library(originalName, targetName, headerPaths, headerFile, sharedLibrary, libPath, outPath);

@@ -67,9 +67,9 @@ namespace FlounderSharp.CLI
             module.SharedLibraryName = _originalName;
             module.OutputNamespace = "";
 
-            module.Defines.Add("FL_BUILD_WINDOWS");
-            module.Defines.Add("FL_BUILD_MSVC");
-            module.Defines.Add("FL_EXPORTS");
+        //    module.Defines.Add("FL_BUILD_WINDOWS");
+        //    module.Defines.Add("FL_BUILD_MSVC");
+        //    module.Defines.Add("FL_EXPORTS");
 
             module.LibraryDirs.Add(_libPath);
 

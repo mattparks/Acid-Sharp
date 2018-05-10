@@ -1,5 +1,4 @@
 ﻿using System;
-using FlounderSharp;
 
 namespace FlounderSharp.Tests
 {
@@ -7,7 +6,6 @@ namespace FlounderSharp.Tests
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(Maths.Random);
             /*Foo x = new Foo(3);
             Foo y = new Foo(10);
             Foo z = x.Add(y);*/
