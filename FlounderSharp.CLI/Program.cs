@@ -9,24 +9,38 @@ namespace FlounderSharp.CLI
     {
         static void Main(string[] args)
         {
-            // Setup.
-            var originalName = "Flounder";
+            // Inputs and outputs.
+            var originalName = "glfw";
+            var targetName = "GlfwSharp";
+            var namespaces = new List<NamespacePair> {
+                new NamespacePair("glfw", "GlfwSharp")
+            };
+            var headerPaths = new List<string>{
+                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
+            };
+            var headerFile = @"GLFW\glfw3.h";
+            var libraryPaths = new List<string>{
+                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
+            };
+            var libraryFile = "glfw3dll.lib";
+            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
+            /*var originalName = "Flounder";
             var targetName = "FlounderSharp";
             var namespaces = new List<NamespacePair> {
                 new NamespacePair("fl", "FlounderSharp")
             };
             var headerPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Debug\include",
+                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
             };
             var headerFile = @"fl\Flounder.hpp";
             var libraryPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Build\Debug\lib\Debug",
+                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
             };
             var libraryFile = "Flounder.lib";
-            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
-            var library = new Library(originalName, targetName, namespaces, headerPaths, headerFile, libraryPaths, libraryFile, outPath);
+            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";*/
 
             // Generate.
+            var library = new Library(originalName, targetName, namespaces, headerPaths, headerFile, libraryPaths, libraryFile, outPath);
             ConsoleDriver.Run(library);
             Console.WriteLine("Generation complete!");
 

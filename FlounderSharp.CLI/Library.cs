@@ -1,14 +1,23 @@
-﻿using System;
+﻿using System.Xml.Linq;
 using System.Collections.Generic;
-using System.IO;
 using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
-using System.Xml.Linq;
-using CppSharp.Parser;
 
 namespace FlounderSharp.CLI
 {
+    public class NamespacePair
+    {
+        public string _original;
+        public string _target;
+
+        public NamespacePair(string original, string target)
+        {
+            _original = original;
+            _target = target;
+        }
+    }
+
     class Library : ILibrary
     {
         private string _originalName;
