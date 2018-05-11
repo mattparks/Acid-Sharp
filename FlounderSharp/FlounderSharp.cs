@@ -8,1755 +8,6 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-public enum STBI
-{
-    STBI_default = 0,
-    STBI_grey = 1,
-    STBI_greyAlpha = 2,
-    STBI_rgb = 3,
-    STBI_rgbAlpha = 4
-}
-
-
-public unsafe partial class StbiIoCallbacks : IDisposable
-{
-    [StructLayout(LayoutKind.Explicit, Size = 24)]
-    public partial struct __Internal
-    {
-        [FieldOffset(0)]
-        internal global::System.IntPtr read;
-
-        [FieldOffset(8)]
-        internal global::System.IntPtr skip;
-
-        [FieldOffset(16)]
-        internal global::System.IntPtr eof;
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="??0stbi_io_callbacks@@QEAA@AEBU0@@Z")]
-        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-    }
-
-    public global::System.IntPtr __Instance { get; protected set; }
-
-    protected int __PointerAdjustment;
-    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbiIoCallbacks> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbiIoCallbacks>();
-    protected void*[] __OriginalVTables;
-
-    protected bool __ownsNativeInstance;
-
-    internal static global::StbiIoCallbacks __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-    {
-        return new global::StbiIoCallbacks(native.ToPointer(), skipVTables);
-    }
-
-    internal static global::StbiIoCallbacks __CreateInstance(global::StbiIoCallbacks.__Internal native, bool skipVTables = false)
-    {
-        return new global::StbiIoCallbacks(native, skipVTables);
-    }
-
-    private static void* __CopyValue(global::StbiIoCallbacks.__Internal native)
-    {
-        var ret = Marshal.AllocHGlobal(sizeof(global::StbiIoCallbacks.__Internal));
-        *(global::StbiIoCallbacks.__Internal*) ret = native;
-        return ret.ToPointer();
-    }
-
-    private StbiIoCallbacks(global::StbiIoCallbacks.__Internal native, bool skipVTables = false)
-        : this(__CopyValue(native), skipVTables)
-    {
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    protected StbiIoCallbacks(void* native, bool skipVTables = false)
-    {
-        if (native == null)
-            return;
-        __Instance = new global::System.IntPtr(native);
-    }
-
-    public StbiIoCallbacks()
-    {
-        __Instance = Marshal.AllocHGlobal(sizeof(global::StbiIoCallbacks.__Internal));
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    public StbiIoCallbacks(global::StbiIoCallbacks _0)
-    {
-        __Instance = Marshal.AllocHGlobal(sizeof(global::StbiIoCallbacks.__Internal));
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-        *((global::StbiIoCallbacks.__Internal*) __Instance) = *((global::StbiIoCallbacks.__Internal*) _0.__Instance);
-    }
-
-    ~StbiIoCallbacks()
-    {
-        Dispose(false);
-    }
-
-    public void Dispose()
-    {
-        Dispose(disposing: true);
-        GC.SuppressFinalize(this);
-    }
-
-    public virtual void Dispose(bool disposing)
-    {
-        if (__Instance == IntPtr.Zero)
-            return;
-        global::StbiIoCallbacks __dummy;
-        NativeToManagedMap.TryRemove(__Instance, out __dummy);
-        if (__ownsNativeInstance)
-            Marshal.FreeHGlobal(__Instance);
-        __Instance = IntPtr.Zero;
-    }
-}
-
-public unsafe partial class stb_image
-{
-    public partial struct __Internal
-    {
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_from_memory")]
-        internal static extern byte* StbiLoadFromMemory(byte* buffer, int len, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_from_callbacks")]
-        internal static extern byte* StbiLoadFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_gif_from_memory")]
-        internal static extern byte* StbiLoadGifFromMemory(byte* buffer, int len, int** delays, int* x, int* y, int* z, int* comp, int req_comp);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load")]
-        internal static extern byte* StbiLoad([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_from_file")]
-        internal static extern byte* StbiLoadFromFile(global::System.IntPtr f, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_16_from_memory")]
-        internal static extern ushort* StbiLoad16FromMemory(byte* buffer, int len, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_16_from_callbacks")]
-        internal static extern ushort* StbiLoad16FromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_16")]
-        internal static extern ushort* StbiLoad16([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_load_from_file_16")]
-        internal static extern ushort* StbiLoadFromFile16(global::System.IntPtr f, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_loadf_from_memory")]
-        internal static extern float* StbiLoadfFromMemory(byte* buffer, int len, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_loadf_from_callbacks")]
-        internal static extern float* StbiLoadfFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_loadf")]
-        internal static extern float* StbiLoadf([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_loadf_from_file")]
-        internal static extern float* StbiLoadfFromFile(global::System.IntPtr f, int* x, int* y, int* channels_in_file, int desired_channels);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_hdr_to_ldr_gamma")]
-        internal static extern void StbiHdrToLdrGamma(float gamma);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_hdr_to_ldr_scale")]
-        internal static extern void StbiHdrToLdrScale(float scale);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_ldr_to_hdr_gamma")]
-        internal static extern void StbiLdrToHdrGamma(float gamma);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_ldr_to_hdr_scale")]
-        internal static extern void StbiLdrToHdrScale(float scale);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_hdr_from_callbacks")]
-        internal static extern int StbiIsHdrFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_hdr_from_memory")]
-        internal static extern int StbiIsHdrFromMemory(byte* buffer, int len);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_hdr")]
-        internal static extern int StbiIsHdr([MarshalAs(UnmanagedType.LPStr)] string filename);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_hdr_from_file")]
-        internal static extern int StbiIsHdrFromFile(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_failure_reason")]
-        internal static extern global::System.IntPtr StbiFailureReason();
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_image_free")]
-        internal static extern void StbiImageFree(global::System.IntPtr retval_from_stbi_load);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_info_from_memory")]
-        internal static extern int StbiInfoFromMemory(byte* buffer, int len, int* x, int* y, int* comp);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_info_from_callbacks")]
-        internal static extern int StbiInfoFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* comp);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_16_bit_from_memory")]
-        internal static extern int StbiIs16BitFromMemory(byte* buffer, int len);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_16_bit_from_callbacks")]
-        internal static extern int StbiIs16BitFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_info")]
-        internal static extern int StbiInfo([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* comp);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_info_from_file")]
-        internal static extern int StbiInfoFromFile(global::System.IntPtr f, int* x, int* y, int* comp);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_16_bit")]
-        internal static extern int StbiIs16Bit([MarshalAs(UnmanagedType.LPStr)] string filename);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_is_16_bit_from_file")]
-        internal static extern int StbiIs16BitFromFile(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_set_unpremultiply_on_load")]
-        internal static extern void StbiSetUnpremultiplyOnLoad(int flag_true_if_should_unpremultiply);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_convert_iphone_png_to_rgb")]
-        internal static extern void StbiConvertIphonePngToRgb(int flag_true_if_should_convert);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_set_flip_vertically_on_load")]
-        internal static extern void StbiSetFlipVerticallyOnLoad(int flag_true_if_should_flip);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_zlib_decode_malloc_guesssize")]
-        internal static extern sbyte* StbiZlibDecodeMallocGuesssize([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int initial_size, int* outlen);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_zlib_decode_malloc_guesssize_headerflag")]
-        internal static extern sbyte* StbiZlibDecodeMallocGuesssizeHeaderflag([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int initial_size, int* outlen, int parse_header);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_zlib_decode_malloc")]
-        internal static extern sbyte* StbiZlibDecodeMalloc([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int* outlen);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_zlib_decode_buffer")]
-        internal static extern int StbiZlibDecodeBuffer(sbyte* obuffer, int olen, [MarshalAs(UnmanagedType.LPStr)] string ibuffer, int ilen);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_zlib_decode_noheader_malloc")]
-        internal static extern sbyte* StbiZlibDecodeNoheaderMalloc([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int* outlen);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_zlib_decode_noheader_buffer")]
-        internal static extern int StbiZlibDecodeNoheaderBuffer(sbyte* obuffer, int olen, [MarshalAs(UnmanagedType.LPStr)] string ibuffer, int ilen);
-    }
-
-
-    public static byte* StbiLoadFromMemory(byte* buffer, int len, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &channels_in_file)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiLoadFromMemory(buffer, len, __arg2, __arg3, __arg4, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static byte* StbiLoadFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &channels_in_file)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiLoadFromCallbacks(__arg0, user, __arg2, __arg3, __arg4, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static byte* StbiLoadGifFromMemory(byte* buffer, int len, int** delays, ref int x, ref int y, ref int z, ref int comp, int req_comp)
-    {
-        fixed (int* __refParamPtr3 = &x)
-        {
-            var __arg3 = __refParamPtr3;
-            fixed (int* __refParamPtr4 = &y)
-            {
-                var __arg4 = __refParamPtr4;
-                fixed (int* __refParamPtr5 = &z)
-                {
-                    var __arg5 = __refParamPtr5;
-                    fixed (int* __refParamPtr6 = &comp)
-                    {
-                        var __arg6 = __refParamPtr6;
-                        var __ret = __Internal.StbiLoadGifFromMemory(buffer, len, delays, __arg3, __arg4, __arg5, __arg6, req_comp);
-                        return __ret;
-                    }
-                }
-            }
-        }
-    }
-
-    public static byte* StbiLoad(string filename, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &channels_in_file)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiLoad(filename, __arg1, __arg2, __arg3, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static byte* StbiLoadFromFile(global::System.IntPtr f, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &channels_in_file)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiLoadFromFile(f, __arg1, __arg2, __arg3, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-
-    public static ushort* StbiLoad16FromMemory(byte* buffer, int len, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &channels_in_file)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiLoad16FromMemory(buffer, len, __arg2, __arg3, __arg4, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static ushort* StbiLoad16FromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &channels_in_file)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiLoad16FromCallbacks(__arg0, user, __arg2, __arg3, __arg4, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static ushort* StbiLoad16(string filename, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &channels_in_file)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiLoad16(filename, __arg1, __arg2, __arg3, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static ushort* StbiLoadFromFile16(global::System.IntPtr f, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &channels_in_file)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiLoadFromFile16(f, __arg1, __arg2, __arg3, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static float* StbiLoadfFromMemory(byte* buffer, int len, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &channels_in_file)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiLoadfFromMemory(buffer, len, __arg2, __arg3, __arg4, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static float* StbiLoadfFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &channels_in_file)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiLoadfFromCallbacks(__arg0, user, __arg2, __arg3, __arg4, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static float* StbiLoadf(string filename, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &channels_in_file)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiLoadf(filename, __arg1, __arg2, __arg3, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static float* StbiLoadfFromFile(global::System.IntPtr f, ref int x, ref int y, ref int channels_in_file, int desired_channels)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &channels_in_file)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiLoadfFromFile(f, __arg1, __arg2, __arg3, desired_channels);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static void StbiHdrToLdrGamma(float gamma)
-    {
-        __Internal.StbiHdrToLdrGamma(gamma);
-    }
-
-    public static void StbiHdrToLdrScale(float scale)
-    {
-        __Internal.StbiHdrToLdrScale(scale);
-    }
-
-    public static void StbiLdrToHdrGamma(float gamma)
-    {
-        __Internal.StbiLdrToHdrGamma(gamma);
-    }
-
-    public static void StbiLdrToHdrScale(float scale)
-    {
-        __Internal.StbiLdrToHdrScale(scale);
-    }
-
-    public static int StbiIsHdrFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user)
-    {
-        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
-        var __ret = __Internal.StbiIsHdrFromCallbacks(__arg0, user);
-        return __ret;
-    }
-
-    public static int StbiIsHdrFromMemory(byte* buffer, int len)
-    {
-        var __ret = __Internal.StbiIsHdrFromMemory(buffer, len);
-        return __ret;
-    }
-
-    public static int StbiIsHdr(string filename)
-    {
-        var __ret = __Internal.StbiIsHdr(filename);
-        return __ret;
-    }
-
-    public static int StbiIsHdrFromFile(global::System.IntPtr f)
-    {
-        var __ret = __Internal.StbiIsHdrFromFile(f);
-        return __ret;
-    }
-
-    public static string StbiFailureReason()
-    {
-        var __ret = __Internal.StbiFailureReason();
-        return Marshal.PtrToStringAnsi(__ret);
-    }
-
-    public static void StbiImageFree(global::System.IntPtr retval_from_stbi_load)
-    {
-        __Internal.StbiImageFree(retval_from_stbi_load);
-    }
-
-    public static int StbiInfoFromMemory(byte* buffer, int len, ref int x, ref int y, ref int comp)
-    {
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &comp)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiInfoFromMemory(buffer, len, __arg2, __arg3, __arg4);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static int StbiInfoFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int comp)
-    {
-        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
-        fixed (int* __refParamPtr2 = &x)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &y)
-            {
-                var __arg3 = __refParamPtr3;
-                fixed (int* __refParamPtr4 = &comp)
-                {
-                    var __arg4 = __refParamPtr4;
-                    var __ret = __Internal.StbiInfoFromCallbacks(__arg0, user, __arg2, __arg3, __arg4);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static int StbiIs16BitFromMemory(byte* buffer, int len)
-    {
-        var __ret = __Internal.StbiIs16BitFromMemory(buffer, len);
-        return __ret;
-    }
-
-    public static int StbiIs16BitFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user)
-    {
-        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
-        var __ret = __Internal.StbiIs16BitFromCallbacks(__arg0, user);
-        return __ret;
-    }
-
-    public static int StbiInfo(string filename, ref int x, ref int y, ref int comp)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &comp)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiInfo(filename, __arg1, __arg2, __arg3);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static int StbiInfoFromFile(global::System.IntPtr f, ref int x, ref int y, ref int comp)
-    {
-        fixed (int* __refParamPtr1 = &x)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &y)
-            {
-                var __arg2 = __refParamPtr2;
-                fixed (int* __refParamPtr3 = &comp)
-                {
-                    var __arg3 = __refParamPtr3;
-                    var __ret = __Internal.StbiInfoFromFile(f, __arg1, __arg2, __arg3);
-                    return __ret;
-                }
-            }
-        }
-    }
-
-    public static int StbiIs16Bit(string filename)
-    {
-        var __ret = __Internal.StbiIs16Bit(filename);
-        return __ret;
-    }
-
-    public static int StbiIs16BitFromFile(global::System.IntPtr f)
-    {
-        var __ret = __Internal.StbiIs16BitFromFile(f);
-        return __ret;
-    }
-
-    public static void StbiSetUnpremultiplyOnLoad(int flag_true_if_should_unpremultiply)
-    {
-        __Internal.StbiSetUnpremultiplyOnLoad(flag_true_if_should_unpremultiply);
-    }
-
-    public static void StbiConvertIphonePngToRgb(int flag_true_if_should_convert)
-    {
-        __Internal.StbiConvertIphonePngToRgb(flag_true_if_should_convert);
-    }
-
-    public static void StbiSetFlipVerticallyOnLoad(int flag_true_if_should_flip)
-    {
-        __Internal.StbiSetFlipVerticallyOnLoad(flag_true_if_should_flip);
-    }
-
-    public static sbyte* StbiZlibDecodeMallocGuesssize(string buffer, int len, int initial_size, ref int outlen)
-    {
-        fixed (int* __refParamPtr3 = &outlen)
-        {
-            var __arg3 = __refParamPtr3;
-            var __ret = __Internal.StbiZlibDecodeMallocGuesssize(buffer, len, initial_size, __arg3);
-            return __ret;
-        }
-    }
-
-    public static sbyte* StbiZlibDecodeMallocGuesssizeHeaderflag(string buffer, int len, int initial_size, ref int outlen, int parse_header)
-    {
-        fixed (int* __refParamPtr3 = &outlen)
-        {
-            var __arg3 = __refParamPtr3;
-            var __ret = __Internal.StbiZlibDecodeMallocGuesssizeHeaderflag(buffer, len, initial_size, __arg3, parse_header);
-            return __ret;
-        }
-    }
-
-    public static sbyte* StbiZlibDecodeMalloc(string buffer, int len, ref int outlen)
-    {
-        fixed (int* __refParamPtr2 = &outlen)
-        {
-            var __arg2 = __refParamPtr2;
-            var __ret = __Internal.StbiZlibDecodeMalloc(buffer, len, __arg2);
-            return __ret;
-        }
-    }
-
-    public static int StbiZlibDecodeBuffer(sbyte* obuffer, int olen, string ibuffer, int ilen)
-    {
-        var __ret = __Internal.StbiZlibDecodeBuffer(obuffer, olen, ibuffer, ilen);
-        return __ret;
-    }
-
-    public static sbyte* StbiZlibDecodeNoheaderMalloc(string buffer, int len, ref int outlen)
-    {
-        fixed (int* __refParamPtr2 = &outlen)
-        {
-            var __arg2 = __refParamPtr2;
-            var __ret = __Internal.StbiZlibDecodeNoheaderMalloc(buffer, len, __arg2);
-            return __ret;
-        }
-    }
-
-    public static int StbiZlibDecodeNoheaderBuffer(sbyte* obuffer, int olen, string ibuffer, int ilen)
-    {
-        var __ret = __Internal.StbiZlibDecodeNoheaderBuffer(obuffer, olen, ibuffer, ilen);
-        return __ret;
-    }
-}
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void StbiWriteFunc(global::System.IntPtr context, global::System.IntPtr data, int size);
-
-public unsafe partial class stb_image_write
-{
-    public partial struct __Internal
-    {
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_png")]
-        internal static extern int StbiWritePng([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_bmp")]
-        internal static extern int StbiWriteBmp([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, global::System.IntPtr data);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_tga")]
-        internal static extern int StbiWriteTga([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, global::System.IntPtr data);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_hdr")]
-        internal static extern int StbiWriteHdr([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, float* data);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_jpg")]
-        internal static extern int StbiWriteJpg([MarshalAs(UnmanagedType.LPStr)] string filename, int x, int y, int comp, global::System.IntPtr data, int quality);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_png_to_func")]
-        internal static extern int StbiWritePngToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_bmp_to_func")]
-        internal static extern int StbiWriteBmpToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_tga_to_func")]
-        internal static extern int StbiWriteTgaToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_hdr_to_func")]
-        internal static extern int StbiWriteHdrToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, float* data);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_write_jpg_to_func")]
-        internal static extern int StbiWriteJpgToFunc(global::System.IntPtr func, global::System.IntPtr context, int x, int y, int comp, global::System.IntPtr data, int quality);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stbi_flip_vertically_on_write")]
-        internal static extern void StbiFlipVerticallyOnWrite(int flip_boolean);
-    }
-
-    public static int StbiWritePng(string filename, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes)
-    {
-        var __ret = __Internal.StbiWritePng(filename, w, h, comp, data, stride_in_bytes);
-        return __ret;
-    }
-
-    public static int StbiWriteBmp(string filename, int w, int h, int comp, global::System.IntPtr data)
-    {
-        var __ret = __Internal.StbiWriteBmp(filename, w, h, comp, data);
-        return __ret;
-    }
-
-    public static int StbiWriteTga(string filename, int w, int h, int comp, global::System.IntPtr data)
-    {
-        var __ret = __Internal.StbiWriteTga(filename, w, h, comp, data);
-        return __ret;
-    }
-
-    public static int StbiWriteHdr(string filename, int w, int h, int comp, ref float data)
-    {
-        fixed (float* __refParamPtr4 = &data)
-        {
-            var __arg4 = __refParamPtr4;
-            var __ret = __Internal.StbiWriteHdr(filename, w, h, comp, __arg4);
-            return __ret;
-        }
-    }
-
-    public static int StbiWriteJpg(string filename, int x, int y, int comp, global::System.IntPtr data, int quality)
-    {
-        var __ret = __Internal.StbiWriteJpg(filename, x, y, comp, data, quality);
-        return __ret;
-    }
-
-    public static int StbiWritePngToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes)
-    {
-        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
-        var __ret = __Internal.StbiWritePngToFunc(__arg0, context, w, h, comp, data, stride_in_bytes);
-        return __ret;
-    }
-
-    public static int StbiWriteBmpToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data)
-    {
-        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
-        var __ret = __Internal.StbiWriteBmpToFunc(__arg0, context, w, h, comp, data);
-        return __ret;
-    }
-
-    public static int StbiWriteTgaToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data)
-    {
-        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
-        var __ret = __Internal.StbiWriteTgaToFunc(__arg0, context, w, h, comp, data);
-        return __ret;
-    }
-
-    public static int StbiWriteHdrToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, ref float data)
-    {
-        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
-        fixed (float* __refParamPtr5 = &data)
-        {
-            var __arg5 = __refParamPtr5;
-            var __ret = __Internal.StbiWriteHdrToFunc(__arg0, context, w, h, comp, __arg5);
-            return __ret;
-        }
-    }
-
-    public static int StbiWriteJpgToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int x, int y, int comp, global::System.IntPtr data, int quality)
-    {
-        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
-        var __ret = __Internal.StbiWriteJpgToFunc(__arg0, context, x, y, comp, data, quality);
-        return __ret;
-    }
-
-    public static void StbiFlipVerticallyOnWrite(int flip_boolean)
-    {
-        __Internal.StbiFlipVerticallyOnWrite(flip_boolean);
-    }
-
-    public static int StbiWriteTgaWithRle
-    {
-        get
-        {
-            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?stbi_write_tga_with_rle@@3HA");
-            return *__ptr;
-        }
-
-        set
-        {
-            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?stbi_write_tga_with_rle@@3HA");
-            *__ptr = value;
-        }
-    }
-
-    public static int StbiWritePngCompressionLevel
-    {
-        get
-        {
-            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?stbi_write_png_compression_level@@3HA");
-            return *__ptr;
-        }
-
-        set
-        {
-            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?stbi_write_png_compression_level@@3HA");
-            *__ptr = value;
-        }
-    }
-
-    public static int StbiWriteForcePngFilter
-    {
-        get
-        {
-            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?stbi_write_force_png_filter@@3HA");
-            return *__ptr;
-        }
-
-        set
-        {
-            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?stbi_write_force_png_filter@@3HA");
-            *__ptr = value;
-        }
-    }
-}
-
-
-public enum STBVorbisError
-{
-    VORBIS_NoError = 0,
-    VORBIS_needMoreData = 1,
-    VORBIS_invalidApiMixing = 2,
-    VORBIS_outofmem = 3,
-    VORBIS_featureNotSupported = 4,
-    VORBIS_tooManyChannels = 5,
-    VORBIS_fileOpenFailure = 6,
-    VORBIS_seekWithoutLength = 7,
-    VORBIS_unexpectedEof = 10,
-    VORBIS_seekInvalid = 11,
-    VORBIS_invalidSetup = 20,
-    VORBIS_invalidStream = 21,
-    VORBIS_missingCapturePattern = 30,
-    VORBIS_invalidStreamStructureVersion = 31,
-    VORBIS_continuedPacketFlagInvalid = 32,
-    VORBIS_incorrectStreamSerialNumber = 33,
-    VORBIS_invalidFirstPage = 34,
-    VORBIS_badPacketType = 35,
-    VORBIS_cantFindLastPage = 36,
-    VORBIS_seekFailed = 37
-}
-
-
-public unsafe partial class StbVorbisAlloc : IDisposable
-{
-    [StructLayout(LayoutKind.Explicit, Size = 16)]
-    public partial struct __Internal
-    {
-        [FieldOffset(0)]
-        internal global::System.IntPtr alloc_buffer;
-
-        [FieldOffset(8)]
-        internal int alloc_buffer_length_in_bytes;
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="??0stb_vorbis_alloc@@QEAA@AEBU0@@Z")]
-        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-    }
-
-    public global::System.IntPtr __Instance { get; protected set; }
-
-    protected int __PointerAdjustment;
-    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisAlloc> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisAlloc>();
-    protected void*[] __OriginalVTables;
-
-    protected bool __ownsNativeInstance;
-
-    internal static global::StbVorbisAlloc __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-    {
-        return new global::StbVorbisAlloc(native.ToPointer(), skipVTables);
-    }
-
-    internal static global::StbVorbisAlloc __CreateInstance(global::StbVorbisAlloc.__Internal native, bool skipVTables = false)
-    {
-        return new global::StbVorbisAlloc(native, skipVTables);
-    }
-
-    private static void* __CopyValue(global::StbVorbisAlloc.__Internal native)
-    {
-        var ret = Marshal.AllocHGlobal(sizeof(global::StbVorbisAlloc.__Internal));
-        *(global::StbVorbisAlloc.__Internal*) ret = native;
-        return ret.ToPointer();
-    }
-
-    private StbVorbisAlloc(global::StbVorbisAlloc.__Internal native, bool skipVTables = false)
-        : this(__CopyValue(native), skipVTables)
-    {
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    protected StbVorbisAlloc(void* native, bool skipVTables = false)
-    {
-        if (native == null)
-            return;
-        __Instance = new global::System.IntPtr(native);
-    }
-
-    public StbVorbisAlloc()
-    {
-        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisAlloc.__Internal));
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    public StbVorbisAlloc(global::StbVorbisAlloc _0)
-    {
-        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisAlloc.__Internal));
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-        *((global::StbVorbisAlloc.__Internal*) __Instance) = *((global::StbVorbisAlloc.__Internal*) _0.__Instance);
-    }
-
-    ~StbVorbisAlloc()
-    {
-        Dispose(false);
-    }
-
-    public void Dispose()
-    {
-        Dispose(disposing: true);
-        GC.SuppressFinalize(this);
-    }
-
-    public virtual void Dispose(bool disposing)
-    {
-        if (__Instance == IntPtr.Zero)
-            return;
-        global::StbVorbisAlloc __dummy;
-        NativeToManagedMap.TryRemove(__Instance, out __dummy);
-        if (__ownsNativeInstance)
-            Marshal.FreeHGlobal(__Instance);
-        __Instance = IntPtr.Zero;
-    }
-
-    public sbyte* AllocBuffer
-    {
-        get
-        {
-            return (sbyte*) ((global::StbVorbisAlloc.__Internal*) __Instance)->alloc_buffer;
-        }
-
-        set
-        {
-            ((global::StbVorbisAlloc.__Internal*)__Instance)->alloc_buffer = (global::System.IntPtr) value;
-        }
-    }
-
-    public int AllocBufferLengthInBytes
-    {
-        get
-        {
-            return ((global::StbVorbisAlloc.__Internal*) __Instance)->alloc_buffer_length_in_bytes;
-        }
-
-        set
-        {
-            ((global::StbVorbisAlloc.__Internal*)__Instance)->alloc_buffer_length_in_bytes = value;
-        }
-    }
-}
-
-public unsafe partial class StbVorbis
-{
-    [StructLayout(LayoutKind.Explicit, Size = 0)]
-    public partial struct __Internal
-    {
-    }
-
-    public global::System.IntPtr __Instance { get; protected set; }
-
-    protected int __PointerAdjustment;
-    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbis> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbis>();
-    protected void*[] __OriginalVTables;
-
-    protected bool __ownsNativeInstance;
-
-    internal static global::StbVorbis __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-    {
-        return new global::StbVorbis(native.ToPointer(), skipVTables);
-    }
-
-    internal static global::StbVorbis __CreateInstance(global::StbVorbis.__Internal native, bool skipVTables = false)
-    {
-        return new global::StbVorbis(native, skipVTables);
-    }
-
-    private static void* __CopyValue(global::StbVorbis.__Internal native)
-    {
-        var ret = Marshal.AllocHGlobal(sizeof(global::StbVorbis.__Internal));
-        *(global::StbVorbis.__Internal*) ret = native;
-        return ret.ToPointer();
-    }
-
-    private StbVorbis(global::StbVorbis.__Internal native, bool skipVTables = false)
-        : this(__CopyValue(native), skipVTables)
-    {
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    protected StbVorbis(void* native, bool skipVTables = false)
-    {
-        if (native == null)
-            return;
-        __Instance = new global::System.IntPtr(native);
-    }
-
-    ~StbVorbis()
-    {
-        //Dispose(false);
-    }
-}
-
-public unsafe partial class StbVorbisInfo : IDisposable
-{
-    [StructLayout(LayoutKind.Explicit, Size = 24)]
-    public partial struct __Internal
-    {
-        [FieldOffset(0)]
-        internal uint sample_rate;
-
-        [FieldOffset(4)]
-        internal int channels;
-
-        [FieldOffset(8)]
-        internal uint setup_memory_required;
-
-        [FieldOffset(12)]
-        internal uint setup_temp_memory_required;
-
-        [FieldOffset(16)]
-        internal uint temp_memory_required;
-
-        [FieldOffset(20)]
-        internal int max_frame_size;
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="??0stb_vorbis_info@@QEAA@AEBU0@@Z")]
-        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-    }
-
-    public global::System.IntPtr __Instance { get; protected set; }
-
-    protected int __PointerAdjustment;
-    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisInfo> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisInfo>();
-    protected void*[] __OriginalVTables;
-
-    protected bool __ownsNativeInstance;
-
-    internal static global::StbVorbisInfo __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-    {
-        return new global::StbVorbisInfo(native.ToPointer(), skipVTables);
-    }
-
-    internal static global::StbVorbisInfo __CreateInstance(global::StbVorbisInfo.__Internal native, bool skipVTables = false)
-    {
-        return new global::StbVorbisInfo(native, skipVTables);
-    }
-
-    private static void* __CopyValue(global::StbVorbisInfo.__Internal native)
-    {
-        var ret = Marshal.AllocHGlobal(sizeof(global::StbVorbisInfo.__Internal));
-        *(global::StbVorbisInfo.__Internal*) ret = native;
-        return ret.ToPointer();
-    }
-
-    private StbVorbisInfo(global::StbVorbisInfo.__Internal native, bool skipVTables = false)
-        : this(__CopyValue(native), skipVTables)
-    {
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    protected StbVorbisInfo(void* native, bool skipVTables = false)
-    {
-        if (native == null)
-            return;
-        __Instance = new global::System.IntPtr(native);
-    }
-
-    public StbVorbisInfo()
-    {
-        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisInfo.__Internal));
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    public StbVorbisInfo(global::StbVorbisInfo _0)
-    {
-        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisInfo.__Internal));
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-        *((global::StbVorbisInfo.__Internal*) __Instance) = *((global::StbVorbisInfo.__Internal*) _0.__Instance);
-    }
-
-    ~StbVorbisInfo()
-    {
-        Dispose(false);
-    }
-
-    public void Dispose()
-    {
-        Dispose(disposing: true);
-        GC.SuppressFinalize(this);
-    }
-
-    public virtual void Dispose(bool disposing)
-    {
-        if (__Instance == IntPtr.Zero)
-            return;
-        global::StbVorbisInfo __dummy;
-        NativeToManagedMap.TryRemove(__Instance, out __dummy);
-        if (__ownsNativeInstance)
-            Marshal.FreeHGlobal(__Instance);
-        __Instance = IntPtr.Zero;
-    }
-
-    public uint SampleRate
-    {
-        get
-        {
-            return ((global::StbVorbisInfo.__Internal*) __Instance)->sample_rate;
-        }
-
-        set
-        {
-            ((global::StbVorbisInfo.__Internal*)__Instance)->sample_rate = value;
-        }
-    }
-
-    public int Channels
-    {
-        get
-        {
-            return ((global::StbVorbisInfo.__Internal*) __Instance)->channels;
-        }
-
-        set
-        {
-            ((global::StbVorbisInfo.__Internal*)__Instance)->channels = value;
-        }
-    }
-
-    public uint SetupMemoryRequired
-    {
-        get
-        {
-            return ((global::StbVorbisInfo.__Internal*) __Instance)->setup_memory_required;
-        }
-
-        set
-        {
-            ((global::StbVorbisInfo.__Internal*)__Instance)->setup_memory_required = value;
-        }
-    }
-
-    public uint SetupTempMemoryRequired
-    {
-        get
-        {
-            return ((global::StbVorbisInfo.__Internal*) __Instance)->setup_temp_memory_required;
-        }
-
-        set
-        {
-            ((global::StbVorbisInfo.__Internal*)__Instance)->setup_temp_memory_required = value;
-        }
-    }
-
-    public uint TempMemoryRequired
-    {
-        get
-        {
-            return ((global::StbVorbisInfo.__Internal*) __Instance)->temp_memory_required;
-        }
-
-        set
-        {
-            ((global::StbVorbisInfo.__Internal*)__Instance)->temp_memory_required = value;
-        }
-    }
-
-    public int MaxFrameSize
-    {
-        get
-        {
-            return ((global::StbVorbisInfo.__Internal*) __Instance)->max_frame_size;
-        }
-
-        set
-        {
-            ((global::StbVorbisInfo.__Internal*)__Instance)->max_frame_size = value;
-        }
-    }
-}
-
-public unsafe partial class stb_vorbis
-{
-    public partial struct __Internal
-    {
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_info")]
-        internal static extern global::StbVorbisInfo.__Internal StbVorbisGetInfo(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_error")]
-        internal static extern int StbVorbisGetError(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_close")]
-        internal static extern void StbVorbisClose(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_sample_offset")]
-        internal static extern int StbVorbisGetSampleOffset(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_file_offset")]
-        internal static extern uint StbVorbisGetFileOffset(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_open_pushdata")]
-        internal static extern global::System.IntPtr StbVorbisOpenPushdata(byte* datablock, int datablock_length_in_bytes, int* datablock_memory_consumed_in_bytes, int* error, global::System.IntPtr alloc_buffer);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_decode_frame_pushdata")]
-        internal static extern int StbVorbisDecodeFramePushdata(global::System.IntPtr f, byte* datablock, int datablock_length_in_bytes, int* channels, float*** output, int* samples);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_flush_pushdata")]
-        internal static extern void StbVorbisFlushPushdata(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_decode_filename")]
-        internal static extern int StbVorbisDecodeFilename([MarshalAs(UnmanagedType.LPStr)] string filename, int* channels, int* sample_rate, short** output);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_decode_memory")]
-        internal static extern int StbVorbisDecodeMemory(byte* mem, int len, int* channels, int* sample_rate, short** output);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_open_memory")]
-        internal static extern global::System.IntPtr StbVorbisOpenMemory(byte* data, int len, int* error, global::System.IntPtr alloc_buffer);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_open_filename")]
-        internal static extern global::System.IntPtr StbVorbisOpenFilename([MarshalAs(UnmanagedType.LPStr)] string filename, int* error, global::System.IntPtr alloc_buffer);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_open_file")]
-        internal static extern global::System.IntPtr StbVorbisOpenFile(global::System.IntPtr f, int close_handle_on_close, int* error, global::System.IntPtr alloc_buffer);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_open_file_section")]
-        internal static extern global::System.IntPtr StbVorbisOpenFileSection(global::System.IntPtr f, int close_handle_on_close, int* error, global::System.IntPtr alloc_buffer, uint len);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_seek_frame")]
-        internal static extern int StbVorbisSeekFrame(global::System.IntPtr f, uint sample_number);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_seek")]
-        internal static extern int StbVorbisSeek(global::System.IntPtr f, uint sample_number);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_seek_start")]
-        internal static extern int StbVorbisSeekStart(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_stream_length_in_samples")]
-        internal static extern uint StbVorbisStreamLengthInSamples(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_stream_length_in_seconds")]
-        internal static extern float StbVorbisStreamLengthInSeconds(global::System.IntPtr f);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_frame_float")]
-        internal static extern int StbVorbisGetFrameFloat(global::System.IntPtr f, int* channels, float*** output);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_frame_short_interleaved")]
-        internal static extern int StbVorbisGetFrameShortInterleaved(global::System.IntPtr f, int num_c, short* buffer, int num_shorts);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_frame_short")]
-        internal static extern int StbVorbisGetFrameShort(global::System.IntPtr f, int num_c, short** buffer, int num_samples);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_samples_float_interleaved")]
-        internal static extern int StbVorbisGetSamplesFloatInterleaved(global::System.IntPtr f, int channels, float* buffer, int num_floats);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_samples_float")]
-        internal static extern int StbVorbisGetSamplesFloat(global::System.IntPtr f, int channels, float** buffer, int num_samples);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_samples_short_interleaved")]
-        internal static extern int StbVorbisGetSamplesShortInterleaved(global::System.IntPtr f, int channels, short* buffer, int num_shorts);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="stb_vorbis_get_samples_short")]
-        internal static extern int StbVorbisGetSamplesShort(global::System.IntPtr f, int channels, short** buffer, int num_samples);
-    }
-
-    public static global::StbVorbisInfo StbVorbisGetInfo(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisGetInfo(__arg0);
-        return global::StbVorbisInfo.__CreateInstance(__ret);
-    }
-
-    public static int StbVorbisGetError(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisGetError(__arg0);
-        return __ret;
-    }
-
-    public static void StbVorbisClose(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        __Internal.StbVorbisClose(__arg0);
-    }
-
-    public static int StbVorbisGetSampleOffset(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisGetSampleOffset(__arg0);
-        return __ret;
-    }
-
-    public static uint StbVorbisGetFileOffset(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisGetFileOffset(__arg0);
-        return __ret;
-    }
-
-    public static global::StbVorbis StbVorbisOpenPushdata(byte* datablock, int datablock_length_in_bytes, ref int datablock_memory_consumed_in_bytes, ref int error, global::StbVorbisAlloc alloc_buffer)
-    {
-        fixed (int* __refParamPtr2 = &datablock_memory_consumed_in_bytes)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &error)
-            {
-                var __arg3 = __refParamPtr3;
-                var __arg4 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
-                var __ret = __Internal.StbVorbisOpenPushdata(datablock, datablock_length_in_bytes, __arg2, __arg3, __arg4);
-                global::StbVorbis __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
-                else __result0 = global::StbVorbis.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-    }
-
-    public static int StbVorbisDecodeFramePushdata(global::StbVorbis f, byte* datablock, int datablock_length_in_bytes, ref int channels, float*** output, ref int samples)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        fixed (int* __refParamPtr3 = &channels)
-        {
-            var __arg3 = __refParamPtr3;
-            fixed (int* __refParamPtr5 = &samples)
-            {
-                var __arg5 = __refParamPtr5;
-                var __ret = __Internal.StbVorbisDecodeFramePushdata(__arg0, datablock, datablock_length_in_bytes, __arg3, output, __arg5);
-                return __ret;
-            }
-        }
-    }
-
-    public static void StbVorbisFlushPushdata(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        __Internal.StbVorbisFlushPushdata(__arg0);
-    }
-
-    public static int StbVorbisDecodeFilename(string filename, ref int channels, ref int sample_rate, short** output)
-    {
-        fixed (int* __refParamPtr1 = &channels)
-        {
-            var __arg1 = __refParamPtr1;
-            fixed (int* __refParamPtr2 = &sample_rate)
-            {
-                var __arg2 = __refParamPtr2;
-                var __ret = __Internal.StbVorbisDecodeFilename(filename, __arg1, __arg2, output);
-                return __ret;
-            }
-        }
-    }
-
-    public static int StbVorbisDecodeMemory(byte* mem, int len, ref int channels, ref int sample_rate, short** output)
-    {
-        fixed (int* __refParamPtr2 = &channels)
-        {
-            var __arg2 = __refParamPtr2;
-            fixed (int* __refParamPtr3 = &sample_rate)
-            {
-                var __arg3 = __refParamPtr3;
-                var __ret = __Internal.StbVorbisDecodeMemory(mem, len, __arg2, __arg3, output);
-                return __ret;
-            }
-        }
-    }
-
-    public static global::StbVorbis StbVorbisOpenMemory(byte* data, int len, ref int error, global::StbVorbisAlloc alloc_buffer)
-    {
-        fixed (int* __refParamPtr2 = &error)
-        {
-            var __arg2 = __refParamPtr2;
-            var __arg3 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
-            var __ret = __Internal.StbVorbisOpenMemory(data, len, __arg2, __arg3);
-            global::StbVorbis __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
-            else __result0 = global::StbVorbis.__CreateInstance(__ret);
-            return __result0;
-        }
-    }
-
-    public static global::StbVorbis StbVorbisOpenFilename(string filename, ref int error, global::StbVorbisAlloc alloc_buffer)
-    {
-        fixed (int* __refParamPtr1 = &error)
-        {
-            var __arg1 = __refParamPtr1;
-            var __arg2 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
-            var __ret = __Internal.StbVorbisOpenFilename(filename, __arg1, __arg2);
-            global::StbVorbis __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
-            else __result0 = global::StbVorbis.__CreateInstance(__ret);
-            return __result0;
-        }
-    }
-
-    public static global::StbVorbis StbVorbisOpenFile(global::System.IntPtr f, int close_handle_on_close, ref int error, global::StbVorbisAlloc alloc_buffer)
-    {
-        fixed (int* __refParamPtr2 = &error)
-        {
-            var __arg2 = __refParamPtr2;
-            var __arg3 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
-            var __ret = __Internal.StbVorbisOpenFile(f, close_handle_on_close, __arg2, __arg3);
-            global::StbVorbis __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
-            else __result0 = global::StbVorbis.__CreateInstance(__ret);
-            return __result0;
-        }
-    }
-
-    public static global::StbVorbis StbVorbisOpenFileSection(global::System.IntPtr f, int close_handle_on_close, ref int error, global::StbVorbisAlloc alloc_buffer, uint len)
-    {
-        fixed (int* __refParamPtr2 = &error)
-        {
-            var __arg2 = __refParamPtr2;
-            var __arg3 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
-            var __ret = __Internal.StbVorbisOpenFileSection(f, close_handle_on_close, __arg2, __arg3, len);
-            global::StbVorbis __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
-            else __result0 = global::StbVorbis.__CreateInstance(__ret);
-            return __result0;
-        }
-    }
-
-    public static int StbVorbisSeekFrame(global::StbVorbis f, uint sample_number)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisSeekFrame(__arg0, sample_number);
-        return __ret;
-    }
-
-    public static int StbVorbisSeek(global::StbVorbis f, uint sample_number)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisSeek(__arg0, sample_number);
-        return __ret;
-    }
-
-    public static int StbVorbisSeekStart(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisSeekStart(__arg0);
-        return __ret;
-    }
-
-    public static uint StbVorbisStreamLengthInSamples(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisStreamLengthInSamples(__arg0);
-        return __ret;
-    }
-
-    public static float StbVorbisStreamLengthInSeconds(global::StbVorbis f)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisStreamLengthInSeconds(__arg0);
-        return __ret;
-    }
-
-    public static int StbVorbisGetFrameFloat(global::StbVorbis f, ref int channels, float*** output)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        fixed (int* __refParamPtr1 = &channels)
-        {
-            var __arg1 = __refParamPtr1;
-            var __ret = __Internal.StbVorbisGetFrameFloat(__arg0, __arg1, output);
-            return __ret;
-        }
-    }
-
-    public static int StbVorbisGetFrameShortInterleaved(global::StbVorbis f, int num_c, ref short buffer, int num_shorts)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        fixed (short* __refParamPtr2 = &buffer)
-        {
-            var __arg2 = __refParamPtr2;
-            var __ret = __Internal.StbVorbisGetFrameShortInterleaved(__arg0, num_c, __arg2, num_shorts);
-            return __ret;
-        }
-    }
-
-    public static int StbVorbisGetFrameShort(global::StbVorbis f, int num_c, short** buffer, int num_samples)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisGetFrameShort(__arg0, num_c, buffer, num_samples);
-        return __ret;
-    }
-
-    public static int StbVorbisGetSamplesFloatInterleaved(global::StbVorbis f, int channels, ref float buffer, int num_floats)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        fixed (float* __refParamPtr2 = &buffer)
-        {
-            var __arg2 = __refParamPtr2;
-            var __ret = __Internal.StbVorbisGetSamplesFloatInterleaved(__arg0, channels, __arg2, num_floats);
-            return __ret;
-        }
-    }
-
-    public static int StbVorbisGetSamplesFloat(global::StbVorbis f, int channels, float** buffer, int num_samples)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisGetSamplesFloat(__arg0, channels, buffer, num_samples);
-        return __ret;
-    }
-
-    public static int StbVorbisGetSamplesShortInterleaved(global::StbVorbis f, int channels, ref short buffer, int num_shorts)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        fixed (short* __refParamPtr2 = &buffer)
-        {
-            var __arg2 = __refParamPtr2;
-            var __ret = __Internal.StbVorbisGetSamplesShortInterleaved(__arg0, channels, __arg2, num_shorts);
-            return __ret;
-        }
-    }
-
-    public static int StbVorbisGetSamplesShort(global::StbVorbis f, int channels, short** buffer, int num_samples)
-    {
-        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
-        var __ret = __Internal.StbVorbisGetSamplesShort(__arg0, channels, buffer, num_samples);
-        return __ret;
-    }
-}
-
 
 [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
 public unsafe delegate void GLFWglproc();
@@ -1896,7 +147,7 @@ public unsafe partial class GLFWmonitor
 
     ~GLFWmonitor()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -1948,7 +199,7 @@ public unsafe partial class GLFWwindow
 
     ~GLFWwindow()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -2000,7 +251,7 @@ public unsafe partial class GLFWcursor
 
     ~GLFWcursor()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -2029,7 +280,7 @@ public unsafe partial class GLFWvidmode : IDisposable
         internal int refreshRate;
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+        [DllImport("glfw3", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
             EntryPoint="??0GLFWvidmode@@QEAA@AEBU0@@Z")]
         internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
     }
@@ -2208,7 +459,7 @@ public unsafe partial class GLFWgammaramp : IDisposable
         internal uint size;
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+        [DllImport("glfw3", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
             EntryPoint="??0GLFWgammaramp@@QEAA@AEBU0@@Z")]
         internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
     }
@@ -2358,7 +609,7 @@ public unsafe partial class GLFWimage : IDisposable
         internal global::System.IntPtr pixels;
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+        [DllImport("glfw3", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
             EntryPoint="??0GLFWimage@@QEAA@AEBU0@@Z")]
         internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
     }
@@ -2492,7 +743,7 @@ public unsafe partial class GLFWgamepadstate : IDisposable
         internal fixed float axes[6];
 
         [SuppressUnmanagedCodeSecurity]
-        [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+        [DllImport("glfw3", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
             EntryPoint="??0GLFWgamepadstate@@QEAA@AEBU0@@Z")]
         internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
     }
@@ -4229,6 +2480,2210 @@ public unsafe partial class glfw3
     }
 }
 
+public enum STBI
+{
+    STBI_default = 0,
+    STBI_grey = 1,
+    STBI_greyAlpha = 2,
+    STBI_rgb = 3,
+    STBI_rgbAlpha = 4
+}
+
+
+public unsafe partial class StbiIoCallbacks : IDisposable
+{
+    [StructLayout(LayoutKind.Explicit, Size = 24)]
+    public partial struct __Internal
+    {
+        [FieldOffset(0)]
+        internal global::System.IntPtr read;
+
+        [FieldOffset(8)]
+        internal global::System.IntPtr skip;
+
+        [FieldOffset(16)]
+        internal global::System.IntPtr eof;
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("glfw3", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="??0stbi_io_callbacks@@QEAA@AEBU0@@Z")]
+        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbiIoCallbacks> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbiIoCallbacks>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::StbiIoCallbacks __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::StbiIoCallbacks(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::StbiIoCallbacks __CreateInstance(global::StbiIoCallbacks.__Internal native, bool skipVTables = false)
+    {
+        return new global::StbiIoCallbacks(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::StbiIoCallbacks.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::StbiIoCallbacks.__Internal));
+        *(global::StbiIoCallbacks.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private StbiIoCallbacks(global::StbiIoCallbacks.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected StbiIoCallbacks(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    public StbiIoCallbacks()
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::StbiIoCallbacks.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    public StbiIoCallbacks(global::StbiIoCallbacks _0)
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::StbiIoCallbacks.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+        *((global::StbiIoCallbacks.__Internal*) __Instance) = *((global::StbiIoCallbacks.__Internal*) _0.__Instance);
+    }
+
+    ~StbiIoCallbacks()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    public virtual void Dispose(bool disposing)
+    {
+        if (__Instance == IntPtr.Zero)
+            return;
+        global::StbiIoCallbacks __dummy;
+        NativeToManagedMap.TryRemove(__Instance, out __dummy);
+        if (__ownsNativeInstance)
+            Marshal.FreeHGlobal(__Instance);
+        __Instance = IntPtr.Zero;
+    }
+}
+
+public unsafe partial class stb_image
+{
+    public partial struct __Internal
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_from_memory")]
+        internal static extern byte* StbiLoadFromMemory(byte* buffer, int len, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_from_callbacks")]
+        internal static extern byte* StbiLoadFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_gif_from_memory")]
+        internal static extern byte* StbiLoadGifFromMemory(byte* buffer, int len, int** delays, int* x, int* y, int* z, int* comp, int req_comp);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load")]
+        internal static extern byte* StbiLoad([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_from_file")]
+        internal static extern byte* StbiLoadFromFile(global::System.IntPtr f, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_16_from_memory")]
+        internal static extern ushort* StbiLoad16FromMemory(byte* buffer, int len, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_16_from_callbacks")]
+        internal static extern ushort* StbiLoad16FromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_16")]
+        internal static extern ushort* StbiLoad16([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_load_from_file_16")]
+        internal static extern ushort* StbiLoadFromFile16(global::System.IntPtr f, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_loadf_from_memory")]
+        internal static extern float* StbiLoadfFromMemory(byte* buffer, int len, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_loadf_from_callbacks")]
+        internal static extern float* StbiLoadfFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_loadf")]
+        internal static extern float* StbiLoadf([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_loadf_from_file")]
+        internal static extern float* StbiLoadfFromFile(global::System.IntPtr f, int* x, int* y, int* channels_in_file, int desired_channels);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_hdr_to_ldr_gamma")]
+        internal static extern void StbiHdrToLdrGamma(float gamma);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_hdr_to_ldr_scale")]
+        internal static extern void StbiHdrToLdrScale(float scale);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_ldr_to_hdr_gamma")]
+        internal static extern void StbiLdrToHdrGamma(float gamma);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_ldr_to_hdr_scale")]
+        internal static extern void StbiLdrToHdrScale(float scale);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_hdr_from_callbacks")]
+        internal static extern int StbiIsHdrFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_hdr_from_memory")]
+        internal static extern int StbiIsHdrFromMemory(byte* buffer, int len);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_hdr")]
+        internal static extern int StbiIsHdr([MarshalAs(UnmanagedType.LPStr)] string filename);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_hdr_from_file")]
+        internal static extern int StbiIsHdrFromFile(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_failure_reason")]
+        internal static extern global::System.IntPtr StbiFailureReason();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_image_free")]
+        internal static extern void StbiImageFree(global::System.IntPtr retval_from_stbi_load);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_info_from_memory")]
+        internal static extern int StbiInfoFromMemory(byte* buffer, int len, int* x, int* y, int* comp);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_info_from_callbacks")]
+        internal static extern int StbiInfoFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user, int* x, int* y, int* comp);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_16_bit_from_memory")]
+        internal static extern int StbiIs16BitFromMemory(byte* buffer, int len);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_16_bit_from_callbacks")]
+        internal static extern int StbiIs16BitFromCallbacks(global::System.IntPtr clbk, global::System.IntPtr user);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_info")]
+        internal static extern int StbiInfo([MarshalAs(UnmanagedType.LPStr)] string filename, int* x, int* y, int* comp);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_info_from_file")]
+        internal static extern int StbiInfoFromFile(global::System.IntPtr f, int* x, int* y, int* comp);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_16_bit")]
+        internal static extern int StbiIs16Bit([MarshalAs(UnmanagedType.LPStr)] string filename);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_is_16_bit_from_file")]
+        internal static extern int StbiIs16BitFromFile(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_set_unpremultiply_on_load")]
+        internal static extern void StbiSetUnpremultiplyOnLoad(int flag_true_if_should_unpremultiply);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_convert_iphone_png_to_rgb")]
+        internal static extern void StbiConvertIphonePngToRgb(int flag_true_if_should_convert);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_set_flip_vertically_on_load")]
+        internal static extern void StbiSetFlipVerticallyOnLoad(int flag_true_if_should_flip);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_zlib_decode_malloc_guesssize")]
+        internal static extern sbyte* StbiZlibDecodeMallocGuesssize([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int initial_size, int* outlen);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_zlib_decode_malloc_guesssize_headerflag")]
+        internal static extern sbyte* StbiZlibDecodeMallocGuesssizeHeaderflag([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int initial_size, int* outlen, int parse_header);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_zlib_decode_malloc")]
+        internal static extern sbyte* StbiZlibDecodeMalloc([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int* outlen);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_zlib_decode_buffer")]
+        internal static extern int StbiZlibDecodeBuffer(sbyte* obuffer, int olen, [MarshalAs(UnmanagedType.LPStr)] string ibuffer, int ilen);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_zlib_decode_noheader_malloc")]
+        internal static extern sbyte* StbiZlibDecodeNoheaderMalloc([MarshalAs(UnmanagedType.LPStr)] string buffer, int len, int* outlen);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_zlib_decode_noheader_buffer")]
+        internal static extern int StbiZlibDecodeNoheaderBuffer(sbyte* obuffer, int olen, [MarshalAs(UnmanagedType.LPStr)] string ibuffer, int ilen);
+    }
+
+
+    public static byte* StbiLoadFromMemory(byte* buffer, int len, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &channels_in_file)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiLoadFromMemory(buffer, len, __arg2, __arg3, __arg4, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static byte* StbiLoadFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &channels_in_file)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiLoadFromCallbacks(__arg0, user, __arg2, __arg3, __arg4, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static byte* StbiLoadGifFromMemory(byte* buffer, int len, int** delays, ref int x, ref int y, ref int z, ref int comp, int req_comp)
+    {
+        fixed (int* __refParamPtr3 = &x)
+        {
+            var __arg3 = __refParamPtr3;
+            fixed (int* __refParamPtr4 = &y)
+            {
+                var __arg4 = __refParamPtr4;
+                fixed (int* __refParamPtr5 = &z)
+                {
+                    var __arg5 = __refParamPtr5;
+                    fixed (int* __refParamPtr6 = &comp)
+                    {
+                        var __arg6 = __refParamPtr6;
+                        var __ret = __Internal.StbiLoadGifFromMemory(buffer, len, delays, __arg3, __arg4, __arg5, __arg6, req_comp);
+                        return __ret;
+                    }
+                }
+            }
+        }
+    }
+
+    public static byte* StbiLoad(string filename, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &channels_in_file)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiLoad(filename, __arg1, __arg2, __arg3, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static byte* StbiLoadFromFile(global::System.IntPtr f, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &channels_in_file)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiLoadFromFile(f, __arg1, __arg2, __arg3, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+
+    public static ushort* StbiLoad16FromMemory(byte* buffer, int len, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &channels_in_file)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiLoad16FromMemory(buffer, len, __arg2, __arg3, __arg4, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static ushort* StbiLoad16FromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &channels_in_file)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiLoad16FromCallbacks(__arg0, user, __arg2, __arg3, __arg4, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static ushort* StbiLoad16(string filename, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &channels_in_file)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiLoad16(filename, __arg1, __arg2, __arg3, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static ushort* StbiLoadFromFile16(global::System.IntPtr f, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &channels_in_file)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiLoadFromFile16(f, __arg1, __arg2, __arg3, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static float* StbiLoadfFromMemory(byte* buffer, int len, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &channels_in_file)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiLoadfFromMemory(buffer, len, __arg2, __arg3, __arg4, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static float* StbiLoadfFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &channels_in_file)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiLoadfFromCallbacks(__arg0, user, __arg2, __arg3, __arg4, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static float* StbiLoadf(string filename, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &channels_in_file)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiLoadf(filename, __arg1, __arg2, __arg3, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static float* StbiLoadfFromFile(global::System.IntPtr f, ref int x, ref int y, ref int channels_in_file, int desired_channels)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &channels_in_file)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiLoadfFromFile(f, __arg1, __arg2, __arg3, desired_channels);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static void StbiHdrToLdrGamma(float gamma)
+    {
+        __Internal.StbiHdrToLdrGamma(gamma);
+    }
+
+    public static void StbiHdrToLdrScale(float scale)
+    {
+        __Internal.StbiHdrToLdrScale(scale);
+    }
+
+    public static void StbiLdrToHdrGamma(float gamma)
+    {
+        __Internal.StbiLdrToHdrGamma(gamma);
+    }
+
+    public static void StbiLdrToHdrScale(float scale)
+    {
+        __Internal.StbiLdrToHdrScale(scale);
+    }
+
+    public static int StbiIsHdrFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user)
+    {
+        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
+        var __ret = __Internal.StbiIsHdrFromCallbacks(__arg0, user);
+        return __ret;
+    }
+
+    public static int StbiIsHdrFromMemory(byte* buffer, int len)
+    {
+        var __ret = __Internal.StbiIsHdrFromMemory(buffer, len);
+        return __ret;
+    }
+
+    public static int StbiIsHdr(string filename)
+    {
+        var __ret = __Internal.StbiIsHdr(filename);
+        return __ret;
+    }
+
+    public static int StbiIsHdrFromFile(global::System.IntPtr f)
+    {
+        var __ret = __Internal.StbiIsHdrFromFile(f);
+        return __ret;
+    }
+
+    public static string StbiFailureReason()
+    {
+        var __ret = __Internal.StbiFailureReason();
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+    public static void StbiImageFree(global::System.IntPtr retval_from_stbi_load)
+    {
+        __Internal.StbiImageFree(retval_from_stbi_load);
+    }
+
+    public static int StbiInfoFromMemory(byte* buffer, int len, ref int x, ref int y, ref int comp)
+    {
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &comp)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiInfoFromMemory(buffer, len, __arg2, __arg3, __arg4);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static int StbiInfoFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user, ref int x, ref int y, ref int comp)
+    {
+        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
+        fixed (int* __refParamPtr2 = &x)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &y)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &comp)
+                {
+                    var __arg4 = __refParamPtr4;
+                    var __ret = __Internal.StbiInfoFromCallbacks(__arg0, user, __arg2, __arg3, __arg4);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static int StbiIs16BitFromMemory(byte* buffer, int len)
+    {
+        var __ret = __Internal.StbiIs16BitFromMemory(buffer, len);
+        return __ret;
+    }
+
+    public static int StbiIs16BitFromCallbacks(global::StbiIoCallbacks clbk, global::System.IntPtr user)
+    {
+        var __arg0 = ReferenceEquals(clbk, null) ? global::System.IntPtr.Zero : clbk.__Instance;
+        var __ret = __Internal.StbiIs16BitFromCallbacks(__arg0, user);
+        return __ret;
+    }
+
+    public static int StbiInfo(string filename, ref int x, ref int y, ref int comp)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &comp)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiInfo(filename, __arg1, __arg2, __arg3);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static int StbiInfoFromFile(global::System.IntPtr f, ref int x, ref int y, ref int comp)
+    {
+        fixed (int* __refParamPtr1 = &x)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &y)
+            {
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &comp)
+                {
+                    var __arg3 = __refParamPtr3;
+                    var __ret = __Internal.StbiInfoFromFile(f, __arg1, __arg2, __arg3);
+                    return __ret;
+                }
+            }
+        }
+    }
+
+    public static int StbiIs16Bit(string filename)
+    {
+        var __ret = __Internal.StbiIs16Bit(filename);
+        return __ret;
+    }
+
+    public static int StbiIs16BitFromFile(global::System.IntPtr f)
+    {
+        var __ret = __Internal.StbiIs16BitFromFile(f);
+        return __ret;
+    }
+
+    public static void StbiSetUnpremultiplyOnLoad(int flag_true_if_should_unpremultiply)
+    {
+        __Internal.StbiSetUnpremultiplyOnLoad(flag_true_if_should_unpremultiply);
+    }
+
+    public static void StbiConvertIphonePngToRgb(int flag_true_if_should_convert)
+    {
+        __Internal.StbiConvertIphonePngToRgb(flag_true_if_should_convert);
+    }
+
+    public static void StbiSetFlipVerticallyOnLoad(int flag_true_if_should_flip)
+    {
+        __Internal.StbiSetFlipVerticallyOnLoad(flag_true_if_should_flip);
+    }
+
+    public static sbyte* StbiZlibDecodeMallocGuesssize(string buffer, int len, int initial_size, ref int outlen)
+    {
+        fixed (int* __refParamPtr3 = &outlen)
+        {
+            var __arg3 = __refParamPtr3;
+            var __ret = __Internal.StbiZlibDecodeMallocGuesssize(buffer, len, initial_size, __arg3);
+            return __ret;
+        }
+    }
+
+    public static sbyte* StbiZlibDecodeMallocGuesssizeHeaderflag(string buffer, int len, int initial_size, ref int outlen, int parse_header)
+    {
+        fixed (int* __refParamPtr3 = &outlen)
+        {
+            var __arg3 = __refParamPtr3;
+            var __ret = __Internal.StbiZlibDecodeMallocGuesssizeHeaderflag(buffer, len, initial_size, __arg3, parse_header);
+            return __ret;
+        }
+    }
+
+    public static sbyte* StbiZlibDecodeMalloc(string buffer, int len, ref int outlen)
+    {
+        fixed (int* __refParamPtr2 = &outlen)
+        {
+            var __arg2 = __refParamPtr2;
+            var __ret = __Internal.StbiZlibDecodeMalloc(buffer, len, __arg2);
+            return __ret;
+        }
+    }
+
+    public static int StbiZlibDecodeBuffer(sbyte* obuffer, int olen, string ibuffer, int ilen)
+    {
+        var __ret = __Internal.StbiZlibDecodeBuffer(obuffer, olen, ibuffer, ilen);
+        return __ret;
+    }
+
+    public static sbyte* StbiZlibDecodeNoheaderMalloc(string buffer, int len, ref int outlen)
+    {
+        fixed (int* __refParamPtr2 = &outlen)
+        {
+            var __arg2 = __refParamPtr2;
+            var __ret = __Internal.StbiZlibDecodeNoheaderMalloc(buffer, len, __arg2);
+            return __ret;
+        }
+    }
+
+    public static int StbiZlibDecodeNoheaderBuffer(sbyte* obuffer, int olen, string ibuffer, int ilen)
+    {
+        var __ret = __Internal.StbiZlibDecodeNoheaderBuffer(obuffer, olen, ibuffer, ilen);
+        return __ret;
+    }
+}
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void StbiWriteFunc(global::System.IntPtr context, global::System.IntPtr data, int size);
+
+public unsafe partial class stb_image_write
+{
+    public partial struct __Internal
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_png")]
+        internal static extern int StbiWritePng([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_bmp")]
+        internal static extern int StbiWriteBmp([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, global::System.IntPtr data);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_tga")]
+        internal static extern int StbiWriteTga([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, global::System.IntPtr data);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_hdr")]
+        internal static extern int StbiWriteHdr([MarshalAs(UnmanagedType.LPStr)] string filename, int w, int h, int comp, float* data);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_jpg")]
+        internal static extern int StbiWriteJpg([MarshalAs(UnmanagedType.LPStr)] string filename, int x, int y, int comp, global::System.IntPtr data, int quality);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_png_to_func")]
+        internal static extern int StbiWritePngToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_bmp_to_func")]
+        internal static extern int StbiWriteBmpToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_tga_to_func")]
+        internal static extern int StbiWriteTgaToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_hdr_to_func")]
+        internal static extern int StbiWriteHdrToFunc(global::System.IntPtr func, global::System.IntPtr context, int w, int h, int comp, float* data);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_write_jpg_to_func")]
+        internal static extern int StbiWriteJpgToFunc(global::System.IntPtr func, global::System.IntPtr context, int x, int y, int comp, global::System.IntPtr data, int quality);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stbi_flip_vertically_on_write")]
+        internal static extern void StbiFlipVerticallyOnWrite(int flip_boolean);
+    }
+
+    public static int StbiWritePng(string filename, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes)
+    {
+        var __ret = __Internal.StbiWritePng(filename, w, h, comp, data, stride_in_bytes);
+        return __ret;
+    }
+
+    public static int StbiWriteBmp(string filename, int w, int h, int comp, global::System.IntPtr data)
+    {
+        var __ret = __Internal.StbiWriteBmp(filename, w, h, comp, data);
+        return __ret;
+    }
+
+    public static int StbiWriteTga(string filename, int w, int h, int comp, global::System.IntPtr data)
+    {
+        var __ret = __Internal.StbiWriteTga(filename, w, h, comp, data);
+        return __ret;
+    }
+
+    public static int StbiWriteHdr(string filename, int w, int h, int comp, ref float data)
+    {
+        fixed (float* __refParamPtr4 = &data)
+        {
+            var __arg4 = __refParamPtr4;
+            var __ret = __Internal.StbiWriteHdr(filename, w, h, comp, __arg4);
+            return __ret;
+        }
+    }
+
+    public static int StbiWriteJpg(string filename, int x, int y, int comp, global::System.IntPtr data, int quality)
+    {
+        var __ret = __Internal.StbiWriteJpg(filename, x, y, comp, data, quality);
+        return __ret;
+    }
+
+    public static int StbiWritePngToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data, int stride_in_bytes)
+    {
+        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
+        var __ret = __Internal.StbiWritePngToFunc(__arg0, context, w, h, comp, data, stride_in_bytes);
+        return __ret;
+    }
+
+    public static int StbiWriteBmpToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data)
+    {
+        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
+        var __ret = __Internal.StbiWriteBmpToFunc(__arg0, context, w, h, comp, data);
+        return __ret;
+    }
+
+    public static int StbiWriteTgaToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, global::System.IntPtr data)
+    {
+        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
+        var __ret = __Internal.StbiWriteTgaToFunc(__arg0, context, w, h, comp, data);
+        return __ret;
+    }
+
+    public static int StbiWriteHdrToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int w, int h, int comp, ref float data)
+    {
+        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
+        fixed (float* __refParamPtr5 = &data)
+        {
+            var __arg5 = __refParamPtr5;
+            var __ret = __Internal.StbiWriteHdrToFunc(__arg0, context, w, h, comp, __arg5);
+            return __ret;
+        }
+    }
+
+    public static int StbiWriteJpgToFunc(global::StbiWriteFunc func, global::System.IntPtr context, int x, int y, int comp, global::System.IntPtr data, int quality)
+    {
+        var __arg0 = func == null ? global::System.IntPtr.Zero : Marshal.GetFunctionPointerForDelegate(func);
+        var __ret = __Internal.StbiWriteJpgToFunc(__arg0, context, x, y, comp, data, quality);
+        return __ret;
+    }
+
+    public static void StbiFlipVerticallyOnWrite(int flip_boolean)
+    {
+        __Internal.StbiFlipVerticallyOnWrite(flip_boolean);
+    }
+
+    public static int StbiWriteTgaWithRle
+    {
+        get
+        {
+            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("glfw3", "?stbi_write_tga_with_rle@@3HA");
+            return *__ptr;
+        }
+
+        set
+        {
+            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("glfw3", "?stbi_write_tga_with_rle@@3HA");
+            *__ptr = value;
+        }
+    }
+
+    public static int StbiWritePngCompressionLevel
+    {
+        get
+        {
+            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("glfw3", "?stbi_write_png_compression_level@@3HA");
+            return *__ptr;
+        }
+
+        set
+        {
+            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("glfw3", "?stbi_write_png_compression_level@@3HA");
+            *__ptr = value;
+        }
+    }
+
+    public static int StbiWriteForcePngFilter
+    {
+        get
+        {
+            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("glfw3", "?stbi_write_force_png_filter@@3HA");
+            return *__ptr;
+        }
+
+        set
+        {
+            var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("glfw3", "?stbi_write_force_png_filter@@3HA");
+            *__ptr = value;
+        }
+    }
+}
+
+
+public enum STBVorbisError
+{
+    VORBIS_NoError = 0,
+    VORBIS_needMoreData = 1,
+    VORBIS_invalidApiMixing = 2,
+    VORBIS_outofmem = 3,
+    VORBIS_featureNotSupported = 4,
+    VORBIS_tooManyChannels = 5,
+    VORBIS_fileOpenFailure = 6,
+    VORBIS_seekWithoutLength = 7,
+    VORBIS_unexpectedEof = 10,
+    VORBIS_seekInvalid = 11,
+    VORBIS_invalidSetup = 20,
+    VORBIS_invalidStream = 21,
+    VORBIS_missingCapturePattern = 30,
+    VORBIS_invalidStreamStructureVersion = 31,
+    VORBIS_continuedPacketFlagInvalid = 32,
+    VORBIS_incorrectStreamSerialNumber = 33,
+    VORBIS_invalidFirstPage = 34,
+    VORBIS_badPacketType = 35,
+    VORBIS_cantFindLastPage = 36,
+    VORBIS_seekFailed = 37
+}
+
+
+public unsafe partial class StbVorbisAlloc : IDisposable
+{
+    [StructLayout(LayoutKind.Explicit, Size = 16)]
+    public partial struct __Internal
+    {
+        [FieldOffset(0)]
+        internal global::System.IntPtr alloc_buffer;
+
+        [FieldOffset(8)]
+        internal int alloc_buffer_length_in_bytes;
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("glfw3", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="??0stb_vorbis_alloc@@QEAA@AEBU0@@Z")]
+        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisAlloc> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisAlloc>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::StbVorbisAlloc __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::StbVorbisAlloc(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::StbVorbisAlloc __CreateInstance(global::StbVorbisAlloc.__Internal native, bool skipVTables = false)
+    {
+        return new global::StbVorbisAlloc(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::StbVorbisAlloc.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::StbVorbisAlloc.__Internal));
+        *(global::StbVorbisAlloc.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private StbVorbisAlloc(global::StbVorbisAlloc.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected StbVorbisAlloc(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    public StbVorbisAlloc()
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisAlloc.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    public StbVorbisAlloc(global::StbVorbisAlloc _0)
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisAlloc.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+        *((global::StbVorbisAlloc.__Internal*) __Instance) = *((global::StbVorbisAlloc.__Internal*) _0.__Instance);
+    }
+
+    ~StbVorbisAlloc()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    public virtual void Dispose(bool disposing)
+    {
+        if (__Instance == IntPtr.Zero)
+            return;
+        global::StbVorbisAlloc __dummy;
+        NativeToManagedMap.TryRemove(__Instance, out __dummy);
+        if (__ownsNativeInstance)
+            Marshal.FreeHGlobal(__Instance);
+        __Instance = IntPtr.Zero;
+    }
+
+    public sbyte* AllocBuffer
+    {
+        get
+        {
+            return (sbyte*) ((global::StbVorbisAlloc.__Internal*) __Instance)->alloc_buffer;
+        }
+
+        set
+        {
+            ((global::StbVorbisAlloc.__Internal*)__Instance)->alloc_buffer = (global::System.IntPtr) value;
+        }
+    }
+
+    public int AllocBufferLengthInBytes
+    {
+        get
+        {
+            return ((global::StbVorbisAlloc.__Internal*) __Instance)->alloc_buffer_length_in_bytes;
+        }
+
+        set
+        {
+            ((global::StbVorbisAlloc.__Internal*)__Instance)->alloc_buffer_length_in_bytes = value;
+        }
+    }
+}
+
+public unsafe partial class StbVorbis
+{
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
+    {
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbis> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbis>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::StbVorbis __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::StbVorbis(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::StbVorbis __CreateInstance(global::StbVorbis.__Internal native, bool skipVTables = false)
+    {
+        return new global::StbVorbis(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::StbVorbis.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::StbVorbis.__Internal));
+        *(global::StbVorbis.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private StbVorbis(global::StbVorbis.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected StbVorbis(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~StbVorbis()
+    {
+        Dispose(false);
+    }
+}
+
+public unsafe partial class StbVorbisInfo : IDisposable
+{
+    [StructLayout(LayoutKind.Explicit, Size = 24)]
+    public partial struct __Internal
+    {
+        [FieldOffset(0)]
+        internal uint sample_rate;
+
+        [FieldOffset(4)]
+        internal int channels;
+
+        [FieldOffset(8)]
+        internal uint setup_memory_required;
+
+        [FieldOffset(12)]
+        internal uint setup_temp_memory_required;
+
+        [FieldOffset(16)]
+        internal uint temp_memory_required;
+
+        [FieldOffset(20)]
+        internal int max_frame_size;
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("glfw3", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="??0stb_vorbis_info@@QEAA@AEBU0@@Z")]
+        internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisInfo> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::StbVorbisInfo>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::StbVorbisInfo __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::StbVorbisInfo(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::StbVorbisInfo __CreateInstance(global::StbVorbisInfo.__Internal native, bool skipVTables = false)
+    {
+        return new global::StbVorbisInfo(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::StbVorbisInfo.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::StbVorbisInfo.__Internal));
+        *(global::StbVorbisInfo.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private StbVorbisInfo(global::StbVorbisInfo.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected StbVorbisInfo(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    public StbVorbisInfo()
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisInfo.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    public StbVorbisInfo(global::StbVorbisInfo _0)
+    {
+        __Instance = Marshal.AllocHGlobal(sizeof(global::StbVorbisInfo.__Internal));
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+        *((global::StbVorbisInfo.__Internal*) __Instance) = *((global::StbVorbisInfo.__Internal*) _0.__Instance);
+    }
+
+    ~StbVorbisInfo()
+    {
+        Dispose(false);
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
+    }
+
+    public virtual void Dispose(bool disposing)
+    {
+        if (__Instance == IntPtr.Zero)
+            return;
+        global::StbVorbisInfo __dummy;
+        NativeToManagedMap.TryRemove(__Instance, out __dummy);
+        if (__ownsNativeInstance)
+            Marshal.FreeHGlobal(__Instance);
+        __Instance = IntPtr.Zero;
+    }
+
+    public uint SampleRate
+    {
+        get
+        {
+            return ((global::StbVorbisInfo.__Internal*) __Instance)->sample_rate;
+        }
+
+        set
+        {
+            ((global::StbVorbisInfo.__Internal*)__Instance)->sample_rate = value;
+        }
+    }
+
+    public int Channels
+    {
+        get
+        {
+            return ((global::StbVorbisInfo.__Internal*) __Instance)->channels;
+        }
+
+        set
+        {
+            ((global::StbVorbisInfo.__Internal*)__Instance)->channels = value;
+        }
+    }
+
+    public uint SetupMemoryRequired
+    {
+        get
+        {
+            return ((global::StbVorbisInfo.__Internal*) __Instance)->setup_memory_required;
+        }
+
+        set
+        {
+            ((global::StbVorbisInfo.__Internal*)__Instance)->setup_memory_required = value;
+        }
+    }
+
+    public uint SetupTempMemoryRequired
+    {
+        get
+        {
+            return ((global::StbVorbisInfo.__Internal*) __Instance)->setup_temp_memory_required;
+        }
+
+        set
+        {
+            ((global::StbVorbisInfo.__Internal*)__Instance)->setup_temp_memory_required = value;
+        }
+    }
+
+    public uint TempMemoryRequired
+    {
+        get
+        {
+            return ((global::StbVorbisInfo.__Internal*) __Instance)->temp_memory_required;
+        }
+
+        set
+        {
+            ((global::StbVorbisInfo.__Internal*)__Instance)->temp_memory_required = value;
+        }
+    }
+
+    public int MaxFrameSize
+    {
+        get
+        {
+            return ((global::StbVorbisInfo.__Internal*) __Instance)->max_frame_size;
+        }
+
+        set
+        {
+            ((global::StbVorbisInfo.__Internal*)__Instance)->max_frame_size = value;
+        }
+    }
+}
+
+public unsafe partial class stb_vorbis
+{
+    public partial struct __Internal
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_info")]
+        internal static extern global::StbVorbisInfo.__Internal StbVorbisGetInfo(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_error")]
+        internal static extern int StbVorbisGetError(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_close")]
+        internal static extern void StbVorbisClose(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_sample_offset")]
+        internal static extern int StbVorbisGetSampleOffset(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_file_offset")]
+        internal static extern uint StbVorbisGetFileOffset(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_open_pushdata")]
+        internal static extern global::System.IntPtr StbVorbisOpenPushdata(byte* datablock, int datablock_length_in_bytes, int* datablock_memory_consumed_in_bytes, int* error, global::System.IntPtr alloc_buffer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_decode_frame_pushdata")]
+        internal static extern int StbVorbisDecodeFramePushdata(global::System.IntPtr f, byte* datablock, int datablock_length_in_bytes, int* channels, float*** output, int* samples);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_flush_pushdata")]
+        internal static extern void StbVorbisFlushPushdata(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_decode_filename")]
+        internal static extern int StbVorbisDecodeFilename([MarshalAs(UnmanagedType.LPStr)] string filename, int* channels, int* sample_rate, short** output);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_decode_memory")]
+        internal static extern int StbVorbisDecodeMemory(byte* mem, int len, int* channels, int* sample_rate, short** output);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_open_memory")]
+        internal static extern global::System.IntPtr StbVorbisOpenMemory(byte* data, int len, int* error, global::System.IntPtr alloc_buffer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_open_filename")]
+        internal static extern global::System.IntPtr StbVorbisOpenFilename([MarshalAs(UnmanagedType.LPStr)] string filename, int* error, global::System.IntPtr alloc_buffer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_open_file")]
+        internal static extern global::System.IntPtr StbVorbisOpenFile(global::System.IntPtr f, int close_handle_on_close, int* error, global::System.IntPtr alloc_buffer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_open_file_section")]
+        internal static extern global::System.IntPtr StbVorbisOpenFileSection(global::System.IntPtr f, int close_handle_on_close, int* error, global::System.IntPtr alloc_buffer, uint len);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_seek_frame")]
+        internal static extern int StbVorbisSeekFrame(global::System.IntPtr f, uint sample_number);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_seek")]
+        internal static extern int StbVorbisSeek(global::System.IntPtr f, uint sample_number);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_seek_start")]
+        internal static extern int StbVorbisSeekStart(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_stream_length_in_samples")]
+        internal static extern uint StbVorbisStreamLengthInSamples(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_stream_length_in_seconds")]
+        internal static extern float StbVorbisStreamLengthInSeconds(global::System.IntPtr f);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_frame_float")]
+        internal static extern int StbVorbisGetFrameFloat(global::System.IntPtr f, int* channels, float*** output);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_frame_short_interleaved")]
+        internal static extern int StbVorbisGetFrameShortInterleaved(global::System.IntPtr f, int num_c, short* buffer, int num_shorts);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_frame_short")]
+        internal static extern int StbVorbisGetFrameShort(global::System.IntPtr f, int num_c, short** buffer, int num_samples);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_samples_float_interleaved")]
+        internal static extern int StbVorbisGetSamplesFloatInterleaved(global::System.IntPtr f, int channels, float* buffer, int num_floats);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_samples_float")]
+        internal static extern int StbVorbisGetSamplesFloat(global::System.IntPtr f, int channels, float** buffer, int num_samples);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_samples_short_interleaved")]
+        internal static extern int StbVorbisGetSamplesShortInterleaved(global::System.IntPtr f, int channels, short* buffer, int num_shorts);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("stb", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="stb_vorbis_get_samples_short")]
+        internal static extern int StbVorbisGetSamplesShort(global::System.IntPtr f, int channels, short** buffer, int num_samples);
+    }
+
+    public static global::StbVorbisInfo StbVorbisGetInfo(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisGetInfo(__arg0);
+        return global::StbVorbisInfo.__CreateInstance(__ret);
+    }
+
+    public static int StbVorbisGetError(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisGetError(__arg0);
+        return __ret;
+    }
+
+    public static void StbVorbisClose(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        __Internal.StbVorbisClose(__arg0);
+    }
+
+    public static int StbVorbisGetSampleOffset(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisGetSampleOffset(__arg0);
+        return __ret;
+    }
+
+    public static uint StbVorbisGetFileOffset(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisGetFileOffset(__arg0);
+        return __ret;
+    }
+
+    public static global::StbVorbis StbVorbisOpenPushdata(byte* datablock, int datablock_length_in_bytes, ref int datablock_memory_consumed_in_bytes, ref int error, global::StbVorbisAlloc alloc_buffer)
+    {
+        fixed (int* __refParamPtr2 = &datablock_memory_consumed_in_bytes)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &error)
+            {
+                var __arg3 = __refParamPtr3;
+                var __arg4 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
+                var __ret = __Internal.StbVorbisOpenPushdata(datablock, datablock_length_in_bytes, __arg2, __arg3, __arg4);
+                global::StbVorbis __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
+                else __result0 = global::StbVorbis.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+    }
+
+    public static int StbVorbisDecodeFramePushdata(global::StbVorbis f, byte* datablock, int datablock_length_in_bytes, ref int channels, float*** output, ref int samples)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        fixed (int* __refParamPtr3 = &channels)
+        {
+            var __arg3 = __refParamPtr3;
+            fixed (int* __refParamPtr5 = &samples)
+            {
+                var __arg5 = __refParamPtr5;
+                var __ret = __Internal.StbVorbisDecodeFramePushdata(__arg0, datablock, datablock_length_in_bytes, __arg3, output, __arg5);
+                return __ret;
+            }
+        }
+    }
+
+    public static void StbVorbisFlushPushdata(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        __Internal.StbVorbisFlushPushdata(__arg0);
+    }
+
+    public static int StbVorbisDecodeFilename(string filename, ref int channels, ref int sample_rate, short** output)
+    {
+        fixed (int* __refParamPtr1 = &channels)
+        {
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &sample_rate)
+            {
+                var __arg2 = __refParamPtr2;
+                var __ret = __Internal.StbVorbisDecodeFilename(filename, __arg1, __arg2, output);
+                return __ret;
+            }
+        }
+    }
+
+    public static int StbVorbisDecodeMemory(byte* mem, int len, ref int channels, ref int sample_rate, short** output)
+    {
+        fixed (int* __refParamPtr2 = &channels)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &sample_rate)
+            {
+                var __arg3 = __refParamPtr3;
+                var __ret = __Internal.StbVorbisDecodeMemory(mem, len, __arg2, __arg3, output);
+                return __ret;
+            }
+        }
+    }
+
+    public static global::StbVorbis StbVorbisOpenMemory(byte* data, int len, ref int error, global::StbVorbisAlloc alloc_buffer)
+    {
+        fixed (int* __refParamPtr2 = &error)
+        {
+            var __arg2 = __refParamPtr2;
+            var __arg3 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
+            var __ret = __Internal.StbVorbisOpenMemory(data, len, __arg2, __arg3);
+            global::StbVorbis __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
+            else __result0 = global::StbVorbis.__CreateInstance(__ret);
+            return __result0;
+        }
+    }
+
+    public static global::StbVorbis StbVorbisOpenFilename(string filename, ref int error, global::StbVorbisAlloc alloc_buffer)
+    {
+        fixed (int* __refParamPtr1 = &error)
+        {
+            var __arg1 = __refParamPtr1;
+            var __arg2 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
+            var __ret = __Internal.StbVorbisOpenFilename(filename, __arg1, __arg2);
+            global::StbVorbis __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
+            else __result0 = global::StbVorbis.__CreateInstance(__ret);
+            return __result0;
+        }
+    }
+
+    public static global::StbVorbis StbVorbisOpenFile(global::System.IntPtr f, int close_handle_on_close, ref int error, global::StbVorbisAlloc alloc_buffer)
+    {
+        fixed (int* __refParamPtr2 = &error)
+        {
+            var __arg2 = __refParamPtr2;
+            var __arg3 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
+            var __ret = __Internal.StbVorbisOpenFile(f, close_handle_on_close, __arg2, __arg3);
+            global::StbVorbis __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
+            else __result0 = global::StbVorbis.__CreateInstance(__ret);
+            return __result0;
+        }
+    }
+
+    public static global::StbVorbis StbVorbisOpenFileSection(global::System.IntPtr f, int close_handle_on_close, ref int error, global::StbVorbisAlloc alloc_buffer, uint len)
+    {
+        fixed (int* __refParamPtr2 = &error)
+        {
+            var __arg2 = __refParamPtr2;
+            var __arg3 = ReferenceEquals(alloc_buffer, null) ? global::System.IntPtr.Zero : alloc_buffer.__Instance;
+            var __ret = __Internal.StbVorbisOpenFileSection(f, close_handle_on_close, __arg2, __arg3, len);
+            global::StbVorbis __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::StbVorbis.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::StbVorbis) global::StbVorbis.NativeToManagedMap[__ret];
+            else __result0 = global::StbVorbis.__CreateInstance(__ret);
+            return __result0;
+        }
+    }
+
+    public static int StbVorbisSeekFrame(global::StbVorbis f, uint sample_number)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisSeekFrame(__arg0, sample_number);
+        return __ret;
+    }
+
+    public static int StbVorbisSeek(global::StbVorbis f, uint sample_number)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisSeek(__arg0, sample_number);
+        return __ret;
+    }
+
+    public static int StbVorbisSeekStart(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisSeekStart(__arg0);
+        return __ret;
+    }
+
+    public static uint StbVorbisStreamLengthInSamples(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisStreamLengthInSamples(__arg0);
+        return __ret;
+    }
+
+    public static float StbVorbisStreamLengthInSeconds(global::StbVorbis f)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisStreamLengthInSeconds(__arg0);
+        return __ret;
+    }
+
+    public static int StbVorbisGetFrameFloat(global::StbVorbis f, ref int channels, float*** output)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        fixed (int* __refParamPtr1 = &channels)
+        {
+            var __arg1 = __refParamPtr1;
+            var __ret = __Internal.StbVorbisGetFrameFloat(__arg0, __arg1, output);
+            return __ret;
+        }
+    }
+
+    public static int StbVorbisGetFrameShortInterleaved(global::StbVorbis f, int num_c, ref short buffer, int num_shorts)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        fixed (short* __refParamPtr2 = &buffer)
+        {
+            var __arg2 = __refParamPtr2;
+            var __ret = __Internal.StbVorbisGetFrameShortInterleaved(__arg0, num_c, __arg2, num_shorts);
+            return __ret;
+        }
+    }
+
+    public static int StbVorbisGetFrameShort(global::StbVorbis f, int num_c, short** buffer, int num_samples)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisGetFrameShort(__arg0, num_c, buffer, num_samples);
+        return __ret;
+    }
+
+    public static int StbVorbisGetSamplesFloatInterleaved(global::StbVorbis f, int channels, ref float buffer, int num_floats)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        fixed (float* __refParamPtr2 = &buffer)
+        {
+            var __arg2 = __refParamPtr2;
+            var __ret = __Internal.StbVorbisGetSamplesFloatInterleaved(__arg0, channels, __arg2, num_floats);
+            return __ret;
+        }
+    }
+
+    public static int StbVorbisGetSamplesFloat(global::StbVorbis f, int channels, float** buffer, int num_samples)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisGetSamplesFloat(__arg0, channels, buffer, num_samples);
+        return __ret;
+    }
+
+    public static int StbVorbisGetSamplesShortInterleaved(global::StbVorbis f, int channels, ref short buffer, int num_shorts)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        fixed (short* __refParamPtr2 = &buffer)
+        {
+            var __arg2 = __refParamPtr2;
+            var __ret = __Internal.StbVorbisGetSamplesShortInterleaved(__arg0, channels, __arg2, num_shorts);
+            return __ret;
+        }
+    }
+
+    public static int StbVorbisGetSamplesShort(global::StbVorbis f, int channels, short** buffer, int num_samples)
+    {
+        var __arg0 = ReferenceEquals(f, null) ? global::System.IntPtr.Zero : f.__Instance;
+        var __ret = __Internal.StbVorbisGetSamplesShort(__arg0, channels, buffer, num_samples);
+        return __ret;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCCREATECONTEXT(global::System.IntPtr device, int* attrlist);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCMAKECONTEXTCURRENT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCPROCESSCONTEXT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCSUSPENDCONTEXT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCDESTROYCONTEXT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETCURRENTCONTEXT();
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETCONTEXTSDEVICE(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCOPENDEVICE([MarshalAs(UnmanagedType.LPStr)] string devicename);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCCLOSEDEVICE(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate int LPALCGETERROR(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCISEXTENSIONPRESENT(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string extname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETPROCADDRESS(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string funcname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate int LPALCGETENUMVALUE(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string enumname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETSTRING(global::System.IntPtr device, int param);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCGETINTEGERV(global::System.IntPtr device, int param, int size, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCCAPTUREOPENDEVICE([MarshalAs(UnmanagedType.LPStr)] string devicename, uint frequency, int format, int buffersize);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCCAPTURECLOSEDEVICE(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCCAPTURESTART(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCCAPTURESTOP(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCCAPTURESAMPLES(global::System.IntPtr device, global::System.IntPtr buffer, int samples);
+
+public unsafe partial class ALCdeviceStruct
+{
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
+    {
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCdeviceStruct> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCdeviceStruct>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::ALCdeviceStruct __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::ALCdeviceStruct(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::ALCdeviceStruct __CreateInstance(global::ALCdeviceStruct.__Internal native, bool skipVTables = false)
+    {
+        return new global::ALCdeviceStruct(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::ALCdeviceStruct.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::ALCdeviceStruct.__Internal));
+        *(global::ALCdeviceStruct.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private ALCdeviceStruct(global::ALCdeviceStruct.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected ALCdeviceStruct(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~ALCdeviceStruct()
+    {
+        Dispose(false);
+    }
+}
+
+public unsafe partial class ALCcontextStruct
+{
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
+    {
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCcontextStruct> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCcontextStruct>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::ALCcontextStruct __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::ALCcontextStruct(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::ALCcontextStruct __CreateInstance(global::ALCcontextStruct.__Internal native, bool skipVTables = false)
+    {
+        return new global::ALCcontextStruct(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::ALCcontextStruct.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::ALCcontextStruct.__Internal));
+        *(global::ALCcontextStruct.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private ALCcontextStruct(global::ALCcontextStruct.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected ALCcontextStruct(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~ALCcontextStruct()
+    {
+        Dispose(false);
+    }
+}
+
+public unsafe partial class alc
+{
+    public partial struct __Internal
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCreateContext")]
+        internal static extern global::System.IntPtr AlcCreateContext(global::System.IntPtr device, int* attrlist);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcMakeContextCurrent")]
+        internal static extern sbyte AlcMakeContextCurrent(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcProcessContext")]
+        internal static extern void AlcProcessContext(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcSuspendContext")]
+        internal static extern void AlcSuspendContext(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcDestroyContext")]
+        internal static extern void AlcDestroyContext(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetCurrentContext")]
+        internal static extern global::System.IntPtr AlcGetCurrentContext();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetContextsDevice")]
+        internal static extern global::System.IntPtr AlcGetContextsDevice(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcOpenDevice")]
+        internal static extern global::System.IntPtr AlcOpenDevice([MarshalAs(UnmanagedType.LPStr)] string devicename);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCloseDevice")]
+        internal static extern sbyte AlcCloseDevice(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetError")]
+        internal static extern int AlcGetError(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcIsExtensionPresent")]
+        internal static extern sbyte AlcIsExtensionPresent(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string extname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetProcAddress")]
+        internal static extern global::System.IntPtr AlcGetProcAddress(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string funcname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetEnumValue")]
+        internal static extern int AlcGetEnumValue(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string enumname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetString")]
+        internal static extern global::System.IntPtr AlcGetString(global::System.IntPtr device, int param);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetIntegerv")]
+        internal static extern void AlcGetIntegerv(global::System.IntPtr device, int param, int size, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureOpenDevice")]
+        internal static extern global::System.IntPtr AlcCaptureOpenDevice([MarshalAs(UnmanagedType.LPStr)] string devicename, uint frequency, int format, int buffersize);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureCloseDevice")]
+        internal static extern sbyte AlcCaptureCloseDevice(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureStart")]
+        internal static extern void AlcCaptureStart(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureStop")]
+        internal static extern void AlcCaptureStop(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureSamples")]
+        internal static extern void AlcCaptureSamples(global::System.IntPtr device, global::System.IntPtr buffer, int samples);
+    }
+
+
+    public static global::ALCcontextStruct AlcCreateContext(global::ALCdeviceStruct device, ref int attrlist)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        fixed (int* __refParamPtr1 = &attrlist)
+        {
+            var __arg1 = __refParamPtr1;
+            var __ret = __Internal.AlcCreateContext(__arg0, __arg1);
+            global::ALCcontextStruct __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::ALCcontextStruct.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::ALCcontextStruct) global::ALCcontextStruct.NativeToManagedMap[__ret];
+            else __result0 = global::ALCcontextStruct.__CreateInstance(__ret);
+            return __result0;
+        }
+    }
+
+    public static sbyte AlcMakeContextCurrent(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        var __ret = __Internal.AlcMakeContextCurrent(__arg0);
+        return __ret;
+    }
+
+    public static void AlcProcessContext(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        __Internal.AlcProcessContext(__arg0);
+    }
+
+    public static void AlcSuspendContext(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        __Internal.AlcSuspendContext(__arg0);
+    }
+
+    public static void AlcDestroyContext(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        __Internal.AlcDestroyContext(__arg0);
+    }
+
+    public static global::ALCcontextStruct AlcGetCurrentContext()
+    {
+        var __ret = __Internal.AlcGetCurrentContext();
+        global::ALCcontextStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCcontextStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCcontextStruct) global::ALCcontextStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCcontextStruct.__CreateInstance(__ret);
+        return __result0;
+    }
+
+    public static global::ALCdeviceStruct AlcGetContextsDevice(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        var __ret = __Internal.AlcGetContextsDevice(__arg0);
+        global::ALCdeviceStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static global::ALCdeviceStruct AlcOpenDevice(string devicename)
+    {
+        var __ret = __Internal.AlcOpenDevice(devicename);
+        global::ALCdeviceStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
+        return __result0;
+    }
+
+    public static sbyte AlcCloseDevice(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcCloseDevice(__arg0);
+        return __ret;
+    }
+
+
+    public static int AlcGetError(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetError(__arg0);
+        return __ret;
+    }
+
+
+    public static sbyte AlcIsExtensionPresent(global::ALCdeviceStruct device, string extname)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcIsExtensionPresent(__arg0, extname);
+        return __ret;
+    }
+
+    public static global::System.IntPtr AlcGetProcAddress(global::ALCdeviceStruct device, string funcname)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetProcAddress(__arg0, funcname);
+        return __ret;
+    }
+
+    public static int AlcGetEnumValue(global::ALCdeviceStruct device, string enumname)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetEnumValue(__arg0, enumname);
+        return __ret;
+    }
+
+
+    public static string AlcGetString(global::ALCdeviceStruct device, int param)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetString(__arg0, param);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+    public static void AlcGetIntegerv(global::ALCdeviceStruct device, int param, int size, ref int values)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        fixed (int* __refParamPtr3 = &values)
+        {
+            var __arg3 = __refParamPtr3;
+            __Internal.AlcGetIntegerv(__arg0, param, size, __arg3);
+        }
+    }
+
+
+    public static global::ALCdeviceStruct AlcCaptureOpenDevice(string devicename, uint frequency, int format, int buffersize)
+    {
+        var __ret = __Internal.AlcCaptureOpenDevice(devicename, frequency, format, buffersize);
+        global::ALCdeviceStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
+        return __result0;
+    }
+
+    public static sbyte AlcCaptureCloseDevice(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcCaptureCloseDevice(__arg0);
+        return __ret;
+    }
+
+    public static void AlcCaptureStart(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        __Internal.AlcCaptureStart(__arg0);
+    }
+
+    public static void AlcCaptureStop(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        __Internal.AlcCaptureStop(__arg0);
+    }
+
+    public static void AlcCaptureSamples(global::ALCdeviceStruct device, global::System.IntPtr buffer, int samples)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        __Internal.AlcCaptureSamples(__arg0, buffer, samples);
+    }
+}
+
 
 
 
@@ -5430,460 +5885,5 @@ public unsafe partial class al
             var __arg2 = __refParamPtr2;
             __Internal.AlGetBufferiv(buffer, param, __arg2);
         }
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate global::System.IntPtr LPALCCREATECONTEXT(global::System.IntPtr device, int* attrlist);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate sbyte LPALCMAKECONTEXTCURRENT(global::System.IntPtr context);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void LPALCPROCESSCONTEXT(global::System.IntPtr context);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void LPALCSUSPENDCONTEXT(global::System.IntPtr context);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void LPALCDESTROYCONTEXT(global::System.IntPtr context);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate global::System.IntPtr LPALCGETCURRENTCONTEXT();
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate global::System.IntPtr LPALCGETCONTEXTSDEVICE(global::System.IntPtr context);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate global::System.IntPtr LPALCOPENDEVICE([MarshalAs(UnmanagedType.LPStr)] string devicename);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate sbyte LPALCCLOSEDEVICE(global::System.IntPtr device);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate int LPALCGETERROR(global::System.IntPtr device);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate sbyte LPALCISEXTENSIONPRESENT(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string extname);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate global::System.IntPtr LPALCGETPROCADDRESS(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string funcname);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate int LPALCGETENUMVALUE(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string enumname);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate global::System.IntPtr LPALCGETSTRING(global::System.IntPtr device, int param);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void LPALCGETINTEGERV(global::System.IntPtr device, int param, int size, int* values);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate global::System.IntPtr LPALCCAPTUREOPENDEVICE([MarshalAs(UnmanagedType.LPStr)] string devicename, uint frequency, int format, int buffersize);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate sbyte LPALCCAPTURECLOSEDEVICE(global::System.IntPtr device);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void LPALCCAPTURESTART(global::System.IntPtr device);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void LPALCCAPTURESTOP(global::System.IntPtr device);
-
-[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-public unsafe delegate void LPALCCAPTURESAMPLES(global::System.IntPtr device, global::System.IntPtr buffer, int samples);
-
-public unsafe partial class ALCdeviceStruct
-{
-    [StructLayout(LayoutKind.Explicit, Size = 0)]
-    public partial struct __Internal
-    {
-    }
-
-    public global::System.IntPtr __Instance { get; protected set; }
-
-    protected int __PointerAdjustment;
-    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCdeviceStruct> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCdeviceStruct>();
-    protected void*[] __OriginalVTables;
-
-    protected bool __ownsNativeInstance;
-
-    internal static global::ALCdeviceStruct __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-    {
-        return new global::ALCdeviceStruct(native.ToPointer(), skipVTables);
-    }
-
-    internal static global::ALCdeviceStruct __CreateInstance(global::ALCdeviceStruct.__Internal native, bool skipVTables = false)
-    {
-        return new global::ALCdeviceStruct(native, skipVTables);
-    }
-
-    private static void* __CopyValue(global::ALCdeviceStruct.__Internal native)
-    {
-        var ret = Marshal.AllocHGlobal(sizeof(global::ALCdeviceStruct.__Internal));
-        *(global::ALCdeviceStruct.__Internal*) ret = native;
-        return ret.ToPointer();
-    }
-
-    private ALCdeviceStruct(global::ALCdeviceStruct.__Internal native, bool skipVTables = false)
-        : this(__CopyValue(native), skipVTables)
-    {
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    protected ALCdeviceStruct(void* native, bool skipVTables = false)
-    {
-        if (native == null)
-            return;
-        __Instance = new global::System.IntPtr(native);
-    }
-
-    ~ALCdeviceStruct()
-    {
-        //Dispose(false);
-    }
-}
-
-public unsafe partial class ALCcontextStruct
-{
-    [StructLayout(LayoutKind.Explicit, Size = 0)]
-    public partial struct __Internal
-    {
-    }
-
-    public global::System.IntPtr __Instance { get; protected set; }
-
-    protected int __PointerAdjustment;
-    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCcontextStruct> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCcontextStruct>();
-    protected void*[] __OriginalVTables;
-
-    protected bool __ownsNativeInstance;
-
-    internal static global::ALCcontextStruct __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-    {
-        return new global::ALCcontextStruct(native.ToPointer(), skipVTables);
-    }
-
-    internal static global::ALCcontextStruct __CreateInstance(global::ALCcontextStruct.__Internal native, bool skipVTables = false)
-    {
-        return new global::ALCcontextStruct(native, skipVTables);
-    }
-
-    private static void* __CopyValue(global::ALCcontextStruct.__Internal native)
-    {
-        var ret = Marshal.AllocHGlobal(sizeof(global::ALCcontextStruct.__Internal));
-        *(global::ALCcontextStruct.__Internal*) ret = native;
-        return ret.ToPointer();
-    }
-
-    private ALCcontextStruct(global::ALCcontextStruct.__Internal native, bool skipVTables = false)
-        : this(__CopyValue(native), skipVTables)
-    {
-        __ownsNativeInstance = true;
-        NativeToManagedMap[__Instance] = this;
-    }
-
-    protected ALCcontextStruct(void* native, bool skipVTables = false)
-    {
-        if (native == null)
-            return;
-        __Instance = new global::System.IntPtr(native);
-    }
-
-    ~ALCcontextStruct()
-    {
-        //Dispose(false);
-    }
-}
-
-public unsafe partial class alc
-{
-    public partial struct __Internal
-    {
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcCreateContext")]
-        internal static extern global::System.IntPtr AlcCreateContext(global::System.IntPtr device, int* attrlist);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcMakeContextCurrent")]
-        internal static extern sbyte AlcMakeContextCurrent(global::System.IntPtr context);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcProcessContext")]
-        internal static extern void AlcProcessContext(global::System.IntPtr context);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcSuspendContext")]
-        internal static extern void AlcSuspendContext(global::System.IntPtr context);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcDestroyContext")]
-        internal static extern void AlcDestroyContext(global::System.IntPtr context);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcGetCurrentContext")]
-        internal static extern global::System.IntPtr AlcGetCurrentContext();
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcGetContextsDevice")]
-        internal static extern global::System.IntPtr AlcGetContextsDevice(global::System.IntPtr context);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcOpenDevice")]
-        internal static extern global::System.IntPtr AlcOpenDevice([MarshalAs(UnmanagedType.LPStr)] string devicename);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcCloseDevice")]
-        internal static extern sbyte AlcCloseDevice(global::System.IntPtr device);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcGetError")]
-        internal static extern int AlcGetError(global::System.IntPtr device);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcIsExtensionPresent")]
-        internal static extern sbyte AlcIsExtensionPresent(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string extname);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcGetProcAddress")]
-        internal static extern global::System.IntPtr AlcGetProcAddress(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string funcname);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcGetEnumValue")]
-        internal static extern int AlcGetEnumValue(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string enumname);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcGetString")]
-        internal static extern global::System.IntPtr AlcGetString(global::System.IntPtr device, int param);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcGetIntegerv")]
-        internal static extern void AlcGetIntegerv(global::System.IntPtr device, int param, int size, int* values);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcCaptureOpenDevice")]
-        internal static extern global::System.IntPtr AlcCaptureOpenDevice([MarshalAs(UnmanagedType.LPStr)] string devicename, uint frequency, int format, int buffersize);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcCaptureCloseDevice")]
-        internal static extern sbyte AlcCaptureCloseDevice(global::System.IntPtr device);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcCaptureStart")]
-        internal static extern void AlcCaptureStart(global::System.IntPtr device);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcCaptureStop")]
-        internal static extern void AlcCaptureStop(global::System.IntPtr device);
-
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-            EntryPoint="alcCaptureSamples")]
-        internal static extern void AlcCaptureSamples(global::System.IntPtr device, global::System.IntPtr buffer, int samples);
-    }
-
-
-    public static global::ALCcontextStruct AlcCreateContext(global::ALCdeviceStruct device, ref int attrlist)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        fixed (int* __refParamPtr1 = &attrlist)
-        {
-            var __arg1 = __refParamPtr1;
-            var __ret = __Internal.AlcCreateContext(__arg0, __arg1);
-            global::ALCcontextStruct __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::ALCcontextStruct.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::ALCcontextStruct) global::ALCcontextStruct.NativeToManagedMap[__ret];
-            else __result0 = global::ALCcontextStruct.__CreateInstance(__ret);
-            return __result0;
-        }
-    }
-
-    public static sbyte AlcMakeContextCurrent(global::ALCcontextStruct context)
-    {
-        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
-        var __ret = __Internal.AlcMakeContextCurrent(__arg0);
-        return __ret;
-    }
-
-    public static void AlcProcessContext(global::ALCcontextStruct context)
-    {
-        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
-        __Internal.AlcProcessContext(__arg0);
-    }
-
-    public static void AlcSuspendContext(global::ALCcontextStruct context)
-    {
-        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
-        __Internal.AlcSuspendContext(__arg0);
-    }
-
-    public static void AlcDestroyContext(global::ALCcontextStruct context)
-    {
-        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
-        __Internal.AlcDestroyContext(__arg0);
-    }
-
-    public static global::ALCcontextStruct AlcGetCurrentContext()
-    {
-        var __ret = __Internal.AlcGetCurrentContext();
-        global::ALCcontextStruct __result0;
-        if (__ret == IntPtr.Zero) __result0 = null;
-        else if (global::ALCcontextStruct.NativeToManagedMap.ContainsKey(__ret))
-            __result0 = (global::ALCcontextStruct) global::ALCcontextStruct.NativeToManagedMap[__ret];
-        else __result0 = global::ALCcontextStruct.__CreateInstance(__ret);
-        return __result0;
-    }
-
-    public static global::ALCdeviceStruct AlcGetContextsDevice(global::ALCcontextStruct context)
-    {
-        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
-        var __ret = __Internal.AlcGetContextsDevice(__arg0);
-        global::ALCdeviceStruct __result0;
-        if (__ret == IntPtr.Zero) __result0 = null;
-        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
-            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
-        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
-        return __result0;
-    }
-
-
-    public static global::ALCdeviceStruct AlcOpenDevice(string devicename)
-    {
-        var __ret = __Internal.AlcOpenDevice(devicename);
-        global::ALCdeviceStruct __result0;
-        if (__ret == IntPtr.Zero) __result0 = null;
-        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
-            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
-        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
-        return __result0;
-    }
-
-    public static sbyte AlcCloseDevice(global::ALCdeviceStruct device)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        var __ret = __Internal.AlcCloseDevice(__arg0);
-        return __ret;
-    }
-
-
-    public static int AlcGetError(global::ALCdeviceStruct device)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        var __ret = __Internal.AlcGetError(__arg0);
-        return __ret;
-    }
-
-
-    public static sbyte AlcIsExtensionPresent(global::ALCdeviceStruct device, string extname)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        var __ret = __Internal.AlcIsExtensionPresent(__arg0, extname);
-        return __ret;
-    }
-
-    public static global::System.IntPtr AlcGetProcAddress(global::ALCdeviceStruct device, string funcname)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        var __ret = __Internal.AlcGetProcAddress(__arg0, funcname);
-        return __ret;
-    }
-
-    public static int AlcGetEnumValue(global::ALCdeviceStruct device, string enumname)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        var __ret = __Internal.AlcGetEnumValue(__arg0, enumname);
-        return __ret;
-    }
-
-
-    public static string AlcGetString(global::ALCdeviceStruct device, int param)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        var __ret = __Internal.AlcGetString(__arg0, param);
-        return Marshal.PtrToStringAnsi(__ret);
-    }
-
-    public static void AlcGetIntegerv(global::ALCdeviceStruct device, int param, int size, ref int values)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        fixed (int* __refParamPtr3 = &values)
-        {
-            var __arg3 = __refParamPtr3;
-            __Internal.AlcGetIntegerv(__arg0, param, size, __arg3);
-        }
-    }
-
-
-    public static global::ALCdeviceStruct AlcCaptureOpenDevice(string devicename, uint frequency, int format, int buffersize)
-    {
-        var __ret = __Internal.AlcCaptureOpenDevice(devicename, frequency, format, buffersize);
-        global::ALCdeviceStruct __result0;
-        if (__ret == IntPtr.Zero) __result0 = null;
-        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
-            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
-        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
-        return __result0;
-    }
-
-    public static sbyte AlcCaptureCloseDevice(global::ALCdeviceStruct device)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        var __ret = __Internal.AlcCaptureCloseDevice(__arg0);
-        return __ret;
-    }
-
-    public static void AlcCaptureStart(global::ALCdeviceStruct device)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        __Internal.AlcCaptureStart(__arg0);
-    }
-
-    public static void AlcCaptureStop(global::ALCdeviceStruct device)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        __Internal.AlcCaptureStop(__arg0);
-    }
-
-    public static void AlcCaptureSamples(global::ALCdeviceStruct device, global::System.IntPtr buffer, int samples)
-    {
-        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
-        __Internal.AlcCaptureSamples(__arg0, buffer, samples);
     }
 }

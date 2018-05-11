@@ -6,11 +6,11 @@ namespace FlounderSharp.CLI
 {
     public class PassObjectNamesFix : TranslationUnitPass
     {
-        private List<NamespacePair> _namespaces;
+        private List<Module> _modules;
 
-        public PassObjectNamesFix(List<NamespacePair> namespaces)
+        public PassObjectNamesFix(List<Module> modules)
         {
-            _namespaces = namespaces;
+            _modules = modules;
         }
 
         public override bool VisitClassDecl(Class @class)
@@ -20,11 +20,16 @@ namespace FlounderSharp.CLI
                 return false;
             }
 
-            foreach (var ns in _namespaces)
+            foreach (var entry in _modules)
             {
-                if (@class.Namespace.Name == ns._original)
+                if (@class.Namespace.Name.Length == 0)
                 {
-                    @class.Namespace.Name = ns._target;
+                    continue;
+                }
+
+                if (@class.Namespace.Name == entry.originalSpace)
+                {
+                    @class.Namespace.Name = entry.targetSpace;
                     return true;
                 }
             }

@@ -10,30 +10,60 @@ namespace FlounderSharp.CLI
         static void Main(string[] args)
         {
             // Inputs and outputs.
-            var originalName = "Flounder";
-            var targetName = "FlounderSharp";
-            var namespaces = new List<NamespacePair> {
-                new NamespacePair("fl", "FlounderSharp")
-            };
-            var headerPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
-            };
-            var headerFiles = new List<string> {
-                @"fl\Flounder.hpp"
-            };
-            var libraryPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
-            };
-            var libraryFiles = new List<string>{
-                "glfw3.lib",
-                "stb.lib",
-                "OpenAL32.lib",
-                "Flounder.lib"
+            var modules = new List<Module> {
+                new Module()
+                {
+                    originalName = "glfw3",
+                    targetName = "GlfwSharp",
+                    originalSpace = "",
+                    targetSpace = "",
+                    headerPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
+                    headerFile = @"GLFW\glfw3.h",
+                    libraryPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
+                    libraryFile = "glfw3.lib",
+                    dependencies = new List<string>{}
+                },
+                new Module()
+                {
+                    originalName = "stb",
+                    targetName = "StbSharp",
+                    originalSpace = "",
+                    targetSpace = "",
+                    headerPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
+                    headerFile = @"STB\stb.h",
+                    libraryPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
+                    libraryFile = "stb.lib",
+                    dependencies = new List<string>{}
+                },
+                new Module()
+                {
+                    originalName = "OpenAL",
+                    targetName = "AlSharp",
+                    originalSpace = "",
+                    targetSpace = "",
+                    headerPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
+                    headerFile = @"AL\alc.h",
+                    libraryPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
+                    libraryFile = "OpenAL32.lib",
+                    dependencies = new List<string>{}
+                },
+                new Module()
+                {
+                    originalName = "Flounder",
+                    targetName = "FlounderSharp",
+                    originalSpace = "fl",
+                    targetSpace = "FlounderSharp",
+                    headerPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
+                    headerFile = @"fl\Flounder.hpp",
+                    libraryPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
+                    libraryFile = "Flounder.lib",
+                    dependencies = new List<string>{ "GlfwSharp", "StbSharp", "AlSharp"  }
+                }
             };
             var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
 
             // Generate.
-            var library = new Library(originalName, targetName, namespaces, headerPaths, headerFiles, libraryPaths, libraryFiles, outPath);
+            var library = new Library(modules, outPath);
             ConsoleDriver.Run(library);
             Console.WriteLine("Generation complete!");
 

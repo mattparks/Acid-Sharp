@@ -3,43 +3,6 @@
   <!--
   ***************************************
   **
-  ** stb_image.h
-  **
-  ***************************************
-  -->
-  <Export name="stbi_load_from_memory" target="Common" source="stb_image.h">
-    <Description>
-      <![CDATA[
-////////////////////////////////////
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="stbi_uc" name="buffer" />
-      <Parameter type="int" name="len" />
-      <Parameter type="int" name="x" />
-      <Parameter type="int" name="y" />
-      <Parameter type="int" name="channels_in_file" />
-      <Parameter type="int" name="desired_channels" />
-    </Parameters>
-  </Export>
-  <Export name="stbi_load_16_from_memory" target="Common" source="stb_image.h">
-    <Description>
-      <![CDATA[
-////////////////////////////////////
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="stbi_uc" name="buffer" />
-      <Parameter type="int" name="len" />
-      <Parameter type="int" name="x" />
-      <Parameter type="int" name="y" />
-      <Parameter type="int" name="channels_in_file" />
-      <Parameter type="int" name="desired_channels" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** glfw3.h
   **
   ***************************************
@@ -1126,6 +1089,110 @@
   <!--
   ***************************************
   **
+  ** stb_image.h
+  **
+  ***************************************
+  -->
+  <Export name="stbi_load_from_memory" target="Common" source="stb_image.h">
+    <Description>
+      <![CDATA[
+////////////////////////////////////
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="stbi_uc" name="buffer" />
+      <Parameter type="int" name="len" />
+      <Parameter type="int" name="x" />
+      <Parameter type="int" name="y" />
+      <Parameter type="int" name="channels_in_file" />
+      <Parameter type="int" name="desired_channels" />
+    </Parameters>
+  </Export>
+  <Export name="stbi_load_16_from_memory" target="Common" source="stb_image.h">
+    <Description>
+      <![CDATA[
+////////////////////////////////////
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="stbi_uc" name="buffer" />
+      <Parameter type="int" name="len" />
+      <Parameter type="int" name="x" />
+      <Parameter type="int" name="y" />
+      <Parameter type="int" name="channels_in_file" />
+      <Parameter type="int" name="desired_channels" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** alc.h
+  **
+  ***************************************
+  -->
+  <Export name="alcCreateContext" target="Common" source="alc.h">
+    <Description>
+      <![CDATA[
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="ALCdevice" name="device" />
+      <Parameter type="ALCint" name="attrlist" />
+    </Parameters>
+  </Export>
+  <Export name="alcOpenDevice" target="Common" source="alc.h">
+    <Description>
+      <![CDATA[
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="ALCchar" name="devicename" />
+    </Parameters>
+  </Export>
+  <Export name="alcGetError" target="Common" source="alc.h">
+    <Description>
+      <![CDATA[
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="ALCdevice" name="device" />
+    </Parameters>
+  </Export>
+  <Export name="alcIsExtensionPresent" target="Common" source="alc.h">
+    <Description>
+      <![CDATA[
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="ALCdevice" name="device" />
+      <Parameter type="ALCchar" name="extname" />
+    </Parameters>
+  </Export>
+  <Export name="alcGetString" target="Common" source="alc.h">
+    <Description>
+      <![CDATA[
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="ALCdevice" name="device" />
+      <Parameter type="ALCenum" name="param" />
+    </Parameters>
+  </Export>
+  <Export name="alcCaptureOpenDevice" target="Common" source="alc.h">
+    <Description>
+      <![CDATA[
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="ALCchar" name="devicename" />
+      <Parameter type="ALCuint" name="frequency" />
+      <Parameter type="ALCenum" name="format" />
+      <Parameter type="ALCsizei" name="buffersize" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** al.h
   **
   ***************************************
@@ -1394,73 +1461,6 @@
       <Parameter type="ALuint" name="buffer" />
       <Parameter type="ALenum" name="param" />
       <Parameter type="ALfloat" name="value" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** alc.h
-  **
-  ***************************************
-  -->
-  <Export name="alcCreateContext" target="Common" source="alc.h">
-    <Description>
-      <![CDATA[
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="ALCdevice" name="device" />
-      <Parameter type="ALCint" name="attrlist" />
-    </Parameters>
-  </Export>
-  <Export name="alcOpenDevice" target="Common" source="alc.h">
-    <Description>
-      <![CDATA[
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="ALCchar" name="devicename" />
-    </Parameters>
-  </Export>
-  <Export name="alcGetError" target="Common" source="alc.h">
-    <Description>
-      <![CDATA[
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="ALCdevice" name="device" />
-    </Parameters>
-  </Export>
-  <Export name="alcIsExtensionPresent" target="Common" source="alc.h">
-    <Description>
-      <![CDATA[
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="ALCdevice" name="device" />
-      <Parameter type="ALCchar" name="extname" />
-    </Parameters>
-  </Export>
-  <Export name="alcGetString" target="Common" source="alc.h">
-    <Description>
-      <![CDATA[
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="ALCdevice" name="device" />
-      <Parameter type="ALCenum" name="param" />
-    </Parameters>
-  </Export>
-  <Export name="alcCaptureOpenDevice" target="Common" source="alc.h">
-    <Description>
-      <![CDATA[
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="ALCchar" name="devicename" />
-      <Parameter type="ALCuint" name="frequency" />
-      <Parameter type="ALCenum" name="format" />
-      <Parameter type="ALCsizei" name="buffersize" />
     </Parameters>
   </Export>
 </Definitions>

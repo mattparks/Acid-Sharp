@@ -8,42 +8,31 @@ using CppSharp.Generators;
 
 namespace FlounderSharp.CLI
 {
-    public class NamespacePair
+    public class Module
     {
-        public string _original;
-        public string _target;
-
-        public NamespacePair(string original, string target)
-        {
-            _original = original;
-            _target = target;
-        }
+        public string originalName;
+        public string targetName;
+        public string originalSpace;
+        public string targetSpace;
+        public string headerPath;
+        public string headerFile;
+        public string libraryPath;
+        public string libraryFile;
+        public List<string> dependencies;
     }
 
     class Library : ILibrary
     {
-        private string _originalName;
-        private string _targetName;
-        private List<NamespacePair> _namespaces;
-        private List<string> _headerPaths;
-        private List<string> _headerFiles;
-        private List<string> _libraryPaths;
-        private List<string> _libraryFiles;
+        private List<Module> _modules;
         private string _outPath;
 
         private PassXmlTranslation _xmlExportPass;
 
-        public Library(string originalName, string targetName, List<NamespacePair> namespaces, List<string> headerPaths, List<string> headerFiles, List<string> libraryPaths, List<string> libraryFiles, string outPath)
+        public Library(List<Module> modules, string outPath)
         {
-            _originalName = originalName;
-            _targetName = targetName;
-            _namespaces = namespaces;
-            _headerPaths = headerPaths;
-            _headerFiles = headerFiles;
-            _libraryPaths = libraryPaths;
-            _libraryFiles = libraryFiles;
+            _modules = modules;
             _outPath = outPath;
-            _xmlExportPass = new PassXmlTranslation(_targetName);
+            _xmlExportPass = new PassXmlTranslation(modules[modules.Count - 1].targetName);
         }
 
         /// <summary>
@@ -74,33 +63,26 @@ namespace FlounderSharp.CLI
             options.GenerateFinalizers = true;
             options.Verbose = true;
 
-            // Creates a new module.
-            var module = options.AddModule(_targetName);
-            module.SharedLibraryName = _originalName;
-            module.OutputNamespace = "";
-
-        //    module.Defines.Add("FL_BUILD_WINDOWS");
-        //    module.Defines.Add("FL_BUILD_MSVC");
-        //    module.Defines.Add("FL_EXPORTS");
-
-            foreach (var path in _headerPaths)
+            // Creates the modules.
+            foreach (var entry in _modules)
             {
-                module.IncludeDirs.Add(path);
-            }
+                var module = options.AddModule("FlounderSharp");
+                module.SharedLibraryName = entry.originalName;
+                module.OutputNamespace = "";
 
-            foreach (var header in _headerFiles)
-            {
-                module.Headers.Add(header);
-            }
-            
-            foreach (var path in _libraryPaths)
-            {
-                module.LibraryDirs.Add(path);
-            }
+                module.IncludeDirs.Add(entry.headerPath);
+                module.Headers.Add(entry.headerFile);
 
-            foreach (var library in _libraryFiles)
-            {
-                module.Libraries.Add(library);
+                module.LibraryDirs.Add(entry.libraryPath);
+                module.Libraries.Add(entry.libraryFile);
+                
+                options.Modules.ForEach(x =>
+                {
+                    if (entry.dependencies.Contains(x.LibraryName))
+                    {
+                        module.Dependencies.Add(x);
+                    }
+                });
             }
         }
 
@@ -112,7 +94,7 @@ namespace FlounderSharp.CLI
         {
             driver.AddTranslationUnitPass(new PassOutParamsFix());
             driver.AddTranslationUnitPass(_xmlExportPass);
-            driver.AddTranslationUnitPass(new PassObjectNamesFix(_namespaces));
+            driver.AddTranslationUnitPass(new PassObjectNamesFix(_modules));
             driver.AddTranslationUnitPass(new PassCommentsFix());
         }
 
