@@ -1166,7 +1166,7 @@ public unsafe partial class StbVorbis
 
     ~StbVorbis()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -1896,7 +1896,7 @@ public unsafe partial class GLFWmonitor
 
     ~GLFWmonitor()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -1948,7 +1948,7 @@ public unsafe partial class GLFWwindow
 
     ~GLFWwindow()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -2000,7 +2000,7 @@ public unsafe partial class GLFWcursor
 
     ~GLFWcursor()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -5557,7 +5557,7 @@ public unsafe partial class ALCdeviceStruct
 
     ~ALCdeviceStruct()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -5609,7 +5609,7 @@ public unsafe partial class ALCcontextStruct
 
     ~ALCcontextStruct()
     {
-        //Dispose(false);
+        Dispose(false);
     }
 }
 
@@ -5885,5 +5885,313 @@ public unsafe partial class alc
     {
         var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
         __Internal.AlcCaptureSamples(__arg0, buffer, samples);
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>A class for handing and calculating deltas.</summary>
+    public unsafe partial class Delta : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal float m_currentFrameTime;
+
+            [FieldOffset(4)]
+            internal float m_lastFrameTime;
+
+            [FieldOffset(8)]
+            internal float m_change;
+
+            [FieldOffset(12)]
+            internal float m_time;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Delta@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Delta@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Delta@fl@@QEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Update@Delta@fl@@QEAAXXZ")]
+            internal static extern void Update(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetChange@Delta@fl@@QEBAMXZ")]
+            internal static extern float GetChange(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetTime@Delta@fl@@QEBAMXZ")]
+            internal static extern float GetTime(global::System.IntPtr instance);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Delta> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Delta>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Delta __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Delta(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Delta __CreateInstance(global::FlounderSharp.Delta.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Delta(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Delta.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Delta.__Internal));
+            *(global::FlounderSharp.Delta.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Delta(global::FlounderSharp.Delta.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Delta(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        /// <summary>Creates a new change handler.</summary>
+        public Delta()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Delta.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        public Delta(global::FlounderSharp.Delta _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Delta.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::FlounderSharp.Delta.__Internal*) __Instance) = *((global::FlounderSharp.Delta.__Internal*) _0.__Instance);
+        }
+
+        ~Delta()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Delta __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        /// <summary>Updates change and times.</summary>
+        public void Update()
+        {
+            __Internal.Update((__Instance + __PointerAdjustment));
+        }
+
+        public float Change
+        {
+            get
+            {
+                var __ret = __Internal.GetChange((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        public float Time
+        {
+            get
+            {
+                var __ret = __Internal.GetTime((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>A class that holds many various math functions.</summary>
+    public unsafe partial class Maths : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 0)]
+        public partial struct __Internal
+        {
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Maths@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LogRandom@Maths@fl@@SANAEBN0@Z")]
+            internal static extern double LogRandom(double* lowerLimit, double* upperLimit);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?NormallyDistributedSingle@Maths@fl@@SAMAEBM0@Z")]
+            internal static extern float NormallyDistributedSingle(float* standardDeviation, float* mean);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Random@Maths@fl@@SAMXZ")]
+            internal static extern float Random();
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Maths> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Maths>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Maths __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Maths(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Maths __CreateInstance(global::FlounderSharp.Maths.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Maths(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Maths.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Maths.__Internal));
+            *(global::FlounderSharp.Maths.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private Maths(global::FlounderSharp.Maths.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Maths(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public Maths()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Maths.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public Maths(global::FlounderSharp.Maths _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Maths.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::FlounderSharp.Maths.__Internal*) __Instance) = *((global::FlounderSharp.Maths.__Internal*) _0.__Instance);
+        }
+
+        ~Maths()
+        {
+            Dispose(false);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+            GC.SuppressFinalize(this);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Maths __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        /// <summary>Creates a number between two numbers, logarithmic.</summary>
+        /// <param name="lowerLimit">The lower number.</param>
+        /// <param name="upperLimit">The upper number.</param>
+        public static double LogRandom(ref double lowerLimit, ref double upperLimit)
+        {
+            fixed (double* __refParamPtr0 = &lowerLimit)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (double* __refParamPtr1 = &upperLimit)
+                {
+                    var __arg1 = __refParamPtr1;
+                    var __ret = __Internal.LogRandom(__arg0, __arg1);
+                    return __ret;
+                }
+            }
+        }
+
+        /// <summary>Generates a single value from a normal distribution, using Box-Muller. https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform</summary>
+        /// <param name="standardDeviation">The standards deviation of the distribution.</param>
+        /// <param name="mean">The mean of the distribution.</param>
+        public static float NormallyDistributedSingle(ref float standardDeviation, ref float mean)
+        {
+            fixed (float* __refParamPtr0 = &standardDeviation)
+            {
+                var __arg0 = __refParamPtr0;
+                fixed (float* __refParamPtr1 = &mean)
+                {
+                    var __arg1 = __refParamPtr1;
+                    var __ret = __Internal.NormallyDistributedSingle(__arg0, __arg1);
+                    return __ret;
+                }
+            }
+        }
+
+        /// <summary>Gets a random number.</summary>
+        public static float Random
+        {
+            get
+            {
+                var __ret = __Internal.Random();
+                return __ret;
+            }
+        }
     }
 }

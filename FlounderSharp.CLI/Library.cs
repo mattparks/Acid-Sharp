@@ -110,7 +110,7 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
-            driver.AddTranslationUnitPass(new PassOutParamsFix());
+        //    driver.AddTranslationUnitPass(new PassOutParamsFix());
             driver.AddTranslationUnitPass(_xmlExportPass);
             driver.AddTranslationUnitPass(new PassObjectNamesFix(_namespaces));
             driver.AddTranslationUnitPass(new PassCommentsFix());

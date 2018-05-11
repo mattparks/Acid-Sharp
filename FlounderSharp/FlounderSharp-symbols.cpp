@@ -35,3 +35,7 @@ extern "C" { void FlounderSharp_symbols32(void* instance, const GLFWgamepadstate
 GLFWgamepadstate& (GLFWgamepadstate::*FlounderSharp_symbols33)(const GLFWgamepadstate&) = &GLFWgamepadstate::operator=;
 GLFWgamepadstate& (GLFWgamepadstate::*FlounderSharp_symbols34)(GLFWgamepadstate&&) = &GLFWgamepadstate::operator=;
 extern "C" { void FlounderSharp_symbols35(GLFWgamepadstate* instance) { instance->~GLFWgamepadstate(); } }
+extern "C" { void FlounderSharp_symbols36(void* instance, const fl::Delta& _0) { new (instance) fl::Delta(_0); } }
+extern "C" { void FlounderSharp_symbols37(void* instance) { new (instance) fl::Maths(); } }
+extern "C" { void FlounderSharp_symbols38(void* instance, const fl::Maths& _0) { new (instance) fl::Maths(_0); } }
+extern "C" { void FlounderSharp_symbols39(fl::Maths* instance) { instance->~Maths(); } }

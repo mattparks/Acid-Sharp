@@ -1463,4 +1463,97 @@
       <Parameter type="ALCsizei" name="buffersize" />
     </Parameters>
   </Export>
+  <!--
+  ***************************************
+  **
+  ** Delta.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Delta" target="Common" source="Delta.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new change handler.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="Delta.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates change and times.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Maths.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Random" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a random number.
+
+/// </summary>
+
+/// <returns> The random number. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="LogRandom" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a number between two numbers, logarithmic.
+
+/// </summary>
+
+/// <param name="lowerLimit"> The lower number. </param>
+
+/// <param name="upperLimit"> The upper number. </param>
+
+/// <returns> The final random number. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="double" name="lowerLimit" />
+      <Parameter type="double" name="upperLimit" />
+    </Parameters>
+  </Export>
+  <Export name="NormallyDistributedSingle" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Generates a single value from a normal distribution, using Box-Muller.
+
+/// https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+
+/// </summary>
+
+/// <param name="standardDeviation"> The standards deviation of the distribution. </param>
+
+/// <param name="mean"> The mean of the distribution. </param>
+
+/// <returns> A normally distributed value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="standardDeviation" />
+      <Parameter type="float*" name="mean" />
+    </Parameters>
+  </Export>
 </Definitions>

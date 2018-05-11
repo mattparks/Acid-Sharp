@@ -9,3 +9,5 @@
 #include "AL\al.h"
 #include "AL\alc.h"
 //#include "vulkan\vulkan.h"
+#include "Maths\Delta.hpp"
+#include "Maths\Maths.hpp"

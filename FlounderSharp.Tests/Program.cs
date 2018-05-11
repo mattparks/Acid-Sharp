@@ -24,6 +24,8 @@ namespace FlounderSharp.Tests
         
         private static void Main(string[] args)
         {
+            Console.WriteLine(Maths.Random);
+
             var alDevice = alc.AlcOpenDevice(null);
             var attrlist = 0;
             var alContext = alc.AlcCreateContext(alDevice, ref attrlist);
@@ -90,10 +92,13 @@ namespace FlounderSharp.Tests
 
             glfw3.GlfwSetFramebufferSizeCallback(window, CallbackFramebufferSize);
             glfw3.GlfwMakeContextCurrent(window);
+            var delta = new Delta();
             
             while (glfw3.GlfwWindowShouldClose(window) == 0)
             {
+            //    Console.WriteLine(1.0f / delta.Change);
                 glfw3.GlfwPollEvents();
+            //    delta.Update();
             }
 
             glfw3.GlfwDestroyWindow(window);
