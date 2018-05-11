@@ -1,5 +1,7 @@
-﻿using System.Xml.Linq;
+﻿using System;
+using System.Xml.Linq;
 using System.Collections.Generic;
+using System.IO;
 using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
@@ -91,9 +93,21 @@ namespace FlounderSharp.CLI
             foreach (var path in _libraryPaths)
             {
                 module.LibraryDirs.Add(path);
+
+                /*foreach (var library in Directory.GetFiles(path))
+                {
+                    if (library.Contains(".lib"))
+                    {
+                        Console.WriteLine(Path.GetFileName(library));
+                        module.Libraries.Add(library);
+                    }
+                }*/
             }
 
-            module.Libraries.Add(_libraryFile);
+            // module.Libraries.Add(_libraryFile);
+            module.Libraries.Add("glfw3.lib");
+            module.Libraries.Add("stb.lib");
+            module.Libraries.Add("Flounder.lib");
         }
 
         /// <summary>
