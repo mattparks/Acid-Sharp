@@ -26,22 +26,22 @@ namespace FlounderSharp.CLI
         private string _targetName;
         private List<NamespacePair> _namespaces;
         private List<string> _headerPaths;
-        private string _headerFile;
+        private List<string> _headerFiles;
         private List<string> _libraryPaths;
-        private string _libraryFile;
+        private List<string> _libraryFiles;
         private string _outPath;
 
         private PassXmlTranslation _xmlExportPass;
 
-        public Library(string originalName, string targetName, List<NamespacePair> namespaces, List<string> headerPaths, string headerFile, List<string> libraryPaths, string libraryFile, string outPath)
+        public Library(string originalName, string targetName, List<NamespacePair> namespaces, List<string> headerPaths, List<string> headerFiles, List<string> libraryPaths, List<string> libraryFiles, string outPath)
         {
             _originalName = originalName;
             _targetName = targetName;
             _namespaces = namespaces;
             _headerPaths = headerPaths;
-            _headerFile = headerFile;
+            _headerFiles = headerFiles;
             _libraryPaths = libraryPaths;
-            _libraryFile = libraryFile;
+            _libraryFiles = libraryFiles;
             _outPath = outPath;
             _xmlExportPass = new PassXmlTranslation(_targetName);
         }
@@ -88,26 +88,20 @@ namespace FlounderSharp.CLI
                 module.IncludeDirs.Add(path);
             }
 
-            module.Headers.Add(_headerFile);
-        
+            foreach (var header in _headerFiles)
+            {
+                module.Headers.Add(header);
+            }
+            
             foreach (var path in _libraryPaths)
             {
                 module.LibraryDirs.Add(path);
-
-                /*foreach (var library in Directory.GetFiles(path))
-                {
-                    if (library.Contains(".lib"))
-                    {
-                        Console.WriteLine(Path.GetFileName(library));
-                        module.Libraries.Add(library);
-                    }
-                }*/
             }
 
-            // module.Libraries.Add(_libraryFile);
-            module.Libraries.Add("glfw3.lib");
-            module.Libraries.Add("stb.lib");
-            module.Libraries.Add("Flounder.lib");
+            foreach (var library in _libraryFiles)
+            {
+                module.Libraries.Add(library);
+            }
         }
 
         /// <summary>

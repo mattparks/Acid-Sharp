@@ -1166,7 +1166,7 @@ public unsafe partial class StbVorbis
 
     ~StbVorbis()
     {
-    //    Dispose(false);
+        //Dispose(false);
     }
 }
 
@@ -1896,7 +1896,7 @@ public unsafe partial class GLFWmonitor
 
     ~GLFWmonitor()
     {
-    //    Dispose(false);
+        //Dispose(false);
     }
 }
 
@@ -1948,7 +1948,7 @@ public unsafe partial class GLFWwindow
 
     ~GLFWwindow()
     {
-    //    Dispose(false);
+        //Dispose(false);
     }
 }
 
@@ -2000,7 +2000,7 @@ public unsafe partial class GLFWcursor
 
     ~GLFWcursor()
     {
-    //    Dispose(false);
+        //Dispose(false);
     }
 }
 
@@ -4229,633 +4229,1661 @@ public unsafe partial class glfw3
     }
 }
 
-namespace FlounderSharp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALENABLE(int capability);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALDISABLE(int capability);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALISENABLED(int capability);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALGETSTRING(int param);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETBOOLEANV(int param, sbyte* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETINTEGERV(int param, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETFLOATV(int param, float* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETDOUBLEV(int param, double* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALGETBOOLEAN(int param);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate int LPALGETINTEGER(int param);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate float LPALGETFLOAT(int param);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate double LPALGETDOUBLE(int param);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate int LPALGETERROR();
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALISEXTENSIONPRESENT([MarshalAs(UnmanagedType.LPStr)] string extname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALGETPROCADDRESS([MarshalAs(UnmanagedType.LPStr)] string fname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate int LPALGETENUMVALUE([MarshalAs(UnmanagedType.LPStr)] string ename);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALLISTENERF(int param, float value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALLISTENER3F(int param, float value1, float value2, float value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALLISTENERFV(int param, float* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALLISTENERI(int param, int value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALLISTENER3I(int param, int value1, int value2, int value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALLISTENERIV(int param, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETLISTENERF(int param, float* value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETLISTENER3F(int param, float* value1, float* value2, float* value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETLISTENERFV(int param, float* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETLISTENERI(int param, int* value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETLISTENER3I(int param, int* value1, int* value2, int* value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETLISTENERIV(int param, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGENSOURCES(int n, uint* sources);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALDELETESOURCES(int n, uint* sources);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALISSOURCE(uint source);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEF(uint source, int param, float value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCE3F(uint source, int param, float value1, float value2, float value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEFV(uint source, int param, float* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEI(uint source, int param, int value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCE3I(uint source, int param, int value1, int value2, int value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEIV(uint source, int param, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETSOURCEF(uint source, int param, float* value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETSOURCE3F(uint source, int param, float* value1, float* value2, float* value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETSOURCEFV(uint source, int param, float* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETSOURCEI(uint source, int param, int* value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETSOURCE3I(uint source, int param, int* value1, int* value2, int* value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETSOURCEIV(uint source, int param, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEPLAYV(int n, uint* sources);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCESTOPV(int n, uint* sources);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEREWINDV(int n, uint* sources);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEPAUSEV(int n, uint* sources);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEPLAY(uint source);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCESTOP(uint source);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEREWIND(uint source);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEPAUSE(uint source);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEQUEUEBUFFERS(uint source, int nb, uint* buffers);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSOURCEUNQUEUEBUFFERS(uint source, int nb, uint* buffers);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGENBUFFERS(int n, uint* buffers);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALDELETEBUFFERS(int n, uint* buffers);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALISBUFFER(uint buffer);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALBUFFERDATA(uint buffer, int format, global::System.IntPtr data, int size, int freq);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALBUFFERF(uint buffer, int param, float value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALBUFFER3F(uint buffer, int param, float value1, float value2, float value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALBUFFERFV(uint buffer, int param, float* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALBUFFERI(uint buffer, int param, int value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALBUFFER3I(uint buffer, int param, int value1, int value2, int value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALBUFFERIV(uint buffer, int param, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETBUFFERF(uint buffer, int param, float* value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETBUFFER3F(uint buffer, int param, float* value1, float* value2, float* value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETBUFFERFV(uint buffer, int param, float* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETBUFFERI(uint buffer, int param, int* value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETBUFFER3I(uint buffer, int param, int* value1, int* value2, int* value3);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALGETBUFFERIV(uint buffer, int param, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALDOPPLERFACTOR(float value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALDOPPLERVELOCITY(float value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALSPEEDOFSOUND(float value);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALDISTANCEMODEL(int distanceModel);
+
+public unsafe partial class al
 {
-    /// <summary>A helper for C++ files.</summary>
-    public unsafe partial class FileSystem : IDisposable
+    public partial struct __Internal
     {
-        [StructLayout(LayoutKind.Explicit, Size = 0)]
-        public partial struct __Internal
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alDopplerFactor")]
+        internal static extern void AlDopplerFactor(float value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alDopplerVelocity")]
+        internal static extern void AlDopplerVelocity(float value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSpeedOfSound")]
+        internal static extern void AlSpeedOfSound(float value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alDistanceModel")]
+        internal static extern void AlDistanceModel(int distanceModel);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alEnable")]
+        internal static extern void AlEnable(int capability);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alDisable")]
+        internal static extern void AlDisable(int capability);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alIsEnabled")]
+        internal static extern sbyte AlIsEnabled(int capability);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetString")]
+        internal static extern global::System.IntPtr AlGetString(int param);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBooleanv")]
+        internal static extern void AlGetBooleanv(int param, sbyte* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetIntegerv")]
+        internal static extern void AlGetIntegerv(int param, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetFloatv")]
+        internal static extern void AlGetFloatv(int param, float* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetDoublev")]
+        internal static extern void AlGetDoublev(int param, double* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBoolean")]
+        internal static extern sbyte AlGetBoolean(int param);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetInteger")]
+        internal static extern int AlGetInteger(int param);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetFloat")]
+        internal static extern float AlGetFloat(int param);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetDouble")]
+        internal static extern double AlGetDouble(int param);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetError")]
+        internal static extern int AlGetError();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alIsExtensionPresent")]
+        internal static extern sbyte AlIsExtensionPresent([MarshalAs(UnmanagedType.LPStr)] string extname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetProcAddress")]
+        internal static extern global::System.IntPtr AlGetProcAddress([MarshalAs(UnmanagedType.LPStr)] string fname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetEnumValue")]
+        internal static extern int AlGetEnumValue([MarshalAs(UnmanagedType.LPStr)] string ename);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alListenerf")]
+        internal static extern void AlListenerf(int param, float value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alListener3f")]
+        internal static extern void AlListener3f(int param, float value1, float value2, float value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alListenerfv")]
+        internal static extern void AlListenerfv(int param, float* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alListeneri")]
+        internal static extern void AlListeneri(int param, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alListener3i")]
+        internal static extern void AlListener3i(int param, int value1, int value2, int value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alListeneriv")]
+        internal static extern void AlListeneriv(int param, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetListenerf")]
+        internal static extern void AlGetListenerf(int param, float* value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetListener3f")]
+        internal static extern void AlGetListener3f(int param, float* value1, float* value2, float* value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetListenerfv")]
+        internal static extern void AlGetListenerfv(int param, float* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetListeneri")]
+        internal static extern void AlGetListeneri(int param, int* value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetListener3i")]
+        internal static extern void AlGetListener3i(int param, int* value1, int* value2, int* value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetListeneriv")]
+        internal static extern void AlGetListeneriv(int param, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGenSources")]
+        internal static extern void AlGenSources(int n, uint* sources);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alDeleteSources")]
+        internal static extern void AlDeleteSources(int n, uint* sources);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alIsSource")]
+        internal static extern sbyte AlIsSource(uint source);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourcef")]
+        internal static extern void AlSourcef(uint source, int param, float value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSource3f")]
+        internal static extern void AlSource3f(uint source, int param, float value1, float value2, float value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourcefv")]
+        internal static extern void AlSourcefv(uint source, int param, float* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourcei")]
+        internal static extern void AlSourcei(uint source, int param, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSource3i")]
+        internal static extern void AlSource3i(uint source, int param, int value1, int value2, int value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourceiv")]
+        internal static extern void AlSourceiv(uint source, int param, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetSourcef")]
+        internal static extern void AlGetSourcef(uint source, int param, float* value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetSource3f")]
+        internal static extern void AlGetSource3f(uint source, int param, float* value1, float* value2, float* value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetSourcefv")]
+        internal static extern void AlGetSourcefv(uint source, int param, float* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetSourcei")]
+        internal static extern void AlGetSourcei(uint source, int param, int* value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetSource3i")]
+        internal static extern void AlGetSource3i(uint source, int param, int* value1, int* value2, int* value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetSourceiv")]
+        internal static extern void AlGetSourceiv(uint source, int param, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourcePlayv")]
+        internal static extern void AlSourcePlayv(int n, uint* sources);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourceStopv")]
+        internal static extern void AlSourceStopv(int n, uint* sources);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourceRewindv")]
+        internal static extern void AlSourceRewindv(int n, uint* sources);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourcePausev")]
+        internal static extern void AlSourcePausev(int n, uint* sources);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourcePlay")]
+        internal static extern void AlSourcePlay(uint source);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourceStop")]
+        internal static extern void AlSourceStop(uint source);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourceRewind")]
+        internal static extern void AlSourceRewind(uint source);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourcePause")]
+        internal static extern void AlSourcePause(uint source);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourceQueueBuffers")]
+        internal static extern void AlSourceQueueBuffers(uint source, int nb, uint* buffers);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alSourceUnqueueBuffers")]
+        internal static extern void AlSourceUnqueueBuffers(uint source, int nb, uint* buffers);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGenBuffers")]
+        internal static extern void AlGenBuffers(int n, uint* buffers);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alDeleteBuffers")]
+        internal static extern void AlDeleteBuffers(int n, uint* buffers);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alIsBuffer")]
+        internal static extern sbyte AlIsBuffer(uint buffer);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alBufferData")]
+        internal static extern void AlBufferData(uint buffer, int format, global::System.IntPtr data, int size, int freq);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alBufferf")]
+        internal static extern void AlBufferf(uint buffer, int param, float value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alBuffer3f")]
+        internal static extern void AlBuffer3f(uint buffer, int param, float value1, float value2, float value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alBufferfv")]
+        internal static extern void AlBufferfv(uint buffer, int param, float* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alBufferi")]
+        internal static extern void AlBufferi(uint buffer, int param, int value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alBuffer3i")]
+        internal static extern void AlBuffer3i(uint buffer, int param, int value1, int value2, int value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alBufferiv")]
+        internal static extern void AlBufferiv(uint buffer, int param, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBufferf")]
+        internal static extern void AlGetBufferf(uint buffer, int param, float* value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBuffer3f")]
+        internal static extern void AlGetBuffer3f(uint buffer, int param, float* value1, float* value2, float* value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBufferfv")]
+        internal static extern void AlGetBufferfv(uint buffer, int param, float* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBufferi")]
+        internal static extern void AlGetBufferi(uint buffer, int param, int* value);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBuffer3i")]
+        internal static extern void AlGetBuffer3i(uint buffer, int param, int* value1, int* value2, int* value3);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alGetBufferiv")]
+        internal static extern void AlGetBufferiv(uint buffer, int param, int* values);
+    }
+
+    public static void AlDopplerFactor(float value)
+    {
+        __Internal.AlDopplerFactor(value);
+    }
+
+    public static void AlDopplerVelocity(float value)
+    {
+        __Internal.AlDopplerVelocity(value);
+    }
+
+    public static void AlSpeedOfSound(float value)
+    {
+        __Internal.AlSpeedOfSound(value);
+    }
+
+    public static void AlDistanceModel(int distanceModel)
+    {
+        __Internal.AlDistanceModel(distanceModel);
+    }
+
+
+    public static void AlEnable(int capability)
+    {
+        __Internal.AlEnable(capability);
+    }
+
+    public static void AlDisable(int capability)
+    {
+        __Internal.AlDisable(capability);
+    }
+
+    public static sbyte AlIsEnabled(int capability)
+    {
+        var __ret = __Internal.AlIsEnabled(capability);
+        return __ret;
+    }
+
+
+    public static string AlGetString(int param)
+    {
+        var __ret = __Internal.AlGetString(param);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+    public static void AlGetBooleanv(int param, sbyte* values)
+    {
+        __Internal.AlGetBooleanv(param, values);
+    }
+
+    public static void AlGetIntegerv(int param, ref int values)
+    {
+        fixed (int* __refParamPtr1 = &values)
         {
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0FileSystem@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?FileExists@FileSystem@fl@@SA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool FileExists(global::System.IntPtr filepath);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?DeleteFile@FileSystem@fl@@SAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern void DeleteFile(global::System.IntPtr filepath);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?CreateFile@FileSystem@fl@@SAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEB_N@Z")]
-            internal static extern void CreateFile(global::System.IntPtr filepath, bool* createFolders);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?ClearFile@FileSystem@fl@@SAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern void ClearFile(global::System.IntPtr filepath);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?CreateFolder@FileSystem@fl@@SAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern void CreateFolder(global::System.IntPtr path);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?ReadTextFile@FileSystem@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@@Z")]
-            internal static extern void ReadTextFile(global::System.IntPtr @return, global::System.IntPtr filepath);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?WriteTextFile@FileSystem@fl@@SAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z")]
-            internal static extern void WriteTextFile(global::System.IntPtr filepath, global::System.IntPtr data);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?FixPaths@FileSystem@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@@Z")]
-            internal static extern void FixPaths(global::System.IntPtr @return, global::System.IntPtr filepath);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?FindExt@FileSystem@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@@Z")]
-            internal static extern void FindExt(global::System.IntPtr @return, global::System.IntPtr filepath);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWorkingDirectory@FileSystem@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
-            internal static extern void GetWorkingDirectory(global::System.IntPtr @return);
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGetIntegerv(param, __arg1);
         }
+    }
 
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.FileSystem> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.FileSystem>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.FileSystem __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    public static void AlGetFloatv(int param, ref float values)
+    {
+        fixed (float* __refParamPtr1 = &values)
         {
-            return new global::FlounderSharp.FileSystem(native.ToPointer(), skipVTables);
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGetFloatv(param, __arg1);
         }
+    }
 
-        internal static global::FlounderSharp.FileSystem __CreateInstance(global::FlounderSharp.FileSystem.__Internal native, bool skipVTables = false)
+    public static void AlGetDoublev(int param, ref double values)
+    {
+        fixed (double* __refParamPtr1 = &values)
         {
-            return new global::FlounderSharp.FileSystem(native, skipVTables);
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGetDoublev(param, __arg1);
         }
+    }
 
-        private static void* __CopyValue(global::FlounderSharp.FileSystem.__Internal native)
+    public static sbyte AlGetBoolean(int param)
+    {
+        var __ret = __Internal.AlGetBoolean(param);
+        return __ret;
+    }
+
+    public static int AlGetInteger(int param)
+    {
+        var __ret = __Internal.AlGetInteger(param);
+        return __ret;
+    }
+
+    public static float AlGetFloat(int param)
+    {
+        var __ret = __Internal.AlGetFloat(param);
+        return __ret;
+    }
+
+    public static double AlGetDouble(int param)
+    {
+        var __ret = __Internal.AlGetDouble(param);
+        return __ret;
+    }
+
+
+    public static int AlGetError()
+    {
+        var __ret = __Internal.AlGetError();
+        return __ret;
+    }
+
+
+    public static sbyte AlIsExtensionPresent(string extname)
+    {
+        var __ret = __Internal.AlIsExtensionPresent(extname);
+        return __ret;
+    }
+
+    public static global::System.IntPtr AlGetProcAddress(string fname)
+    {
+        var __ret = __Internal.AlGetProcAddress(fname);
+        return __ret;
+    }
+
+    public static int AlGetEnumValue(string ename)
+    {
+        var __ret = __Internal.AlGetEnumValue(ename);
+        return __ret;
+    }
+
+
+    public static void AlListenerf(int param, float value)
+    {
+        __Internal.AlListenerf(param, value);
+    }
+
+    public static void AlListener3f(int param, float value1, float value2, float value3)
+    {
+        __Internal.AlListener3f(param, value1, value2, value3);
+    }
+
+    public static void AlListenerfv(int param, ref float values)
+    {
+        fixed (float* __refParamPtr1 = &values)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FileSystem.__Internal));
-            *(global::FlounderSharp.FileSystem.__Internal*) ret = native;
-            return ret.ToPointer();
+            var __arg1 = __refParamPtr1;
+            __Internal.AlListenerfv(param, __arg1);
         }
+    }
 
-        private FileSystem(global::FlounderSharp.FileSystem.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
+    public static void AlListeneri(int param, int value)
+    {
+        __Internal.AlListeneri(param, value);
+    }
+
+    public static void AlListener3i(int param, int value1, int value2, int value3)
+    {
+        __Internal.AlListener3i(param, value1, value2, value3);
+    }
+
+    public static void AlListeneriv(int param, ref int values)
+    {
+        fixed (int* __refParamPtr1 = &values)
         {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
+            var __arg1 = __refParamPtr1;
+            __Internal.AlListeneriv(param, __arg1);
         }
+    }
 
-        protected FileSystem(void* native, bool skipVTables = false)
+
+    public static void AlGetListenerf(int param, ref float value)
+    {
+        fixed (float* __refParamPtr1 = &value)
         {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGetListenerf(param, __arg1);
         }
+    }
 
-        public FileSystem()
+    public static void AlGetListener3f(int param, ref float value1, ref float value2, ref float value3)
+    {
+        fixed (float* __refParamPtr1 = &value1)
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FileSystem.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        public FileSystem(global::FlounderSharp.FileSystem _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FileSystem.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            *((global::FlounderSharp.FileSystem.__Internal*) __Instance) = *((global::FlounderSharp.FileSystem.__Internal*) _0.__Instance);
-        }
-
-        ~FileSystem()
-        {
-            Dispose(false);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.FileSystem __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        /// <summary>Gets if a file exists.</summary>
-        /// <param name="filepath">The filepath.</param>
-        public static bool FileExists(string filepath)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.FileExists(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
-        }
-
-        /// <summary>Deletes a file.</summary>
-        /// <param name="filepath">The filepath.</param>
-        public static void DeleteFile(string filepath)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.DeleteFile(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-        }
-
-        /// <summary>Creates a file, and the folder path.</summary>
-        /// <param name="filepath">The filepath.</param>
-        /// <param name="createFolders">If folders should also be created.</param>
-        public static void CreateFile(string filepath, ref bool createFolders)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            fixed (bool* __refParamPtr1 = &createFolders)
+            var __arg1 = __refParamPtr1;
+            fixed (float* __refParamPtr2 = &value2)
             {
-                var __arg1 = __refParamPtr1;
-                __Internal.CreateFile(__arg0, __arg1);
-                __basicString0.Dispose(false);
-                __allocator0.Dispose();
+                var __arg2 = __refParamPtr2;
+                fixed (float* __refParamPtr3 = &value3)
+                {
+                    var __arg3 = __refParamPtr3;
+                    __Internal.AlGetListener3f(param, __arg1, __arg2, __arg3);
+                }
             }
         }
+    }
 
-        /// <summary>Clears the contents from a file.</summary>
-        /// <param name="filepath">The filepath.</param>
-        public static void ClearFile(string filepath)
+    public static void AlGetListenerfv(int param, ref float values)
+    {
+        fixed (float* __refParamPtr1 = &values)
         {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.ClearFile(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGetListenerfv(param, __arg1);
         }
+    }
 
-        /// <summary>Creates a directory.</summary>
-        /// <param name="path">The directory to create.</param>
-        public static void CreateFolder(string path)
+    public static void AlGetListeneri(int param, ref int value)
+    {
+        fixed (int* __refParamPtr1 = &value)
         {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(path, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.CreateFolder(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGetListeneri(param, __arg1);
         }
+    }
 
-        /// <summary>Reads a text file into a string.</summary>
-        /// <param name="filepath">The filepath.</param>
-        public static string ReadTextFile(string filepath)
+    public static void AlGetListener3i(int param, ref int value1, ref int value2, ref int value3)
+    {
+        fixed (int* __refParamPtr1 = &value1)
         {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.ReadTextFile(new IntPtr(&__ret), __arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        /// <summary>Writes to a text file from a string.</summary>
-        /// <param name="filepath">The filepath.</param>
-        /// <param name="data">The text data.</param>
-        public static void WriteTextFile(string filepath, string data)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(data, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            __Internal.WriteTextFile(__arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-        }
-
-        /// <summary>Removes backslashes from directories.</summary>
-        public static string FixPaths(string filepath)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.FixPaths(new IntPtr(&__ret), __arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        /// <summary>Gets the file extension for the file.</summary>
-        public static string FindExt(string filepath)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.FindExt(new IntPtr(&__ret), __arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        /// <summary>Gets the current working directory.</summary>
-        public static string WorkingDirectory
-        {
-            get
+            var __arg1 = __refParamPtr1;
+            fixed (int* __refParamPtr2 = &value2)
             {
-                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                __Internal.GetWorkingDirectory(new IntPtr(&__ret));
-                var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                __basicStringRet.Dispose(false);
-                return __stringRet;
+                var __arg2 = __refParamPtr2;
+                fixed (int* __refParamPtr3 = &value3)
+                {
+                    var __arg3 = __refParamPtr3;
+                    __Internal.AlGetListener3i(param, __arg1, __arg2, __arg3);
+                }
             }
+        }
+    }
+
+    public static void AlGetListeneriv(int param, ref int values)
+    {
+        fixed (int* __refParamPtr1 = &values)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGetListeneriv(param, __arg1);
+        }
+    }
+
+
+    public static void AlGenSources(int n, ref uint sources)
+    {
+        fixed (uint* __refParamPtr1 = &sources)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGenSources(n, __arg1);
+        }
+    }
+
+
+    public static void AlDeleteSources(int n, ref uint sources)
+    {
+        fixed (uint* __refParamPtr1 = &sources)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlDeleteSources(n, __arg1);
+        }
+    }
+
+
+    public static sbyte AlIsSource(uint source)
+    {
+        var __ret = __Internal.AlIsSource(source);
+        return __ret;
+    }
+
+
+    public static void AlSourcef(uint source, int param, float value)
+    {
+        __Internal.AlSourcef(source, param, value);
+    }
+
+    public static void AlSource3f(uint source, int param, float value1, float value2, float value3)
+    {
+        __Internal.AlSource3f(source, param, value1, value2, value3);
+    }
+
+    public static void AlSourcefv(uint source, int param, ref float values)
+    {
+        fixed (float* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlSourcefv(source, param, __arg2);
+        }
+    }
+
+    public static void AlSourcei(uint source, int param, int value)
+    {
+        __Internal.AlSourcei(source, param, value);
+    }
+
+    public static void AlSource3i(uint source, int param, int value1, int value2, int value3)
+    {
+        __Internal.AlSource3i(source, param, value1, value2, value3);
+    }
+
+    public static void AlSourceiv(uint source, int param, ref int values)
+    {
+        fixed (int* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlSourceiv(source, param, __arg2);
+        }
+    }
+
+
+    public static void AlGetSourcef(uint source, int param, ref float value)
+    {
+        fixed (float* __refParamPtr2 = &value)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetSourcef(source, param, __arg2);
+        }
+    }
+
+    public static void AlGetSource3f(uint source, int param, ref float value1, ref float value2, ref float value3)
+    {
+        fixed (float* __refParamPtr2 = &value1)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (float* __refParamPtr3 = &value2)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (float* __refParamPtr4 = &value3)
+                {
+                    var __arg4 = __refParamPtr4;
+                    __Internal.AlGetSource3f(source, param, __arg2, __arg3, __arg4);
+                }
+            }
+        }
+    }
+
+    public static void AlGetSourcefv(uint source, int param, ref float values)
+    {
+        fixed (float* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetSourcefv(source, param, __arg2);
+        }
+    }
+
+    public static void AlGetSourcei(uint source, int param, ref int value)
+    {
+        fixed (int* __refParamPtr2 = &value)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetSourcei(source, param, __arg2);
+        }
+    }
+
+    public static void AlGetSource3i(uint source, int param, ref int value1, ref int value2, ref int value3)
+    {
+        fixed (int* __refParamPtr2 = &value1)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &value2)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &value3)
+                {
+                    var __arg4 = __refParamPtr4;
+                    __Internal.AlGetSource3i(source, param, __arg2, __arg3, __arg4);
+                }
+            }
+        }
+    }
+
+    public static void AlGetSourceiv(uint source, int param, ref int values)
+    {
+        fixed (int* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetSourceiv(source, param, __arg2);
+        }
+    }
+
+
+    public static void AlSourcePlayv(int n, ref uint sources)
+    {
+        fixed (uint* __refParamPtr1 = &sources)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlSourcePlayv(n, __arg1);
+        }
+    }
+
+
+    public static void AlSourceStopv(int n, ref uint sources)
+    {
+        fixed (uint* __refParamPtr1 = &sources)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlSourceStopv(n, __arg1);
+        }
+    }
+
+
+    public static void AlSourceRewindv(int n, ref uint sources)
+    {
+        fixed (uint* __refParamPtr1 = &sources)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlSourceRewindv(n, __arg1);
+        }
+    }
+
+
+    public static void AlSourcePausev(int n, ref uint sources)
+    {
+        fixed (uint* __refParamPtr1 = &sources)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlSourcePausev(n, __arg1);
+        }
+    }
+
+
+    public static void AlSourcePlay(uint source)
+    {
+        __Internal.AlSourcePlay(source);
+    }
+
+
+    public static void AlSourceStop(uint source)
+    {
+        __Internal.AlSourceStop(source);
+    }
+
+
+    public static void AlSourceRewind(uint source)
+    {
+        __Internal.AlSourceRewind(source);
+    }
+
+
+    public static void AlSourcePause(uint source)
+    {
+        __Internal.AlSourcePause(source);
+    }
+
+
+    public static void AlSourceQueueBuffers(uint source, int nb, ref uint buffers)
+    {
+        fixed (uint* __refParamPtr2 = &buffers)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlSourceQueueBuffers(source, nb, __arg2);
+        }
+    }
+
+
+    public static void AlSourceUnqueueBuffers(uint source, int nb, ref uint buffers)
+    {
+        fixed (uint* __refParamPtr2 = &buffers)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlSourceUnqueueBuffers(source, nb, __arg2);
+        }
+    }
+
+
+    public static void AlGenBuffers(int n, ref uint buffers)
+    {
+        fixed (uint* __refParamPtr1 = &buffers)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlGenBuffers(n, __arg1);
+        }
+    }
+
+
+    public static void AlDeleteBuffers(int n, ref uint buffers)
+    {
+        fixed (uint* __refParamPtr1 = &buffers)
+        {
+            var __arg1 = __refParamPtr1;
+            __Internal.AlDeleteBuffers(n, __arg1);
+        }
+    }
+
+
+    public static sbyte AlIsBuffer(uint buffer)
+    {
+        var __ret = __Internal.AlIsBuffer(buffer);
+        return __ret;
+    }
+
+
+    public static void AlBufferData(uint buffer, int format, global::System.IntPtr data, int size, int freq)
+    {
+        __Internal.AlBufferData(buffer, format, data, size, freq);
+    }
+
+
+    public static void AlBufferf(uint buffer, int param, float value)
+    {
+        __Internal.AlBufferf(buffer, param, value);
+    }
+
+    public static void AlBuffer3f(uint buffer, int param, float value1, float value2, float value3)
+    {
+        __Internal.AlBuffer3f(buffer, param, value1, value2, value3);
+    }
+
+    public static void AlBufferfv(uint buffer, int param, ref float values)
+    {
+        fixed (float* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlBufferfv(buffer, param, __arg2);
+        }
+    }
+
+    public static void AlBufferi(uint buffer, int param, int value)
+    {
+        __Internal.AlBufferi(buffer, param, value);
+    }
+
+    public static void AlBuffer3i(uint buffer, int param, int value1, int value2, int value3)
+    {
+        __Internal.AlBuffer3i(buffer, param, value1, value2, value3);
+    }
+
+    public static void AlBufferiv(uint buffer, int param, ref int values)
+    {
+        fixed (int* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlBufferiv(buffer, param, __arg2);
+        }
+    }
+
+
+    public static void AlGetBufferf(uint buffer, int param, ref float value)
+    {
+        fixed (float* __refParamPtr2 = &value)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetBufferf(buffer, param, __arg2);
+        }
+    }
+
+    public static void AlGetBuffer3f(uint buffer, int param, ref float value1, ref float value2, ref float value3)
+    {
+        fixed (float* __refParamPtr2 = &value1)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (float* __refParamPtr3 = &value2)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (float* __refParamPtr4 = &value3)
+                {
+                    var __arg4 = __refParamPtr4;
+                    __Internal.AlGetBuffer3f(buffer, param, __arg2, __arg3, __arg4);
+                }
+            }
+        }
+    }
+
+    public static void AlGetBufferfv(uint buffer, int param, ref float values)
+    {
+        fixed (float* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetBufferfv(buffer, param, __arg2);
+        }
+    }
+
+    public static void AlGetBufferi(uint buffer, int param, ref int value)
+    {
+        fixed (int* __refParamPtr2 = &value)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetBufferi(buffer, param, __arg2);
+        }
+    }
+
+    public static void AlGetBuffer3i(uint buffer, int param, ref int value1, ref int value2, ref int value3)
+    {
+        fixed (int* __refParamPtr2 = &value1)
+        {
+            var __arg2 = __refParamPtr2;
+            fixed (int* __refParamPtr3 = &value2)
+            {
+                var __arg3 = __refParamPtr3;
+                fixed (int* __refParamPtr4 = &value3)
+                {
+                    var __arg4 = __refParamPtr4;
+                    __Internal.AlGetBuffer3i(buffer, param, __arg2, __arg3, __arg4);
+                }
+            }
+        }
+    }
+
+    public static void AlGetBufferiv(uint buffer, int param, ref int values)
+    {
+        fixed (int* __refParamPtr2 = &values)
+        {
+            var __arg2 = __refParamPtr2;
+            __Internal.AlGetBufferiv(buffer, param, __arg2);
         }
     }
 }
 
-namespace FlounderSharp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCCREATECONTEXT(global::System.IntPtr device, int* attrlist);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCMAKECONTEXTCURRENT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCPROCESSCONTEXT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCSUSPENDCONTEXT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCDESTROYCONTEXT(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETCURRENTCONTEXT();
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETCONTEXTSDEVICE(global::System.IntPtr context);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCOPENDEVICE([MarshalAs(UnmanagedType.LPStr)] string devicename);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCCLOSEDEVICE(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate int LPALCGETERROR(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCISEXTENSIONPRESENT(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string extname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETPROCADDRESS(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string funcname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate int LPALCGETENUMVALUE(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string enumname);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCGETSTRING(global::System.IntPtr device, int param);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCGETINTEGERV(global::System.IntPtr device, int param, int size, int* values);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate global::System.IntPtr LPALCCAPTUREOPENDEVICE([MarshalAs(UnmanagedType.LPStr)] string devicename, uint frequency, int format, int buffersize);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate sbyte LPALCCAPTURECLOSEDEVICE(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCCAPTURESTART(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCCAPTURESTOP(global::System.IntPtr device);
+
+[SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+public unsafe delegate void LPALCCAPTURESAMPLES(global::System.IntPtr device, global::System.IntPtr buffer, int samples);
+
+public unsafe partial class ALCdeviceStruct
 {
-    /// <summary>A helper for C++ strings.</summary>
-    public unsafe partial class FormatString : IDisposable
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
     {
-        [StructLayout(LayoutKind.Explicit, Size = 0)]
-        public partial struct __Internal
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCdeviceStruct> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCdeviceStruct>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::ALCdeviceStruct __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::ALCdeviceStruct(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::ALCdeviceStruct __CreateInstance(global::ALCdeviceStruct.__Internal native, bool skipVTables = false)
+    {
+        return new global::ALCdeviceStruct(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::ALCdeviceStruct.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::ALCdeviceStruct.__Internal));
+        *(global::ALCdeviceStruct.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private ALCdeviceStruct(global::ALCdeviceStruct.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected ALCdeviceStruct(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~ALCdeviceStruct()
+    {
+        //Dispose(false);
+    }
+}
+
+public unsafe partial class ALCcontextStruct
+{
+    [StructLayout(LayoutKind.Explicit, Size = 0)]
+    public partial struct __Internal
+    {
+    }
+
+    public global::System.IntPtr __Instance { get; protected set; }
+
+    protected int __PointerAdjustment;
+    internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCcontextStruct> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::ALCcontextStruct>();
+    protected void*[] __OriginalVTables;
+
+    protected bool __ownsNativeInstance;
+
+    internal static global::ALCcontextStruct __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    {
+        return new global::ALCcontextStruct(native.ToPointer(), skipVTables);
+    }
+
+    internal static global::ALCcontextStruct __CreateInstance(global::ALCcontextStruct.__Internal native, bool skipVTables = false)
+    {
+        return new global::ALCcontextStruct(native, skipVTables);
+    }
+
+    private static void* __CopyValue(global::ALCcontextStruct.__Internal native)
+    {
+        var ret = Marshal.AllocHGlobal(sizeof(global::ALCcontextStruct.__Internal));
+        *(global::ALCcontextStruct.__Internal*) ret = native;
+        return ret.ToPointer();
+    }
+
+    private ALCcontextStruct(global::ALCcontextStruct.__Internal native, bool skipVTables = false)
+        : this(__CopyValue(native), skipVTables)
+    {
+        __ownsNativeInstance = true;
+        NativeToManagedMap[__Instance] = this;
+    }
+
+    protected ALCcontextStruct(void* native, bool skipVTables = false)
+    {
+        if (native == null)
+            return;
+        __Instance = new global::System.IntPtr(native);
+    }
+
+    ~ALCcontextStruct()
+    {
+        //Dispose(false);
+    }
+}
+
+public unsafe partial class alc
+{
+    public partial struct __Internal
+    {
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCreateContext")]
+        internal static extern global::System.IntPtr AlcCreateContext(global::System.IntPtr device, int* attrlist);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcMakeContextCurrent")]
+        internal static extern sbyte AlcMakeContextCurrent(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcProcessContext")]
+        internal static extern void AlcProcessContext(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcSuspendContext")]
+        internal static extern void AlcSuspendContext(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcDestroyContext")]
+        internal static extern void AlcDestroyContext(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetCurrentContext")]
+        internal static extern global::System.IntPtr AlcGetCurrentContext();
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetContextsDevice")]
+        internal static extern global::System.IntPtr AlcGetContextsDevice(global::System.IntPtr context);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcOpenDevice")]
+        internal static extern global::System.IntPtr AlcOpenDevice([MarshalAs(UnmanagedType.LPStr)] string devicename);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCloseDevice")]
+        internal static extern sbyte AlcCloseDevice(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetError")]
+        internal static extern int AlcGetError(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcIsExtensionPresent")]
+        internal static extern sbyte AlcIsExtensionPresent(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string extname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetProcAddress")]
+        internal static extern global::System.IntPtr AlcGetProcAddress(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string funcname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetEnumValue")]
+        internal static extern int AlcGetEnumValue(global::System.IntPtr device, [MarshalAs(UnmanagedType.LPStr)] string enumname);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetString")]
+        internal static extern global::System.IntPtr AlcGetString(global::System.IntPtr device, int param);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcGetIntegerv")]
+        internal static extern void AlcGetIntegerv(global::System.IntPtr device, int param, int size, int* values);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureOpenDevice")]
+        internal static extern global::System.IntPtr AlcCaptureOpenDevice([MarshalAs(UnmanagedType.LPStr)] string devicename, uint frequency, int format, int buffersize);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureCloseDevice")]
+        internal static extern sbyte AlcCaptureCloseDevice(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureStart")]
+        internal static extern void AlcCaptureStart(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureStop")]
+        internal static extern void AlcCaptureStop(global::System.IntPtr device);
+
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport("OpenAL32", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+            EntryPoint="alcCaptureSamples")]
+        internal static extern void AlcCaptureSamples(global::System.IntPtr device, global::System.IntPtr buffer, int samples);
+    }
+
+
+    public static global::ALCcontextStruct AlcCreateContext(global::ALCdeviceStruct device, ref int attrlist)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        fixed (int* __refParamPtr1 = &attrlist)
         {
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0FormatString@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?StartsWith@FormatString@fl@@SA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool StartsWith(global::System.IntPtr str, global::System.IntPtr token);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Contains@FormatString@fl@@SA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Contains(global::System.IntPtr str, global::System.IntPtr token);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?IsInteger@FormatString@fl@@SA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsInteger(global::System.IntPtr str);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?FindCharPos@FormatString@fl@@SAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBD@Z")]
-            internal static extern int FindCharPos(global::System.IntPtr str, sbyte* c);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Trim@FormatString@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@0@Z")]
-            internal static extern void Trim(global::System.IntPtr @return, global::System.IntPtr str, global::System.IntPtr whitespace);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Substring@FormatString@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@AEBI1@Z")]
-            internal static extern void Substring(global::System.IntPtr @return, global::System.IntPtr str, uint* start, uint* end);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?RemoveAll@FormatString@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@AEBD@Z")]
-            internal static extern void RemoveAll(global::System.IntPtr @return, global::System.IntPtr str, sbyte* token);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Replace@FormatString@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@00@Z")]
-            internal static extern void Replace(global::System.IntPtr @return, global::System.IntPtr str, global::System.IntPtr token, global::System.IntPtr to);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Lowercase@FormatString@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@@Z")]
-            internal static extern void Lowercase(global::System.IntPtr @return, global::System.IntPtr str);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Uppercase@FormatString@fl@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@@Z")]
-            internal static extern void Uppercase(global::System.IntPtr @return, global::System.IntPtr str);
+            var __arg1 = __refParamPtr1;
+            var __ret = __Internal.AlcCreateContext(__arg0, __arg1);
+            global::ALCcontextStruct __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::ALCcontextStruct.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::ALCcontextStruct) global::ALCcontextStruct.NativeToManagedMap[__ret];
+            else __result0 = global::ALCcontextStruct.__CreateInstance(__ret);
+            return __result0;
         }
+    }
 
-        public global::System.IntPtr __Instance { get; protected set; }
+    public static sbyte AlcMakeContextCurrent(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        var __ret = __Internal.AlcMakeContextCurrent(__arg0);
+        return __ret;
+    }
 
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.FormatString> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.FormatString>();
-        protected void*[] __OriginalVTables;
+    public static void AlcProcessContext(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        __Internal.AlcProcessContext(__arg0);
+    }
 
-        protected bool __ownsNativeInstance;
+    public static void AlcSuspendContext(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        __Internal.AlcSuspendContext(__arg0);
+    }
 
-        internal static global::FlounderSharp.FormatString __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+    public static void AlcDestroyContext(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        __Internal.AlcDestroyContext(__arg0);
+    }
+
+    public static global::ALCcontextStruct AlcGetCurrentContext()
+    {
+        var __ret = __Internal.AlcGetCurrentContext();
+        global::ALCcontextStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCcontextStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCcontextStruct) global::ALCcontextStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCcontextStruct.__CreateInstance(__ret);
+        return __result0;
+    }
+
+    public static global::ALCdeviceStruct AlcGetContextsDevice(global::ALCcontextStruct context)
+    {
+        var __arg0 = ReferenceEquals(context, null) ? global::System.IntPtr.Zero : context.__Instance;
+        var __ret = __Internal.AlcGetContextsDevice(__arg0);
+        global::ALCdeviceStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
+        return __result0;
+    }
+
+
+    public static global::ALCdeviceStruct AlcOpenDevice(string devicename)
+    {
+        var __ret = __Internal.AlcOpenDevice(devicename);
+        global::ALCdeviceStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
+        return __result0;
+    }
+
+    public static sbyte AlcCloseDevice(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcCloseDevice(__arg0);
+        return __ret;
+    }
+
+
+    public static int AlcGetError(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetError(__arg0);
+        return __ret;
+    }
+
+
+    public static sbyte AlcIsExtensionPresent(global::ALCdeviceStruct device, string extname)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcIsExtensionPresent(__arg0, extname);
+        return __ret;
+    }
+
+    public static global::System.IntPtr AlcGetProcAddress(global::ALCdeviceStruct device, string funcname)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetProcAddress(__arg0, funcname);
+        return __ret;
+    }
+
+    public static int AlcGetEnumValue(global::ALCdeviceStruct device, string enumname)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetEnumValue(__arg0, enumname);
+        return __ret;
+    }
+
+
+    public static string AlcGetString(global::ALCdeviceStruct device, int param)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcGetString(__arg0, param);
+        return Marshal.PtrToStringAnsi(__ret);
+    }
+
+    public static void AlcGetIntegerv(global::ALCdeviceStruct device, int param, int size, ref int values)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        fixed (int* __refParamPtr3 = &values)
         {
-            return new global::FlounderSharp.FormatString(native.ToPointer(), skipVTables);
+            var __arg3 = __refParamPtr3;
+            __Internal.AlcGetIntegerv(__arg0, param, size, __arg3);
         }
+    }
 
-        internal static global::FlounderSharp.FormatString __CreateInstance(global::FlounderSharp.FormatString.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.FormatString(native, skipVTables);
-        }
 
-        private static void* __CopyValue(global::FlounderSharp.FormatString.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FormatString.__Internal));
-            *(global::FlounderSharp.FormatString.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
+    public static global::ALCdeviceStruct AlcCaptureOpenDevice(string devicename, uint frequency, int format, int buffersize)
+    {
+        var __ret = __Internal.AlcCaptureOpenDevice(devicename, frequency, format, buffersize);
+        global::ALCdeviceStruct __result0;
+        if (__ret == IntPtr.Zero) __result0 = null;
+        else if (global::ALCdeviceStruct.NativeToManagedMap.ContainsKey(__ret))
+            __result0 = (global::ALCdeviceStruct) global::ALCdeviceStruct.NativeToManagedMap[__ret];
+        else __result0 = global::ALCdeviceStruct.__CreateInstance(__ret);
+        return __result0;
+    }
 
-        private FormatString(global::FlounderSharp.FormatString.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
+    public static sbyte AlcCaptureCloseDevice(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        var __ret = __Internal.AlcCaptureCloseDevice(__arg0);
+        return __ret;
+    }
 
-        protected FormatString(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
+    public static void AlcCaptureStart(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        __Internal.AlcCaptureStart(__arg0);
+    }
 
-        public FormatString()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FormatString.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
+    public static void AlcCaptureStop(global::ALCdeviceStruct device)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        __Internal.AlcCaptureStop(__arg0);
+    }
 
-        public FormatString(global::FlounderSharp.FormatString _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FormatString.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            *((global::FlounderSharp.FormatString.__Internal*) __Instance) = *((global::FlounderSharp.FormatString.__Internal*) _0.__Instance);
-        }
-
-        ~FormatString()
-        {
-            Dispose(false);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.FormatString __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        /// <summary>Gets if a string starts with a token.</summary>
-        /// <param name="str">The string.</param>
-        /// <param name="token">The token.</param>
-        public static bool StartsWith(string str, string token)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(token, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            var __ret = __Internal.StartsWith(__arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-            return __ret;
-        }
-
-        /// <summary>Gets if a string contains a token.</summary>
-        /// <param name="str">The string.</param>
-        /// <param name="token">The token.</param>
-        public static bool Contains(string str, string token)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(token, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            var __ret = __Internal.Contains(__arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-            return __ret;
-        }
-
-        /// <summary>Gets if a string is a integer.</summary>
-        /// <param name="str">The string.</param>
-        public static bool IsInteger(string str)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.IsInteger(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
-        }
-
-        /// <summary>Gets the first char index in the string.</summary>
-        /// <param name="str">The string.</param>
-        /// <param name="c">The char to look for.</param>
-        public static int FindCharPos(string str, sbyte* c)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.FindCharPos(__arg0, c);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
-        }
-
-        /// <summary>Trims the left and right side of a string of whitespace.</summary>
-        /// <param name="str">The string.</param>
-        /// <param name="whitespace">The whitespace type.</param>
-        public static string Trim(string str, string whitespace)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(whitespace, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.Trim(new IntPtr(&__ret), __arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        /// <summary>Takes a substring of a string between two bounds.</summary>
-        /// <param name="str">The string.</param>
-        /// <param name="start">The left bound.</param>
-        /// <param name="end">The right bound.</param>
-        public static string Substring(string str, ref uint start, ref uint end)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            fixed (uint* __refParamPtr1 = &start)
-            {
-                var __arg1 = __refParamPtr1;
-                fixed (uint* __refParamPtr2 = &end)
-                {
-                    var __arg2 = __refParamPtr2;
-                    var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                    __Internal.Substring(new IntPtr(&__ret), __arg0, __arg1, __arg2);
-                    __basicString0.Dispose(false);
-                    __allocator0.Dispose();
-                    var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-                    var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                    __basicStringRet.Dispose(false);
-                    return __stringRet;
-                }
-            }
-        }
-
-        /// <summary>Removes all tokens from a string.</summary>
-        /// <param name="str">The string.</param>
-        /// <param name="token">The token.</param>
-        public static string RemoveAll(string str, sbyte* token)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.RemoveAll(new IntPtr(&__ret), __arg0, token);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        /// <summary>Replaces all tokens from a string.</summary>
-        /// <param name="str">The string.</param>
-        /// <param name="token">The token.</param>
-        /// <param name="to">The string to replace the tokens with.</param>
-        public static string Replace(string str, string token, string to)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(token, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            var __allocator2 = new global::Std.Allocator<sbyte>();
-            var __basicString2 = global::Std.BasicStringExtensions.BasicString(to, __allocator2);
-            var __arg2 = __basicString2.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.Replace(new IntPtr(&__ret), __arg0, __arg1, __arg2);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-            __basicString2.Dispose(false);
-            __allocator2.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        /// <summary>Lowercases a string.</summary>
-        /// <param name="str">The string.</param>
-        public static string Lowercase(string str)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.Lowercase(new IntPtr(&__ret), __arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        /// <summary>uppercased a string.</summary>
-        /// <param name="str">The string.</param>
-        public static string Uppercase(string str)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(str, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.Uppercase(new IntPtr(&__ret), __arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
+    public static void AlcCaptureSamples(global::ALCdeviceStruct device, global::System.IntPtr buffer, int samples)
+    {
+        var __arg0 = ReferenceEquals(device, null) ? global::System.IntPtr.Zero : device.__Instance;
+        __Internal.AlcCaptureSamples(__arg0, buffer, samples);
     }
 }

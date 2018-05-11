@@ -10,34 +10,6 @@ namespace FlounderSharp.CLI
         static void Main(string[] args)
         {
             // Inputs and outputs.
-            /*var originalName = "glfw3";
-            var targetName = "GlfwSharp";
-            var namespaces = new List<NamespacePair> {
-                new NamespacePair("glfw", "GlfwSharp")
-            };
-            var headerPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
-            };
-            var headerFile = @"GLFW\glfw3.h";
-            var libraryPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
-            };
-            var libraryFile = "glfw3dll.lib";
-            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";*/
-            /*var originalName = "stb";
-            var targetName = "StbSharp";
-            var namespaces = new List<NamespacePair> {
-                new NamespacePair("stb", "StbSharp")
-            };
-            var headerPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
-            };
-            var headerFile = @"STB\stb.h";
-            var libraryPaths = new List<string>{
-                @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
-            };
-            var libraryFile = "stb.lib";
-            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";*/
             var originalName = "Flounder";
             var targetName = "FlounderSharp";
             var namespaces = new List<NamespacePair> {
@@ -46,15 +18,22 @@ namespace FlounderSharp.CLI
             var headerPaths = new List<string>{
                 @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include",
             };
-            var headerFile = @"fl\Flounder.hpp";
+            var headerFiles = new List<string> {
+                @"fl\Flounder.hpp"
+            };
             var libraryPaths = new List<string>{
                 @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib",
             };
-            var libraryFile = "Flounder.lib";
+            var libraryFiles = new List<string>{
+                "glfw3.lib",
+                "stb.lib",
+                "OpenAL32.lib",
+                "Flounder.lib"
+            };
             var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
 
             // Generate.
-            var library = new Library(originalName, targetName, namespaces, headerPaths, headerFile, libraryPaths, libraryFile, outPath);
+            var library = new Library(originalName, targetName, namespaces, headerPaths, headerFiles, libraryPaths, libraryFiles, outPath);
             ConsoleDriver.Run(library);
             Console.WriteLine("Generation complete!");
 

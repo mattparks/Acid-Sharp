@@ -6,8 +6,6 @@
 
 #include "STB\stb.h"
 #include "GLFW\glfw3.h"
-//#include "AL\al.h"
-//#include "AL\alc.h"
+#include "AL\al.h"
+#include "AL\alc.h"
 //#include "vulkan\vulkan.h"
-#include "Helpers/FileSystem.hpp"
-#include "Helpers/FormatString.hpp"

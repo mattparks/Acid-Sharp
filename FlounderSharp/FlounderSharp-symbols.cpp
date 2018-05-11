@@ -35,9 +35,3 @@ extern "C" { void FlounderSharp_symbols32(void* instance, const GLFWgamepadstate
 GLFWgamepadstate& (GLFWgamepadstate::*FlounderSharp_symbols33)(const GLFWgamepadstate&) = &GLFWgamepadstate::operator=;
 GLFWgamepadstate& (GLFWgamepadstate::*FlounderSharp_symbols34)(GLFWgamepadstate&&) = &GLFWgamepadstate::operator=;
 extern "C" { void FlounderSharp_symbols35(GLFWgamepadstate* instance) { instance->~GLFWgamepadstate(); } }
-extern "C" { void FlounderSharp_symbols36(void* instance) { new (instance) fl::FileSystem(); } }
-extern "C" { void FlounderSharp_symbols37(void* instance, const fl::FileSystem& _0) { new (instance) fl::FileSystem(_0); } }
-extern "C" { void FlounderSharp_symbols38(fl::FileSystem* instance) { instance->~FileSystem(); } }
-extern "C" { void FlounderSharp_symbols39(void* instance) { new (instance) fl::FormatString(); } }
-extern "C" { void FlounderSharp_symbols40(void* instance, const fl::FormatString& _0) { new (instance) fl::FormatString(_0); } }
-extern "C" { void FlounderSharp_symbols41(fl::FormatString* instance) { instance->~FormatString(); } }
