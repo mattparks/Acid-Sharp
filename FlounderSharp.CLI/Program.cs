@@ -28,9 +28,10 @@ namespace FlounderSharp.CLI
                 "glfw3.lib",
                 "stb.lib",
                 "OpenAL32.lib",
+                "vulkan-1.lib",
                 "Flounder.lib"
             };
-            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
+            var outPath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp\Sources";
 
             // Generate.
             var library = new Library(originalName, targetName, namespaces, headerPaths, headerFiles, libraryPaths, libraryFiles, outPath);

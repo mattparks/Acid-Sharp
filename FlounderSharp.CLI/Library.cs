@@ -5,6 +5,8 @@ using System.IO;
 using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
+using CppSharp.Parser;
+using CppSharp.Passes;
 
 namespace FlounderSharp.CLI
 {
@@ -65,14 +67,19 @@ namespace FlounderSharp.CLI
         {
             // Sets up the parser.
             var parserOptions = driver.ParserOptions;
+            parserOptions.LanguageVersion = LanguageVersion.CPP17;
             parserOptions.EnableRTTI = true;
 
             // Sets up other options.
             var options = driver.Options;
             options.OutputDir = _outPath;
             options.GeneratorKind = GeneratorKind.CSharp;
+            options.GenerateSingleCSharpFile = false;
+            options.MarshalCharAsManagedChar = true;
+        //    options.GenerateDefaultValuesForArguments = true;
             options.GenerateFinalizers = true;
-            options.Verbose = true;
+            options.CheckSymbols = true;
+            options.Verbose = false;
 
             // Creates a new module.
             var module = options.AddModule(_targetName);
@@ -110,10 +117,11 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
-        //    driver.AddTranslationUnitPass(new PassOutParamsFix());
             driver.AddTranslationUnitPass(_xmlExportPass);
             driver.AddTranslationUnitPass(new PassObjectNamesFix(_namespaces));
-        //    driver.AddTranslationUnitPass(new PassCommentsFix());
+            driver.AddTranslationUnitPass(new PassCommentsFix());
+            driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
+            driver.Context.TranslationUnitPasses.AddPass(new FunctionToInstanceMethodPass());
         }
 
         /// <summary>

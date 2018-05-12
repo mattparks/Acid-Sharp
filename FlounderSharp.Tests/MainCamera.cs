@@ -22,7 +22,7 @@ namespace FlounderSharp.Tests
 		public MainCamera() : base()
 		{
 			_position = new Vector3();
-			_velocity = new Vector3();
+            _velocity = new Vector3();
 			_rotation = new Vector3();
 			_viewMatrix = new Matrix4();
 			_projectionMatrix = new Matrix4();
@@ -44,8 +44,8 @@ namespace FlounderSharp.Tests
 
         public override void ReflectView(ref float waterHeight)
         {
-            _position._y -= 2.0f * (_position._y - waterHeight);
-            _rotation._x = -_rotation._x;
+            _position.Y -= 2.0f * (_position.Y - waterHeight);
+            _rotation.X = -_rotation.X;
             _viewMatrix = Matrix4.ViewMatrix(_position, _rotation);
         }
 

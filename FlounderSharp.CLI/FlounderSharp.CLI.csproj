@@ -69,7 +69,6 @@
     <Compile Include="Library.cs" />
     <Compile Include="PassCommentsFix.cs" />
     <Compile Include="PassObjectNamesFix.cs" />
-    <Compile Include="PassOutParamsFix.cs" />
     <Compile Include="PassXmlTranslation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

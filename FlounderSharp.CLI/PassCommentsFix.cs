@@ -26,6 +26,12 @@ namespace FlounderSharp.CLI
             if (declaration.Comment != null)
             {
                 var xDoc = GetOriginalDocumentationDocument(declaration.Comment.Text);
+
+                if (xDoc == null)
+                {
+                    return false;
+                }
+
                 var xRoot = xDoc.Root;
 
                 declaration.Comment.Kind = CommentKind.BCPLSlash;
@@ -92,8 +98,18 @@ namespace FlounderSharp.CLI
             }
 
             descriptionXmlBuilder.AppendLine("</description>");
-            var descriptionXDoc = XDocument.Parse(descriptionXmlBuilder.ToString());
-            return descriptionXDoc;
+
+            try
+            {
+                var descriptionXDoc = XDocument.Parse(descriptionXmlBuilder.ToString());
+                return descriptionXDoc;
+            }
+            catch (System.Xml.XmlException ex)
+            {
+
+            }
+
+            return null;
         }
     }
 }

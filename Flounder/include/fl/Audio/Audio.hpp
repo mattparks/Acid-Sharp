@@ -1,14 +1,10 @@
 #pragma once
 
-#ifdef FL_BUILD_MACOS
-#include <OpenAL/al.h>
-#include <OpenAL/alc.h>
-#else
-#include <AL/al.h>
-#include <AL/alc.h>
-#endif
-#include <STB/stb_vorbis.h>
 #include "Engine/Engine.hpp"
+
+typedef struct ALCdevice_struct ALCdevice;
+
+typedef struct ALCcontext_struct ALCcontext;
 
 namespace fl
 {
@@ -43,10 +39,6 @@ namespace fl
 
 		void Update() override;
 
-		static void ErrorAl(const ALenum &result);
-
-		static ALuint LoadFileWav(const std::string &filename);
-
-		static ALuint LoadFileOgg(const std::string &filename);
+		static void ErrorAl(const int &result);
 	};
 }

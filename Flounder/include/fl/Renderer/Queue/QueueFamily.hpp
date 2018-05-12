@@ -8,13 +8,14 @@ namespace fl
 	/// <summary>
 	/// Used to store index of a QueueFamily with particular qualities.
 	/// </summary>
-	struct QueueFamilyIndices
+	class FL_EXPORT QueueFamilyIndices
 	{
-		int graphicsFamily = -1;
-		int presentFamily = -1;
-		int computeFamily = -1;
+	public:
+		int m_graphicsFamily = -1;
+		int m_presentFamily = -1;
+		int m_computeFamily = -1;
 
-		std::array<uint32_t, 3> array;
+		std::array<uint32_t, 3> m_array;
 
 		/// <summary>
 		/// Gets if an index has been assigned.
@@ -22,7 +23,7 @@ namespace fl
 		/// <return> If an index has been assigned. </return>
 		bool IsComplete() const
 		{
-			return graphicsFamily >= 0 && presentFamily >= 0 && computeFamily >= 0;
+			return m_graphicsFamily >= 0 && m_presentFamily >= 0 && m_computeFamily >= 0;
 		}
 	};
 

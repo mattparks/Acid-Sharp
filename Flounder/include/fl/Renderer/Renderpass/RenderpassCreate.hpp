@@ -49,12 +49,21 @@ namespace fl
 		}
 	};
 
-	struct RenderpassCreate
+	class FL_EXPORT RenderpassCreate
 	{
+	public:
 		uint32_t m_width;
 		uint32_t m_height;
 
-		std::vector<Attachment> images = std::vector<Attachment>();
-		std::vector<SubpassType> subpasses = std::vector<SubpassType>();
+		std::vector<Attachment> m_images;
+		std::vector<SubpassType> m_subpasses;
+
+		RenderpassCreate(const uint32_t &width, const uint32_t &height, const std::vector<Attachment> &images = std::vector<Attachment>(), const std::vector<SubpassType> &subpasses = std::vector<SubpassType>()) :
+			m_width(width),
+			m_height(height),
+			m_images(images),
+			m_subpasses(subpasses)
+		{
+		}
 	};
 }
