@@ -21,13 +21,13 @@ namespace FlounderSharp.Tests
 			// Skybox.
 			var skyboxObject = new GameObject(new Transform(new Vector3(), new Vector3(), 2048.0f));
 			skyboxObject.Name = "SkyboxChapel";
-			skyboxObject.AddComponent<Mesh>(ShapeSphere.Resource(6, 6, 1.0f));
-			skyboxObject.AddComponent<MaterialSkybox>(Cubemap.Resource("Resources/Entities/SkyboxChapel", ".png"), false);
-			skyboxObject.AddComponent<MeshRender>();
+			skyboxObject.AddComponent(new Mesh(ShapeSphere.Resource(6, 6, 1.0f)));
+			skyboxObject.AddComponent(new MaterialSkybox(Cubemap.Resource("Resources/Entities/SkyboxChapel", ".png"), false));
+			skyboxObject.AddComponent(new MeshRender());
 
 			// Entities.
 			var sun = new GameObject(new Transform(new Vector3(100.0f, 1000.0f, 8000.0f), new Vector3(), 18.0f));
-			sun.AddComponent<Light>(new Colour("#FFFFFF"), -1.0f);
+			sun.AddComponent(new Light(new Colour("#FFFFFF", 1.0f), -1.0f, Vector3.ZERO));
 		}
 
 		public override void Update()

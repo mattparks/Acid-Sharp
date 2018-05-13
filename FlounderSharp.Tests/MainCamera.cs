@@ -39,10 +39,9 @@ namespace FlounderSharp.Tests
 
 			_viewFrustum.Update(_viewMatrix, _projectionMatrix);
 			_viewRay.Update(_position, new Vector2(Mouse.Get().PositionX, Mouse.Get().PositionY), _viewMatrix, _projectionMatrix);
-		
 		}
 
-        public override void ReflectView(ref float waterHeight)
+        public override void ReflectView(float waterHeight)
         {
             _position.Y -= 2.0f * (_position.Y - waterHeight);
             _rotation.X = -_rotation.X;

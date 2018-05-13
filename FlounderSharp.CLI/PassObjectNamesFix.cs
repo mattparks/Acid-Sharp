@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using CppSharp.AST;
 using CppSharp.Passes;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace FlounderSharp.CLI
 {
@@ -33,39 +35,29 @@ namespace FlounderSharp.CLI
             return false;
         }
 
-        public override bool VisitMethodDecl(Method method)
+        public override bool VisitEnumDecl(Enumeration @enum)
         {
-            /*if (AlreadyVisited(method) || !method.IsGenerated)
+            if (!VisitDeclaration(@enum))
             {
                 return false;
-            }*/
-
-            Console.Write($"Method: {method.Name} (");
-            foreach (var parameter in method.Parameters)
-            {
-                Console.Write($"{parameter.Name}, ");
             }
-            Console.Write($")\n");
+
+            foreach (var item in @enum.Items)
+            {
+                item.Name = CamelCase(item.Name);
+            }
 
             return true;
         }
-        
-        /*public override bool VisitFunctionDecl(Function function)
+
+        static string CamelCase(string s)
         {
-            if (!function.IsGenerated)
-            {
-                return false;
-            }
-
-            Console.Write($"Function: {function.Name} (");
-            foreach (var parameter in function.Parameters)
-            {
-                Console.Write($"{parameter.Name}, ");
-            }
-            Console.Write($")\n");
-
-            return true;
-        }*/
+            TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
+            var x = s.Replace("_", " ");
+            x = textInfo.ToTitleCase(x.ToLower());
+            x = x.Replace(" ", "");
+            return x;
+        }
 
         public override bool VisitParameterDecl(Parameter parameter)
         {

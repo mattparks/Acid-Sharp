@@ -8,8 +8,10 @@ namespace FlounderSharp.Tests
         private static void Main(string[] args)
         {
             // Creates the engine and updater objects.
-            var engine = new Engine();
-            engine.SetUpdater(new MainUpdater());
+            var engine = new Engine
+            {
+                Updater = new MainUpdater()
+            };
 
             var configManager = new ConfigManager();
             Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");

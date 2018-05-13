@@ -8,17 +8,17 @@ namespace FlounderSharp.Tests
     {
 		private static readonly Vector4 Infinity = new Vector4(0.0f, 1.0f, 0.0f, Single.PositiveInfinity);
 
-        private static readonly RenderpassCreate RenderPassCreate0 = null; /*new RenderpassCreate(
+        private static readonly RenderpassCreate RenderPassCreate0 = new RenderpassCreate(
             0, 0,
             new List<Attachment>
             {
-                new Attachment(1, AttachmentType.TypeSwapchain) // swapchain
+                new Attachment(1, AttachmentType.AttachmentSwapchain) // swapchain
             },
             new List<SubpassType>
             {
                 new SubpassType(0, new List<int>{ 0 })
             }
-        );*/
+        );
 
         private RendererGuis _rendererGuis;
 		private RendererFonts _rendererFonts;

@@ -69,12 +69,13 @@ namespace FlounderSharp.CLI
             var parserOptions = driver.ParserOptions;
             parserOptions.LanguageVersion = LanguageVersion.CPP17;
             parserOptions.EnableRTTI = true;
+            parserOptions.SetupMSVC(VisualStudioVersion.VS2017);
 
             // Sets up other options.
             var options = driver.Options;
             options.OutputDir = _outPath;
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateSingleCSharpFile = false;
+            options.GenerateSingleCSharpFile = true;
             options.MarshalCharAsManagedChar = true;
         //    options.GenerateDefaultValuesForArguments = true;
             options.GenerateFinalizers = true;

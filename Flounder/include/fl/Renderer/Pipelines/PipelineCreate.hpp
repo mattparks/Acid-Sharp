@@ -8,27 +8,10 @@ namespace fl
 {
 	enum PipelineModeFlags
 	{
-		PIPELINE_POLYGON,
-		PIPELINE_POLYGON_NO_DEPTH,
-		PIPELINE_MRT,
-		PIPELINE_MRT_NO_DEPTH
-	};
-
-	class FL_EXPORT VertexInput
-	{
-	private:
-		std::vector<VkVertexInputBindingDescription> m_bindingDescriptions;
-		std::vector<VkVertexInputAttributeDescription> m_attributeDescriptions;
-	public:
-		VertexInput(const std::vector<VkVertexInputBindingDescription> &bindingDescriptions, const std::vector<VkVertexInputAttributeDescription> &attributeDescriptions) :
-			m_bindingDescriptions(bindingDescriptions),
-			m_attributeDescriptions(attributeDescriptions)
-		{
-		}
-
-		std::vector<VkVertexInputBindingDescription> GetBindingDescriptions() const { return m_bindingDescriptions; }
-
-		std::vector<VkVertexInputAttributeDescription> GetAttributeDescriptions() const { return m_attributeDescriptions; }
+		PIPELINE_POLYGON = 0,
+		PIPELINE_POLYGON_NO_DEPTH = 1,
+		PIPELINE_MRT = 2,
+		PIPELINE_MRT_NO_DEPTH = 3
 	};
 
 	class FL_EXPORT GraphicsStage
@@ -46,6 +29,23 @@ namespace fl
 		unsigned int GetRenderpass() const { return m_renderpass; }
 
 		uint32_t GetSubpass() const { return m_subpass; }
+	};
+
+	class FL_EXPORT VertexInput
+	{
+	private:
+		std::vector<VkVertexInputBindingDescription> m_bindingDescriptions;
+		std::vector<VkVertexInputAttributeDescription> m_attributeDescriptions;
+	public:
+		VertexInput(const std::vector<VkVertexInputBindingDescription> &bindingDescriptions, const std::vector<VkVertexInputAttributeDescription> &attributeDescriptions) :
+			m_bindingDescriptions(bindingDescriptions),
+			m_attributeDescriptions(attributeDescriptions)
+		{
+		}
+
+		std::vector<VkVertexInputBindingDescription> GetBindingDescriptions() const { return m_bindingDescriptions; }
+
+		std::vector<VkVertexInputAttributeDescription> GetAttributeDescriptions() const { return m_attributeDescriptions; }
 	};
 
 	class FL_EXPORT DescriptorType
@@ -76,14 +76,16 @@ namespace fl
 
 	class FL_EXPORT PipelineCreate
 	{
-	private:
+	public:
 		std::vector<std::string> m_shaderStages;
+	private:
 		VertexInput m_vertexInput;
 
 		PipelineModeFlags m_pipelineModeFlags;
 		VkPolygonMode m_polygonMode;
 		VkCullModeFlags m_cullModeFlags;
 	public:
+
 		PipelineCreate(const std::vector<std::string> &shaderStages, const VertexInput &vertexInput,
 					   const PipelineModeFlags &pipelineModeFlags = PIPELINE_POLYGON, const VkPolygonMode &polygonMode = VK_POLYGON_MODE_FILL, const VkCullModeFlags &cullModeFlags = VK_CULL_MODE_BACK_BIT) :
 			m_shaderStages(shaderStages),
@@ -93,8 +95,6 @@ namespace fl
 			m_cullModeFlags(cullModeFlags)
 		{
 		}
-
-		std::vector<std::string> GetShaderStages() const { return m_shaderStages; }
 
 		VertexInput GetVertexInput() const { return m_vertexInput; }
 

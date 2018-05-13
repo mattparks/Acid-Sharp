@@ -5,7 +5,7 @@ namespace FlounderSharp.Tests
 {
     class ManagerUis : IManagerUis
     {
-		private static readonly Colour _primaryColour = new Colour("#e74c3c");
+		private static readonly Colour _primaryColour = new Colour("#e74c3c", 1.0f);
         private static readonly float _slideTime = 0.2f;
 
         private UiStartLogo _uiStartLogo;

@@ -40,8 +40,8 @@ namespace fl
 
 		unsigned int GetBuffer() const { return m_buffer; };
 	private:
-		static unsigned int LoadFileWav(const std::string &filename);
+		static unsigned int LoadBufferWav(const std::string &filename);
 
-		static unsigned int LoadFileOgg(const std::string &filename);
+		static unsigned int LoadBufferOgg(const std::string &filename);
 	};
 }
