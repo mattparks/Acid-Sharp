@@ -7,9 +7,8 @@ namespace FlounderSharp.Tests
     {
         private static void Main(string[] args)
         {
-            //    Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
-            
-            var noise = new Noise(1998)
+            var seed = 87374932;
+            var noise = new Noise(ref seed)
             {
                 NoiseType = NoiseType.TypePerlinfractal,
                 Frequency = 0.003f,
@@ -20,6 +19,11 @@ namespace FlounderSharp.Tests
                 FractalGain = 0.5f
             };
             Console.WriteLine(100.0f * noise.GetNoise(500.2f, -920.1f));
+            Console.WriteLine(10.0f * Maths.Random);
+            //var x = new Vector3(1.0f, 1.0f, 1.0f);
+
+        //    FileSystem.CreateFolder(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp.Tests\Memes");
+        //    Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
 
             // End program.
             Console.WriteLine("Press enter to continue...");

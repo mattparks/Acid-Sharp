@@ -1,4 +1,5 @@
-﻿using CppSharp;
+﻿using System;
+using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
 using CppSharp.Parser;
@@ -24,7 +25,7 @@ namespace FlounderSharp.CLI
             var options = driver.Options;
             options.OutputDir = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateSingleCSharpFile = true;
+            options.GenerateSingleCSharpFile = false;
             //options.GenerateDefaultValuesForArguments = true;
             options.CompileCode = false;
             options.GenerateFinalizers = true;
@@ -44,10 +45,10 @@ namespace FlounderSharp.CLI
             module.Headers.Add(@"fl\Flounder.hpp");
 
             module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib");
-            module.Libraries.Add("glfw3.lib");
-            module.Libraries.Add("stb.lib");
-            module.Libraries.Add("OpenAL32.lib");
-            module.Libraries.Add("vulkan-1.lib");
+        //    module.Libraries.Add("glfw3.lib");
+        //    module.Libraries.Add("stb.lib");
+        //    module.Libraries.Add("OpenAL32.lib");
+        //    module.Libraries.Add("vulkan-1.lib");
             module.Libraries.Add("Flounder.lib");
         }
 
@@ -72,7 +73,10 @@ namespace FlounderSharp.CLI
         public void Preprocess(Driver driver, ASTContext ctx)
         {
             ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
+            ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
             ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
+
+            //ctx.SetMethodParameterUsage("FlounderSharp::FileSystem", "CreateFile", 2, 2, ParameterUsage.In);
 
             ctx.RenameNamespace("fl", "FlounderSharp");
         }
@@ -84,7 +88,6 @@ namespace FlounderSharp.CLI
         /// <param name="ctx"></param>
         public void Postprocess(Driver driver, ASTContext ctx)
         {
-        //    ctx.SetMethodParameterUsage("FlounderSharp::FileSystem", "CreateFile", 2, 2, ParameterUsage.In);
         }
     }
 }

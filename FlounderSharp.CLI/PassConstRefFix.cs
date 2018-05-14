@@ -17,7 +17,7 @@ namespace FlounderSharp.CLI
 
             foreach (var parameter in method.Parameters)
             {
-                Console.WriteLine($"{parameter.Name}: {parameter.IsConst}, {parameter.Type.Desugar().IsPrimitiveTypeConvertibleToRef()}");
+            //    Console.WriteLine($"{parameter.Name}: {parameter.IsConst}, {parameter.Type.Desugar().IsPrimitiveTypeConvertibleToRef()}");
             //    parameter.Usage = ParameterUsage.InOut;
             }
 

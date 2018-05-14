@@ -68,9 +68,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FlounderSharp.cs" />
+    <Compile Include="Delta.cs" />
+    <Compile Include="DriverBounce.cs" />
+    <Compile Include="DriverConstant.cs" />
+    <Compile Include="DriverFade.cs" />
+    <Compile Include="DriverLinear.cs" />
+    <Compile Include="DriverSinwave.cs" />
+    <Compile Include="DriverSlide.cs" />
+    <Compile Include="IDriver.cs" />
+    <Compile Include="Maths.cs" />
+    <Compile Include="Noise.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Std.cs" />
+    <Compile Include="SmoothFloat.cs" />
+    <Compile Include="Timer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
