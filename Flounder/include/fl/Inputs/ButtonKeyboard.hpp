@@ -20,7 +20,7 @@ namespace fl
 		/// Creates a new button keyboard.
 		/// </summary>
 		/// <param name="keys"> The keys on the keyboard being checked. </param>
-		ButtonKeyboard(std::vector<Key> keys);
+		ButtonKeyboard(const std::vector<Key> &keys);
 
 		/// <summary>
 		/// Deconstructor for the button keyboard.

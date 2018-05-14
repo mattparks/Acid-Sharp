@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>FlounderSharp</id>
+    <version>0.9.1</version>
+    <authors>Matthew Albrecht</authors>
+    <owners>Matthew Albrecht</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Equilibrium-Games/FlounderSharp</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Equilibrium-Games/FlounderSharp/master/Icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>true</developmentDependency>
+    <description>Flounder is a high speed, modular Vulkan game engine.</description>
+    <releaseNotes>Real files for Flounder created using CppSharp.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>game-engine vulkan</tags>
+    <dependencies>
+      <dependency id="CppSharp" version="0.8.19" />
+      <dependency id="Microsoft.VisualStudio.Setup.Configuration.Interop" version="1.16.30" />
+	</dependencies>
+  </metadata>
+  <files>
+	<file src="FlounderSharp\bin\Debug\FlounderSharp.dll" target="lib"/>
+	<file src="Flounder\lib\Flounder.dll" target="output"/>
+	<file src="Flounder\lib\glfw3.dll" target="output"/>
+	<file src="Flounder\lib\glslangd.dll" target="output"/>
+	<file src="Flounder\lib\SPIRVd.dll" target="output"/>
+	<file src="Flounder\lib\SPVRemapperd.dll" target="output"/>
+	<file src="Flounder\lib\stb.dll" target="output"/>
+	<file src="Flounder\lib\Std-symbols.dll" target="output"/>
+  </files>
+</package>

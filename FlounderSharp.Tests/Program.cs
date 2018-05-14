@@ -7,29 +7,19 @@ namespace FlounderSharp.Tests
     {
         private static void Main(string[] args)
         {
-            // Creates the engine and updater objects.
-            var engine = new Engine
+            //    Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
+            
+            var noise = new Noise(1998)
             {
-                Updater = new MainUpdater()
+                NoiseType = NoiseType.TypePerlinfractal,
+                Frequency = 0.003f,
+                Interp = NoiseInterp.InterpQuintic,
+                FractalType = NoiseFractal.FractalFbm,
+                FractalOctaves = 5,
+                FractalLacunarity = 2.0f,
+                FractalGain = 0.5f
             };
-
-            var configManager = new ConfigManager();
-            Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
-
-            // Registers modules.
-
-            // Registers components.
-
-            // Initializes modules.
-            Display.Get().Title = "Testing Guis";
-            Display.Get().Icon = "Resources/Logos/Tail.png";
-            Mouse.Get().CustomMouse = "Resources/Guis/Cursor.png";
-            Renderer.Get().Manager = new MainRenderer();
-            Scenes.Get().Scene = new Scene1();
-
-            // Runs the game loop.
-            var exitCode = engine.Run();
-            configManager.Save();
+            Console.WriteLine(100.0f * noise.GetNoise(500.2f, -920.1f));
 
             // End program.
             Console.WriteLine("Press enter to continue...");

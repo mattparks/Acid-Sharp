@@ -8,11 +8,12 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>FlounderSharp.CLI</RootNamespace>
     <AssemblyName>FlounderSharp.CLI</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>x64</PlatformTarget>
@@ -67,9 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library.cs" />
-    <Compile Include="PassCommentsFix.cs" />
+    <Compile Include="PassConstRefFix.cs" />
+    <Compile Include="PassEnumValuesFix.cs" />
     <Compile Include="PassObjectNamesFix.cs" />
-    <Compile Include="PassXmlTranslation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

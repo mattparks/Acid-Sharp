@@ -1,8 +1,4 @@
-﻿using System;
-using System.Xml.Linq;
-using System.Collections.Generic;
-using System.IO;
-using CppSharp;
+﻿using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
 using CppSharp.Parser;
@@ -10,55 +6,8 @@ using CppSharp.Passes;
 
 namespace FlounderSharp.CLI
 {
-    public class NamespacePair
-    {
-        public string _original;
-        public string _target;
-
-        public NamespacePair(string original, string target)
-        {
-            _original = original;
-            _target = target;
-        }
-    }
-
     class Library : ILibrary
     {
-        private string _originalName;
-        private string _targetName;
-        private List<NamespacePair> _namespaces;
-        private List<string> _headerPaths;
-        private List<string> _headerFiles;
-        private List<string> _libraryPaths;
-        private List<string> _libraryFiles;
-        private string _outPath;
-
-        private PassXmlTranslation _xmlExportPass;
-
-        public Library(string originalName, string targetName, List<NamespacePair> namespaces, List<string> headerPaths, List<string> headerFiles, List<string> libraryPaths, List<string> libraryFiles, string outPath)
-        {
-            _originalName = originalName;
-            _targetName = targetName;
-            _namespaces = namespaces;
-            _headerPaths = headerPaths;
-            _headerFiles = headerFiles;
-            _libraryPaths = libraryPaths;
-            _libraryFiles = libraryFiles;
-            _outPath = outPath;
-            _xmlExportPass = new PassXmlTranslation(_targetName);
-        }
-
-        /// <summary>
-        /// Gets the XDocument of the xml representation.
-        /// </summary>
-        public XDocument XmlExport
-        {
-            get
-            {
-                return _xmlExportPass.Document;
-            }
-        }
-
         /// <summary>
         /// Sets the driver options. First method called.
         /// </summary>
@@ -73,43 +22,33 @@ namespace FlounderSharp.CLI
 
             // Sets up other options.
             var options = driver.Options;
-            options.OutputDir = _outPath;
+            options.OutputDir = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
-            options.MarshalCharAsManagedChar = true;
-        //    options.GenerateDefaultValuesForArguments = true;
+            //options.GenerateDefaultValuesForArguments = true;
+            options.CompileCode = false;
             options.GenerateFinalizers = true;
             options.CheckSymbols = true;
             options.Verbose = false;
 
             // Creates a new module.
-            var module = options.AddModule(_targetName);
-            module.SharedLibraryName = _originalName;
+            var module = options.AddModule("FlounderSharp"); // Target name.
+            module.SharedLibraryName = "Flounder"; // Original name.
             module.OutputNamespace = "";
 
-        //    module.Defines.Add("FL_BUILD_WINDOWS");
-        //    module.Defines.Add("FL_BUILD_MSVC");
-        //    module.Defines.Add("FL_EXPORTS");
+            module.Defines.Add("FL_BUILD_WINDOWS");
+            module.Defines.Add("FL_BUILD_MSVC");
+            module.Defines.Add("FL_EXPORTS");
 
-            foreach (var path in _headerPaths)
-            {
-                module.IncludeDirs.Add(path);
-            }
+            module.IncludeDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include");
+            module.Headers.Add(@"fl\Flounder.hpp");
 
-            foreach (var header in _headerFiles)
-            {
-                module.Headers.Add(header);
-            }
-            
-            foreach (var path in _libraryPaths)
-            {
-                module.LibraryDirs.Add(path);
-            }
-
-            foreach (var library in _libraryFiles)
-            {
-                module.Libraries.Add(library);
-            }
+            module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib");
+            module.Libraries.Add("glfw3.lib");
+            module.Libraries.Add("stb.lib");
+            module.Libraries.Add("OpenAL32.lib");
+            module.Libraries.Add("vulkan-1.lib");
+            module.Libraries.Add("Flounder.lib");
         }
 
         /// <summary>
@@ -118,9 +57,9 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
-            driver.AddTranslationUnitPass(_xmlExportPass);
-            driver.AddTranslationUnitPass(new PassObjectNamesFix(_namespaces));
-            driver.AddTranslationUnitPass(new PassCommentsFix());
+            driver.AddTranslationUnitPass(new PassConstRefFix());
+            driver.AddTranslationUnitPass(new PassEnumValuesFix());
+            driver.AddTranslationUnitPass(new PassObjectNamesFix());
             driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
             driver.Context.TranslationUnitPasses.AddPass(new FunctionToInstanceMethodPass());
         }
@@ -132,6 +71,10 @@ namespace FlounderSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
+            ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
+            ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
+
+            ctx.RenameNamespace("fl", "FlounderSharp");
         }
 
         /// <summary>
@@ -141,6 +84,7 @@ namespace FlounderSharp.CLI
         /// <param name="ctx"></param>
         public void Postprocess(Driver driver, ASTContext ctx)
         {
+        //    ctx.SetMethodParameterUsage("FlounderSharp::FileSystem", "CreateFile", 2, 2, ParameterUsage.In);
         }
     }
 }
