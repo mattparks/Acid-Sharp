@@ -1,4 +1,5 @@
-﻿using CppSharp.AST;
+﻿using System;
+using CppSharp.AST;
 using CppSharp.Passes;
 
 namespace FlounderSharp.CLI

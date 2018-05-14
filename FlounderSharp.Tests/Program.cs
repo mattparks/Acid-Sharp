@@ -19,12 +19,9 @@ namespace FlounderSharp.Tests
                 FractalGain = 0.5f
             };
             Console.WriteLine(100.0f * noise.GetNoise(500.2f, -920.1f));
+
             Console.WriteLine(10.0f * Maths.Random);
-            //var x = new Vector3(1.0f, 1.0f, 1.0f);
-
-        //    FileSystem.CreateFolder(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp.Tests\Memes");
-        //    Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
-
+            
             // End program.
             Console.WriteLine("Press enter to continue...");
             Console.ReadLine();

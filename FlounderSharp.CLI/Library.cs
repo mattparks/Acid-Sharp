@@ -25,7 +25,7 @@ namespace FlounderSharp.CLI
             var options = driver.Options;
             options.OutputDir = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateSingleCSharpFile = false;
+            options.GenerateSingleCSharpFile = true;
             //options.GenerateDefaultValuesForArguments = true;
             options.CompileCode = false;
             options.GenerateFinalizers = true;
@@ -58,7 +58,7 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
-            driver.AddTranslationUnitPass(new PassConstRefFix());
+        //    driver.AddGeneratorOutputPass(new PassConstRefFix());
             driver.AddTranslationUnitPass(new PassEnumValuesFix());
             driver.AddTranslationUnitPass(new PassObjectNamesFix());
             driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
@@ -72,6 +72,7 @@ namespace FlounderSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
+        //    driver.AddTranslationUnitPass(new PassRemoveStd());
             ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
             ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
             ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
