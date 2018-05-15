@@ -86,7 +86,7 @@
 ///#include "Maths/Timer.hpp"
 //#include "Maths/Transform.hpp"
 //#include "Maths/Vector2.hpp"
-//#include "Maths/Vector3.hpp"
+#include "Maths/Vector3.hpp"
 //#include "Maths/Vector4.hpp"
 //#include "Maths/Visual/DriverBounce.hpp"
 //#include "Maths/Visual/DriverConstant.hpp"

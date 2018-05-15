@@ -11,7 +11,7 @@ namespace fl
 		std::string m_name;
 		float m_value;
 	public:
-		Memes(std::string name, float value);
+		Memes(const std::string &name, const float &value);
 
 		~Memes();
 

@@ -1,5 +1,4 @@
-﻿using System;
-using CppSharp.AST;
+﻿using CppSharp.AST;
 using CppSharp.Passes;
 
 namespace FlounderSharp.CLI
@@ -13,14 +12,13 @@ namespace FlounderSharp.CLI
                 return false;
             }
             
-            // Rename parameters named "object" to "targetObject" as the CSharpGenerator has a hard time with these names in method bodies.
-            if (parameter.Name == "object")
+            if (parameter.Name != "object")
             {
-                parameter.Name = "targetObject";
-                return true;
+                return false;
             }
-            
-            return false;
+
+            parameter.Name = "targetObject";
+            return true;
         }
     }
 }

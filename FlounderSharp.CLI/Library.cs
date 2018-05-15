@@ -17,37 +17,26 @@ namespace FlounderSharp.CLI
         {
             // Sets up the parser.
             var parserOptions = driver.ParserOptions;
-            parserOptions.EnableRTTI = true;
             parserOptions.UnityBuild = true;
-
+            parserOptions.EnableRTTI = true;
+            parserOptions.Verbose = false;
+            
             // Sets up other options.
             var options = driver.Options;
             options.OutputDir = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
-            //options.GenerateDefaultValuesForArguments = true;
-            //options.CompileCode = false;
-            //options.GenerateFinalizers = true;
+            //options.CompileCode = true;
             options.CheckSymbols = false;
-            options.Verbose = true;
+            options.Verbose = false;
 
             // Creates a new module.
-            var module = options.AddModule("FlounderSharp"); // Target name.
-            module.SharedLibraryName = "Flounder"; // Original name.
+            var module = options.AddModule("FlounderSharp");
+            module.SharedLibraryName = "Flounder";
             module.OutputNamespace = "";
-
-        //    module.Defines.Add("FL_BUILD_WINDOWS");
-        //    module.Defines.Add("FL_BUILD_MSVC");
-        //    module.Defines.Add("FL_EXPORTS");
-
             module.IncludeDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include");
             module.Headers.Add(@"fl\Flounder.hpp");
-
             module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib");
-            //    module.Libraries.Add("glfw3.lib");
-            //    module.Libraries.Add("stb.lib");
-            //    module.Libraries.Add("OpenAL32.lib");
-            //    module.Libraries.Add("vulkan-1.lib");
             module.Libraries.Add("Flounder.lib");
         }
 
@@ -59,6 +48,7 @@ namespace FlounderSharp.CLI
         {
             driver.AddTranslationUnitPass(new PassEnumValuesFix());
             driver.AddTranslationUnitPass(new PassObjectNamesFix());
+            driver.AddTranslationUnitPass(new PassConstRefFix());
             driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
             driver.Context.TranslationUnitPasses.AddPass(new FunctionToInstanceMethodPass());
         }

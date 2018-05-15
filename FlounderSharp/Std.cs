@@ -90,6 +90,13 @@ namespace Std
             [FieldOffset(0)]
             internal global::Std.StringVal.__Internalc__N_std_S__String_val____N_std_S__Simple_types__C _Myval2;
         }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_fl_S_LoadedValue___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
     }
 }
 
@@ -345,4 +352,8 @@ namespace Std
         }
 
     }
+}
+
+namespace Std
+{
 }

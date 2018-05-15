@@ -22,6 +22,8 @@ namespace FlounderSharp.Tests
 
             Console.WriteLine(10.0f * Maths.Random);
 
+            var back = Vector3.BACK;
+
             var dank = new Memes("RarePepe", 420.0f);
             dank.Print();
 
