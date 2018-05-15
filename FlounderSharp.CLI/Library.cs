@@ -17,9 +17,8 @@ namespace FlounderSharp.CLI
         {
             // Sets up the parser.
             var parserOptions = driver.ParserOptions;
-            parserOptions.LanguageVersion = LanguageVersion.CPP17;
             parserOptions.EnableRTTI = true;
-            parserOptions.SetupMSVC(VisualStudioVersion.VS2017);
+            parserOptions.UnityBuild = true;
 
             // Sets up other options.
             var options = driver.Options;
@@ -27,28 +26,28 @@ namespace FlounderSharp.CLI
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
             //options.GenerateDefaultValuesForArguments = true;
-            options.CompileCode = false;
-            options.GenerateFinalizers = true;
-            options.CheckSymbols = true;
-            options.Verbose = false;
+            //options.CompileCode = false;
+            //options.GenerateFinalizers = true;
+            options.CheckSymbols = false;
+            options.Verbose = true;
 
             // Creates a new module.
             var module = options.AddModule("FlounderSharp"); // Target name.
             module.SharedLibraryName = "Flounder"; // Original name.
             module.OutputNamespace = "";
 
-            module.Defines.Add("FL_BUILD_WINDOWS");
-            module.Defines.Add("FL_BUILD_MSVC");
-            module.Defines.Add("FL_EXPORTS");
+        //    module.Defines.Add("FL_BUILD_WINDOWS");
+        //    module.Defines.Add("FL_BUILD_MSVC");
+        //    module.Defines.Add("FL_EXPORTS");
 
             module.IncludeDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\include");
             module.Headers.Add(@"fl\Flounder.hpp");
 
             module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib");
-        //    module.Libraries.Add("glfw3.lib");
-        //    module.Libraries.Add("stb.lib");
-        //    module.Libraries.Add("OpenAL32.lib");
-        //    module.Libraries.Add("vulkan-1.lib");
+            //    module.Libraries.Add("glfw3.lib");
+            //    module.Libraries.Add("stb.lib");
+            //    module.Libraries.Add("OpenAL32.lib");
+            //    module.Libraries.Add("vulkan-1.lib");
             module.Libraries.Add("Flounder.lib");
         }
 
@@ -58,7 +57,6 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
-        //    driver.AddGeneratorOutputPass(new PassConstRefFix());
             driver.AddTranslationUnitPass(new PassEnumValuesFix());
             driver.AddTranslationUnitPass(new PassObjectNamesFix());
             driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
@@ -72,13 +70,10 @@ namespace FlounderSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
-        //    driver.AddTranslationUnitPass(new PassRemoveStd());
             ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
             ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
             ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
-
-            //ctx.SetMethodParameterUsage("FlounderSharp::FileSystem", "CreateFile", 2, 2, ParameterUsage.In);
-
+            
             ctx.RenameNamespace("fl", "FlounderSharp");
         }
 

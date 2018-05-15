@@ -68,9 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library.cs" />
-    <Compile Include="PassConstRefFix.cs" />
     <Compile Include="PassEnumValuesFix.cs" />
-    <Compile Include="PassRemoveStd.cs" />
     <Compile Include="PassObjectNamesFix.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

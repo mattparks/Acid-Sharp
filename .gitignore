@@ -8,6 +8,8 @@ FlounderSharp.CLI/bin/*
 FlounderSharp.CLI/obj/*
 FlounderSharp.Tests/bin/*
 FlounderSharp.Tests/obj/*
+Std-symbols/bin/*
+Std-symbols/obj/*
 packages/*
 
 .DS_Store

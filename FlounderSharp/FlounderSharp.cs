@@ -10,394 +10,113 @@ using System.Security;
 
 namespace FlounderSharp
 {
-    public unsafe abstract partial class IFile : IDisposable
+    public unsafe partial class Memes : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        [StructLayout(LayoutKind.Explicit, Size = 40)]
         public partial struct __Internal
         {
             [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_IFile;
+            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_name;
+
+            [FieldOffset(32)]
+            internal float m_value;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0IFile@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+                EntryPoint="??0Memes@fl@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@M@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C name, float value);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0IFile@fl@@QEAA@AEBV01@@Z")]
+                EntryPoint="??0Memes@fl@@QEAA@AEBV01@@Z")]
             internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1IFile@fl@@UEAA@XZ")]
+                EntryPoint="??1Memes@fl@@QEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Print@Memes@fl@@QEAAXXZ")]
+            internal static extern void Print(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetName@Memes@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void GetName(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetName@Memes@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern void SetName(global::System.IntPtr instance, global::System.IntPtr name);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetValue@Memes@fl@@QEBAMXZ")]
+            internal static extern float GetValue(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetValue@Memes@fl@@QEAAXM@Z")]
+            internal static extern void SetValue(global::System.IntPtr instance, float value);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
 
         protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IFile> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IFile>();
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Memes> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Memes>();
         protected void*[] __OriginalVTables;
 
         protected bool __ownsNativeInstance;
 
-        internal static global::FlounderSharp.IFile __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static global::FlounderSharp.Memes __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.IFileInternal(native.ToPointer(), skipVTables);
+            return new global::FlounderSharp.Memes(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.IFile __CreateInstance(global::FlounderSharp.IFile.__Internal native, bool skipVTables = false)
+        internal static global::FlounderSharp.Memes __CreateInstance(global::FlounderSharp.Memes.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.IFileInternal(native, skipVTables);
+            return new global::FlounderSharp.Memes(native, skipVTables);
         }
 
-        protected IFile(void* native, bool skipVTables = false)
+        private static void* __CopyValue(global::FlounderSharp.Memes.__Internal native)
         {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        protected IFile()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IFile.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-            SetupVTables(GetType().FullName == "FlounderSharp.IFile");
-        }
-
-        protected IFile(global::FlounderSharp.IFile _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IFile.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.IFile");
-        }
-
-        ~IFile()
-        {
-            Dispose(false);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.IFile __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            ((global::FlounderSharp.IFile.__Internal*) __Instance)->vfptr_IFile = new global::System.IntPtr(__OriginalVTables[0]);
-            if (disposing)
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
-                if (__slot != null)
-                {
-                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
-                    ___dtorDelegate((__Instance + __PointerAdjustment), 0);
-                }
-                else
-                    __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            }
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        public abstract void Load();
-
-        public abstract void Save();
-
-        public abstract void Clear();
-
-        public abstract void ConfigPushValue(string key, string value);
-
-        #region Virtual table interop
-
-        // virtual ~IFile() { }
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IFile) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // void Load() = 0
-        private static global::FlounderSharp.Delegates.Action_IntPtr _LoadDelegateInstance;
-
-        private static void _LoadDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IFile) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Load();
-        }
-
-        // void Save() = 0
-        private static global::FlounderSharp.Delegates.Action_IntPtr _SaveDelegateInstance;
-
-        private static void _SaveDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IFile) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Save();
-        }
-
-        // void Clear() = 0
-        private static global::FlounderSharp.Delegates.Action_IntPtr _ClearDelegateInstance;
-
-        private static void _ClearDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IFile) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Clear();
-        }
-
-        // void ConfigPushValue(const std::string &key, const std::string &value) = 0
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr _ConfigPushValueDelegateInstance;
-
-        private static void _ConfigPushValueDelegateHook(global::System.IntPtr instance, global::System.IntPtr key, global::System.IntPtr value)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IFile) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(key);
-            var __basicStringRet1 = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(value);
-            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet1));
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[5];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _LoadDelegateInstance += _LoadDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_LoadDelegateInstance).ToPointer();
-                _SaveDelegateInstance += _SaveDelegateHook;
-                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_SaveDelegateInstance).ToPointer();
-                _ClearDelegateInstance += _ClearDelegateHook;
-                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_ClearDelegateInstance).ToPointer();
-                _ConfigPushValueDelegateInstance += _ConfigPushValueDelegateHook;
-                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_ConfigPushValueDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(7 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
-                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(7 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                    *(void**) (vfptr0 + 24) = _Thunks[2];
-                    *(void**) (vfptr0 + 32) = _Thunks[3];
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                    *(void**) (vfptr0 + 48) = _Thunks[4];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-
-    public unsafe partial class IFileInternal : global::FlounderSharp.IFile, IDisposable
-    {
-        private static void* __CopyValue(global::FlounderSharp.IFile.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IFile.__Internal));
-            *(global::FlounderSharp.IFile.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Memes.__Internal));
+            global::FlounderSharp.Memes.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
-        internal IFileInternal(global::FlounderSharp.IFile.__Internal native, bool skipVTables = false)
+        private Memes(global::FlounderSharp.Memes.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
         }
 
-        internal IFileInternal(void* native, bool skipVTables = false)
-            : base((void*) null)
+        protected Memes(void* native, bool skipVTables = false)
         {
-            __PointerAdjustment = 0;
+            if (native == null)
+                return;
             __Instance = new global::System.IntPtr(native);
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
         }
 
-        ~IFileInternal()
+        public Memes(string name, float value)
         {
-            Dispose(false);
-        }
-
-        public override void Load()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___LoadDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override void Save()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
-            var ___SaveDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___SaveDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override void Clear()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
-            var ___ClearDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___ClearDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override void ConfigPushValue(string key, string value)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
-            var ___ConfigPushValueDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Memes.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
             var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(key, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(value, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            ___ConfigPushValueDelegate((__Instance + __PointerAdjustment), __arg0, __arg1);
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(name, __allocator0);
+            var __arg0 = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
+            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, value);
             __basicString0.Dispose(false);
             __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-        }
-    }
-}
-
-namespace FlounderSharp
-{
-    public unsafe partial class RowCsv : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::Std.Vector.__Internalc__N_std_S_vector____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S_allocator__S0_ m_elements;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0RowCsv@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1RowCsv@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
         }
 
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.RowCsv> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.RowCsv>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.RowCsv __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        public Memes(global::FlounderSharp.Memes _0)
         {
-            return new global::FlounderSharp.RowCsv(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.RowCsv __CreateInstance(global::FlounderSharp.RowCsv.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.RowCsv(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.RowCsv.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RowCsv.__Internal));
-            global::FlounderSharp.RowCsv.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private RowCsv(global::FlounderSharp.RowCsv.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected RowCsv(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        public RowCsv(global::FlounderSharp.RowCsv _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RowCsv.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Memes.__Internal));
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
             if (ReferenceEquals(_0, null))
@@ -406,478 +125,16 @@ namespace FlounderSharp
             __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
         }
 
-        ~RowCsv()
-        {
-            Dispose(false);
-        }
-
         public void Dispose()
         {
             Dispose(disposing: true);
-            GC.SuppressFinalize(this);
         }
 
         public virtual void Dispose(bool disposing)
         {
             if (__Instance == IntPtr.Zero)
                 return;
-            global::FlounderSharp.RowCsv __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-    }
-
-    public unsafe partial class FileCsv : global::FlounderSharp.IFile, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 56)]
-        public new partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_IFile;
-
-            [FieldOffset(8)]
-            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_filename;
-
-            [FieldOffset(40)]
-            internal sbyte m_delimiter;
-
-            [FieldOffset(48)]
-            internal global::System.IntPtr m_rows;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0FileCsv@fl@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBD@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr filename, sbyte* delimiter);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0FileCsv@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetRow@FileCsv@fl@@QEAA?AVRowCsv@2@AEBI@Z")]
-            internal static extern void GetRow(global::System.IntPtr instance, global::System.IntPtr @return, uint* index);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?PushRow@FileCsv@fl@@QEAAXAEBVRowCsv@2@@Z")]
-            internal static extern void PushRow(global::System.IntPtr instance, global::System.IntPtr row);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetRow@FileCsv@fl@@QEAAXAEBVRowCsv@2@AEBI@Z")]
-            internal static extern void SetRow(global::System.IntPtr instance, global::System.IntPtr row, uint* index);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetRowCount@FileCsv@fl@@QEBA_KXZ")]
-            internal static extern ulong GetRowCount(global::System.IntPtr instance);
-        }
-
-        internal static new global::FlounderSharp.FileCsv __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.FileCsv(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.FileCsv __CreateInstance(global::FlounderSharp.FileCsv.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.FileCsv(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.FileCsv.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FileCsv.__Internal));
-            global::FlounderSharp.FileCsv.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private FileCsv(global::FlounderSharp.FileCsv.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected FileCsv(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        public FileCsv(string filename, sbyte* delimiter)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FileCsv.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, delimiter);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            SetupVTables(GetType().FullName == "FlounderSharp.FileCsv");
-        }
-
-        public FileCsv(global::FlounderSharp.FileCsv _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.FileCsv.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.FileCsv");
-        }
-
-        ~FileCsv()
-        {
-            Dispose(false);
-        }
-
-        public override void Load()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___LoadDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override void Save()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
-            var ___SaveDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___SaveDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override void Clear()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
-            var ___ClearDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___ClearDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override void ConfigPushValue(string key, string value)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
-            var ___ConfigPushValueDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr));
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(key, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(value, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            ___ConfigPushValueDelegate((__Instance + __PointerAdjustment), __arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-        }
-
-        public global::FlounderSharp.RowCsv GetRow(ref uint index)
-        {
-            fixed (uint* __refParamPtr0 = &index)
-            {
-                var __arg0 = __refParamPtr0;
-                var __ret = new global::FlounderSharp.RowCsv.__Internal();
-                __Internal.GetRow((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0);
-                return global::FlounderSharp.RowCsv.__CreateInstance(__ret);
-            }
-        }
-
-        public void PushRow(global::FlounderSharp.RowCsv row)
-        {
-            if (ReferenceEquals(row, null))
-                throw new global::System.ArgumentNullException("row", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = row.__Instance;
-            __Internal.PushRow((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public void SetRow(global::FlounderSharp.RowCsv row, ref uint index)
-        {
-            if (ReferenceEquals(row, null))
-                throw new global::System.ArgumentNullException("row", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = row.__Instance;
-            fixed (uint* __refParamPtr1 = &index)
-            {
-                var __arg1 = __refParamPtr1;
-                __Internal.SetRow((__Instance + __PointerAdjustment), __arg0, __arg1);
-            }
-        }
-
-        public ulong RowCount
-        {
-            get
-            {
-                var __ret = __Internal.GetRowCount((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-        }
-
-        #region Virtual table interop
-
-        // ~FileCsv()
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.FileCsv) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // void Load() override
-        private static global::FlounderSharp.Delegates.Action_IntPtr _LoadDelegateInstance;
-
-        private static void _LoadDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.FileCsv) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Load();
-        }
-
-        // void Save() override
-        private static global::FlounderSharp.Delegates.Action_IntPtr _SaveDelegateInstance;
-
-        private static void _SaveDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.FileCsv) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Save();
-        }
-
-        // void Clear() override
-        private static global::FlounderSharp.Delegates.Action_IntPtr _ClearDelegateInstance;
-
-        private static void _ClearDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.FileCsv) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Clear();
-        }
-
-        // void ConfigPushValue(const std::string &key, const std::string &value) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr _ConfigPushValueDelegateInstance;
-
-        private static void _ConfigPushValueDelegateHook(global::System.IntPtr instance, global::System.IntPtr key, global::System.IntPtr value)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.FileCsv) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(key);
-            var __basicStringRet1 = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(value);
-            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet1));
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[5];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _LoadDelegateInstance += _LoadDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_LoadDelegateInstance).ToPointer();
-                _SaveDelegateInstance += _SaveDelegateHook;
-                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_SaveDelegateInstance).ToPointer();
-                _ClearDelegateInstance += _ClearDelegateHook;
-                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_ClearDelegateInstance).ToPointer();
-                _ConfigPushValueDelegateInstance += _ConfigPushValueDelegateHook;
-                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_ConfigPushValueDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(7 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
-                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(7 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                    *(void**) (vfptr0 + 24) = _Thunks[2];
-                    *(void**) (vfptr0 + 32) = _Thunks[3];
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                    *(void**) (vfptr0 + 48) = _Thunks[4];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-}
-
-namespace FlounderSharp
-{
-    /// <summary>A class for handing and calculating deltas.</summary>
-    public unsafe partial class Delta : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal float m_currentFrameTime;
-
-            [FieldOffset(4)]
-            internal float m_lastFrameTime;
-
-            [FieldOffset(8)]
-            internal float m_change;
-
-            [FieldOffset(12)]
-            internal float m_time;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Delta@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1Delta@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Update@Delta@fl@@QEAAXXZ")]
-            internal static extern void Update(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetChange@Delta@fl@@QEBAMXZ")]
-            internal static extern float GetChange(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetTime@Delta@fl@@QEBAMXZ")]
-            internal static extern float GetTime(global::System.IntPtr instance);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Delta> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Delta>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.Delta __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Delta(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.Delta __CreateInstance(global::FlounderSharp.Delta.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Delta(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.Delta.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Delta.__Internal));
-            *(global::FlounderSharp.Delta.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private Delta(global::FlounderSharp.Delta.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected Delta(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        /// <summary>Creates a new change handler.</summary>
-        public Delta()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Delta.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-        }
-
-        ~Delta()
-        {
-            Dispose(false);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.Delta __dummy;
+            global::FlounderSharp.Memes __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
             if (disposing)
                 __Internal.dtor((__Instance + __PointerAdjustment), 0);
@@ -886,27 +143,45 @@ namespace FlounderSharp
             __Instance = IntPtr.Zero;
         }
 
-        /// <summary>Updates change and times.</summary>
-        public void Update()
+        public void Print()
         {
-            __Internal.Update((__Instance + __PointerAdjustment));
+            __Internal.Print((__Instance + __PointerAdjustment));
         }
 
-        public float Change
+        public string Name
         {
             get
             {
-                var __ret = __Internal.GetChange((__Instance + __PointerAdjustment));
-                return __ret;
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                __Internal.GetName((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
+            }
+
+            set
+            {
+                var __allocator0 = new global::Std.Allocator<sbyte>();
+                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
+                var __arg0 = __basicString0.__Instance;
+                __Internal.SetName((__Instance + __PointerAdjustment), __arg0);
+                __basicString0.Dispose(false);
+                __allocator0.Dispose();
             }
         }
 
-        public float Time
+        public float Value
         {
             get
             {
-                var __ret = __Internal.GetTime((__Instance + __PointerAdjustment));
+                var __ret = __Internal.GetValue((__Instance + __PointerAdjustment));
                 return __ret;
+            }
+
+            set
+            {
+                __Internal.SetValue((__Instance + __PointerAdjustment), value);
             }
         }
     }
@@ -920,6 +195,11 @@ namespace FlounderSharp
         [StructLayout(LayoutKind.Explicit, Size = 0)]
         public partial struct __Internal
         {
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Maths@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?LogRandom@Maths@fl@@SAMAEBM0@Z")]
@@ -1041,15 +321,24 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
-        ~Maths()
+        public Maths()
         {
-            Dispose(false);
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Maths.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        public Maths(global::FlounderSharp.Maths _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Maths.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::FlounderSharp.Maths.__Internal*) __Instance) = *((global::FlounderSharp.Maths.__Internal*) _0.__Instance);
         }
 
         public void Dispose()
         {
             Dispose(disposing: true);
-            GC.SuppressFinalize(this);
         }
 
         public virtual void Dispose(bool disposing)
@@ -1400,1134 +689,5 @@ namespace FlounderSharp
                 return __ret;
             }
         }
-    }
-}
-
-namespace FlounderSharp
-{
-    public enum NoiseType
-    {
-        TypeValue = 0,
-        TypeValuefractal = 1,
-        TypePerlin = 2,
-        TypePerlinfractal = 3,
-        TypeSimplex = 4,
-        TypeSimplexfractal = 5,
-        TypeCellular = 6,
-        TypeWhitenoise = 7,
-        TypeCubic = 8,
-        TypeCubicfractal = 9
-    }
-
-    public enum NoiseInterp
-    {
-        InterpLinear = 0,
-        InterpHermite = 1,
-        InterpQuintic = 2
-    }
-
-    public enum NoiseFractal
-    {
-        FractalFbm = 0,
-        FractalBillow = 1,
-        FractalRigidmulti = 2
-    }
-
-    public enum NoiseCellularFunc
-    {
-        CellularEuclidean = 0,
-        CellularManhattan = 1,
-        CellularNatural = 2
-    }
-
-    public enum NoiseCellularReturn
-    {
-        CellularCellvalue = 0,
-        CellularNoiselookup = 1,
-        CellularDistance = 2,
-        CellularDistance2 = 3,
-        CellularDistance2add = 4,
-        CellularDistance2sub = 5,
-        CellularDistance2mul = 6,
-        CellularDistance2div = 7
-    }
-
-    public unsafe partial class Noise : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 88)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal int m_seed;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr m_perm;
-
-            [FieldOffset(16)]
-            internal global::System.IntPtr m_perm12;
-
-            [FieldOffset(24)]
-            internal float m_frequency;
-
-            [FieldOffset(28)]
-            internal global::FlounderSharp.NoiseInterp m_interp;
-
-            [FieldOffset(32)]
-            internal global::FlounderSharp.NoiseType m_noiseType;
-
-            [FieldOffset(36)]
-            internal int m_octaves;
-
-            [FieldOffset(40)]
-            internal float m_lacunarity;
-
-            [FieldOffset(44)]
-            internal float m_gain;
-
-            [FieldOffset(48)]
-            internal global::FlounderSharp.NoiseFractal m_fractalType;
-
-            [FieldOffset(52)]
-            internal float m_fractalBounding;
-
-            [FieldOffset(56)]
-            internal global::FlounderSharp.NoiseCellularFunc m_cellularDistanceFunction;
-
-            [FieldOffset(60)]
-            internal global::FlounderSharp.NoiseCellularReturn m_cellularReturnType;
-
-            [FieldOffset(64)]
-            internal global::System.IntPtr m_cellularNoiseLookup;
-
-            [FieldOffset(72)]
-            internal int m_cellularDistanceIndex0;
-
-            [FieldOffset(76)]
-            internal int m_cellularDistanceIndex1;
-
-            [FieldOffset(80)]
-            internal float m_cellularJitter;
-
-            [FieldOffset(84)]
-            internal float m_gradientPerturbAmp;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Noise@fl@@QEAA@AEBH@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, int* seed);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1Noise@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCellularDistance2Indices@Noise@fl@@QEBAXAEAH0@Z")]
-            internal static extern void GetCellularDistance2Indices(global::System.IntPtr instance, int* cellularDistanceIndex0, int* cellularDistanceIndex1);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetCellularDistance2Indices@Noise@fl@@QEAAXAEBH0@Z")]
-            internal static extern void SetCellularDistance2Indices(global::System.IntPtr instance, int* cellularDistanceIndex0, int* cellularDistanceIndex1);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetValue@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetValue(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetValueFractal@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetValueFractal(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetPerlin@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetPerlin(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetPerlinFractal@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetPerlinFractal(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetSimplex@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetSimplex(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetSimplexFractal@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetSimplexFractal(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCellular@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetCellular(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWhiteNoise@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetWhiteNoise(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWhiteNoiseInt@Noise@fl@@QEBAMHH@Z")]
-            internal static extern float GetWhiteNoiseInt(global::System.IntPtr instance, int x, int y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCubic@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetCubic(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCubicFractal@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetCubicFractal(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetNoise@Noise@fl@@QEBAMMM@Z")]
-            internal static extern float GetNoise(global::System.IntPtr instance, float x, float y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GradientPerturb@Noise@fl@@QEBAXAEAM0@Z")]
-            internal static extern void GradientPerturb(global::System.IntPtr instance, float* x, float* y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GradientPerturbFractal@Noise@fl@@QEBAXAEAM0@Z")]
-            internal static extern void GradientPerturbFractal(global::System.IntPtr instance, float* x, float* y);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetValue@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetValue(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetValueFractal@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetValueFractal(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetPerlin@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetPerlin(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetPerlinFractal@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetPerlinFractal(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetSimplex@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetSimplex(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetSimplexFractal@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetSimplexFractal(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCellular@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetCellular(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWhiteNoise@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetWhiteNoise(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWhiteNoiseInt@Noise@fl@@QEBAMHHH@Z")]
-            internal static extern float GetWhiteNoiseInt(global::System.IntPtr instance, int x, int y, int z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCubic@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetCubic(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCubicFractal@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetCubicFractal(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetNoise@Noise@fl@@QEBAMMMM@Z")]
-            internal static extern float GetNoise(global::System.IntPtr instance, float x, float y, float z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GradientPerturb@Noise@fl@@QEBAXAEAM00@Z")]
-            internal static extern void GradientPerturb(global::System.IntPtr instance, float* x, float* y, float* z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GradientPerturbFractal@Noise@fl@@QEBAXAEAM00@Z")]
-            internal static extern void GradientPerturbFractal(global::System.IntPtr instance, float* x, float* y, float* z);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetSimplex@Noise@fl@@QEBAMMMMM@Z")]
-            internal static extern float GetSimplex(global::System.IntPtr instance, float x, float y, float z, float w);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWhiteNoise@Noise@fl@@QEBAMMMMM@Z")]
-            internal static extern float GetWhiteNoise(global::System.IntPtr instance, float x, float y, float z, float w);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetWhiteNoiseInt@Noise@fl@@QEBAMHHHH@Z")]
-            internal static extern float GetWhiteNoiseInt(global::System.IntPtr instance, int x, int y, int z, int w);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetSeed@Noise@fl@@QEBAHXZ")]
-            internal static extern int GetSeed(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetSeed@Noise@fl@@QEAAXAEBH@Z")]
-            internal static extern void SetSeed(global::System.IntPtr instance, int* seed);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetFrequency@Noise@fl@@QEBAMXZ")]
-            internal static extern float GetFrequency(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetFrequency@Noise@fl@@QEAAXAEBM@Z")]
-            internal static extern void SetFrequency(global::System.IntPtr instance, float* frequency);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetInterp@Noise@fl@@QEBA?AW4NoiseInterp@2@XZ")]
-            internal static extern global::FlounderSharp.NoiseInterp GetInterp(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetInterp@Noise@fl@@QEAAXAEBW4NoiseInterp@2@@Z")]
-            internal static extern void SetInterp(global::System.IntPtr instance, global::FlounderSharp.NoiseInterp* interp);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetNoiseType@Noise@fl@@QEBA?AW4NoiseType@2@XZ")]
-            internal static extern global::FlounderSharp.NoiseType GetNoiseType(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetNoiseType@Noise@fl@@QEAAXAEBW4NoiseType@2@@Z")]
-            internal static extern void SetNoiseType(global::System.IntPtr instance, global::FlounderSharp.NoiseType* noiseType);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetFractalOctaves@Noise@fl@@QEBAHXZ")]
-            internal static extern int GetFractalOctaves(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetFractalOctaves@Noise@fl@@QEAAXAEBH@Z")]
-            internal static extern void SetFractalOctaves(global::System.IntPtr instance, int* octaves);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetFractalLacunarity@Noise@fl@@QEBAMXZ")]
-            internal static extern float GetFractalLacunarity(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetFractalLacunarity@Noise@fl@@QEAAXAEBM@Z")]
-            internal static extern void SetFractalLacunarity(global::System.IntPtr instance, float* lacunarity);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetFractalGain@Noise@fl@@QEBAMXZ")]
-            internal static extern float GetFractalGain(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetFractalGain@Noise@fl@@QEAAXAEBM@Z")]
-            internal static extern void SetFractalGain(global::System.IntPtr instance, float* gain);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetFractalType@Noise@fl@@QEBA?AW4NoiseFractal@2@XZ")]
-            internal static extern global::FlounderSharp.NoiseFractal GetFractalType(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetFractalType@Noise@fl@@QEAAXAEBW4NoiseFractal@2@@Z")]
-            internal static extern void SetFractalType(global::System.IntPtr instance, global::FlounderSharp.NoiseFractal* fractalType);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCellularDistanceFunction@Noise@fl@@QEBA?AW4NoiseCellularFunc@2@XZ")]
-            internal static extern global::FlounderSharp.NoiseCellularFunc GetCellularDistanceFunction(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetCellularDistanceFunction@Noise@fl@@QEAAXAEBW4NoiseCellularFunc@2@@Z")]
-            internal static extern void SetCellularDistanceFunction(global::System.IntPtr instance, global::FlounderSharp.NoiseCellularFunc* cellularDistanceFunction);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCellularReturnType@Noise@fl@@QEBA?AW4NoiseCellularReturn@2@XZ")]
-            internal static extern global::FlounderSharp.NoiseCellularReturn GetCellularReturnType(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetCellularReturnType@Noise@fl@@QEAAXAEBW4NoiseCellularReturn@2@@Z")]
-            internal static extern void SetCellularReturnType(global::System.IntPtr instance, global::FlounderSharp.NoiseCellularReturn* cellularReturnType);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCellularNoiseLookup@Noise@fl@@QEBAPEAV12@XZ")]
-            internal static extern global::System.IntPtr GetCellularNoiseLookup(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetCellularNoiseLookup@Noise@fl@@QEAAXPEAV12@@Z")]
-            internal static extern void SetCellularNoiseLookup(global::System.IntPtr instance, global::System.IntPtr noise);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCellularJitter@Noise@fl@@QEBAMXZ")]
-            internal static extern float GetCellularJitter(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetCellularJitter@Noise@fl@@QEAAXAEBM@Z")]
-            internal static extern void SetCellularJitter(global::System.IntPtr instance, float* cellularJitter);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetGradientPerturbAmp@Noise@fl@@QEBAMXZ")]
-            internal static extern float GetGradientPerturbAmp(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetGradientPerturbAmp@Noise@fl@@QEAAXAEBM@Z")]
-            internal static extern void SetGradientPerturbAmp(global::System.IntPtr instance, float* gradientPerturbAmp);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Noise> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Noise>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.Noise __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Noise(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.Noise __CreateInstance(global::FlounderSharp.Noise.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Noise(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.Noise.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Noise.__Internal));
-            *(global::FlounderSharp.Noise.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private Noise(global::FlounderSharp.Noise.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected Noise(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        public Noise(ref int seed)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Noise.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            fixed (int* __refParamPtr0 = &seed)
-            {
-                var __arg0 = __refParamPtr0;
-                __Internal.ctor((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        ~Noise()
-        {
-            Dispose(false);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.Noise __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        public void GetCellularDistance2Indices(ref int cellularDistanceIndex0, ref int cellularDistanceIndex1)
-        {
-            fixed (int* __refParamPtr0 = &cellularDistanceIndex0)
-            {
-                var __arg0 = __refParamPtr0;
-                fixed (int* __refParamPtr1 = &cellularDistanceIndex1)
-                {
-                    var __arg1 = __refParamPtr1;
-                    __Internal.GetCellularDistance2Indices((__Instance + __PointerAdjustment), __arg0, __arg1);
-                }
-            }
-        }
-
-        public void SetCellularDistance2Indices(ref int cellularDistanceIndex0, ref int cellularDistanceIndex1)
-        {
-            fixed (int* __refParamPtr0 = &cellularDistanceIndex0)
-            {
-                var __arg0 = __refParamPtr0;
-                fixed (int* __refParamPtr1 = &cellularDistanceIndex1)
-                {
-                    var __arg1 = __refParamPtr1;
-                    __Internal.SetCellularDistance2Indices((__Instance + __PointerAdjustment), __arg0, __arg1);
-                }
-            }
-        }
-
-        public float GetValue(float x, float y)
-        {
-            var __ret = __Internal.GetValue((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetValueFractal(float x, float y)
-        {
-            var __ret = __Internal.GetValueFractal((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetPerlin(float x, float y)
-        {
-            var __ret = __Internal.GetPerlin((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetPerlinFractal(float x, float y)
-        {
-            var __ret = __Internal.GetPerlinFractal((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetSimplex(float x, float y)
-        {
-            var __ret = __Internal.GetSimplex((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetSimplexFractal(float x, float y)
-        {
-            var __ret = __Internal.GetSimplexFractal((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetCellular(float x, float y)
-        {
-            var __ret = __Internal.GetCellular((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetWhiteNoise(float x, float y)
-        {
-            var __ret = __Internal.GetWhiteNoise((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetWhiteNoiseInt(int x, int y)
-        {
-            var __ret = __Internal.GetWhiteNoiseInt((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetCubic(float x, float y)
-        {
-            var __ret = __Internal.GetCubic((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetCubicFractal(float x, float y)
-        {
-            var __ret = __Internal.GetCubicFractal((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public float GetNoise(float x, float y)
-        {
-            var __ret = __Internal.GetNoise((__Instance + __PointerAdjustment), x, y);
-            return __ret;
-        }
-
-        public void GradientPerturb(ref float x, ref float y)
-        {
-            fixed (float* __refParamPtr0 = &x)
-            {
-                var __arg0 = __refParamPtr0;
-                fixed (float* __refParamPtr1 = &y)
-                {
-                    var __arg1 = __refParamPtr1;
-                    __Internal.GradientPerturb((__Instance + __PointerAdjustment), __arg0, __arg1);
-                }
-            }
-        }
-
-        public void GradientPerturbFractal(ref float x, ref float y)
-        {
-            fixed (float* __refParamPtr0 = &x)
-            {
-                var __arg0 = __refParamPtr0;
-                fixed (float* __refParamPtr1 = &y)
-                {
-                    var __arg1 = __refParamPtr1;
-                    __Internal.GradientPerturbFractal((__Instance + __PointerAdjustment), __arg0, __arg1);
-                }
-            }
-        }
-
-        public float GetValue(float x, float y, float z)
-        {
-            var __ret = __Internal.GetValue((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetValueFractal(float x, float y, float z)
-        {
-            var __ret = __Internal.GetValueFractal((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetPerlin(float x, float y, float z)
-        {
-            var __ret = __Internal.GetPerlin((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetPerlinFractal(float x, float y, float z)
-        {
-            var __ret = __Internal.GetPerlinFractal((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetSimplex(float x, float y, float z)
-        {
-            var __ret = __Internal.GetSimplex((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetSimplexFractal(float x, float y, float z)
-        {
-            var __ret = __Internal.GetSimplexFractal((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetCellular(float x, float y, float z)
-        {
-            var __ret = __Internal.GetCellular((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetWhiteNoise(float x, float y, float z)
-        {
-            var __ret = __Internal.GetWhiteNoise((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetWhiteNoiseInt(int x, int y, int z)
-        {
-            var __ret = __Internal.GetWhiteNoiseInt((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetCubic(float x, float y, float z)
-        {
-            var __ret = __Internal.GetCubic((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetCubicFractal(float x, float y, float z)
-        {
-            var __ret = __Internal.GetCubicFractal((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public float GetNoise(float x, float y, float z)
-        {
-            var __ret = __Internal.GetNoise((__Instance + __PointerAdjustment), x, y, z);
-            return __ret;
-        }
-
-        public void GradientPerturb(ref float x, ref float y, ref float z)
-        {
-            fixed (float* __refParamPtr0 = &x)
-            {
-                var __arg0 = __refParamPtr0;
-                fixed (float* __refParamPtr1 = &y)
-                {
-                    var __arg1 = __refParamPtr1;
-                    fixed (float* __refParamPtr2 = &z)
-                    {
-                        var __arg2 = __refParamPtr2;
-                        __Internal.GradientPerturb((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
-                    }
-                }
-            }
-        }
-
-        public void GradientPerturbFractal(ref float x, ref float y, ref float z)
-        {
-            fixed (float* __refParamPtr0 = &x)
-            {
-                var __arg0 = __refParamPtr0;
-                fixed (float* __refParamPtr1 = &y)
-                {
-                    var __arg1 = __refParamPtr1;
-                    fixed (float* __refParamPtr2 = &z)
-                    {
-                        var __arg2 = __refParamPtr2;
-                        __Internal.GradientPerturbFractal((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
-                    }
-                }
-            }
-        }
-
-        public float GetSimplex(float x, float y, float z, float w)
-        {
-            var __ret = __Internal.GetSimplex((__Instance + __PointerAdjustment), x, y, z, w);
-            return __ret;
-        }
-
-        public float GetWhiteNoise(float x, float y, float z, float w)
-        {
-            var __ret = __Internal.GetWhiteNoise((__Instance + __PointerAdjustment), x, y, z, w);
-            return __ret;
-        }
-
-        public float GetWhiteNoiseInt(int x, int y, int z, int w)
-        {
-            var __ret = __Internal.GetWhiteNoiseInt((__Instance + __PointerAdjustment), x, y, z, w);
-            return __ret;
-        }
-
-        public static implicit operator global::FlounderSharp.Noise(int* seed)
-        {
-            return new global::FlounderSharp.Noise(ref *seed);
-        }
-
-        public int Seed
-        {
-            get
-            {
-                var __ret = __Internal.GetSeed((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetSeed((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        public float Frequency
-        {
-            get
-            {
-                var __ret = __Internal.GetFrequency((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetFrequency((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        public global::FlounderSharp.NoiseInterp Interp
-        {
-            get
-            {
-                var __ret = __Internal.GetInterp((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                __Internal.SetInterp((__Instance + __PointerAdjustment), &value);
-            }
-        }
-
-        public global::FlounderSharp.NoiseType NoiseType
-        {
-            get
-            {
-                var __ret = __Internal.GetNoiseType((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                __Internal.SetNoiseType((__Instance + __PointerAdjustment), &value);
-            }
-        }
-
-        public int FractalOctaves
-        {
-            get
-            {
-                var __ret = __Internal.GetFractalOctaves((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetFractalOctaves((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        public float FractalLacunarity
-        {
-            get
-            {
-                var __ret = __Internal.GetFractalLacunarity((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetFractalLacunarity((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        public float FractalGain
-        {
-            get
-            {
-                var __ret = __Internal.GetFractalGain((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetFractalGain((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        public global::FlounderSharp.NoiseFractal FractalType
-        {
-            get
-            {
-                var __ret = __Internal.GetFractalType((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                __Internal.SetFractalType((__Instance + __PointerAdjustment), &value);
-            }
-        }
-
-        public global::FlounderSharp.NoiseCellularFunc CellularDistanceFunction
-        {
-            get
-            {
-                var __ret = __Internal.GetCellularDistanceFunction((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                __Internal.SetCellularDistanceFunction((__Instance + __PointerAdjustment), &value);
-            }
-        }
-
-        public global::FlounderSharp.NoiseCellularReturn CellularReturnType
-        {
-            get
-            {
-                var __ret = __Internal.GetCellularReturnType((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                __Internal.SetCellularReturnType((__Instance + __PointerAdjustment), &value);
-            }
-        }
-
-        public global::FlounderSharp.Noise CellularNoiseLookup
-        {
-            get
-            {
-                var __ret = __Internal.GetCellularNoiseLookup((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Noise __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Noise.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Noise) global::FlounderSharp.Noise.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Noise.__CreateInstance(__ret);
-                return __result0;
-            }
-
-            set
-            {
-                var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
-                __Internal.SetCellularNoiseLookup((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        public float CellularJitter
-        {
-            get
-            {
-                var __ret = __Internal.GetCellularJitter((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetCellularJitter((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        public float GradientPerturbAmp
-        {
-            get
-            {
-                var __ret = __Internal.GetGradientPerturbAmp((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetGradientPerturbAmp((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-    }
-}
-
-namespace FlounderSharp
-{
-    /// <summary>A timer implementation for events.</summary>
-    public unsafe partial class Timer : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal float m_startTime;
-
-            [FieldOffset(4)]
-            internal float m_interval;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Timer@fl@@QEAA@AEBM@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, float* interval);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1Timer@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?ResetStartTime@Timer@fl@@QEAAXXZ")]
-            internal static extern void ResetStartTime(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetInterval@Timer@fl@@QEBAMXZ")]
-            internal static extern float GetInterval(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetInterval@Timer@fl@@QEAAXAEBM@Z")]
-            internal static extern void SetInterval(global::System.IntPtr instance, float* interval);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?IsPassedTime@Timer@fl@@QEBA_NXZ")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsPassedTime(global::System.IntPtr instance);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Timer> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Timer>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.Timer __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Timer(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.Timer __CreateInstance(global::FlounderSharp.Timer.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Timer(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.Timer.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Timer.__Internal));
-            *(global::FlounderSharp.Timer.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private Timer(global::FlounderSharp.Timer.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected Timer(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        /// <summary>
-        /// <para>Creates a new timer.</para>
-        /// <para></para>
-        /// <para>name=&quot;interval&quot;&gt; The time between events (seconds).</para>
-        /// </summary>
-        public Timer(ref float interval)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Timer.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            fixed (float* __refParamPtr0 = &interval)
-            {
-                var __arg0 = __refParamPtr0;
-                __Internal.ctor((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        ~Timer()
-        {
-            Dispose(false);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-            GC.SuppressFinalize(this);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.Timer __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        /// <summary>Adds the intervals value to the start time.</summary>
-        public void ResetStartTime()
-        {
-            __Internal.ResetStartTime((__Instance + __PointerAdjustment));
-        }
-
-        public static implicit operator global::FlounderSharp.Timer(float* interval)
-        {
-            return new global::FlounderSharp.Timer(ref *interval);
-        }
-
-        /// <summary>
-        /// <para>Gets what the interval is. (Seconds).</para>
-        /// <para></para>
-        /// <para>The timers current interval.</para>
-        /// </summary>
-        /// <remarks>
-        /// <para>Gets the timers interval. (Seconds, Resets timer).</para>
-        /// <para></para>
-        /// <para>name=&quot;interval&quot;&gt; The new timer interval.</para>
-        /// </remarks>
-        public float Interval
-        {
-            get
-            {
-                var __ret = __Internal.GetInterval((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                var __arg0 = &value;
-                __Internal.SetInterval((__Instance + __PointerAdjustment), __arg0);
-            }
-        }
-
-        /// <summary>
-        /// <para>Gets if the interval has been passes for the timer.</para>
-        /// <para></para>
-        /// <para>If the interval was exceeded.</para>
-        /// </summary>
-        public bool IsPassedTime
-        {
-            get
-            {
-                var __ret = __Internal.IsPassedTime((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-        }
-    }
-
-    namespace Delegates
-    {
-        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-        internal unsafe delegate void Action_IntPtr_int(global::System.IntPtr _0, int _1);
-
-        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-        internal unsafe delegate void Action_IntPtr(global::System.IntPtr _0);
-
-        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-        internal unsafe delegate void Action_IntPtr_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1, global::System.IntPtr _2);
     }
 }
