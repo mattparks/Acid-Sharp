@@ -15,10 +15,7 @@ namespace FlounderSharp.CLI
 
             foreach (var item in @enum.Items)
             {
-                TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
-                var x = item.Name.Replace("_", " ");
-                x = textInfo.ToTitleCase(x.ToLower());
-                item.Name = x.Replace(" ", "");
+                item.Name = PassObjectNamesFix.ToCamelCase(item.Name);
             }
 
             return true;

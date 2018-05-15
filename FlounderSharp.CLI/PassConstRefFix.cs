@@ -1,4 +1,5 @@
-﻿using CppSharp.AST;
+﻿using System;
+using CppSharp.AST;
 using CppSharp.AST.Extensions;
 using CppSharp.Passes;
 
@@ -9,6 +10,11 @@ namespace FlounderSharp.CLI
         public override bool VisitParameterDecl(Parameter parameter)
         {
             if (!VisitDeclaration(parameter))
+            {
+                return false;
+            }
+
+            if (parameter.TranslationUnit?.Module?.LibraryName == "Std")
             {
                 return false;
             }

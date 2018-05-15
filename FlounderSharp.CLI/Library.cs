@@ -19,7 +19,7 @@ namespace FlounderSharp.CLI
             var parserOptions = driver.ParserOptions;
             parserOptions.UnityBuild = true;
             parserOptions.EnableRTTI = true;
-            parserOptions.Verbose = false;
+            parserOptions.Verbose = true;
             
             // Sets up other options.
             var options = driver.Options;
@@ -28,7 +28,7 @@ namespace FlounderSharp.CLI
             options.GenerateSingleCSharpFile = true;
             //options.CompileCode = true;
             options.CheckSymbols = false;
-            options.Verbose = false;
+            options.Verbose = true;
 
             // Creates a new module.
             var module = options.AddModule("FlounderSharp");
