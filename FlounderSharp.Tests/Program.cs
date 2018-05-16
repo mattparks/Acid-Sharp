@@ -7,57 +7,29 @@ namespace FlounderSharp.Tests
     {
         private static void Main(string[] args)
         {
-            var noise = new Noise(87374932)
+            // Creates the engine and updater objects.
+            var engine = new Engine
             {
-                NoiseType = NoiseType.TypePerlinfractal,
-                Frequency = 0.003f,
-                Interp = NoiseInterp.InterpQuintic,
-                FractalType = NoiseFractal.FractalFbm,
-                FractalOctaves = 5,
-                FractalLacunarity = 2.0f,
-                FractalGain = 0.5f
+                Updater = new MainUpdater()
             };
-            Console.WriteLine(100.0f * noise.GetNoise(500.2f, -920.1f));
 
-            Console.WriteLine(10.0f * Maths.Random);
+            var configManager = new ConfigManager();
+            Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
 
-            {
-                Console.WriteLine("Vector2:");
-                var a = new Vector2(3.0f, -7.2f);
-                var b = new Vector2(-1.74f, 15.4f);
-                Console.WriteLine($"  {a.ToString()}");
-                Console.WriteLine($"  {a} + {b} = {new Vector2(a + b)}");
-                Console.WriteLine($"  {a} - {b} = {new Vector2(a - b)}");
-                Console.WriteLine($"  {a} * {b} = {new Vector2(a * b)}");
-                Console.WriteLine($"  {a} / {b} = {new Vector2(a / b)}");
-                Console.WriteLine($"  {a} ang {b} = {a.Angle(b)}");
-                Console.WriteLine($"  {a} dot {b} = {a.Dot(b)}");
-                Console.WriteLine($"  {a} sca {10.0f} = {a.Scale(10.0f)}");
-                Console.WriteLine($"  {a} rot {90.0f} = {a.Rotate(90.0f)}");
-                Console.WriteLine($"  -{a} = {-a}", a, (-a));
-                Console.WriteLine($"  nor {a} = {a.Normalize()}", a, a.Normalize());
-                Console.WriteLine($"  len {a} = {a.Length}");
-                Console.WriteLine($"  {a} dist {b} = {a.Distance(b)}");
-                Console.WriteLine("");
-            }
-            {
-                Console.WriteLine("Vector3:");
-                var a = new Vector3(12.9f, -2.0f, 6.7f);
-                var b = new Vector3(-9.7f, 15.9f, -13.8f);
-                Console.WriteLine($"  {a} + {b} = {new Vector2(a + b)}");
-                Console.WriteLine($"  {a} - {b} = {new Vector2(a - b)}");
-                Console.WriteLine($"  {a} * {b} = {new Vector2(a * b)}");
-                Console.WriteLine($"  {a} / {b} = {new Vector2(a / b)}");
-                Console.WriteLine($"  {a} ang {b} = {a.Angle(b)}");
-                Console.WriteLine($"  {a} dot {b} = {a.Dot(b)}");
-                Console.WriteLine($"  {a} sca {10.0f} = {a.Scale(10.0f)}");
-                Console.WriteLine($"  {a} rot {180.0f * Vector3.Front} = {a.Rotate(180.0f * Vector3.Front)}");
-                Console.WriteLine($"  -{a} = {-a}", a, (-a));
-                Console.WriteLine($"  nor {a} = {a.Normalize()}", a, a.Normalize());
-                Console.WriteLine($"  len {a} = {a.Length}");
-                Console.WriteLine($"  {a} dist {b} = {a.Distance(b)}");
-                Console.WriteLine("");
-            }
+            // Registers modules.
+
+            // Registers components.
+
+            // Initializes modules.
+            Display.Get().Title = "Testing Guis";
+            Display.Get().Icon = "Resources/Logos/Tail.png";
+            Mouse.Get().CustomMouse = "Resources/Guis/Cursor.png";
+            Renderer.Get().Manager = new MainRenderer();
+            Scenes.Get().Scene = new Scene1();
+
+            // Runs the game loop.
+            var exitCode = engine.Run();
+            configManager.Save();
 
             // End program.
             Console.WriteLine("Press enter to continue...");

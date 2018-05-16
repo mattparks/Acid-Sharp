@@ -1,5 +1,4 @@
-﻿using System;
-using CppSharp.AST;
+﻿using CppSharp.AST;
 using CppSharp.AST.Extensions;
 using CppSharp.Passes;
 

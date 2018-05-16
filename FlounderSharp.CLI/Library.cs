@@ -1,14 +1,31 @@
-﻿using System;
+﻿using System.Xml.Linq;
 using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
-using CppSharp.Parser;
 using CppSharp.Passes;
 
 namespace FlounderSharp.CLI
 {
     class Library : ILibrary
     {
+        private PassXmlTranslation _xmlExportPass;
+
+        public Library()
+        {
+            _xmlExportPass = new PassXmlTranslation("FlounderSharp");
+        }
+
+        /// <summary>
+        /// Gets the XDocument of the xml representation.
+        /// </summary>
+        public XDocument XmlExport
+        {
+            get
+            {
+                return _xmlExportPass.Document;
+            }
+        }
+
         /// <summary>
         /// Sets the driver options. First method called.
         /// </summary>
@@ -20,13 +37,15 @@ namespace FlounderSharp.CLI
             parserOptions.UnityBuild = true;
             parserOptions.EnableRTTI = true;
             parserOptions.Verbose = true;
-            
+
+            parserOptions.Defines.Add("FL_EXPORT=__attribute__ ((visibility (\"default\")))");
+            parserOptions.Defines.Add("FL_HIDDEN=__attribute__ ((visibility (\"hidden\")))");
+
             // Sets up other options.
             var options = driver.Options;
             options.OutputDir = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
-            //options.CompileCode = true;
             options.CheckSymbols = false;
             options.Verbose = true;
 
@@ -46,9 +65,11 @@ namespace FlounderSharp.CLI
         /// <param name="driver"></param>
         public void SetupPasses(Driver driver)
         {
+            driver.AddTranslationUnitPass(_xmlExportPass);
             driver.AddTranslationUnitPass(new PassEnumValuesFix());
             driver.AddTranslationUnitPass(new PassObjectNamesFix());
             driver.AddTranslationUnitPass(new PassConstRefFix());
+            driver.AddTranslationUnitPass(new PassCommentsFix());
             driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
             driver.Context.TranslationUnitPasses.AddPass(new FunctionToInstanceMethodPass());
         }
