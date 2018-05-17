@@ -86,6 +86,8 @@ namespace FlounderSharp.CLI
             ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
             
             ctx.RenameNamespace("fl", "FlounderSharp");
+
+            ctx.SetFunctionParameterUsage("ModuleRegister.RunUpdate", 1, ParameterUsage.In);
         }
 
         /// <summary>

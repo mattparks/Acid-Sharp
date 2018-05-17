@@ -1,4 +1,5 @@
-﻿using CppSharp.AST;
+﻿using System;
+using CppSharp.AST;
 using CppSharp.AST.Extensions;
 using CppSharp.Passes;
 
@@ -18,21 +19,31 @@ namespace FlounderSharp.CLI
                 return false;
             }
 
+            var cleanedType = CleanType(parameter.QualifiedType);
+
+            if (CleanType(parameter.QualifiedType).Type.IsEnumType())
+            {
+                parameter.QualifiedType = cleanedType;
+                return true;
+            }
+
             if (!parameter.IsConst || !parameter.Type.Desugar().IsPointerToPrimitiveType())
             {
                 return false;
             }
-
-            var currentQualifiedType = parameter.QualifiedType;
-
-            if (!(currentQualifiedType.Type is PointerType pointerType) || !pointerType.IsReference)
-            {
-                return false;
-            }
-                
-            parameter.QualifiedType = new QualifiedType(pointerType.Pointee);
+            
+            parameter.QualifiedType = cleanedType;
             return true;
+        }
 
+        private QualifiedType CleanType(QualifiedType type)
+        {
+            if (!(type.Type is PointerType pointerType) || !pointerType.IsReference)
+            {
+                return type;
+            }
+
+            return new QualifiedType(pointerType.Pointee);
         }
     }
 }

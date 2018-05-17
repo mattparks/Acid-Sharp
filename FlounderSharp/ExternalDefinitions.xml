@@ -1476,6 +1476,100 @@
   <!--
   ***************************************
   **
+  ** ISpatialStructure.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ISpatialStructure" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new spatial structure.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Add" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a new object to the spatial structure.
+
+/// </summary>
+
+/// <param name="object"> The object to add. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <Export name="Remove" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes an object from the spatial structure.
+
+/// </summary>
+
+/// <param name="object"> The object to remove. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <Export name="Clear" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes all objects from the spatial structure..
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetSize" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the size of this structure.
+
+/// </summary>
+
+/// <returns> The structures size. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Contains" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// If the structure contains the object.
+
+/// </summary>
+
+/// <param name="object"> The object to check for.
+
+/// </param>
+
+/// <returns> If the structure contains the object. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** IModule.hpp
   **
   ***************************************
@@ -8811,6 +8905,24 @@
   <!--
   ***************************************
   **
+  ** SceneStructure.hpp
+  **
+  ***************************************
+  -->
+  <Export name="SceneStructure" target="Common" source="SceneStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new basic structure.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Cubemap.hpp
   **
   ***************************************
@@ -9297,6 +9409,19 @@
       <Parameter type="global::FlounderSharp.IManagerUis" name="managerUis" />
     </Parameters>
   </Export>
+  <Export name="GetStructure" target="Common" source="Scene.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the GameObjects structure.
+
+/// </summary>
+
+/// <returns> The GameObjects structure. </returns>
+]]>
+    </Description>
+  </Export>
   <!--
   ***************************************
   **
@@ -9398,6 +9523,19 @@
 /// </summary>
 
 /// <returns> If the scene is paused. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetStructure" target="Common" source="Scenes.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the GameObjects structure.
+
+/// </summary>
+
+/// <returns> The GameObjects structure. </returns>
 ]]>
     </Description>
   </Export>

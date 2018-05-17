@@ -32,7 +32,7 @@ namespace FlounderSharp.Tests
 
 		public override void Update()
 		{
-		//	var delta = Std.Min(1.0f / 60.0f, Engine.Get().GetDelta());
+			var delta = Math.Min(1.0f / 60.0f, Engine.Get().Delta);
 
 			_viewMatrix = Matrix4.ViewMatrix(_position, _rotation);
 			_projectionMatrix = Matrix4.PerspectiveMatrix(Fov, Display.Get().AspectRatio, NearPlane, FarPlane);

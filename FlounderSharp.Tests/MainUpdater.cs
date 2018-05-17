@@ -20,7 +20,7 @@ namespace FlounderSharp.Tests
 
 		public override void Update(ModuleRegister moduleRegister)
 		{
-			_timerRender.Interval = 1.0f / Engine.Get().FpsLimit;
+            _timerRender.Interval = 1.0f / Engine.Get().FpsLimit;
 
 			// Always-Update.
 			moduleRegister.RunUpdate(ModuleUpdate.UpdateAlways);

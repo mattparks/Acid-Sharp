@@ -340,10 +340,17 @@ namespace FlounderSharp
         internal unsafe delegate void Action_IntPtr_int(global::System.IntPtr _0, int _1);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        internal unsafe delegate void Action_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         internal unsafe delegate void Action_IntPtr(global::System.IntPtr _0);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-        internal unsafe delegate void Action_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1);
+        internal unsafe delegate uint Func_uint_IntPtr(global::System.IntPtr _0);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.I1)]
+        internal unsafe delegate bool Func_bool_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         internal unsafe delegate global::System.IntPtr Func_IntPtr_IntPtr_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1, global::System.IntPtr _2);
@@ -353,10 +360,6 @@ namespace FlounderSharp
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         internal unsafe delegate void Action_IntPtr_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1, global::System.IntPtr _2);
-
-        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-        [return: MarshalAs(UnmanagedType.I1)]
-        internal unsafe delegate bool Func_bool_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         internal unsafe delegate float Func_float_IntPtr(global::System.IntPtr _0);
@@ -8125,6 +8128,385 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
+    /// <summary>A data structure that stores objects with a notion of flounder.space.</summary>
+    public unsafe abstract partial class ISpatialStructure : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_ISpatialStructure;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0ISpatialStructure@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0ISpatialStructure@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1ISpatialStructure@fl@@UEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ISpatialStructure> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ISpatialStructure>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.ISpatialStructure __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.ISpatialStructureInternal(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.ISpatialStructure __CreateInstance(global::FlounderSharp.ISpatialStructure.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.ISpatialStructureInternal(native, skipVTables);
+        }
+
+        protected ISpatialStructure(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        /// <summary>Creates a new spatial structure.</summary>
+        protected ISpatialStructure()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ISpatialStructure.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+            SetupVTables(GetType().FullName == "FlounderSharp.ISpatialStructure");
+        }
+
+        protected ISpatialStructure(global::FlounderSharp.ISpatialStructure _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ISpatialStructure.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.ISpatialStructure");
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.ISpatialStructure __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            ((global::FlounderSharp.ISpatialStructure.__Internal*) __Instance)->vfptr_ISpatialStructure = new global::System.IntPtr(__OriginalVTables[0]);
+            if (disposing)
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
+                if (__slot != null)
+                {
+                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
+                    ___dtorDelegate((__Instance + __PointerAdjustment), 0);
+                }
+                else
+                    __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            }
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        /// <summary>Adds a new object to the spatial structure.</summary>
+        /// <param name="object">The object to add.</param>
+        public abstract void Add(global::FlounderSharp.GameObject targetObject);
+
+        /// <summary>Removes an object from the spatial structure.</summary>
+        /// <param name="object">The object to remove.</param>
+        public abstract void Remove(global::FlounderSharp.GameObject targetObject);
+
+        /// <summary>Removes all objects from the spatial structure..</summary>
+        public abstract void Clear();
+
+        /// <summary>If the structure contains the object.</summary>
+        /// <param name="object">The object to check for.</param>
+        public abstract bool Contains(global::FlounderSharp.GameObject targetObject);
+
+        /// <summary>Gets the size of this structure.</summary>
+        public abstract uint Size
+        {
+            get;
+        }
+
+        #region Virtual table interop
+
+        // virtual ~ISpatialStructure() { }
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ISpatialStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // void Add(GameObject *object) = 0
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _AddDelegateInstance;
+
+        private static void _AddDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ISpatialStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            __target.Add(__result0);
+        }
+
+        // void Remove(GameObject *object) = 0
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _RemoveDelegateInstance;
+
+        private static void _RemoveDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ISpatialStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            __target.Remove(__result0);
+        }
+
+        // void Clear() = 0
+        private static global::FlounderSharp.Delegates.Action_IntPtr _ClearDelegateInstance;
+
+        private static void _ClearDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ISpatialStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Clear();
+        }
+
+        // unsigned int GetSize() = 0
+        private static global::FlounderSharp.Delegates.Func_uint_IntPtr _GetSizeDelegateInstance;
+
+        private static uint _GetSizeDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ISpatialStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Size;
+            return __ret;
+        }
+
+        // bool Contains(GameObject *object) = 0
+        private static global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr _ContainsDelegateInstance;
+
+        private static bool _ContainsDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ISpatialStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            var __ret = __target.Contains(__result0);
+            return __ret;
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[6];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _AddDelegateInstance += _AddDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_AddDelegateInstance).ToPointer();
+                _RemoveDelegateInstance += _RemoveDelegateHook;
+                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_RemoveDelegateInstance).ToPointer();
+                _ClearDelegateInstance += _ClearDelegateHook;
+                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_ClearDelegateInstance).ToPointer();
+                _GetSizeDelegateInstance += _GetSizeDelegateHook;
+                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetSizeDelegateInstance).ToPointer();
+                _ContainsDelegateInstance += _ContainsDelegateHook;
+                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_ContainsDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
+                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
+                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
+                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
+                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
+                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
+                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
+                    *(void**) (vfptr0 + 80) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 80);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                    *(void**) (vfptr0 + 24) = _Thunks[2];
+                    *(void**) (vfptr0 + 32) = _Thunks[3];
+                    *(void**) (vfptr0 + 40) = _Thunks[4];
+                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
+                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
+                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
+                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
+                    *(void**) (vfptr0 + 80) = _Thunks[5];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+
+    public unsafe partial class ISpatialStructureInternal : global::FlounderSharp.ISpatialStructure, IDisposable
+    {
+        private static void* __CopyValue(global::FlounderSharp.ISpatialStructure.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ISpatialStructure.__Internal));
+            *(global::FlounderSharp.ISpatialStructure.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        internal ISpatialStructureInternal(global::FlounderSharp.ISpatialStructure.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        internal ISpatialStructureInternal(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            __Instance = new global::System.IntPtr(native);
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+        }
+
+        /// <summary>Adds a new object to the spatial structure.</summary>
+        /// <param name="object">The object to add.</param>
+        public override void Add(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+            var ___AddDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            ___AddDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>Removes an object from the spatial structure.</summary>
+        /// <param name="object">The object to remove.</param>
+        public override void Remove(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___RemoveDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            ___RemoveDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        /// <summary>Removes all objects from the spatial structure..</summary>
+        public override void Clear()
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+            var ___ClearDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
+            ___ClearDelegate((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>If the structure contains the object.</summary>
+        /// <param name="object">The object to check for.</param>
+        public override bool Contains(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 10 * 8);
+            var ___ContainsDelegate = (global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            var __ret = ___ContainsDelegate((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        /// <summary>Gets the size of this structure.</summary>
+        public override uint Size
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetSizeDelegate = (global::FlounderSharp.Delegates.Func_uint_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_uint_IntPtr));
+                var __ret = ___GetSizeDelegate((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+    }
 }
 
 namespace FlounderSharp
@@ -8154,6 +8536,16 @@ namespace FlounderSharp
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0GameObject@fl@@QEAA@AEBVTransform@1@PEAVISpatialStructure@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr transform, global::System.IntPtr structure, global::System.IntPtr name);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0GameObject@fl@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVTransform@1@PEAVISpatialStructure@1@@Z")]
+            internal static extern global::System.IntPtr ctor_1(global::System.IntPtr instance, global::System.IntPtr prefabName, global::System.IntPtr transform, global::System.IntPtr structure);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0GameObject@fl@@QEAA@AEBV01@@Z")]
             internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
 
@@ -8166,6 +8558,11 @@ namespace FlounderSharp
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?RemoveComponent@GameObject@fl@@QEAAPEAVComponent@2@PEAV32@@Z")]
             internal static extern global::System.IntPtr RemoveComponent(global::System.IntPtr instance, global::System.IntPtr component);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?StructureSwitch@GameObject@fl@@QEAAXPEAVISpatialStructure@2@@Z")]
+            internal static extern void StructureSwitch(global::System.IntPtr instance, global::System.IntPtr structure);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -8191,6 +8588,11 @@ namespace FlounderSharp
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetTransform@GameObject@fl@@QEBAXAEBVTransform@2@@Z")]
             internal static extern void SetTransform(global::System.IntPtr instance, global::System.IntPtr transform);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetStructure@GameObject@fl@@QEBAPEAVISpatialStructure@2@XZ")]
+            internal static extern global::System.IntPtr GetStructure(global::System.IntPtr instance);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -8240,6 +8642,42 @@ namespace FlounderSharp
                 __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
             else
                 SetupVTables(true);
+        }
+
+        public GameObject(global::FlounderSharp.Transform transform, global::FlounderSharp.ISpatialStructure structure, string name)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.GameObject.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(transform, null))
+                throw new global::System.ArgumentNullException("transform", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = transform.__Instance;
+            var __arg1 = ReferenceEquals(structure, null) ? global::System.IntPtr.Zero : structure.__Instance;
+            var __allocator2 = new global::Std.Allocator<sbyte>();
+            var __basicString2 = global::Std.BasicStringExtensions.BasicString(name, __allocator2);
+            var __arg2 = __basicString2.__Instance;
+            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
+            __basicString2.Dispose(false);
+            __allocator2.Dispose();
+            SetupVTables(GetType().FullName == "FlounderSharp.GameObject");
+        }
+
+        public GameObject(string prefabName, global::FlounderSharp.Transform transform, global::FlounderSharp.ISpatialStructure structure)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.GameObject.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            var __allocator0 = new global::Std.Allocator<sbyte>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(prefabName, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            if (ReferenceEquals(transform, null))
+                throw new global::System.ArgumentNullException("transform", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = transform.__Instance;
+            var __arg2 = ReferenceEquals(structure, null) ? global::System.IntPtr.Zero : structure.__Instance;
+            __Internal.ctor_1((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+            SetupVTables(GetType().FullName == "FlounderSharp.GameObject");
         }
 
         public GameObject(global::FlounderSharp.GameObject _0)
@@ -8306,6 +8744,12 @@ namespace FlounderSharp
                 __result0 = (global::FlounderSharp.Component) global::FlounderSharp.Component.NativeToManagedMap[__ret];
             else global::FlounderSharp.Component.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Component) global::FlounderSharp.Component.__CreateInstance(__ret);
             return __result0;
+        }
+
+        public void StructureSwitch(global::FlounderSharp.ISpatialStructure structure)
+        {
+            var __arg0 = ReferenceEquals(structure, null) ? global::System.IntPtr.Zero : structure.__Instance;
+            __Internal.StructureSwitch((__Instance + __PointerAdjustment), __arg0);
         }
 
         public void StructureRemove()
@@ -8391,6 +8835,20 @@ namespace FlounderSharp
                     throw new global::System.ArgumentNullException("value", "Cannot be null because it is a C++ reference (&).");
                 var __arg0 = value.__Instance;
                 __Internal.SetTransform((__Instance + __PointerAdjustment), __arg0);
+            }
+        }
+
+        public global::FlounderSharp.ISpatialStructure Structure
+        {
+            get
+            {
+                var __ret = __Internal.GetStructure((__Instance + __PointerAdjustment));
+                global::FlounderSharp.ISpatialStructure __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.ISpatialStructure.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.ISpatialStructure) global::FlounderSharp.ISpatialStructure.NativeToManagedMap[__ret];
+                else global::FlounderSharp.ISpatialStructure.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.ISpatialStructure) global::FlounderSharp.ISpatialStructure.__CreateInstance(__ret);
+                return __result0;
             }
         }
 
@@ -10764,7 +11222,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?RegisterModule@ModuleRegister@fl@@QEAAPEAVIModule@2@PEAV32@AEBW4ModuleUpdate@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern global::System.IntPtr RegisterModule(global::System.IntPtr instance, global::System.IntPtr module, global::FlounderSharp.ModuleUpdate* update, global::System.IntPtr name);
+            internal static extern global::System.IntPtr RegisterModule(global::System.IntPtr instance, global::System.IntPtr module, global::FlounderSharp.ModuleUpdate update, global::System.IntPtr name);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -10779,7 +11237,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?RunUpdate@ModuleRegister@fl@@QEBAXAEBW4ModuleUpdate@2@@Z")]
-            internal static extern void RunUpdate(global::System.IntPtr instance, global::FlounderSharp.ModuleUpdate* update);
+            internal static extern void RunUpdate(global::System.IntPtr instance, global::FlounderSharp.ModuleUpdate update);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -10860,7 +11318,7 @@ namespace FlounderSharp
         /// <param name="module">The modules object.</param>
         /// <param name="update">The modules update type.</param>
         /// <param name="name">The modules name.</param>
-        public global::FlounderSharp.IModule RegisterModule(global::FlounderSharp.IModule module, global::FlounderSharp.ModuleUpdate* update, string name)
+        public global::FlounderSharp.IModule RegisterModule(global::FlounderSharp.IModule module, global::FlounderSharp.ModuleUpdate update, string name)
         {
             var __arg0 = ReferenceEquals(module, null) ? global::System.IntPtr.Zero : module.__Instance;
             var __allocator2 = new global::Std.Allocator<sbyte>();
@@ -10909,7 +11367,7 @@ namespace FlounderSharp
 
         /// <summary>Runs updates for all module update types.</summary>
         /// <param name="update">The modules update type.</param>
-        public void RunUpdate(global::FlounderSharp.ModuleUpdate* update)
+        public void RunUpdate(global::FlounderSharp.ModuleUpdate update)
         {
             __Internal.RunUpdate((__Instance + __PointerAdjustment), update);
         }
@@ -12891,8 +13349,8 @@ namespace FlounderSharp
 {
     public enum CommandBufferLevel
     {
-        Bufferlevelprimary = 0,
-        Bufferlevelsecondary = 1
+        BufferLevelPrimary = 0,
+        BufferLevelSecondary = 1
     }
 
     public unsafe partial class CommandBuffer : IDisposable
@@ -12909,7 +13367,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0CommandBuffer@fl@@QEAA@AEB_NAEBW4CommandBufferLevel@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, bool begin, global::FlounderSharp.CommandBufferLevel* bufferLevel);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, bool begin, global::FlounderSharp.CommandBufferLevel bufferLevel);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -12966,7 +13424,7 @@ namespace FlounderSharp
             __Instance = new global::System.IntPtr(native);
         }
 
-        public CommandBuffer(bool begin, global::FlounderSharp.CommandBufferLevel* bufferLevel)
+        public CommandBuffer(bool begin, global::FlounderSharp.CommandBufferLevel bufferLevel)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.CommandBuffer.__Internal));
             __ownsNativeInstance = true;
@@ -13009,12 +13467,27 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
-    public enum PipelineModeFlags
+    public enum PipelineMode
     {
-        PipelinePolygon = 0,
-        PipelinePolygonNoDepth = 1,
-        PipelineMrt = 2,
-        PipelineMrtNoDepth = 3
+        PipelineModePolygon = 0,
+        PipelineModePolygonNoDepth = 1,
+        PipelineModeMrt = 2,
+        PipelineModeMrtNoDepth = 3
+    }
+
+    public enum PipelinePolygonMode
+    {
+        PipelinePolygonModeFill = 0,
+        PipelinePolygonModeLine = 1,
+        PipelinePolygonModePoint = 2
+    }
+
+    public enum PipelineCullMode
+    {
+        PipelineCullModeNone = 0,
+        PipelineCullModeFront = 1,
+        PipelineCullModeBack = 2,
+        PipelineCullModeAll = 3
     }
 
     public unsafe partial class GraphicsStage : IDisposable
@@ -13357,13 +13830,13 @@ namespace FlounderSharp
             internal global::FlounderSharp.VertexInput.__Internal m_vertexInput;
 
             [FieldOffset(72)]
-            internal global::FlounderSharp.PipelineModeFlags m_pipelineModeFlags;
+            internal global::FlounderSharp.PipelineMode m_pipelineMode;
 
             [FieldOffset(76)]
-            internal global::VkPolygonMode m_polygonMode;
+            internal global::FlounderSharp.PipelinePolygonMode m_polygonMode;
 
             [FieldOffset(80)]
-            internal uint m_cullModeFlags;
+            internal global::FlounderSharp.PipelineCullMode m_cullMode;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -13382,13 +13855,18 @@ namespace FlounderSharp
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetModeFlags@PipelineCreate@fl@@QEBA?AW4PipelineModeFlags@2@XZ")]
-            internal static extern global::FlounderSharp.PipelineModeFlags GetModeFlags(global::System.IntPtr instance);
+                EntryPoint="?GetMode@PipelineCreate@fl@@QEBA?AW4PipelineMode@2@XZ")]
+            internal static extern global::FlounderSharp.PipelineMode GetMode(global::System.IntPtr instance);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCullModeFlags@PipelineCreate@fl@@QEBAIXZ")]
-            internal static extern uint GetCullModeFlags(global::System.IntPtr instance);
+                EntryPoint="?GetPolygonMode@PipelineCreate@fl@@QEBA?AW4PipelinePolygonMode@2@XZ")]
+            internal static extern global::FlounderSharp.PipelinePolygonMode GetPolygonMode(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetCullModeF@PipelineCreate@fl@@QEBA?AW4PipelineCullMode@2@XZ")]
+            internal static extern global::FlounderSharp.PipelineCullMode GetCullModeF(global::System.IntPtr instance);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -13469,20 +13947,29 @@ namespace FlounderSharp
             }
         }
 
-        public global::FlounderSharp.PipelineModeFlags ModeFlags
+        public global::FlounderSharp.PipelineMode Mode
         {
             get
             {
-                var __ret = __Internal.GetModeFlags((__Instance + __PointerAdjustment));
+                var __ret = __Internal.GetMode((__Instance + __PointerAdjustment));
                 return __ret;
             }
         }
 
-        public uint CullModeFlags
+        public global::FlounderSharp.PipelinePolygonMode PolygonMode
         {
             get
             {
-                var __ret = __Internal.GetCullModeFlags((__Instance + __PointerAdjustment));
+                var __ret = __Internal.GetPolygonMode((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        public global::FlounderSharp.PipelineCullMode CullModeF
+        {
+            get
+            {
+                var __ret = __Internal.GetCullModeF((__Instance + __PointerAdjustment));
                 return __ret;
             }
         }
@@ -24154,29 +24641,8 @@ namespace FlounderSharp
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Get@Config@fl@@QEAA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV34@0@Z")]
-            internal static extern void Get(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr key, global::System.IntPtr normal);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Get@Config@fl@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEB_N@Z")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Get(global::System.IntPtr instance, global::System.IntPtr key, bool normal);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Get@Config@fl@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBH@Z")]
-            internal static extern int Get_1(global::System.IntPtr instance, global::System.IntPtr key, int normal);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Get@Config@fl@@QEAAMAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBM@Z")]
-            internal static extern float Get_2(global::System.IntPtr instance, global::System.IntPtr key, float normal);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Get@Config@fl@@QEAANAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBN@Z")]
-            internal static extern double Get_3(global::System.IntPtr instance, global::System.IntPtr key, double normal);
+                EntryPoint="?SetRaw@Config@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z")]
+            internal static extern void SetRaw(global::System.IntPtr instance, global::System.IntPtr key, global::System.IntPtr value);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -24285,68 +24751,19 @@ namespace FlounderSharp
             return global::FlounderSharp.ConfigKey.__CreateInstance(__ret);
         }
 
-        public string Get(string key, string normal)
+        public void SetRaw(string key, string value)
         {
             var __allocator0 = new global::Std.Allocator<sbyte>();
             var __basicString0 = global::Std.BasicStringExtensions.BasicString(key, __allocator0);
             var __arg0 = __basicString0.__Instance;
             var __allocator1 = new global::Std.Allocator<sbyte>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(normal, __allocator1);
+            var __basicString1 = global::Std.BasicStringExtensions.BasicString(value, __allocator1);
             var __arg1 = __basicString1.__Instance;
-            var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-            __Internal.Get((__Instance + __PointerAdjustment), new IntPtr(&__ret), __arg0, __arg1);
+            __Internal.SetRaw((__Instance + __PointerAdjustment), __arg0, __arg1);
             __basicString0.Dispose(false);
             __allocator0.Dispose();
             __basicString1.Dispose(false);
             __allocator1.Dispose();
-            var __basicStringRet = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
-            var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-            __basicStringRet.Dispose(false);
-            return __stringRet;
-        }
-
-        public bool Get(string key, bool normal)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(key, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.Get((__Instance + __PointerAdjustment), __arg0, normal);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
-        }
-
-        public int Get(string key, int normal)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(key, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.Get_1((__Instance + __PointerAdjustment), __arg0, normal);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
-        }
-
-        public float Get(string key, float normal)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(key, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.Get_2((__Instance + __PointerAdjustment), __arg0, normal);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
-        }
-
-        public double Get(string key, double normal)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(key, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.Get_3((__Instance + __PointerAdjustment), __arg0, normal);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
         }
 
         public static implicit operator global::FlounderSharp.Config(global::FlounderSharp.IFile file)
@@ -29101,33 +29518,33 @@ namespace FlounderSharp
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?IsConnected@Joysticks@fl@@QEBA_NAEBW4JoystickPort@2@@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsConnected(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* port);
+            internal static extern bool IsConnected(global::System.IntPtr instance, global::FlounderSharp.JoystickPort port);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetName@Joysticks@fl@@QEBAPEBDAEBW4JoystickPort@2@@Z")]
-            internal static extern global::System.IntPtr GetName(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* port);
+            internal static extern global::System.IntPtr GetName(global::System.IntPtr instance, global::FlounderSharp.JoystickPort port);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetAxis@Joysticks@fl@@QEBAMAEBW4JoystickPort@2@AEBH@Z")]
-            internal static extern float GetAxis(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* port, int axis);
+            internal static extern float GetAxis(global::System.IntPtr instance, global::FlounderSharp.JoystickPort port, int axis);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetButton@Joysticks@fl@@QEBA_NAEBW4JoystickPort@2@AEBH@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool GetButton(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* port, int button);
+            internal static extern bool GetButton(global::System.IntPtr instance, global::FlounderSharp.JoystickPort port, int button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetCountAxes@Joysticks@fl@@QEBAHAEBW4JoystickPort@2@@Z")]
-            internal static extern int GetCountAxes(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* port);
+            internal static extern int GetCountAxes(global::System.IntPtr instance, global::FlounderSharp.JoystickPort port);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetCountButtons@Joysticks@fl@@QEBAHAEBW4JoystickPort@2@@Z")]
-            internal static extern int GetCountButtons(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* port);
+            internal static extern int GetCountButtons(global::System.IntPtr instance, global::FlounderSharp.JoystickPort port);
         }
 
         internal static new global::FlounderSharp.Joysticks __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
@@ -29200,7 +29617,7 @@ namespace FlounderSharp
 
         /// <summary>Determines if the GLFW joystick is connected</summary>
         /// <param name="port">The joystick to check connection with.</param>
-        public bool IsConnected(global::FlounderSharp.JoystickPort* port)
+        public bool IsConnected(global::FlounderSharp.JoystickPort port)
         {
             var __ret = __Internal.IsConnected((__Instance + __PointerAdjustment), port);
             return __ret;
@@ -29208,7 +29625,7 @@ namespace FlounderSharp
 
         /// <summary>Gets the name of the joystick.</summary>
         /// <param name="port">The joystick to get the name of.</param>
-        public string GetName(global::FlounderSharp.JoystickPort* port)
+        public string GetName(global::FlounderSharp.JoystickPort port)
         {
             var __ret = __Internal.GetName((__Instance + __PointerAdjustment), port);
             return Marshal.PtrToStringAnsi(__ret);
@@ -29217,7 +29634,7 @@ namespace FlounderSharp
         /// <summary>Gets the value of a joysticks axis.</summary>
         /// <param name="port">The joystick to get the axis from.</param>
         /// <param name="axis">The axis of interest.</param>
-        public float GetAxis(global::FlounderSharp.JoystickPort* port, int axis)
+        public float GetAxis(global::FlounderSharp.JoystickPort port, int axis)
         {
             var __ret = __Internal.GetAxis((__Instance + __PointerAdjustment), port, axis);
             return __ret;
@@ -29226,7 +29643,7 @@ namespace FlounderSharp
         /// <summary>Gets the whether a button on a joystick is pressed.</summary>
         /// <param name="port">The joystick to get the button from.</param>
         /// <param name="button">The button of interest.</param>
-        public bool GetButton(global::FlounderSharp.JoystickPort* port, int button)
+        public bool GetButton(global::FlounderSharp.JoystickPort port, int button)
         {
             var __ret = __Internal.GetButton((__Instance + __PointerAdjustment), port, button);
             return __ret;
@@ -29234,7 +29651,7 @@ namespace FlounderSharp
 
         /// <summary>Gets the number of axes the joystick offers.</summary>
         /// <param name="port">The joystick to the the axis count from.</param>
-        public int GetCountAxes(global::FlounderSharp.JoystickPort* port)
+        public int GetCountAxes(global::FlounderSharp.JoystickPort port)
         {
             var __ret = __Internal.GetCountAxes((__Instance + __PointerAdjustment), port);
             return __ret;
@@ -29242,7 +29659,7 @@ namespace FlounderSharp
 
         /// <summary>Gets the number of buttons the joystick offers.</summary>
         /// <param name="port">The joystick to the the button count from.</param>
-        public int GetCountButtons(global::FlounderSharp.JoystickPort* port)
+        public int GetCountButtons(global::FlounderSharp.JoystickPort port)
         {
             var __ret = __Internal.GetCountButtons((__Instance + __PointerAdjustment), port);
             return __ret;
@@ -29609,7 +30026,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetJoystick@AxisJoystick@fl@@QEAAXAEBW4JoystickPort@2@@Z")]
-            internal static extern void SetJoystick(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* joystickPort);
+            internal static extern void SetJoystick(global::System.IntPtr instance, global::FlounderSharp.JoystickPort joystickPort);
         }
 
         internal static new global::FlounderSharp.AxisJoystick __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
@@ -29672,7 +30089,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetJoystick((__Instance + __PointerAdjustment), &value);
+                __Internal.SetJoystick((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -29858,7 +30275,7 @@ namespace FlounderSharp
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetButton@Mouse@fl@@QEBA_NAEBW4MouseButton@2@@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool GetButton(global::System.IntPtr instance, global::FlounderSharp.MouseButton* button);
+            internal static extern bool GetButton(global::System.IntPtr instance, global::FlounderSharp.MouseButton button);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -29990,7 +30407,7 @@ namespace FlounderSharp
 
         /// <summary>Gets whether or not a particular mouse button is currently pressed. GLFW Actions: GLFW_PRESS, GLFW_RELEASE, GLFW_REPEAT</summary>
         /// <param name="button">The mouse button to test.</param>
-        public bool GetButton(global::FlounderSharp.MouseButton* button)
+        public bool GetButton(global::FlounderSharp.MouseButton button)
         {
             var __ret = __Internal.GetButton((__Instance + __PointerAdjustment), button);
             return __ret;
@@ -30737,7 +31154,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetJoystick@ButtonJoystick@fl@@QEAAXAEBW4JoystickPort@2@@Z")]
-            internal static extern void SetJoystick(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* joystickPort);
+            internal static extern void SetJoystick(global::System.IntPtr instance, global::FlounderSharp.JoystickPort joystickPort);
         }
 
         internal static new global::FlounderSharp.ButtonJoystick __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
@@ -30808,7 +31225,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetJoystick((__Instance + __PointerAdjustment), &value);
+                __Internal.SetJoystick((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -31161,7 +31578,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?Load@UiSelector@fl@@QEAAXAEBW4JoystickPort@2@AEBH111@Z")]
-            internal static extern void Load(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* joystick, int joystickLeftClick, int joystickRightClick, int joystickAxisX, int joystickAxisY);
+            internal static extern void Load(global::System.IntPtr instance, global::FlounderSharp.JoystickPort joystick, int joystickLeftClick, int joystickRightClick, int joystickAxisX, int joystickAxisY);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -31293,7 +31710,7 @@ namespace FlounderSharp
         /// <param name="joystickRightClick">The joystick key to be used as the right click.</param>
         /// <param name="joystickAxisX">The joystick axis to be used for moving the x axis.</param>
         /// <param name="joystickAxisY">The joystick axis to be used for moving the y axis.</param>
-        public void Load(global::FlounderSharp.JoystickPort* joystick, int joystickLeftClick, int joystickRightClick, int joystickAxisX, int joystickAxisY)
+        public void Load(global::FlounderSharp.JoystickPort joystick, int joystickLeftClick, int joystickRightClick, int joystickAxisX, int joystickAxisY)
         {
             __Internal.Load((__Instance + __PointerAdjustment), joystick, joystickLeftClick, joystickRightClick, joystickAxisX, joystickAxisY);
         }
@@ -31745,7 +32162,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0Text@fl@@QEAA@PEAVUiObject@1@AEBVUiBound@1@AEBMAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAVFontType@1@AEBW4FontJustify@1@222@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr rectangle, float fontSize, global::System.IntPtr text, global::System.IntPtr fontType, global::FlounderSharp.FontJustify* justify, float maxWidth, float kerning, float leading);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr rectangle, float fontSize, global::System.IntPtr text, global::System.IntPtr fontType, global::FlounderSharp.FontJustify justify, float maxWidth, float kerning, float leading);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -31926,7 +32343,7 @@ namespace FlounderSharp
         /// <param name="leading">The leading (vertical line spacing multiplier) of this text.</param>
         /// <param name="fontType">The font type to be used in this text.</param>
         /// <param name="justify">How the text will justify.</param>
-        public Text(global::FlounderSharp.UiObject parent, global::FlounderSharp.UiBound rectangle, float fontSize, string text, global::FlounderSharp.FontType fontType, global::FlounderSharp.FontJustify* justify, float maxWidth, float kerning, float leading)
+        public Text(global::FlounderSharp.UiObject parent, global::FlounderSharp.UiBound rectangle, float fontSize, string text, global::FlounderSharp.FontType fontType, global::FlounderSharp.FontJustify justify, float maxWidth, float kerning, float leading)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Text.__Internal));
@@ -34198,7 +34615,7 @@ namespace FlounderSharp
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?GetKey@Keyboard@fl@@QEBA_NAEBW4Key@2@@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool GetKey(global::System.IntPtr instance, global::FlounderSharp.Key* key);
+            internal static extern bool GetKey(global::System.IntPtr instance, global::FlounderSharp.Key key);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -34276,7 +34693,7 @@ namespace FlounderSharp
 
         /// <summary>Gets whether or not a particular key is currently pressed. GLFW Actions: GLFW_PRESS, GLFW_RELEASE, GLFW_REPEAT</summary>
         /// <param name="key">The key to test.</param>
-        public bool GetKey(global::FlounderSharp.Key* key)
+        public bool GetKey(global::FlounderSharp.Key key)
         {
             var __ret = __Internal.GetKey((__Instance + __PointerAdjustment), key);
             return __ret;
@@ -38921,7 +39338,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetInterp@Noise@fl@@QEAAXAEBW4NoiseInterp@2@@Z")]
-            internal static extern void SetInterp(global::System.IntPtr instance, global::FlounderSharp.NoiseInterp* interp);
+            internal static extern void SetInterp(global::System.IntPtr instance, global::FlounderSharp.NoiseInterp interp);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -38931,7 +39348,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetNoiseType@Noise@fl@@QEAAXAEBW4NoiseType@2@@Z")]
-            internal static extern void SetNoiseType(global::System.IntPtr instance, global::FlounderSharp.NoiseType* noiseType);
+            internal static extern void SetNoiseType(global::System.IntPtr instance, global::FlounderSharp.NoiseType noiseType);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -38971,7 +39388,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetFractalType@Noise@fl@@QEAAXAEBW4NoiseFractal@2@@Z")]
-            internal static extern void SetFractalType(global::System.IntPtr instance, global::FlounderSharp.NoiseFractal* fractalType);
+            internal static extern void SetFractalType(global::System.IntPtr instance, global::FlounderSharp.NoiseFractal fractalType);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -38981,7 +39398,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetCellularDistanceFunction@Noise@fl@@QEAAXAEBW4NoiseCellularFunc@2@@Z")]
-            internal static extern void SetCellularDistanceFunction(global::System.IntPtr instance, global::FlounderSharp.NoiseCellularFunc* cellularDistanceFunction);
+            internal static extern void SetCellularDistanceFunction(global::System.IntPtr instance, global::FlounderSharp.NoiseCellularFunc cellularDistanceFunction);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -38991,7 +39408,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetCellularReturnType@Noise@fl@@QEAAXAEBW4NoiseCellularReturn@2@@Z")]
-            internal static extern void SetCellularReturnType(global::System.IntPtr instance, global::FlounderSharp.NoiseCellularReturn* cellularReturnType);
+            internal static extern void SetCellularReturnType(global::System.IntPtr instance, global::FlounderSharp.NoiseCellularReturn cellularReturnType);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -39380,7 +39797,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetInterp((__Instance + __PointerAdjustment), &value);
+                __Internal.SetInterp((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -39394,7 +39811,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetNoiseType((__Instance + __PointerAdjustment), &value);
+                __Internal.SetNoiseType((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -39450,7 +39867,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetFractalType((__Instance + __PointerAdjustment), &value);
+                __Internal.SetFractalType((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -39464,7 +39881,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetCellularDistanceFunction((__Instance + __PointerAdjustment), &value);
+                __Internal.SetCellularDistanceFunction((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -39478,7 +39895,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetCellularReturnType((__Instance + __PointerAdjustment), &value);
+                __Internal.SetCellularReturnType((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -46895,6 +47312,311 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
+    /// <summary>A structure of spatial objects for a 3D space.</summary>
+    public unsafe partial class SceneStructure : global::FlounderSharp.ISpatialStructure, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public new partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_ISpatialStructure;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr m_objects;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0SceneStructure@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0SceneStructure@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+        }
+
+        internal static new global::FlounderSharp.SceneStructure __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.SceneStructure(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.SceneStructure __CreateInstance(global::FlounderSharp.SceneStructure.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.SceneStructure(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.SceneStructure.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
+            global::FlounderSharp.SceneStructure.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private SceneStructure(global::FlounderSharp.SceneStructure.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected SceneStructure(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        /// <summary>Creates a new basic structure.</summary>
+        public SceneStructure()
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+            SetupVTables(GetType().FullName == "FlounderSharp.SceneStructure");
+        }
+
+        public SceneStructure(global::FlounderSharp.SceneStructure _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.SceneStructure");
+        }
+
+        public override void Add(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+            var ___AddDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            ___AddDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public override void Remove(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___RemoveDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            ___RemoveDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public override void Clear()
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+            var ___ClearDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
+            ___ClearDelegate((__Instance + __PointerAdjustment));
+        }
+
+        public override bool Contains(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 10 * 8);
+            var ___ContainsDelegate = (global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            var __ret = ___ContainsDelegate((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        public override uint Size
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetSizeDelegate = (global::FlounderSharp.Delegates.Func_uint_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_uint_IntPtr));
+                var __ret = ___GetSizeDelegate((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        #region Virtual table interop
+
+        // ~SceneStructure()
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // void Add(GameObject *object) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _AddDelegateInstance;
+
+        private static void _AddDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            __target.Add(__result0);
+        }
+
+        // void Remove(GameObject *object) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _RemoveDelegateInstance;
+
+        private static void _RemoveDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            __target.Remove(__result0);
+        }
+
+        // void Clear() override
+        private static global::FlounderSharp.Delegates.Action_IntPtr _ClearDelegateInstance;
+
+        private static void _ClearDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Clear();
+        }
+
+        // unsigned int GetSize() override { return m_objects->size(); }
+        private static global::FlounderSharp.Delegates.Func_uint_IntPtr _GetSizeDelegateInstance;
+
+        private static uint _GetSizeDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Size;
+            return __ret;
+        }
+
+        // bool Contains(GameObject *object) override
+        private static global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr _ContainsDelegateInstance;
+
+        private static bool _ContainsDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            var __ret = __target.Contains(__result0);
+            return __ret;
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[6];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _AddDelegateInstance += _AddDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_AddDelegateInstance).ToPointer();
+                _RemoveDelegateInstance += _RemoveDelegateHook;
+                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_RemoveDelegateInstance).ToPointer();
+                _ClearDelegateInstance += _ClearDelegateHook;
+                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_ClearDelegateInstance).ToPointer();
+                _GetSizeDelegateInstance += _GetSizeDelegateHook;
+                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetSizeDelegateInstance).ToPointer();
+                _ContainsDelegateInstance += _ContainsDelegateHook;
+                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_ContainsDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
+                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
+                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
+                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
+                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
+                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
+                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
+                    *(void**) (vfptr0 + 80) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 80);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                    *(void**) (vfptr0 + 24) = _Thunks[2];
+                    *(void**) (vfptr0 + 32) = _Thunks[3];
+                    *(void**) (vfptr0 + 40) = _Thunks[4];
+                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
+                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
+                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
+                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
+                    *(void**) (vfptr0 + 80) = _Thunks[5];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
 }
 
 namespace FlounderSharp
@@ -51144,9 +51866,78 @@ namespace FlounderSharp
         AttachmentSwapchain = 2
     }
 
+    public enum AttachmentFormat
+    {
+        FormatR8Unorm = 9,
+        FormatR8Snorm = 10,
+        FormatR8Uint = 13,
+        FormatR8Sint = 14,
+        FormatR8Srgb = 15,
+        FormatR8g8Unorm = 16,
+        FormatR8g8Snorm = 17,
+        FormatR8g8Uint = 20,
+        FormatR8g8Sint = 21,
+        FormatR8g8Srgb = 22,
+        FormatR8g8b8Unorm = 23,
+        FormatR8g8b8Snorm = 24,
+        FormatR8g8b8Uint = 27,
+        FormatR8g8b8Sint = 28,
+        FormatR8g8b8Srgb = 29,
+        FormatB8g8r8Unorm = 30,
+        FormatB8g8r8Snorm = 31,
+        FormatB8g8r8Uint = 34,
+        FormatB8g8r8Sint = 35,
+        FormatB8g8r8Srgb = 36,
+        FormatR8g8b8a8Unorm = 37,
+        FormatR8g8b8a8Snorm = 38,
+        FormatR8g8b8a8Uint = 41,
+        FormatR8g8b8a8Sint = 42,
+        FormatR8g8b8a8Srgb = 43,
+        FormatB8g8r8a8Unorm = 44,
+        FormatB8g8r8a8Snorm = 45,
+        FormatB8g8r8a8Uint = 48,
+        FormatB8g8r8a8Sint = 49,
+        FormatB8g8r8a8Srgb = 50,
+        FormatR16Unorm = 70,
+        FormatR16Snorm = 71,
+        FormatR16Uint = 74,
+        FormatR16Sint = 75,
+        FormatR16Sfloat = 76,
+        FormatR16g16Unorm = 77,
+        FormatR16g16Snorm = 78,
+        FormatR16g16Uint = 81,
+        FormatR16g16Sint = 82,
+        FormatR16g16Sfloat = 83,
+        FormatR16g16b16Unorm = 84,
+        FormatR16g16b16Snorm = 85,
+        FormatR16g16b16Uint = 88,
+        FormatR16g16b16Sint = 89,
+        FormatR16g16b16Sfloat = 90,
+        FormatR16g16b16a16Unorm = 91,
+        FormatR16g16b16a16Snorm = 92,
+        FormatR16g16b16a16Uint = 95,
+        FormatR16g16b16a16Sint = 96,
+        FormatR16g16b16a16Sfloat = 97,
+        FormatR32Uint = 98,
+        FormatR32Sint = 99,
+        FormatR32Sfloat = 100,
+        FormatR32g32Uint = 101,
+        FormatR32g32Sint = 102,
+        FormatR32g32Sfloat = 103,
+        FormatR32g32b32Uint = 104,
+        FormatR32g32b32Sint = 105,
+        FormatR32g32b32Sfloat = 106,
+        FormatR32g32b32a32Uint = 107,
+        FormatR32g32b32a32Sint = 108,
+        FormatR32g32b32a32Sfloat = 109,
+        FormatD16Unorm = 124,
+        FormatD32Sfloat = 126,
+        FormatS8Uint = 127
+    }
+
     public unsafe partial class Attachment : IDisposable
     {
-        [StructLayout(LayoutKind.Explicit, Size = 36)]
+        [StructLayout(LayoutKind.Explicit, Size = 28)]
         public partial struct __Internal
         {
             [FieldOffset(0)]
@@ -51156,16 +51947,15 @@ namespace FlounderSharp
             internal global::FlounderSharp.AttachmentType m_type;
 
             [FieldOffset(8)]
-            internal global::VkFormat m_format;
+            internal global::FlounderSharp.AttachmentFormat m_format;
 
             [FieldOffset(12)]
             internal global::FlounderSharp.Colour.__Internal m_clearColour;
 
-            [FieldOffset(28)]
-            internal global::VkImageLayout m_layout;
-
-            [FieldOffset(32)]
-            internal uint m_usage;
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Attachment@fl@@QEAA@AEBIAEBW4AttachmentType@1@AEBW4AttachmentFormat@1@AEBVColour@1@@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, uint binding, global::FlounderSharp.AttachmentType type, global::FlounderSharp.AttachmentFormat format, global::System.IntPtr clearColour);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -51189,13 +51979,13 @@ namespace FlounderSharp
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetClearColour@Attachment@fl@@QEBA?AVColour@2@XZ")]
-            internal static extern void GetClearColour(global::System.IntPtr instance, global::System.IntPtr @return);
+                EntryPoint="?GetFormat@Attachment@fl@@QEBA?AW4AttachmentFormat@2@XZ")]
+            internal static extern global::FlounderSharp.AttachmentFormat GetFormat(global::System.IntPtr instance);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetUsage@Attachment@fl@@QEBAIXZ")]
-            internal static extern uint GetUsage(global::System.IntPtr instance);
+                EntryPoint="?GetClearColour@Attachment@fl@@QEBA?AVColour@2@XZ")]
+            internal static extern void GetClearColour(global::System.IntPtr instance, global::System.IntPtr @return);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -51235,6 +52025,17 @@ namespace FlounderSharp
             if (native == null)
                 return;
             __Instance = new global::System.IntPtr(native);
+        }
+
+        public Attachment(uint binding, global::FlounderSharp.AttachmentType type, global::FlounderSharp.AttachmentFormat format, global::FlounderSharp.Colour clearColour)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Attachment.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(clearColour, null))
+                throw new global::System.ArgumentNullException("clearColour", "Cannot be null because it is a C++ reference (&).");
+            var __arg3 = clearColour.__Instance;
+            __Internal.ctor((__Instance + __PointerAdjustment), binding, type, format, __arg3);
         }
 
         public Attachment(global::FlounderSharp.Attachment _0)
@@ -51284,6 +52085,15 @@ namespace FlounderSharp
             }
         }
 
+        public global::FlounderSharp.AttachmentFormat Format
+        {
+            get
+            {
+                var __ret = __Internal.GetFormat((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
         public global::FlounderSharp.Colour ClearColour
         {
             get
@@ -51291,15 +52101,6 @@ namespace FlounderSharp
                 var __ret = new global::FlounderSharp.Colour.__Internal();
                 __Internal.GetClearColour((__Instance + __PointerAdjustment), new IntPtr(&__ret));
                 return global::FlounderSharp.Colour.__CreateInstance(__ret);
-            }
-        }
-
-        public uint Usage
-        {
-            get
-            {
-                var __ret = __Internal.GetUsage((__Instance + __PointerAdjustment));
-                return __ret;
             }
         }
     }
@@ -54344,6 +55145,11 @@ namespace FlounderSharp
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetUiManager@Scene@fl@@QEAAXPEAVIManagerUis@2@@Z")]
             internal static extern void SetUiManager(global::System.IntPtr instance, global::System.IntPtr managerUis);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetStructure@Scene@fl@@QEBAPEAVSceneStructure@2@XZ")]
+            internal static extern global::System.IntPtr GetStructure(global::System.IntPtr instance);
         }
 
         public global::System.IntPtr __Instance { get; protected set; }
@@ -54477,6 +55283,21 @@ namespace FlounderSharp
             {
                 var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
                 __Internal.SetUiManager((__Instance + __PointerAdjustment), __arg0);
+            }
+        }
+
+        /// <summary>Gets the GameObjects structure.</summary>
+        public global::FlounderSharp.SceneStructure Structure
+        {
+            get
+            {
+                var __ret = __Internal.GetStructure((__Instance + __PointerAdjustment));
+                global::FlounderSharp.SceneStructure __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.SceneStructure.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.SceneStructure) global::FlounderSharp.SceneStructure.NativeToManagedMap[__ret];
+                else global::FlounderSharp.SceneStructure.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.SceneStructure) global::FlounderSharp.SceneStructure.__CreateInstance(__ret);
+                return __result0;
             }
         }
 
@@ -54688,6 +55509,11 @@ namespace FlounderSharp
                 EntryPoint="?IsGamePaused@Scenes@fl@@QEAA_NXZ")]
             [return: MarshalAs(UnmanagedType.I1)]
             internal static extern bool IsGamePaused(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetStructure@Scenes@fl@@QEBAPEAVSceneStructure@2@XZ")]
+            internal static extern global::System.IntPtr GetStructure(global::System.IntPtr instance);
         }
 
         internal static new global::FlounderSharp.Scenes __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
@@ -54857,6 +55683,21 @@ namespace FlounderSharp
             {
                 var __ret = __Internal.IsGamePaused((__Instance + __PointerAdjustment));
                 return __ret;
+            }
+        }
+
+        /// <summary>Gets the GameObjects structure.</summary>
+        public global::FlounderSharp.SceneStructure Structure
+        {
+            get
+            {
+                var __ret = __Internal.GetStructure((__Instance + __PointerAdjustment));
+                global::FlounderSharp.SceneStructure __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.SceneStructure.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.SceneStructure) global::FlounderSharp.SceneStructure.NativeToManagedMap[__ret];
+                else global::FlounderSharp.SceneStructure.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.SceneStructure) global::FlounderSharp.SceneStructure.__CreateInstance(__ret);
+                return __result0;
             }
         }
 
@@ -56215,12 +57056,12 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0CelestialBody@fl@@QEAA@AEBW4CelestialType@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::FlounderSharp.CelestialType* type);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::FlounderSharp.CelestialType type);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0CelestialBody@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor_1(global::System.IntPtr instance, global::System.IntPtr _0);
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -56230,7 +57071,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?SetType@CelestialBody@fl@@QEAAXAEBW4CelestialType@2@@Z")]
-            internal static extern void SetType(global::System.IntPtr instance, global::FlounderSharp.CelestialType* type);
+            internal static extern void SetType(global::System.IntPtr instance, global::FlounderSharp.CelestialType type);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -56251,7 +57092,7 @@ namespace FlounderSharp
         private static void* __CopyValue(global::FlounderSharp.CelestialBody.__Internal native)
         {
             var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.CelestialBody.__Internal));
-            global::FlounderSharp.CelestialBody.__Internal.cctor_1(ret, new global::System.IntPtr(&native));
+            global::FlounderSharp.CelestialBody.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
@@ -56275,7 +57116,7 @@ namespace FlounderSharp
                 SetupVTables(true);
         }
 
-        public CelestialBody(global::FlounderSharp.CelestialType* type)
+        public CelestialBody(global::FlounderSharp.CelestialType type)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.CelestialBody.__Internal));
@@ -56294,7 +57135,7 @@ namespace FlounderSharp
             if (ReferenceEquals(_0, null))
                 throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
             var __arg0 = _0.__Instance;
-            __Internal.cctor_1((__Instance + __PointerAdjustment), __arg0);
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
             SetupVTables(GetType().FullName == "FlounderSharp.CelestialBody");
         }
 
@@ -56321,7 +57162,7 @@ namespace FlounderSharp
             ___WriteDelegate((__Instance + __PointerAdjustment), __arg0);
         }
 
-        public static implicit operator global::FlounderSharp.CelestialBody(global::FlounderSharp.CelestialType* type)
+        public static implicit operator global::FlounderSharp.CelestialBody(global::FlounderSharp.CelestialType type)
         {
             return new global::FlounderSharp.CelestialBody(type);
         }
@@ -56336,7 +57177,7 @@ namespace FlounderSharp
 
             set
             {
-                __Internal.SetType((__Instance + __PointerAdjustment), &value);
+                __Internal.SetType((__Instance + __PointerAdjustment), value);
             }
         }
 
@@ -58039,7 +58880,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0UiInputButton@fl@@QEAA@PEAVUiObject@1@AEBVVector2@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBW4FontJustify@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr @string, global::FlounderSharp.FontJustify* justify);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr @string, global::FlounderSharp.FontJustify justify);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -58094,7 +58935,7 @@ namespace FlounderSharp
                 SetupVTables(true);
         }
 
-        public UiInputButton(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector2 position, string @string, global::FlounderSharp.FontJustify* justify)
+        public UiInputButton(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector2 position, string @string, global::FlounderSharp.FontJustify justify)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UiInputButton.__Internal));
@@ -58597,12 +59438,12 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0UiGrabberJoystick@fl@@QEAA@AEBW4JoystickPort@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::FlounderSharp.JoystickPort* joystick);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::FlounderSharp.JoystickPort joystick);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0UiGrabberJoystick@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor_1(global::System.IntPtr instance, global::System.IntPtr _0);
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
         }
 
         internal static new global::FlounderSharp.UiGrabberJoystick __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
@@ -58618,7 +59459,7 @@ namespace FlounderSharp
         private static void* __CopyValue(global::FlounderSharp.UiGrabberJoystick.__Internal native)
         {
             var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UiGrabberJoystick.__Internal));
-            global::FlounderSharp.UiGrabberJoystick.__Internal.cctor_1(ret, new global::System.IntPtr(&native));
+            global::FlounderSharp.UiGrabberJoystick.__Internal.cctor(ret, new global::System.IntPtr(&native));
             return ret.ToPointer();
         }
 
@@ -58642,7 +59483,7 @@ namespace FlounderSharp
                 SetupVTables(true);
         }
 
-        public UiGrabberJoystick(global::FlounderSharp.JoystickPort* joystick)
+        public UiGrabberJoystick(global::FlounderSharp.JoystickPort joystick)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UiGrabberJoystick.__Internal));
@@ -58661,7 +59502,7 @@ namespace FlounderSharp
             if (ReferenceEquals(_0, null))
                 throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
             var __arg0 = _0.__Instance;
-            __Internal.cctor_1((__Instance + __PointerAdjustment), __arg0);
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
             SetupVTables(GetType().FullName == "FlounderSharp.UiGrabberJoystick");
         }
 
@@ -58686,7 +59527,7 @@ namespace FlounderSharp
             return __stringRet;
         }
 
-        public static implicit operator global::FlounderSharp.UiGrabberJoystick(global::FlounderSharp.JoystickPort* joystick)
+        public static implicit operator global::FlounderSharp.UiGrabberJoystick(global::FlounderSharp.JoystickPort joystick)
         {
             return new global::FlounderSharp.UiGrabberJoystick(joystick);
         }
@@ -59298,7 +60139,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0UiInputGrabber@fl@@QEAA@PEAVUiObject@1@AEBVVector3@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBHPEAVIUiGrabber@1@AEBW4FontJustify@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr prefix, int value, global::System.IntPtr grabber, global::FlounderSharp.FontJustify* justify);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr prefix, int value, global::System.IntPtr grabber, global::FlounderSharp.FontJustify justify);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -59363,7 +60204,7 @@ namespace FlounderSharp
                 SetupVTables(true);
         }
 
-        public UiInputGrabber(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector3 position, string prefix, int value, global::FlounderSharp.IUiGrabber grabber, global::FlounderSharp.FontJustify* justify)
+        public UiInputGrabber(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector3 position, string prefix, int value, global::FlounderSharp.IUiGrabber grabber, global::FlounderSharp.FontJustify justify)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UiInputGrabber.__Internal));
@@ -59652,7 +60493,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0UiInputSlider@fl@@QEAA@PEAVUiObject@1@AEBVVector3@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBM33AEBW4FontJustify@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr @string, float progressMin, float progressMax, float value, global::FlounderSharp.FontJustify* justify);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr @string, float progressMin, float progressMax, float value, global::FlounderSharp.FontJustify justify);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -59737,7 +60578,7 @@ namespace FlounderSharp
                 SetupVTables(true);
         }
 
-        public UiInputSlider(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector3 position, string @string, float progressMin, float progressMax, float value, global::FlounderSharp.FontJustify* justify)
+        public UiInputSlider(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector3 position, string @string, float progressMin, float progressMax, float value, global::FlounderSharp.FontJustify justify)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UiInputSlider.__Internal));
@@ -60001,7 +60842,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0UiInputText@fl@@QEAA@PEAVUiObject@1@AEBVVector3@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@2AEBW4FontJustify@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr prefix, global::System.IntPtr value, global::FlounderSharp.FontJustify* justify);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr parent, global::System.IntPtr position, global::System.IntPtr prefix, global::System.IntPtr value, global::FlounderSharp.FontJustify justify);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -60066,7 +60907,7 @@ namespace FlounderSharp
                 SetupVTables(true);
         }
 
-        public UiInputText(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector3 position, string prefix, string value, global::FlounderSharp.FontJustify* justify)
+        public UiInputText(global::FlounderSharp.UiObject parent, global::FlounderSharp.Vector3 position, string prefix, string value, global::FlounderSharp.FontJustify justify)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UiInputText.__Internal));
@@ -61122,7 +61963,7 @@ namespace FlounderSharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="??0VoxelChunk@fl@@QEAA@AEBW4ChunkMesh@1@AEB_N@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::FlounderSharp.ChunkMesh* chunkMesh, bool generate);
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::FlounderSharp.ChunkMesh chunkMesh, bool generate);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -61144,7 +61985,7 @@ namespace FlounderSharp
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?IsFaceVisible@VoxelChunk@fl@@QEAA_NAEBH00AEBW4BlockFace@2@@Z")]
             [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool IsFaceVisible(global::System.IntPtr instance, int x, int y, int z, global::FlounderSharp.BlockFace* faceType);
+            internal static extern bool IsFaceVisible(global::System.IntPtr instance, int x, int y, int z, global::FlounderSharp.BlockFace faceType);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -61194,7 +62035,7 @@ namespace FlounderSharp
                 SetupVTables(true);
         }
 
-        public VoxelChunk(global::FlounderSharp.ChunkMesh* chunkMesh, bool generate)
+        public VoxelChunk(global::FlounderSharp.ChunkMesh chunkMesh, bool generate)
             : this((void*) null)
         {
             __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.VoxelChunk.__Internal));
@@ -61257,7 +62098,7 @@ namespace FlounderSharp
             return __ret;
         }
 
-        public bool IsFaceVisible(int x, int y, int z, global::FlounderSharp.BlockFace* faceType)
+        public bool IsFaceVisible(int x, int y, int z, global::FlounderSharp.BlockFace faceType)
         {
             var __ret = __Internal.IsFaceVisible((__Instance + __PointerAdjustment), x, y, z, faceType);
             return __ret;
