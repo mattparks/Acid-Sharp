@@ -7,30 +7,16 @@ namespace FlounderSharp.Tests
     {
         private static void Main(string[] args)
         {
-            // Creates the engine and updater objects.
-            var engine = new Engine
+            var display = new Display
             {
-                Updater = new MainUpdater()
+                Title = "Dank memes"
             };
 
-            var configManager = new ConfigManager();
-            Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
-
-            // Registers modules.
-
-            // Registers components.
-
-            // Initializes modules.
-            Display.Get().Title = "Testing Guis";
-            Display.Get().Icon = "Resources/Logos/Tail.png";
-            Mouse.Get().CustomMouse = "Resources/Guis/Cursor.png";
-            Renderer.Get().Manager = new MainRenderer();
-            Scenes.Get().Scene = new Scene1();
-
-            // Runs the game loop.
-            var exitCode = engine.Run();
-            configManager.Save();
-
+            while (!display.IsClosed)
+            {
+                display.Update();
+            }
+            
             // End program.
             Console.WriteLine("Press enter to continue...");
             Console.ReadLine();

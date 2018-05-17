@@ -31,7 +31,8 @@ namespace FlounderSharp.CLI
             {
                 return false;
             }
-            
+
+            parameter.Usage = ParameterUsage.In;
             parameter.QualifiedType = cleanedType;
             return true;
         }

@@ -46,6 +46,8 @@ namespace FlounderSharp.CLI
             options.OutputDir = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp";
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
+            options.MarshalCharAsManagedChar = true;
+            options.GenerateFinalizers = false;
             options.CheckSymbols = false;
             options.Verbose = true;
 
@@ -57,6 +59,7 @@ namespace FlounderSharp.CLI
             module.Headers.Add(@"fl\Flounder.hpp");
             module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Flounder\lib");
             module.Libraries.Add("Flounder.lib");
+            module.Libraries.Add("vulkan-1.lib");
         }
 
         /// <summary>
