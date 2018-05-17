@@ -3,8 +3,8 @@
 #include <string>
 #include <map>
 #include <functional>
-#include "Tasks/Tasks.hpp"
 #include "Helpers/FormatString.hpp"
+#include "Tasks/Tasks.hpp"
 #include "IFile.hpp"
 #include "ConfigKey.hpp"
 
@@ -14,7 +14,7 @@ namespace fl
 	{
 	private:
 		IFile *m_file;
-		std::map<std::string, ConfigKey> *m_values;
+		std::map<std::string, ConfigKey *> *m_values;
 	public:
 #define CONFIG_GET(f) (new std::function<std::string()>([&]() -> std::string { return std::to_string(f); }))
 #define CONFIG_SET(t, f) (new std::function<void(t)>([&](const t &v) -> void { f; }))
@@ -29,14 +29,16 @@ namespace fl
 
 		void Save();
 
-		ConfigKey GetRaw(const std::string &key, const std::string &normal);
+		ConfigKey *GetRaw(const std::string &key, const std::string &normal);
 
 		void SetRaw(const std::string &key, const std::string &value);
+
+		void Remove(const std::string &key);
 
 		template<typename T>
 		T Get(const std::string &key, const T &normal)
 		{
-			return FormatString::ConvertTo<T>(GetRaw(key, std::to_string(normal)).GetValue());
+			return FormatString::ConvertTo<T>(GetRaw(key, std::to_string(normal))->GetValue());
 		}
 
 		template<typename T>
@@ -48,16 +50,16 @@ namespace fl
 		template<typename T>
 		void Link(const std::string &key, const T &normal, std::function<std::string()> *getter, std::function<void(T)> *setter = nullptr)
 		{
-			ConfigKey configKey = GetRaw(key, std::to_string(normal));
+			auto configKey = GetRaw(key, std::to_string(normal));
 
 			if (getter != nullptr)
 			{
-				configKey.SetGetter(getter);
+				configKey->SetGetter(getter);
 			}
 
-			if (setter != nullptr && configKey.IsFromFile())
+			if (setter != nullptr)
 			{
-				(*setter)(Get(key, normal));
+				(*setter)(Get<T>(key, FormatString::ConvertTo<T>(configKey->GetValue())));
 			}
 		}
 	};
