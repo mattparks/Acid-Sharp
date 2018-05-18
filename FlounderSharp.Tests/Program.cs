@@ -1,4 +1,5 @@
 ﻿using System;
+using FlounderSharp;
 
 namespace FlounderSharp.Tests
 {
@@ -6,23 +7,30 @@ namespace FlounderSharp.Tests
     {
         private static void Main(string[] args)
         {
-            var display = new Display
+            // Creates the engine and updater objects.
+            var engine = new Engine
             {
-                Title = "Hello C#",
-                Icon = @"C:\Users\mattp\Documents\Flounder Workspace\Flounder\Resources\Logos\Tail.png",
-                Width = 720,
-                Height = 480
+                Updater = new MainUpdater()
             };
 
-            while (!display.IsClosed)
-            {
-                display.Update();
-            }
+            var configManager = new ConfigManager();
+            Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
 
-            var filepath = @"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\Memes.txt";
-            FileSystem.CreateFile(filepath, false);
-            var content = FileSystem.ReadTextFile(filepath);
-            
+            // Registers modules.
+
+            // Registers components.
+
+            // Initializes modules.
+            Display.Get().Title = "Testing Guis";
+            Display.Get().Icon = "Resources/Logos/Tail.png";
+            Mouse.Get().CustomMouse = "Resources/Guis/Cursor.png";
+            Renderer.Get().Manager = new MainRenderer();
+            Scenes.Get().Scene = new Scene1();
+
+            // Runs the game loop.
+            var exitCode = engine.Run();
+            configManager.Save();
+
             // End program.
             Console.WriteLine("Press enter to continue...");
             Console.ReadLine();

@@ -15,7 +15,6 @@
     <copyright>Copyright 2018</copyright>
     <tags>game-engine vulkan</tags>
     <dependencies>
-      <dependency id="CppSharp" version="0.8.19" />
       <dependency id="Microsoft.VisualStudio.Setup.Configuration.Interop" version="1.16.30" />
 	</dependencies>
   </metadata>
@@ -24,9 +23,11 @@
 	<file src="Flounder\lib\Flounder.dll" target="output"/>
 	<file src="Flounder\lib\glfw3.dll" target="output"/>
 	<file src="Flounder\lib\glslangd.dll" target="output"/>
+	<file src="Flounder\lib\OpenAL32.dll" target="output"/>
 	<file src="Flounder\lib\SPIRVd.dll" target="output"/>
 	<file src="Flounder\lib\SPVRemapperd.dll" target="output"/>
 	<file src="Flounder\lib\stb.dll" target="output"/>
-	<file src="Flounder\lib\Std-symbols.dll" target="output"/>
+	<file src="Flounder\lib\vulkan-1.dll" target="output"/>
+	<file src="Std-symbols\bin\Debug_x64\Std-symbols.dll" target="output"/>
   </files>
 </package>

@@ -3307,11 +3307,11 @@
   <!--
   ***************************************
   **
-  ** Collider.hpp
+  ** ICollider.hpp
   **
   ***************************************
   -->
-  <Export name="Collider" target="Common" source="Collider.hpp">
+  <Export name="ICollider" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -3322,7 +3322,7 @@
 ]]>
     </Description>
   </Export>
-  <Export name="Update" target="Common" source="Collider.hpp">
+  <Export name="UpdateCollider" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -3340,10 +3340,10 @@
     </Description>
     <Parameters>
       <Parameter type="global::FlounderSharp.Transform" name="transform" />
-      <Parameter type="global::FlounderSharp.Collider" name="destination" />
+      <Parameter type="global::FlounderSharp.ICollider" name="destination" />
     </Parameters>
   </Export>
-  <Export name="ResolveCollision" target="Common" source="Collider.hpp">
+  <Export name="ResolveCollision" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -3366,12 +3366,12 @@
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="global::FlounderSharp.Collider" name="other" />
+      <Parameter type="global::FlounderSharp.ICollider" name="other" />
       <Parameter type="global::FlounderSharp.Vector3" name="positionDelta" />
       <Parameter type="global::FlounderSharp.Vector3" name="destination" />
     </Parameters>
   </Export>
-  <Export name="Intersects" target="Common" source="Collider.hpp">
+  <Export name="Intersects" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -3386,10 +3386,10 @@
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="global::FlounderSharp.Collider" name="other" />
+      <Parameter type="global::FlounderSharp.ICollider" name="other" />
     </Parameters>
   </Export>
-  <Export name="Intersects" target="Common" source="Collider.hpp">
+  <Export name="Intersects" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -3407,7 +3407,7 @@
       <Parameter type="global::FlounderSharp.Ray" name="ray" />
     </Parameters>
   </Export>
-  <Export name="InFrustum" target="Common" source="Collider.hpp">
+  <Export name="InFrustum" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -3425,7 +3425,7 @@
       <Parameter type="global::FlounderSharp.Frustum" name="frustum" />
     </Parameters>
   </Export>
-  <Export name="Contains" target="Common" source="Collider.hpp">
+  <Export name="Contains" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -3440,10 +3440,10 @@
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="global::FlounderSharp.Collider" name="other" />
+      <Parameter type="global::FlounderSharp.ICollider" name="other" />
     </Parameters>
   </Export>
-  <Export name="Contains" target="Common" source="Collider.hpp">
+  <Export name="Contains" target="Common" source="ICollider.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -5764,219 +5764,6 @@
   <!--
   ***************************************
   **
-  ** ICamera.hpp
-  **
-  ***************************************
-  -->
-  <Export name="ICamera" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new camera.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Update" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Checks inputs and carries out smooth camera movement. Called before every frame.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="ReflectView" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Prepares the camera for the reflection render pass.
-
-/// </summary>
-
-/// <param name="waterHeight"> The height of the water to be reflected on. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="waterHeight" />
-    </Parameters>
-  </Export>
-  <Export name="GetNearPlane" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the distance of the near pane of the view frustum.
-
-/// </summary>
-
-/// <returns> The distance of the near pane of the view frustum. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetFarPlane" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the distance of the view frustum's far plane.
-
-/// </summary>
-
-/// <returns> The distance of the view frustum's far plane. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetFov" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the field of view angle for the view frustum.
-
-/// </summary>
-
-/// <returns> The field of view angle for the view frustum. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetViewFrustum" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the view frustum created by the current camera position and rotation.
-
-/// </summary>
-
-/// <returns> The view frustum created by the current camera position and rotation. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetViewRay" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the ray that extends from the cameras position though the screen.
-
-/// </summary>
-
-/// <returns> The cameras view ray. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetViewMatrix" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the view matrix created by the current camera position and rotation.
-
-/// </summary>
-
-/// <returns> The view matrix created by the current camera position and rotation. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetProjectionMatrix" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the projection matrix used in the current scene render.
-
-/// </summary>
-
-/// <returns> The projection matrix used in the current scene render. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetPosition" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the cameras 3D position in the world.
-
-/// </summary>
-
-/// <returns> The cameras 3D position in the world. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetVelocity" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the cameras 3D velocity in the world.
-
-/// </summary>
-
-/// <returns> The cameras 3D velocity in the world. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetRotation" target="Common" source="ICamera.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll.
-
-/// </summary>
-
-/// <returns> The cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** IRenderer.hpp
-  **
-  ***************************************
-  -->
-  <Export name="IRenderer" target="Common" source="IRenderer.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new renderer.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Render" target="Common" source="IRenderer.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Called when the renderer is needed to be rendered.
-
-/// </summary>
-
-/// <param name="clipPlane"> The current clip plane. </param>
-
-/// <param name="camera"> The camera to be used when rendering. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.CommandBuffer" name="commandBuffer" />
-      <Parameter type="global::FlounderSharp.Vector4" name="clipPlane" />
-      <Parameter type="global::FlounderSharp.ICamera" name="camera" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** IEvent.hpp
   **
   ***************************************
@@ -6235,6 +6022,219 @@
     <Parameters>
       <Parameter type="string" name="textureFile" />
       <Parameter type="string" name="fontFile" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ICamera.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ICamera" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new camera.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Checks inputs and carries out smooth camera movement. Called before every frame.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="ReflectView" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Prepares the camera for the reflection render pass.
+
+/// </summary>
+
+/// <param name="waterHeight"> The height of the water to be reflected on. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="waterHeight" />
+    </Parameters>
+  </Export>
+  <Export name="GetNearPlane" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance of the near pane of the view frustum.
+
+/// </summary>
+
+/// <returns> The distance of the near pane of the view frustum. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetFarPlane" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance of the view frustum's far plane.
+
+/// </summary>
+
+/// <returns> The distance of the view frustum's far plane. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetFov" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the field of view angle for the view frustum.
+
+/// </summary>
+
+/// <returns> The field of view angle for the view frustum. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetViewFrustum" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the view frustum created by the current camera position and rotation.
+
+/// </summary>
+
+/// <returns> The view frustum created by the current camera position and rotation. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetViewRay" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the ray that extends from the cameras position though the screen.
+
+/// </summary>
+
+/// <returns> The cameras view ray. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetViewMatrix" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the view matrix created by the current camera position and rotation.
+
+/// </summary>
+
+/// <returns> The view matrix created by the current camera position and rotation. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetProjectionMatrix" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the projection matrix used in the current scene render.
+
+/// </summary>
+
+/// <returns> The projection matrix used in the current scene render. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetPosition" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the cameras 3D position in the world.
+
+/// </summary>
+
+/// <returns> The cameras 3D position in the world. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetVelocity" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the cameras 3D velocity in the world.
+
+/// </summary>
+
+/// <returns> The cameras 3D velocity in the world. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetRotation" target="Common" source="ICamera.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll.
+
+/// </summary>
+
+/// <returns> The cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IRenderer.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IRenderer" target="Common" source="IRenderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new renderer.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Render" target="Common" source="IRenderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Called when the renderer is needed to be rendered.
+
+/// </summary>
+
+/// <param name="clipPlane"> The current clip plane. </param>
+
+/// <param name="camera"> The camera to be used when rendering. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.CommandBuffer" name="commandBuffer" />
+      <Parameter type="global::FlounderSharp.Vector4" name="clipPlane" />
+      <Parameter type="global::FlounderSharp.ICamera" name="camera" />
     </Parameters>
   </Export>
   <!--
@@ -6996,7 +6996,7 @@
 ]]>
     </Description>
   </Export>
-  <Export name="GetText" target="Common" source="Text.hpp">
+  <Export name="GetString" target="Common" source="Text.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -7009,7 +7009,7 @@
 ]]>
     </Description>
   </Export>
-  <Export name="SetText" target="Common" source="Text.hpp">
+  <Export name="SetString" target="Common" source="Text.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -7018,11 +7018,11 @@
 
 /// </summary>
 
-/// <param name="newText"> The new text, </param>
+/// <param name="newString"> The new text, </param>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="newText" />
+      <Parameter type="string" name="newString" />
     </Parameters>
   </Export>
   <Export name="GetTextJustify" target="Common" source="Text.hpp">
@@ -8811,6 +8811,58 @@
   <!--
   ***************************************
   **
+  ** ComponentRegister.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ComponentRegister" target="Common" source="ComponentRegister.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new component register.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="DeregisterComponent" target="Common" source="ComponentRegister.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Deregisters a component.
+
+/// </summary>
+
+/// <param name="name"> The components name. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="name" />
+    </Parameters>
+  </Export>
+  <Export name="CreateComponent" target="Common" source="ComponentRegister.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new component from the register.
+
+/// </summary>
+
+/// <param name="name"> The component name to create. </param>
+
+/// <returns> The new component. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="name" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Particles.hpp
   **
   ***************************************
@@ -8933,24 +8985,6 @@
     <Parameters>
       <Parameter type="global::FlounderSharp.ColliderSphere" name="source" />
     </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** SceneStructure.hpp
-  **
-  ***************************************
-  -->
-  <Export name="SceneStructure" target="Common" source="SceneStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new basic structure.
-
-/// </summary>
-]]>
-    </Description>
   </Export>
   <!--
   ***************************************
@@ -9274,58 +9308,6 @@
   <!--
   ***************************************
   **
-  ** ComponentRegister.hpp
-  **
-  ***************************************
-  -->
-  <Export name="ComponentRegister" target="Common" source="ComponentRegister.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new component register.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="DeregisterComponent" target="Common" source="ComponentRegister.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Deregisters a component.
-
-/// </summary>
-
-/// <param name="name"> The components name. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="name" />
-    </Parameters>
-  </Export>
-  <Export name="CreateComponent" target="Common" source="ComponentRegister.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new component from the register.
-
-/// </summary>
-
-/// <param name="name"> The component name to create. </param>
-
-/// <returns> The new component. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="name" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** PrefabObject.hpp
   **
   ***************************************
@@ -9345,6 +9327,24 @@
     <Parameters>
       <Parameter type="string" name="filename" />
     </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** SceneStructure.hpp
+  **
+  ***************************************
+  -->
+  <Export name="SceneStructure" target="Common" source="SceneStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new basic structure.
+
+/// </summary>
+]]>
+    </Description>
   </Export>
   <!--
   ***************************************

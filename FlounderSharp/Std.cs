@@ -263,7 +263,7 @@ namespace Std
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        /*[StructLayout(LayoutKind.Explicit, Size = 16)]
         public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_less____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1S1__S1___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S7__Vb1_Vb1
         {
             [FieldOffset(0)]
@@ -275,7 +275,7 @@ namespace Std
         {
             [FieldOffset(0)]
             internal global::Std.TreeVal.__Internal _Myval2;
-        }
+        }*/
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
         public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_fl_S_RowCsv___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1

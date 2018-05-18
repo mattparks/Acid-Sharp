@@ -373,14 +373,14 @@ namespace FlounderSharp
         internal unsafe delegate global::System.IntPtr Func_IntPtr_IntPtr(global::System.IntPtr _0);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
+        [return: MarshalAs(UnmanagedType.I1)]
+        internal unsafe delegate bool Func_bool_IntPtr(global::System.IntPtr _0);
+
+        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         internal unsafe delegate void Action_IntPtr_float(global::System.IntPtr _0, float _1);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         internal unsafe delegate void Action_IntPtr_IntPtr_IntPtr_IntPtr(global::System.IntPtr _0, global::System.IntPtr _1, global::System.IntPtr _2, global::System.IntPtr _3);
-
-        [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
-        [return: MarshalAs(UnmanagedType.I1)]
-        internal unsafe delegate bool Func_bool_IntPtr(global::System.IntPtr _0);
 
         [SuppressUnmanagedCodeSecurity, UnmanagedFunctionPointer(global::System.Runtime.InteropServices.CallingConvention.Cdecl)]
         internal unsafe delegate float Func_float_IntPtr_float(global::System.IntPtr _0, float _1);
@@ -9323,7 +9323,7 @@ namespace FlounderSharp
 namespace FlounderSharp
 {
     /// <summary>A simple class that represents a physical shape.</summary>
-    public unsafe abstract partial class Collider : global::FlounderSharp.Component, IDisposable
+    public unsafe abstract partial class ICollider : global::FlounderSharp.Component, IDisposable
     {
         [StructLayout(LayoutKind.Explicit, Size = 56)]
         public new partial struct __Internal
@@ -9342,17 +9342,17 @@ namespace FlounderSharp
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Collider@fl@@QEAA@XZ")]
+                EntryPoint="??0ICollider@fl@@QEAA@XZ")]
             internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Collider@fl@@QEAA@AEBV01@@Z")]
+                EntryPoint="??0ICollider@fl@@QEAA@AEBV01@@Z")]
             internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1Collider@fl@@UEAA@XZ")]
+                EntryPoint="??1ICollider@fl@@UEAA@XZ")]
             internal static extern void dtor(global::System.IntPtr instance, int delete);
 
             [SuppressUnmanagedCodeSecurity]
@@ -9361,17 +9361,17 @@ namespace FlounderSharp
             internal static extern void SetName(global::System.IntPtr instance, global::System.IntPtr name);
         }
 
-        internal static new global::FlounderSharp.Collider __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        internal static new global::FlounderSharp.ICollider __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.ColliderInternal(native.ToPointer(), skipVTables);
+            return new global::FlounderSharp.IColliderInternal(native.ToPointer(), skipVTables);
         }
 
-        internal static global::FlounderSharp.Collider __CreateInstance(global::FlounderSharp.Collider.__Internal native, bool skipVTables = false)
+        internal static global::FlounderSharp.ICollider __CreateInstance(global::FlounderSharp.ICollider.__Internal native, bool skipVTables = false)
         {
-            return new global::FlounderSharp.ColliderInternal(native, skipVTables);
+            return new global::FlounderSharp.IColliderInternal(native, skipVTables);
         }
 
-        protected Collider(void* native, bool skipVTables = false)
+        protected ICollider(void* native, bool skipVTables = false)
             : base((void*) null)
         {
             __PointerAdjustment = 0;
@@ -9385,27 +9385,27 @@ namespace FlounderSharp
         }
 
         /// <summary>Creates a new collider.</summary>
-        protected Collider()
+        protected ICollider()
             : this((void*) null)
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Collider.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICollider.__Internal));
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
             __Internal.ctor((__Instance + __PointerAdjustment));
-            SetupVTables(GetType().FullName == "FlounderSharp.Collider");
+            SetupVTables(GetType().FullName == "FlounderSharp.ICollider");
         }
 
-        protected Collider(global::FlounderSharp.Collider _0)
+        protected ICollider(global::FlounderSharp.ICollider _0)
             : this((void*) null)
         {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Collider.__Internal));
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICollider.__Internal));
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
             if (ReferenceEquals(_0, null))
                 throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
             var __arg0 = _0.__Instance;
             __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.Collider");
+            SetupVTables(GetType().FullName == "FlounderSharp.ICollider");
         }
 
         public override void Dispose(bool disposing)
@@ -9414,7 +9414,7 @@ namespace FlounderSharp
                 return;
             global::FlounderSharp.Component __dummy;
             NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            ((global::FlounderSharp.Collider.__Internal*) __Instance)->vfptr_Component = new global::System.IntPtr(__OriginalVTables[0]);
+            ((global::FlounderSharp.ICollider.__Internal*) __Instance)->vfptr_Component = new global::System.IntPtr(__OriginalVTables[0]);
             if (disposing)
             {
                 var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
@@ -9438,36 +9438,24 @@ namespace FlounderSharp
             ___UpdateDelegate((__Instance + __PointerAdjustment));
         }
 
-        public override void Load(global::FlounderSharp.LoadedValue value)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
-            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
-            ___LoadDelegate((__Instance + __PointerAdjustment), __arg0);
-        }
+        public override abstract void Load(global::FlounderSharp.LoadedValue value);
 
-        public override void Write(global::FlounderSharp.LoadedValue value)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
-            var ___WriteDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
-            ___WriteDelegate((__Instance + __PointerAdjustment), __arg0);
-        }
+        public override abstract void Write(global::FlounderSharp.LoadedValue value);
 
         /// <summary>Clones this collder into the destination and updates it.</summary>
         /// <param name="transform">The amount to transform the object.</param>
         /// <param name="destination">The collider to store the new data in.</param>
-        public abstract global::FlounderSharp.Collider Update(global::FlounderSharp.Transform transform, global::FlounderSharp.Collider destination);
+        public abstract global::FlounderSharp.ICollider UpdateCollider(global::FlounderSharp.Transform transform, global::FlounderSharp.ICollider destination);
 
         /// <summary>Adjusts a movement amount so that after the move is performed, the this collider will not intersect the {@code right}. This method assumes that this collider can actually intersect {@code right} after some amount of movement, even if it won't necessarily intersect it after the movement specified by {@code moveDelta}.</summary>
         /// <param name="other">The right source collider.</param>
         /// <param name="positionDelta">The delta movement for the left collider.</param>
         /// <param name="destination">Where the final resolved delta should be stored.</param>
-        public abstract global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.Collider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination);
+        public abstract global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.ICollider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination);
 
         /// <summary>Tests whether a shape is intersecting this shape.</summary>
         /// <param name="other">The other shape being tested for intersection.</param>
-        public abstract global::FlounderSharp.Intersect Intersects(global::FlounderSharp.Collider other);
+        public abstract global::FlounderSharp.Intersect Intersects(global::FlounderSharp.ICollider other);
 
         /// <summary>Tests whether a ray is intersecting this shape.</summary>
         /// <param name="ray">The ray being tested for intersection.</param>
@@ -9479,7 +9467,7 @@ namespace FlounderSharp
 
         /// <summary>Tests whether another this shape completely contains the other.</summary>
         /// <param name="other">The shape being tested for containment.</param>
-        public abstract bool Contains(global::FlounderSharp.Collider other);
+        public abstract bool Contains(global::FlounderSharp.ICollider other);
 
         /// <summary>Gets if a point is contained in this shape.</summary>
         /// <param name="point">The point to check if it is contained.</param>
@@ -9487,32 +9475,14 @@ namespace FlounderSharp
 
         public override string Name
         {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
-                var ___GetNameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                ___GetNameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
-                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                __basicStringRet.Dispose(false);
-                return __stringRet;
-            }
+            get;
 
-            set
-            {
-                var __allocator0 = new global::Std.Allocator<char>();
-                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
-                var __arg0 = __basicString0.__Instance;
-                __Internal.SetName((__Instance + __PointerAdjustment), __arg0);
-                __basicString0.Dispose(false);
-                __allocator0.Dispose();
-            }
+            set;
         }
 
         #region Virtual table interop
 
-        // ~Collider()
+        // virtual ~ICollider() { }
         private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
 
         private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
@@ -9520,13 +9490,13 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             __target.Dispose(true);
         }
 
-        // void Update() override
+        // void Update() override { }
         private static global::FlounderSharp.Delegates.Action_IntPtr _UpdateDelegateInstance;
 
         private static void _UpdateDelegateHook(global::System.IntPtr instance)
@@ -9534,13 +9504,13 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             __target.Update();
         }
 
-        // void Load(LoadedValue *value) override
+        // void Load(LoadedValue *value) override = 0
         private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _LoadDelegateInstance;
 
         private static void _LoadDelegateHook(global::System.IntPtr instance, global::System.IntPtr value)
@@ -9548,7 +9518,7 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             global::FlounderSharp.LoadedValue __result0;
@@ -9559,7 +9529,7 @@ namespace FlounderSharp
             __target.Load(__result0);
         }
 
-        // void Write(LoadedValue *value) override
+        // void Write(LoadedValue *value) override = 0
         private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _WriteDelegateInstance;
 
         private static void _WriteDelegateHook(global::System.IntPtr instance, global::System.IntPtr value)
@@ -9567,7 +9537,7 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             global::FlounderSharp.LoadedValue __result0;
@@ -9578,7 +9548,7 @@ namespace FlounderSharp
             __target.Write(__result0);
         }
 
-        // std::string GetName() const override { return "Collider"; }
+        // std::string GetName() const override = 0
         private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _GetNameDelegateInstance;
 
         private static void _GetNameDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return)
@@ -9586,7 +9556,7 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             var __ret = __target.Name;
@@ -9595,15 +9565,15 @@ namespace FlounderSharp
             *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
         }
 
-        // Collider *Update(const Transform &transform, Collider *destination) = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr _Update_1DelegateInstance;
+        // ICollider *UpdateCollider(const Transform &transform, ICollider *destination) = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr _UpdateColliderDelegateInstance;
 
-        private static global::System.IntPtr _Update_1DelegateHook(global::System.IntPtr instance, global::System.IntPtr transform, global::System.IntPtr destination)
+        private static global::System.IntPtr _UpdateColliderDelegateHook(global::System.IntPtr instance, global::System.IntPtr transform, global::System.IntPtr destination)
         {
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             global::FlounderSharp.Transform __result0;
@@ -9611,16 +9581,16 @@ namespace FlounderSharp
             else if (global::FlounderSharp.Transform.NativeToManagedMap.ContainsKey(transform))
                 __result0 = (global::FlounderSharp.Transform) global::FlounderSharp.Transform.NativeToManagedMap[transform];
             else __result0 = global::FlounderSharp.Transform.__CreateInstance(transform);
-            global::FlounderSharp.Collider __result1;
+            global::FlounderSharp.ICollider __result1;
             if (destination == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(destination))
-                __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[destination];
-            else __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(destination, skipVTables: true);
-            var __ret = __target.Update(__result0, __result1);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(destination))
+                __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[destination];
+            else __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(destination, skipVTables: true);
+            var __ret = __target.UpdateCollider(__result0, __result1);
             return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
         }
 
-        // Vector3 *ResolveCollision(const Collider &other, const Vector3 &positionDelta, Vector3 *destination) = 0
+        // Vector3 *ResolveCollision(const ICollider &other, const Vector3 &positionDelta, Vector3 *destination) = 0
         private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr _ResolveCollisionDelegateInstance;
 
         private static global::System.IntPtr _ResolveCollisionDelegateHook(global::System.IntPtr instance, global::System.IntPtr other, global::System.IntPtr positionDelta, global::System.IntPtr destination)
@@ -9628,14 +9598,14 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result0;
+            global::FlounderSharp.ICollider __result0;
             if (other == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             global::FlounderSharp.Vector3 __result1;
             if (positionDelta == IntPtr.Zero) __result1 = null;
             else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(positionDelta))
@@ -9658,7 +9628,7 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             global::FlounderSharp.Ray __result1;
@@ -9670,7 +9640,7 @@ namespace FlounderSharp
             *(global::FlounderSharp.Intersect.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Intersect.__Internal() : *(global::FlounderSharp.Intersect.__Internal*) __ret.__Instance;
         }
 
-        // Intersect Intersects(const Collider &other) = 0
+        // Intersect Intersects(const ICollider &other) = 0
         private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr _IntersectsDelegateInstance;
 
         private static void _IntersectsDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other)
@@ -9678,14 +9648,14 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result1;
+            global::FlounderSharp.ICollider __result1;
             if (other == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             var __ret = __target.Intersects(__result1);
             *(global::FlounderSharp.Intersect.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Intersect.__Internal() : *(global::FlounderSharp.Intersect.__Internal*) __ret.__Instance;
         }
@@ -9698,7 +9668,7 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             global::FlounderSharp.Frustum __result0;
@@ -9718,7 +9688,7 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             global::FlounderSharp.Vector3 __result0;
@@ -9730,7 +9700,7 @@ namespace FlounderSharp
             return __ret;
         }
 
-        // bool Contains(const Collider &other) = 0
+        // bool Contains(const ICollider &other) = 0
         private static global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr _ContainsDelegateInstance;
 
         private static bool _ContainsDelegateHook(global::System.IntPtr instance, global::System.IntPtr other)
@@ -9738,14 +9708,14 @@ namespace FlounderSharp
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
 
-            var __target = (global::FlounderSharp.Collider) NativeToManagedMap[instance];
+            var __target = (global::FlounderSharp.ICollider) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result0;
+            global::FlounderSharp.ICollider __result0;
             if (other == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             var __ret = __target.Contains(__result0);
             return __ret;
         }
@@ -9773,8 +9743,8 @@ namespace FlounderSharp
                 _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_WriteDelegateInstance).ToPointer();
                 _GetNameDelegateInstance += _GetNameDelegateHook;
                 _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetNameDelegateInstance).ToPointer();
-                _Update_1DelegateInstance += _Update_1DelegateHook;
-                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_Update_1DelegateInstance).ToPointer();
+                _UpdateColliderDelegateInstance += _UpdateColliderDelegateHook;
+                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_UpdateColliderDelegateInstance).ToPointer();
                 _ResolveCollisionDelegateInstance += _ResolveCollisionDelegateHook;
                 _Thunks[6] = Marshal.GetFunctionPointerForDelegate(_ResolveCollisionDelegateInstance).ToPointer();
                 _Intersects_1DelegateInstance += _Intersects_1DelegateHook;
@@ -9842,23 +9812,23 @@ namespace FlounderSharp
         #endregion
     }
 
-    public unsafe partial class ColliderInternal : global::FlounderSharp.Collider, IDisposable
+    public unsafe partial class IColliderInternal : global::FlounderSharp.ICollider, IDisposable
     {
-        private static void* __CopyValue(global::FlounderSharp.Collider.__Internal native)
+        private static void* __CopyValue(global::FlounderSharp.ICollider.__Internal native)
         {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Collider.__Internal));
-            *(global::FlounderSharp.Collider.__Internal*) ret = native;
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICollider.__Internal));
+            *(global::FlounderSharp.ICollider.__Internal*) ret = native;
             return ret.ToPointer();
         }
 
-        internal ColliderInternal(global::FlounderSharp.Collider.__Internal native, bool skipVTables = false)
+        internal IColliderInternal(global::FlounderSharp.ICollider.__Internal native, bool skipVTables = false)
             : this(__CopyValue(native), skipVTables)
         {
             __ownsNativeInstance = true;
             NativeToManagedMap[__Instance] = this;
         }
 
-        internal ColliderInternal(void* native, bool skipVTables = false)
+        internal IColliderInternal(void* native, bool skipVTables = false)
             : base((void*) null)
         {
             __PointerAdjustment = 0;
@@ -9866,23 +9836,39 @@ namespace FlounderSharp
             __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
         }
 
+        public override void Load(global::FlounderSharp.LoadedValue value)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___LoadDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public override void Write(global::FlounderSharp.LoadedValue value)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+            var ___WriteDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___WriteDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
         /// <summary>Clones this collder into the destination and updates it.</summary>
         /// <param name="transform">The amount to transform the object.</param>
         /// <param name="destination">The collider to store the new data in.</param>
-        public override global::FlounderSharp.Collider Update(global::FlounderSharp.Transform transform, global::FlounderSharp.Collider destination)
+        public override global::FlounderSharp.ICollider UpdateCollider(global::FlounderSharp.Transform transform, global::FlounderSharp.ICollider destination)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
-            var ___Update_1Delegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr));
+            var ___UpdateColliderDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr));
             if (ReferenceEquals(transform, null))
                 throw new global::System.ArgumentNullException("transform", "Cannot be null because it is a C++ reference (&).");
             var __arg0 = transform.__Instance;
             var __arg1 = ReferenceEquals(destination, null) ? global::System.IntPtr.Zero : destination.__Instance;
-            var __ret = ___Update_1Delegate((__Instance + __PointerAdjustment), __arg0, __arg1);
-            global::FlounderSharp.Collider __result0;
+            var __ret = ___UpdateColliderDelegate((__Instance + __PointerAdjustment), __arg0, __arg1);
+            global::FlounderSharp.ICollider __result0;
             if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[__ret];
-            else global::FlounderSharp.Collider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(__ret);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[__ret];
+            else global::FlounderSharp.ICollider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(__ret);
             return __result0;
         }
 
@@ -9890,7 +9876,7 @@ namespace FlounderSharp
         /// <param name="other">The right source collider.</param>
         /// <param name="positionDelta">The delta movement for the left collider.</param>
         /// <param name="destination">Where the final resolved delta should be stored.</param>
-        public override global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.Collider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination)
+        public override global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.ICollider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 7 * 8);
             var ___ResolveCollisionDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr));
@@ -9912,7 +9898,7 @@ namespace FlounderSharp
 
         /// <summary>Tests whether a shape is intersecting this shape.</summary>
         /// <param name="other">The other shape being tested for intersection.</param>
-        public override global::FlounderSharp.Intersect Intersects(global::FlounderSharp.Collider other)
+        public override global::FlounderSharp.Intersect Intersects(global::FlounderSharp.ICollider other)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 9 * 8);
             var ___IntersectsDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr));
@@ -9953,7 +9939,7 @@ namespace FlounderSharp
 
         /// <summary>Tests whether another this shape completely contains the other.</summary>
         /// <param name="other">The shape being tested for containment.</param>
-        public override bool Contains(global::FlounderSharp.Collider other)
+        public override bool Contains(global::FlounderSharp.ICollider other)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 12 * 8);
             var ___ContainsDelegate = (global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr));
@@ -9976,13 +9962,38 @@ namespace FlounderSharp
             var __ret = ___Contains_1Delegate((__Instance + __PointerAdjustment), __arg0);
             return __ret;
         }
+
+        public override string Name
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetNameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                ___GetNameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
+            }
+
+            set
+            {
+                var __allocator0 = new global::Std.Allocator<char>();
+                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
+                var __arg0 = __basicString0.__Instance;
+                __Internal.SetName((__Instance + __PointerAdjustment), __arg0);
+                __basicString0.Dispose(false);
+                __allocator0.Dispose();
+            }
+        }
     }
 }
 
 namespace FlounderSharp
 {
     /// <summary>A axis-aligned bounding box.</summary>
-    public unsafe partial class ColliderAabb : global::FlounderSharp.Collider, IDisposable
+    public unsafe partial class ColliderAabb : global::FlounderSharp.ICollider, IDisposable
     {
         [StructLayout(LayoutKind.Explicit, Size = 72)]
         public new partial struct __Internal
@@ -10214,34 +10225,40 @@ namespace FlounderSharp
             return __result0;
         }
 
-        public override global::FlounderSharp.Collider Update(global::FlounderSharp.Transform transform, global::FlounderSharp.Collider destination)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
-            var ___UpdateDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr));
-            if (ReferenceEquals(transform, null))
-                throw new global::System.ArgumentNullException("transform", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = transform.__Instance;
-            var __arg1 = ReferenceEquals(destination, null) ? global::System.IntPtr.Zero : destination.__Instance;
-            var __ret = ___UpdateDelegate((__Instance + __PointerAdjustment), __arg0, __arg1);
-            global::FlounderSharp.Collider __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[__ret];
-            else global::FlounderSharp.Collider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(__ret);
-            return __result0;
-        }
-
         public override void Load(global::FlounderSharp.LoadedValue value)
         {
-            base.Load(value);
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___LoadDelegate((__Instance + __PointerAdjustment), __arg0);
         }
 
         public override void Write(global::FlounderSharp.LoadedValue value)
         {
-            base.Write(value);
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+            var ___WriteDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___WriteDelegate((__Instance + __PointerAdjustment), __arg0);
         }
 
-        public override global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.Collider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination)
+        public override global::FlounderSharp.ICollider UpdateCollider(global::FlounderSharp.Transform transform, global::FlounderSharp.ICollider destination)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
+            var ___UpdateColliderDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr));
+            if (ReferenceEquals(transform, null))
+                throw new global::System.ArgumentNullException("transform", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = transform.__Instance;
+            var __arg1 = ReferenceEquals(destination, null) ? global::System.IntPtr.Zero : destination.__Instance;
+            var __ret = ___UpdateColliderDelegate((__Instance + __PointerAdjustment), __arg0, __arg1);
+            global::FlounderSharp.ICollider __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[__ret];
+            else global::FlounderSharp.ICollider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(__ret);
+            return __result0;
+        }
+
+        public override global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.ICollider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 7 * 8);
             var ___ResolveCollisionDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr));
@@ -10261,7 +10278,7 @@ namespace FlounderSharp
             return __result0;
         }
 
-        public override global::FlounderSharp.Intersect Intersects(global::FlounderSharp.Collider other)
+        public override global::FlounderSharp.Intersect Intersects(global::FlounderSharp.ICollider other)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 9 * 8);
             var ___IntersectsDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr));
@@ -10296,7 +10313,7 @@ namespace FlounderSharp
             return __ret;
         }
 
-        public override bool Contains(global::FlounderSharp.Collider other)
+        public override bool Contains(global::FlounderSharp.ICollider other)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 12 * 8);
             var ___ContainsDelegate = (global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr));
@@ -10553,7 +10570,14 @@ namespace FlounderSharp
         {
             get
             {
-                return base.Name;
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetNameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                ___GetNameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
             }
 
             set
@@ -10643,7 +10667,7 @@ namespace FlounderSharp
             __target.Dispose(true);
         }
 
-        // void Update() override
+        // void Update() override { }
         private static global::FlounderSharp.Delegates.Action_IntPtr _UpdateDelegateInstance;
 
         private static void _UpdateDelegateHook(global::System.IntPtr instance)
@@ -10712,10 +10736,10 @@ namespace FlounderSharp
             *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
         }
 
-        // Collider *Update(const Transform &transform, Collider *destination) override
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr _UpdateDelegateInstance;
+        // ICollider *UpdateCollider(const Transform &transform, ICollider *destination) override
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr _UpdateColliderDelegateInstance;
 
-        private static global::System.IntPtr _UpdateDelegateHook(global::System.IntPtr instance, global::System.IntPtr transform, global::System.IntPtr destination)
+        private static global::System.IntPtr _UpdateColliderDelegateHook(global::System.IntPtr instance, global::System.IntPtr transform, global::System.IntPtr destination)
         {
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
@@ -10728,16 +10752,16 @@ namespace FlounderSharp
             else if (global::FlounderSharp.Transform.NativeToManagedMap.ContainsKey(transform))
                 __result0 = (global::FlounderSharp.Transform) global::FlounderSharp.Transform.NativeToManagedMap[transform];
             else __result0 = global::FlounderSharp.Transform.__CreateInstance(transform);
-            global::FlounderSharp.Collider __result1;
+            global::FlounderSharp.ICollider __result1;
             if (destination == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(destination))
-                __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[destination];
-            else __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(destination, skipVTables: true);
-            var __ret = __target.Update(__result0, __result1);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(destination))
+                __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[destination];
+            else __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(destination, skipVTables: true);
+            var __ret = __target.UpdateCollider(__result0, __result1);
             return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
         }
 
-        // Vector3 *ResolveCollision(const Collider &other, const Vector3 &positionDelta, Vector3 *destination) override
+        // Vector3 *ResolveCollision(const ICollider &other, const Vector3 &positionDelta, Vector3 *destination) override
         private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr _ResolveCollisionDelegateInstance;
 
         private static global::System.IntPtr _ResolveCollisionDelegateHook(global::System.IntPtr instance, global::System.IntPtr other, global::System.IntPtr positionDelta, global::System.IntPtr destination)
@@ -10748,11 +10772,11 @@ namespace FlounderSharp
             var __target = (global::FlounderSharp.ColliderAabb) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result0;
+            global::FlounderSharp.ICollider __result0;
             if (other == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             global::FlounderSharp.Vector3 __result1;
             if (positionDelta == IntPtr.Zero) __result1 = null;
             else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(positionDelta))
@@ -10787,7 +10811,7 @@ namespace FlounderSharp
             *(global::FlounderSharp.Intersect.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Intersect.__Internal() : *(global::FlounderSharp.Intersect.__Internal*) __ret.__Instance;
         }
 
-        // Intersect Intersects(const Collider &other) override
+        // Intersect Intersects(const ICollider &other) override
         private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr _IntersectsDelegateInstance;
 
         private static void _IntersectsDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other)
@@ -10798,11 +10822,11 @@ namespace FlounderSharp
             var __target = (global::FlounderSharp.ColliderAabb) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result1;
+            global::FlounderSharp.ICollider __result1;
             if (other == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             var __ret = __target.Intersects(__result1);
             *(global::FlounderSharp.Intersect.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Intersect.__Internal() : *(global::FlounderSharp.Intersect.__Internal*) __ret.__Instance;
         }
@@ -10847,7 +10871,7 @@ namespace FlounderSharp
             return __ret;
         }
 
-        // bool Contains(const Collider &other) override
+        // bool Contains(const ICollider &other) override
         private static global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr _ContainsDelegateInstance;
 
         private static bool _ContainsDelegateHook(global::System.IntPtr instance, global::System.IntPtr other)
@@ -10858,11 +10882,11 @@ namespace FlounderSharp
             var __target = (global::FlounderSharp.ColliderAabb) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result0;
+            global::FlounderSharp.ICollider __result0;
             if (other == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             var __ret = __target.Contains(__result0);
             return __ret;
         }
@@ -10890,8 +10914,8 @@ namespace FlounderSharp
                 _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_WriteDelegateInstance).ToPointer();
                 _GetNameDelegateInstance += _GetNameDelegateHook;
                 _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetNameDelegateInstance).ToPointer();
-                _UpdateDelegateInstance += _UpdateDelegateHook;
-                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_UpdateDelegateInstance).ToPointer();
+                _UpdateColliderDelegateInstance += _UpdateColliderDelegateHook;
+                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_UpdateColliderDelegateInstance).ToPointer();
                 _ResolveCollisionDelegateInstance += _ResolveCollisionDelegateHook;
                 _Thunks[6] = Marshal.GetFunctionPointerForDelegate(_ResolveCollisionDelegateInstance).ToPointer();
                 _Intersects_1DelegateInstance += _Intersects_1DelegateHook;
@@ -12706,11 +12730,11 @@ namespace FlounderSharp
             [FieldOffset(216)]
             internal global::System.IntPtr m_surface;
 
-           //[FieldOffset(224)]
-           //internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
-           //
-           //[FieldOffset(276)]
-           //internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
+            //[FieldOffset(224)]
+            //internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
+            //
+            //[FieldOffset(276)]
+            //internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
 
             [FieldOffset(288)]
             internal global::System.IntPtr m_logicalDevice;
@@ -12721,14 +12745,14 @@ namespace FlounderSharp
             [FieldOffset(304)]
             internal global::System.IntPtr m_physicalDevice;
 
-           //[FieldOffset(312)]
-           //internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
-           //
-           //[FieldOffset(1136)]
-           //internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
-           //
-           //[FieldOffset(1360)]
-           //internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
+            //[FieldOffset(312)]
+            //internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
+            //
+            //[FieldOffset(1136)]
+            //internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
+            //
+            //[FieldOffset(1360)]
+            //internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
 
             [FieldOffset(1880)]
             internal uint m_graphicsFamilyIndex;
@@ -13740,11 +13764,11 @@ namespace FlounderSharp
             [FieldOffset(4)]
             internal uint m_stage;
 
-           //[FieldOffset(8)]
-           //internal global::VkDescriptorSetLayoutBinding.__Internal m_descriptorSetLayoutBinding;
-           //
-           //[FieldOffset(32)]
-           //internal global::VkDescriptorPoolSize.__Internal m_descriptorPoolSize;
+            //[FieldOffset(8)]
+            //internal global::VkDescriptorSetLayoutBinding.__Internal m_descriptorSetLayoutBinding;
+            //
+            //[FieldOffset(32)]
+            //internal global::VkDescriptorPoolSize.__Internal m_descriptorPoolSize;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -14074,8 +14098,8 @@ namespace FlounderSharp
             [FieldOffset(44)]
             internal int m_glType;
 
-            [FieldOffset(48)]
-            internal global::VkShaderStageFlagBits m_stageFlags;
+            //[FieldOffset(48)]
+            //internal global::VkShaderStageFlagBits m_stageFlags;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -14308,8 +14332,8 @@ namespace FlounderSharp
             [FieldOffset(36)]
             internal int m_size;
 
-            [FieldOffset(40)]
-            internal global::VkShaderStageFlagBits m_stageFlags;
+            //[FieldOffset(40)]
+            //internal global::VkShaderStageFlagBits m_stageFlags;
 
             [FieldOffset(48)]
             internal global::System.IntPtr m_uniforms;
@@ -20090,2724 +20114,6 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
-    /// <summary>This class is used throughout the engine wherever the camera is involved, so that the engine doesn't rely at all on the camera's implementation.</summary>
-    public unsafe abstract partial class ICamera : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_ICamera;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0ICamera@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0ICamera@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1ICamera@fl@@UEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ICamera> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ICamera>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.ICamera __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.ICameraInternal(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.ICamera __CreateInstance(global::FlounderSharp.ICamera.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.ICameraInternal(native, skipVTables);
-        }
-
-        protected ICamera(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        /// <summary>Creates a new camera.</summary>
-        protected ICamera()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICamera.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-            SetupVTables(GetType().FullName == "FlounderSharp.ICamera");
-        }
-
-        protected ICamera(global::FlounderSharp.ICamera _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICamera.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.ICamera");
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.ICamera __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            ((global::FlounderSharp.ICamera.__Internal*) __Instance)->vfptr_ICamera = new global::System.IntPtr(__OriginalVTables[0]);
-            if (disposing)
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
-                if (__slot != null)
-                {
-                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
-                    ___dtorDelegate((__Instance + __PointerAdjustment), 0);
-                }
-                else
-                    __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            }
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        /// <summary>Checks inputs and carries out smooth camera movement. Called before every frame.</summary>
-        public abstract void Update();
-
-        /// <summary>Prepares the camera for the reflection render pass.</summary>
-        /// <param name="waterHeight">The height of the water to be reflected on.</param>
-        public abstract void ReflectView(float waterHeight);
-
-        /// <summary>Gets the distance of the near pane of the view frustum.</summary>
-        public abstract float NearPlane
-        {
-            get;
-        }
-
-        /// <summary>Gets the distance of the view frustum's far plane.</summary>
-        public abstract float FarPlane
-        {
-            get;
-        }
-
-        /// <summary>Gets the field of view angle for the view frustum.</summary>
-        public abstract float Fov
-        {
-            get;
-        }
-
-        /// <summary>Gets the view frustum created by the current camera position and rotation.</summary>
-        public abstract global::FlounderSharp.Frustum ViewFrustum
-        {
-            get;
-        }
-
-        /// <summary>Gets the ray that extends from the cameras position though the screen.</summary>
-        public abstract global::FlounderSharp.Ray ViewRay
-        {
-            get;
-        }
-
-        /// <summary>Gets the view matrix created by the current camera position and rotation.</summary>
-        public abstract global::FlounderSharp.Matrix4 ViewMatrix
-        {
-            get;
-        }
-
-        /// <summary>Gets the projection matrix used in the current scene render.</summary>
-        public abstract global::FlounderSharp.Matrix4 ProjectionMatrix
-        {
-            get;
-        }
-
-        /// <summary>Gets the cameras 3D position in the world.</summary>
-        public abstract global::FlounderSharp.Vector3 Position
-        {
-            get;
-        }
-
-        /// <summary>Gets the cameras 3D velocity in the world.</summary>
-        public abstract global::FlounderSharp.Vector3 Velocity
-        {
-            get;
-        }
-
-        /// <summary>Gets the cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll.</summary>
-        public abstract global::FlounderSharp.Vector3 Rotation
-        {
-            get;
-        }
-
-        #region Virtual table interop
-
-        // virtual ~ICamera() { }
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // void Update() = 0
-        private static global::FlounderSharp.Delegates.Action_IntPtr _UpdateDelegateInstance;
-
-        private static void _UpdateDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Update();
-        }
-
-        // void ReflectView(const float &waterHeight) = 0
-        private static global::FlounderSharp.Delegates.Action_IntPtr_float _ReflectViewDelegateInstance;
-
-        private static void _ReflectViewDelegateHook(global::System.IntPtr instance, float waterHeight)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.ReflectView(waterHeight);
-        }
-
-        // float GetNearPlane() const = 0
-        private static global::FlounderSharp.Delegates.Func_float_IntPtr _GetNearPlaneDelegateInstance;
-
-        private static float _GetNearPlaneDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.NearPlane;
-            return __ret;
-        }
-
-        // float GetFarPlane() const = 0
-        private static global::FlounderSharp.Delegates.Func_float_IntPtr _GetFarPlaneDelegateInstance;
-
-        private static float _GetFarPlaneDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.FarPlane;
-            return __ret;
-        }
-
-        // float GetFov() const = 0
-        private static global::FlounderSharp.Delegates.Func_float_IntPtr _GetFovDelegateInstance;
-
-        private static float _GetFovDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Fov;
-            return __ret;
-        }
-
-        // Frustum *GetViewFrustum() const = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetViewFrustumDelegateInstance;
-
-        private static global::System.IntPtr _GetViewFrustumDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.ViewFrustum;
-            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
-        }
-
-        // Ray *GetViewRay() const = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetViewRayDelegateInstance;
-
-        private static global::System.IntPtr _GetViewRayDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.ViewRay;
-            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
-        }
-
-        // Matrix4 *GetViewMatrix() const = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetViewMatrixDelegateInstance;
-
-        private static global::System.IntPtr _GetViewMatrixDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.ViewMatrix;
-            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
-        }
-
-        // Matrix4 *GetProjectionMatrix() const = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetProjectionMatrixDelegateInstance;
-
-        private static global::System.IntPtr _GetProjectionMatrixDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.ProjectionMatrix;
-            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
-        }
-
-        // Vector3 *GetPosition() const = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetPositionDelegateInstance;
-
-        private static global::System.IntPtr _GetPositionDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Position;
-            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
-        }
-
-        // Vector3 *GetVelocity() const = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetVelocityDelegateInstance;
-
-        private static global::System.IntPtr _GetVelocityDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Velocity;
-            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
-        }
-
-        // Vector3 *GetRotation() const = 0
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetRotationDelegateInstance;
-
-        private static global::System.IntPtr _GetRotationDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Rotation;
-            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[13];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _UpdateDelegateInstance += _UpdateDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_UpdateDelegateInstance).ToPointer();
-                _ReflectViewDelegateInstance += _ReflectViewDelegateHook;
-                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_ReflectViewDelegateInstance).ToPointer();
-                _GetNearPlaneDelegateInstance += _GetNearPlaneDelegateHook;
-                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_GetNearPlaneDelegateInstance).ToPointer();
-                _GetFarPlaneDelegateInstance += _GetFarPlaneDelegateHook;
-                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetFarPlaneDelegateInstance).ToPointer();
-                _GetFovDelegateInstance += _GetFovDelegateHook;
-                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_GetFovDelegateInstance).ToPointer();
-                _GetViewFrustumDelegateInstance += _GetViewFrustumDelegateHook;
-                _Thunks[6] = Marshal.GetFunctionPointerForDelegate(_GetViewFrustumDelegateInstance).ToPointer();
-                _GetViewRayDelegateInstance += _GetViewRayDelegateHook;
-                _Thunks[7] = Marshal.GetFunctionPointerForDelegate(_GetViewRayDelegateInstance).ToPointer();
-                _GetViewMatrixDelegateInstance += _GetViewMatrixDelegateHook;
-                _Thunks[8] = Marshal.GetFunctionPointerForDelegate(_GetViewMatrixDelegateInstance).ToPointer();
-                _GetProjectionMatrixDelegateInstance += _GetProjectionMatrixDelegateHook;
-                _Thunks[9] = Marshal.GetFunctionPointerForDelegate(_GetProjectionMatrixDelegateInstance).ToPointer();
-                _GetPositionDelegateInstance += _GetPositionDelegateHook;
-                _Thunks[10] = Marshal.GetFunctionPointerForDelegate(_GetPositionDelegateInstance).ToPointer();
-                _GetVelocityDelegateInstance += _GetVelocityDelegateHook;
-                _Thunks[11] = Marshal.GetFunctionPointerForDelegate(_GetVelocityDelegateInstance).ToPointer();
-                _GetRotationDelegateInstance += _GetRotationDelegateHook;
-                _Thunks[12] = Marshal.GetFunctionPointerForDelegate(_GetRotationDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(14 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
-                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
-                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
-                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
-                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
-                    *(void**) (vfptr0 + 80) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 80);
-                    *(void**) (vfptr0 + 88) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 88);
-                    *(void**) (vfptr0 + 96) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 96);
-                    *(void**) (vfptr0 + 104) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 104);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(14 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                    *(void**) (vfptr0 + 24) = _Thunks[2];
-                    *(void**) (vfptr0 + 32) = _Thunks[3];
-                    *(void**) (vfptr0 + 40) = _Thunks[4];
-                    *(void**) (vfptr0 + 48) = _Thunks[5];
-                    *(void**) (vfptr0 + 56) = _Thunks[6];
-                    *(void**) (vfptr0 + 64) = _Thunks[7];
-                    *(void**) (vfptr0 + 72) = _Thunks[8];
-                    *(void**) (vfptr0 + 80) = _Thunks[9];
-                    *(void**) (vfptr0 + 88) = _Thunks[10];
-                    *(void**) (vfptr0 + 96) = _Thunks[11];
-                    *(void**) (vfptr0 + 104) = _Thunks[12];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-
-    public unsafe partial class ICameraInternal : global::FlounderSharp.ICamera, IDisposable
-    {
-        private static void* __CopyValue(global::FlounderSharp.ICamera.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICamera.__Internal));
-            *(global::FlounderSharp.ICamera.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        internal ICameraInternal(global::FlounderSharp.ICamera.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        internal ICameraInternal(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            __Instance = new global::System.IntPtr(native);
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-        }
-
-        /// <summary>Checks inputs and carries out smooth camera movement. Called before every frame.</summary>
-        public override void Update()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-            var ___UpdateDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___UpdateDelegate((__Instance + __PointerAdjustment));
-        }
-
-        /// <summary>Prepares the camera for the reflection render pass.</summary>
-        /// <param name="waterHeight">The height of the water to be reflected on.</param>
-        public override void ReflectView(float waterHeight)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
-            var ___ReflectViewDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_float) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_float));
-            ___ReflectViewDelegate((__Instance + __PointerAdjustment), waterHeight);
-        }
-
-        /// <summary>Gets the distance of the near pane of the view frustum.</summary>
-        public override float NearPlane
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
-                var ___GetNearPlaneDelegate = (global::FlounderSharp.Delegates.Func_float_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_float_IntPtr));
-                var __ret = ___GetNearPlaneDelegate((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-        }
-
-        /// <summary>Gets the distance of the view frustum's far plane.</summary>
-        public override float FarPlane
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
-                var ___GetFarPlaneDelegate = (global::FlounderSharp.Delegates.Func_float_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_float_IntPtr));
-                var __ret = ___GetFarPlaneDelegate((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-        }
-
-        /// <summary>Gets the field of view angle for the view frustum.</summary>
-        public override float Fov
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
-                var ___GetFovDelegate = (global::FlounderSharp.Delegates.Func_float_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_float_IntPtr));
-                var __ret = ___GetFovDelegate((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-        }
-
-        /// <summary>Gets the view frustum created by the current camera position and rotation.</summary>
-        public override global::FlounderSharp.Frustum ViewFrustum
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 7 * 8);
-                var ___GetViewFrustumDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
-                var __ret = ___GetViewFrustumDelegate((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Frustum __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Frustum.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Frustum) global::FlounderSharp.Frustum.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Frustum.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-
-        /// <summary>Gets the ray that extends from the cameras position though the screen.</summary>
-        public override global::FlounderSharp.Ray ViewRay
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 8 * 8);
-                var ___GetViewRayDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
-                var __ret = ___GetViewRayDelegate((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Ray __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Ray.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Ray) global::FlounderSharp.Ray.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Ray.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-
-        /// <summary>Gets the view matrix created by the current camera position and rotation.</summary>
-        public override global::FlounderSharp.Matrix4 ViewMatrix
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 9 * 8);
-                var ___GetViewMatrixDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
-                var __ret = ___GetViewMatrixDelegate((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Matrix4 __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Matrix4.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Matrix4) global::FlounderSharp.Matrix4.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Matrix4.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-
-        /// <summary>Gets the projection matrix used in the current scene render.</summary>
-        public override global::FlounderSharp.Matrix4 ProjectionMatrix
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 10 * 8);
-                var ___GetProjectionMatrixDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
-                var __ret = ___GetProjectionMatrixDelegate((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Matrix4 __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Matrix4.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Matrix4) global::FlounderSharp.Matrix4.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Matrix4.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-
-        /// <summary>Gets the cameras 3D position in the world.</summary>
-        public override global::FlounderSharp.Vector3 Position
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 11 * 8);
-                var ___GetPositionDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
-                var __ret = ___GetPositionDelegate((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Vector3 __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Vector3.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-
-        /// <summary>Gets the cameras 3D velocity in the world.</summary>
-        public override global::FlounderSharp.Vector3 Velocity
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 12 * 8);
-                var ___GetVelocityDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
-                var __ret = ___GetVelocityDelegate((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Vector3 __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Vector3.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-
-        /// <summary>Gets the cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll.</summary>
-        public override global::FlounderSharp.Vector3 Rotation
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 13 * 8);
-                var ___GetRotationDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
-                var __ret = ___GetRotationDelegate((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Vector3 __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.Vector3.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-    }
-}
-
-namespace FlounderSharp
-{
-    /// <summary>Represents a sub renderer in the engine.</summary>
-    public unsafe abstract partial class IRenderer : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_IRenderer;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0IRenderer@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0IRenderer@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1IRenderer@fl@@UEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IRenderer> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IRenderer>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.IRenderer __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.IRendererInternal(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.IRenderer __CreateInstance(global::FlounderSharp.IRenderer.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.IRendererInternal(native, skipVTables);
-        }
-
-        protected IRenderer(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        /// <summary>Creates a new renderer.</summary>
-        protected IRenderer()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IRenderer.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-            SetupVTables(GetType().FullName == "FlounderSharp.IRenderer");
-        }
-
-        protected IRenderer(global::FlounderSharp.IRenderer _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IRenderer.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.IRenderer");
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.IRenderer __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            ((global::FlounderSharp.IRenderer.__Internal*) __Instance)->vfptr_IRenderer = new global::System.IntPtr(__OriginalVTables[0]);
-            if (disposing)
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
-                if (__slot != null)
-                {
-                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
-                    ___dtorDelegate((__Instance + __PointerAdjustment), 0);
-                }
-                else
-                    __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            }
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        /// <summary>Called when the renderer is needed to be rendered.</summary>
-        /// <param name="clipPlane">The current clip plane.</param>
-        /// <param name="camera">The camera to be used when rendering.</param>
-        public abstract void Render(global::FlounderSharp.CommandBuffer commandBuffer, global::FlounderSharp.Vector4 clipPlane, global::FlounderSharp.ICamera camera);
-
-        #region Virtual table interop
-
-        // virtual ~IRenderer() { }
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IRenderer) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) = 0
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr _RenderDelegateInstance;
-
-        private static void _RenderDelegateHook(global::System.IntPtr instance, global::System.IntPtr commandBuffer, global::System.IntPtr clipPlane, global::System.IntPtr camera)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IRenderer) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.CommandBuffer __result0;
-            if (commandBuffer == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.CommandBuffer.NativeToManagedMap.ContainsKey(commandBuffer))
-                __result0 = (global::FlounderSharp.CommandBuffer) global::FlounderSharp.CommandBuffer.NativeToManagedMap[commandBuffer];
-            else __result0 = global::FlounderSharp.CommandBuffer.__CreateInstance(commandBuffer);
-            global::FlounderSharp.Vector4 __result1;
-            if (clipPlane == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Vector4.NativeToManagedMap.ContainsKey(clipPlane))
-                __result1 = (global::FlounderSharp.Vector4) global::FlounderSharp.Vector4.NativeToManagedMap[clipPlane];
-            else __result1 = global::FlounderSharp.Vector4.__CreateInstance(clipPlane);
-            global::FlounderSharp.ICamera __result2;
-            if (camera == IntPtr.Zero) __result2 = null;
-            else if (global::FlounderSharp.ICamera.NativeToManagedMap.ContainsKey(camera))
-                __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.NativeToManagedMap[camera];
-            else __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.__CreateInstance(camera, skipVTables: true);
-            __target.Render(__result0, __result1, __result2);
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[2];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _RenderDelegateInstance += _RenderDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_RenderDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-
-    public unsafe partial class IRendererInternal : global::FlounderSharp.IRenderer, IDisposable
-    {
-        private static void* __CopyValue(global::FlounderSharp.IRenderer.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IRenderer.__Internal));
-            *(global::FlounderSharp.IRenderer.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        internal IRendererInternal(global::FlounderSharp.IRenderer.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        internal IRendererInternal(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            __Instance = new global::System.IntPtr(native);
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-        }
-
-        /// <summary>Called when the renderer is needed to be rendered.</summary>
-        /// <param name="clipPlane">The current clip plane.</param>
-        /// <param name="camera">The camera to be used when rendering.</param>
-        public override void Render(global::FlounderSharp.CommandBuffer commandBuffer, global::FlounderSharp.Vector4 clipPlane, global::FlounderSharp.ICamera camera)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-            var ___RenderDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr));
-            if (ReferenceEquals(commandBuffer, null))
-                throw new global::System.ArgumentNullException("commandBuffer", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = commandBuffer.__Instance;
-            if (ReferenceEquals(clipPlane, null))
-                throw new global::System.ArgumentNullException("clipPlane", "Cannot be null because it is a C++ reference (&).");
-            var __arg1 = clipPlane.__Instance;
-            if (ReferenceEquals(camera, null))
-                throw new global::System.ArgumentNullException("camera", "Cannot be null because it is a C++ reference (&).");
-            var __arg2 = camera.__Instance;
-            ___RenderDelegate((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
-        }
-    }
-}
-
-namespace FlounderSharp
-{
-    public unsafe abstract partial class IDescriptor : global::FlounderSharp.IIDescriptor, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_IDescriptor;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0IDescriptor@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0IDescriptor@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1IDescriptor@fl@@UEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IIDescriptor> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IIDescriptor>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.IDescriptor __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.IDescriptorInternal(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.IDescriptor __CreateInstance(global::FlounderSharp.IDescriptor.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.IDescriptorInternal(native, skipVTables);
-        }
-
-        protected IDescriptor(void* native, bool skipVTables = false)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        protected IDescriptor()
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IDescriptor.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance));
-            SetupVTables(GetType().FullName == "FlounderSharp.IDescriptor");
-        }
-
-        protected IDescriptor(global::FlounderSharp.IIDescriptor _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IDescriptor.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__PointerToIDescriptor;
-            __Internal.cctor((__Instance), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.IDescriptor");
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.IIDescriptor __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            ((global::FlounderSharp.IDescriptor.__Internal*) __Instance)->vfptr_IDescriptor = new global::System.IntPtr(__OriginalVTables[0]);
-            if (disposing)
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
-                if (__slot != null)
-                {
-                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
-                    ___dtorDelegate((__Instance), 0);
-                }
-                else
-                    __Internal.dtor((__Instance), 0);
-            }
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        public global::System.IntPtr __PointerToIDescriptor
-        {
-            get
-            {
-                return __Instance + 0;
-            }
-        }
-
-        #region Virtual table interop
-
-        // virtual ~IDescriptor() { }
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.IDescriptor) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[1];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-
-    public unsafe partial class IDescriptorInternal : global::FlounderSharp.IDescriptor, IDisposable
-    {
-        private static void* __CopyValue(global::FlounderSharp.IDescriptor.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IDescriptor.__Internal));
-            *(global::FlounderSharp.IDescriptor.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        internal IDescriptorInternal(global::FlounderSharp.IDescriptor.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        internal IDescriptorInternal(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            __Instance = new global::System.IntPtr(native);
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-        }
-    }
-
-    public unsafe partial interface IIDescriptor : IDisposable
-    {
-        void Dispose();
-
-        global::System.IntPtr __Instance { get; }
-
-        global::System.IntPtr __PointerToIDescriptor { get; }
-    }
-}
-
-namespace FlounderSharp
-{
-    public unsafe partial class UniformBuffer : global::FlounderSharp.Buffer, global::FlounderSharp.IIDescriptor, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 64)]
-        public new partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_Buffer;
-
-            [FieldOffset(8)]
-            internal ulong m_size;
-
-            [FieldOffset(16)]
-            internal global::System.IntPtr m_buffer;
-
-            [FieldOffset(24)]
-            internal global::System.IntPtr m_bufferMemory;
-
-            [FieldOffset(32)]
-            internal global::System.IntPtr vfptr_IDescriptor;
-
-           //[FieldOffset(40)]
-           //internal global::VkDescriptorBufferInfo.__Internal m_bufferInfo;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0UniformBuffer@fl@@QEAA@AEB_K@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, ulong size);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0UniformBuffer@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Update@UniformBuffer@fl@@QEAAXPEAX@Z")]
-            internal static extern void Update(global::System.IntPtr instance, global::System.IntPtr newData);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?CreateDescriptor@UniformBuffer@fl@@SA?AVDescriptorType@2@AEBI0@Z")]
-            internal static extern void CreateDescriptor(global::System.IntPtr @return, uint binding, uint stage);
-        }
-
-        internal static new global::FlounderSharp.UniformBuffer __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.UniformBuffer(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.UniformBuffer __CreateInstance(global::FlounderSharp.UniformBuffer.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.UniformBuffer(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.UniformBuffer.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformBuffer.__Internal));
-            global::FlounderSharp.UniformBuffer.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private UniformBuffer(global::FlounderSharp.UniformBuffer.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected UniformBuffer(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 32) };
-            else
-                SetupVTables(true);
-        }
-
-        public UniformBuffer(ulong size)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformBuffer.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment), size);
-            SetupVTables(GetType().FullName == "FlounderSharp.UniformBuffer");
-        }
-
-        public UniformBuffer(global::FlounderSharp.UniformBuffer _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformBuffer.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.UniformBuffer");
-        }
-
-        public void Update(global::System.IntPtr newData)
-        {
-            __Internal.Update((__Instance + __PointerAdjustment), newData);
-        }
-
-        public static implicit operator global::FlounderSharp.UniformBuffer(ulong size)
-        {
-            return new global::FlounderSharp.UniformBuffer(size);
-        }
-
-        public static global::FlounderSharp.DescriptorType CreateDescriptor(uint binding, uint stage)
-        {
-            var __ret = new global::FlounderSharp.DescriptorType.__Internal();
-            __Internal.CreateDescriptor(new IntPtr(&__ret), binding, stage);
-            return global::FlounderSharp.DescriptorType.__CreateInstance(__ret);
-        }
-
-        public global::System.IntPtr __PointerToIDescriptor
-        {
-            get
-            {
-                return __Instance + 32;
-            }
-        }
-
-        #region Virtual table interop
-
-        // ~UniformBuffer()
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.UniformBuffer) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 32) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[1];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[2];
-                    var vfptr0 = Marshal.AllocHGlobal(2 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    var vfptr1 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTablesDtorOnly[1] = vfptr1.ToPointer();
-                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 0);
-                    *(void**) (vfptr1 + 8) = _Thunks[0];
-                    *(void**) (vfptr1 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-                *(void**) (__Instance + 32) = __ManagedVTablesDtorOnly[1];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[2];
-                    var vfptr0 = Marshal.AllocHGlobal(2 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    var vfptr1 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTables[1] = vfptr1.ToPointer();
-                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 0);
-                    *(void**) (vfptr1 + 8) = _Thunks[0];
-                    *(void**) (vfptr1 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-                *(void**) (__Instance + 32) = __ManagedVTables[1];
-            }
-        }
-
-        #endregion
-    }
-}
-
-namespace FlounderSharp
-{
-    /// <summary>Class that represents a loaded texture.</summary>
-    public unsafe partial class Texture : global::FlounderSharp.IResource, global::FlounderSharp.IBuffer, global::FlounderSharp.IIDescriptor, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 168)]
-        public new partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_IResource;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr vfptr_Buffer;
-
-            [FieldOffset(16)]
-            internal ulong m_size;
-
-            [FieldOffset(24)]
-            internal global::System.IntPtr m_buffer;
-
-            [FieldOffset(32)]
-            internal global::System.IntPtr m_bufferMemory;
-
-            [FieldOffset(40)]
-            internal global::System.IntPtr vfptr_IDescriptor;
-
-            [FieldOffset(48)]
-            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_filename;
-
-            [FieldOffset(80)]
-            internal byte m_hasAlpha;
-
-            [FieldOffset(81)]
-            internal byte m_repeatEdges;
-
-            [FieldOffset(84)]
-            internal uint m_mipLevels;
-
-            [FieldOffset(88)]
-            internal byte m_anisotropic;
-
-            [FieldOffset(89)]
-            internal byte m_nearest;
-
-            [FieldOffset(92)]
-            internal uint m_numberOfRows;
-
-            [FieldOffset(96)]
-            internal int m_components;
-
-            [FieldOffset(100)]
-            internal int m_width;
-
-            [FieldOffset(104)]
-            internal int m_height;
-
-            [FieldOffset(112)]
-            internal global::System.IntPtr m_image;
-
-            [FieldOffset(120)]
-            internal global::System.IntPtr m_imageView;
-
-            [FieldOffset(128)]
-            internal global::System.IntPtr m_sampler;
-
-           //[FieldOffset(136)]
-           //internal global::VkFormat m_format;
-           //
-           //[FieldOffset(144)]
-           //internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Texture@fl@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEB_N1111AEBI@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr filename, bool hasAlpha, bool repeatEdges, bool mipmap, bool anisotropic, bool nearest, uint numberOfRows);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Texture@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Resource@Texture@fl@@SAPEAV12@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern global::System.IntPtr Resource(global::System.IntPtr filename);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?CreateDescriptor@Texture@fl@@SA?AVDescriptorType@2@AEBI0@Z")]
-            internal static extern void CreateDescriptor(global::System.IntPtr @return, uint binding, uint stage);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?LoadSize@Texture@fl@@SA_KAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern ulong LoadSize(global::System.IntPtr filepath);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?LoadPixels@Texture@fl@@SAPEAEAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAH11@Z")]
-            internal static extern byte* LoadPixels(global::System.IntPtr filepath, int* width, int* height, int* components);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?DeletePixels@Texture@fl@@SAXPEAE@Z")]
-            internal static extern void DeletePixels(byte* pixels);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetMipLevels@Texture@fl@@SAIAEBH00@Z")]
-            internal static extern uint GetMipLevels(int width, int height, int depth);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?HasAlpha@Texture@fl@@QEBA_NXZ")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool HasAlpha(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetHasAlpha@Texture@fl@@QEAAXAEB_N@Z")]
-            internal static extern void SetHasAlpha(global::System.IntPtr instance, bool hasAlpha);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetNumberOfRows@Texture@fl@@QEBAIXZ")]
-            internal static extern uint GetNumberOfRows(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetNumberOfRows@Texture@fl@@QEAAXAEBI@Z")]
-            internal static extern void SetNumberOfRows(global::System.IntPtr instance, uint numberOfRows);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetVkSize@Buffer@fl@@QEBA_KXZ")]
-            internal static extern ulong GetVkSize(global::System.IntPtr instance);
-        }
-
-        internal static new global::FlounderSharp.Texture __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Texture(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.Texture __CreateInstance(global::FlounderSharp.Texture.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Texture(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.Texture.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Texture.__Internal));
-            global::FlounderSharp.Texture.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private Texture(global::FlounderSharp.Texture.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected Texture(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 8), *(void**) (__Instance + 40) };
-            else
-                SetupVTables(true);
-        }
-
-        /// <summary>A new texture object.</summary>
-        public Texture(string filename, bool hasAlpha, bool repeatEdges, bool mipmap, bool anisotropic, bool nearest, uint numberOfRows)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Texture.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, hasAlpha, repeatEdges, mipmap, anisotropic, nearest, numberOfRows);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            SetupVTables(GetType().FullName == "FlounderSharp.Texture");
-        }
-
-        public Texture(global::FlounderSharp.Texture _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Texture.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.Texture");
-        }
-
-        public static global::FlounderSharp.Texture Resource(string filename)
-        {
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.Resource(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            global::FlounderSharp.Texture __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Texture.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.NativeToManagedMap[__ret];
-            else global::FlounderSharp.Texture.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.__CreateInstance(__ret);
-            return __result0;
-        }
-
-        public static global::FlounderSharp.DescriptorType CreateDescriptor(uint binding, uint stage)
-        {
-            var __ret = new global::FlounderSharp.DescriptorType.__Internal();
-            __Internal.CreateDescriptor(new IntPtr(&__ret), binding, stage);
-            return global::FlounderSharp.DescriptorType.__CreateInstance(__ret);
-        }
-
-        public static ulong LoadSize(string filepath)
-        {
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.LoadSize(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            return __ret;
-        }
-
-        public static byte* LoadPixels(string filepath, ref int width, ref int height, ref int components)
-        {
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            fixed (int* __refParamPtr1 = &width)
-            {
-                var __arg1 = __refParamPtr1;
-                fixed (int* __refParamPtr2 = &height)
-                {
-                    var __arg2 = __refParamPtr2;
-                    fixed (int* __refParamPtr3 = &components)
-                    {
-                        var __arg3 = __refParamPtr3;
-                        var __ret = __Internal.LoadPixels(__arg0, __arg1, __arg2, __arg3);
-                        __basicString0.Dispose(false);
-                        __allocator0.Dispose();
-                        return __ret;
-                    }
-                }
-            }
-        }
-
-        public static void DeletePixels(byte* pixels)
-        {
-            __Internal.DeletePixels(pixels);
-        }
-
-        public static uint GetMipLevels(int width, int height, int depth)
-        {
-            var __ret = __Internal.GetMipLevels(width, height, depth);
-            return __ret;
-        }
-
-        protected ulong MSize
-        {
-            get
-            {
-                return ((global::FlounderSharp.Texture.__Internal*) __Instance)->m_size;
-            }
-
-            set
-            {
-                ((global::FlounderSharp.Texture.__Internal*)__Instance)->m_size = value;
-            }
-        }
-
-        public global::System.IntPtr __PointerToBuffer
-        {
-            get
-            {
-                return __Instance + 8;
-            }
-        }
-
-        public global::System.IntPtr __PointerToIDescriptor
-        {
-            get
-            {
-                return __Instance + 40;
-            }
-        }
-
-        /// <summary>Gets if the texture has alpha.</summary>
-        /// <param name="hasAlpha">If the texture has alpha.</param>
-        /// <remarks>Sets if the texture has alpha.</remarks>
-        public bool HasAlpha
-        {
-            get
-            {
-                var __ret = __Internal.HasAlpha((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                __Internal.SetHasAlpha((__Instance + __PointerAdjustment), value);
-            }
-        }
-
-        /// <summary>Gets the number of texture rows.</summary>
-        /// <param name="numberOfRows">The number of texture rows.</param>
-        /// <remarks>Sets the number of texture rows.</remarks>
-        public uint NumberOfRows
-        {
-            get
-            {
-                var __ret = __Internal.GetNumberOfRows((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-
-            set
-            {
-                __Internal.SetNumberOfRows((__Instance + __PointerAdjustment), value);
-            }
-        }
-
-        public override string Filename
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-                var ___GetFilenameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                ___GetFilenameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
-                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                __basicStringRet.Dispose(false);
-                return __stringRet;
-            }
-        }
-
-        public ulong VkSize
-        {
-            get
-            {
-                var __ret = __Internal.GetVkSize((__Instance + 8));
-                return __ret;
-            }
-        }
-
-        #region Virtual table interop
-
-        // ~Texture()
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.Texture) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // std::string GetFilename() override { return m_filename; }
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _GetFilenameDelegateInstance;
-
-        private static void _GetFilenameDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.Texture) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Filename;
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(__ret, __allocator0);
-            *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 8), *(void**) (__Instance + 40) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[2];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _GetFilenameDelegateInstance += _GetFilenameDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_GetFilenameDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[3];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                    var vfptr1 = Marshal.AllocHGlobal(2 * 8);
-                    __ManagedVTablesDtorOnly[1] = vfptr1.ToPointer();
-                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 8 + 0);
-                    *(void**) (vfptr1 + 8) = _Thunks[0];
-                    var vfptr2 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTablesDtorOnly[2] = vfptr2.ToPointer();
-                    *(void**) (vfptr2 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 0);
-                    *(void**) (vfptr2 + 8) = _Thunks[0];
-                    *(void**) (vfptr2 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-                *(void**) (__Instance + 8) = __ManagedVTablesDtorOnly[1];
-                *(void**) (__Instance + 40) = __ManagedVTablesDtorOnly[2];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[3];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                    var vfptr1 = Marshal.AllocHGlobal(2 * 8);
-                    __ManagedVTables[1] = vfptr1.ToPointer();
-                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 8 + 0);
-                    *(void**) (vfptr1 + 8) = _Thunks[0];
-                    var vfptr2 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTables[2] = vfptr2.ToPointer();
-                    *(void**) (vfptr2 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 0);
-                    *(void**) (vfptr2 + 8) = _Thunks[0];
-                    *(void**) (vfptr2 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-                *(void**) (__Instance + 8) = __ManagedVTables[1];
-                *(void**) (__Instance + 40) = __ManagedVTables[2];
-            }
-        }
-
-        #endregion
-    }
-}
-
-namespace FlounderSharp
-{
-    /// <summary>Class that handles a uniform buffer.</summary>
-    public unsafe partial class UniformHandler : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 32)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr m_uniformBlock;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr m_uniformBuffer;
-
-            [FieldOffset(16)]
-            internal global::System.IntPtr m_data;
-
-            [FieldOffset(24)]
-            internal byte m_changed;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0UniformHandler@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0UniformHandler@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1UniformHandler@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Update@UniformHandler@fl@@QEAA_NPEAVUniformBlock@2@@Z")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Update(global::System.IntPtr instance, global::System.IntPtr uniformBlock);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetUniformBuffer@UniformHandler@fl@@QEBAPEAVUniformBuffer@2@XZ")]
-            internal static extern global::System.IntPtr GetUniformBuffer(global::System.IntPtr instance);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.UniformHandler> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.UniformHandler>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.UniformHandler __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.UniformHandler(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.UniformHandler __CreateInstance(global::FlounderSharp.UniformHandler.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.UniformHandler(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.UniformHandler.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformHandler.__Internal));
-            *(global::FlounderSharp.UniformHandler.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private UniformHandler(global::FlounderSharp.UniformHandler.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected UniformHandler(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        public UniformHandler()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformHandler.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-        }
-
-        public UniformHandler(global::FlounderSharp.UniformHandler _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformHandler.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            *((global::FlounderSharp.UniformHandler.__Internal*) __Instance) = *((global::FlounderSharp.UniformHandler.__Internal*) _0.__Instance);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.UniformHandler __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        public bool Update(global::FlounderSharp.UniformBlock uniformBlock)
-        {
-            var __arg0 = ReferenceEquals(uniformBlock, null) ? global::System.IntPtr.Zero : uniformBlock.__Instance;
-            var __ret = __Internal.Update((__Instance + __PointerAdjustment), __arg0);
-            return __ret;
-        }
-
-        public global::FlounderSharp.UniformBuffer UniformBuffer
-        {
-            get
-            {
-                var __ret = __Internal.GetUniformBuffer((__Instance + __PointerAdjustment));
-                global::FlounderSharp.UniformBuffer __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.UniformBuffer.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.UniformBuffer) global::FlounderSharp.UniformBuffer.NativeToManagedMap[__ret];
-                else global::FlounderSharp.UniformBuffer.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.UniformBuffer) global::FlounderSharp.UniformBuffer.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-    }
-}
-
-namespace FlounderSharp
-{
-    /// <summary>Class that handles a descriptor set.</summary>
-    public unsafe partial class DescriptorsHandler : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 32)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr m_shaderProgram;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr m_descriptorSet;
-
-            [FieldOffset(16)]
-            internal global::System.IntPtr m_descriptors;
-
-            [FieldOffset(24)]
-            internal byte m_changed;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0DescriptorsHandler@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0DescriptorsHandler@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1DescriptorsHandler@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Push@DescriptorsHandler@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAVIDescriptor@2@@Z")]
-            internal static extern void Push(global::System.IntPtr instance, global::System.IntPtr descriptorName, global::System.IntPtr descriptor);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Push@DescriptorsHandler@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAVUniformHandler@2@@Z")]
-            internal static extern void Push_1(global::System.IntPtr instance, global::System.IntPtr descriptorName, global::System.IntPtr uniformHandler);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?Update@DescriptorsHandler@fl@@QEAA_NAEBVPipeline@2@@Z")]
-            [return: MarshalAs(UnmanagedType.I1)]
-            internal static extern bool Update(global::System.IntPtr instance, global::System.IntPtr pipeline);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetDescriptorSet@DescriptorsHandler@fl@@QEBAPEAVDescriptorSet@2@XZ")]
-            internal static extern global::System.IntPtr GetDescriptorSet(global::System.IntPtr instance);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.DescriptorsHandler> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.DescriptorsHandler>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.DescriptorsHandler __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.DescriptorsHandler(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.DescriptorsHandler __CreateInstance(global::FlounderSharp.DescriptorsHandler.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.DescriptorsHandler(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.DescriptorsHandler.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.DescriptorsHandler.__Internal));
-            *(global::FlounderSharp.DescriptorsHandler.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private DescriptorsHandler(global::FlounderSharp.DescriptorsHandler.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected DescriptorsHandler(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        public DescriptorsHandler()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.DescriptorsHandler.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-        }
-
-        public DescriptorsHandler(global::FlounderSharp.DescriptorsHandler _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.DescriptorsHandler.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            *((global::FlounderSharp.DescriptorsHandler.__Internal*) __Instance) = *((global::FlounderSharp.DescriptorsHandler.__Internal*) _0.__Instance);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.DescriptorsHandler __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        public void Push(string descriptorName, global::FlounderSharp.IIDescriptor descriptor)
-        {
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(descriptorName, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __arg1 = ReferenceEquals(descriptor, null) ? global::System.IntPtr.Zero : descriptor.__PointerToIDescriptor;
-            __Internal.Push((__Instance + __PointerAdjustment), __arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-        }
-
-        public void Push(string descriptorName, global::FlounderSharp.UniformHandler uniformHandler)
-        {
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(descriptorName, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __arg1 = ReferenceEquals(uniformHandler, null) ? global::System.IntPtr.Zero : uniformHandler.__Instance;
-            __Internal.Push_1((__Instance + __PointerAdjustment), __arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-        }
-
-        public bool Update(global::FlounderSharp.Pipeline pipeline)
-        {
-            if (ReferenceEquals(pipeline, null))
-                throw new global::System.ArgumentNullException("pipeline", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = pipeline.__Instance;
-            var __ret = __Internal.Update((__Instance + __PointerAdjustment), __arg0);
-            return __ret;
-        }
-
-        public global::FlounderSharp.DescriptorSet DescriptorSet
-        {
-            get
-            {
-                var __ret = __Internal.GetDescriptorSet((__Instance + __PointerAdjustment));
-                global::FlounderSharp.DescriptorSet __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.DescriptorSet.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.DescriptorSet) global::FlounderSharp.DescriptorSet.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.DescriptorSet.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-    }
-}
-
-namespace FlounderSharp
-{
-    public unsafe partial class PipelineDefine : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 64)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_name;
-
-            [FieldOffset(32)]
-            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_value;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0PipelineDefine@fl@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr name, global::System.IntPtr value);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0PipelineDefine@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1PipelineDefine@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetName@PipelineDefine@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
-            internal static extern void GetName(global::System.IntPtr instance, global::System.IntPtr @return);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetValue@PipelineDefine@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
-            internal static extern void GetValue(global::System.IntPtr instance, global::System.IntPtr @return);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.PipelineDefine> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.PipelineDefine>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.PipelineDefine __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.PipelineDefine(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.PipelineDefine __CreateInstance(global::FlounderSharp.PipelineDefine.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.PipelineDefine(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.PipelineDefine.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.PipelineDefine.__Internal));
-            global::FlounderSharp.PipelineDefine.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private PipelineDefine(global::FlounderSharp.PipelineDefine.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected PipelineDefine(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        public PipelineDefine(string name, string value)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.PipelineDefine.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(name, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __allocator1 = new global::Std.Allocator<char>();
-            var __basicString1 = global::Std.BasicStringExtensions.BasicString(value, __allocator1);
-            var __arg1 = __basicString1.__Instance;
-            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            __basicString1.Dispose(false);
-            __allocator1.Dispose();
-        }
-
-        public PipelineDefine(global::FlounderSharp.PipelineDefine _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.PipelineDefine.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.PipelineDefine __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        public string Name
-        {
-            get
-            {
-                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                __Internal.GetName((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
-                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                __basicStringRet.Dispose(false);
-                return __stringRet;
-            }
-        }
-
-        public string Value
-        {
-            get
-            {
-                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                __Internal.GetValue((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
-                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                __basicStringRet.Dispose(false);
-                return __stringRet;
-            }
-        }
-    }
-
-    /// <summary>Class that represents a Vulkan pipeline.</summary>
-    public unsafe partial class Pipeline : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 624)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::FlounderSharp.GraphicsStage.__Internal m_graphicsStage;
-
-            [FieldOffset(8)]
-            internal global::FlounderSharp.PipelineCreate.__Internal m_pipelineCreateInfo;
-
-            [FieldOffset(96)]
-            internal global::Std.Vector.__Internalc__N_std_S_vector____N_fl_S_PipelineDefine___N_std_S_allocator__S0_ m_defines;
-
-            [FieldOffset(120)]
-            internal global::System.IntPtr m_shaderProgram;
-
-            [FieldOffset(128)]
-            internal global::Std.Vector.__Internalc__N_std_S_vector_____S_VkShaderModule_T___N_std_S_allocator__S0_ m_modules;
-
-            [FieldOffset(152)]
-            internal global::Std.Vector.__Internalc__N_std_S_vector____S_VkPipelineShaderStageCreateInfo___N_std_S_allocator__S0_ m_stages;
-
-            [FieldOffset(176)]
-            internal global::System.IntPtr m_descriptorSetLayout;
-
-            [FieldOffset(184)]
-            internal global::System.IntPtr m_descriptorPool;
-
-            [FieldOffset(192)]
-            internal global::System.IntPtr m_pipeline;
-
-            [FieldOffset(200)]
-            internal global::System.IntPtr m_pipelineLayout;
-
-            //[FieldOffset(208)]
-            //internal global::VkPipelineInputAssemblyStateCreateInfo.__Internal m_inputAssemblyState;
-            //
-            //[FieldOffset(240)]
-            //internal global::VkPipelineRasterizationStateCreateInfo.__Internal m_rasterizationState;
-
-            [FieldOffset(304)]
-            internal global::Std.Array.__Internalc__N_std_S_array____S_VkPipelineColorBlendAttachmentState_Vk1 m_blendAttachmentStates;
-
-            //[FieldOffset(336)]
-            //internal global::VkPipelineColorBlendStateCreateInfo.__Internal m_colourBlendState;
-            //
-            //[FieldOffset(392)]
-            //internal global::VkPipelineDepthStencilStateCreateInfo.__Internal m_depthStencilState;
-            //
-            //[FieldOffset(496)]
-            //internal global::VkPipelineViewportStateCreateInfo.__Internal m_viewportState;
-            //
-            //[FieldOffset(544)]
-            //internal global::VkPipelineMultisampleStateCreateInfo.__Internal m_multisampleState;
-            //
-            //[FieldOffset(592)]
-            //internal global::VkPipelineDynamicStateCreateInfo.__Internal m_dynamicState;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Pipeline@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1Pipeline@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?BindPipeline@Pipeline@fl@@QEBAXAEBVCommandBuffer@2@@Z")]
-            internal static extern void BindPipeline(global::System.IntPtr instance, global::System.IntPtr commandBuffer);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetDepthStencil@Pipeline@fl@@QEBAPEAVDepthStencil@2@AEBH@Z")]
-            internal static extern global::System.IntPtr GetDepthStencil(global::System.IntPtr instance, int stage);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetTexture@Pipeline@fl@@QEBAPEAVTexture@2@AEBIAEBH@Z")]
-            internal static extern global::System.IntPtr GetTexture(global::System.IntPtr instance, uint i, int stage);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetPipelineCreateInfo@Pipeline@fl@@QEBA?AVPipelineCreate@2@XZ")]
-            internal static extern void GetPipelineCreateInfo(global::System.IntPtr instance, global::System.IntPtr @return);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetShaderProgram@Pipeline@fl@@QEBAPEAVShaderProgram@2@XZ")]
-            internal static extern global::System.IntPtr GetShaderProgram(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetGraphicsStage@Pipeline@fl@@QEBA?AVGraphicsStage@2@XZ")]
-            internal static extern void GetGraphicsStage(global::System.IntPtr instance, global::System.IntPtr @return);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Pipeline> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Pipeline>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.Pipeline __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Pipeline(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.Pipeline __CreateInstance(global::FlounderSharp.Pipeline.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Pipeline(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.Pipeline.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Pipeline.__Internal));
-            global::FlounderSharp.Pipeline.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private Pipeline(global::FlounderSharp.Pipeline.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected Pipeline(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        public Pipeline(global::FlounderSharp.Pipeline _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Pipeline.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.Pipeline __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        public void BindPipeline(global::FlounderSharp.CommandBuffer commandBuffer)
-        {
-            if (ReferenceEquals(commandBuffer, null))
-                throw new global::System.ArgumentNullException("commandBuffer", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = commandBuffer.__Instance;
-            __Internal.BindPipeline((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public global::FlounderSharp.DepthStencil GetDepthStencil(int stage)
-        {
-            var __ret = __Internal.GetDepthStencil((__Instance + __PointerAdjustment), stage);
-            global::FlounderSharp.DepthStencil __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.DepthStencil.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::FlounderSharp.DepthStencil) global::FlounderSharp.DepthStencil.NativeToManagedMap[__ret];
-            else global::FlounderSharp.DepthStencil.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.DepthStencil) global::FlounderSharp.DepthStencil.__CreateInstance(__ret);
-            return __result0;
-        }
-
-        public global::FlounderSharp.Texture GetTexture(uint i, int stage)
-        {
-            var __ret = __Internal.GetTexture((__Instance + __PointerAdjustment), i, stage);
-            global::FlounderSharp.Texture __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Texture.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.NativeToManagedMap[__ret];
-            else global::FlounderSharp.Texture.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.__CreateInstance(__ret);
-            return __result0;
-        }
-
-        public global::FlounderSharp.PipelineCreate PipelineCreateInfo
-        {
-            get
-            {
-                var __ret = new global::FlounderSharp.PipelineCreate.__Internal();
-                __Internal.GetPipelineCreateInfo((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                return global::FlounderSharp.PipelineCreate.__CreateInstance(__ret);
-            }
-        }
-
-        public global::FlounderSharp.ShaderProgram ShaderProgram
-        {
-            get
-            {
-                var __ret = __Internal.GetShaderProgram((__Instance + __PointerAdjustment));
-                global::FlounderSharp.ShaderProgram __result0;
-                if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.ShaderProgram.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.ShaderProgram) global::FlounderSharp.ShaderProgram.NativeToManagedMap[__ret];
-                else __result0 = global::FlounderSharp.ShaderProgram.__CreateInstance(__ret);
-                return __result0;
-            }
-        }
-
-        public global::FlounderSharp.GraphicsStage GraphicsStage
-        {
-            get
-            {
-                var __ret = new global::FlounderSharp.GraphicsStage.__Internal();
-                __Internal.GetGraphicsStage((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                return global::FlounderSharp.GraphicsStage.__CreateInstance(__ret);
-            }
-        }
-    }
-}
-
-namespace FlounderSharp
-{
-    public unsafe partial class RendererMeshes : global::FlounderSharp.IRenderer, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public new partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_IRenderer;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr m_uniformScene;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0RendererMeshes@fl@@QEAA@AEBVGraphicsStage@1@@Z")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr graphicsStage);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0RendererMeshes@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor_1(global::System.IntPtr instance, global::System.IntPtr _0);
-        }
-
-        internal static new global::FlounderSharp.RendererMeshes __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.RendererMeshes(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.RendererMeshes __CreateInstance(global::FlounderSharp.RendererMeshes.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.RendererMeshes(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.RendererMeshes.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RendererMeshes.__Internal));
-            global::FlounderSharp.RendererMeshes.__Internal.cctor_1(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private RendererMeshes(global::FlounderSharp.RendererMeshes.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected RendererMeshes(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        public RendererMeshes(global::FlounderSharp.GraphicsStage graphicsStage)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RendererMeshes.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(graphicsStage, null))
-                throw new global::System.ArgumentNullException("graphicsStage", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = graphicsStage.__Instance;
-            __Internal.ctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.RendererMeshes");
-        }
-
-        public RendererMeshes(global::FlounderSharp.RendererMeshes _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RendererMeshes.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor_1((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.RendererMeshes");
-        }
-
-        public override void Render(global::FlounderSharp.CommandBuffer commandBuffer, global::FlounderSharp.Vector4 clipPlane, global::FlounderSharp.ICamera camera)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-            var ___RenderDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr));
-            if (ReferenceEquals(commandBuffer, null))
-                throw new global::System.ArgumentNullException("commandBuffer", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = commandBuffer.__Instance;
-            if (ReferenceEquals(clipPlane, null))
-                throw new global::System.ArgumentNullException("clipPlane", "Cannot be null because it is a C++ reference (&).");
-            var __arg1 = clipPlane.__Instance;
-            if (ReferenceEquals(camera, null))
-                throw new global::System.ArgumentNullException("camera", "Cannot be null because it is a C++ reference (&).");
-            var __arg2 = camera.__Instance;
-            ___RenderDelegate((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
-        }
-
-        public static implicit operator global::FlounderSharp.RendererMeshes(global::FlounderSharp.GraphicsStage graphicsStage)
-        {
-            return new global::FlounderSharp.RendererMeshes(graphicsStage);
-        }
-
-        #region Virtual table interop
-
-        // ~RendererMeshes()
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.RendererMeshes) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr _RenderDelegateInstance;
-
-        private static void _RenderDelegateHook(global::System.IntPtr instance, global::System.IntPtr commandBuffer, global::System.IntPtr clipPlane, global::System.IntPtr camera)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.RendererMeshes) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.CommandBuffer __result0;
-            if (commandBuffer == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.CommandBuffer.NativeToManagedMap.ContainsKey(commandBuffer))
-                __result0 = (global::FlounderSharp.CommandBuffer) global::FlounderSharp.CommandBuffer.NativeToManagedMap[commandBuffer];
-            else __result0 = global::FlounderSharp.CommandBuffer.__CreateInstance(commandBuffer);
-            global::FlounderSharp.Vector4 __result1;
-            if (clipPlane == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Vector4.NativeToManagedMap.ContainsKey(clipPlane))
-                __result1 = (global::FlounderSharp.Vector4) global::FlounderSharp.Vector4.NativeToManagedMap[clipPlane];
-            else __result1 = global::FlounderSharp.Vector4.__CreateInstance(clipPlane);
-            global::FlounderSharp.ICamera __result2;
-            if (camera == IntPtr.Zero) __result2 = null;
-            else if (global::FlounderSharp.ICamera.NativeToManagedMap.ContainsKey(camera))
-                __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.NativeToManagedMap[camera];
-            else __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.__CreateInstance(camera, skipVTables: true);
-            __target.Render(__result0, __result1, __result2);
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[2];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _RenderDelegateInstance += _RenderDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_RenderDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-}
-
-namespace FlounderSharp
-{
     /// <summary>A simple event listener and runner.</summary>
     public unsafe abstract partial class IEvent : IDisposable
     {
@@ -24320,8 +21626,8 @@ namespace FlounderSharp
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(key);
-            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(value);
-            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet));
+            var __basicStringRet2 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(value);
+            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet2));
         }
 
         private static void*[] __ManagedVTables;
@@ -25162,8 +22468,8 @@ namespace FlounderSharp
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(key);
-            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(value);
-            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet));
+            var __basicStringRet2 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(value);
+            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet2));
         }
 
         private static void*[] __ManagedVTables;
@@ -25717,8 +23023,8 @@ namespace FlounderSharp
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
             var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(key);
-            var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(value);
-            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet));
+            var __basicStringRet2 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(value);
+            __target.ConfigPushValue(global::Std.BasicStringExtensions.CStr(__basicStringRet), global::Std.BasicStringExtensions.CStr(__basicStringRet2));
         }
 
         private static void*[] __ManagedVTables;
@@ -26065,6 +23371,689 @@ namespace FlounderSharp
                 return __ret;
             }
         }
+    }
+}
+
+namespace FlounderSharp
+{
+    public unsafe abstract partial class IDescriptor : global::FlounderSharp.IIDescriptor, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_IDescriptor;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0IDescriptor@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0IDescriptor@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1IDescriptor@fl@@UEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IIDescriptor> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IIDescriptor>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.IDescriptor __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.IDescriptorInternal(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.IDescriptor __CreateInstance(global::FlounderSharp.IDescriptor.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.IDescriptorInternal(native, skipVTables);
+        }
+
+        protected IDescriptor(void* native, bool skipVTables = false)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        protected IDescriptor()
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IDescriptor.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance));
+            SetupVTables(GetType().FullName == "FlounderSharp.IDescriptor");
+        }
+
+        protected IDescriptor(global::FlounderSharp.IIDescriptor _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IDescriptor.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__PointerToIDescriptor;
+            __Internal.cctor((__Instance), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.IDescriptor");
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.IIDescriptor __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            ((global::FlounderSharp.IDescriptor.__Internal*) __Instance)->vfptr_IDescriptor = new global::System.IntPtr(__OriginalVTables[0]);
+            if (disposing)
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
+                if (__slot != null)
+                {
+                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
+                    ___dtorDelegate((__Instance), 0);
+                }
+                else
+                    __Internal.dtor((__Instance), 0);
+            }
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public global::System.IntPtr __PointerToIDescriptor
+        {
+            get
+            {
+                return __Instance + 0;
+            }
+        }
+
+        #region Virtual table interop
+
+        // virtual ~IDescriptor() { }
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.IDescriptor) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[1];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+
+    public unsafe partial class IDescriptorInternal : global::FlounderSharp.IDescriptor, IDisposable
+    {
+        private static void* __CopyValue(global::FlounderSharp.IDescriptor.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IDescriptor.__Internal));
+            *(global::FlounderSharp.IDescriptor.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        internal IDescriptorInternal(global::FlounderSharp.IDescriptor.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        internal IDescriptorInternal(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            __Instance = new global::System.IntPtr(native);
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+        }
+    }
+
+    public unsafe partial interface IIDescriptor : IDisposable
+    {
+        void Dispose();
+
+        global::System.IntPtr __Instance { get; }
+
+        global::System.IntPtr __PointerToIDescriptor { get; }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Class that represents a loaded texture.</summary>
+    public unsafe partial class Texture : global::FlounderSharp.IResource, global::FlounderSharp.IBuffer, global::FlounderSharp.IIDescriptor, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 168)]
+        public new partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_IResource;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr vfptr_Buffer;
+
+            [FieldOffset(16)]
+            internal ulong m_size;
+
+            [FieldOffset(24)]
+            internal global::System.IntPtr m_buffer;
+
+            [FieldOffset(32)]
+            internal global::System.IntPtr m_bufferMemory;
+
+            [FieldOffset(40)]
+            internal global::System.IntPtr vfptr_IDescriptor;
+
+            [FieldOffset(48)]
+            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_filename;
+
+            [FieldOffset(80)]
+            internal byte m_hasAlpha;
+
+            [FieldOffset(81)]
+            internal byte m_repeatEdges;
+
+            [FieldOffset(84)]
+            internal uint m_mipLevels;
+
+            [FieldOffset(88)]
+            internal byte m_anisotropic;
+
+            [FieldOffset(89)]
+            internal byte m_nearest;
+
+            [FieldOffset(92)]
+            internal uint m_numberOfRows;
+
+            [FieldOffset(96)]
+            internal int m_components;
+
+            [FieldOffset(100)]
+            internal int m_width;
+
+            [FieldOffset(104)]
+            internal int m_height;
+
+            [FieldOffset(112)]
+            internal global::System.IntPtr m_image;
+
+            [FieldOffset(120)]
+            internal global::System.IntPtr m_imageView;
+
+            [FieldOffset(128)]
+            internal global::System.IntPtr m_sampler;
+
+            //[FieldOffset(136)]
+            //internal global::VkFormat m_format;
+            //
+            //[FieldOffset(144)]
+            //internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Texture@fl@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEB_N1111AEBI@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr filename, bool hasAlpha, bool repeatEdges, bool mipmap, bool anisotropic, bool nearest, uint numberOfRows);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Texture@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Resource@Texture@fl@@SAPEAV12@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern global::System.IntPtr Resource(global::System.IntPtr filename);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?CreateDescriptor@Texture@fl@@SA?AVDescriptorType@2@AEBI0@Z")]
+            internal static extern void CreateDescriptor(global::System.IntPtr @return, uint binding, uint stage);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LoadSize@Texture@fl@@SA_KAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern ulong LoadSize(global::System.IntPtr filepath);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?LoadPixels@Texture@fl@@SAPEAEAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAH11@Z")]
+            internal static extern byte* LoadPixels(global::System.IntPtr filepath, int* width, int* height, int* components);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DeletePixels@Texture@fl@@SAXPEAE@Z")]
+            internal static extern void DeletePixels(byte* pixels);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetMipLevels@Texture@fl@@SAIAEBH00@Z")]
+            internal static extern uint GetMipLevels(int width, int height, int depth);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?HasAlpha@Texture@fl@@QEBA_NXZ")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool HasAlpha(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetHasAlpha@Texture@fl@@QEAAXAEB_N@Z")]
+            internal static extern void SetHasAlpha(global::System.IntPtr instance, bool hasAlpha);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetNumberOfRows@Texture@fl@@QEBAIXZ")]
+            internal static extern uint GetNumberOfRows(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetNumberOfRows@Texture@fl@@QEAAXAEBI@Z")]
+            internal static extern void SetNumberOfRows(global::System.IntPtr instance, uint numberOfRows);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetVkSize@Buffer@fl@@QEBA_KXZ")]
+            internal static extern ulong GetVkSize(global::System.IntPtr instance);
+        }
+
+        internal static new global::FlounderSharp.Texture __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Texture(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Texture __CreateInstance(global::FlounderSharp.Texture.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Texture(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Texture.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Texture.__Internal));
+            global::FlounderSharp.Texture.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private Texture(global::FlounderSharp.Texture.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Texture(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 8), *(void**) (__Instance + 40) };
+            else
+                SetupVTables(true);
+        }
+
+        /// <summary>A new texture object.</summary>
+        public Texture(string filename, bool hasAlpha, bool repeatEdges, bool mipmap, bool anisotropic, bool nearest, uint numberOfRows)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Texture.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, hasAlpha, repeatEdges, mipmap, anisotropic, nearest, numberOfRows);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+            SetupVTables(GetType().FullName == "FlounderSharp.Texture");
+        }
+
+        public Texture(global::FlounderSharp.Texture _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Texture.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.Texture");
+        }
+
+        public static global::FlounderSharp.Texture Resource(string filename)
+        {
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            var __ret = __Internal.Resource(__arg0);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+            global::FlounderSharp.Texture __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.Texture.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.NativeToManagedMap[__ret];
+            else global::FlounderSharp.Texture.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.__CreateInstance(__ret);
+            return __result0;
+        }
+
+        public static global::FlounderSharp.DescriptorType CreateDescriptor(uint binding, uint stage)
+        {
+            var __ret = new global::FlounderSharp.DescriptorType.__Internal();
+            __Internal.CreateDescriptor(new IntPtr(&__ret), binding, stage);
+            return global::FlounderSharp.DescriptorType.__CreateInstance(__ret);
+        }
+
+        public static ulong LoadSize(string filepath)
+        {
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            var __ret = __Internal.LoadSize(__arg0);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+            return __ret;
+        }
+
+        public static byte* LoadPixels(string filepath, ref int width, ref int height, ref int components)
+        {
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filepath, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            fixed (int* __refParamPtr1 = &width)
+            {
+                var __arg1 = __refParamPtr1;
+                fixed (int* __refParamPtr2 = &height)
+                {
+                    var __arg2 = __refParamPtr2;
+                    fixed (int* __refParamPtr3 = &components)
+                    {
+                        var __arg3 = __refParamPtr3;
+                        var __ret = __Internal.LoadPixels(__arg0, __arg1, __arg2, __arg3);
+                        __basicString0.Dispose(false);
+                        __allocator0.Dispose();
+                        return __ret;
+                    }
+                }
+            }
+        }
+
+        public static void DeletePixels(byte* pixels)
+        {
+            __Internal.DeletePixels(pixels);
+        }
+
+        public static uint GetMipLevels(int width, int height, int depth)
+        {
+            var __ret = __Internal.GetMipLevels(width, height, depth);
+            return __ret;
+        }
+
+        protected ulong MSize
+        {
+            get
+            {
+                return ((global::FlounderSharp.Texture.__Internal*) __Instance)->m_size;
+            }
+
+            set
+            {
+                ((global::FlounderSharp.Texture.__Internal*)__Instance)->m_size = value;
+            }
+        }
+
+        public global::System.IntPtr __PointerToBuffer
+        {
+            get
+            {
+                return __Instance + 8;
+            }
+        }
+
+        public global::System.IntPtr __PointerToIDescriptor
+        {
+            get
+            {
+                return __Instance + 40;
+            }
+        }
+
+        /// <summary>Gets if the texture has alpha.</summary>
+        /// <param name="hasAlpha">If the texture has alpha.</param>
+        /// <remarks>Sets if the texture has alpha.</remarks>
+        public bool HasAlpha
+        {
+            get
+            {
+                var __ret = __Internal.HasAlpha((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+
+            set
+            {
+                __Internal.SetHasAlpha((__Instance + __PointerAdjustment), value);
+            }
+        }
+
+        /// <summary>Gets the number of texture rows.</summary>
+        /// <param name="numberOfRows">The number of texture rows.</param>
+        /// <remarks>Sets the number of texture rows.</remarks>
+        public uint NumberOfRows
+        {
+            get
+            {
+                var __ret = __Internal.GetNumberOfRows((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+
+            set
+            {
+                __Internal.SetNumberOfRows((__Instance + __PointerAdjustment), value);
+            }
+        }
+
+        public override string Filename
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+                var ___GetFilenameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                ___GetFilenameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
+            }
+        }
+
+        public ulong VkSize
+        {
+            get
+            {
+                var __ret = __Internal.GetVkSize((__Instance + 8));
+                return __ret;
+            }
+        }
+
+        #region Virtual table interop
+
+        // ~Texture()
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.Texture) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // std::string GetFilename() override { return m_filename; }
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _GetFilenameDelegateInstance;
+
+        private static void _GetFilenameDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.Texture) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Filename;
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(__ret, __allocator0);
+            *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 8), *(void**) (__Instance + 40) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[2];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _GetFilenameDelegateInstance += _GetFilenameDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_GetFilenameDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[3];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                    var vfptr1 = Marshal.AllocHGlobal(2 * 8);
+                    __ManagedVTablesDtorOnly[1] = vfptr1.ToPointer();
+                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 8 + 0);
+                    *(void**) (vfptr1 + 8) = _Thunks[0];
+                    var vfptr2 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTablesDtorOnly[2] = vfptr2.ToPointer();
+                    *(void**) (vfptr2 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 0);
+                    *(void**) (vfptr2 + 8) = _Thunks[0];
+                    *(void**) (vfptr2 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+                *(void**) (__Instance + 8) = __ManagedVTablesDtorOnly[1];
+                *(void**) (__Instance + 40) = __ManagedVTablesDtorOnly[2];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[3];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                    var vfptr1 = Marshal.AllocHGlobal(2 * 8);
+                    __ManagedVTables[1] = vfptr1.ToPointer();
+                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 8 + 0);
+                    *(void**) (vfptr1 + 8) = _Thunks[0];
+                    var vfptr2 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTables[2] = vfptr2.ToPointer();
+                    *(void**) (vfptr2 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 0);
+                    *(void**) (vfptr2 + 8) = _Thunks[0];
+                    *(void**) (vfptr2 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 40 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+                *(void**) (__Instance + 8) = __ManagedVTables[1];
+                *(void**) (__Instance + 40) = __ManagedVTables[2];
+            }
+        }
+
+        #endregion
     }
 }
 
@@ -27255,6 +25244,1835 @@ namespace FlounderSharp
             {
                 var __ret = __Internal.GetCurrentLineLength((__Instance + __PointerAdjustment));
                 return __ret;
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>This class is used throughout the engine wherever the camera is involved, so that the engine doesn't rely at all on the camera's implementation.</summary>
+    public unsafe abstract partial class ICamera : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_ICamera;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0ICamera@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0ICamera@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1ICamera@fl@@UEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ICamera> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ICamera>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.ICamera __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.ICameraInternal(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.ICamera __CreateInstance(global::FlounderSharp.ICamera.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.ICameraInternal(native, skipVTables);
+        }
+
+        protected ICamera(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        /// <summary>Creates a new camera.</summary>
+        protected ICamera()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICamera.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+            SetupVTables(GetType().FullName == "FlounderSharp.ICamera");
+        }
+
+        protected ICamera(global::FlounderSharp.ICamera _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICamera.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.ICamera");
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.ICamera __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            ((global::FlounderSharp.ICamera.__Internal*) __Instance)->vfptr_ICamera = new global::System.IntPtr(__OriginalVTables[0]);
+            if (disposing)
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
+                if (__slot != null)
+                {
+                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
+                    ___dtorDelegate((__Instance + __PointerAdjustment), 0);
+                }
+                else
+                    __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            }
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        /// <summary>Checks inputs and carries out smooth camera movement. Called before every frame.</summary>
+        public abstract void Update();
+
+        /// <summary>Prepares the camera for the reflection render pass.</summary>
+        /// <param name="waterHeight">The height of the water to be reflected on.</param>
+        public abstract void ReflectView(float waterHeight);
+
+        /// <summary>Gets the distance of the near pane of the view frustum.</summary>
+        public abstract float NearPlane
+        {
+            get;
+        }
+
+        /// <summary>Gets the distance of the view frustum's far plane.</summary>
+        public abstract float FarPlane
+        {
+            get;
+        }
+
+        /// <summary>Gets the field of view angle for the view frustum.</summary>
+        public abstract float Fov
+        {
+            get;
+        }
+
+        /// <summary>Gets the view frustum created by the current camera position and rotation.</summary>
+        public abstract global::FlounderSharp.Frustum ViewFrustum
+        {
+            get;
+        }
+
+        /// <summary>Gets the ray that extends from the cameras position though the screen.</summary>
+        public abstract global::FlounderSharp.Ray ViewRay
+        {
+            get;
+        }
+
+        /// <summary>Gets the view matrix created by the current camera position and rotation.</summary>
+        public abstract global::FlounderSharp.Matrix4 ViewMatrix
+        {
+            get;
+        }
+
+        /// <summary>Gets the projection matrix used in the current scene render.</summary>
+        public abstract global::FlounderSharp.Matrix4 ProjectionMatrix
+        {
+            get;
+        }
+
+        /// <summary>Gets the cameras 3D position in the world.</summary>
+        public abstract global::FlounderSharp.Vector3 Position
+        {
+            get;
+        }
+
+        /// <summary>Gets the cameras 3D velocity in the world.</summary>
+        public abstract global::FlounderSharp.Vector3 Velocity
+        {
+            get;
+        }
+
+        /// <summary>Gets the cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll.</summary>
+        public abstract global::FlounderSharp.Vector3 Rotation
+        {
+            get;
+        }
+
+        #region Virtual table interop
+
+        // virtual ~ICamera() { }
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // void Update() = 0
+        private static global::FlounderSharp.Delegates.Action_IntPtr _UpdateDelegateInstance;
+
+        private static void _UpdateDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Update();
+        }
+
+        // void ReflectView(const float &waterHeight) = 0
+        private static global::FlounderSharp.Delegates.Action_IntPtr_float _ReflectViewDelegateInstance;
+
+        private static void _ReflectViewDelegateHook(global::System.IntPtr instance, float waterHeight)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.ReflectView(waterHeight);
+        }
+
+        // float GetNearPlane() const = 0
+        private static global::FlounderSharp.Delegates.Func_float_IntPtr _GetNearPlaneDelegateInstance;
+
+        private static float _GetNearPlaneDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.NearPlane;
+            return __ret;
+        }
+
+        // float GetFarPlane() const = 0
+        private static global::FlounderSharp.Delegates.Func_float_IntPtr _GetFarPlaneDelegateInstance;
+
+        private static float _GetFarPlaneDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.FarPlane;
+            return __ret;
+        }
+
+        // float GetFov() const = 0
+        private static global::FlounderSharp.Delegates.Func_float_IntPtr _GetFovDelegateInstance;
+
+        private static float _GetFovDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Fov;
+            return __ret;
+        }
+
+        // Frustum *GetViewFrustum() const = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetViewFrustumDelegateInstance;
+
+        private static global::System.IntPtr _GetViewFrustumDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.ViewFrustum;
+            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
+        }
+
+        // Ray *GetViewRay() const = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetViewRayDelegateInstance;
+
+        private static global::System.IntPtr _GetViewRayDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.ViewRay;
+            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
+        }
+
+        // Matrix4 *GetViewMatrix() const = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetViewMatrixDelegateInstance;
+
+        private static global::System.IntPtr _GetViewMatrixDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.ViewMatrix;
+            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
+        }
+
+        // Matrix4 *GetProjectionMatrix() const = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetProjectionMatrixDelegateInstance;
+
+        private static global::System.IntPtr _GetProjectionMatrixDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.ProjectionMatrix;
+            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
+        }
+
+        // Vector3 *GetPosition() const = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetPositionDelegateInstance;
+
+        private static global::System.IntPtr _GetPositionDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Position;
+            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
+        }
+
+        // Vector3 *GetVelocity() const = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetVelocityDelegateInstance;
+
+        private static global::System.IntPtr _GetVelocityDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Velocity;
+            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
+        }
+
+        // Vector3 *GetRotation() const = 0
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr _GetRotationDelegateInstance;
+
+        private static global::System.IntPtr _GetRotationDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.ICamera) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Rotation;
+            return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[13];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _UpdateDelegateInstance += _UpdateDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_UpdateDelegateInstance).ToPointer();
+                _ReflectViewDelegateInstance += _ReflectViewDelegateHook;
+                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_ReflectViewDelegateInstance).ToPointer();
+                _GetNearPlaneDelegateInstance += _GetNearPlaneDelegateHook;
+                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_GetNearPlaneDelegateInstance).ToPointer();
+                _GetFarPlaneDelegateInstance += _GetFarPlaneDelegateHook;
+                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetFarPlaneDelegateInstance).ToPointer();
+                _GetFovDelegateInstance += _GetFovDelegateHook;
+                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_GetFovDelegateInstance).ToPointer();
+                _GetViewFrustumDelegateInstance += _GetViewFrustumDelegateHook;
+                _Thunks[6] = Marshal.GetFunctionPointerForDelegate(_GetViewFrustumDelegateInstance).ToPointer();
+                _GetViewRayDelegateInstance += _GetViewRayDelegateHook;
+                _Thunks[7] = Marshal.GetFunctionPointerForDelegate(_GetViewRayDelegateInstance).ToPointer();
+                _GetViewMatrixDelegateInstance += _GetViewMatrixDelegateHook;
+                _Thunks[8] = Marshal.GetFunctionPointerForDelegate(_GetViewMatrixDelegateInstance).ToPointer();
+                _GetProjectionMatrixDelegateInstance += _GetProjectionMatrixDelegateHook;
+                _Thunks[9] = Marshal.GetFunctionPointerForDelegate(_GetProjectionMatrixDelegateInstance).ToPointer();
+                _GetPositionDelegateInstance += _GetPositionDelegateHook;
+                _Thunks[10] = Marshal.GetFunctionPointerForDelegate(_GetPositionDelegateInstance).ToPointer();
+                _GetVelocityDelegateInstance += _GetVelocityDelegateHook;
+                _Thunks[11] = Marshal.GetFunctionPointerForDelegate(_GetVelocityDelegateInstance).ToPointer();
+                _GetRotationDelegateInstance += _GetRotationDelegateHook;
+                _Thunks[12] = Marshal.GetFunctionPointerForDelegate(_GetRotationDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(14 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
+                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
+                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
+                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
+                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
+                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
+                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
+                    *(void**) (vfptr0 + 80) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 80);
+                    *(void**) (vfptr0 + 88) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 88);
+                    *(void**) (vfptr0 + 96) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 96);
+                    *(void**) (vfptr0 + 104) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 104);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(14 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                    *(void**) (vfptr0 + 24) = _Thunks[2];
+                    *(void**) (vfptr0 + 32) = _Thunks[3];
+                    *(void**) (vfptr0 + 40) = _Thunks[4];
+                    *(void**) (vfptr0 + 48) = _Thunks[5];
+                    *(void**) (vfptr0 + 56) = _Thunks[6];
+                    *(void**) (vfptr0 + 64) = _Thunks[7];
+                    *(void**) (vfptr0 + 72) = _Thunks[8];
+                    *(void**) (vfptr0 + 80) = _Thunks[9];
+                    *(void**) (vfptr0 + 88) = _Thunks[10];
+                    *(void**) (vfptr0 + 96) = _Thunks[11];
+                    *(void**) (vfptr0 + 104) = _Thunks[12];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+
+    public unsafe partial class ICameraInternal : global::FlounderSharp.ICamera, IDisposable
+    {
+        private static void* __CopyValue(global::FlounderSharp.ICamera.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ICamera.__Internal));
+            *(global::FlounderSharp.ICamera.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        internal ICameraInternal(global::FlounderSharp.ICamera.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        internal ICameraInternal(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            __Instance = new global::System.IntPtr(native);
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+        }
+
+        /// <summary>Checks inputs and carries out smooth camera movement. Called before every frame.</summary>
+        public override void Update()
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+            var ___UpdateDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
+            ___UpdateDelegate((__Instance + __PointerAdjustment));
+        }
+
+        /// <summary>Prepares the camera for the reflection render pass.</summary>
+        /// <param name="waterHeight">The height of the water to be reflected on.</param>
+        public override void ReflectView(float waterHeight)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___ReflectViewDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_float) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_float));
+            ___ReflectViewDelegate((__Instance + __PointerAdjustment), waterHeight);
+        }
+
+        /// <summary>Gets the distance of the near pane of the view frustum.</summary>
+        public override float NearPlane
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+                var ___GetNearPlaneDelegate = (global::FlounderSharp.Delegates.Func_float_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_float_IntPtr));
+                var __ret = ___GetNearPlaneDelegate((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>Gets the distance of the view frustum's far plane.</summary>
+        public override float FarPlane
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetFarPlaneDelegate = (global::FlounderSharp.Delegates.Func_float_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_float_IntPtr));
+                var __ret = ___GetFarPlaneDelegate((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>Gets the field of view angle for the view frustum.</summary>
+        public override float Fov
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
+                var ___GetFovDelegate = (global::FlounderSharp.Delegates.Func_float_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_float_IntPtr));
+                var __ret = ___GetFovDelegate((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        /// <summary>Gets the view frustum created by the current camera position and rotation.</summary>
+        public override global::FlounderSharp.Frustum ViewFrustum
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 7 * 8);
+                var ___GetViewFrustumDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
+                var __ret = ___GetViewFrustumDelegate((__Instance + __PointerAdjustment));
+                global::FlounderSharp.Frustum __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.Frustum.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.Frustum) global::FlounderSharp.Frustum.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.Frustum.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+
+        /// <summary>Gets the ray that extends from the cameras position though the screen.</summary>
+        public override global::FlounderSharp.Ray ViewRay
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 8 * 8);
+                var ___GetViewRayDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
+                var __ret = ___GetViewRayDelegate((__Instance + __PointerAdjustment));
+                global::FlounderSharp.Ray __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.Ray.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.Ray) global::FlounderSharp.Ray.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.Ray.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+
+        /// <summary>Gets the view matrix created by the current camera position and rotation.</summary>
+        public override global::FlounderSharp.Matrix4 ViewMatrix
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 9 * 8);
+                var ___GetViewMatrixDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
+                var __ret = ___GetViewMatrixDelegate((__Instance + __PointerAdjustment));
+                global::FlounderSharp.Matrix4 __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.Matrix4.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.Matrix4) global::FlounderSharp.Matrix4.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+
+        /// <summary>Gets the projection matrix used in the current scene render.</summary>
+        public override global::FlounderSharp.Matrix4 ProjectionMatrix
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 10 * 8);
+                var ___GetProjectionMatrixDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
+                var __ret = ___GetProjectionMatrixDelegate((__Instance + __PointerAdjustment));
+                global::FlounderSharp.Matrix4 __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.Matrix4.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.Matrix4) global::FlounderSharp.Matrix4.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.Matrix4.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+
+        /// <summary>Gets the cameras 3D position in the world.</summary>
+        public override global::FlounderSharp.Vector3 Position
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 11 * 8);
+                var ___GetPositionDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
+                var __ret = ___GetPositionDelegate((__Instance + __PointerAdjustment));
+                global::FlounderSharp.Vector3 __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.Vector3.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+
+        /// <summary>Gets the cameras 3D velocity in the world.</summary>
+        public override global::FlounderSharp.Vector3 Velocity
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 12 * 8);
+                var ___GetVelocityDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
+                var __ret = ___GetVelocityDelegate((__Instance + __PointerAdjustment));
+                global::FlounderSharp.Vector3 __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.Vector3.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+
+        /// <summary>Gets the cameras 3D rotation in the world, where x=pitch, y=yaw, z=roll.</summary>
+        public override global::FlounderSharp.Vector3 Rotation
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 13 * 8);
+                var ___GetRotationDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr));
+                var __ret = ___GetRotationDelegate((__Instance + __PointerAdjustment));
+                global::FlounderSharp.Vector3 __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.Vector3.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Represents a sub renderer in the engine.</summary>
+    public unsafe abstract partial class IRenderer : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_IRenderer;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0IRenderer@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0IRenderer@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1IRenderer@fl@@UEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IRenderer> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.IRenderer>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.IRenderer __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.IRendererInternal(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.IRenderer __CreateInstance(global::FlounderSharp.IRenderer.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.IRendererInternal(native, skipVTables);
+        }
+
+        protected IRenderer(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        /// <summary>Creates a new renderer.</summary>
+        protected IRenderer()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IRenderer.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+            SetupVTables(GetType().FullName == "FlounderSharp.IRenderer");
+        }
+
+        protected IRenderer(global::FlounderSharp.IRenderer _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IRenderer.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.IRenderer");
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.IRenderer __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            ((global::FlounderSharp.IRenderer.__Internal*) __Instance)->vfptr_IRenderer = new global::System.IntPtr(__OriginalVTables[0]);
+            if (disposing)
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 1 * 8);
+                if (__slot != null)
+                {
+                    var ___dtorDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_int) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_int));
+                    ___dtorDelegate((__Instance + __PointerAdjustment), 0);
+                }
+                else
+                    __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            }
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        /// <summary>Called when the renderer is needed to be rendered.</summary>
+        /// <param name="clipPlane">The current clip plane.</param>
+        /// <param name="camera">The camera to be used when rendering.</param>
+        public abstract void Render(global::FlounderSharp.CommandBuffer commandBuffer, global::FlounderSharp.Vector4 clipPlane, global::FlounderSharp.ICamera camera);
+
+        #region Virtual table interop
+
+        // virtual ~IRenderer() { }
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.IRenderer) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) = 0
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr _RenderDelegateInstance;
+
+        private static void _RenderDelegateHook(global::System.IntPtr instance, global::System.IntPtr commandBuffer, global::System.IntPtr clipPlane, global::System.IntPtr camera)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.IRenderer) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.CommandBuffer __result0;
+            if (commandBuffer == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.CommandBuffer.NativeToManagedMap.ContainsKey(commandBuffer))
+                __result0 = (global::FlounderSharp.CommandBuffer) global::FlounderSharp.CommandBuffer.NativeToManagedMap[commandBuffer];
+            else __result0 = global::FlounderSharp.CommandBuffer.__CreateInstance(commandBuffer);
+            global::FlounderSharp.Vector4 __result1;
+            if (clipPlane == IntPtr.Zero) __result1 = null;
+            else if (global::FlounderSharp.Vector4.NativeToManagedMap.ContainsKey(clipPlane))
+                __result1 = (global::FlounderSharp.Vector4) global::FlounderSharp.Vector4.NativeToManagedMap[clipPlane];
+            else __result1 = global::FlounderSharp.Vector4.__CreateInstance(clipPlane);
+            global::FlounderSharp.ICamera __result2;
+            if (camera == IntPtr.Zero) __result2 = null;
+            else if (global::FlounderSharp.ICamera.NativeToManagedMap.ContainsKey(camera))
+                __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.NativeToManagedMap[camera];
+            else __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.__CreateInstance(camera, skipVTables: true);
+            __target.Render(__result0, __result1, __result2);
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[2];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _RenderDelegateInstance += _RenderDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_RenderDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+
+    public unsafe partial class IRendererInternal : global::FlounderSharp.IRenderer, IDisposable
+    {
+        private static void* __CopyValue(global::FlounderSharp.IRenderer.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.IRenderer.__Internal));
+            *(global::FlounderSharp.IRenderer.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        internal IRendererInternal(global::FlounderSharp.IRenderer.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        internal IRendererInternal(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            __Instance = new global::System.IntPtr(native);
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+        }
+
+        /// <summary>Called when the renderer is needed to be rendered.</summary>
+        /// <param name="clipPlane">The current clip plane.</param>
+        /// <param name="camera">The camera to be used when rendering.</param>
+        public override void Render(global::FlounderSharp.CommandBuffer commandBuffer, global::FlounderSharp.Vector4 clipPlane, global::FlounderSharp.ICamera camera)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+            var ___RenderDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr));
+            if (ReferenceEquals(commandBuffer, null))
+                throw new global::System.ArgumentNullException("commandBuffer", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = commandBuffer.__Instance;
+            if (ReferenceEquals(clipPlane, null))
+                throw new global::System.ArgumentNullException("clipPlane", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = clipPlane.__Instance;
+            if (ReferenceEquals(camera, null))
+                throw new global::System.ArgumentNullException("camera", "Cannot be null because it is a C++ reference (&).");
+            var __arg2 = camera.__Instance;
+            ___RenderDelegate((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    public unsafe partial class UniformBuffer : global::FlounderSharp.Buffer, global::FlounderSharp.IIDescriptor, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 64)]
+        public new partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_Buffer;
+
+            [FieldOffset(8)]
+            internal ulong m_size;
+
+            [FieldOffset(16)]
+            internal global::System.IntPtr m_buffer;
+
+            [FieldOffset(24)]
+            internal global::System.IntPtr m_bufferMemory;
+
+            [FieldOffset(32)]
+            internal global::System.IntPtr vfptr_IDescriptor;
+
+            //[FieldOffset(40)]
+            //internal global::VkDescriptorBufferInfo.__Internal m_bufferInfo;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0UniformBuffer@fl@@QEAA@AEB_K@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, ulong size);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0UniformBuffer@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Update@UniformBuffer@fl@@QEAAXPEAX@Z")]
+            internal static extern void Update(global::System.IntPtr instance, global::System.IntPtr newData);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?CreateDescriptor@UniformBuffer@fl@@SA?AVDescriptorType@2@AEBI0@Z")]
+            internal static extern void CreateDescriptor(global::System.IntPtr @return, uint binding, uint stage);
+        }
+
+        internal static new global::FlounderSharp.UniformBuffer __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.UniformBuffer(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.UniformBuffer __CreateInstance(global::FlounderSharp.UniformBuffer.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.UniformBuffer(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.UniformBuffer.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformBuffer.__Internal));
+            global::FlounderSharp.UniformBuffer.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private UniformBuffer(global::FlounderSharp.UniformBuffer.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected UniformBuffer(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 32) };
+            else
+                SetupVTables(true);
+        }
+
+        public UniformBuffer(ulong size)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformBuffer.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment), size);
+            SetupVTables(GetType().FullName == "FlounderSharp.UniformBuffer");
+        }
+
+        public UniformBuffer(global::FlounderSharp.UniformBuffer _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformBuffer.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.UniformBuffer");
+        }
+
+        public void Update(global::System.IntPtr newData)
+        {
+            __Internal.Update((__Instance + __PointerAdjustment), newData);
+        }
+
+        public static implicit operator global::FlounderSharp.UniformBuffer(ulong size)
+        {
+            return new global::FlounderSharp.UniformBuffer(size);
+        }
+
+        public static global::FlounderSharp.DescriptorType CreateDescriptor(uint binding, uint stage)
+        {
+            var __ret = new global::FlounderSharp.DescriptorType.__Internal();
+            __Internal.CreateDescriptor(new IntPtr(&__ret), binding, stage);
+            return global::FlounderSharp.DescriptorType.__CreateInstance(__ret);
+        }
+
+        public global::System.IntPtr __PointerToIDescriptor
+        {
+            get
+            {
+                return __Instance + 32;
+            }
+        }
+
+        #region Virtual table interop
+
+        // ~UniformBuffer()
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.UniformBuffer) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0), *(void**) (__Instance + 32) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[1];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[2];
+                    var vfptr0 = Marshal.AllocHGlobal(2 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    var vfptr1 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTablesDtorOnly[1] = vfptr1.ToPointer();
+                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 0);
+                    *(void**) (vfptr1 + 8) = _Thunks[0];
+                    *(void**) (vfptr1 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+                *(void**) (__Instance + 32) = __ManagedVTablesDtorOnly[1];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[2];
+                    var vfptr0 = Marshal.AllocHGlobal(2 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    var vfptr1 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTables[1] = vfptr1.ToPointer();
+                    *(void**) (vfptr1 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 0);
+                    *(void**) (vfptr1 + 8) = _Thunks[0];
+                    *(void**) (vfptr1 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 32 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+                *(void**) (__Instance + 32) = __ManagedVTables[1];
+            }
+        }
+
+        #endregion
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Class that handles a uniform buffer.</summary>
+    public unsafe partial class UniformHandler : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 32)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr m_uniformBlock;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr m_uniformBuffer;
+
+            [FieldOffset(16)]
+            internal global::System.IntPtr m_data;
+
+            [FieldOffset(24)]
+            internal byte m_changed;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0UniformHandler@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0UniformHandler@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1UniformHandler@fl@@QEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Update@UniformHandler@fl@@QEAA_NPEAVUniformBlock@2@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool Update(global::System.IntPtr instance, global::System.IntPtr uniformBlock);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetUniformBuffer@UniformHandler@fl@@QEBAPEAVUniformBuffer@2@XZ")]
+            internal static extern global::System.IntPtr GetUniformBuffer(global::System.IntPtr instance);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.UniformHandler> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.UniformHandler>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.UniformHandler __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.UniformHandler(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.UniformHandler __CreateInstance(global::FlounderSharp.UniformHandler.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.UniformHandler(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.UniformHandler.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformHandler.__Internal));
+            *(global::FlounderSharp.UniformHandler.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private UniformHandler(global::FlounderSharp.UniformHandler.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected UniformHandler(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public UniformHandler()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        public UniformHandler(global::FlounderSharp.UniformHandler _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.UniformHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::FlounderSharp.UniformHandler.__Internal*) __Instance) = *((global::FlounderSharp.UniformHandler.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.UniformHandler __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public bool Update(global::FlounderSharp.UniformBlock uniformBlock)
+        {
+            var __arg0 = ReferenceEquals(uniformBlock, null) ? global::System.IntPtr.Zero : uniformBlock.__Instance;
+            var __ret = __Internal.Update((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        public global::FlounderSharp.UniformBuffer UniformBuffer
+        {
+            get
+            {
+                var __ret = __Internal.GetUniformBuffer((__Instance + __PointerAdjustment));
+                global::FlounderSharp.UniformBuffer __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.UniformBuffer.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.UniformBuffer) global::FlounderSharp.UniformBuffer.NativeToManagedMap[__ret];
+                else global::FlounderSharp.UniformBuffer.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.UniformBuffer) global::FlounderSharp.UniformBuffer.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>Class that handles a descriptor set.</summary>
+    public unsafe partial class DescriptorsHandler : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 32)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr m_shaderProgram;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr m_descriptorSet;
+
+            [FieldOffset(16)]
+            internal global::System.IntPtr m_descriptors;
+
+            [FieldOffset(24)]
+            internal byte m_changed;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0DescriptorsHandler@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0DescriptorsHandler@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1DescriptorsHandler@fl@@QEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Push@DescriptorsHandler@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAVIDescriptor@2@@Z")]
+            internal static extern void Push(global::System.IntPtr instance, global::System.IntPtr descriptorName, global::System.IntPtr descriptor);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Push@DescriptorsHandler@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEAVUniformHandler@2@@Z")]
+            internal static extern void Push_1(global::System.IntPtr instance, global::System.IntPtr descriptorName, global::System.IntPtr uniformHandler);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?Update@DescriptorsHandler@fl@@QEAA_NAEBVPipeline@2@@Z")]
+            [return: MarshalAs(UnmanagedType.I1)]
+            internal static extern bool Update(global::System.IntPtr instance, global::System.IntPtr pipeline);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetDescriptorSet@DescriptorsHandler@fl@@QEBAPEAVDescriptorSet@2@XZ")]
+            internal static extern global::System.IntPtr GetDescriptorSet(global::System.IntPtr instance);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.DescriptorsHandler> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.DescriptorsHandler>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.DescriptorsHandler __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.DescriptorsHandler(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.DescriptorsHandler __CreateInstance(global::FlounderSharp.DescriptorsHandler.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.DescriptorsHandler(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.DescriptorsHandler.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.DescriptorsHandler.__Internal));
+            *(global::FlounderSharp.DescriptorsHandler.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private DescriptorsHandler(global::FlounderSharp.DescriptorsHandler.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected DescriptorsHandler(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public DescriptorsHandler()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.DescriptorsHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        public DescriptorsHandler(global::FlounderSharp.DescriptorsHandler _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.DescriptorsHandler.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::FlounderSharp.DescriptorsHandler.__Internal*) __Instance) = *((global::FlounderSharp.DescriptorsHandler.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.DescriptorsHandler __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public void Push(string descriptorName, global::FlounderSharp.IIDescriptor descriptor)
+        {
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(descriptorName, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            var __arg1 = ReferenceEquals(descriptor, null) ? global::System.IntPtr.Zero : descriptor.__PointerToIDescriptor;
+            __Internal.Push((__Instance + __PointerAdjustment), __arg0, __arg1);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+        }
+
+        public void Push(string descriptorName, global::FlounderSharp.UniformHandler uniformHandler)
+        {
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(descriptorName, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            var __arg1 = ReferenceEquals(uniformHandler, null) ? global::System.IntPtr.Zero : uniformHandler.__Instance;
+            __Internal.Push_1((__Instance + __PointerAdjustment), __arg0, __arg1);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+        }
+
+        public bool Update(global::FlounderSharp.Pipeline pipeline)
+        {
+            if (ReferenceEquals(pipeline, null))
+                throw new global::System.ArgumentNullException("pipeline", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = pipeline.__Instance;
+            var __ret = __Internal.Update((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        public global::FlounderSharp.DescriptorSet DescriptorSet
+        {
+            get
+            {
+                var __ret = __Internal.GetDescriptorSet((__Instance + __PointerAdjustment));
+                global::FlounderSharp.DescriptorSet __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.DescriptorSet.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.DescriptorSet) global::FlounderSharp.DescriptorSet.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.DescriptorSet.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+    }
+}
+
+namespace FlounderSharp
+{
+    public unsafe partial class PipelineDefine : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 64)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_name;
+
+            [FieldOffset(32)]
+            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_value;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0PipelineDefine@fl@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr name, global::System.IntPtr value);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0PipelineDefine@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1PipelineDefine@fl@@QEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetName@PipelineDefine@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void GetName(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetValue@PipelineDefine@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void GetValue(global::System.IntPtr instance, global::System.IntPtr @return);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.PipelineDefine> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.PipelineDefine>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.PipelineDefine __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.PipelineDefine(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.PipelineDefine __CreateInstance(global::FlounderSharp.PipelineDefine.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.PipelineDefine(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.PipelineDefine.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.PipelineDefine.__Internal));
+            global::FlounderSharp.PipelineDefine.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private PipelineDefine(global::FlounderSharp.PipelineDefine.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected PipelineDefine(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public PipelineDefine(string name, string value)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.PipelineDefine.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(name, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            var __allocator1 = new global::Std.Allocator<char>();
+            var __basicString1 = global::Std.BasicStringExtensions.BasicString(value, __allocator1);
+            var __arg1 = __basicString1.__Instance;
+            __Internal.ctor((__Instance + __PointerAdjustment), __arg0, __arg1);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+            __basicString1.Dispose(false);
+            __allocator1.Dispose();
+        }
+
+        public PipelineDefine(global::FlounderSharp.PipelineDefine _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.PipelineDefine.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.PipelineDefine __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public string Name
+        {
+            get
+            {
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                __Internal.GetName((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
+            }
+        }
+
+        public string Value
+        {
+            get
+            {
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                __Internal.GetValue((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
+            }
+        }
+    }
+
+    /// <summary>Class that represents a Vulkan pipeline.</summary>
+    public unsafe partial class Pipeline : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 624)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::FlounderSharp.GraphicsStage.__Internal m_graphicsStage;
+
+            [FieldOffset(8)]
+            internal global::FlounderSharp.PipelineCreate.__Internal m_pipelineCreateInfo;
+
+            [FieldOffset(96)]
+            internal global::Std.Vector.__Internalc__N_std_S_vector____N_fl_S_PipelineDefine___N_std_S_allocator__S0_ m_defines;
+
+            [FieldOffset(120)]
+            internal global::System.IntPtr m_shaderProgram;
+
+            [FieldOffset(128)]
+            internal global::Std.Vector.__Internalc__N_std_S_vector_____S_VkShaderModule_T___N_std_S_allocator__S0_ m_modules;
+
+            [FieldOffset(152)]
+            internal global::Std.Vector.__Internalc__N_std_S_vector____S_VkPipelineShaderStageCreateInfo___N_std_S_allocator__S0_ m_stages;
+
+            [FieldOffset(176)]
+            internal global::System.IntPtr m_descriptorSetLayout;
+
+            [FieldOffset(184)]
+            internal global::System.IntPtr m_descriptorPool;
+
+            [FieldOffset(192)]
+            internal global::System.IntPtr m_pipeline;
+
+            [FieldOffset(200)]
+            internal global::System.IntPtr m_pipelineLayout;
+
+            //[FieldOffset(208)]
+            //internal global::VkPipelineInputAssemblyStateCreateInfo.__Internal m_inputAssemblyState;
+            //
+            //[FieldOffset(240)]
+            //internal global::VkPipelineRasterizationStateCreateInfo.__Internal m_rasterizationState;
+            //
+            //[FieldOffset(304)]
+            //internal global::Std.Array.__Internalc__N_std_S_array____S_VkPipelineColorBlendAttachmentState_Vk1 m_blendAttachmentStates;
+            //
+            //[FieldOffset(336)]
+            //internal global::VkPipelineColorBlendStateCreateInfo.__Internal m_colourBlendState;
+            //
+            //[FieldOffset(392)]
+            //internal global::VkPipelineDepthStencilStateCreateInfo.__Internal m_depthStencilState;
+            //
+            //[FieldOffset(496)]
+            //internal global::VkPipelineViewportStateCreateInfo.__Internal m_viewportState;
+            //
+            //[FieldOffset(544)]
+            //internal global::VkPipelineMultisampleStateCreateInfo.__Internal m_multisampleState;
+            //
+            //[FieldOffset(592)]
+            //internal global::VkPipelineDynamicStateCreateInfo.__Internal m_dynamicState;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Pipeline@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1Pipeline@fl@@QEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?BindPipeline@Pipeline@fl@@QEBAXAEBVCommandBuffer@2@@Z")]
+            internal static extern void BindPipeline(global::System.IntPtr instance, global::System.IntPtr commandBuffer);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetDepthStencil@Pipeline@fl@@QEBAPEAVDepthStencil@2@AEBH@Z")]
+            internal static extern global::System.IntPtr GetDepthStencil(global::System.IntPtr instance, int stage);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetTexture@Pipeline@fl@@QEBAPEAVTexture@2@AEBIAEBH@Z")]
+            internal static extern global::System.IntPtr GetTexture(global::System.IntPtr instance, uint i, int stage);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetPipelineCreateInfo@Pipeline@fl@@QEBA?AVPipelineCreate@2@XZ")]
+            internal static extern void GetPipelineCreateInfo(global::System.IntPtr instance, global::System.IntPtr @return);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetShaderProgram@Pipeline@fl@@QEBAPEAVShaderProgram@2@XZ")]
+            internal static extern global::System.IntPtr GetShaderProgram(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?GetGraphicsStage@Pipeline@fl@@QEBA?AVGraphicsStage@2@XZ")]
+            internal static extern void GetGraphicsStage(global::System.IntPtr instance, global::System.IntPtr @return);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Pipeline> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.Pipeline>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.Pipeline __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Pipeline(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Pipeline __CreateInstance(global::FlounderSharp.Pipeline.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Pipeline(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Pipeline.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Pipeline.__Internal));
+            global::FlounderSharp.Pipeline.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private Pipeline(global::FlounderSharp.Pipeline.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Pipeline(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        public Pipeline(global::FlounderSharp.Pipeline _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Pipeline.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.Pipeline __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        public void BindPipeline(global::FlounderSharp.CommandBuffer commandBuffer)
+        {
+            if (ReferenceEquals(commandBuffer, null))
+                throw new global::System.ArgumentNullException("commandBuffer", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = commandBuffer.__Instance;
+            __Internal.BindPipeline((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public global::FlounderSharp.DepthStencil GetDepthStencil(int stage)
+        {
+            var __ret = __Internal.GetDepthStencil((__Instance + __PointerAdjustment), stage);
+            global::FlounderSharp.DepthStencil __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.DepthStencil.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::FlounderSharp.DepthStencil) global::FlounderSharp.DepthStencil.NativeToManagedMap[__ret];
+            else global::FlounderSharp.DepthStencil.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.DepthStencil) global::FlounderSharp.DepthStencil.__CreateInstance(__ret);
+            return __result0;
+        }
+
+        public global::FlounderSharp.Texture GetTexture(uint i, int stage)
+        {
+            var __ret = __Internal.GetTexture((__Instance + __PointerAdjustment), i, stage);
+            global::FlounderSharp.Texture __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.Texture.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.NativeToManagedMap[__ret];
+            else global::FlounderSharp.Texture.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Texture) global::FlounderSharp.Texture.__CreateInstance(__ret);
+            return __result0;
+        }
+
+        public global::FlounderSharp.PipelineCreate PipelineCreateInfo
+        {
+            get
+            {
+                var __ret = new global::FlounderSharp.PipelineCreate.__Internal();
+                __Internal.GetPipelineCreateInfo((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::FlounderSharp.PipelineCreate.__CreateInstance(__ret);
+            }
+        }
+
+        public global::FlounderSharp.ShaderProgram ShaderProgram
+        {
+            get
+            {
+                var __ret = __Internal.GetShaderProgram((__Instance + __PointerAdjustment));
+                global::FlounderSharp.ShaderProgram __result0;
+                if (__ret == IntPtr.Zero) __result0 = null;
+                else if (global::FlounderSharp.ShaderProgram.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.ShaderProgram) global::FlounderSharp.ShaderProgram.NativeToManagedMap[__ret];
+                else __result0 = global::FlounderSharp.ShaderProgram.__CreateInstance(__ret);
+                return __result0;
+            }
+        }
+
+        public global::FlounderSharp.GraphicsStage GraphicsStage
+        {
+            get
+            {
+                var __ret = new global::FlounderSharp.GraphicsStage.__Internal();
+                __Internal.GetGraphicsStage((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                return global::FlounderSharp.GraphicsStage.__CreateInstance(__ret);
             }
         }
     }
@@ -32247,13 +32065,13 @@ namespace FlounderSharp
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetText@Text@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
-            internal static extern void GetText(global::System.IntPtr instance, global::System.IntPtr @return);
+                EntryPoint="?GetString@Text@fl@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ")]
+            internal static extern void GetString(global::System.IntPtr instance, global::System.IntPtr @return);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetText@Text@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern void SetText(global::System.IntPtr instance, global::System.IntPtr newText);
+                EntryPoint="?SetString@Text@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern void SetString(global::System.IntPtr instance, global::System.IntPtr newString);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -32475,14 +32293,14 @@ namespace FlounderSharp
         }
 
         /// <summary>Gets the string of text represented.</summary>
-        /// <param name="newText">The new text,</param>
+        /// <param name="newString">The new text,</param>
         /// <remarks>Changed the current string in this text.</remarks>
-        public string Text
+        public string String
         {
             get
             {
                 var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                __Internal.GetText((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                __Internal.GetString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
                 var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
                 var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
                 __basicStringRet.Dispose(false);
@@ -32494,7 +32312,7 @@ namespace FlounderSharp
                 var __allocator0 = new global::Std.Allocator<char>();
                 var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
                 var __arg0 = __basicString0.__Instance;
-                __Internal.SetText((__Instance + __PointerAdjustment), __arg0);
+                __Internal.SetString((__Instance + __PointerAdjustment), __arg0);
                 __basicString0.Dispose(false);
                 __allocator0.Dispose();
             }
@@ -41581,6 +41399,212 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
+    public unsafe partial class RendererMeshes : global::FlounderSharp.IRenderer, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public new partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_IRenderer;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr m_uniformScene;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0RendererMeshes@fl@@QEAA@AEBVGraphicsStage@1@@Z")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance, global::System.IntPtr graphicsStage);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0RendererMeshes@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor_1(global::System.IntPtr instance, global::System.IntPtr _0);
+        }
+
+        internal static new global::FlounderSharp.RendererMeshes __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.RendererMeshes(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.RendererMeshes __CreateInstance(global::FlounderSharp.RendererMeshes.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.RendererMeshes(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.RendererMeshes.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RendererMeshes.__Internal));
+            global::FlounderSharp.RendererMeshes.__Internal.cctor_1(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private RendererMeshes(global::FlounderSharp.RendererMeshes.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected RendererMeshes(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        public RendererMeshes(global::FlounderSharp.GraphicsStage graphicsStage)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RendererMeshes.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(graphicsStage, null))
+                throw new global::System.ArgumentNullException("graphicsStage", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = graphicsStage.__Instance;
+            __Internal.ctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.RendererMeshes");
+        }
+
+        public RendererMeshes(global::FlounderSharp.RendererMeshes _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.RendererMeshes.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor_1((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.RendererMeshes");
+        }
+
+        public override void Render(global::FlounderSharp.CommandBuffer commandBuffer, global::FlounderSharp.Vector4 clipPlane, global::FlounderSharp.ICamera camera)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+            var ___RenderDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr));
+            if (ReferenceEquals(commandBuffer, null))
+                throw new global::System.ArgumentNullException("commandBuffer", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = commandBuffer.__Instance;
+            if (ReferenceEquals(clipPlane, null))
+                throw new global::System.ArgumentNullException("clipPlane", "Cannot be null because it is a C++ reference (&).");
+            var __arg1 = clipPlane.__Instance;
+            if (ReferenceEquals(camera, null))
+                throw new global::System.ArgumentNullException("camera", "Cannot be null because it is a C++ reference (&).");
+            var __arg2 = camera.__Instance;
+            ___RenderDelegate((__Instance + __PointerAdjustment), __arg0, __arg1, __arg2);
+        }
+
+        public static implicit operator global::FlounderSharp.RendererMeshes(global::FlounderSharp.GraphicsStage graphicsStage)
+        {
+            return new global::FlounderSharp.RendererMeshes(graphicsStage);
+        }
+
+        #region Virtual table interop
+
+        // ~RendererMeshes()
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.RendererMeshes) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr _RenderDelegateInstance;
+
+        private static void _RenderDelegateHook(global::System.IntPtr instance, global::System.IntPtr commandBuffer, global::System.IntPtr clipPlane, global::System.IntPtr camera)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.RendererMeshes) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.CommandBuffer __result0;
+            if (commandBuffer == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.CommandBuffer.NativeToManagedMap.ContainsKey(commandBuffer))
+                __result0 = (global::FlounderSharp.CommandBuffer) global::FlounderSharp.CommandBuffer.NativeToManagedMap[commandBuffer];
+            else __result0 = global::FlounderSharp.CommandBuffer.__CreateInstance(commandBuffer);
+            global::FlounderSharp.Vector4 __result1;
+            if (clipPlane == IntPtr.Zero) __result1 = null;
+            else if (global::FlounderSharp.Vector4.NativeToManagedMap.ContainsKey(clipPlane))
+                __result1 = (global::FlounderSharp.Vector4) global::FlounderSharp.Vector4.NativeToManagedMap[clipPlane];
+            else __result1 = global::FlounderSharp.Vector4.__CreateInstance(clipPlane);
+            global::FlounderSharp.ICamera __result2;
+            if (camera == IntPtr.Zero) __result2 = null;
+            else if (global::FlounderSharp.ICamera.NativeToManagedMap.ContainsKey(camera))
+                __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.NativeToManagedMap[camera];
+            else __result2 = (global::FlounderSharp.ICamera) global::FlounderSharp.ICamera.__CreateInstance(camera, skipVTables: true);
+            __target.Render(__result0, __result1, __result2);
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[2];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _RenderDelegateInstance += _RenderDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_RenderDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(3 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+}
+
+namespace FlounderSharp
+{
     public unsafe partial class MeshPattern : global::FlounderSharp.Model, IDisposable
     {
         [StructLayout(LayoutKind.Explicit, Size = 80)]
@@ -43274,6 +43298,442 @@ namespace FlounderSharp
         }
 
         #endregion
+    }
+}
+
+namespace FlounderSharp
+{
+    public unsafe partial class Behaviour : global::FlounderSharp.Component, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 56)]
+        public new partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_Component;
+
+            [FieldOffset(8)]
+            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_name;
+
+            [FieldOffset(40)]
+            internal global::System.IntPtr m_gameObject;
+
+            [FieldOffset(48)]
+            internal byte m_enabled;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Behaviour@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0Behaviour@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?SetName@Component@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern void SetName(global::System.IntPtr instance, global::System.IntPtr name);
+        }
+
+        internal static new global::FlounderSharp.Behaviour __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Behaviour(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.Behaviour __CreateInstance(global::FlounderSharp.Behaviour.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.Behaviour(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.Behaviour.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Behaviour.__Internal));
+            global::FlounderSharp.Behaviour.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private Behaviour(global::FlounderSharp.Behaviour.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected Behaviour(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        public Behaviour()
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Behaviour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+            SetupVTables(GetType().FullName == "FlounderSharp.Behaviour");
+        }
+
+        public Behaviour(global::FlounderSharp.Behaviour _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Behaviour.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.Behaviour");
+        }
+
+        public override void Update()
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+            var ___UpdateDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
+            ___UpdateDelegate((__Instance + __PointerAdjustment));
+        }
+
+        public override void Load(global::FlounderSharp.LoadedValue value)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___LoadDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public override void Write(global::FlounderSharp.LoadedValue value)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+            var ___WriteDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___WriteDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public override string Name
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetNameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                ___GetNameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
+            }
+
+            set
+            {
+                var __allocator0 = new global::Std.Allocator<char>();
+                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
+                var __arg0 = __basicString0.__Instance;
+                __Internal.SetName((__Instance + __PointerAdjustment), __arg0);
+                __basicString0.Dispose(false);
+                __allocator0.Dispose();
+            }
+        }
+
+        #region Virtual table interop
+
+        // virtual ~Behaviour()
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // void Update() override
+        private static global::FlounderSharp.Delegates.Action_IntPtr _UpdateDelegateInstance;
+
+        private static void _UpdateDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Update();
+        }
+
+        // void Load(LoadedValue *value) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _LoadDelegateInstance;
+
+        private static void _LoadDelegateHook(global::System.IntPtr instance, global::System.IntPtr value)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.LoadedValue __result0;
+            if (value == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.LoadedValue.NativeToManagedMap.ContainsKey(value))
+                __result0 = (global::FlounderSharp.LoadedValue) global::FlounderSharp.LoadedValue.NativeToManagedMap[value];
+            else __result0 = global::FlounderSharp.LoadedValue.__CreateInstance(value);
+            __target.Load(__result0);
+        }
+
+        // void Write(LoadedValue *value) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _WriteDelegateInstance;
+
+        private static void _WriteDelegateHook(global::System.IntPtr instance, global::System.IntPtr value)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.LoadedValue __result0;
+            if (value == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.LoadedValue.NativeToManagedMap.ContainsKey(value))
+                __result0 = (global::FlounderSharp.LoadedValue) global::FlounderSharp.LoadedValue.NativeToManagedMap[value];
+            else __result0 = global::FlounderSharp.LoadedValue.__CreateInstance(value);
+            __target.Write(__result0);
+        }
+
+        // std::string GetName() const override { return "Behaviour"; }
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _GetNameDelegateInstance;
+
+        private static void _GetNameDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Name;
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(__ret, __allocator0);
+            *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[5];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _UpdateDelegateInstance += _UpdateDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_UpdateDelegateInstance).ToPointer();
+                _LoadDelegateInstance += _LoadDelegateHook;
+                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_LoadDelegateInstance).ToPointer();
+                _WriteDelegateInstance += _WriteDelegateHook;
+                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_WriteDelegateInstance).ToPointer();
+                _GetNameDelegateInstance += _GetNameDelegateHook;
+                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetNameDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
+                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
+                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                    *(void**) (vfptr0 + 24) = _Thunks[2];
+                    *(void**) (vfptr0 + 32) = _Thunks[3];
+                    *(void**) (vfptr0 + 40) = _Thunks[4];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>A class that holds registerd components.</summary>
+    public unsafe partial class ComponentRegister : IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr m_components;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0ComponentRegister@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0ComponentRegister@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??1ComponentRegister@fl@@QEAA@XZ")]
+            internal static extern void dtor(global::System.IntPtr instance, int delete);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?DeregisterComponent@ComponentRegister@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern void DeregisterComponent(global::System.IntPtr instance, global::System.IntPtr name);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="?CreateComponent@ComponentRegister@fl@@QEAAPEAVComponent@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
+            internal static extern global::System.IntPtr CreateComponent(global::System.IntPtr instance, global::System.IntPtr name);
+        }
+
+        public global::System.IntPtr __Instance { get; protected set; }
+
+        protected int __PointerAdjustment;
+        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ComponentRegister> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ComponentRegister>();
+        protected void*[] __OriginalVTables;
+
+        protected bool __ownsNativeInstance;
+
+        internal static global::FlounderSharp.ComponentRegister __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.ComponentRegister(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.ComponentRegister __CreateInstance(global::FlounderSharp.ComponentRegister.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.ComponentRegister(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.ComponentRegister.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ComponentRegister.__Internal));
+            *(global::FlounderSharp.ComponentRegister.__Internal*) ret = native;
+            return ret.ToPointer();
+        }
+
+        private ComponentRegister(global::FlounderSharp.ComponentRegister.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected ComponentRegister(void* native, bool skipVTables = false)
+        {
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+        }
+
+        /// <summary>Creates a new component register.</summary>
+        public ComponentRegister()
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ComponentRegister.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+        }
+
+        public ComponentRegister(global::FlounderSharp.ComponentRegister _0)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ComponentRegister.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            *((global::FlounderSharp.ComponentRegister.__Internal*) __Instance) = *((global::FlounderSharp.ComponentRegister.__Internal*) _0.__Instance);
+        }
+
+        public void Dispose()
+        {
+            Dispose(disposing: true);
+        }
+
+        public virtual void Dispose(bool disposing)
+        {
+            if (__Instance == IntPtr.Zero)
+                return;
+            global::FlounderSharp.ComponentRegister __dummy;
+            NativeToManagedMap.TryRemove(__Instance, out __dummy);
+            if (disposing)
+                __Internal.dtor((__Instance + __PointerAdjustment), 0);
+            if (__ownsNativeInstance)
+                Marshal.FreeHGlobal(__Instance);
+            __Instance = IntPtr.Zero;
+        }
+
+        /// <summary>Deregisters a component.</summary>
+        /// <param name="name">The components name.</param>
+        public void DeregisterComponent(string name)
+        {
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(name, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            __Internal.DeregisterComponent((__Instance + __PointerAdjustment), __arg0);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+        }
+
+        /// <summary>Creates a new component from the register.</summary>
+        /// <param name="name">The component name to create.</param>
+        public global::FlounderSharp.Component CreateComponent(string name)
+        {
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(name, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            var __ret = __Internal.CreateComponent((__Instance + __PointerAdjustment), __arg0);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
+            global::FlounderSharp.Component __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.Component.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::FlounderSharp.Component) global::FlounderSharp.Component.NativeToManagedMap[__ret];
+            else global::FlounderSharp.Component.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Component) global::FlounderSharp.Component.__CreateInstance(__ret);
+            return __result0;
+        }
     }
 }
 
@@ -46203,7 +46663,7 @@ namespace FlounderSharp
 namespace FlounderSharp
 {
     /// <summary>Represents a sphere in a 3d space.</summary>
-    public unsafe partial class ColliderSphere : global::FlounderSharp.Collider, IDisposable
+    public unsafe partial class ColliderSphere : global::FlounderSharp.ICollider, IDisposable
     {
         [StructLayout(LayoutKind.Explicit, Size = 72)]
         public new partial struct __Internal
@@ -46346,34 +46806,40 @@ namespace FlounderSharp
             SetupVTables(GetType().FullName == "FlounderSharp.ColliderSphere");
         }
 
-        public override global::FlounderSharp.Collider Update(global::FlounderSharp.Transform transform, global::FlounderSharp.Collider destination)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
-            var ___UpdateDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr));
-            if (ReferenceEquals(transform, null))
-                throw new global::System.ArgumentNullException("transform", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = transform.__Instance;
-            var __arg1 = ReferenceEquals(destination, null) ? global::System.IntPtr.Zero : destination.__Instance;
-            var __ret = ___UpdateDelegate((__Instance + __PointerAdjustment), __arg0, __arg1);
-            global::FlounderSharp.Collider __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[__ret];
-            else global::FlounderSharp.Collider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(__ret);
-            return __result0;
-        }
-
         public override void Load(global::FlounderSharp.LoadedValue value)
         {
-            base.Load(value);
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___LoadDelegate((__Instance + __PointerAdjustment), __arg0);
         }
 
         public override void Write(global::FlounderSharp.LoadedValue value)
         {
-            base.Write(value);
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+            var ___WriteDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
+            ___WriteDelegate((__Instance + __PointerAdjustment), __arg0);
         }
 
-        public override global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.Collider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination)
+        public override global::FlounderSharp.ICollider UpdateCollider(global::FlounderSharp.Transform transform, global::FlounderSharp.ICollider destination)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 6 * 8);
+            var ___UpdateColliderDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr));
+            if (ReferenceEquals(transform, null))
+                throw new global::System.ArgumentNullException("transform", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = transform.__Instance;
+            var __arg1 = ReferenceEquals(destination, null) ? global::System.IntPtr.Zero : destination.__Instance;
+            var __ret = ___UpdateColliderDelegate((__Instance + __PointerAdjustment), __arg0, __arg1);
+            global::FlounderSharp.ICollider __result0;
+            if (__ret == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(__ret))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[__ret];
+            else global::FlounderSharp.ICollider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(__ret);
+            return __result0;
+        }
+
+        public override global::FlounderSharp.Vector3 ResolveCollision(global::FlounderSharp.ICollider other, global::FlounderSharp.Vector3 positionDelta, global::FlounderSharp.Vector3 destination)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 7 * 8);
             var ___ResolveCollisionDelegate = (global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr));
@@ -46393,7 +46859,7 @@ namespace FlounderSharp
             return __result0;
         }
 
-        public override global::FlounderSharp.Intersect Intersects(global::FlounderSharp.Collider other)
+        public override global::FlounderSharp.Intersect Intersects(global::FlounderSharp.ICollider other)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 9 * 8);
             var ___IntersectsDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr));
@@ -46428,7 +46894,7 @@ namespace FlounderSharp
             return __ret;
         }
 
-        public override bool Contains(global::FlounderSharp.Collider other)
+        public override bool Contains(global::FlounderSharp.ICollider other)
         {
             var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 12 * 8);
             var ___ContainsDelegate = (global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr));
@@ -46521,7 +46987,14 @@ namespace FlounderSharp
         {
             get
             {
-                return base.Name;
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetNameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
+                ___GetNameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
+                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
+                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
+                __basicStringRet.Dispose(false);
+                return __stringRet;
             }
 
             set
@@ -46551,7 +47024,7 @@ namespace FlounderSharp
             __target.Dispose(true);
         }
 
-        // void Update() override
+        // void Update() override { }
         private static global::FlounderSharp.Delegates.Action_IntPtr _UpdateDelegateInstance;
 
         private static void _UpdateDelegateHook(global::System.IntPtr instance)
@@ -46620,10 +47093,10 @@ namespace FlounderSharp
             *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
         }
 
-        // Collider *Update(const Transform &transform, Collider *destination) override
-        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr _UpdateDelegateInstance;
+        // ICollider *UpdateCollider(const Transform &transform, ICollider *destination) override
+        private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr _UpdateColliderDelegateInstance;
 
-        private static global::System.IntPtr _UpdateDelegateHook(global::System.IntPtr instance, global::System.IntPtr transform, global::System.IntPtr destination)
+        private static global::System.IntPtr _UpdateColliderDelegateHook(global::System.IntPtr instance, global::System.IntPtr transform, global::System.IntPtr destination)
         {
             if (!NativeToManagedMap.ContainsKey(instance))
                 throw new global::System.Exception("No managed instance was found");
@@ -46636,16 +47109,16 @@ namespace FlounderSharp
             else if (global::FlounderSharp.Transform.NativeToManagedMap.ContainsKey(transform))
                 __result0 = (global::FlounderSharp.Transform) global::FlounderSharp.Transform.NativeToManagedMap[transform];
             else __result0 = global::FlounderSharp.Transform.__CreateInstance(transform);
-            global::FlounderSharp.Collider __result1;
+            global::FlounderSharp.ICollider __result1;
             if (destination == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(destination))
-                __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[destination];
-            else __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(destination, skipVTables: true);
-            var __ret = __target.Update(__result0, __result1);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(destination))
+                __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[destination];
+            else __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(destination, skipVTables: true);
+            var __ret = __target.UpdateCollider(__result0, __result1);
             return ReferenceEquals(__ret, null) ? global::System.IntPtr.Zero : __ret.__Instance;
         }
 
-        // Vector3 *ResolveCollision(const Collider &other, const Vector3 &positionDelta, Vector3 *destination) override
+        // Vector3 *ResolveCollision(const ICollider &other, const Vector3 &positionDelta, Vector3 *destination) override
         private static global::FlounderSharp.Delegates.Func_IntPtr_IntPtr_IntPtr_IntPtr_IntPtr _ResolveCollisionDelegateInstance;
 
         private static global::System.IntPtr _ResolveCollisionDelegateHook(global::System.IntPtr instance, global::System.IntPtr other, global::System.IntPtr positionDelta, global::System.IntPtr destination)
@@ -46656,11 +47129,11 @@ namespace FlounderSharp
             var __target = (global::FlounderSharp.ColliderSphere) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result0;
+            global::FlounderSharp.ICollider __result0;
             if (other == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             global::FlounderSharp.Vector3 __result1;
             if (positionDelta == IntPtr.Zero) __result1 = null;
             else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(positionDelta))
@@ -46695,7 +47168,7 @@ namespace FlounderSharp
             *(global::FlounderSharp.Intersect.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Intersect.__Internal() : *(global::FlounderSharp.Intersect.__Internal*) __ret.__Instance;
         }
 
-        // Intersect Intersects(const Collider &other) override
+        // Intersect Intersects(const ICollider &other) override
         private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr _IntersectsDelegateInstance;
 
         private static void _IntersectsDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr other)
@@ -46706,11 +47179,11 @@ namespace FlounderSharp
             var __target = (global::FlounderSharp.ColliderSphere) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result1;
+            global::FlounderSharp.ICollider __result1;
             if (other == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result1 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result1 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             var __ret = __target.Intersects(__result1);
             *(global::FlounderSharp.Intersect.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Intersect.__Internal() : *(global::FlounderSharp.Intersect.__Internal*) __ret.__Instance;
         }
@@ -46755,7 +47228,7 @@ namespace FlounderSharp
             return __ret;
         }
 
-        // bool Contains(const Collider &other) override
+        // bool Contains(const ICollider &other) override
         private static global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr _ContainsDelegateInstance;
 
         private static bool _ContainsDelegateHook(global::System.IntPtr instance, global::System.IntPtr other)
@@ -46766,11 +47239,11 @@ namespace FlounderSharp
             var __target = (global::FlounderSharp.ColliderSphere) NativeToManagedMap[instance];
             if (__target.__ownsNativeInstance)
                 __target.SetupVTables();
-            global::FlounderSharp.Collider __result0;
+            global::FlounderSharp.ICollider __result0;
             if (other == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(other))
-                __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[other];
-            else __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(other, skipVTables: true);
+            else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(other))
+                __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[other];
+            else __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(other, skipVTables: true);
             var __ret = __target.Contains(__result0);
             return __ret;
         }
@@ -46798,8 +47271,8 @@ namespace FlounderSharp
                 _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_WriteDelegateInstance).ToPointer();
                 _GetNameDelegateInstance += _GetNameDelegateHook;
                 _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetNameDelegateInstance).ToPointer();
-                _UpdateDelegateInstance += _UpdateDelegateHook;
-                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_UpdateDelegateInstance).ToPointer();
+                _UpdateColliderDelegateInstance += _UpdateColliderDelegateHook;
+                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_UpdateColliderDelegateInstance).ToPointer();
                 _ResolveCollisionDelegateInstance += _ResolveCollisionDelegateHook;
                 _Thunks[6] = Marshal.GetFunctionPointerForDelegate(_ResolveCollisionDelegateInstance).ToPointer();
                 _Intersects_1DelegateInstance += _Intersects_1DelegateHook;
@@ -46978,7 +47451,7 @@ namespace FlounderSharp
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?GetCollider@Rigidbody@fl@@QEBAPEAVCollider@2@XZ")]
+                EntryPoint="?GetCollider@Rigidbody@fl@@QEBAPEAVICollider@2@XZ")]
             internal static extern global::System.IntPtr GetCollider(global::System.IntPtr instance);
         }
 
@@ -47192,16 +47665,16 @@ namespace FlounderSharp
             }
         }
 
-        public global::FlounderSharp.Collider Collider
+        public global::FlounderSharp.ICollider Collider
         {
             get
             {
                 var __ret = __Internal.GetCollider((__Instance + __PointerAdjustment));
-                global::FlounderSharp.Collider __result0;
+                global::FlounderSharp.ICollider __result0;
                 if (__ret == IntPtr.Zero) __result0 = null;
-                else if (global::FlounderSharp.Collider.NativeToManagedMap.ContainsKey(__ret))
-                    __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.NativeToManagedMap[__ret];
-                else global::FlounderSharp.Collider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Collider) global::FlounderSharp.Collider.__CreateInstance(__ret);
+                else if (global::FlounderSharp.ICollider.NativeToManagedMap.ContainsKey(__ret))
+                    __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.NativeToManagedMap[__ret];
+                else global::FlounderSharp.ICollider.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.ICollider) global::FlounderSharp.ICollider.__CreateInstance(__ret);
                 return __result0;
             }
         }
@@ -47358,315 +47831,6 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
-    /// <summary>A structure of spatial objects for a 3D space.</summary>
-    public unsafe partial class SceneStructure : global::FlounderSharp.ISpatialStructure, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public new partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_ISpatialStructure;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr m_objects;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0SceneStructure@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0SceneStructure@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-        }
-
-        internal static new global::FlounderSharp.SceneStructure __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.SceneStructure(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.SceneStructure __CreateInstance(global::FlounderSharp.SceneStructure.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.SceneStructure(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.SceneStructure.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
-            global::FlounderSharp.SceneStructure.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private SceneStructure(global::FlounderSharp.SceneStructure.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected SceneStructure(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        /// <summary>Creates a new basic structure.</summary>
-        public SceneStructure()
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-            SetupVTables(GetType().FullName == "FlounderSharp.SceneStructure");
-        }
-
-        public SceneStructure(global::FlounderSharp.SceneStructure _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.SceneStructure");
-        }
-
-        public override void Add(global::FlounderSharp.GameObject targetObject)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-            var ___AddDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
-            ___AddDelegate((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public override void Remove(global::FlounderSharp.GameObject targetObject)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
-            var ___RemoveDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
-            ___RemoveDelegate((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public override void Clear()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
-            var ___ClearDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___ClearDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override bool Contains(global::FlounderSharp.GameObject targetObject)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 10 * 8);
-            var ___ContainsDelegate = (global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr));
-            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
-            var __ret = ___ContainsDelegate((__Instance + __PointerAdjustment), __arg0);
-            return __ret;
-        }
-
-        public override uint Size
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
-                var ___GetSizeDelegate = (global::FlounderSharp.Delegates.Func_uint_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_uint_IntPtr));
-                var __ret = ___GetSizeDelegate((__Instance + __PointerAdjustment));
-                return __ret;
-            }
-        }
-
-        #region Virtual table interop
-
-        // ~SceneStructure()
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // void Add(GameObject *object) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _AddDelegateInstance;
-
-        private static void _AddDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.GameObject __result0;
-            if (targetObject == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
-                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
-            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
-            __target.Add(__result0);
-        }
-
-        // void Remove(GameObject *object) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _RemoveDelegateInstance;
-
-        private static void _RemoveDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.GameObject __result0;
-            if (targetObject == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
-                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
-            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
-            __target.Remove(__result0);
-        }
-
-        // void Clear() override
-        private static global::FlounderSharp.Delegates.Action_IntPtr _ClearDelegateInstance;
-
-        private static void _ClearDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Clear();
-        }
-
-        // unsigned int GetSize() override { return m_objects->size(); }
-        private static global::FlounderSharp.Delegates.Func_uint_IntPtr _GetSizeDelegateInstance;
-
-        private static uint _GetSizeDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Size;
-            return __ret;
-        }
-
-        // bool Contains(GameObject *object) override
-        private static global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr _ContainsDelegateInstance;
-
-        private static bool _ContainsDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.GameObject __result0;
-            if (targetObject == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
-                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
-            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
-            var __ret = __target.Contains(__result0);
-            return __ret;
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[6];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _AddDelegateInstance += _AddDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_AddDelegateInstance).ToPointer();
-                _RemoveDelegateInstance += _RemoveDelegateHook;
-                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_RemoveDelegateInstance).ToPointer();
-                _ClearDelegateInstance += _ClearDelegateHook;
-                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_ClearDelegateInstance).ToPointer();
-                _GetSizeDelegateInstance += _GetSizeDelegateHook;
-                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetSizeDelegateInstance).ToPointer();
-                _ContainsDelegateInstance += _ContainsDelegateHook;
-                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_ContainsDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
-                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
-                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
-                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
-                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
-                    *(void**) (vfptr0 + 80) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 80);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                    *(void**) (vfptr0 + 24) = _Thunks[2];
-                    *(void**) (vfptr0 + 32) = _Thunks[3];
-                    *(void**) (vfptr0 + 40) = _Thunks[4];
-                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
-                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
-                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
-                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
-                    *(void**) (vfptr0 + 80) = _Thunks[5];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-}
-
-namespace FlounderSharp
-{
     /// <summary>Class that represents a loaded cubemap texture.</summary>
     public unsafe partial class Cubemap : global::FlounderSharp.IResource, global::FlounderSharp.IBuffer, global::FlounderSharp.IIDescriptor, IDisposable
     {
@@ -47721,11 +47885,11 @@ namespace FlounderSharp
             [FieldOffset(152)]
             internal global::System.IntPtr m_sampler;
 
-            [FieldOffset(160)]
-            internal global::VkFormat m_format;
-
-            [FieldOffset(168)]
-            internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
+            //[FieldOffset(160)]
+            //internal global::VkFormat m_format;
+            //
+            //[FieldOffset(168)]
+            //internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -52879,11 +53043,11 @@ namespace FlounderSharp
             [FieldOffset(32)]
             internal global::System.IntPtr m_sampler;
 
-            [FieldOffset(40)]
-            internal global::VkFormat m_format;
-
-            [FieldOffset(48)]
-            internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
+            //[FieldOffset(40)]
+            //internal global::VkFormat m_format;
+            //
+            //[FieldOffset(48)]
+            //internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -53027,8 +53191,8 @@ namespace FlounderSharp
         [StructLayout(LayoutKind.Explicit, Size = 80)]
         public partial struct __Internal
         {
-            [FieldOffset(0)]
-            internal global::VkPresentModeKHR m_presentMode;
+            //[FieldOffset(0)]
+            //internal global::VkPresentModeKHR m_presentMode;
 
             [FieldOffset(8)]
             internal global::System.IntPtr m_swapchain;
@@ -53042,8 +53206,8 @@ namespace FlounderSharp
             [FieldOffset(48)]
             internal global::Std.Vector.__Internalc__N_std_S_vector_____S_VkImageView_T___N_std_S_allocator__S0_ m_swapchainImageViews;
 
-            [FieldOffset(72)]
-            internal global::VkExtent2D.__Internal m_extent;
+            //[FieldOffset(72)]
+            //internal global::VkExtent2D.__Internal m_extent;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -54441,442 +54605,6 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
-    public unsafe partial class Behaviour : global::FlounderSharp.Component, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 56)]
-        public new partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_Component;
-
-            [FieldOffset(8)]
-            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_name;
-
-            [FieldOffset(40)]
-            internal global::System.IntPtr m_gameObject;
-
-            [FieldOffset(48)]
-            internal byte m_enabled;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Behaviour@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0Behaviour@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?SetName@Component@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern void SetName(global::System.IntPtr instance, global::System.IntPtr name);
-        }
-
-        internal static new global::FlounderSharp.Behaviour __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Behaviour(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.Behaviour __CreateInstance(global::FlounderSharp.Behaviour.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.Behaviour(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.Behaviour.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Behaviour.__Internal));
-            global::FlounderSharp.Behaviour.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private Behaviour(global::FlounderSharp.Behaviour.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected Behaviour(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        public Behaviour()
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Behaviour.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-            SetupVTables(GetType().FullName == "FlounderSharp.Behaviour");
-        }
-
-        public Behaviour(global::FlounderSharp.Behaviour _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.Behaviour.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.Behaviour");
-        }
-
-        public override void Update()
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
-            var ___UpdateDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
-            ___UpdateDelegate((__Instance + __PointerAdjustment));
-        }
-
-        public override void Load(global::FlounderSharp.LoadedValue value)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
-            var ___LoadDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
-            ___LoadDelegate((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public override void Write(global::FlounderSharp.LoadedValue value)
-        {
-            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
-            var ___WriteDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-            var __arg0 = ReferenceEquals(value, null) ? global::System.IntPtr.Zero : value.__Instance;
-            ___WriteDelegate((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public override string Name
-        {
-            get
-            {
-                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
-                var ___GetNameDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
-                var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
-                ___GetNameDelegate((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                var __basicStringRet = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
-                var __stringRet = global::Std.BasicStringExtensions.CStr(__basicStringRet);
-                __basicStringRet.Dispose(false);
-                return __stringRet;
-            }
-
-            set
-            {
-                var __allocator0 = new global::Std.Allocator<char>();
-                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
-                var __arg0 = __basicString0.__Instance;
-                __Internal.SetName((__Instance + __PointerAdjustment), __arg0);
-                __basicString0.Dispose(false);
-                __allocator0.Dispose();
-            }
-        }
-
-        #region Virtual table interop
-
-        // virtual ~Behaviour()
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // void Update() override
-        private static global::FlounderSharp.Delegates.Action_IntPtr _UpdateDelegateInstance;
-
-        private static void _UpdateDelegateHook(global::System.IntPtr instance)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Update();
-        }
-
-        // void Load(LoadedValue *value) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _LoadDelegateInstance;
-
-        private static void _LoadDelegateHook(global::System.IntPtr instance, global::System.IntPtr value)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.LoadedValue __result0;
-            if (value == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.LoadedValue.NativeToManagedMap.ContainsKey(value))
-                __result0 = (global::FlounderSharp.LoadedValue) global::FlounderSharp.LoadedValue.NativeToManagedMap[value];
-            else __result0 = global::FlounderSharp.LoadedValue.__CreateInstance(value);
-            __target.Load(__result0);
-        }
-
-        // void Write(LoadedValue *value) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _WriteDelegateInstance;
-
-        private static void _WriteDelegateHook(global::System.IntPtr instance, global::System.IntPtr value)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.LoadedValue __result0;
-            if (value == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.LoadedValue.NativeToManagedMap.ContainsKey(value))
-                __result0 = (global::FlounderSharp.LoadedValue) global::FlounderSharp.LoadedValue.NativeToManagedMap[value];
-            else __result0 = global::FlounderSharp.LoadedValue.__CreateInstance(value);
-            __target.Write(__result0);
-        }
-
-        // std::string GetName() const override { return "Behaviour"; }
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _GetNameDelegateInstance;
-
-        private static void _GetNameDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.Behaviour) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Name;
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(__ret, __allocator0);
-            *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[5];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _UpdateDelegateInstance += _UpdateDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_UpdateDelegateInstance).ToPointer();
-                _LoadDelegateInstance += _LoadDelegateHook;
-                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_LoadDelegateInstance).ToPointer();
-                _WriteDelegateInstance += _WriteDelegateHook;
-                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_WriteDelegateInstance).ToPointer();
-                _GetNameDelegateInstance += _GetNameDelegateHook;
-                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetNameDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
-                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                    *(void**) (vfptr0 + 24) = _Thunks[2];
-                    *(void**) (vfptr0 + 32) = _Thunks[3];
-                    *(void**) (vfptr0 + 40) = _Thunks[4];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-}
-
-namespace FlounderSharp
-{
-    /// <summary>A class that holds registerd components.</summary>
-    public unsafe partial class ComponentRegister : IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 8)]
-        public partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr m_components;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0ComponentRegister@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0ComponentRegister@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??1ComponentRegister@fl@@QEAA@XZ")]
-            internal static extern void dtor(global::System.IntPtr instance, int delete);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?DeregisterComponent@ComponentRegister@fl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern void DeregisterComponent(global::System.IntPtr instance, global::System.IntPtr name);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="?CreateComponent@ComponentRegister@fl@@QEAAPEAVComponent@2@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z")]
-            internal static extern global::System.IntPtr CreateComponent(global::System.IntPtr instance, global::System.IntPtr name);
-        }
-
-        public global::System.IntPtr __Instance { get; protected set; }
-
-        protected int __PointerAdjustment;
-        internal static readonly global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ComponentRegister> NativeToManagedMap = new global::System.Collections.Concurrent.ConcurrentDictionary<IntPtr, global::FlounderSharp.ComponentRegister>();
-        protected void*[] __OriginalVTables;
-
-        protected bool __ownsNativeInstance;
-
-        internal static global::FlounderSharp.ComponentRegister __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.ComponentRegister(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.ComponentRegister __CreateInstance(global::FlounderSharp.ComponentRegister.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.ComponentRegister(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.ComponentRegister.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ComponentRegister.__Internal));
-            *(global::FlounderSharp.ComponentRegister.__Internal*) ret = native;
-            return ret.ToPointer();
-        }
-
-        private ComponentRegister(global::FlounderSharp.ComponentRegister.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected ComponentRegister(void* native, bool skipVTables = false)
-        {
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-        }
-
-        /// <summary>Creates a new component register.</summary>
-        public ComponentRegister()
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ComponentRegister.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-        }
-
-        public ComponentRegister(global::FlounderSharp.ComponentRegister _0)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.ComponentRegister.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            *((global::FlounderSharp.ComponentRegister.__Internal*) __Instance) = *((global::FlounderSharp.ComponentRegister.__Internal*) _0.__Instance);
-        }
-
-        public void Dispose()
-        {
-            Dispose(disposing: true);
-        }
-
-        public virtual void Dispose(bool disposing)
-        {
-            if (__Instance == IntPtr.Zero)
-                return;
-            global::FlounderSharp.ComponentRegister __dummy;
-            NativeToManagedMap.TryRemove(__Instance, out __dummy);
-            if (disposing)
-                __Internal.dtor((__Instance + __PointerAdjustment), 0);
-            if (__ownsNativeInstance)
-                Marshal.FreeHGlobal(__Instance);
-            __Instance = IntPtr.Zero;
-        }
-
-        /// <summary>Deregisters a component.</summary>
-        /// <param name="name">The components name.</param>
-        public void DeregisterComponent(string name)
-        {
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(name, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.DeregisterComponent((__Instance + __PointerAdjustment), __arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-        }
-
-        /// <summary>Creates a new component from the register.</summary>
-        /// <param name="name">The component name to create.</param>
-        public global::FlounderSharp.Component CreateComponent(string name)
-        {
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(name, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            var __ret = __Internal.CreateComponent((__Instance + __PointerAdjustment), __arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-            global::FlounderSharp.Component __result0;
-            if (__ret == IntPtr.Zero) __result0 = null;
-            else if (global::FlounderSharp.Component.NativeToManagedMap.ContainsKey(__ret))
-                __result0 = (global::FlounderSharp.Component) global::FlounderSharp.Component.NativeToManagedMap[__ret];
-            else global::FlounderSharp.Component.NativeToManagedMap[__ret] = __result0 = (global::FlounderSharp.Component) global::FlounderSharp.Component.__CreateInstance(__ret);
-            return __result0;
-        }
-    }
-}
-
-namespace FlounderSharp
-{
     /// <summary>Class that represents a entity prefab.</summary>
     public unsafe partial class PrefabObject : global::FlounderSharp.IResource, IDisposable
     {
@@ -55127,6 +54855,315 @@ namespace FlounderSharp
                     *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
                     *(void**) (vfptr0 + 8) = _Thunks[0];
                     *(void**) (vfptr0 + 16) = _Thunks[1];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+}
+
+namespace FlounderSharp
+{
+    /// <summary>A structure of spatial objects for a 3D space.</summary>
+    public unsafe partial class SceneStructure : global::FlounderSharp.ISpatialStructure, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public new partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_ISpatialStructure;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr m_objects;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0SceneStructure@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0SceneStructure@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+        }
+
+        internal static new global::FlounderSharp.SceneStructure __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.SceneStructure(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.SceneStructure __CreateInstance(global::FlounderSharp.SceneStructure.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.SceneStructure(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.SceneStructure.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
+            global::FlounderSharp.SceneStructure.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private SceneStructure(global::FlounderSharp.SceneStructure.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected SceneStructure(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        /// <summary>Creates a new basic structure.</summary>
+        public SceneStructure()
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+            SetupVTables(GetType().FullName == "FlounderSharp.SceneStructure");
+        }
+
+        public SceneStructure(global::FlounderSharp.SceneStructure _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.SceneStructure.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.SceneStructure");
+        }
+
+        public override void Add(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 2 * 8);
+            var ___AddDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            ___AddDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public override void Remove(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 3 * 8);
+            var ___RemoveDelegate = (global::FlounderSharp.Delegates.Action_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            ___RemoveDelegate((__Instance + __PointerAdjustment), __arg0);
+        }
+
+        public override void Clear()
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 4 * 8);
+            var ___ClearDelegate = (global::FlounderSharp.Delegates.Action_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Action_IntPtr));
+            ___ClearDelegate((__Instance + __PointerAdjustment));
+        }
+
+        public override bool Contains(global::FlounderSharp.GameObject targetObject)
+        {
+            var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 10 * 8);
+            var ___ContainsDelegate = (global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr));
+            var __arg0 = ReferenceEquals(targetObject, null) ? global::System.IntPtr.Zero : targetObject.__Instance;
+            var __ret = ___ContainsDelegate((__Instance + __PointerAdjustment), __arg0);
+            return __ret;
+        }
+
+        public override uint Size
+        {
+            get
+            {
+                var __slot = *(void**) ((IntPtr) __OriginalVTables[0] + 5 * 8);
+                var ___GetSizeDelegate = (global::FlounderSharp.Delegates.Func_uint_IntPtr) Marshal.GetDelegateForFunctionPointer(new IntPtr(__slot), typeof(global::FlounderSharp.Delegates.Func_uint_IntPtr));
+                var __ret = ___GetSizeDelegate((__Instance + __PointerAdjustment));
+                return __ret;
+            }
+        }
+
+        #region Virtual table interop
+
+        // ~SceneStructure()
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // void Add(GameObject *object) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _AddDelegateInstance;
+
+        private static void _AddDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            __target.Add(__result0);
+        }
+
+        // void Remove(GameObject *object) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _RemoveDelegateInstance;
+
+        private static void _RemoveDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            __target.Remove(__result0);
+        }
+
+        // void Clear() override
+        private static global::FlounderSharp.Delegates.Action_IntPtr _ClearDelegateInstance;
+
+        private static void _ClearDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Clear();
+        }
+
+        // unsigned int GetSize() override { return m_objects->size(); }
+        private static global::FlounderSharp.Delegates.Func_uint_IntPtr _GetSizeDelegateInstance;
+
+        private static uint _GetSizeDelegateHook(global::System.IntPtr instance)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Size;
+            return __ret;
+        }
+
+        // bool Contains(GameObject *object) override
+        private static global::FlounderSharp.Delegates.Func_bool_IntPtr_IntPtr _ContainsDelegateInstance;
+
+        private static bool _ContainsDelegateHook(global::System.IntPtr instance, global::System.IntPtr targetObject)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.SceneStructure) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.GameObject __result0;
+            if (targetObject == IntPtr.Zero) __result0 = null;
+            else if (global::FlounderSharp.GameObject.NativeToManagedMap.ContainsKey(targetObject))
+                __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.NativeToManagedMap[targetObject];
+            else __result0 = (global::FlounderSharp.GameObject) global::FlounderSharp.GameObject.__CreateInstance(targetObject, skipVTables: true);
+            var __ret = __target.Contains(__result0);
+            return __ret;
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[6];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _AddDelegateInstance += _AddDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_AddDelegateInstance).ToPointer();
+                _RemoveDelegateInstance += _RemoveDelegateHook;
+                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_RemoveDelegateInstance).ToPointer();
+                _ClearDelegateInstance += _ClearDelegateHook;
+                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_ClearDelegateInstance).ToPointer();
+                _GetSizeDelegateInstance += _GetSizeDelegateHook;
+                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetSizeDelegateInstance).ToPointer();
+                _ContainsDelegateInstance += _ContainsDelegateHook;
+                _Thunks[5] = Marshal.GetFunctionPointerForDelegate(_ContainsDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
+                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
+                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
+                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
+                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
+                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
+                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
+                    *(void**) (vfptr0 + 80) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 80);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(11 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                    *(void**) (vfptr0 + 24) = _Thunks[2];
+                    *(void**) (vfptr0 + 32) = _Thunks[3];
+                    *(void**) (vfptr0 + 40) = _Thunks[4];
+                    *(void**) (vfptr0 + 48) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 48);
+                    *(void**) (vfptr0 + 56) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 56);
+                    *(void**) (vfptr0 + 64) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 64);
+                    *(void**) (vfptr0 + 72) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 72);
+                    *(void**) (vfptr0 + 80) = _Thunks[5];
                 }
 
                 *(void**) (__Instance + 0) = __ManagedVTables[0];
@@ -62379,329 +62416,6 @@ namespace FlounderSharp
 
 namespace FlounderSharp
 {
-    public unsafe partial class MeshWater : global::FlounderSharp.MeshSimple, IDisposable
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 80)]
-        public new partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr vfptr_IResource;
-
-            [FieldOffset(8)]
-            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_filename;
-
-            [FieldOffset(40)]
-            internal global::System.IntPtr m_vertexBuffer;
-
-            [FieldOffset(48)]
-            internal global::System.IntPtr m_indexBuffer;
-
-            [FieldOffset(56)]
-            internal global::System.IntPtr m_aabb;
-
-            [FieldOffset(64)]
-            internal float m_sideLength;
-
-            [FieldOffset(68)]
-            internal float m_squareSize;
-
-            [FieldOffset(72)]
-            internal int m_vertexCount;
-
-            [FieldOffset(76)]
-            internal float m_textureScale;
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0MeshWater@fl@@QEAA@XZ")]
-            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
-
-            [SuppressUnmanagedCodeSecurity]
-            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
-                EntryPoint="??0MeshWater@fl@@QEAA@AEBV01@@Z")]
-            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
-        }
-
-        internal static new global::FlounderSharp.MeshWater __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.MeshWater(native.ToPointer(), skipVTables);
-        }
-
-        internal static global::FlounderSharp.MeshWater __CreateInstance(global::FlounderSharp.MeshWater.__Internal native, bool skipVTables = false)
-        {
-            return new global::FlounderSharp.MeshWater(native, skipVTables);
-        }
-
-        private static void* __CopyValue(global::FlounderSharp.MeshWater.__Internal native)
-        {
-            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.MeshWater.__Internal));
-            global::FlounderSharp.MeshWater.__Internal.cctor(ret, new global::System.IntPtr(&native));
-            return ret.ToPointer();
-        }
-
-        private MeshWater(global::FlounderSharp.MeshWater.__Internal native, bool skipVTables = false)
-            : this(__CopyValue(native), skipVTables)
-        {
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-        }
-
-        protected MeshWater(void* native, bool skipVTables = false)
-            : base((void*) null)
-        {
-            __PointerAdjustment = 0;
-            if (native == null)
-                return;
-            __Instance = new global::System.IntPtr(native);
-            if (skipVTables)
-                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-            else
-                SetupVTables(true);
-        }
-
-        public MeshWater()
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.MeshWater.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            __Internal.ctor((__Instance + __PointerAdjustment));
-            SetupVTables(GetType().FullName == "FlounderSharp.MeshWater");
-        }
-
-        public MeshWater(global::FlounderSharp.MeshWater _0)
-            : this((void*) null)
-        {
-            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.MeshWater.__Internal));
-            __ownsNativeInstance = true;
-            NativeToManagedMap[__Instance] = this;
-            if (ReferenceEquals(_0, null))
-                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
-            var __arg0 = _0.__Instance;
-            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
-            SetupVTables(GetType().FullName == "FlounderSharp.MeshWater");
-        }
-
-        public override global::FlounderSharp.Vector3 GetPosition(float x, float z)
-        {
-            return base.GetPosition(x, z);
-        }
-
-        public override global::FlounderSharp.Vector3 GetNormal(global::FlounderSharp.Vector3 position)
-        {
-            return base.GetNormal(position);
-        }
-
-        public override global::FlounderSharp.Vector3 GetColour(global::FlounderSharp.Vector3 position, global::FlounderSharp.Vector3 normal)
-        {
-            return base.GetColour(position, normal);
-        }
-
-        public static float SideLength
-        {
-            get
-            {
-                var __ptr = (float*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?SIDE_LENGTH@MeshWater@fl@@2MB");
-                return *__ptr;
-            }
-        }
-
-        public static float SquareSize
-        {
-            get
-            {
-                var __ptr = (float*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?SQUARE_SIZE@MeshWater@fl@@2MB");
-                return *__ptr;
-            }
-        }
-
-        public static int VertexCount
-        {
-            get
-            {
-                var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?VERTEX_COUNT@MeshWater@fl@@2HB");
-                return *__ptr;
-            }
-        }
-
-        public static float TextureScale
-        {
-            get
-            {
-                var __ptr = (float*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?TEXTURE_SCALE@MeshWater@fl@@2MB");
-                return *__ptr;
-            }
-        }
-
-        public static global::FlounderSharp.Colour WaterColour
-        {
-            get
-            {
-                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?WATER_COLOUR@MeshWater@fl@@2VColour@2@B");
-                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
-            }
-        }
-
-        #region Virtual table interop
-
-        // ~MeshWater()
-        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
-
-        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            __target.Dispose(true);
-        }
-
-        // std::string GetFilename() override { return m_filename; }
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _GetFilenameDelegateInstance;
-
-        private static void _GetFilenameDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.Filename;
-            var __allocator0 = new global::Std.Allocator<char>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(__ret, __allocator0);
-            *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
-        }
-
-        // Vector3 GetPosition(const float &x, const float &z) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_float_float _GetPositionDelegateInstance;
-
-        private static void _GetPositionDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, float x, float z)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            var __ret = __target.GetPosition(x, z);
-            *(global::FlounderSharp.Vector3.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) __ret.__Instance;
-        }
-
-        // Vector3 GetNormal(const Vector3 &position) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr _GetNormalDelegateInstance;
-
-        private static void _GetNormalDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr position)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.Vector3 __result1;
-            if (position == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(position))
-                __result1 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[position];
-            else __result1 = global::FlounderSharp.Vector3.__CreateInstance(position);
-            var __ret = __target.GetNormal(__result1);
-            *(global::FlounderSharp.Vector3.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) __ret.__Instance;
-        }
-
-        // Vector3 GetColour(const Vector3 &position, const Vector3 &normal) override
-        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr _GetColourDelegateInstance;
-
-        private static void _GetColourDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr position, global::System.IntPtr normal)
-        {
-            if (!NativeToManagedMap.ContainsKey(instance))
-                throw new global::System.Exception("No managed instance was found");
-
-            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
-            if (__target.__ownsNativeInstance)
-                __target.SetupVTables();
-            global::FlounderSharp.Vector3 __result1;
-            if (position == IntPtr.Zero) __result1 = null;
-            else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(position))
-                __result1 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[position];
-            else __result1 = global::FlounderSharp.Vector3.__CreateInstance(position);
-            global::FlounderSharp.Vector3 __result2;
-            if (normal == IntPtr.Zero) __result2 = null;
-            else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(normal))
-                __result2 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[normal];
-            else __result2 = global::FlounderSharp.Vector3.__CreateInstance(normal);
-            var __ret = __target.GetColour(__result1, __result2);
-            *(global::FlounderSharp.Vector3.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) __ret.__Instance;
-        }
-
-        private static void*[] __ManagedVTables;
-        private static void*[] __ManagedVTablesDtorOnly;
-        private static void*[] _Thunks;
-
-        private void SetupVTables(bool destructorOnly = false)
-        {
-            if (__OriginalVTables != null)
-                return;
-            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
-
-            if (_Thunks == null)
-            {
-                _Thunks = new void*[5];
-                _dtorDelegateInstance += _dtorDelegateHook;
-                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
-                _GetFilenameDelegateInstance += _GetFilenameDelegateHook;
-                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_GetFilenameDelegateInstance).ToPointer();
-                _GetPositionDelegateInstance += _GetPositionDelegateHook;
-                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_GetPositionDelegateInstance).ToPointer();
-                _GetNormalDelegateInstance += _GetNormalDelegateHook;
-                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_GetNormalDelegateInstance).ToPointer();
-                _GetColourDelegateInstance += _GetColourDelegateHook;
-                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetColourDelegateInstance).ToPointer();
-            }
-
-            if (destructorOnly)
-            {
-                if (__ManagedVTablesDtorOnly == null)
-                {
-                    __ManagedVTablesDtorOnly = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
-                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
-                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
-                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
-                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
-            }
-            else
-            {
-                if (__ManagedVTables == null)
-                {
-                    __ManagedVTables = new void*[1];
-                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
-                    __ManagedVTables[0] = vfptr0.ToPointer();
-                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
-                    *(void**) (vfptr0 + 8) = _Thunks[0];
-                    *(void**) (vfptr0 + 16) = _Thunks[1];
-                    *(void**) (vfptr0 + 24) = _Thunks[2];
-                    *(void**) (vfptr0 + 32) = _Thunks[3];
-                    *(void**) (vfptr0 + 40) = _Thunks[4];
-                }
-
-                *(void**) (__Instance + 0) = __ManagedVTables[0];
-            }
-        }
-
-        #endregion
-    }
-}
-
-namespace FlounderSharp
-{
     /// <summary>Class that represents a water material shader.</summary>
     public unsafe partial class MaterialWater : global::FlounderSharp.IMaterial, IDisposable
     {
@@ -63112,6 +62826,329 @@ namespace FlounderSharp
                     *(void**) (vfptr0 + 48) = _Thunks[5];
                     *(void**) (vfptr0 + 56) = _Thunks[6];
                     *(void**) (vfptr0 + 64) = _Thunks[7];
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTables[0];
+            }
+        }
+
+        #endregion
+    }
+}
+
+namespace FlounderSharp
+{
+    public unsafe partial class MeshWater : global::FlounderSharp.MeshSimple, IDisposable
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 80)]
+        public new partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr vfptr_IResource;
+
+            [FieldOffset(8)]
+            internal global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C m_filename;
+
+            [FieldOffset(40)]
+            internal global::System.IntPtr m_vertexBuffer;
+
+            [FieldOffset(48)]
+            internal global::System.IntPtr m_indexBuffer;
+
+            [FieldOffset(56)]
+            internal global::System.IntPtr m_aabb;
+
+            [FieldOffset(64)]
+            internal float m_sideLength;
+
+            [FieldOffset(68)]
+            internal float m_squareSize;
+
+            [FieldOffset(72)]
+            internal int m_vertexCount;
+
+            [FieldOffset(76)]
+            internal float m_textureScale;
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0MeshWater@fl@@QEAA@XZ")]
+            internal static extern global::System.IntPtr ctor(global::System.IntPtr instance);
+
+            [SuppressUnmanagedCodeSecurity]
+            [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
+                EntryPoint="??0MeshWater@fl@@QEAA@AEBV01@@Z")]
+            internal static extern global::System.IntPtr cctor(global::System.IntPtr instance, global::System.IntPtr _0);
+        }
+
+        internal static new global::FlounderSharp.MeshWater __CreateInstance(global::System.IntPtr native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.MeshWater(native.ToPointer(), skipVTables);
+        }
+
+        internal static global::FlounderSharp.MeshWater __CreateInstance(global::FlounderSharp.MeshWater.__Internal native, bool skipVTables = false)
+        {
+            return new global::FlounderSharp.MeshWater(native, skipVTables);
+        }
+
+        private static void* __CopyValue(global::FlounderSharp.MeshWater.__Internal native)
+        {
+            var ret = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.MeshWater.__Internal));
+            global::FlounderSharp.MeshWater.__Internal.cctor(ret, new global::System.IntPtr(&native));
+            return ret.ToPointer();
+        }
+
+        private MeshWater(global::FlounderSharp.MeshWater.__Internal native, bool skipVTables = false)
+            : this(__CopyValue(native), skipVTables)
+        {
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+        }
+
+        protected MeshWater(void* native, bool skipVTables = false)
+            : base((void*) null)
+        {
+            __PointerAdjustment = 0;
+            if (native == null)
+                return;
+            __Instance = new global::System.IntPtr(native);
+            if (skipVTables)
+                __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+            else
+                SetupVTables(true);
+        }
+
+        public MeshWater()
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.MeshWater.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            __Internal.ctor((__Instance + __PointerAdjustment));
+            SetupVTables(GetType().FullName == "FlounderSharp.MeshWater");
+        }
+
+        public MeshWater(global::FlounderSharp.MeshWater _0)
+            : this((void*) null)
+        {
+            __Instance = Marshal.AllocHGlobal(sizeof(global::FlounderSharp.MeshWater.__Internal));
+            __ownsNativeInstance = true;
+            NativeToManagedMap[__Instance] = this;
+            if (ReferenceEquals(_0, null))
+                throw new global::System.ArgumentNullException("_0", "Cannot be null because it is a C++ reference (&).");
+            var __arg0 = _0.__Instance;
+            __Internal.cctor((__Instance + __PointerAdjustment), __arg0);
+            SetupVTables(GetType().FullName == "FlounderSharp.MeshWater");
+        }
+
+        public override global::FlounderSharp.Vector3 GetPosition(float x, float z)
+        {
+            return base.GetPosition(x, z);
+        }
+
+        public override global::FlounderSharp.Vector3 GetNormal(global::FlounderSharp.Vector3 position)
+        {
+            return base.GetNormal(position);
+        }
+
+        public override global::FlounderSharp.Vector3 GetColour(global::FlounderSharp.Vector3 position, global::FlounderSharp.Vector3 normal)
+        {
+            return base.GetColour(position, normal);
+        }
+
+        public static float SideLength
+        {
+            get
+            {
+                var __ptr = (float*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?SIDE_LENGTH@MeshWater@fl@@2MB");
+                return *__ptr;
+            }
+        }
+
+        public static float SquareSize
+        {
+            get
+            {
+                var __ptr = (float*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?SQUARE_SIZE@MeshWater@fl@@2MB");
+                return *__ptr;
+            }
+        }
+
+        public static int VertexCount
+        {
+            get
+            {
+                var __ptr = (int*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?VERTEX_COUNT@MeshWater@fl@@2HB");
+                return *__ptr;
+            }
+        }
+
+        public static float TextureScale
+        {
+            get
+            {
+                var __ptr = (float*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?TEXTURE_SCALE@MeshWater@fl@@2MB");
+                return *__ptr;
+            }
+        }
+
+        public static global::FlounderSharp.Colour WaterColour
+        {
+            get
+            {
+                var __ptr = (global::FlounderSharp.Colour.__Internal*)CppSharp.SymbolResolver.ResolveSymbol("Flounder", "?WATER_COLOUR@MeshWater@fl@@2VColour@2@B");
+                return global::FlounderSharp.Colour.__CreateInstance(*__ptr);
+            }
+        }
+
+        #region Virtual table interop
+
+        // ~MeshWater()
+        private static global::FlounderSharp.Delegates.Action_IntPtr_int _dtorDelegateInstance;
+
+        private static void _dtorDelegateHook(global::System.IntPtr instance, int delete)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            __target.Dispose(true);
+        }
+
+        // std::string GetFilename() override { return m_filename; }
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr _GetFilenameDelegateInstance;
+
+        private static void _GetFilenameDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.Filename;
+            var __allocator0 = new global::Std.Allocator<char>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(__ret, __allocator0);
+            *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) @return = *(global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C*) __basicString0.__Instance;
+        }
+
+        // Vector3 GetPosition(const float &x, const float &z) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_float_float _GetPositionDelegateInstance;
+
+        private static void _GetPositionDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, float x, float z)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            var __ret = __target.GetPosition(x, z);
+            *(global::FlounderSharp.Vector3.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) __ret.__Instance;
+        }
+
+        // Vector3 GetNormal(const Vector3 &position) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr _GetNormalDelegateInstance;
+
+        private static void _GetNormalDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr position)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.Vector3 __result1;
+            if (position == IntPtr.Zero) __result1 = null;
+            else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(position))
+                __result1 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[position];
+            else __result1 = global::FlounderSharp.Vector3.__CreateInstance(position);
+            var __ret = __target.GetNormal(__result1);
+            *(global::FlounderSharp.Vector3.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) __ret.__Instance;
+        }
+
+        // Vector3 GetColour(const Vector3 &position, const Vector3 &normal) override
+        private static global::FlounderSharp.Delegates.Action_IntPtr_IntPtr_IntPtr_IntPtr _GetColourDelegateInstance;
+
+        private static void _GetColourDelegateHook(global::System.IntPtr instance, global::System.IntPtr @return, global::System.IntPtr position, global::System.IntPtr normal)
+        {
+            if (!NativeToManagedMap.ContainsKey(instance))
+                throw new global::System.Exception("No managed instance was found");
+
+            var __target = (global::FlounderSharp.MeshWater) NativeToManagedMap[instance];
+            if (__target.__ownsNativeInstance)
+                __target.SetupVTables();
+            global::FlounderSharp.Vector3 __result1;
+            if (position == IntPtr.Zero) __result1 = null;
+            else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(position))
+                __result1 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[position];
+            else __result1 = global::FlounderSharp.Vector3.__CreateInstance(position);
+            global::FlounderSharp.Vector3 __result2;
+            if (normal == IntPtr.Zero) __result2 = null;
+            else if (global::FlounderSharp.Vector3.NativeToManagedMap.ContainsKey(normal))
+                __result2 = (global::FlounderSharp.Vector3) global::FlounderSharp.Vector3.NativeToManagedMap[normal];
+            else __result2 = global::FlounderSharp.Vector3.__CreateInstance(normal);
+            var __ret = __target.GetColour(__result1, __result2);
+            *(global::FlounderSharp.Vector3.__Internal*) @return = ReferenceEquals(__ret, null) ? new global::FlounderSharp.Vector3.__Internal() : *(global::FlounderSharp.Vector3.__Internal*) __ret.__Instance;
+        }
+
+        private static void*[] __ManagedVTables;
+        private static void*[] __ManagedVTablesDtorOnly;
+        private static void*[] _Thunks;
+
+        private void SetupVTables(bool destructorOnly = false)
+        {
+            if (__OriginalVTables != null)
+                return;
+            __OriginalVTables = new void*[] { *(void**) (__Instance + 0) };
+
+            if (_Thunks == null)
+            {
+                _Thunks = new void*[5];
+                _dtorDelegateInstance += _dtorDelegateHook;
+                _Thunks[0] = Marshal.GetFunctionPointerForDelegate(_dtorDelegateInstance).ToPointer();
+                _GetFilenameDelegateInstance += _GetFilenameDelegateHook;
+                _Thunks[1] = Marshal.GetFunctionPointerForDelegate(_GetFilenameDelegateInstance).ToPointer();
+                _GetPositionDelegateInstance += _GetPositionDelegateHook;
+                _Thunks[2] = Marshal.GetFunctionPointerForDelegate(_GetPositionDelegateInstance).ToPointer();
+                _GetNormalDelegateInstance += _GetNormalDelegateHook;
+                _Thunks[3] = Marshal.GetFunctionPointerForDelegate(_GetNormalDelegateInstance).ToPointer();
+                _GetColourDelegateInstance += _GetColourDelegateHook;
+                _Thunks[4] = Marshal.GetFunctionPointerForDelegate(_GetColourDelegateInstance).ToPointer();
+            }
+
+            if (destructorOnly)
+            {
+                if (__ManagedVTablesDtorOnly == null)
+                {
+                    __ManagedVTablesDtorOnly = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
+                    __ManagedVTablesDtorOnly[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 16);
+                    *(void**) (vfptr0 + 24) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 24);
+                    *(void**) (vfptr0 + 32) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 32);
+                    *(void**) (vfptr0 + 40) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 40);
+                }
+
+                *(void**) (__Instance + 0) = __ManagedVTablesDtorOnly[0];
+            }
+            else
+            {
+                if (__ManagedVTables == null)
+                {
+                    __ManagedVTables = new void*[1];
+                    var vfptr0 = Marshal.AllocHGlobal(6 * 8);
+                    __ManagedVTables[0] = vfptr0.ToPointer();
+                    *(void**) (vfptr0 + 0) = *(void**) (new IntPtr(*(void**) __Instance) + 0 + 0);
+                    *(void**) (vfptr0 + 8) = _Thunks[0];
+                    *(void**) (vfptr0 + 16) = _Thunks[1];
+                    *(void**) (vfptr0 + 24) = _Thunks[2];
+                    *(void**) (vfptr0 + 32) = _Thunks[3];
+                    *(void**) (vfptr0 + 40) = _Thunks[4];
                 }
 
                 *(void**) (__Instance + 0) = __ManagedVTables[0];
