@@ -12706,11 +12706,11 @@ namespace FlounderSharp
             [FieldOffset(216)]
             internal global::System.IntPtr m_surface;
 
-            [FieldOffset(224)]
-            internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
-
-            [FieldOffset(276)]
-            internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
+           //[FieldOffset(224)]
+           //internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
+           //
+           //[FieldOffset(276)]
+           //internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
 
             [FieldOffset(288)]
             internal global::System.IntPtr m_logicalDevice;
@@ -12721,14 +12721,14 @@ namespace FlounderSharp
             [FieldOffset(304)]
             internal global::System.IntPtr m_physicalDevice;
 
-            [FieldOffset(312)]
-            internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
-
-            [FieldOffset(1136)]
-            internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
-
-            [FieldOffset(1360)]
-            internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
+           //[FieldOffset(312)]
+           //internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
+           //
+           //[FieldOffset(1136)]
+           //internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
+           //
+           //[FieldOffset(1360)]
+           //internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
 
             [FieldOffset(1880)]
             internal uint m_graphicsFamilyIndex;
@@ -13740,11 +13740,11 @@ namespace FlounderSharp
             [FieldOffset(4)]
             internal uint m_stage;
 
-            [FieldOffset(8)]
-            internal global::VkDescriptorSetLayoutBinding.__Internal m_descriptorSetLayoutBinding;
-
-            [FieldOffset(32)]
-            internal global::VkDescriptorPoolSize.__Internal m_descriptorPoolSize;
+           //[FieldOffset(8)]
+           //internal global::VkDescriptorSetLayoutBinding.__Internal m_descriptorSetLayoutBinding;
+           //
+           //[FieldOffset(32)]
+           //internal global::VkDescriptorPoolSize.__Internal m_descriptorPoolSize;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -15481,8 +15481,8 @@ namespace FlounderSharp
             [FieldOffset(24)]
             internal global::System.IntPtr m_bufferMemory;
 
-            [FieldOffset(32)]
-            internal global::VkIndexType m_indexType;
+            //[FieldOffset(32)]
+            //internal global::VkIndexType m_indexType;
 
             [FieldOffset(36)]
             internal uint m_indexCount;
@@ -21240,8 +21240,8 @@ namespace FlounderSharp
             [FieldOffset(32)]
             internal global::System.IntPtr vfptr_IDescriptor;
 
-            [FieldOffset(40)]
-            internal global::VkDescriptorBufferInfo.__Internal m_bufferInfo;
+           //[FieldOffset(40)]
+           //internal global::VkDescriptorBufferInfo.__Internal m_bufferInfo;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -21491,11 +21491,11 @@ namespace FlounderSharp
             [FieldOffset(128)]
             internal global::System.IntPtr m_sampler;
 
-            [FieldOffset(136)]
-            internal global::VkFormat m_format;
-
-            [FieldOffset(144)]
-            internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
+           //[FieldOffset(136)]
+           //internal global::VkFormat m_format;
+           //
+           //[FieldOffset(144)]
+           //internal global::VkDescriptorImageInfo.__Internal m_imageInfo;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -22401,29 +22401,29 @@ namespace FlounderSharp
             [FieldOffset(200)]
             internal global::System.IntPtr m_pipelineLayout;
 
-            [FieldOffset(208)]
-            internal global::VkPipelineInputAssemblyStateCreateInfo.__Internal m_inputAssemblyState;
-
-            [FieldOffset(240)]
-            internal global::VkPipelineRasterizationStateCreateInfo.__Internal m_rasterizationState;
+            //[FieldOffset(208)]
+            //internal global::VkPipelineInputAssemblyStateCreateInfo.__Internal m_inputAssemblyState;
+            //
+            //[FieldOffset(240)]
+            //internal global::VkPipelineRasterizationStateCreateInfo.__Internal m_rasterizationState;
 
             [FieldOffset(304)]
             internal global::Std.Array.__Internalc__N_std_S_array____S_VkPipelineColorBlendAttachmentState_Vk1 m_blendAttachmentStates;
 
-            [FieldOffset(336)]
-            internal global::VkPipelineColorBlendStateCreateInfo.__Internal m_colourBlendState;
-
-            [FieldOffset(392)]
-            internal global::VkPipelineDepthStencilStateCreateInfo.__Internal m_depthStencilState;
-
-            [FieldOffset(496)]
-            internal global::VkPipelineViewportStateCreateInfo.__Internal m_viewportState;
-
-            [FieldOffset(544)]
-            internal global::VkPipelineMultisampleStateCreateInfo.__Internal m_multisampleState;
-
-            [FieldOffset(592)]
-            internal global::VkPipelineDynamicStateCreateInfo.__Internal m_dynamicState;
+            //[FieldOffset(336)]
+            //internal global::VkPipelineColorBlendStateCreateInfo.__Internal m_colourBlendState;
+            //
+            //[FieldOffset(392)]
+            //internal global::VkPipelineDepthStencilStateCreateInfo.__Internal m_depthStencilState;
+            //
+            //[FieldOffset(496)]
+            //internal global::VkPipelineViewportStateCreateInfo.__Internal m_viewportState;
+            //
+            //[FieldOffset(544)]
+            //internal global::VkPipelineMultisampleStateCreateInfo.__Internal m_multisampleState;
+            //
+            //[FieldOffset(592)]
+            //internal global::VkPipelineDynamicStateCreateInfo.__Internal m_dynamicState;
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Flounder", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,

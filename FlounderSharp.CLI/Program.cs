@@ -16,7 +16,7 @@ namespace FlounderSharp.CLI
                 Indent = true
             };
 
-            using (var writer = XmlWriter.Create(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp/ExternalDefinitions.xml", settings))
+            using (var writer = XmlWriter.Create(@"C:\Users\mattp\Documents\Flounder Workspace\FlounderSharp\FlounderSharp\ExternalDefinitions.xml", settings))
             {
                 library.XmlExport.WriteTo(writer);
             }
