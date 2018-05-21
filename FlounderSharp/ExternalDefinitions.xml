@@ -3048,6 +3048,25 @@
       <Parameter type="uint32_t" name="numberOfRows" />
     </Parameters>
   </Export>
+  <Export name="Texture" target="Common" source="Texture.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new empty texture object.
+
+/// </summary>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="uint32_t" name="width" />
+      <Parameter type="uint32_t" name="height" />
+      <Parameter type="VkFormat" name="format" />
+      <Parameter type="VkImageLayout" name="imageLayout" />
+      <Parameter type="VkImageUsageFlags" name="usage" />
+      <Parameter type="float*" name="pixels" />
+    </Parameters>
+  </Export>
   <Export name="HasAlpha" target="Common" source="Texture.hpp">
     <Description>
       <![CDATA[
@@ -5305,19 +5324,6 @@
     <Parameters>
       <Parameter type="bool" name="fullscreen" />
     </Parameters>
-  </Export>
-  <Export name="GetGlfwWindow" target="Common" source="Display.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the current GLFW window.
-
-/// </summary>
-
-/// <returns> The current GLFW window. </returns>
-]]>
-    </Description>
   </Export>
   <Export name="IsClosed" target="Common" source="Display.hpp">
     <Description>
@@ -9099,6 +9105,22 @@
 /// <return> If an index has been assigned. </return>
 ]]>
     </Description>
+  </Export>
+  <Export name="FindQueueFamilies" target="Common" source="QueueFamily.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Finds a queue families of a physical device.
+
+/// </summary>
+
+/// <param name="surface"> The surface. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="VkSurfaceKHR" name="surface" />
+    </Parameters>
   </Export>
   <!--
   ***************************************

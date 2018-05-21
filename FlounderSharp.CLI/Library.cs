@@ -34,8 +34,9 @@ namespace FlounderSharp.CLI
         {
             // Sets up the parser.
             var parserOptions = driver.ParserOptions;
-            parserOptions.UnityBuild = true;
+            parserOptions.AddArguments("-fcxx-exceptions");
             parserOptions.EnableRTTI = true;
+            parserOptions.UnityBuild = true;
             parserOptions.Verbose = true;
 
             parserOptions.Defines.Add("FL_EXPORT=__attribute__ ((visibility (\"default\")))");
@@ -84,13 +85,13 @@ namespace FlounderSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
-            ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
-            ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
-            ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
+        //    ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
+        //    ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
+        //    ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
             
             ctx.RenameNamespace("fl", "FlounderSharp");
 
-            ctx.SetFunctionParameterUsage("ModuleRegister.RunUpdate", 1, ParameterUsage.In);
+        //    ctx.SetFunctionParameterUsage("ModuleRegister.RunUpdate", 1, ParameterUsage.In);
         }
 
         /// <summary>

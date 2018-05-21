@@ -1,11 +1,45 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using CppSharp.AST;
+using CppSharp.AST.Extensions;
 using CppSharp.Passes;
 
 namespace FlounderSharp.CLI
 {
     public class PassObjectNamesFix : TranslationUnitPass
     {
+        /*public override bool VisitMethodDecl(Method method)
+        {
+            if (AlreadyVisited(method))
+            {
+                return false;
+            }
+
+            if (method.ReturnType.Type.Desugar().ToNativeString().StartsWith("Vk"))
+            {
+                method.Ignore = true;
+                Console.WriteLine(method.Name);
+            }
+
+            return true;
+        }
+
+        public override bool VisitFieldDecl(Field field)
+        {
+            if (AlreadyVisited(field))
+            {
+                return false;
+            }
+
+            if (field.Type.Desugar().ToNativeString().StartsWith("Vk"))
+            {
+                field.Ignore = true; // TODO: Remove Vulkan Fields, or fix Vulkan links and objects (without methods?)!
+                Console.WriteLine(field.Name);
+            }
+
+            return true;
+        }*/
+
         public override bool VisitVariableDecl(Variable variable)
         {
             if (AlreadyVisited(variable))
@@ -16,6 +50,21 @@ namespace FlounderSharp.CLI
             variable.Name = ToCamelCase(variable.Name);
             return true;
         }
+
+        /*public override bool VisitMethodDecl(Method method)
+        {
+            if (AlreadyVisited(method))
+            {
+                return false;
+            }
+
+            if (method.Name.StartsWith("Vk"))
+            {
+                method.Ignore = true;
+            }
+
+            return true;
+        }*/
 
         public override bool VisitParameterDecl(Parameter parameter)
         {
