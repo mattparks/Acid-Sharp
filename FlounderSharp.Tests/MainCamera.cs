@@ -34,7 +34,11 @@ namespace FlounderSharp.Tests
 		{
 			var delta = Math.Min(1.0f / 60.0f, Engine.Get().Delta);
 
-			_viewMatrix = Matrix4.ViewMatrix(_position, _rotation);
+            var mouseX = 2.0f * Mouse.Get().DeltaX;
+            var mouseY = 2.0f * Mouse.Get().DeltaY;
+            _rotation += new Vector3(-mouseY, mouseX, 0.0f);
+
+            _viewMatrix = Matrix4.ViewMatrix(_position, _rotation);
 			_projectionMatrix = Matrix4.PerspectiveMatrix(Fov, Display.Get().AspectRatio, NearPlane, FarPlane);
 
 			_viewFrustum.Update(_viewMatrix, _projectionMatrix);

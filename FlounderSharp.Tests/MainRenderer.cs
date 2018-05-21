@@ -12,7 +12,7 @@ namespace FlounderSharp.Tests
             0, 0,
             new List<Attachment>
             {
-                new Attachment(1, AttachmentType.AttachmentSwapchain, AttachmentFormat.FormatR8g8b8a8Unorm, Colour.Black) // swapchain
+                new Attachment(1, AttachmentType.AttachmentSwapchain) // swapchain
             },
             new List<SubpassType>
             {

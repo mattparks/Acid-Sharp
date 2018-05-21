@@ -48,6 +48,7 @@ namespace FlounderSharp.CLI
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
             options.MarshalCharAsManagedChar = true;
+            options.GenerateDefaultValuesForArguments = true;
             options.GenerateFinalizers = false;
             options.CheckSymbols = false;
             options.Verbose = true;
@@ -85,13 +86,7 @@ namespace FlounderSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
-        //    ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
-        //    ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
-        //    ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
-            
             ctx.RenameNamespace("fl", "FlounderSharp");
-
-        //    ctx.SetFunctionParameterUsage("ModuleRegister.RunUpdate", 1, ParameterUsage.In);
         }
 
         /// <summary>
