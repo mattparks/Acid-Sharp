@@ -1,6 +1,7 @@
 #pragma once
 
 #include <chrono>
+#include <array>
 #include "ModuleRegister.hpp"
 #include "IUpdater.hpp"
 
@@ -20,7 +21,7 @@ namespace fl
 		typedef std::chrono::high_resolution_clock HighResolutionClock;
 		typedef std::chrono::duration<float, std::milli> MillisecondsType;
 
-		static Engine *G_INSTANCE;
+		static Engine *INSTANCE;
 
 		std::chrono::time_point<HighResolutionClock> m_start;
 		float m_timeOffset;
@@ -40,13 +41,14 @@ namespace fl
 		/// <returns> The current engine instance. </returns>
 		static Engine *Get()
 		{
-			return G_INSTANCE;
+			return INSTANCE;
 		}
 
 		/// <summary>
 		/// Carries out the setup for basic engine components and the engine. Call <seealso cref="#run()"/> after creating a instance.
 		/// </summary>
-		Engine();
+		/// <param name="emptyRegister"> If the module register will start empty. </param>
+		Engine(const bool &emptyRegister = false);
 
 		/// <summary>
 		/// Deconstructor for the engine.

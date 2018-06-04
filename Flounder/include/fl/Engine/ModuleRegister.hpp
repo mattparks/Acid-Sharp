@@ -14,12 +14,13 @@ namespace fl
 	private:
 		typedef std::pair<std::string, IModule *> ModulePair;
 
-		std::multimap<float, ModulePair> *m_modules;
+		std::map<float, ModulePair> m_modules;
 	public:
 		/// <summary>
 		/// Creates a new module register.
 		/// </summary>
-		ModuleRegister();
+		/// <param name="emptyRegister"> If this will start empty. </param>
+		ModuleRegister(const bool &emptyRegister);
 
 		/// <summary>
 		/// Deconstructor for the module register.

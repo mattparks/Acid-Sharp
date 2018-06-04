@@ -15,8 +15,8 @@ namespace fl
 	class FL_EXPORT JointTransform
 	{
 	private:
-		Vector3 *m_position;
-		Quaternion *m_rotation;
+		Vector3 m_position;
+		Quaternion m_rotation;
 
 	public:
 		/// <summary>
@@ -41,7 +41,7 @@ namespace fl
 		/// The rotation is applied by first converting the quaternion into a rotation matrix, which is then multiplied with the transform matrix.
 		/// </summary>
 		/// <returns> The local-space transform as a matrix. </returns>
-		Matrix4 *GetLocalTransform();
+		Matrix4 GetLocalTransform();
 
 		/// <summary>
 		/// Interpolates between two transforms based on the progression value.
@@ -57,7 +57,7 @@ namespace fl
 		/// Everything else gives a transform somewhere in-between the two.
 		/// </param>
 		/// <returns> A new interpolated joint transformation. </returns>
-		static JointTransform *Interpolate(const JointTransform &frameA, const JointTransform &frameB, const float &progression);
+		static JointTransform Interpolate(const JointTransform &frameA, const JointTransform &frameB, const float &progression);
 
 		/// <summary>
 		/// Linearly interpolates between two translations based on a "progression" value.
@@ -69,12 +69,12 @@ namespace fl
 		/// <returns> The interpolated progressed vector. </returns>
 		static Vector3 Interpolate(const Vector3 &start, const Vector3 &end, const float &progression);
 
-		Vector3 *GetPosition() const { return m_position; }
+		Vector3 GetPosition() const { return m_position; }
 
-		void SetPosition(const Vector3 &position) { *m_position = position; }
+		void SetPosition(const Vector3 &position) { m_position = position; }
 
-		Quaternion *GetRotation() const { return m_rotation; }
+		Quaternion GetRotation() const { return m_rotation; }
 
-		void SetRotation(const Quaternion &rotation) { *m_rotation = rotation; }
+		void SetRotation(const Quaternion &rotation) { m_rotation = rotation; }
 	};
 }

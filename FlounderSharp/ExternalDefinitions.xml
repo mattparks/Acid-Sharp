@@ -3,459 +3,6 @@
   <!--
   ***************************************
   **
-  ** Vector2.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Vector2" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Vector2.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Vector2" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Vector2.
-
-/// </summary>
-
-/// <param name="x"> Start x. </param>
-
-/// <param name="y"> Start y. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="x" />
-      <Parameter type="float*" name="y" />
-    </Parameters>
-  </Export>
-  <Export name="Vector2" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Vector2.
-
-/// </summary>
-
-/// <param name="source"> Creates this vector out of a existing one. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Vector2" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Vector2.
-
-/// </summary>
-
-/// <param name="source"> Creates this vector out of a existing one. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Add" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds this vector to another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Subtract" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Subtracts this vector to another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Multiply" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Multiplies this vector with another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Divide" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Divides this vector by another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Angle" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Calculates the angle between this vector and another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The angle, in radians. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Dot" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Calculates the dot product of the this vector and another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The dot product. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Scale" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Scales this vector by a scalar.
-
-/// </summary>
-
-/// <param name="scalar"> The scalar value. </param>
-
-/// <returns> The scaled vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="scalar" />
-    </Parameters>
-  </Export>
-  <Export name="Rotate" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Rotates this vector by a angle around the origin.
-
-/// </summary>
-
-/// <param name="angle"> The angle to rotate by, in radians. </param>
-
-/// <returns> The rotated vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="angle" />
-    </Parameters>
-  </Export>
-  <Export name="Rotate" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Rotates this vector by a angle around a rotation axis.
-
-/// </summary>
-
-/// <param name="angle"> The angle to rotate by, in radians. </param>
-
-/// <param name="rotationAxis"> The point to rotate the vector around. </param>
-
-/// <returns> The rotated vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="angle" />
-      <Parameter type="global::FlounderSharp.Vector2" name="rotationAxis" />
-    </Parameters>
-  </Export>
-  <Export name="Negate" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Negates this vector.
-
-/// </summary>
-
-/// <returns> The negated vector. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Normalize" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Normalizes this vector.
-
-/// </summary>
-
-/// <returns> The normalized vector. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="LengthSquared" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the length squared of this vector.
-
-/// </summary>
-
-/// <returns> The length squared. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Length" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the length of this vector.
-
-/// </summary>
-
-/// <returns> The length. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="MaxComponent" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the maximum value in this vector.
-
-/// </summary>
-
-/// <returns> The largest components. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="MinComponent" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the lowest value in this vector.
-
-/// </summary>
-
-/// <returns> The smallest components. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="DistanceSquared" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the distance between this vector and another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The squared distance. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Distance" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the between this vector and another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The distance. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="DistanceVector" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the vector distance between this vector and another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The vector distance. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="InTriangle" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets if this vector is in a triangle.
-
-/// </summary>
-
-/// <param name="v1"> The first triangle vertex. </param>
-
-/// <param name="v2"> The second triangle vertex. </param>
-
-/// <param name="v3"> The third triangle vertex. </param>
-
-/// <returns> If this vector is in a triangle. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="v1" />
-      <Parameter type="global::FlounderSharp.Vector2" name="v2" />
-      <Parameter type="global::FlounderSharp.Vector2" name="v3" />
-    </Parameters>
-  </Export>
-  <Export name="SmoothDamp" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gradually changes this vector to a target.
-
-/// </summary>
-
-/// <param name="target"> The target vector. </param>
-
-/// <param name="rate"> The rate to go from current to the target. </param>
-
-/// <returns> The changed vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="target" />
-      <Parameter type="global::FlounderSharp.Vector2" name="rate" />
-    </Parameters>
-  </Export>
-  <Export name="CartesianToPolar" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Converts from rectangular to spherical coordinates, this vector is in cartesian (x, y).
-
-/// </summary>
-
-/// <returns> The polar coordinates (radius, theta). </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="PolarToCartesian" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Converts from spherical to rectangular coordinates, this vector is in polar (radius, theta).
-
-/// </summary>
-
-/// <returns> The cartesian coordinates (x, y). </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Write" target="Common" source="Vector2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Saves this vector into a loaded value.
-
-/// </summary>
-
-/// <param name="destination"> The destination loaded value. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.LoadedValue" name="destination" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** Vector3.hpp
   **
   ***************************************
@@ -1059,546 +606,6 @@
   <!--
   ***************************************
   **
-  ** Colour.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="r"> The new R value. </param>
-
-/// <param name="g"> The new G value. </param>
-
-/// <param name="b"> The new B value. </param>
-
-/// <param name="a"> The new A value. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="r" />
-      <Parameter type="float*" name="g" />
-      <Parameter type="float*" name="b" />
-      <Parameter type="float*" name="a" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="hex"> The new values from HEX. </param>
-
-/// <param name="a"> The new A value. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="hex" />
-      <Parameter type="float*" name="a" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="source"> Creates this colour out of a existing one. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="source"> Creates this colour out of a existing vector. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="source"> Creates this colour out of a existing vector. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector4" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Add" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds this vector to another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Subtract" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Subtracts this vector to another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Multiply" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Multiplies this vector with another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Divide" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Divides this vector by another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Scale" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Scales this vector by a scalar.
-
-/// </summary>
-
-/// <param name="scalar"> The scalar value. </param>
-
-/// <returns> The scaled vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="scalar" />
-    </Parameters>
-  </Export>
-  <Export name="Normalize" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Normalizes this vector.
-
-/// </summary>
-
-/// <returns> The normalized vector. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="LengthSquared" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the length squared of this vector.
-
-/// </summary>
-
-/// <returns> The length squared. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Length" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the length of this vector.
-
-/// </summary>
-
-/// <returns> The length. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Interpolate" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Interpolates between this and another colour.
-
-/// </summary>
-
-/// <param name="other"> The other colour. </param>
-
-/// <param name="blend"> The blend factor. </param>
-
-/// <returns> The interpolated colour. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="other" />
-      <Parameter type="float" name="blend" />
-    </Parameters>
-  </Export>
-  <Export name="SmoothDamp" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gradually changes this vector to a target.
-
-/// </summary>
-
-/// <param name="target"> The target vector. </param>
-
-/// <param name="rate"> The rate to go from current to the target. </param>
-
-/// <returns> The changed vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="target" />
-      <Parameter type="global::FlounderSharp.Colour" name="rate" />
-    </Parameters>
-  </Export>
-  <Export name="GetUnit" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets a colour representing the unit value of this colour.
-
-/// </summary>
-
-/// <returns> The unit colour. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetHex" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the hex code from this colour.
-
-/// </summary>
-
-/// <returns> The hex code. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Write" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Saves this vector into a loaded value.
-
-/// </summary>
-
-/// <param name="destination"> The destination loaded value. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.LoadedValue" name="destination" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** IModule.hpp
-  **
-  ***************************************
-  -->
-  <Export name="IModule" target="Common" source="IModule.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new module.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Update" target="Common" source="IModule.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// The update function for the module.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Transform.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-
-/// <param name="source"> Creates this vector out of a transform. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Transform" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-
-/// <param name="position"> The position. </param>
-
-/// <param name="rotation"> The rotation. </param>
-
-/// <param name="scaling"> The scaling. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="position" />
-      <Parameter type="global::FlounderSharp.Vector3" name="rotation" />
-      <Parameter type="global::FlounderSharp.Vector3" name="scaling" />
-    </Parameters>
-  </Export>
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-
-/// <param name="position"> The position. </param>
-
-/// <param name="rotation"> The rotation. </param>
-
-/// <param name="scale"> The scale. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="position" />
-      <Parameter type="global::FlounderSharp.Vector3" name="rotation" />
-      <Parameter type="float*" name="scale" />
-    </Parameters>
-  </Export>
-  <Export name="Write" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Saves this transform into a loaded value.
-
-/// </summary>
-
-/// <param name="destination"> The destination loaded value. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.LoadedValue" name="destination" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** ISpatialStructure.hpp
-  **
-  ***************************************
-  -->
-  <Export name="ISpatialStructure" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new spatial structure.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Add" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds a new object to the spatial structure.
-
-/// </summary>
-
-/// <param name="object"> The object to add. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
-    </Parameters>
-  </Export>
-  <Export name="Remove" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes an object from the spatial structure.
-
-/// </summary>
-
-/// <param name="object"> The object to remove. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
-    </Parameters>
-  </Export>
-  <Export name="Clear" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes all objects from the spatial structure..
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetSize" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the size of this structure.
-
-/// </summary>
-
-/// <returns> The structures size. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Contains" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// If the structure contains the object.
-
-/// </summary>
-
-/// <param name="object"> The object to check for.
-
-/// </param>
-
-/// <returns> If the structure contains the object. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** Quaternion.hpp
   **
   ***************************************
@@ -2025,6 +1032,676 @@
       <Parameter type="global::FlounderSharp.Vector3" name="start" />
       <Parameter type="global::FlounderSharp.Vector3" name="end" />
       <Parameter type="float*" name="progression" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Transform.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+
+/// <param name="source"> Creates this vector out of a transform. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Transform" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+
+/// <param name="position"> The position. </param>
+
+/// <param name="rotation"> The rotation. </param>
+
+/// <param name="scaling"> The scaling. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="position" />
+      <Parameter type="global::FlounderSharp.Vector3" name="rotation" />
+      <Parameter type="global::FlounderSharp.Vector3" name="scaling" />
+    </Parameters>
+  </Export>
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+
+/// <param name="position"> The position. </param>
+
+/// <param name="rotation"> The rotation. </param>
+
+/// <param name="scale"> The scale. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="position" />
+      <Parameter type="global::FlounderSharp.Vector3" name="rotation" />
+      <Parameter type="float*" name="scale" />
+    </Parameters>
+  </Export>
+  <Export name="Write" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Saves this transform into a loaded value.
+
+/// </summary>
+
+/// <param name="destination"> The destination loaded value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.LoadedValue" name="destination" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ISpatialStructure.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ISpatialStructure" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new spatial structure.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Add" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a new object to the spatial structure.
+
+/// </summary>
+
+/// <param name="object"> The object to add. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <Export name="Remove" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes an object from the spatial structure.
+
+/// </summary>
+
+/// <param name="object"> The object to remove. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <Export name="Clear" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes all objects from the spatial structure..
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetSize" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the size of this structure.
+
+/// </summary>
+
+/// <returns> The structures size. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Contains" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// If the structure contains the object.
+
+/// </summary>
+
+/// <param name="object"> The object to check for.
+
+/// </param>
+
+/// <returns> If the structure contains the object. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IModule.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IModule" target="Common" source="IModule.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new module.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="IModule.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// The update function for the module.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Vector2.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+
+/// <param name="x"> Start x. </param>
+
+/// <param name="y"> Start y. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="x" />
+      <Parameter type="float*" name="y" />
+    </Parameters>
+  </Export>
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+
+/// <param name="source"> Creates this vector out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+
+/// <param name="source"> Creates this vector out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Add" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Subtract" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Subtracts this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this vector with another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Divide" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Divides this vector by another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Angle" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the angle between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The angle, in radians. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Dot" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the dot product of the this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The dot product. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this vector by a scalar.
+
+/// </summary>
+
+/// <param name="scalar"> The scalar value. </param>
+
+/// <returns> The scaled vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="scalar" />
+    </Parameters>
+  </Export>
+  <Export name="Rotate" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Rotates this vector by a angle around the origin.
+
+/// </summary>
+
+/// <param name="angle"> The angle to rotate by, in radians. </param>
+
+/// <returns> The rotated vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="angle" />
+    </Parameters>
+  </Export>
+  <Export name="Rotate" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Rotates this vector by a angle around a rotation axis.
+
+/// </summary>
+
+/// <param name="angle"> The angle to rotate by, in radians. </param>
+
+/// <param name="rotationAxis"> The point to rotate the vector around. </param>
+
+/// <returns> The rotated vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="angle" />
+      <Parameter type="global::FlounderSharp.Vector2" name="rotationAxis" />
+    </Parameters>
+  </Export>
+  <Export name="Negate" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Negates this vector.
+
+/// </summary>
+
+/// <returns> The negated vector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Normalize" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Normalizes this vector.
+
+/// </summary>
+
+/// <returns> The normalized vector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="LengthSquared" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length squared of this vector.
+
+/// </summary>
+
+/// <returns> The length squared. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Length" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length of this vector.
+
+/// </summary>
+
+/// <returns> The length. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="MaxComponent" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the maximum value in this vector.
+
+/// </summary>
+
+/// <returns> The largest components. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="MinComponent" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the lowest value in this vector.
+
+/// </summary>
+
+/// <returns> The smallest components. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="DistanceSquared" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The squared distance. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Distance" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The distance. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="DistanceVector" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the vector distance between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The vector distance. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="InTriangle" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if this vector is in a triangle.
+
+/// </summary>
+
+/// <param name="v1"> The first triangle vertex. </param>
+
+/// <param name="v2"> The second triangle vertex. </param>
+
+/// <param name="v3"> The third triangle vertex. </param>
+
+/// <returns> If this vector is in a triangle. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="v1" />
+      <Parameter type="global::FlounderSharp.Vector2" name="v2" />
+      <Parameter type="global::FlounderSharp.Vector2" name="v3" />
+    </Parameters>
+  </Export>
+  <Export name="SmoothDamp" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gradually changes this vector to a target.
+
+/// </summary>
+
+/// <param name="target"> The target vector. </param>
+
+/// <param name="rate"> The rate to go from current to the target. </param>
+
+/// <returns> The changed vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="target" />
+      <Parameter type="global::FlounderSharp.Vector2" name="rate" />
+    </Parameters>
+  </Export>
+  <Export name="CartesianToPolar" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts from rectangular to spherical coordinates, this vector is in cartesian (x, y).
+
+/// </summary>
+
+/// <returns> The polar coordinates (radius, theta). </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="PolarToCartesian" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts from spherical to rectangular coordinates, this vector is in polar (radius, theta).
+
+/// </summary>
+
+/// <returns> The cartesian coordinates (x, y). </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Write" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Saves this vector into a loaded value.
+
+/// </summary>
+
+/// <param name="destination"> The destination loaded value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.LoadedValue" name="destination" />
     </Parameters>
   </Export>
   <!--
@@ -2942,19 +2619,6 @@
 ]]>
     </Description>
   </Export>
-  <Export name="ToArray" target="Common" source="Matrix4.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Turns this 4x4 matrix into an array.
-
-/// </summary>
-
-/// <returns> A 16 float array. </returns>
-]]>
-    </Description>
-  </Export>
   <Export name="Write" target="Common" source="Matrix4.hpp">
     <Description>
       <![CDATA[
@@ -3024,6 +2688,45 @@
   <!--
   ***************************************
   **
+  ** FontWord.hpp
+  **
+  ***************************************
+  -->
+  <Export name="FontWord" target="Common" source="FontWord.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new word.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="AddCharacter" target="Common" source="FontWord.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a character to the end of the current word and increases the screen-space width of the word.
+
+/// </summary>
+
+/// <param name="character"> The character to be added. </param>
+
+/// <param name="kerning"> The character kerning. </param>
+
+/// <returns> {@code true} if the character has successfully been added to the word. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.FontCharacter" name="character" />
+      <Parameter type="float*" name="kerning" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Texture.hpp
   **
   ***************************************
@@ -3053,7 +2756,7 @@
       <![CDATA[
 /// <summary>
 
-/// A new empty texture object.
+/// A new texture object from a array of pixels.
 
 /// </summary>
 ]]>
@@ -3128,76 +2831,10 @@
   <!--
   ***************************************
   **
-  ** ParticleType.hpp
-  **
-  ***************************************
-  -->
-  <Export name="ParticleType" target="Common" source="ParticleType.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new particle type.
-
-/// </summary>
-
-/// <param name="name"> The name for the particle type. </param>
-
-/// <param name="texture"> The particles texture. </param>
-
-/// <param name="lifeLength"> The averaged life length for the particle. </param>
-
-/// <param name="scale"> The averaged scale for the particle. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="name" />
-      <Parameter type="global::FlounderSharp.Texture" name="texture" />
-      <Parameter type="float*" name="lifeLength" />
-      <Parameter type="float*" name="scale" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** Particle.hpp
   **
   ***************************************
   -->
-  <Export name="Particle" target="Common" source="Particle.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new particle object.
-
-/// </summary>
-
-/// <param name="particleType"> The particle template to build from. </param>
-
-/// <param name="position"> The particles initial position. </param>
-
-/// <param name="velocity"> The particles initial velocity. </param>
-
-/// <param name="lifeLength"> The particles life length. </param>
-
-/// <param name="rotation"> The particles rotation. </param>
-
-/// <param name="scale"> The particles scale. </param>
-
-/// <param name="gravityEffect"> The particles gravity effect. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ParticleType" name="particleType" />
-      <Parameter type="global::FlounderSharp.Vector3" name="position" />
-      <Parameter type="global::FlounderSharp.Vector3" name="velocity" />
-      <Parameter type="float*" name="lifeLength" />
-      <Parameter type="float*" name="rotation" />
-      <Parameter type="float*" name="scale" />
-      <Parameter type="float*" name="gravityEffect" />
-    </Parameters>
-  </Export>
   <Export name="Update" target="Common" source="Particle.hpp">
     <Description>
       <![CDATA[
@@ -3212,41 +2849,735 @@
   <!--
   ***************************************
   **
-  ** FontWord.hpp
+  ** Colour.hpp
   **
   ***************************************
   -->
-  <Export name="FontWord" target="Common" source="FontWord.hpp">
+  <Export name="Colour" target="Common" source="Colour.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Creates a new word.
+/// Constructor for colour.
 
 /// </summary>
 ]]>
     </Description>
   </Export>
-  <Export name="AddCharacter" target="Common" source="FontWord.hpp">
+  <Export name="Colour" target="Common" source="Colour.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Adds a character to the end of the current word and increases the screen-space width of the word.
+/// Constructor for colour.
 
 /// </summary>
 
-/// <param name="c"> The character to be added. </param>
+/// <param name="r"> The new R value. </param>
 
-/// <param name="kerning"> The character kerning. </param>
+/// <param name="g"> The new G value. </param>
 
-/// <returns> {@code true} if the character has successfully been added to the word. </returns>
+/// <param name="b"> The new B value. </param>
+
+/// <param name="a"> The new A value. </param>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="global::FlounderSharp.FontCharacter" name="c" />
-      <Parameter type="float*" name="kerning" />
+      <Parameter type="float*" name="r" />
+      <Parameter type="float*" name="g" />
+      <Parameter type="float*" name="b" />
+      <Parameter type="float*" name="a" />
     </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="hex"> The new values from HEX. </param>
+
+/// <param name="a"> The new A value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="hex" />
+      <Parameter type="float*" name="a" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Colour" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing vector. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing vector. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector4" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Add" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Subtract" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Subtracts this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this vector with another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Divide" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Divides this vector by another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this vector by a scalar.
+
+/// </summary>
+
+/// <param name="scalar"> The scalar value. </param>
+
+/// <returns> The scaled vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="scalar" />
+    </Parameters>
+  </Export>
+  <Export name="Normalize" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Normalizes this vector.
+
+/// </summary>
+
+/// <returns> The normalized vector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="LengthSquared" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length squared of this vector.
+
+/// </summary>
+
+/// <returns> The length squared. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Length" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length of this vector.
+
+/// </summary>
+
+/// <returns> The length. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Interpolate" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Interpolates between this and another colour.
+
+/// </summary>
+
+/// <param name="other"> The other colour. </param>
+
+/// <param name="blend"> The blend factor. </param>
+
+/// <returns> The interpolated colour. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Colour" name="other" />
+      <Parameter type="float" name="blend" />
+    </Parameters>
+  </Export>
+  <Export name="SmoothDamp" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gradually changes this vector to a target.
+
+/// </summary>
+
+/// <param name="target"> The target vector. </param>
+
+/// <param name="rate"> The rate to go from current to the target. </param>
+
+/// <returns> The changed vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Colour" name="target" />
+      <Parameter type="global::FlounderSharp.Colour" name="rate" />
+    </Parameters>
+  </Export>
+  <Export name="GetUnit" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a colour representing the unit value of this colour.
+
+/// </summary>
+
+/// <returns> The unit colour. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetHex" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the hex code from this colour.
+
+/// </summary>
+
+/// <returns> The hex code. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Write" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Saves this vector into a loaded value.
+
+/// </summary>
+
+/// <param name="destination"> The destination loaded value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.LoadedValue" name="destination" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Keyframe.hpp
+  **
+  ***************************************
+  -->
+  <Export name="GetTimeStamp" target="Common" source="Keyframe.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the time in seconds of the keyframe in the animation.
+
+/// </summary>
+
+/// <returns> The time in seconds. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Joint.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Joint" target="Common" source="Joint.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new joint.
+
+/// </summary>
+
+/// <param name="index"> The joint's index (ID). </param>
+
+/// <param name="name"> The name of the joint. This is how the joint is named in the collada file, and so is used to identify which joint a joint transform in an animation keyframe refers to. </param>
+
+/// <param name="bindLocalTransform"> The bone-space transform of the joint in the bind position. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int" name="index" />
+      <Parameter type="string" name="name" />
+      <Parameter type="global::FlounderSharp.Matrix4" name="bindLocalTransform" />
+    </Parameters>
+  </Export>
+  <Export name="CalculateInverseBindTransform" target="Common" source="Joint.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// This is called during set-up, after the joints hierarchy has been created. This calculates the model-space bind transform of this joint like so:
+
+/// <para>
+
+/// </br>
+
+/// {@code bindTransform = parentBindTransform * localBindTransform}</br>
+
+/// </br>
+
+/// where "bindTransform" is the model-space bind transform of this joint, "parentBindTransform" is the model-space bind transform of the parent joint,
+
+/// and "localBindTransform" is the bone-space bind transform of this joint. It the calculates and stores the inverse of this model-space bind transform,
+
+/// for use when calculating the final animation transform each frame. It then recursively calls the method for all of the children joints,
+
+/// so that they too calculate and store their inverse bind-pose transform.
+
+///
+
+/// </para>
+
+/// </summary>
+
+/// <param name="parentBindTransform"> The model-space bind transform of the parent joint. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Matrix4" name="parentBindTransform" />
+    </Parameters>
+  </Export>
+  <Export name="AddChild" target="Common" source="Joint.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a child joint to this joint. Used during the creation of the joint hierarchy. Joints can have multiple children,
+
+/// which is why they are stored in a list (e.g. a "hand" joint may have multiple "finger" children joints).
+
+/// </summary>
+
+/// <param name="child"> The new child joint of this joint. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Joint" name="child" />
+    </Parameters>
+  </Export>
+  <Export name="GetAnimatedTransform" target="Common" source="Joint.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// The animated transform is the transform that gets loaded up to the shader and is used to deform the vertices of the "skin". It represents the
+
+/// transformation from the joint's bind position (in model-space) to the joint's desired animation pose (also in model-space).
+
+/// This matrix is calculated by taking the desired model-space transform of the joint and multiplying it by the inverse of the starting model-space transform of the joint.
+
+/// </summary>
+
+/// <returns> The transformation matrix of the joint which is used to deform associated vertices of the skin in the shaders. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetInverseBindTransform" target="Common" source="Joint.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// This returns the inverted model-space bind transform.
+
+/// The bind transform is the original model-space transform of the joint (when no animation is applied).
+
+/// This returns the inverse of that, which is used to calculate the animated transform matrix which gets used to transform vertices in the shader.
+
+/// </summary>
+
+/// <returns> The inverse of the joint's bind transform (in model-space). </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IEvent.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IEvent" target="Common" source="IEvent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new event.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="EventTriggered" target="Common" source="IEvent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if the event has occurred.
+
+/// </summary>
+
+/// <returns> The event has occurred. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="OnEvent" target="Common" source="IEvent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Run when a event has occurred.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="RemoveAfterEvent" target="Common" source="IEvent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if the event is removed after it has run once.
+
+/// </summary>
+
+/// <returns> If the even will run. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** UiBound.hpp
+  **
+  ***************************************
+  -->
+  <Export name="UiBound" target="Common" source="UiBound.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for rectangle.
+
+/// </summary>
+
+/// <param name="position"> The object screen position. </param>
+
+/// <param name="reference"> The reference pivot vertex (TopLeft, TopCentre, TopRight, CentreLeft, Centre, CentreRight, BottomLeft, BottomCentre, BottomRight). </param>
+
+/// <param name="aspectPosition"> The if the x position will change with display width. </param>
+
+/// <param name="aspectSize"> The if the width will scale with display width. </param>
+
+/// <param name="dimensions"> The object dimensions. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector2" name="position" />
+      <Parameter type="string" name="reference" />
+      <Parameter type="bool" name="aspectPosition" />
+      <Parameter type="bool" name="aspectSize" />
+      <Parameter type="global::FlounderSharp.Vector2" name="dimensions" />
+    </Parameters>
+  </Export>
+  <Export name="UiBound" target="Common" source="UiBound.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new rectangle.
+
+/// </summary>
+
+/// <param name="source"> Creates this rectangle out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.UiBound" name="source" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IDriver.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IDriver" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new driver with a length.
+
+/// </summary>
+
+/// <param name="length"> The drivers length. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="length" />
+    </Parameters>
+  </Export>
+  <Export name="Update" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the driver with the passed time.
+
+/// </summary>
+
+/// <param name="delta"> The time between the last update. </param>
+
+/// <returns> The calculated value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="double" name="delta" />
+    </Parameters>
+  </Export>
+  <Export name="Calculate" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the new value.
+
+/// </summary>
+
+/// <param name="time"> The time into the drivers life.
+
+/// </param>
+
+/// <returns> The calculated value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="time" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** UiObject.hpp
+  **
+  ***************************************
+  -->
+  <Export name="UiObject" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new screen object.
+
+/// </summary>
+
+/// <param name="parent"> The parent screen object. </param>
+
+/// <param name="rectangle"> The rectangle that will represent the bounds of the ui object. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.UiObject" name="parent" />
+      <Parameter type="global::FlounderSharp.UiBound" name="rectangle" />
+    </Parameters>
+  </Export>
+  <Export name="Update" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates this screen object and the extended object.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="UpdateObject" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the implementation.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="RemoveChild" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Disowns a child from this screen objects children list.
+
+/// </summary>
+
+/// <param name="child"> The child to disown. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.UiObject" name="child" />
+    </Parameters>
+  </Export>
+  <Export name="GetParent" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the parent object.
+
+/// </summary>
+
+/// <returns> The parent object. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetParent" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes this object from the previous parent and attaches it to another parent.
+
+/// </summary>
+
+/// <param name="parent"> The new parent object. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.UiObject" name="parent" />
+    </Parameters>
+  </Export>
+  <Export name="GetScreenTransform" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the ui object screen space transform.
+
+/// </summary>
+
+/// <returns> The screen transform. </returns>
+]]>
+    </Description>
   </Export>
   <!--
   ***************************************
@@ -3365,6 +3696,505 @@
     </Description>
     <Parameters>
       <Parameter type="global::FlounderSharp.FontWord" name="word" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ICollider.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ICollider" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new collider.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="UpdateCollider" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Clones this collder into the destination and updates it.
+
+/// </summary>
+
+/// <param name="transform"> The amount to transform the object. </param>
+
+/// <param name="destination"> The collider to store the new data in. </param>
+
+/// <returns> The destination. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Transform" name="transform" />
+      <Parameter type="global::FlounderSharp.ICollider" name="destination" />
+    </Parameters>
+  </Export>
+  <Export name="ResolveCollision" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adjusts a movement amount so that after the move is performed, the this collider will not intersect the {@code right}.
+
+/// This method assumes that this collider can actually intersect {@code right} after some amount of movement,
+
+/// even if it won't necessarily intersect it after the movement specified by {@code moveDelta}.
+
+/// </summary>
+
+/// <param name="other"> The right source collider. </param>
+
+/// <param name="positionStart"> Where the collider starts at.. </param>
+
+/// <param name="positionDelta"> The delta movement for the left collider. </param>
+
+/// <returns> The new, adjusted delta that guarantees no intersection. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.ICollider" name="other" />
+      <Parameter type="global::FlounderSharp.Vector3" name="positionStart" />
+      <Parameter type="global::FlounderSharp.Vector3" name="positionDelta" />
+    </Parameters>
+  </Export>
+  <Export name="Intersects" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Tests whether a shape is intersecting this shape.
+
+/// </summary>
+
+/// <param name="other"> The other shape being tested for intersection. </param>
+
+/// <returns> Data about the calculated shape intersection. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.ICollider" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Intersects" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Tests whether a ray is intersecting this shape.
+
+/// </summary>
+
+/// <param name="ray"> The ray being tested for intersection. </param>
+
+/// <returns> Data about the calculated ray intersection. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Ray" name="ray" />
+    </Parameters>
+  </Export>
+  <Export name="InFrustum" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if the shape is partially in the view frustum.
+
+/// </summary>
+
+/// <param name="frustum"> The view frustum. </param>
+
+/// <returns> If the shape is partially in the view frustum. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Frustum" name="frustum" />
+    </Parameters>
+  </Export>
+  <Export name="Contains" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Tests whether another this shape completely contains the other.
+
+/// </summary>
+
+/// <param name="other"> The shape being tested for containment. </param>
+
+/// <returns> True if {@code other} is contained by this shape, false otherwise. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.ICollider" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Contains" target="Common" source="ICollider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if a point is contained in this shape.
+
+/// </summary>
+
+/// <param name="point"> The point to check if it is contained. </param>
+
+/// <returns> If the point is contained in this shape. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="point" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ColliderAabb.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ColliderAabb" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new aabb
+
+/// </summary>
+
+/// <param name="minExtents"> The aabbs min extents. </param>
+
+/// <param name="minExtents"> The aabbs max extents. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="minExtents" />
+      <Parameter type="global::FlounderSharp.Vector3" name="maxExtents" />
+    </Parameters>
+  </Export>
+  <Export name="ColliderAabb" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new aabb from another aavv source.
+
+/// </summary>
+
+/// <param name="source"> The source to create off of. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this aabb by a scalar vector.
+
+/// </summary>
+
+/// <param name="scale"> Amount to scale up the aabb. </param>
+
+/// <returns> The resultant aabb. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="scale" />
+    </Parameters>
+  </Export>
+  <Export name="Expand" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Expands this aabb away from the origin by a expansion vector.
+
+/// </summary>
+
+/// <param name="expandX"> Amount to scale up the aabb. </param>
+
+/// <returns> The resultant aabb. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="expand" />
+    </Parameters>
+  </Export>
+  <Export name="Combine" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Combines two aabbs.
+
+/// </summary>
+
+/// <param name="left"> The left source aabb. </param>
+
+/// <param name="right"> The right source aabb. </param>
+
+/// <returns> The resultant aabb. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.ColliderAabb" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Stretch" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Stretched this aabb by a vector.
+
+/// </summary>
+
+/// <param name="stretch"> The amount to stretch. </param>
+
+/// <returns> The resultant aabb. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="stretch" />
+    </Parameters>
+  </Export>
+  <Export name="GetCentreX" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the centre of this aabb on the X axis.
+
+/// </summary>
+
+/// <returns> The centre location of this aabb on the X axis. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetCentreY" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the centre of this aabb on the Y axis.
+
+/// </summary>
+
+/// <returns> The centre location of this aabb on the Y axis. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetCentreZ" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the centre of this aabb on the Z axis.
+
+/// </summary>
+
+/// <returns> The centre location of this aabb on the Z axis. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetWidth" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the width of this aabb.
+
+/// </summary>
+
+/// <returns> The width of this aabb. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetHeight" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the height of this aabb.
+
+/// </summary>
+
+/// <returns> The height of this aabb. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetDepth" target="Common" source="ColliderAabb.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the depth of this aabb.
+
+/// </summary>
+
+/// <returns> The depth of this aabb. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Model.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Model" target="Common" source="Model.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new empty model.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Model" target="Common" source="Model.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new model.
+
+/// </summary>
+
+/// <param name="filename"> The file name. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** FontMetafile.hpp
+  **
+  ***************************************
+  -->
+  <Export name="FontMetafile" target="Common" source="FontMetafile.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new meta file.
+
+/// </summary>
+
+/// <param name="filepath"> The font file to load from. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** FontType.hpp
+  **
+  ***************************************
+  -->
+  <Export name="FontType" target="Common" source="FontType.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new text loader.
+
+/// </summary>
+
+/// <param name="textureFile"> The file for the font atlas texture. </param>
+
+/// <param name="fontFile"> The font file containing information about each character in the texture atlas. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="textureFile" />
+      <Parameter type="string" name="fontFile" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Cubemap.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Cubemap" target="Common" source="Cubemap.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new cubemap object.
+
+/// </summary>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+      <Parameter type="string" name="fileExt" />
+      <Parameter type="bool" name="mipmap" />
+    </Parameters>
+  </Export>
+  <Export name="Cubemap" target="Common" source="Cubemap.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new cubemap object from a array of pixels.
+
+/// </summary>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="uint32_t" name="width" />
+      <Parameter type="uint32_t" name="height" />
+      <Parameter type="VkFormat" name="format" />
+      <Parameter type="VkImageLayout" name="imageLayout" />
+      <Parameter type="VkImageUsageFlags" name="usage" />
+      <Parameter type="float*" name="pixels" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** PrefabObject.hpp
+  **
+  ***************************************
+  -->
+  <Export name="PrefabObject" target="Common" source="PrefabObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new entity prefab.
+
+/// </summary>
+
+/// <param name="filename"> The file name. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
     </Parameters>
   </Export>
   <!--
@@ -3584,26 +4414,6 @@
   <!--
   ***************************************
   **
-  ** Keyframe.hpp
-  **
-  ***************************************
-  -->
-  <Export name="GetTimeStamp" target="Common" source="Keyframe.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the time in seconds of the keyframe in the animation.
-
-/// </summary>
-
-/// <returns> The time in seconds. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** Animation.hpp
   **
   ***************************************
@@ -3618,123 +4428,6 @@
 /// </summary>
 
 /// <returns> The length of the animation. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Joint.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Joint" target="Common" source="Joint.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new joint.
-
-/// </summary>
-
-/// <param name="index"> The joint's index (ID). </param>
-
-/// <param name="name"> The name of the joint. This is how the joint is named in the collada file, and so is used to identify which joint a joint transform in an animation keyframe refers to. </param>
-
-/// <param name="bindLocalTransform"> The bone-space transform of the joint in the bind position. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="int" name="index" />
-      <Parameter type="string" name="name" />
-      <Parameter type="global::FlounderSharp.Matrix4" name="bindLocalTransform" />
-    </Parameters>
-  </Export>
-  <Export name="CalculateInverseBindTransform" target="Common" source="Joint.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// This is called during set-up, after the joints hierarchy has been created. This calculates the model-space bind transform of this joint like so:
-
-/// <para>
-
-/// </br>
-
-/// {@code bindTransform = parentBindTransform * localBindTransform}</br>
-
-/// </br>
-
-/// where "bindTransform" is the model-space bind transform of this joint, "parentBindTransform" is the model-space bind transform of the parent joint,
-
-/// and "localBindTransform" is the bone-space bind transform of this joint. It the calculates and stores the inverse of this model-space bind transform,
-
-/// for use when calculating the final animation transform each frame. It then recursively calls the method for all of the children joints,
-
-/// so that they too calculate and store their inverse bind-pose transform.
-
-///
-
-/// </para>
-
-/// </summary>
-
-/// <param name="parentBindTransform"> The model-space bind transform of the parent joint. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Matrix4" name="parentBindTransform" />
-    </Parameters>
-  </Export>
-  <Export name="AddChild" target="Common" source="Joint.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds a child joint to this joint. Used during the creation of the joint hierarchy. Joints can have multiple children,
-
-/// which is why they are stored in a list (e.g. a "hand" joint may have multiple "finger" children joints).
-
-/// </summary>
-
-/// <param name="child"> The new child joint of this joint. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Joint" name="child" />
-    </Parameters>
-  </Export>
-  <Export name="GetAnimatedTransform" target="Common" source="Joint.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// The animated transform is the transform that gets loaded up to the shader and is used to deform the vertices of the "skin". It represents the
-
-/// transformation from the joint's bind position (in model-space) to the joint's desired animation pose (also in model-space).
-
-/// This matrix is calculated by taking the desired model-space transform of the joint and multiplying it by the inverse of the starting model-space transform of the joint.
-
-/// </summary>
-
-/// <returns> The transformation matrix of the joint which is used to deform associated vertices of the skin in the shaders. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetInverseBindTransform" target="Common" source="Joint.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// This returns the inverted model-space bind transform.
-
-/// The bind transform is the original model-space transform of the joint (when no animation is applied).
-
-/// This returns the inverse of that, which is used to calculate the animated transform matrix which gets used to transform vertices in the shader.
-
-/// </summary>
-
-/// <returns> The inverse of the joint's bind transform (in model-space). </returns>
 ]]>
     </Description>
   </Export>
@@ -4070,498 +4763,6 @@
   <!--
   ***************************************
   **
-  ** ICollider.hpp
-  **
-  ***************************************
-  -->
-  <Export name="ICollider" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new collider.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="UpdateCollider" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Clones this collder into the destination and updates it.
-
-/// </summary>
-
-/// <param name="transform"> The amount to transform the object. </param>
-
-/// <param name="destination"> The collider to store the new data in. </param>
-
-/// <returns> The destination. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Transform" name="transform" />
-      <Parameter type="global::FlounderSharp.ICollider" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="ResolveCollision" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adjusts a movement amount so that after the move is performed, the this collider will not intersect the {@code right}.
-
-/// This method assumes that this collider can actually intersect {@code right} after some amount of movement,
-
-/// even if it won't necessarily intersect it after the movement specified by {@code moveDelta}.
-
-/// </summary>
-
-/// <param name="other"> The right source collider. </param>
-
-/// <param name="positionDelta"> The delta movement for the left collider. </param>
-
-/// <param name="destination"> Where the final resolved delta should be stored. </param>
-
-/// <returns> The new, adjusted verifyMove delta that guarantees no intersection. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ICollider" name="other" />
-      <Parameter type="global::FlounderSharp.Vector3" name="positionDelta" />
-      <Parameter type="global::FlounderSharp.Vector3" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="Intersects" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Tests whether a shape is intersecting this shape.
-
-/// </summary>
-
-/// <param name="other"> The other shape being tested for intersection. </param>
-
-/// <returns> Data about the calculated shape intersection. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ICollider" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Intersects" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Tests whether a ray is intersecting this shape.
-
-/// </summary>
-
-/// <param name="ray"> The ray being tested for intersection. </param>
-
-/// <returns> Data about the calculated ray intersection. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Ray" name="ray" />
-    </Parameters>
-  </Export>
-  <Export name="InFrustum" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets if the shape is partially in the view frustum.
-
-/// </summary>
-
-/// <param name="frustum"> The view frustum. </param>
-
-/// <returns> If the shape is partially in the view frustum. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Frustum" name="frustum" />
-    </Parameters>
-  </Export>
-  <Export name="Contains" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Tests whether another this shape completely contains the other.
-
-/// </summary>
-
-/// <param name="other"> The shape being tested for containment. </param>
-
-/// <returns> True if {@code other} is contained by this shape, false otherwise. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ICollider" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Contains" target="Common" source="ICollider.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets if a point is contained in this shape.
-
-/// </summary>
-
-/// <param name="point"> The point to check if it is contained. </param>
-
-/// <returns> If the point is contained in this shape. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="point" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** ColliderAabb.hpp
-  **
-  ***************************************
-  -->
-  <Export name="ColliderAabb" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new unit aabb.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="ColliderAabb" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb
-
-/// </summary>
-
-/// <param name="minExtents"> The aabbs min extents. </param>
-
-/// <param name="minExtents"> The aabbs max extents. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="minExtents" />
-      <Parameter type="global::FlounderSharp.Vector3" name="maxExtents" />
-    </Parameters>
-  </Export>
-  <Export name="ColliderAabb" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb from another aavv source.
-
-/// </summary>
-
-/// <param name="source"> The source to create off of. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Set" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Loads from another Aabb.
-
-/// </summary>
-
-/// <param name="source"> The source aabb. </param>
-
-/// <returns> This. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Scale" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb equivalent to this, scaled away from the centre origin.
-
-/// </summary>
-
-/// <param name="source"> The source aabb. </param>
-
-/// <param name="scale"> Amount to scale up the aabb. </param>
-
-/// <param name="destination"> The destination aabb or null if a new aabb is to be created. </param>
-
-/// <returns> A new aabb, scaled by the specified amounts. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-      <Parameter type="global::FlounderSharp.Vector3" name="scale" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="Scale" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb equivalent to this, scaled away from the centre origin.
-
-/// </summary>
-
-/// <param name="source"> The source aabb. </param>
-
-/// <param name="scaleX"> Amount to scale up the aabb on X. </param>
-
-/// <param name="scaleY"> Amount to scale up the aabb on Y. </param>
-
-/// <param name="scaleZ"> Amount to scale up the aabb on Z. </param>
-
-/// <param name="destination"> The destination aabb or null if a new aabb is to be created. </param>
-
-/// <returns> A new aabb, scaled by the specified amounts. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-      <Parameter type="float*" name="scaleX" />
-      <Parameter type="float*" name="scaleY" />
-      <Parameter type="float*" name="scaleZ" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="Expand" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb equivalent to this, but scaled away from the origin by a certain amount.
-
-/// </summary>
-
-/// <param name="source"> The source aabb. </param>
-
-/// <param name="expand"> Amount to scale up the aabb. </param>
-
-/// <param name="destination"> The destination aabb or null if a new aabb is to be created. </param>
-
-/// <returns> A new aabb, scaled by the specified amounts. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-      <Parameter type="global::FlounderSharp.Vector3" name="expand" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="Expand" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb equivalent to this, but scaled away from the origin by a certain amount.
-
-/// </summary>
-
-/// <param name="source"> The source aabb. </param>
-
-/// <param name="expandX"> Amount to scale up the aabb on X. </param>
-
-/// <param name="expandY"> Amount to scale up the aabb on Y. </param>
-
-/// <param name="expandZ"> Amount to scale up the aabb on Z. </param>
-
-/// <param name="destination"> The destination aabb or null if a new aabb is to be created. </param>
-
-/// <returns> A new aabb, scaled by the specified amounts. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-      <Parameter type="float*" name="expandX" />
-      <Parameter type="float*" name="expandY" />
-      <Parameter type="float*" name="expandZ" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="Combine" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates an aabb that bounds both this aabb and another aabb.
-
-/// </summary>
-
-/// <param name="left"> The left source aabb. </param>
-
-/// <param name="right"> The right source aabb. </param>
-
-/// <param name="destination"> The destination aabb or null if a new aabb is to be created. </param>
-
-/// <returns> An aabb that bounds both this aabb and {@code other}. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="left" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="right" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="Stretch" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb equivalent to this, but stretched by a certain amount.
-
-/// </summary>
-
-/// <param name="source"> The source aabb. </param>
-
-/// <param name="stretch"> The amount to stretch. </param>
-
-/// <param name="destination"> The destination aabb or null if a new aabb is to be created. </param>
-
-/// <returns> A new aabb, stretched by the specified amounts. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-      <Parameter type="global::FlounderSharp.Vector3" name="stretch" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="Stretch" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new aabb equivalent to this, but stretched by a certain amount.
-
-/// </summary>
-
-/// <param name="source"> The source aabb. </param>
-
-/// <param name="stretchX"> The amount to stretch on the X. </param>
-
-/// <param name="stretchY"> The amount to stretch on the Y. </param>
-
-/// <param name="stretchZ"> The amount to stretch on the Z. </param>
-
-/// <param name="destination"> The destination aabb or null if a new aabb is to be created. </param>
-
-/// <returns> A new aabb, stretched by the specified amounts. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="source" />
-      <Parameter type="float*" name="stretchX" />
-      <Parameter type="float*" name="stretchY" />
-      <Parameter type="float*" name="stretchZ" />
-      <Parameter type="global::FlounderSharp.ColliderAabb" name="destination" />
-    </Parameters>
-  </Export>
-  <Export name="GetCentreX" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Calculates the centre of this aabb on the X axis.
-
-/// </summary>
-
-/// <returns> The centre location of this aabb on the X axis. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetCentreY" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Calculates the centre of this aabb on the Y axis.
-
-/// </summary>
-
-/// <returns> The centre location of this aabb on the Y axis. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetCentreZ" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Calculates the centre of this aabb on the Z axis.
-
-/// </summary>
-
-/// <returns> The centre location of this aabb on the Z axis. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetWidth" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the width of this aabb.
-
-/// </summary>
-
-/// <returns> The width of this aabb. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetHeight" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the height of this aabb.
-
-/// </summary>
-
-/// <returns> The height of this aabb. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetDepth" target="Common" source="ColliderAabb.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the depth of this aabb.
-
-/// </summary>
-
-/// <returns> The depth of this aabb. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** ModuleRegister.hpp
   **
   ***************************************
@@ -4574,8 +4775,13 @@
 /// Creates a new module register.
 
 /// </summary>
+
+/// <param name="emptyRegister"> If this will start empty. </param>
 ]]>
     </Description>
+    <Parameters>
+      <Parameter type="bool" name="emptyRegister" />
+    </Parameters>
   </Export>
   <Export name="RegisterModule" target="Common" source="ModuleRegister.hpp">
     <Description>
@@ -4737,8 +4943,13 @@
 /// Carries out the setup for basic engine components and the engine. Call <seealso cref="#run()"/> after creating a instance.
 
 /// </summary>
+
+/// <param name="emptyRegister"> If the module register will start empty. </param>
 ]]>
     </Description>
+    <Parameters>
+      <Parameter type="bool" name="emptyRegister" />
+    </Parameters>
   </Export>
   <Export name="Run" target="Common" source="Engine.hpp">
     <Description>
@@ -5359,40 +5570,6 @@
   <!--
   ***************************************
   **
-  ** Model.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Model" target="Common" source="Model.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new empty model.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Model" target="Common" source="Model.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new model.
-
-/// </summary>
-
-/// <param name="filename"> The file name. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="filename" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** Maths.hpp
   **
   ***************************************
@@ -5770,61 +5947,6 @@
   <!--
   ***************************************
   **
-  ** IEvent.hpp
-  **
-  ***************************************
-  -->
-  <Export name="IEvent" target="Common" source="IEvent.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new event.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="EventTriggered" target="Common" source="IEvent.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets if the event has occurred.
-
-/// </summary>
-
-/// <returns> The event has occurred. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="OnEvent" target="Common" source="IEvent.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Run when a event has occurred.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="RemoveAfterEvent" target="Common" source="IEvent.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets if the event is removed after it has run once.
-
-/// </summary>
-
-/// <returns> If the even will run. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** Tasks.hpp
   **
   ***************************************
@@ -5984,55 +6106,6 @@
   <!--
   ***************************************
   **
-  ** FontMetafile.hpp
-  **
-  ***************************************
-  -->
-  <Export name="FontMetafile" target="Common" source="FontMetafile.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new meta file.
-
-/// </summary>
-
-/// <param name="filepath"> The font file to load from. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="filename" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** FontType.hpp
-  **
-  ***************************************
-  -->
-  <Export name="FontType" target="Common" source="FontType.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new text loader.
-
-/// </summary>
-
-/// <param name="textureFile"> The file for the font atlas texture. </param>
-
-/// <param name="fontFile"> The font file containing information about each character in the texture atlas. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="textureFile" />
-      <Parameter type="string" name="fontFile" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** ICamera.hpp
   **
   ***************************************
@@ -6068,11 +6141,11 @@
 
 /// </summary>
 
-/// <param name="waterHeight"> The height of the water to be reflected on. </param>
+/// <param name="height"> The height of the horizontal plane to be reflected over. </param>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="float*" name="waterHeight" />
+      <Parameter type="float*" name="height" />
     </Parameters>
   </Export>
   <Export name="GetNearPlane" target="Common" source="ICamera.hpp">
@@ -6242,242 +6315,6 @@
       <Parameter type="global::FlounderSharp.Vector4" name="clipPlane" />
       <Parameter type="global::FlounderSharp.ICamera" name="camera" />
     </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** IDriver.hpp
-  **
-  ***************************************
-  -->
-  <Export name="IDriver" target="Common" source="IDriver.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new driver with a length.
-
-/// </summary>
-
-/// <param name="length"> The drivers length. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="length" />
-    </Parameters>
-  </Export>
-  <Export name="Update" target="Common" source="IDriver.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates the driver with the passed time.
-
-/// </summary>
-
-/// <param name="delta"> The time between the last update. </param>
-
-/// <returns> The calculated value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="double" name="delta" />
-    </Parameters>
-  </Export>
-  <Export name="Calculate" target="Common" source="IDriver.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Calculates the new value.
-
-/// </summary>
-
-/// <param name="time"> The time into the drivers life.
-
-/// </param>
-
-/// <returns> The calculated value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="time" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** UiBound.hpp
-  **
-  ***************************************
-  -->
-  <Export name="UiBound" target="Common" source="UiBound.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for rectangle.
-
-/// </summary>
-
-/// <param name="position"> The object screen position. </param>
-
-/// <param name="reference"> The reference pivot vertex (TopLeft, TopCentre, TopRight, CentreLeft, Centre, CentreRight, BottomLeft, BottomCentre, BottomRight). </param>
-
-/// <param name="aspectPosition"> The if the x position will change with display width. </param>
-
-/// <param name="aspectSize"> The if the width will scale with display width. </param>
-
-/// <param name="dimensions"> The object dimensions. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector2" name="position" />
-      <Parameter type="string" name="reference" />
-      <Parameter type="bool" name="aspectPosition" />
-      <Parameter type="bool" name="aspectSize" />
-      <Parameter type="global::FlounderSharp.Vector2" name="dimensions" />
-    </Parameters>
-  </Export>
-  <Export name="UiBound" target="Common" source="UiBound.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new rectangle.
-
-/// </summary>
-
-/// <param name="source"> Creates this rectangle out of a existing one. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.UiBound" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Set" target="Common" source="UiBound.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Loads from another Rectangle.
-
-/// </summary>
-
-/// <param name="source"> The source rectangle. </param>
-
-/// <returns> This. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.UiBound" name="source" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** UiObject.hpp
-  **
-  ***************************************
-  -->
-  <Export name="UiObject" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new screen object.
-
-/// </summary>
-
-/// <param name="parent"> The parent screen object. </param>
-
-/// <param name="rectangle"> The rectangle that will represent the bounds of the ui object. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.UiObject" name="parent" />
-      <Parameter type="global::FlounderSharp.UiBound" name="rectangle" />
-    </Parameters>
-  </Export>
-  <Export name="Update" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates this screen object and the extended object.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="UpdateObject" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates the implementation.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="RemoveChild" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Disowns a child from this screen objects children list.
-
-/// </summary>
-
-/// <param name="child"> The child to disown. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.UiObject" name="child" />
-    </Parameters>
-  </Export>
-  <Export name="GetParent" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the parent object.
-
-/// </summary>
-
-/// <returns> The parent object. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="SetParent" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes this object from the previous parent and attaches it to another parent.
-
-/// </summary>
-
-/// <param name="parent"> The new parent object. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.UiObject" name="parent" />
-    </Parameters>
-  </Export>
-  <Export name="GetScreenTransform" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the ui object screen space transform.
-
-/// </summary>
-
-/// <returns> The screen transform. </returns>
-]]>
-    </Description>
   </Export>
   <!--
   ***************************************
@@ -6837,34 +6674,6 @@
   **
   ***************************************
   -->
-  <Export name="Load" target="Common" source="UiSelector.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets up the joystick settings to be used for controlling the virtual cursor.
-
-/// </summary>
-
-/// <param name="joystick"> The joystick port to attach to. </param>
-
-/// <param name="joystickLeftClick"> The joystick key to be used as the left click. </param>
-
-/// <param name="joystickRightClick"> The joystick key to be used as the right click. </param>
-
-/// <param name="joystickAxisX"> The joystick axis to be used for moving the x axis. </param>
-
-/// <param name="joystickAxisY"> The joystick axis to be used for moving the y axis. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.JoystickPort*" name="joystick" />
-      <Parameter type="int" name="joystickLeftClick" />
-      <Parameter type="int" name="joystickRightClick" />
-      <Parameter type="int" name="joystickAxisX" />
-      <Parameter type="int" name="joystickAxisY" />
-    </Parameters>
-  </Export>
   <Export name="IsSelected" target="Common" source="UiSelector.hpp">
     <Description>
       <![CDATA[
@@ -6949,46 +6758,6 @@
   **
   ***************************************
   -->
-  <Export name="Text" target="Common" source="Text.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new text object.
-
-/// </summary>
-
-/// <param name="parent"> The parent screen object. </param>
-
-/// <param name="rectangle"> The rectangle that will represent the bounds of the ui object. </param>
-
-/// <param name="fontSize"> The font size to be used in this text. </param>
-
-/// <param name="text"> The string text the object will be created with. </param>
-
-/// <param name="fontType"> The font type to be used in this text. </param>
-
-/// <param name="justify"> How the text will justify. </param>
-
-/// <param name="maxWidth"> The maximum length of a line of this text. </param>
-
-/// <param name="kerning"> The kerning (type character spacing multiplier) of this text. </param>
-
-/// <param name="leading"> The leading (vertical line spacing multiplier) of this text. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.UiObject" name="parent" />
-      <Parameter type="global::FlounderSharp.UiBound" name="rectangle" />
-      <Parameter type="float*" name="fontSize" />
-      <Parameter type="string" name="text" />
-      <Parameter type="global::FlounderSharp.FontType" name="fontType" />
-      <Parameter type="global::FlounderSharp.FontJustify*" name="justify" />
-      <Parameter type="float*" name="maxWidth" />
-      <Parameter type="float*" name="kerning" />
-      <Parameter type="float*" name="leading" />
-    </Parameters>
-  </Export>
   <Export name="GetModel" target="Common" source="Text.hpp">
     <Description>
       <![CDATA[
@@ -7130,32 +6899,6 @@
     <Parameters>
       <Parameter type="float*" name="leading" />
     </Parameters>
-  </Export>
-  <Export name="GetFontType" target="Common" source="Text.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the font used by this text.
-
-/// </summary>
-
-/// <returns> The font used by this text. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetTexture" target="Common" source="Text.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets font type texture for this text.
-
-/// </summary>
-
-/// <returns> The texts texture. </returns>
-]]>
-    </Description>
   </Export>
   <Export name="GetTextColour" target="Common" source="Text.hpp">
     <Description>
@@ -7322,36 +7065,6 @@
 /// <returns> If the text has been loaded to OpenGL. </returns>
 ]]>
     </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Gui.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Gui" target="Common" source="Gui.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new GUI object.
-
-/// </summary>
-
-/// <param name="rectangle"> The rectangle that will represent the bounds of the ui object. </param>
-
-/// <param name="texture"> The objects texture. </param>
-
-/// <param name="selectedRow"> The default row of the texture to render from. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.UiObject" name="parent" />
-      <Parameter type="global::FlounderSharp.UiBound" name="rectangle" />
-      <Parameter type="global::FlounderSharp.Texture" name="texture" />
-      <Parameter type="int" name="selectedRow" />
-    </Parameters>
   </Export>
   <!--
   ***************************************
@@ -7756,69 +7469,6 @@
 /// </summary>
 
 /// <param name="source"> The source light object. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Light" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Set" target="Common" source="Light.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets values in the light.
-
-/// </summary>
-
-/// <param name="colour"> The colour of the light. </param>
-
-/// <param name="offset"> The parent offset of the light. </param>
-
-/// <returns> This. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="colour" />
-      <Parameter type="global::FlounderSharp.Vector3" name="offset" />
-    </Parameters>
-  </Export>
-  <Export name="Set" target="Common" source="Light.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets values in the light.
-
-/// </summary>
-
-/// <param name="colour"> The colour of the light. </param>
-
-/// <param name="radius"> How far the light will have influence (-1 sets this to a directional light). </param>
-
-/// <param name="offset"> The parent offset of the light. </param>
-
-/// <returns> This. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Colour" name="colour" />
-      <Parameter type="float*" name="radius" />
-      <Parameter type="global::FlounderSharp.Vector3" name="offset" />
-    </Parameters>
-  </Export>
-  <Export name="Set" target="Common" source="Light.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets values in the light.
-
-/// </summary>
-
-/// <param name="source"> The source light object. </param>
-
-/// <returns> This. </returns>
 ]]>
     </Description>
     <Parameters>
@@ -8262,19 +7912,6 @@
 ]]>
     </Description>
   </Export>
-  <Export name="ToArray" target="Common" source="Matrix2.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Turns this 2x2 matrix into an array.
-
-/// </summary>
-
-/// <returns> A 4 float array. </returns>
-]]>
-    </Description>
-  </Export>
   <Export name="Write" target="Common" source="Matrix2.hpp">
     <Description>
       <![CDATA[
@@ -8524,19 +8161,6 @@
 /// </summary>
 
 /// <returns> The identity matrix. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="ToArray" target="Common" source="Matrix3.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Turns this 3x3 matrix into an array.
-
-/// </summary>
-
-/// <returns> A 9 float array. </returns>
 ]]>
     </Description>
   </Export>
@@ -8848,24 +8472,6 @@
       <Parameter type="string" name="name" />
     </Parameters>
   </Export>
-  <Export name="CreateComponent" target="Common" source="ComponentRegister.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new component from the register.
-
-/// </summary>
-
-/// <param name="name"> The component name to create. </param>
-
-/// <returns> The new component. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="name" />
-    </Parameters>
-  </Export>
   <!--
   ***************************************
   **
@@ -8951,17 +8557,6 @@
       <![CDATA[
 /// <summary>
 
-/// Creates a new unit sphere
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="ColliderSphere" target="Common" source="ColliderSphere.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
 /// Creates a new sphere
 
 /// </summary>
@@ -8990,29 +8585,6 @@
     </Description>
     <Parameters>
       <Parameter type="global::FlounderSharp.ColliderSphere" name="source" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Cubemap.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Cubemap" target="Common" source="Cubemap.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// A new cubemap object.
-
-/// </summary>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="filename" />
-      <Parameter type="string" name="fileExt" />
-      <Parameter type="bool" name="mipmap" />
     </Parameters>
   </Export>
   <!--
@@ -9327,28 +8899,18 @@
 ]]>
     </Description>
   </Export>
-  <!--
-  ***************************************
-  **
-  ** PrefabObject.hpp
-  **
-  ***************************************
-  -->
-  <Export name="PrefabObject" target="Common" source="PrefabObject.hpp">
+  <Export name="GetSelectorJoystick" target="Common" source="IManagerUis.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Creates a new entity prefab.
+/// The UI selector for a joystick.
 
 /// </summary>
 
-/// <param name="filename"> The file name. </param>
+/// <returns> The joystick selector. </returns>
 ]]>
     </Description>
-    <Parameters>
-      <Parameter type="string" name="filename" />
-    </Parameters>
   </Export>
   <!--
   ***************************************
@@ -9517,24 +9079,6 @@
 /// </summary>
 
 /// <param name="name"> The components name. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="name" />
-    </Parameters>
-  </Export>
-  <Export name="CreateComponent" target="Common" source="Scenes.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new component from the register.
-
-/// </summary>
-
-/// <param name="name"> The component name to create. </param>
-
-/// <returns> The new component. </returns>
 ]]>
     </Description>
     <Parameters>

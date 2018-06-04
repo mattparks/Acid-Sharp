@@ -103,7 +103,7 @@ namespace fl
 				}
 			}
 
-			m_uniforms->push_back(uniform);
+			m_uniforms->emplace_back(uniform);
 		}
 
 		Uniform *GetUniform(const std::string &uniformName)
@@ -178,27 +178,26 @@ namespace fl
 	class FL_EXPORT ShaderProgram
 	{
 	private:
+		std::string m_name;
 		std::vector<Uniform *> *m_uniforms;
 		std::vector<UniformBlock *> *m_uniformBlocks;
 		std::vector<VertexAttribute *> *m_vertexAttributes;
 
 		std::vector<DescriptorType> *m_descriptors;
 		std::vector<VkVertexInputAttributeDescription> *m_attributeDescriptions;
+
+		std::vector<std::string> m_notFoundNames;
 	public:
-		ShaderProgram();
+		ShaderProgram(const std::string &name);
 
 		~ShaderProgram();
 
 		void LoadProgram(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag);
 
-	private:
-		void LoadUniformBlock(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
+		std::string GetName() const { return m_name; }
 
-		void LoadUniform(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
+		bool ReportedNotFound(const std::string &name, const bool &reportIfFound);
 
-		void LoadVertexAttribute(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
-
-	public:
 		void ProcessShader();
 
 		VkFormat GlTypeToVk(const int &type);
@@ -220,5 +219,11 @@ namespace fl
 		static VkShaderStageFlagBits GetShaderStage(const std::string &filename);
 
 		std::string ToString() const;
+	private:
+		void LoadUniformBlock(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
+
+		void LoadUniform(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
+
+		void LoadVertexAttribute(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
 	};
 }

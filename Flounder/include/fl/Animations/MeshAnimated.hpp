@@ -18,14 +18,15 @@ namespace fl
 	private:
 		std::string m_filename;
 
-		Model *m_model;
+		std::shared_ptr<Model> m_model;
 		Joint *m_headJoint;
+		Animator *m_animator;
 		Animation *m_animation;
 
-		Animator *m_animator;
-		std::vector<Matrix4 *> m_jointMatrices;
+		std::vector<Matrix4> m_jointMatrices;
 	public:
-		static const Matrix4 *S_CORRECTION;
+		static const Matrix4 CORRECTION;
+		static const int MAX_JOINTS;
 		static const int MAX_WEIGHTS;
 
 		MeshAnimated(const std::string &filename = "");
@@ -40,17 +41,17 @@ namespace fl
 
 		std::string GetName() const override { return "MeshAnimated"; };
 
-		Model *GetModel() const override { return m_model; }
+		std::shared_ptr<Model> GetModel() const override { return m_model; }
 
-		void SetModel(Model *model) override { m_model = model; }
+		void SetModel(std::shared_ptr<Model> model) override { m_model = model; }
 
 		void TrySetModel(const std::string &filename) override;
 
-		std::vector<Matrix4 *> GetJointTransforms() const { return m_jointMatrices; }
+		std::vector<Matrix4> GetJointTransforms() const { return m_jointMatrices; }
 
 	private:
 		Joint *CreateJoints(JointData *data);
 
-		void AddJointsToArray(const Joint &headJoint, std::vector<Matrix4 *> *jointMatrices);
+		void AddJointsToArray(const Joint &headJoint, std::vector<Matrix4> *jointMatrices);
 	};
 }

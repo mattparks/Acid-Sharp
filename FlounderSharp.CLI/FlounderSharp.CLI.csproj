@@ -36,22 +36,33 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CppSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CppSharp.0.8.19\lib\CppSharp.dll</HintPath>
+      <HintPath>..\packages\CppSharp.0.8.20\lib\CppSharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CppSharp.AST, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CppSharp.0.8.19\lib\CppSharp.AST.dll</HintPath>
+      <HintPath>..\packages\CppSharp.0.8.20\lib\CppSharp.AST.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CppSharp.Generator, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CppSharp.0.8.19\lib\CppSharp.Generator.dll</HintPath>
+      <HintPath>..\packages\CppSharp.0.8.20\lib\CppSharp.Generator.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CppSharp.Parser, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CppSharp.0.8.19\lib\CppSharp.Parser.dll</HintPath>
+      <HintPath>..\packages\CppSharp.0.8.20\lib\CppSharp.Parser.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CppSharp.Parser.CLI, Version=0.0.0.0, Culture=neutral, processorArchitecture=AMD64">
-      <HintPath>..\packages\CppSharp.0.8.19\lib\CppSharp.Parser.CLI.dll</HintPath>
+      <HintPath>..\packages\CppSharp.0.8.20\lib\CppSharp.Parser.CLI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CppSharp.Parser.CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CppSharp.0.8.20\lib\CppSharp.Parser.CSharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="CppSharp.Runtime, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CppSharp.0.8.19\lib\CppSharp.Runtime.dll</HintPath>
+      <HintPath>..\packages\CppSharp.0.8.20\lib\CppSharp.Runtime.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.Setup.Configuration.Interop, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.VisualStudio.Setup.Configuration.Interop.1.16.30\lib\net35\Microsoft.VisualStudio.Setup.Configuration.Interop.dll</HintPath>
