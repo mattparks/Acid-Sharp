@@ -4,9 +4,9 @@ extern "C" { void FlounderSharp_symbols1(void* instance) { new (instance) fl::Fo
 extern "C" { void FlounderSharp_symbols2(void* instance, const fl::FormatString& _0) { new (instance) fl::FormatString(_0); } }
 extern "C" { void FlounderSharp_symbols3(fl::FormatString* instance) { instance->~FormatString(); } }
 extern "C" { void FlounderSharp_symbols4(void* instance, const fl::Animator& _0) { new (instance) fl::Animator(_0); } }
-extern "C" { void FlounderSharp_symbols5(void* instance, const fl::Frustum& _0) { new (instance) fl::Frustum(_0); } }
-extern "C" { void FlounderSharp_symbols6(void* instance, const fl::Intersect& _0) { new (instance) fl::Intersect(_0); } }
-extern "C" { void FlounderSharp_symbols7(void* instance, const fl::Engine& _0) { new (instance) fl::Engine(_0); } }
+extern "C" { void FlounderSharp_symbols5(void* instance, const fl::Engine& _0) { new (instance) fl::Engine(_0); } }
+extern "C" { void FlounderSharp_symbols6(void* instance, const fl::Frustum& _0) { new (instance) fl::Frustum(_0); } }
+extern "C" { void FlounderSharp_symbols7(void* instance, const fl::Intersect& _0) { new (instance) fl::Intersect(_0); } }
 extern "C" { void FlounderSharp_symbols8(void* instance) { new (instance) VkApplicationInfo(); } }
 extern "C" { void FlounderSharp_symbols9(void* instance, const VkApplicationInfo& _0) { new (instance) VkApplicationInfo(_0); } }
 VkApplicationInfo& (VkApplicationInfo::*FlounderSharp_symbols10)(const VkApplicationInfo&) = &VkApplicationInfo::operator=;
@@ -1478,11 +1478,11 @@ extern "C" { void FlounderSharp_symbols1475(fl::GraphicsStage* instance) { insta
 extern "C" { void FlounderSharp_symbols1476(void* instance, const fl::DescriptorType& _0) { new (instance) fl::DescriptorType(_0); } }
 extern "C" { void FlounderSharp_symbols1477(fl::DescriptorType* instance) { instance->~DescriptorType(); } }
 extern "C" { void FlounderSharp_symbols1478(void* instance, const fl::DescriptorSet& _0) { new (instance) fl::DescriptorSet(_0); } }
-extern "C" { void FlounderSharp_symbols1479(void* instance) { new (instance) fl::Maths(); } }
-extern "C" { void FlounderSharp_symbols1480(void* instance, const fl::Maths& _0) { new (instance) fl::Maths(_0); } }
-extern "C" { void FlounderSharp_symbols1481(fl::Maths* instance) { instance->~Maths(); } }
-extern "C" { void FlounderSharp_symbols1482(void* instance, const fl::UniformHandler& _0) { new (instance) fl::UniformHandler(_0); } }
-extern "C" { void FlounderSharp_symbols1483(void* instance, const fl::DescriptorsHandler& _0) { new (instance) fl::DescriptorsHandler(_0); } }
+extern "C" { void FlounderSharp_symbols1479(void* instance, const fl::UniformHandler& _0) { new (instance) fl::UniformHandler(_0); } }
+extern "C" { void FlounderSharp_symbols1480(void* instance, const fl::DescriptorsHandler& _0) { new (instance) fl::DescriptorsHandler(_0); } }
+extern "C" { void FlounderSharp_symbols1481(void* instance) { new (instance) fl::Maths(); } }
+extern "C" { void FlounderSharp_symbols1482(void* instance, const fl::Maths& _0) { new (instance) fl::Maths(_0); } }
+extern "C" { void FlounderSharp_symbols1483(fl::Maths* instance) { instance->~Maths(); } }
 extern "C" { void FlounderSharp_symbols1484(void* instance, const fl::Sound& _0) { new (instance) fl::Sound(_0); } }
 extern "C" { void FlounderSharp_symbols1485(void* instance, const fl::Timer& _0) { new (instance) fl::Timer(_0); } }
 extern "C" { void FlounderSharp_symbols1486(void* instance, const fl::Config& _0) { new (instance) fl::Config(_0); } }

@@ -3,7 +3,7 @@ using FlounderSharp;
 
 namespace FlounderSharp.Tests
 {
-    class Scene1 : Scene
+    class Scene1 : IScene
     {
 		private IButton _buttonFullscreen;
 		private IButton _buttonScreenshot;
@@ -21,7 +21,7 @@ namespace FlounderSharp.Tests
 			// Skybox.
 			var skyboxObject = new GameObject(new Transform(new Vector3(), new Vector3(), 2048.0f));
 			skyboxObject.AddComponent(new Mesh(ShapeSphere.Resource(6, 6, 1.0f)));
-			skyboxObject.AddComponent(new MaterialSkybox(Cubemap.Resource("Resources/Entities/SkyboxChapel", ".png"), false));
+			skyboxObject.AddComponent(new MaterialSkybox(Cubemap.Resource("Objects/SkyboxChapel", ".png"), false));
 			skyboxObject.AddComponent(new MeshRender());
 
 			// Entities.

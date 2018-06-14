@@ -1037,6 +1037,35 @@
   <!--
   ***************************************
   **
+  ** IModule.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IModule" target="Common" source="IModule.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new module.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="IModule.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// The update function for the module.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Transform.hpp
   **
   ***************************************
@@ -1221,35 +1250,6 @@
     <Parameters>
       <Parameter type="global::FlounderSharp.GameObject" name="@object" />
     </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** IModule.hpp
-  **
-  ***************************************
-  -->
-  <Export name="IModule" target="Common" source="IModule.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new module.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Update" target="Common" source="IModule.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// The update function for the module.
-
-/// </summary>
-]]>
-    </Description>
   </Export>
   <!--
   ***************************************
@@ -4520,249 +4520,6 @@
   <!--
   ***************************************
   **
-  ** Frustum.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Frustum" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new frustum.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Update" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates a frustum from the view and projection matrix.
-
-/// </summary>
-
-/// <param name="viewMatrix"> The view matrix. </param>
-
-/// <param name="projectionMatrix"> The projection matrix. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Matrix4" name="viewMatrix" />
-      <Parameter type="global::FlounderSharp.Matrix4" name="projectionMatrix" />
-    </Parameters>
-  </Export>
-  <Export name="GetFrustumArray" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <returns> The planes*value array used to represent the frustum. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="PointInFrustum" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Is the point contained in the frustum?
-
-/// </summary>
-
-/// <param name="position"> The points position. </param>
-
-/// <returns> True if contained, false if outside. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="position" />
-    </Parameters>
-  </Export>
-  <Export name="SphereInFrustum" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Is the sphere contained in the frustum?
-
-/// </summary>
-
-/// <param name="position"> The points position. </param>
-
-/// <param name="radius"> The spheres radius. </param>
-
-/// <returns> True if contained, false if outside. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="position" />
-      <Parameter type="float*" name="radius" />
-    </Parameters>
-  </Export>
-  <Export name="CubeInFrustum" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Is the cube contained partially in the frustum?
-
-/// </summary>
-
-/// <param name="min"> The point 1st position. </param>
-
-/// <param name="max"> The point 2nd position. </param>
-
-/// <returns> True if partially contained, false if outside. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="min" />
-      <Parameter type="global::FlounderSharp.Vector3" name="max" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Intersect.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Intersect" target="Common" source="Intersect.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new bounding intersect data.
-
-/// </summary>
-
-/// <param name="intersects"> If there is a collision. </param>
-
-/// <param name="distance"> What distance that collision is at. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="bool" name="intersects" />
-      <Parameter type="float*" name="distance" />
-    </Parameters>
-  </Export>
-  <Export name="IsIntersection" target="Common" source="Intersect.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets if there is a intersection.
-
-/// </summary>
-
-/// <returns> If there is a intersection. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Distance" target="Common" source="Intersect.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the distance that intersection is at.
-
-/// </summary>
-
-/// <returns> The distance that intersection is at. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Ray.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Ray" target="Common" source="Ray.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new 3D ray.
-
-/// </summary>
-
-/// <param name="useMouse"> If the ray will use the mouse coords or to start from screenStart. </param>
-
-/// <param name="screenStart"> If useMouse is false then this will be used as the rays start. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="bool" name="useMouse" />
-      <Parameter type="global::FlounderSharp.Vector2" name="screenStart" />
-    </Parameters>
-  </Export>
-  <Export name="Update" target="Common" source="Ray.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates the ray to a new position.
-
-/// </summary>
-
-/// <param name="currentPosition"> The new position. </param>
-
-/// <param name="currentPosition"> The mouses xy screen space position. </param>
-
-/// <param name="viewMatrix"> The cameras view matrix. </param>
-
-/// <param name="projectionMatrix"> The projection view matrix. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="currentPosition" />
-      <Parameter type="global::FlounderSharp.Vector2" name="mousePosition" />
-      <Parameter type="global::FlounderSharp.Matrix4" name="viewMatrix" />
-      <Parameter type="global::FlounderSharp.Matrix4" name="projectionMatrix" />
-    </Parameters>
-  </Export>
-  <Export name="GetPointOnRay" target="Common" source="Ray.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets a point on the ray.
-
-/// </summary>
-
-/// <param name="distance"> Distance down the ray to sample. </param>
-
-/// <returns> Returns the destination vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float*" name="distance" />
-    </Parameters>
-  </Export>
-  <Export name="ConvertToScreenSpace" target="Common" source="Ray.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Converts a position from world space to screen space.
-
-/// </summary>
-
-/// <param name="position"> The position to convert. </param>
-
-/// <returns> Returns the destination vector X and Y being screen space coords and Z being the distance to the camera. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::FlounderSharp.Vector3" name="position" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** ModuleRegister.hpp
   **
   ***************************************
@@ -5211,6 +4968,303 @@
   <!--
   ***************************************
   **
+  ** Files.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Get" target="Common" source="Files.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets this engine instance.
+
+/// </summary>
+
+/// <returns> The current module instance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="AddSearchPath" target="Common" source="Files.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds an file search path.
+
+/// </summary>
+
+/// <param name="path"> The task to add. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="path" />
+    </Parameters>
+  </Export>
+  <Export name="SearchFile" target="Common" source="Files.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Find a file by partial path in a search path.
+
+/// </summary>
+
+/// <param name="filename"> The filename to find. </param>
+
+/// <returns> The path to the first file found. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Frustum.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Frustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new frustum.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates a frustum from the view and projection matrix.
+
+/// </summary>
+
+/// <param name="viewMatrix"> The view matrix. </param>
+
+/// <param name="projectionMatrix"> The projection matrix. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Matrix4" name="viewMatrix" />
+      <Parameter type="global::FlounderSharp.Matrix4" name="projectionMatrix" />
+    </Parameters>
+  </Export>
+  <Export name="GetFrustumArray" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <returns> The planes*value array used to represent the frustum. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="PointInFrustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Is the point contained in the frustum?
+
+/// </summary>
+
+/// <param name="position"> The points position. </param>
+
+/// <returns> True if contained, false if outside. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="position" />
+    </Parameters>
+  </Export>
+  <Export name="SphereInFrustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Is the sphere contained in the frustum?
+
+/// </summary>
+
+/// <param name="position"> The points position. </param>
+
+/// <param name="radius"> The spheres radius. </param>
+
+/// <returns> True if contained, false if outside. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="position" />
+      <Parameter type="float*" name="radius" />
+    </Parameters>
+  </Export>
+  <Export name="CubeInFrustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Is the cube contained partially in the frustum?
+
+/// </summary>
+
+/// <param name="min"> The point 1st position. </param>
+
+/// <param name="max"> The point 2nd position. </param>
+
+/// <returns> True if partially contained, false if outside. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="min" />
+      <Parameter type="global::FlounderSharp.Vector3" name="max" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Intersect.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Intersect" target="Common" source="Intersect.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new bounding intersect data.
+
+/// </summary>
+
+/// <param name="intersects"> If there is a collision. </param>
+
+/// <param name="distance"> What distance that collision is at. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="bool" name="intersects" />
+      <Parameter type="float*" name="distance" />
+    </Parameters>
+  </Export>
+  <Export name="IsIntersection" target="Common" source="Intersect.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if there is a intersection.
+
+/// </summary>
+
+/// <returns> If there is a intersection. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Distance" target="Common" source="Intersect.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance that intersection is at.
+
+/// </summary>
+
+/// <returns> The distance that intersection is at. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Ray.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Ray" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new 3D ray.
+
+/// </summary>
+
+/// <param name="useMouse"> If the ray will use the mouse coords or to start from screenStart. </param>
+
+/// <param name="screenStart"> If useMouse is false then this will be used as the rays start. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="bool" name="useMouse" />
+      <Parameter type="global::FlounderSharp.Vector2" name="screenStart" />
+    </Parameters>
+  </Export>
+  <Export name="Update" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the ray to a new position.
+
+/// </summary>
+
+/// <param name="currentPosition"> The new position. </param>
+
+/// <param name="currentPosition"> The mouses xy screen space position. </param>
+
+/// <param name="viewMatrix"> The cameras view matrix. </param>
+
+/// <param name="projectionMatrix"> The projection view matrix. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="currentPosition" />
+      <Parameter type="global::FlounderSharp.Vector2" name="mousePosition" />
+      <Parameter type="global::FlounderSharp.Matrix4" name="viewMatrix" />
+      <Parameter type="global::FlounderSharp.Matrix4" name="projectionMatrix" />
+    </Parameters>
+  </Export>
+  <Export name="GetPointOnRay" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a point on the ray.
+
+/// </summary>
+
+/// <param name="distance"> Distance down the ray to sample. </param>
+
+/// <returns> Returns the destination vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float*" name="distance" />
+    </Parameters>
+  </Export>
+  <Export name="ConvertToScreenSpace" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts a position from world space to screen space.
+
+/// </summary>
+
+/// <param name="position"> The position to convert. </param>
+
+/// <returns> Returns the destination vector X and Y being screen space coords and Z being the distance to the camera. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::FlounderSharp.Vector3" name="position" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Resources.hpp
   **
   ***************************************
@@ -5437,11 +5491,11 @@
 
 /// </summary>
 
-/// <param name="title"> The new icon file. </param>
+/// <param name="filename"> The new icon file. </param>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="icon" />
+      <Parameter type="string" name="filename" />
     </Parameters>
   </Export>
   <Export name="IsAntialiasing" target="Common" source="Display.hpp">
@@ -6514,11 +6568,11 @@
 
 /// </summary>
 
-/// <param name="title"> The new custom mouse file. </param>
+/// <param name="filename"> The new custom mouse file. </param>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="customMouse" />
+      <Parameter type="string" name="filename" />
     </Parameters>
   </Export>
   <Export name="SetCursorHidden" target="Common" source="Mouse.hpp">
@@ -7224,12 +7278,28 @@
       <Parameter type="string" name="filepath" />
     </Parameters>
   </Export>
+  <Export name="FindName" target="Common" source="FileSystem.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the file name from the full path.
+
+/// </summary>
+
+/// <returns> The file name. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filepath" />
+    </Parameters>
+  </Export>
   <Export name="FindExt" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Gets the file extension for the file.
+/// Gets the file extension from the full path.
 
 /// </summary>
 
@@ -8933,11 +9003,11 @@
   <!--
   ***************************************
   **
-  ** Scene.hpp
+  ** IScene.hpp
   **
   ***************************************
   -->
-  <Export name="Scene" target="Common" source="Scene.hpp">
+  <Export name="IScene" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -8956,7 +9026,7 @@
       <Parameter type="global::FlounderSharp.IManagerUis" name="managerUis" />
     </Parameters>
   </Export>
-  <Export name="Update" target="Common" source="Scene.hpp">
+  <Export name="Update" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -8967,7 +9037,7 @@
 ]]>
     </Description>
   </Export>
-  <Export name="GetCamera" target="Common" source="Scene.hpp">
+  <Export name="GetCamera" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -8980,7 +9050,7 @@
 ]]>
     </Description>
   </Export>
-  <Export name="SetCamera" target="Common" source="Scene.hpp">
+  <Export name="SetCamera" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -8996,7 +9066,7 @@
       <Parameter type="global::FlounderSharp.ICamera" name="camera" />
     </Parameters>
   </Export>
-  <Export name="GetUiManager" target="Common" source="Scene.hpp">
+  <Export name="GetUiManager" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -9009,7 +9079,7 @@
 ]]>
     </Description>
   </Export>
-  <Export name="SetUiManager" target="Common" source="Scene.hpp">
+  <Export name="SetUiManager" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -9025,7 +9095,7 @@
       <Parameter type="global::FlounderSharp.IManagerUis" name="managerUis" />
     </Parameters>
   </Export>
-  <Export name="GetStructure" target="Common" source="Scene.hpp">
+  <Export name="GetStructure" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -9274,6 +9344,35 @@
 /// </summary>
 
 /// <returns> The shadow box. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IWorld.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IWorld" target="Common" source="IWorld.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new world.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="IWorld.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Run when updating the world.
+
+/// </summary>
 ]]>
     </Description>
   </Export>

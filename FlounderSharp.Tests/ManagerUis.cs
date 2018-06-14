@@ -9,11 +9,13 @@ namespace FlounderSharp.Tests
         private static readonly float _slideTime = 0.2f;
 
         private UiStartLogo _uiStartLogo;
+        private SelectorJoystick _selectorJoystick;
 
-		public ManagerUis() : base()
+        public ManagerUis() : base()
         {
 			_uiStartLogo = new UiStartLogo(Uis.Get().Container);
-		}
+            _selectorJoystick = new SelectorJoystick(JoystickPort.Joystick1, 0, 1, 0, 1);
+        }
 
 		public override void Update()
 		{
@@ -27,5 +29,6 @@ namespace FlounderSharp.Tests
         public override bool IsGamePaused => _uiStartLogo.IsStarting;
         public override float BlurFactor => 0.0f;
         public override Colour PrimaryColour => _primaryColour;
+        public override SelectorJoystick SelectorJoystick => _selectorJoystick;
     }
 }

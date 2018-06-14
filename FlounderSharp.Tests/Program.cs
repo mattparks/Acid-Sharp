@@ -7,6 +7,10 @@ namespace FlounderSharp.Tests
     {
         private static void Main(string[] args)
         {
+            // Registers file search paths.
+        //  Files.AddSearchPath("Resources/Game");
+            Files.AddSearchPath("Resources/Engine");
+
             // Creates the engine and updater objects.
             var engine = new Engine
             {
@@ -22,8 +26,8 @@ namespace FlounderSharp.Tests
 
             // Initializes modules.
             Display.Get().Title = "Testing Guis";
-            Display.Get().Icon = "Resources/Logos/Tail.png";
-            Mouse.Get().CustomMouse = "Resources/Guis/Cursor.png";
+            Display.Get().Icon = "Logos/Tail.png";
+            Mouse.Get().CustomMouse = "Guis/Cursor.png";
             Renderer.Get().Manager = new MainRenderer();
             Scenes.Get().Scene = new Scene1();
 
