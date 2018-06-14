@@ -30,6 +30,7 @@ namespace FlounderSharp.Tests
             Mouse.Get().CustomMouse = "Guis/Cursor.png";
             Renderer.Get().Manager = new MainRenderer();
             Scenes.Get().Scene = new Scene1();
+            Worlds.Get().World = new MainWorld();
 
             // Runs the game loop.
             var exitCode = engine.Run();

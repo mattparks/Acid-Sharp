@@ -50,6 +50,7 @@
     <Compile Include="MainCamera.cs" />
     <Compile Include="MainRenderer.cs" />
     <Compile Include="MainUpdater.cs" />
+    <Compile Include="MainWorld.cs" />
     <Compile Include="ManagerUis.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
