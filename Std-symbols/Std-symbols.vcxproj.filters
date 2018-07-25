@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\FlounderSharp\Std-symbols.cpp">
+    <ClCompile Include="..\AcidSharp\AcidSharp-symbols.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
