@@ -5,15 +5,16 @@
 #include "Textures/Texture.hpp"
 #include "IMaterial.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Class that represents the default material shader.
 	/// </summary>
-	class FL_EXPORT MaterialDefault :
+	class ACID_EXPORT MaterialDefault :
 		public IMaterial
 	{
 	private:
+		bool m_animated;
 		Colour m_baseColor;
 		std::shared_ptr<Texture> m_diffuseTexture;
 
@@ -35,6 +36,8 @@ namespace fl
 
 		~MaterialDefault();
 
+		void Start() override;
+
 		void Update() override;
 
 		void Load(LoadedValue *value) override;
@@ -44,8 +47,6 @@ namespace fl
 		void PushUniforms(UniformHandler &uniformObject) override;
 
 		void PushDescriptors(DescriptorsHandler &descriptorSet) override;
-
-		std::string GetName() const override { return "MaterialDefault"; };
 
 		std::vector<PipelineDefine> GetDefines();
 

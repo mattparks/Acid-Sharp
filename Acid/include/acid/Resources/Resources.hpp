@@ -1,17 +1,17 @@
 #pragma once
 
-#include <vector>
 #include <memory>
-#include "Maths/Timer.hpp"
+#include <vector>
 #include "Engine/Engine.hpp"
+#include "Maths/Timer.hpp"
 #include "IResource.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A module used for managing resources.
 	/// </summary>
-	class FL_EXPORT Resources :
+	class ACID_EXPORT Resources :
 		public IModule
 	{
 	private:
@@ -43,8 +43,8 @@ namespace fl
 
 		void Add(std::shared_ptr<IResource> resource);
 
-		void Remove(std::shared_ptr<IResource> resource);
+		bool Remove(std::shared_ptr<IResource> resource);
 
-		void Remove(const std::string &filename);
+		bool Remove(const std::string &filename);
 	};
 }

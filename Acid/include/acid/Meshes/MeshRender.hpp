@@ -3,9 +3,9 @@
 #include "Materials/IMaterial.hpp"
 #include "Mesh.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT MeshRender :
+	class ACID_EXPORT MeshRender :
 		public IComponent
 	{
 	private:
@@ -16,6 +16,8 @@ namespace fl
 
 		~MeshRender();
 
+		void Start() override;
+
 		void Update() override;
 
 		void Load(LoadedValue *value) override;
@@ -23,8 +25,6 @@ namespace fl
 		void Write(LoadedValue *destination) override;
 
 		void CmdRender(const CommandBuffer &commandBuffer, UniformHandler &uniformScene);
-
-		std::string GetName() const override { return "MeshRender"; };
 
 		UniformHandler GetUniformObject() const { return m_uniformObject; }
 	};

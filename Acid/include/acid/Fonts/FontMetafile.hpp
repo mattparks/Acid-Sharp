@@ -1,19 +1,19 @@
 ﻿#pragma once
 
+#include <map>
+#include <optional>
 #include <string>
 #include <vector>
-#include <optional>
-#include <map>
 #include "Files/Files.hpp"
 #include "Resources/Resources.hpp"
 #include "FontCharacter.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Provides functionality for getting the values from a font file.
 	/// </summary>
-	class FL_EXPORT FontMetafile :
+	class ACID_EXPORT FontMetafile :
 		public IResource
 	{
 	private:
@@ -32,7 +32,7 @@ namespace fl
 	public:
 		static std::shared_ptr<FontMetafile> Resource(const std::string &filename)
 		{
-			std::string realFilename = Files::Get()->SearchFile(filename);
+			std::string realFilename = Files::SearchFile(filename);
 			auto resource = Resources::Get()->Get(realFilename);
 
 			if (resource != nullptr)
@@ -45,10 +45,10 @@ namespace fl
 			return result;
 		}
 
-		static const unsigned int PAD_TOP;
-		static const unsigned int PAD_LEFT;
-		static const unsigned int PAD_BOTTOM;
-		static const unsigned int PAD_RIGHT;
+		static const uint32_t PAD_TOP;
+		static const uint32_t PAD_LEFT;
+		static const uint32_t PAD_BOTTOM;
+		static const uint32_t PAD_RIGHT;
 		static const int DESIRED_PADDING;
 
 		static const std::string SPLITTER;

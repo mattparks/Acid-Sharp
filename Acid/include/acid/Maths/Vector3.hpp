@@ -5,9 +5,11 @@
 #include "Engine/Exports.hpp"
 #include "Files/LoadedValue.hpp"
 
-namespace fl
+namespace acid
 {
 	class Colour;
+
+	class Quaternion;
 
 	class Vector2;
 
@@ -16,19 +18,19 @@ namespace fl
 	/// <summary>
 	/// Holds a 3-tuple vector.
 	/// </summary>
-	class FL_EXPORT Vector3
+	class ACID_EXPORT Vector3
 	{
 	public:
 		union
 		{
 			struct
 			{
-				float m_x, m_y, m_z;
+				float m_elements[3];
 			};
 
 			struct
 			{
-				float m_elements[3];
+				float m_x, m_y, m_z;
 			};
 		};
 
@@ -186,6 +188,12 @@ namespace fl
 		float MinComponent() const;
 
 		/// <summary>
+		/// Converts these euler angles to a quaternion.
+		/// </summary>
+		/// <returns> The quaternion representation of this vector. </returns>
+		Quaternion ToQuaternion() const;
+
+		/// <summary>
 		/// Gets the distance between this vector and another vector.
 		/// </summary>
 		/// <param name="other"> The other vector. </param>
@@ -324,31 +332,35 @@ namespace fl
 
 		bool operator!=(const float &value) const;
 
-		Vector3 operator-();
+		Vector3 operator-() const;
 
-		FL_EXPORT friend Vector3 operator+(Vector3 left, const Vector3 &right);
+		const float &operator[](const uint32_t &index) const;
 
-		FL_EXPORT friend Vector3 operator-(Vector3 left, const Vector3 &right);
+		float &operator[](const uint32_t &index);
 
-		FL_EXPORT friend Vector3 operator*(Vector3 left, const Vector3 &right);
+		ACID_EXPORT friend Vector3 operator+(const Vector3 &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator/(Vector3 left, const Vector3 &right);
+		ACID_EXPORT friend Vector3 operator-(const Vector3 &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator+(Vector3 left, float value);
+		ACID_EXPORT friend Vector3 operator*(const Vector3 &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator-(Vector3 left, float value);
+		ACID_EXPORT friend Vector3 operator/(const Vector3 &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator*(Vector3 left, float value);
+		ACID_EXPORT friend Vector3 operator+(const float &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator/(Vector3 left, float value);
+		ACID_EXPORT friend Vector3 operator-(const float &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator+(float value, Vector3 left);
+		ACID_EXPORT friend Vector3 operator*(const float &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator-(float value, Vector3 left);
+		ACID_EXPORT friend Vector3 operator/(const float &left, const Vector3 &right);
 
-		FL_EXPORT friend Vector3 operator*(float value, Vector3 left);
+		ACID_EXPORT friend Vector3 operator+(const Vector3 &left, const float &right);
 
-		FL_EXPORT friend Vector3 operator/(float value, Vector3 left);
+		ACID_EXPORT friend Vector3 operator-(const Vector3 &left, const float &right);
+
+		ACID_EXPORT friend Vector3 operator*(const Vector3 &left, const float &right);
+
+		ACID_EXPORT friend Vector3 operator/(const Vector3 &left, const float &right);
 
 		Vector3 &operator+=(const Vector3 &other);
 
@@ -358,15 +370,15 @@ namespace fl
 
 		Vector3 &operator/=(const Vector3 &other);
 
-		Vector3 &operator+=(float value);
+		Vector3 &operator+=(const float &other);
 
-		Vector3 &operator-=(float value);
+		Vector3 &operator-=(const float &other);
 
-		Vector3 &operator*=(float value);
+		Vector3 &operator*=(const float &other);
 
-		Vector3 &operator/=(float value);
+		Vector3 &operator/=(const float &other);
 
-		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Vector3 &vector);
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Vector3 &vector);
 
 		std::string ToString() const;
 	};

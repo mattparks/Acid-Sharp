@@ -1,29 +1,32 @@
 #pragma once
 
 #include <memory>
-#include "ICamera.hpp"
-#include "SceneStructure.hpp"
 #include "Uis/UiSelector.hpp"
+#include "ICamera.hpp"
+#include "ScenePhysics.hpp"
+#include "SceneStructure.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A object used to represent a scene.
 	/// </summary>
-	class FL_EXPORT IScene
+	class ACID_EXPORT IScene
 	{
 	private:
-		std::shared_ptr<ICamera> m_camera;
-		std::shared_ptr<SceneStructure> m_structure;
+		ICamera *m_camera;
+		ScenePhysics *m_physics;
+		SceneStructure *m_structure;
 		bool m_started;
 	public:
 		/// <summary>
 		/// Creates a new scene.
 		/// </summary>
 		/// <param name="camera"> The scenes camera. </param>
-		IScene(std::shared_ptr<ICamera> camera) :
+		IScene(ICamera *camera) :
 			m_camera(camera),
-			m_structure(std::make_shared<SceneStructure>()),
+			m_physics(new ScenePhysics()),
+			m_structure(new SceneStructure()),
 			m_started(false)
 		{
 		}
@@ -33,6 +36,9 @@ namespace fl
 		/// </summary>
 		virtual ~IScene()
 		{
+			delete m_structure;
+			delete m_physics;
+			delete m_camera;
 		}
 
 		virtual void Start() = 0;
@@ -46,19 +52,29 @@ namespace fl
 		/// Gets the current camera object.
 		/// </summary>
 		/// <returns> The current camera. </returns>
-		std::shared_ptr<ICamera> GetCamera() const { return m_camera; }
+		ICamera *GetCamera() const { return m_camera; }
 
 		/// <summary>
 		/// Sets the current camera to a new camera.
 		/// </summary>
 		/// <param name="camera"> The new camera. </param>
-		void SetCamera(std::shared_ptr<ICamera> camera) { m_camera = camera; }
+		void SetCamera(ICamera *camera)
+		{
+			delete m_camera; // TODO: Cleanup.
+			m_camera = camera;
+		}
 
 		/// <summary>
-		/// Gets the GameObjects structure.
+		/// Gets the scene physics system.
 		/// </summary>
-		/// <returns> The GameObjects structure. </returns>
-		std::shared_ptr<SceneStructure> GetStructure() const { return m_structure; }
+		/// <returns> The scenes physics syste,. </returns>
+		ScenePhysics *GetPhysics() const { return m_physics; }
+
+		/// <summary>
+		/// Gets the scene object structure.
+		/// </summary>
+		/// <returns> The scene object structure. </returns>
+		SceneStructure *GetStructure() const { return m_structure; }
 
 		/// <summary>
 		/// Gets if this scene has started.

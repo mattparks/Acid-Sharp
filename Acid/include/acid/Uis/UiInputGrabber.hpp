@@ -6,9 +6,9 @@
 #include "UiInputDelay.hpp"
 #include "UiObject.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT IUiGrabber
+	class ACID_EXPORT IUiGrabber
 	{
 	public:
 		virtual ~IUiGrabber() = default;
@@ -18,20 +18,20 @@ namespace fl
 		virtual std::string GetValue(const int &value) = 0;
 	};
 
-	class FL_EXPORT UiGrabberJoystick :
+	class ACID_EXPORT UiGrabberJoystick :
 		public IUiGrabber
 	{
 	private:
-		WsiJoystick m_joystick;
+		JoystickPort m_joystick;
 	public:
-		UiGrabberJoystick(const WsiJoystick &joystick);
+		UiGrabberJoystick(const JoystickPort &joystick);
 
 		int GetCurrent(Text *object) override;
 
 		std::string GetValue(const int &value) override;
 	};
 
-	class FL_EXPORT UiGrabberKeyboard :
+	class ACID_EXPORT UiGrabberKeyboard :
 		public IUiGrabber
 	{
 	public:
@@ -40,7 +40,7 @@ namespace fl
 		std::string GetValue(const int &value) override;
 	};
 
-	class FL_EXPORT UiGrabberMouse :
+	class ACID_EXPORT UiGrabberMouse :
 		public IUiGrabber
 	{
 	public:
@@ -49,7 +49,7 @@ namespace fl
 		std::string GetValue(const int &value) override;
 	};
 
-	class FL_EXPORT UiInputGrabber :
+	class ACID_EXPORT UiInputGrabber :
 		public UiObject
 	{
 	private:
@@ -74,7 +74,7 @@ namespace fl
 
 		std::function<void()> m_actionChange;
 	public:
-		UiInputGrabber(UiObject *parent, const Vector3 &position, const std::string &prefix, const int &value, IUiGrabber *grabber, const FontJustify &justify);
+		UiInputGrabber(UiObject *parent, const Vector3 &position, const std::string &prefix, const int &value, IUiGrabber *grabber, const TextJustify &justify);
 
 		~UiInputGrabber();
 

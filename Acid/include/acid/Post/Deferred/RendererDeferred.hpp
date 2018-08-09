@@ -1,14 +1,16 @@
 #pragma once
 
 #include "Lights/Fog.hpp"
-#include "Renderer/IRenderer.hpp"
-#include "Renderer/Pipelines/Pipeline.hpp"
 #include "Models/Model.hpp"
+#include "Renderer/IRenderer.hpp"
+#include "Renderer/Handlers/DescriptorsHandler.hpp"
+#include "Renderer/Handlers/UniformHandler.hpp"
+#include "Renderer/Pipelines/Pipeline.hpp"
 #include "Textures/Cubemap.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT RendererDeferred :
+	class ACID_EXPORT RendererDeferred :
 		public IRenderer
 	{
 	private:
@@ -18,7 +20,7 @@ namespace fl
 		Pipeline m_pipeline;
 		std::shared_ptr<Model> m_model;
 
-		std::shared_ptr<Texture> m_brdflut;
+		std::shared_ptr<Texture> m_brdf;
 
 		Fog m_fog;
 	public:
@@ -30,8 +32,12 @@ namespace fl
 
 		void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) override;
 
+		std::vector<PipelineDefine> GetDefines();
+
 		Fog GetFog() const { return m_fog; }
 
 		void SetFog(const Fog &fog) { m_fog = fog; }
+	private:
+		static std::shared_ptr<Texture> ComputeBrdf(const uint32_t &size);
 	};
 }

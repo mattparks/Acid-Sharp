@@ -4,33 +4,21 @@
 #include <string>
 #include "Vector3.hpp"
 
-namespace fl
+namespace acid
 {
+	class Matrix2;
+
 	/// <summary>
-	/// Holds a 3x3 matrix.
+	/// Holds a row major 3x3 matrix.
 	/// </summary>
-	class FL_EXPORT Matrix3
+	class ACID_EXPORT Matrix3
 	{
 	public:
 		union
 		{
 			struct
 			{
-				Vector3 *m_0;
-				Vector3 *m_1;
-				Vector3 *m_2;
-			};
-
-			struct
-			{
-				float m_00, m_01, m_02;
-				float m_10, m_11, m_12;
-				float m_20, m_21, m_22;
-			};
-
-			struct
-			{
-				float m_elements[3][3];
+				Vector3 m_rows[3];
 			};
 
 			struct
@@ -45,7 +33,8 @@ namespace fl
 		/// <summary>
 		/// Constructor for Matrix3. The matrix is initialised to the identity.
 		/// </summary>
-		Matrix3();
+		/// <param name="diagonal"> The value set to the diagonals. </param>
+		Matrix3(const float &diagonal = 1.0f);
 
 		/// <summary>
 		/// Constructor for Matrix3.
@@ -58,6 +47,12 @@ namespace fl
 		/// </summary>
 		/// <param name="source"> Creates this matrix out of a 9 element array. </param>
 		Matrix3(const float source[9]);
+
+		/// <summary>
+		/// Constructor for Matrix3.
+		/// </summary>
+		/// <param name="source"> Creates this matrix out of a 3 vector array. </param>
+		Matrix3(const Vector3 source[3]);
 
 		/// <summary>
 		/// Deconstructor for Matrix3.
@@ -84,6 +79,13 @@ namespace fl
 		/// <param name="other"> The other matrix. </param>
 		/// <returns> The resultant matrix. </returns>
 		Matrix3 Multiply(const Matrix3 &other) const;
+
+		/// <summary>
+		/// Multiplies this matrix by a vector.
+		/// </summary>
+		/// <param name="other"> The vector. </param>
+		/// <returns> The resultant vector. </returns>
+		Vector3 Multiply(const Vector3 &other) const;
 
 		/// <summary>
 		/// Divides this matrix by another matrix.
@@ -131,16 +133,10 @@ namespace fl
 		float Determinant() const;
 
 		/// <summary>
-		/// Sets this matrix to 0.
+		/// Gets the submatrix of this matrix.
 		/// </summary>
-		/// <returns> The identity matrix. </returns>
-		Matrix3 SetZero();
-
-		/// <summary>
-		/// Sets this matrix to be the identity matrix.
-		/// </summary>
-		/// <returns> The identity matrix. </returns>
-		Matrix3 SetIdentity();
+		/// <returns> The submatrix. </returns>
+		Matrix2 GetSubmatrix(const int &row, const int &col) const;
 
 		/// <summary>
 		/// Saves this matrix into a loaded value.
@@ -158,27 +154,35 @@ namespace fl
 
 		bool operator!=(const Matrix3 &other) const;
 
-		Matrix3 operator-();
+		Matrix3 operator-() const;
 
-		FL_EXPORT friend Matrix3 operator+(Matrix3 left, const Matrix3 &right);
+		const Vector3 &operator[](const uint32_t &index) const;
 
-		FL_EXPORT friend Matrix3 operator-(Matrix3 left, const Matrix3 &right);
+		Vector3 &operator[](const uint32_t &index);
 
-		FL_EXPORT friend Matrix3 operator*(Matrix3 left, const Matrix3 &right);
+		ACID_EXPORT friend Matrix3 operator+(const Matrix3 &left, const Matrix3 &right);
 
-		FL_EXPORT friend Matrix3 operator/(Matrix3 left, const Matrix3 &right);
+		ACID_EXPORT friend Matrix3 operator-(const Matrix3 &left, const Matrix3 &right);
 
-		FL_EXPORT friend Matrix3 operator*(Matrix3 left, Vector3 value);
+		ACID_EXPORT friend Matrix3 operator*(const Matrix3 &left, const Matrix3 &right);
 
-		FL_EXPORT friend Matrix3 operator/(Matrix3 left, Vector3 value);
+		ACID_EXPORT friend Matrix3 operator/(const Matrix3 &left, const Matrix3 &right);
 
-		FL_EXPORT friend Matrix3 operator*(Matrix3 left, float value);
+		ACID_EXPORT friend Matrix3 operator*(const Vector3 &left, const Matrix3 &right);
 
-		FL_EXPORT friend Matrix3 operator/(Matrix3 left, float value);
+		ACID_EXPORT friend Matrix3 operator/(const Vector3 &left, const Matrix3 &right);
 
-		FL_EXPORT friend Matrix3 operator*(float value, Matrix3 left);
+		ACID_EXPORT friend Matrix3 operator*(const Matrix3 &left, const Vector3 &right);
 
-		FL_EXPORT friend Matrix3 operator/(float value, Matrix3 left);
+		ACID_EXPORT friend Matrix3 operator/(const Matrix3 &left, const Vector3 &right);
+
+		ACID_EXPORT friend Matrix3 operator*(const float &left, const Matrix3 &right);
+
+		ACID_EXPORT friend Matrix3 operator/(const float &left, const Matrix3 &right);
+
+		ACID_EXPORT friend Matrix3 operator*(const Matrix3 &left, const float &right);
+
+		ACID_EXPORT friend Matrix3 operator/(const Matrix3 &left, const float &right);
 
 		Matrix3 &operator+=(const Matrix3 &other);
 
@@ -188,7 +192,15 @@ namespace fl
 
 		Matrix3 &operator/=(const Matrix3 &other);
 
-		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Matrix3 &matrix);
+		Matrix3 &operator*=(const Vector3 &other);
+
+		Matrix3 &operator/=(const Vector3 &other);
+
+		Matrix3 &operator*=(const float &other);
+
+		Matrix3 &operator/=(const float &other);
+
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Matrix3 &matrix);
 
 		std::string ToString() const;
 	};

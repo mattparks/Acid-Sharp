@@ -2,12 +2,12 @@
 
 #include "IDriver.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A driver that fades from start to end.
 	/// </summary>
-	class FL_EXPORT DriverFade :
+	class ACID_EXPORT DriverFade :
 		public IDriver
 	{
 	private:

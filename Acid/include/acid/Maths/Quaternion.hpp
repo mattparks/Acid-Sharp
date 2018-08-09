@@ -3,14 +3,16 @@
 #include <ostream>
 #include <string>
 #include "Matrix4.hpp"
-#include "Vector4.hpp"
+#include "Vector3.hpp"
 
-namespace fl
+namespace acid
 {
+	class Vector3;
+
 	/// <summary>
 	/// A vector like object of the form w + xi + yj + zk, where w, x, y, z are real numbers and i, j, k are imaginary units.
 	/// </summary>
-	class FL_EXPORT Quaternion
+	class ACID_EXPORT Quaternion
 	{
 	public:
 		union
@@ -28,6 +30,7 @@ namespace fl
 
 		static const Quaternion ZERO;
 		static const Quaternion ONE;
+		static const Quaternion W_ONE;
 		static const Quaternion POSITIVE_INFINITY;
 		static const Quaternion NEGATIVE_INFINITY;
 
@@ -48,8 +51,16 @@ namespace fl
 		/// <summary>
 		/// Constructor for Quaternion.
 		/// </summary>
-		/// <param name="source"> Creates this quaternion out of a existing vector. </param>>
-		Quaternion(const Vector4 &source);
+		/// <param name="pitch"> Start pitch. </param>
+		/// <param name="yaw"> Start yaw. </param>
+		/// <param name="roll"> Start roll. </param>
+		Quaternion(const float &pitch, const float &yaw, const float &roll);
+
+		/// <summary>
+		/// Constructor for Quaternion.
+		/// </summary>
+		/// <param name="source"> Creates this quaternion out of a existing vector (pitch, yaw roll). </param>>
+		Quaternion(const Vector3 &source);
 
 		/// <summary>
 		/// Constructor for Quaternion.
@@ -64,19 +75,55 @@ namespace fl
 		Quaternion(const Matrix4 &source);
 
 		/// <summary>
+		/// Constructor for Quaternion.
+		/// </summary>
+		/// <param name="axis"> The axis to create from. </param>
+		/// <param name="angle"> The angle to rotate the angle around. </param>
+		Quaternion(const Vector3 &axis, const float &angle);
+
+		/// <summary>
+		/// Constructor for Quaternion.
+		/// </summary>
+		/// <param name="axisX"> The X axis. </param>
+		/// <param name="axisY"> The Y axis. </param>
+		/// <param name="axisZ"> The Z axis. </param>
+		Quaternion(const Vector3 &axisX, const Vector3 &axisY, const Vector3 &axisZ);
+
+		/// <summary>
 		/// Deconstructor for Quaternion.
 		/// </summary>
 		~Quaternion();
 
 		/// <summary>
-		/// Sets the value of this quaternion to the quaternion product of quaternions left and right (this = left * right). Note that this is safe for aliasing (e.g. this can be left or right).
+		/// Adds this quaternion to another quaternion.
+		/// </summary>
+		/// <param name="other"> The other quaternion. </param>
+		/// <returns> The resultant quaternion. </returns>
+		Quaternion Add(const Quaternion &other) const;
+
+		/// <summary>
+		/// Subtracts this quaternion to another quaternion.
+		/// </summary>
+		/// <param name="other"> The other quaternion. </param>
+		/// <returns> The resultant quaternion. </returns>
+		Quaternion Subtract(const Quaternion &other) const;
+
+		/// <summary>
+		/// Multiplies this quaternion with another quaternion.
 		/// </summary>
 		/// <param name="other"> The other quaternion. </param>
 		/// <returns> The resultant quaternion. </returns>
 		Quaternion Multiply(const Quaternion &other) const;
 
 		/// <summary>
-		/// Multiplies quaternion left by the inverse of quaternion right and places the value into this quaternion. The value of both argument quaternions is persevered (this = left * right^-1).
+		/// Multiplies this quaternion with another vector.
+		/// </summary>
+		/// <param name="other"> The other vector. </param>
+		/// <returns> The resultant vector. </returns>
+		Vector3 Multiply(const Vector3 &other) const;
+
+		/// <summary>
+		/// Multiplies this quaternion with the inverse of another quaternion. The value of both argument quaternions is persevered (this = left * right^-1).
 		/// </summary>
 		/// <param name="other"> The other quaternion. </param>
 		/// <returns> The resultant quaternion. </returns>
@@ -144,16 +191,20 @@ namespace fl
 		/// Converts this quaternion to a 4x4 matrix.
 		/// </summary>
 		/// <returns> The rotation matrix which represents the exact same rotation as this quaternion. </returns>
-		Matrix4 ToMatrix();
+		Matrix4 ToMatrix() const;
 
 		/// <summary>
-		/// Converts this quaternion to a 4x4 matrix representing the exact same
-		/// rotation as this quaternion. (The rotation is only contained in the
-		/// top-left 3x3 part, but a 4x4 matrix is returned here for convenience
-		/// seeing as it will be multiplied with other 4x4 matrices).
+		/// Converts this quaternion to a 3x3 matrix representing the exact same
+		/// rotation as this quaternion.
 		/// </summary>
 		/// <returns> The rotation matrix which represents the exact same rotation as this quaternion. </returns>
-		Matrix4 ToRotationMatrix();
+		Matrix4 ToRotationMatrix() const;
+
+		/// <summary>
+		/// Converts this quaternion to euler angles.
+		/// </summary>
+		/// <returns> The euler angle representation of this quaternion. </returns>
+		Vector3 ToEuler() const;
 
 		/// <summary>
 		/// Saves this quaternion into a loaded value.
@@ -179,6 +230,8 @@ namespace fl
 
 		Quaternion &operator=(const Quaternion &other);
 
+		Quaternion &operator=(const Vector3 &other);
+
 		Quaternion &operator=(const Matrix4 &other);
 
 		Quaternion &operator=(LoadedValue *value);
@@ -199,17 +252,31 @@ namespace fl
 
 		bool operator!=(const float &value) const;
 
-		Quaternion operator-();
+		Quaternion operator-() const;
 
-		FL_EXPORT friend Quaternion operator*(Quaternion left, const Quaternion &right);
+		const float &operator[](const uint32_t &index) const;
 
-		FL_EXPORT friend Quaternion operator*(float value, Quaternion left);
+		float &operator[](const uint32_t &index);
+
+		ACID_EXPORT friend Quaternion operator+(const Quaternion &left, const Quaternion &right);
+
+		ACID_EXPORT friend Quaternion operator-(const Quaternion &left, const Quaternion &right);
+
+		ACID_EXPORT friend Quaternion operator*(const Quaternion &left, const Quaternion &right);
+
+		ACID_EXPORT friend Vector3 operator*(const Vector3 &right, const Quaternion &left);
+
+		ACID_EXPORT friend Vector3 operator*(const Quaternion &left, const Vector3 &right);
+
+		ACID_EXPORT friend Quaternion operator*(const float &left, const Quaternion &right);
+
+		ACID_EXPORT friend Quaternion operator*(const Quaternion &left, const float &right);
 
 		Quaternion &operator*=(const Quaternion &other);
 
-		Quaternion &operator*=(float value);
+		Quaternion &operator*=(const float &other);
 
-		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Quaternion &vector);
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Quaternion &quaternion);
 
 		std::string ToString() const;
 	};

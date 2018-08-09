@@ -5,9 +5,9 @@
 #include "Guis/Gui.hpp"
 #include "UiObject.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT UiInputButton :
+	class ACID_EXPORT UiInputButton :
 		public UiObject
 	{
 	private:
@@ -21,7 +21,7 @@ namespace fl
 
 		bool m_mouseOver;
 	public:
-		UiInputButton(UiObject *parent, const Vector2 &position, const std::string &string, const FontJustify &justify);
+		UiInputButton(UiObject *parent, const Vector2 &position, const std::string &string, const TextJustify &justify);
 
 		~UiInputButton();
 

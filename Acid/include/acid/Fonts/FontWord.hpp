@@ -3,12 +3,12 @@
 #include <vector>
 #include "FontCharacter.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// During the loading of a text this represents one word in the text.
 	/// </summary>
-	class FL_EXPORT FontWord
+	class ACID_EXPORT FontWord
 	{
 	private:
 		std::vector<FontCharacter> m_characters;

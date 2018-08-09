@@ -1,19 +1,19 @@
 #pragma once
 
-#include <vector>
-#include <sstream>
-#include <locale>
 #include <cstring>
+#include <locale>
+#include <sstream>
 #include <string>
 #include <typeinfo>
+#include <vector>
 #include "Engine/Exports.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A helper for C++ strings.
 	/// </summary>
-	class FL_EXPORT FormatString
+	class ACID_EXPORT FormatString
 	{
 	public:
 		/// <summary>
@@ -71,7 +71,7 @@ namespace fl
 		/// <param name="start"> The left bound. </param>
 		/// <param name="end"> The right bound. </param>
 		/// <returns> The substring of the string. </returns>
-		static std::string Substring(const std::string &str, const unsigned int &start, const unsigned int &end);
+		static std::string Substring(const std::string &str, const uint32_t &start, const uint32_t &end);
 
 		/// <summary>
 		/// Removes all tokens from a string.
@@ -80,6 +80,14 @@ namespace fl
 		/// <param name="token"> The token. </param>
 		/// <returns> The string with the tokens removed. </returns>
 		static std::string RemoveAll(const std::string &str, const char &token);
+
+		/// <summary>
+		/// Removes the last token from a string.
+		/// </summary>
+		/// <param name="str"> The string. </param>
+		/// <param name="token"> The token. </param>
+		/// <returns> The string with the last token removed. </returns>
+		static std::string RemoveLast(const std::string &str, const char &token);
 
 		/// <summary>
 		/// Replaces all tokens from a string.

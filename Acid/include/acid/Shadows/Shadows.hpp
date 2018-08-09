@@ -4,12 +4,12 @@
 #include "Maths/Vector3.hpp"
 #include "ShadowBox.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A module used for managing shadow maps in 3D worlds.
 	/// </summary>
-	class FL_EXPORT Shadows :
+	class ACID_EXPORT Shadows :
 		public IModule
 	{
 	private:

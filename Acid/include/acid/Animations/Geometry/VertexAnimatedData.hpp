@@ -1,13 +1,13 @@
 #pragma once
 
-#include <vector>
 #include <cstdint>
-#include "Maths/Vector3.hpp"
+#include <vector>
 #include "Animations/Skin/VertexSkinData.hpp"
+#include "Maths/Vector3.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT VertexAnimatedData
+	class ACID_EXPORT VertexAnimatedData
 	{
 	private:
 		static const uint32_t NO_INDEX;

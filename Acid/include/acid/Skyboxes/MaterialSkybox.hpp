@@ -1,15 +1,15 @@
 #pragma once
 
-#include "Textures/Cubemap.hpp"
 #include "Materials/IMaterial.hpp"
 #include "Maths/Colour.hpp"
+#include "Textures/Cubemap.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Class that represents a skybox material shader.
 	/// </summary>
-	class FL_EXPORT MaterialSkybox :
+	class ACID_EXPORT MaterialSkybox :
 		public IMaterial
 	{
 	private:
@@ -25,6 +25,8 @@ namespace fl
 
 		~MaterialSkybox();
 
+		void Start() override;
+
 		void Update() override;
 
 		void Load(LoadedValue *value) override;
@@ -34,8 +36,6 @@ namespace fl
 		void PushUniforms(UniformHandler &uniformObject) override;
 
 		void PushDescriptors(DescriptorsHandler &descriptorSet) override;
-
-		std::string GetName() const override { return "MaterialSkybox"; };
 
 		std::shared_ptr<Cubemap> GetCubemap() const { return m_cubemap; }
 

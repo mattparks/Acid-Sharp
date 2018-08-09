@@ -3,9 +3,9 @@
 #include "Engine/Exports.hpp"
 #include "IComponent.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT IBehaviour :
+	class ACID_EXPORT IBehaviour :
 		public IComponent
 	{
 	private:
@@ -16,6 +16,10 @@ namespace fl
 		}
 
 		virtual ~IBehaviour()
+		{
+		}
+
+		virtual void Start() override
 		{
 		}
 
@@ -30,7 +34,5 @@ namespace fl
 		void Write(LoadedValue *destination) override
 		{
 		}
-
-		std::string GetName() const override { return "Behaviour"; };
 	};
 }

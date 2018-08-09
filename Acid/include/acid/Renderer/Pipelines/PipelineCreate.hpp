@@ -2,10 +2,10 @@
 
 #include <string>
 #include <vector>
-#include "Display/Display.hpp"
+#include <vulkan/vulkan.h>
 #include "Files/Files.hpp"
 
-namespace fl
+namespace acid
 {
 	enum PipelineMode
 	{
@@ -16,39 +16,24 @@ namespace fl
 		PIPELINE_MODE_COMPUTE = 4
 	};
 
-	enum PipelinePolygonMode
-	{
-		PIPELINE_POLYGON_MODE_FILL = 0,
-		PIPELINE_POLYGON_MODE_LINE = 1,
-		PIPELINE_POLYGON_MODE_POINT = 2,
-	};
-
-	enum PipelineCullMode
-	{
-		PIPELINE_CULL_MODE_NONE = 0,
-		PIPELINE_CULL_MODE_FRONT = 1,
-		PIPELINE_CULL_MODE_BACK = 2,
-		PIPELINE_CULL_MODE_ALL = 3,
-	};
-
-	class FL_EXPORT GraphicsStage
+	class ACID_EXPORT GraphicsStage
 	{
 	private:
-		unsigned int m_renderpass;
+		uint32_t m_renderpass;
 		uint32_t m_subpass;
 	public:
-		GraphicsStage(const unsigned int &renderpass, const uint32_t &subpass) :
+		GraphicsStage(const uint32_t &renderpass, const uint32_t &subpass) :
 			m_renderpass(renderpass),
 			m_subpass(subpass)
 		{
 		}
 
-		unsigned int GetRenderpass() const { return m_renderpass; }
+		uint32_t GetRenderpass() const { return m_renderpass; }
 
 		uint32_t GetSubpass() const { return m_subpass; }
 	};
 
-	class FL_EXPORT VertexInput
+	class ACID_EXPORT VertexInput
 	{
 	private:
 		std::vector<VkVertexInputBindingDescription> m_bindingDescriptions;
@@ -65,7 +50,7 @@ namespace fl
 		std::vector<VkVertexInputAttributeDescription> GetAttributeDescriptions() const { return m_attributeDescriptions; }
 	};
 
-	class FL_EXPORT DescriptorType
+	class ACID_EXPORT DescriptorType
 	{
 	private:
 		uint32_t m_binding;
@@ -91,7 +76,7 @@ namespace fl
 		VkDescriptorPoolSize GetPoolSize() const { return m_descriptorPoolSize; }
 	};
 
-	class FL_EXPORT PipelineDefine
+	class ACID_EXPORT PipelineDefine
 	{
 	private:
 		std::string m_name;
@@ -108,28 +93,32 @@ namespace fl
 		std::string GetValue() const { return m_value; }
 	};
 
-	class FL_EXPORT PipelineCreate
+	class ACID_EXPORT PipelineCreate
 	{
 	private:
 		std::vector<std::string> m_shaderStages;
 		VertexInput m_vertexInput;
 
 		PipelineMode m_pipelineMode;
-		PipelinePolygonMode m_polygonMode;
-		PipelineCullMode m_cullMode;
+
+		VkPolygonMode m_polygonMode;
+		VkCullModeFlags m_cullMode;
+
+		std::vector<PipelineDefine> m_defines;
 	public:
 
-		PipelineCreate(const std::vector<std::string> &shaderStages, const VertexInput &vertexInput,
-					   const PipelineMode &pipelineMode = PIPELINE_MODE_POLYGON, const PipelinePolygonMode &polygonMode = PipelinePolygonMode::PIPELINE_POLYGON_MODE_FILL, const PipelineCullMode &cullMode = PipelineCullMode::PIPELINE_CULL_MODE_BACK) :
+		PipelineCreate(const std::vector<std::string> &shaderStages, const VertexInput &vertexInput, const PipelineMode &pipelineMode = PIPELINE_MODE_POLYGON,
+						const VkPolygonMode &polygonMode = VK_POLYGON_MODE_FILL, const VkCullModeFlags &cullMode = VK_CULL_MODE_BACK_BIT, const std::vector<PipelineDefine> &defines = {}) :
 			m_shaderStages(shaderStages),
 			m_vertexInput(vertexInput),
 			m_pipelineMode(pipelineMode),
 			m_polygonMode(polygonMode),
-			m_cullMode(cullMode)
+			m_cullMode(cullMode),
+			m_defines(defines)
 		{
 			for (auto &shaderStage : m_shaderStages)
 			{
-				shaderStage = Files::Get()->SearchFile(shaderStage);
+				shaderStage = Files::SearchFile(shaderStage);
 			}
 		}
 
@@ -139,8 +128,45 @@ namespace fl
 
 		PipelineMode GetMode() const { return m_pipelineMode; }
 
-		PipelinePolygonMode GetPolygonMode() const { return m_polygonMode; }
+		VkPolygonMode GetPolygonMode() const { return m_polygonMode; }
 
-		PipelineCullMode GetCullModeF() const { return m_cullMode; }
+		VkCullModeFlags GetCullMode() const { return m_cullMode; }
+
+		std::vector<PipelineDefine> GetDefines() const { return m_defines; }
+	};
+
+	class ACID_EXPORT ComputeCreate
+	{
+	private:
+		std::string m_shaderStage;
+		uint32_t m_width;
+		uint32_t m_height;
+		uint32_t m_workgroupSize;
+
+		std::vector<PipelineDefine> m_defines;
+	public:
+
+		ComputeCreate(const std::string &shaderStage, const uint32_t &width, const uint32_t &height, const uint32_t &workgroupSize,
+						const std::vector<PipelineDefine> &defines = {}) :
+			m_shaderStage(Files::SearchFile(shaderStage)),
+			m_width(width),
+			m_height(height),
+			m_workgroupSize(workgroupSize),
+			m_defines(defines)
+		{
+			m_defines.emplace_back(PipelineDefine("WIDTH", std::to_string(m_width)));
+			m_defines.emplace_back(PipelineDefine("HEIGHT", std::to_string(m_height)));
+			m_defines.emplace_back(PipelineDefine("WORKGROUP_SIZE", std::to_string(m_workgroupSize)));
+		}
+
+		std::string GetShaderStage() const { return m_shaderStage; }
+
+		uint32_t GetWidth() const { return m_width; }
+
+		uint32_t GetHeight() const { return m_height; }
+
+		uint32_t GetWorkgroupSize() const { return m_workgroupSize; }
+
+		std::vector<PipelineDefine> GetDefines() const { return m_defines; }
 	};
 }

@@ -3,25 +3,25 @@
 #include <string>
 #include <vector>
 #include "Files/Files.hpp"
-#include "Resources/Resources.hpp"
 #include "Maths/Vector3.hpp"
+#include "Resources/Resources.hpp"
 #include "Audio.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Class that represents a sound buffer.
 	/// </summary>
-	class FL_EXPORT SoundBuffer :
+	class ACID_EXPORT SoundBuffer :
 		public IResource
 	{
 	private:
 		std::string m_filename;
-		unsigned int m_buffer;
+		ALuint m_buffer;
 	public:
 		static std::shared_ptr<SoundBuffer> Resource(const std::string &filename)
 		{
-			std::string realFilename = Files::Get()->SearchFile(filename);
+			std::string realFilename = Files::SearchFile(filename);
 			auto resource = Resources::Get()->Get(realFilename);
 
 			if (resource != nullptr)
@@ -40,10 +40,11 @@ namespace fl
 
 		std::string GetFilename() override { return m_filename; };
 
-		FL_HIDDEN unsigned int GetBuffer() const { return m_buffer; };
+		ALuint GetBuffer() const { return m_buffer; };
 
-		FL_HIDDEN static unsigned int LoadBufferWav(const std::string &filename);
+	private:
+		static ALuint LoadBufferWav(const std::string &filename);
 
-		FL_HIDDEN static unsigned int LoadBufferOgg(const std::string &filename);
+		static ALuint LoadBufferOgg(const std::string &filename);
 	};
 }

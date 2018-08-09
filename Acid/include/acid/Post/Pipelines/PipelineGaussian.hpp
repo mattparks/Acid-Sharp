@@ -1,12 +1,12 @@
 #pragma once
 
-#include "Post/Filters/FilterBlurVertical.hpp"
 #include "Post/Filters/FilterBlurHorizontal.hpp"
+#include "Post/Filters/FilterBlurVertical.hpp"
 #include "Post/IPostPipeline.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT PipelineGaussian :
+	class ACID_EXPORT PipelineGaussian :
 		public IPostPipeline
 	{
 	private:

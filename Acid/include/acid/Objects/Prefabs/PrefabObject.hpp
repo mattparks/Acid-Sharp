@@ -1,30 +1,31 @@
 #pragma once
 
 #include <string>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 #include "Files/Files.hpp"
+#include "Files/IFile.hpp"
 #include "Helpers/FormatString.hpp"
 #include "Resources/Resources.hpp"
-#include "Files/Json/FileJson.hpp"
 
-namespace fl
+namespace acid
 {
 	class GameObject;
 
 	/// <summary>
 	/// Class that represents a entity prefab.
 	/// </summary>
-	class FL_EXPORT PrefabObject :
+	class ACID_EXPORT PrefabObject :
 		public IResource
 	{
 	private:
 		std::string m_filename;
-		FileJson m_fileJson;
+		std::shared_ptr<IFile> m_file;
+		LoadedValue *m_parent;
 	public:
 		static std::shared_ptr<PrefabObject> Resource(const std::string &filename)
 		{
-			std::string realFilename = Files::Get()->SearchFile(filename);
+			std::string realFilename = Files::SearchFile(filename);
 			auto resource = Resources::Get()->Get(realFilename);
 
 			if (resource != nullptr)
@@ -51,6 +52,6 @@ namespace fl
 
 		std::string GetFilename() override { return m_filename; }
 
-		LoadedValue *GetParent() const { return m_fileJson.GetParent(); }
+		LoadedValue *GetParent() const { return m_parent; }
 	};
 }

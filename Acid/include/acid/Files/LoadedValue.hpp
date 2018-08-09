@@ -1,13 +1,14 @@
 #pragma once
 
+#include <map>
 #include <string>
 #include <utility>
 #include <vector>
 #include "Helpers/FormatString.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT LoadedValue
+	class ACID_EXPORT LoadedValue
 	{
 	private:
 		LoadedValue *m_parent;
@@ -15,8 +16,9 @@ namespace fl
 
 		std::string m_name;
 		std::string m_value;
+		std::map<std::string, std::string> m_attributes;
 	public:
-		LoadedValue(LoadedValue *parent, const std::string &name, const std::string &value);
+		LoadedValue(LoadedValue *parent, const std::string &name, const std::string &value, const std::map<std::string, std::string> &attributes = {});
 
 		~LoadedValue();
 
@@ -30,24 +32,25 @@ namespace fl
 
 		std::vector<LoadedValue *> &GetChildren() { return m_children; }
 
-		LoadedValue *GetChild(const std::string &name, const bool &addIfNull = false);
+		std::vector<LoadedValue *> GetChildren(const std::string &name);
 
-		LoadedValue *GetChild(const unsigned int &index, const bool &addIfNull = false);
+		LoadedValue *GetChild(const std::string &name, const bool &addIfNull = false, const bool &reportError = true);
 
-		template<typename T>
-		void AddChild(LoadedValue *value)
-		{
-			auto child = GetChild(value->m_name);
+		LoadedValue *GetChild(const uint32_t &index, const bool &addIfNull = false, const bool &reportError = true);
 
-			if (child != nullptr)
-			{
-				child->m_value = value->m_value;
-				return;
-			}
+		LoadedValue *GetChildWithAttribute(const std::string &childName, const std::string &attribute, const std::string &value, const bool &reportError = true);
 
-			child = value;
-			m_children.emplace_back(child);
-		}
+		std::map<std::string, std::string> GetAttributes() const { return m_attributes; }
+
+		std::string GetAttribute(const std::string &attribute) const;
+
+		void SetAttributes(const std::map<std::string, std::string> &attributes) { m_attributes = attributes; }
+
+		void AddAttribute(const std::string &attribute, const std::string &value);
+
+		bool RemoveAttribute(const std::string &attribute);
+
+		void AddChild(LoadedValue *value);
 
 		template<typename T>
 		void SetChild(const std::string &name, const T &value)
@@ -78,10 +81,10 @@ namespace fl
 			SetValue(std::to_string(data));
 		}
 
-		LoadedValue *GetChildWithAttribute(const std::string &childName, const std::string &attribute, const std::string &value);
-
 		std::string GetString();
 
 		void SetString(const std::string &data);
+
+		static void PrintDebug(LoadedValue *value, const bool &content = true, const int &level = 0);
 	};
 }

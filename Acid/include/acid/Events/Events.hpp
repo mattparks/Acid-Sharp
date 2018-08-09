@@ -1,15 +1,14 @@
 #pragma once
 
 #include "Engine/Engine.hpp"
-#include "Tasks/Tasks.hpp"
 #include "IEvent.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A module used for managing events on engine updates.
 	/// </summary>
-	class FL_EXPORT Events :
+	class ACID_EXPORT Events :
 		public IModule
 	{
 	private:

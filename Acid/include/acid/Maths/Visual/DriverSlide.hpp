@@ -2,12 +2,12 @@
 
 #include "IDriver.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A driver that slides to its destination using cosine interpolation.
 	/// </summary>
-	class FL_EXPORT DriverSlide :
+	class ACID_EXPORT DriverSlide :
 		public IDriver
 	{
 	private:

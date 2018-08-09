@@ -3,12 +3,12 @@
 #include "Exports.hpp"
 #include "ModuleRegister.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A class used to define how the engine will run updates and timings.
 	/// </summary>
-	class FL_EXPORT IUpdater
+	class ACID_EXPORT IUpdater
 	{
 	public:
 		/// <summary>

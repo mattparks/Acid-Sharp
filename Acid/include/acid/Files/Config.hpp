@@ -1,16 +1,16 @@
 #pragma once
 
-#include <string>
-#include <map>
 #include <functional>
+#include <map>
+#include <memory>
+#include <string>
 #include "Helpers/FormatString.hpp"
-#include "Tasks/Tasks.hpp"
-#include "IFile.hpp"
 #include "ConfigKey.hpp"
+#include "IFile.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT Config
+	class ACID_EXPORT Config
 	{
 	private:
 		std::shared_ptr<IFile> m_file;
@@ -33,7 +33,7 @@ namespace fl
 
 		void SetRaw(const std::string &key, const std::string &value);
 
-		void Remove(const std::string &key);
+		bool Remove(const std::string &key);
 
 		template<typename T>
 		T Get(const std::string &key, const T &normal)

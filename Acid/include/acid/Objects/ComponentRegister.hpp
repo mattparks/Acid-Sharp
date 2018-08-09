@@ -1,18 +1,24 @@
 #pragma once
 
+#include <functional>
 #include <memory>
+#include <optional>
 #include "IComponent.hpp"
 
-namespace fl
+namespace acid
 {
+	struct ComponentCreate
+	{
+		std::function<IComponent *()> create;
+		std::function<bool(IComponent *)> isSame;
+	};
+
 	/// <summary>
 	/// A class that holds registerd components.
 	/// </summary>
-	class FL_EXPORT ComponentRegister
+	class ACID_EXPORT ComponentRegister
 	{
 	private:
-		typedef std::function<std::shared_ptr<IComponent>()> ComponentCreate;
-
 		std::map<std::string, ComponentCreate> m_components;
 	public:
 		/// <summary>
@@ -24,6 +30,13 @@ namespace fl
 		/// Deconstructor for the component register.
 		/// </summary>
 		~ComponentRegister();
+
+		/// <summary>
+		/// Creates a new component from the register.
+		/// </summary>
+		/// <param name="name"> The component name to create. </param>
+		/// <returns> The new component. </returns>
+		IComponent *CreateComponent(const std::string &name);
 
 		/// <summary>
 		/// Registers a component with the register.
@@ -40,30 +53,31 @@ namespace fl
 				return;
 			}
 
-			m_components.emplace(name, ComponentCreate([]() -> std::shared_ptr<IComponent>
+			ComponentCreate componentCreate = {};
+			componentCreate.create = []() -> IComponent *
 			{
-				return std::dynamic_pointer_cast<IComponent>(std::make_shared<T>());
-			}));
+				return new T();
+			};
+			componentCreate.isSame = [](IComponent *component) -> bool
+			{
+				return dynamic_cast<T *>(component) != nullptr;
+			};
+
+			m_components.emplace(name, componentCreate);
 		}
 
 		/// <summary>
 		/// Deregisters a component.
 		/// </summary>
 		/// <param name="name"> The components name. </param>
-		void DeregisterComponent(const std::string &name);
+		/// <returns> If the component was deregistered. </returns>
+		bool DeregisterComponent(const std::string &name);
 
 		/// <summary>
-		/// Gets a component create object from the register.
+		/// Finds the registered name to a component.
 		/// </summary>
-		/// <param name="name"> The component name to get. </param>
-		/// <returns> The component create object. </returns>
-		ComponentCreate GetComponentCreate(const std::string &name);
-
-		/// <summary>
-		/// Creates a new component from the register.
-		/// </summary>
-		/// <param name="name"> The component name to create. </param>
-		/// <returns> The new component. </returns>
-		std::shared_ptr<IComponent> CreateComponent(const std::string &name);
+		/// <param name="compare"> The components to get the registered name of. </param>
+		/// <returns> The name registered to the component. </returns>
+		std::optional<std::string> FindComponentName(IComponent *compare);
 	};
 }

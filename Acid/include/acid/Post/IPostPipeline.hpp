@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Post/IPostFilter.hpp"
 #include "Renderer/IRenderer.hpp"
+#include "IPostFilter.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a system of post effects.
 	/// </summary>
-	class FL_EXPORT IPostPipeline :
+	class ACID_EXPORT IPostPipeline :
 		public IRenderer
 	{
 	public:

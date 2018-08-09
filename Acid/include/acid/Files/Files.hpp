@@ -3,12 +3,12 @@
 #include <vector>
 #include "Engine/Engine.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A module used for managing files on engine updates.
 	/// </summary>
-	class FL_EXPORT Files :
+	class ACID_EXPORT Files :
 		public IModule
 	{
 	private:
@@ -42,6 +42,6 @@ namespace fl
 		/// </summary>
 		/// <param name="filename"> The filename to find. </param>
 		/// <returns> The path to the first file found. </returns>
-		std::string SearchFile(const std::string &filename);
+		static std::string SearchFile(const std::string &filename);
 	};
 }

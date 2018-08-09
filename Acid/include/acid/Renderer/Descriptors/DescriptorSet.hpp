@@ -1,22 +1,23 @@
 #pragma once
 
-#include <string>
 #include <map>
-#include "Display/Display.hpp"
-#include "Renderer/Buffers/CommandBuffer.hpp"
+#include <string>
+#include <vulkan/vulkan.h>
+#include "Renderer/Commands/CommandBuffer.hpp"
 #include "Renderer/Pipelines/IPipeline.hpp"
 #include "Renderer/Pipelines/PipelineCreate.hpp"
 #include "Renderer/Pipelines/ShaderProgram.hpp"
 
-namespace fl
+namespace acid
 {
 	class IDescriptor;
 
-	class FL_EXPORT DescriptorSet
+	class ACID_EXPORT DescriptorSet
 	{
 	private:
-		ShaderProgram *m_shaderProgram;
+		std::shared_ptr<ShaderProgram> m_shaderProgram;
 		VkPipelineLayout m_pipelineLayout;
+		VkPipelineBindPoint m_pipelineBindPoint;
 		VkDescriptorPool m_descriptorPool;
 		VkDescriptorSet m_descriptorSet;
 	public:
@@ -28,6 +29,6 @@ namespace fl
 
 		void BindDescriptor(const CommandBuffer &commandBuffer);
 
-		VkDescriptorSet GetVkDescriptorSet() const { return m_descriptorSet; }
+		VkDescriptorSet GetDescriptorSet() const { return m_descriptorSet; }
 	};
 }

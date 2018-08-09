@@ -3,12 +3,12 @@
 #include <vector>
 #include "IButton.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Handles multiple buttons at once.
 	/// </summary>
-	class FL_EXPORT ButtonCompound :
+	class ACID_EXPORT ButtonCompound :
 		public IButton
 	{
 	private:

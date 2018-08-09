@@ -2,9 +2,9 @@
 
 #include "Post/IPostFilter.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT FilterGrey :
+	class ACID_EXPORT FilterGrey :
 		public IPostFilter
 	{
 	public:

@@ -1,20 +1,20 @@
 #pragma once
 
+#include <vulkan/vulkan.h>
+#include "Renderer/Commands/CommandBuffer.hpp"
 #include "Engine/Engine.hpp"
-#include "Display/Display.hpp"
-#include "Buffers/CommandBuffer.hpp"
 #include "Swapchain/DepthStencil.hpp"
 #include "Swapchain/Swapchain.hpp"
-#include "RenderStage.hpp"
 #include "IManagerRender.hpp"
+#include "RenderStage.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT Renderer :
+	class ACID_EXPORT Renderer :
 		public IModule
 	{
 	private:
-		std::shared_ptr<IManagerRender> m_managerRender;
+		IManagerRender *m_managerRender;
 
 		std::vector<RenderStage *> m_renderStages;
 
@@ -48,58 +48,41 @@ namespace fl
 		/// </summary>
 		~Renderer();
 
-	public:
 		void Update() override;
 
 		void CreateRenderpass(std::vector<RenderpassCreate *> renderpassCreates);
 
 		/// <summary>
-		/// Starts a renderpass.
+		/// Takes a screenshot of the current image of the display and saves it into a image file.
 		/// </summary>
-		/// <param name="commandBuffer"> The command buffer to use. </param>
-		/// <param name="i"> The index of the render pass being rendered. </param>
-		/// <returns> VK_SUCCESS on success. </returns>
-		bool StartRenderpass(const CommandBuffer &commandBuffer, const unsigned int &i);
-
-		/// <summary>
-		/// Ends the renderpass.
-		/// </summary>
-		/// <param name="commandBuffer"> The command buffer to use. </param>
-		void EndRenderpass(const CommandBuffer &commandBuffer, const unsigned int &i);
-
-		/// <summary>
-		/// Starts the next render subpass.
-		/// </summary>
-		/// <param name="commandBuffer"> The command buffer to use. </param>
-		void NextSubpass(const CommandBuffer &commandBuffer);
-
-		static uint32_t FindMemoryTypeIndex(const VkPhysicalDeviceMemoryProperties *deviceMemoryProperties, const VkMemoryRequirements *memoryRequirements, const VkMemoryPropertyFlags &requiredProperties);
+		///	<param name="filename"> The file to save the screenshot to. </param>
+		void CaptureScreenshot(const std::string &filename);
 
 		/// <summary>
 		/// Gets the renderer manager.
 		/// </summary>
 		/// <returns> The renderer manager. </returns>
-		std::shared_ptr<IManagerRender> GetManager() const { return m_managerRender; }
+		IManagerRender *GetManager() const { return m_managerRender; }
 
 		/// <summary>
 		/// Sets the current renderer manager to a new renderer manager.
 		/// </summary>
 		/// <param name="rendererMaster"> The new renderer manager. </param>
-		void SetManager(std::shared_ptr<IManagerRender> managerRender) { m_managerRender = managerRender; }
+		void SetManager(IManagerRender *managerRender);
 
 		std::vector<RenderStage *> GetRenderStages() const { return m_renderStages; }
 
-		RenderStage *GetRenderStage(const int &i) const { return m_renderStages.at(i); }
+		RenderStage *GetRenderStage(const uint32_t &i) const { return m_renderStages.at(i); }
 
 		Swapchain *GetSwapchain() const { return m_swapchain; }
 
-		VkCommandPool GetVkCommandPool() const { return m_commandPool; }
+		VkCommandPool GetCommandPool() const { return m_commandPool; }
 
 		CommandBuffer *GetCommandBuffer() const { return m_commandBuffer; }
 
-		uint32_t GetVkActiveSwapchainImage() const { return m_activeSwapchainImage; }
+		uint32_t GetActiveSwapchainImage() const { return m_activeSwapchainImage; }
 
-		VkPipelineCache GetVkPipelineCache() const { return m_pipelineCache; }
+		VkPipelineCache GetPipelineCache() const { return m_pipelineCache; }
 	private:
 		void CreateFences();
 
@@ -107,6 +90,12 @@ namespace fl
 
 		void CreatePipelineCache();
 
-		void RecreatePass(const int &i);
+		void RecreatePass(const uint32_t &i);
+
+		bool StartRenderpass(const uint32_t &i);
+
+		void EndRenderpass(const uint32_t &i);
+
+		void NextSubpass();
 	};
 }

@@ -1,16 +1,18 @@
 #pragma once
 
 #include <vector>
-#include "Objects/IComponent.hpp"
 #include "Objects/GameObject.hpp"
+#include "Objects/IComponent.hpp"
+#include "Renderer/Handlers/DescriptorsHandler.hpp"
+#include "Renderer/Handlers/UniformHandler.hpp"
 #include "Renderer/Pipelines/Pipeline.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Class used to render a GameObject as a shadow.
 	/// </summary>
-	class FL_EXPORT ShadowRender :
+	class ACID_EXPORT ShadowRender :
 		public IComponent
 	{
 	private:
@@ -21,6 +23,8 @@ namespace fl
 
 		~ShadowRender();
 
+		void Start() override;
+
 		void Update() override;
 
 		void Load(LoadedValue *value) override;
@@ -28,8 +32,6 @@ namespace fl
 		void Write(LoadedValue *destination) override;
 
 		void CmdRender(const CommandBuffer &commandBuffer, const Pipeline &pipeline, UniformHandler &uniformScene);
-
-		std::string GetName() const override { return "ShadowRender"; };
 
 		UniformHandler GetUniformObject() const { return m_uniformObject; }
 	};

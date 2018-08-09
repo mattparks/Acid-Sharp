@@ -1,20 +1,20 @@
 #pragma once
 
 #include <array>
-#include <string>
 #include <sstream>
+#include <string>
 #include <vector>
-#include "Display/Display.hpp"
+#include <vulkan/vulkan.h>
 #include "PipelineCreate.hpp"
 
-namespace glslang
+namespace glslang 
 {
 	class TProgram;
 }
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT Uniform
+	class ACID_EXPORT Uniform
 	{
 	private:
 		std::string m_name;
@@ -22,9 +22,9 @@ namespace fl
 		int m_offset;
 		int m_size;
 		int m_glType;
-		VkShaderStageFlagBits m_stageFlags;
+		VkShaderStageFlags m_stageFlags;
 	public:
-		Uniform(const std::string &name, const int &binding, const int &offset, const int &size, const int &glType, const VkShaderStageFlagBits &stageFlags) :
+		Uniform(const std::string &name, const int &binding, const int &offset, const int &size, const int &glType, const VkShaderStageFlags &stageFlags) :
 			m_name(name),
 			m_binding(binding),
 			m_offset(offset),
@@ -48,9 +48,9 @@ namespace fl
 
 		int GetGlType() const { return m_glType; }
 
-		VkShaderStageFlagBits GetStageFlags() const { return m_stageFlags; }
+		VkShaderStageFlags GetStageFlags() const { return m_stageFlags; }
 
-		void SetStageFlags(const VkShaderStageFlagBits &stageFlags) { m_stageFlags = stageFlags; }
+		void SetStageFlags(const VkShaderStageFlags &stageFlags) { m_stageFlags = stageFlags; }
 
 		bool operator==(const Uniform &other) const
 		{
@@ -70,16 +70,16 @@ namespace fl
 		}
 	};
 
-	class FL_EXPORT UniformBlock
+	class ACID_EXPORT UniformBlock
 	{
 	private:
 		std::string m_name;
 		int m_binding;
 		int m_size;
-		VkShaderStageFlagBits m_stageFlags;
+		VkShaderStageFlags m_stageFlags;
 		std::vector<Uniform *> *m_uniforms;
 	public:
-		UniformBlock(const std::string &name, const int &binding, const int &size, const VkShaderStageFlagBits &stageFlags) :
+		UniformBlock(const std::string &name, const int &binding, const int &size, const VkShaderStageFlags &stageFlags) :
 			m_name(name),
 			m_binding(binding),
 			m_size(size),
@@ -125,9 +125,9 @@ namespace fl
 
 		int GetSize() const { return m_size; }
 
-		VkShaderStageFlagBits GetStageFlags() const { return m_stageFlags; }
+		VkShaderStageFlags GetStageFlags() const { return m_stageFlags; }
 
-		void SetStageFlags(const VkShaderStageFlagBits &stageFlags) { m_stageFlags = stageFlags; }
+		void SetStageFlags(const VkShaderStageFlags &stageFlags) { m_stageFlags = stageFlags; }
 
 		std::vector<Uniform *> *GetUniforms() const { return m_uniforms; }
 
@@ -139,7 +139,7 @@ namespace fl
 		}
 	};
 
-	class FL_EXPORT VertexAttribute
+	class ACID_EXPORT VertexAttribute
 	{
 	private:
 		std::string m_name;
@@ -175,7 +175,7 @@ namespace fl
 		}
 	};
 
-	class FL_EXPORT ShaderProgram
+	class ACID_EXPORT ShaderProgram
 	{
 	private:
 		std::string m_name;
@@ -192,7 +192,7 @@ namespace fl
 
 		~ShaderProgram();
 
-		void LoadProgram(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag);
+		void LoadProgram(const glslang::TProgram &program, const VkShaderStageFlags &stageFlag);
 
 		std::string GetName() const { return m_name; }
 
@@ -212,21 +212,25 @@ namespace fl
 
 		std::vector<DescriptorType> GetDescriptors() const { return m_descriptors; }
 
-		unsigned int GetLastDescriptorBinding() const;
+		uint32_t GetLastDescriptorBinding() const;
 
 		std::vector<VkVertexInputAttributeDescription> GetAttributeDescriptions() const { return m_attributeDescriptions; }
 
+		static VkShaderStageFlagBits GetShaderStage(const std::string &filename);
+
 		static std::string InsertDefineBlock(const std::string &shaderCode, const std::string &blockCode);
 
-		static VkShaderStageFlagBits GetShaderStage(const std::string &filename);
+		static std::string ProcessIncludes(const std::string &shaderCode);
+
+		VkShaderModule ProcessShader(const std::string &shaderCode, const VkShaderStageFlags &stageFlag);
 
 		std::string ToString() const;
 
 	private:
-		void LoadUniformBlock(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
+		void LoadUniformBlock(const glslang::TProgram &program, const VkShaderStageFlags &stageFlag, const int &i);
 
-		void LoadUniform(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
+		void LoadUniform(const glslang::TProgram &program, const VkShaderStageFlags &stageFlag, const int &i);
 
-		void LoadVertexAttribute(const glslang::TProgram &program, const VkShaderStageFlagBits &stageFlag, const int &i);
+		void LoadVertexAttribute(const glslang::TProgram &program, const VkShaderStageFlags &stageFlag, const int &i);
 	};
 }

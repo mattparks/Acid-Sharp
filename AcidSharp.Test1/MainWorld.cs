@@ -3,7 +3,7 @@ using AcidSharp;
 
 namespace AcidSharp.Tests
 {
-    class MainWorld : IWorld
+    class MainWorld : IModule
     {
         private static readonly Colour FogColourSunrise = new Colour("#ee9a90");
         private static readonly Colour FogColourNight = new Colour("#0D0D1A");
@@ -111,35 +111,35 @@ namespace AcidSharp.Tests
             _starIntensity = Maths.Clamp(1.0f - ShadowFactor, 0.0f, 1.0f);
         }
 
-        public override float GetTerrainRadius(float radius, float theta, float phi)
+        public float GetTerrainRadius(float radius, float theta, float phi)
         {
             var height = _noiseTerrain.GetValue(
-                (radius / 10.0f) * Maths.NormalizeAngle(Maths.Degrees(theta)),
-                (radius / 10.0f) * Maths.NormalizeAngle(Maths.Degrees(phi))
+                (radius / 10.0f) * Maths.WrapDegrees(Maths.Degrees(theta)),
+                (radius / 10.0f) * Maths.WrapDegrees(Maths.Degrees(phi))
             );
             return radius + (28.0f * height);
         }
 
-        public override Fog Fog
+        public Fog Fog
         {
             get => _fog;
             set => _fog = value;
         }
-        public override Colour SkyColour
+        public Colour SkyColour
         {
             get => _skyColour;
             set => _skyColour = value;
         }
-        public override float DayFactor => _factorDay;
-        public override float SunriseFactor => _factorSunrise;
-        public override float ShadowFactor => _factorShadow;
-        public override float SunHeight => _sunHeight;
-        public override float StarIntensity => _starIntensity;
-        public override Noise NoiseTerrain => _noiseTerrain;
-        public override Vector3 SkyboxRotation => _skyboxRotation;
-        public override Vector3 SunPosition => _sunPosition;
-        public override Vector3 MoonPosition => _moonPosition;
-        public override Colour SunColour => _sunColour;
-        public override Colour MoonColour => _moonColour;
+        public float DayFactor => _factorDay;
+        public float SunriseFactor => _factorSunrise;
+        public float ShadowFactor => _factorShadow;
+        public float SunHeight => _sunHeight;
+        public float StarIntensity => _starIntensity;
+        public Noise NoiseTerrain => _noiseTerrain;
+        public Vector3 SkyboxRotation => _skyboxRotation;
+        public Vector3 SunPosition => _sunPosition;
+        public Vector3 MoonPosition => _moonPosition;
+        public Colour SunColour => _sunColour;
+        public Colour MoonColour => _moonColour;
     }
 }

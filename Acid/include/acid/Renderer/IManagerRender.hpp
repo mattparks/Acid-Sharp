@@ -5,14 +5,14 @@
 #include "Pipelines/PipelineCreate.hpp"
 #include "Renderpass/RenderpassCreate.hpp"
 
-namespace fl
+namespace acid
 {
 	class IRenderer;
 
 	/// <summary>
 	/// A extension used with IRenderer's to define a master renderer.
 	/// </summary>
-	class FL_EXPORT IManagerRender
+	class ACID_EXPORT IManagerRender
 	{
 	private:
 		std::map<float, std::vector<std::shared_ptr<IRenderer>>> m_stages;
@@ -93,7 +93,7 @@ namespace fl
 			return nullptr;
 		}
 
-		float GetStageKey(const unsigned int &renderpass, const uint32_t &subpass);
+		float GetStageKey(const uint32_t &renderpass, const uint32_t &subpass);
 
 		float GetStageKey(const GraphicsStage &graphicsStage);
 	};

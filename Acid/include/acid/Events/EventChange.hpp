@@ -3,14 +3,14 @@
 #include <functional>
 #include "IEvent.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A class that acts as a basic change listener for a value.
 	/// </summary>
 	/// @param <T> The type of value to find change with. </param>
 	template<typename T>
-	class FL_EXPORT EventChange :
+	class ACID_EXPORT EventChange :
 		public IEvent
 	{
 	private:

@@ -2,9 +2,9 @@
 
 #include "Post/IPostFilter.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT FilterWobble :
+	class ACID_EXPORT FilterWobble :
 		public IPostFilter
 	{
 	private:

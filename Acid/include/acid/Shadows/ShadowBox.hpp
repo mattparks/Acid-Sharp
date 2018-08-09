@@ -1,18 +1,17 @@
 ﻿#pragma once
 
-#include "Scenes/ICamera.hpp"
 #include "Maths/Matrix4.hpp"
 #include "Maths/Vector4.hpp"
-#include "Physics/ColliderAabb.hpp"
+#include "Scenes/ICamera.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents the 3D area of the world in which engine.shadows will be cast (basically represents the orthographic projection area for the shadow render pass).
 	/// It can be updated each frame to optimise the area, making it as small as possible (to allow for optimal shadow map resolution) while not being too small to avoid objects not having shadows when they should.
 	/// This class also provides functionality to test whether an object is inside this shadow box. Everything inside the box will be rendered to the shadow map in the shadow render pass.
 	/// </summary>
-	class FL_EXPORT ShadowBox
+	class ACID_EXPORT ShadowBox
 	{
 	private:
 		Vector3 m_lightDirection;
@@ -29,7 +28,8 @@ namespace fl
 		float m_farHeight, m_farWidth;
 		float m_nearHeight, m_nearWidth;
 
-		ColliderAabb m_aabb;
+		Vector3 m_minExtents;
+		Vector3 m_maxExtents;
 	public:
 		/// <summary>
 		/// Creates a new shadow box and calculates some initial values relating to the camera's view frustum.
@@ -120,6 +120,14 @@ namespace fl
 		/// <returns> The light's "view" matrix. </returns>
 		Matrix4 GetLightSpaceTransform() const { return m_lightViewMatrix; }
 
-		ColliderAabb GetAabb() const { return m_aabb; }
+		Vector3 GetMinExtents() const { return m_minExtents; }
+
+		Vector3 GetMaxExtents() const { return m_maxExtents; }
+
+		float GetWidth() const { return m_maxExtents.m_x - m_minExtents.m_x; }
+
+		float GetHeight() const { return m_maxExtents.m_y - m_minExtents.m_y; }
+
+		float GetDepth() const { return m_maxExtents.m_z - m_minExtents.m_z; }
 	};
 }

@@ -1,0 +1,1 @@
+ls *.cpp -Recurse | foreach {rm $_}

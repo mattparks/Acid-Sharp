@@ -1,24 +1,25 @@
 #pragma once
 
 #include "Engine/Exports.hpp"
-#include "Objects/IComponent.hpp"
-#include "Objects/GameObject.hpp"
 #include "Maths/Colour.hpp"
 #include "Maths/Vector3.hpp"
+#include "Objects/GameObject.hpp"
+#include "Objects/IComponent.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a point light, contains a colour, position and attenuation.
 	/// </summary>
-	class FL_EXPORT Light :
+	class ACID_EXPORT Light :
 		public IComponent
 	{
 	private:
 		Colour m_colour;
-		Vector3 m_position;
 		Vector3 m_offset;
 		float m_radius;
+
+		Vector3 m_position;
 	public:
 		/// <summary>
 		/// Creates a new point light.
@@ -39,13 +40,13 @@ namespace fl
 		/// </summary>
 		~Light();
 
+		void Start() override;
+
 		void Update() override;
 
 		void Load(LoadedValue *value) override;
 
 		void Write(LoadedValue *destination) override;
-
-		std::string GetName() const override { return "Light"; };
 
 		Colour GetColour() const { return m_colour; }
 
@@ -55,13 +56,11 @@ namespace fl
 
 		void SetRadius(const float &radius) { m_radius = radius; }
 
-		Vector3 GetPosition() const { return m_position; }
-
-		void SetPosition(const Vector3 &position) { m_position = position; }
-
 		Vector3 GetOffset() const { return m_offset; }
 
 		void SetOffset(const Vector3 &offset) { m_offset = offset; }
+
+		Vector3 GetPosition() const { return m_position; }
 
 		Light &operator=(const Light &other);
 

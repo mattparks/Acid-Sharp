@@ -5,9 +5,9 @@
 #include <vector>
 #include "Files/IFile.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT RowCsv
+	class ACID_EXPORT RowCsv
 	{
 	private:
 		std::vector<std::string> m_elements;
@@ -22,7 +22,7 @@ namespace fl
 		void SetElements(const std::vector<std::string> &elements) { m_elements = elements; }
 	};
 
-	class FL_EXPORT FileCsv :
+	class ACID_EXPORT FileCsv :
 		public IFile
 	{
 	private:
@@ -44,13 +44,23 @@ namespace fl
 
 		void ConfigPushValue(const std::string &key, const std::string &value) override;
 
+		std::string GetFilename() const override { return m_filename; }
+
+		void SetFilename(const std::string &filename) override { m_filename = filename; }
+
+		LoadedValue *GetParent() const override { return nullptr; }
+
+		char GetDelimiter() const { return m_delimiter; }
+
+		void SetDelimiter(const char &delimiter) { m_delimiter = delimiter; }
+
 		size_t GetRowCount() const { return m_rows.size(); }
 
-		RowCsv GetRow(const unsigned int &index);
+		RowCsv GetRow(const uint32_t &index);
 
 		void PushRow(const RowCsv &row);
 
-		void SetRow(const RowCsv &row, const unsigned int &index);
+		void SetRow(const RowCsv &row, const uint32_t &index);
 
 	private:
 		void Verify();

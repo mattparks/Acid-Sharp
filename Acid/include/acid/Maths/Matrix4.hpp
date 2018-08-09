@@ -2,41 +2,28 @@
 
 #include <ostream>
 #include <string>
+#include "Vector3.hpp"
 #include "Vector4.hpp"
 
-namespace fl
+namespace acid
 {
+	class Matrix3;
+
+	class Quaternion;
+
 	class Vector2;
 
-	class Vector3;
-
 	/// <summary>
-	/// Holds a 4x4 matrix.
+	/// Holds a row major 4x4 matrix.
 	/// </summary>
-	class FL_EXPORT Matrix4
+	class ACID_EXPORT Matrix4
 	{
 	public:
 		union
 		{
 			struct
 			{
-				Vector4 *m_0;
-				Vector4 *m_1;
-				Vector4 *m_2;
-				Vector4 *m_3;
-			};
-
-			struct
-			{
-				float m_00, m_01, m_02, m_03;
-				float m_10, m_11, m_12, m_13;
-				float m_20, m_21, m_22, m_23;
-				float m_30, m_31, m_32, m_33;
-			};
-
-			struct
-			{
-				float m_elements[4][4];
+				Vector4 m_rows[4];
 			};
 
 			struct
@@ -51,7 +38,8 @@ namespace fl
 		/// <summary>
 		/// Constructor for Matrix4. The matrix is initialised to the identity.
 		/// </summary>
-		Matrix4();
+		/// <param name="diagonal"> The value set to the diagonals. </param>
+		Matrix4(const float &diagonal = 1.0f);
 
 		/// <summary>
 		/// Constructor for Matrix4.
@@ -64,6 +52,12 @@ namespace fl
 		/// </summary>
 		/// <param name="source"> Creates this matrix out of a 16 element array. </param>
 		Matrix4(const float source[16]);
+
+		/// <summary>
+		/// Constructor for Matrix4.
+		/// </summary>
+		/// <param name="source"> Creates this matrix out of a 4 vector array. </param>
+		Matrix4(const Vector4 source[4]);
 
 		/// <summary>
 		/// Deconstructor for Matrix4.
@@ -143,7 +137,7 @@ namespace fl
 		/// <summary>
 		/// Rotates this matrix around the given axis the specified angle.
 		/// </summary>
-		/// <param name="angle"> the angle, in radians. </param>
+		/// <param name="angle"> The angle, in radians. </param>
 		/// <param name="axis"> The vector representing the rotation axis. </param>
 		/// <returns> The rotated matrix. </returns>
 		Matrix4 Rotate(const float &angle, const Vector3 &axis) const;
@@ -173,38 +167,28 @@ namespace fl
 		float Determinant() const;
 
 		/// <summary>
+		/// Gets the submatrix of this matrix.
+		/// </summary>
+		/// <returns> The submatrix. </returns>
+		Matrix3 GetSubmatrix(const int &row, const int &col) const;
+
+		/// <summary>
 		/// Creates a new transformation matrix for a object in 3d space.
 		/// </summary>
 		/// <param name="translation"> Translation amount the XYZ. </param>
-		/// <param name="rotation"> Rotation amount the XYZ. </param>
+		/// <param name="rotation"> Rotation amount (Pitch, Yaw, Roll). </param>
 		/// <param name="scale"> How much to scale the matrix. </param>
 		/// <returns> Returns the transformation matrix. </returns>
 		static Matrix4 TransformationMatrix(const Vector3 &translation, const Vector3 &rotation, const Vector3 &scale);
 
 		/// <summary>
-		/// Creates a new transformation matrix for a object in 2d space.
-		/// </summary>
-		/// <param name="translation"> Translation amount the XY. </param>
-		/// <param name="scale"> How much to scale the matrix. </param>
-		/// <returns> Returns the transformation matrix. </returns>
-		static Matrix4 TransformationMatrix(const Vector2 &translation, const float &scale);
-
-		/// <summary>
-		/// Creates a new transformation matrix for a object in 2d space.
-		/// </summary>
-		/// <param name="translation"> Translation amount the XY. </param>
-		/// <param name="scale"> How much to scale the matrix. </param>
-		/// <returns> Returns the transformation matrix. </returns>
-		static Matrix4 TransformationMatrix(const Vector2 &translation, const Vector3 &scale);
-
-		/// <summary>
 		/// Creates a new transformation matrix for a object in 3d space.
 		/// </summary>
 		/// <param name="translation"> Translation amount the XYZ. </param>
-		/// <param name="rotation"> Rotation amount the XYZ. </param>
+		/// <param name="rotation"> Rotation amount. </param>
 		/// <param name="scale"> How much to scale the matrix. </param>
 		/// <returns> Returns the transformation matrix. </returns>
-		static Matrix4 TransformationMatrix(const Vector3 &translation, const Vector3 &rotation, const float &scale);
+		static Matrix4 TransformationMatrix(const Vector3 &translation, const Quaternion &rotation, const Vector3 &scale);
 
 		/// <summary>
 		/// Creates a new perspective matrix.
@@ -238,6 +222,14 @@ namespace fl
 		static Matrix4 ViewMatrix(const Vector3 &position, const Vector3 &rotation);
 
 		/// <summary>
+		/// Creates a new view matrix.
+		/// </summary>
+		/// <param name="position"> The cameras position. </param>
+		/// <param name="rotation"> The cameras rotation. </param>
+		/// <returns> The transformation matrix. </returns>
+		static Matrix4 ViewMatrix(const Vector3 &position, const Quaternion &rotation);
+
+		/// <summary>
 		/// Transforms a 3D world point into screen space.
 		/// </summary>
 		/// <param name="worldSpace"> The point to get into screen space. </param>
@@ -247,16 +239,13 @@ namespace fl
 		static Vector3 WorldToScreenSpace(const Vector3 &worldSpace, const Matrix4 &viewMatrix, const Matrix4 &projectionMatrix);
 
 		/// <summary>
-		/// Sets this matrix to 0.
+		/// Creates a new transformation matrix that has the camera looking at the target.
 		/// </summary>
-		/// <returns> The identity matrix. </returns>
-		Matrix4 SetZero();
-
-		/// <summary>
-		/// Sets this matrix to be the identity matrix.
-		/// </summary>
-		/// <returns> The identity matrix. </returns>
-		Matrix4 SetIdentity();
+		/// <param name="camera"> The source position. </param>
+		/// <param name="object"> The target position. </param>
+		/// <param name="up"> What view direction is up. </param>
+		/// <returns> Returns the transformation matrix. </returns>
+		static Matrix4 LookAt(const Vector3 &camera, const Vector3 &object, const Vector3 &up = Vector3::UP);
 
 		/// <summary>
 		/// Saves this matrix into a loaded value.
@@ -274,27 +263,35 @@ namespace fl
 
 		bool operator!=(const Matrix4 &other) const;
 
-		Matrix4 operator-();
+		Matrix4 operator-() const;
 
-		FL_EXPORT friend Matrix4 operator+(Matrix4 left, const Matrix4 &right);
+		const Vector4 &operator[](const uint32_t &index) const;
 
-		FL_EXPORT friend Matrix4 operator-(Matrix4 left, const Matrix4 &right);
+		Vector4 &operator[](const uint32_t &index);
 
-		FL_EXPORT friend Matrix4 operator*(Matrix4 left, const Matrix4 &right);
+		ACID_EXPORT friend Matrix4 operator+(const Matrix4 &left, const Matrix4 &right);
 
-		FL_EXPORT friend Matrix4 operator/(Matrix4 left, const Matrix4 &right);
+		ACID_EXPORT friend Matrix4 operator-(const Matrix4 &left, const Matrix4 &right);
 
-		FL_EXPORT friend Matrix4 operator*(Matrix4 left, Vector4 value);
+		ACID_EXPORT friend Matrix4 operator*(const Matrix4 &left, const Matrix4 &right);
 
-		FL_EXPORT friend Matrix4 operator/(Matrix4 left, Vector4 value);
+		ACID_EXPORT friend Matrix4 operator/(const Matrix4 &left, const Matrix4 &right);
 
-		FL_EXPORT friend Matrix4 operator*(Matrix4 left, float value);
+		ACID_EXPORT friend Matrix4 operator*(const Vector4 &left, const Matrix4 &right);
 
-		FL_EXPORT friend Matrix4 operator/(Matrix4 left, float value);
+		ACID_EXPORT friend Matrix4 operator/(const Vector4 &left, const Matrix4 &right);
 
-		FL_EXPORT friend Matrix4 operator*(float value, Matrix4 left);
+		ACID_EXPORT friend Matrix4 operator*(const Matrix4 &left, const Vector4 &right);
 
-		FL_EXPORT friend Matrix4 operator/(float value, Matrix4 left);
+		ACID_EXPORT friend Matrix4 operator/(const Matrix4 &left, const Vector4 &right);
+
+		ACID_EXPORT friend Matrix4 operator*(const float &left, const Matrix4 &right);
+
+		ACID_EXPORT friend Matrix4 operator/(const float &left, const Matrix4 &right);
+
+		ACID_EXPORT friend Matrix4 operator*(const Matrix4 &left, const float &right);
+
+		ACID_EXPORT friend Matrix4 operator/(const Matrix4 &left, const float &right);
 
 		Matrix4 &operator+=(const Matrix4 &other);
 
@@ -304,11 +301,16 @@ namespace fl
 
 		Matrix4 &operator/=(const Matrix4 &other);
 
-		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Matrix4 &matrix);
+		Matrix4 &operator*=(const Vector4 &other);
+
+		Matrix4 &operator/=(const Vector4 &other);
+
+		Matrix4 &operator*=(const float &other);
+
+		Matrix4 &operator/=(const float &other);
+
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Matrix4 &matrix);
 
 		std::string ToString() const;
-
-	private:
-		static float Determinant3x3(const float &t00, const float &t01, const float &t02, const float &t10, const float &t11, const float &t12, const float &t20, const float &t21, const float &t22);
 	};
 }

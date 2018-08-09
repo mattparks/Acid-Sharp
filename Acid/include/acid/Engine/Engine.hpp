@@ -1,22 +1,19 @@
 #pragma once
 
-#include <array>
-#include <memory>
 #include <chrono>
-#include "ModuleRegister.hpp"
+#include <memory>
 #include "IUpdater.hpp"
+#include "ModuleRegister.hpp"
 
 /// <summary>
-/// The base Flounder namespace.
+/// The base Acid namespace.
 /// </summary>
-namespace fl
+namespace acid
 {
 	/// <summary>
-	/// A engine used for simplifying the creation of complicated applications. By using flexible Module loading and Extension injecting, it allows the engine to be used for Networking, Imaging, AIs, Games, and many more applications.
-	/// Start off by creating a new Engine object in your main thread, using Extensions in the constructor. By using Extensions: Modules can be required and therefor loaded into the engine.
-	/// Implementing interfaces like <seealso cref="Standards"/> with your extension can allow you do task specific things with your Extensions. After creating your Engine object call <seealso cref="#Run()"/> to start.
+	/// Main class for Acid, manages modules and updates. After creating your Engine object call <seealso cref="#Run()"/> to start.
 	/// </summary>
-	class FL_EXPORT Engine
+	class ACID_EXPORT Engine
 	{
 	private:
 		typedef std::chrono::high_resolution_clock HighResolutionClock;
@@ -29,7 +26,7 @@ namespace fl
 
 		ModuleRegister m_moduleRegister;
 
-		std::shared_ptr<IUpdater> m_updater;
+		IUpdater *m_updater;
 		float m_fpsLimit;
 
 		bool m_initialized;
@@ -66,13 +63,13 @@ namespace fl
 		/// Gets the current updater.
 		/// </summary>
 		/// <returns> The current updater. </returns>
-		std::shared_ptr<IUpdater> GetUpdater() const { return m_updater; }
+		IUpdater *GetUpdater() const { return m_updater; }
 
 		/// <summary>
 		/// Loads the updater into the engine.
 		/// </summary>
 		/// <param name="updater"> The updater. </param>
-		void SetUpdater(std::shared_ptr<IUpdater> updater) { m_updater = updater; }
+		void SetUpdater(IUpdater *updater) { m_updater = updater; }
 
 		/// <summary>
 		/// Gets a module instance by type.
@@ -95,9 +92,9 @@ namespace fl
 		/// Deregisters a module.
 		/// </summary>
 		/// <param name="T"> The type of module to deregister. </param>
-		/// <returns> The deregistered module. </returns>
+		/// <returns> If the module was deregistered. </returns>
 		template<typename T>
-		T *DeregisterModule() { return m_moduleRegister.DeregisterModule<T>(); }
+		bool DeregisterModule() { return m_moduleRegister.DeregisterModule<T>(); }
 
 		/// <summary>
 		/// Gets the added/removed time for the engine (seconds).

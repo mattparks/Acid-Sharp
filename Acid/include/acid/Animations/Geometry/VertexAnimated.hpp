@@ -6,9 +6,9 @@
 #include "Models/IVertex.hpp"
 #include "Renderer/Pipelines/PipelineCreate.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT VertexAnimated :
+	class ACID_EXPORT VertexAnimated :
 		public IVertex
 	{
 	public:

@@ -4,7 +4,7 @@
 #include "Animations/Joint/JointTransform.hpp"
 #include "KeyframeData.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents one keyframe of an animation. This contains the timestamp of the keyframe,
@@ -14,7 +14,7 @@ namespace fl
 	/// The joint transforms are stored in a map, indexed by the name of the joint that they should be applied to.
 	/// </para>
 	/// </summary>
-	class FL_EXPORT Keyframe
+	class ACID_EXPORT Keyframe
 	{
 	private:
 		float m_timeStamp;

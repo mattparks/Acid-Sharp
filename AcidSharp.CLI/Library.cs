@@ -40,12 +40,13 @@ namespace AcidSharp.CLI
             parserOptions.UnityBuild = true;
             parserOptions.Verbose = true;
 
-            parserOptions.Defines.Add("FL_EXPORT=__attribute__ ((visibility (\"default\")))");
-            parserOptions.Defines.Add("FL_HIDDEN=__attribute__ ((visibility (\"hidden\")))");
+            parserOptions.Defines.Add("ACID_EXPORT=__attribute__ ((visibility (\"default\")))");
+            parserOptions.Defines.Add("ACID_HIDDEN=__attribute__ ((visibility (\"hidden\")))");
+            parserOptions.Defines.Add("BT_NO_SIMD_OPERATOR_OVERLOADS=1");
 
             // Sets up other options.
             var options = driver.Options;
-            options.OutputDir = @"C:\Users\mattp\Documents\Acid Workspace\AcidSharp\AcidSharp";
+            options.OutputDir = @"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\AcidSharp";
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
             options.MarshalCharAsManagedChar = true;
@@ -58,11 +59,12 @@ namespace AcidSharp.CLI
             var module = options.AddModule("AcidSharp");
             module.SharedLibraryName = "Acid";
             module.OutputNamespace = "";
-            module.IncludeDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\AcidSharp\Acid\include");
-            module.Headers.Add(@"fl\Acid.hpp");
-            module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\AcidSharp\Acid\lib");
-            module.Libraries.Add("Acid.lib");
+            module.IncludeDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\Acid\include");
+            module.Headers.Add(@"acid\Acid.hpp");
+            module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\Acid\lib");
             module.Libraries.Add("vulkan-1.lib");
+            module.Libraries.Add("OpenAL32.lib");
+            module.Libraries.Add("Acid.lib");
         }
 
         /// <summary>
@@ -87,7 +89,11 @@ namespace AcidSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
-            ctx.RenameNamespace("fl", "AcidSharp");
+        //  ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
+        //  ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
+        //  ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
+
+            ctx.RenameNamespace("acid", "AcidSharp");
         }
 
         /// <summary>

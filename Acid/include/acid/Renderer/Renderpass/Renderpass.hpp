@@ -2,19 +2,19 @@
 
 #include "RenderpassCreate.hpp"
 
-namespace fl
+namespace acid
 {
 	class DepthStencil;
 
-	class FL_EXPORT Renderpass
+	class ACID_EXPORT Renderpass
 	{
 	private:
 		VkRenderPass m_renderPass;
 	public:
-		Renderpass(const RenderpassCreate &renderpassCreate, const DepthStencil &depthStencil, const VkFormat &surfaceFormat);
+		Renderpass(const RenderpassCreate &renderpassCreate, const DepthStencil &depthStencil, const VkFormat &surfaceFormat, const VkSampleCountFlagBits &samples = VK_SAMPLE_COUNT_1_BIT);
 
 		~Renderpass();
 
-		VkRenderPass GetVkRenderpass() const { return m_renderPass; }
+		VkRenderPass GetRenderpass() const { return m_renderPass; }
 	};
 }

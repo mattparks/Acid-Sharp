@@ -3,9 +3,9 @@
 #include "Maths/Vector3.hpp"
 #include "Post/IPostFilter.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT FilterLensflare :
+	class ACID_EXPORT FilterLensflare :
 		public IPostFilter
 	{
 	private:

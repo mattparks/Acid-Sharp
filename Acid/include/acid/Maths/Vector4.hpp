@@ -5,7 +5,7 @@
 #include "Engine/Exports.hpp"
 #include "Files/LoadedValue.hpp"
 
-namespace fl
+namespace acid
 {
 	class Colour;
 
@@ -14,24 +14,19 @@ namespace fl
 	/// <summary>
 	/// Holds a 4-tuple vector.
 	/// </summary>
-	class FL_EXPORT Vector4
+	class ACID_EXPORT Vector4
 	{
 	public:
 		union
 		{
 			struct
 			{
-				float m_x, m_y, m_z, m_w;
-			};
-
-			struct
-			{
-				float m_r, m_g, m_b, m_a;
-			};
-
-			struct
-			{
 				float m_elements[4];
+			};
+
+			struct
+			{
+				float m_x, m_y, m_z, m_w;
 			};
 		};
 
@@ -238,31 +233,35 @@ namespace fl
 
 		bool operator!=(const float &value) const;
 
-		Vector4 operator-();
+		Vector4 operator-() const;
 
-		FL_EXPORT friend Vector4 operator+(Vector4 left, const Vector4 &right);
+		const float &operator[](const uint32_t &index) const;
 
-		FL_EXPORT friend Vector4 operator-(Vector4 left, const Vector4 &right);
+		float &operator[](const uint32_t &index);
 
-		FL_EXPORT friend Vector4 operator*(Vector4 left, const Vector4 &right);
+		ACID_EXPORT friend Vector4 operator+(const Vector4 &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator/(Vector4 left, const Vector4 &right);
+		ACID_EXPORT friend Vector4 operator-(const Vector4 &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator+(Vector4 left, float value);
+		ACID_EXPORT friend Vector4 operator*(const Vector4 &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator-(Vector4 left, float value);
+		ACID_EXPORT friend Vector4 operator/(const Vector4 &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator*(Vector4 left, float value);
+		ACID_EXPORT friend Vector4 operator+(const float &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator/(Vector4 left, float value);
+		ACID_EXPORT friend Vector4 operator-(const float &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator+(float value, Vector4 left);
+		ACID_EXPORT friend Vector4 operator*(const float &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator-(float value, Vector4 left);
+		ACID_EXPORT friend Vector4 operator/(const float &left, const Vector4 &right);
 
-		FL_EXPORT friend Vector4 operator*(float value, Vector4 left);
+		ACID_EXPORT friend Vector4 operator+(const Vector4 &left, const float &right);
 
-		FL_EXPORT friend Vector4 operator/(float value, Vector4 left);
+		ACID_EXPORT friend Vector4 operator-(const Vector4 &left, const float &right);
+
+		ACID_EXPORT friend Vector4 operator*(const Vector4 &left, const float &right);
+
+		ACID_EXPORT friend Vector4 operator/(const Vector4 &left, const float &right);
 
 		Vector4 &operator+=(const Vector4 &other);
 
@@ -272,15 +271,15 @@ namespace fl
 
 		Vector4 &operator/=(const Vector4 &other);
 
-		Vector4 &operator+=(float value);
+		Vector4 &operator+=(const float &other);
 
-		Vector4 &operator-=(float value);
+		Vector4 &operator-=(const float &other);
 
-		Vector4 &operator*=(float value);
+		Vector4 &operator*=(const float &other);
 
-		Vector4 &operator/=(float value);
+		Vector4 &operator/=(const float &other);
 
-		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Vector4 &vector);
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Vector4 &vector);
 
 		std::string ToString() const;
 	};

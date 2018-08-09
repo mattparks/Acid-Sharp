@@ -3,9 +3,9 @@
 #include "Animations/Joint/Joint.hpp"
 #include "Files/LoadedValue.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT SkeletonLoader
+	class ACID_EXPORT SkeletonLoader
 	{
 	private:
 		LoadedValue *m_armatureData;
@@ -28,7 +28,5 @@ namespace fl
 		JointData *ExtractMainJointData(LoadedValue *jointNode, const bool &isRoot);
 
 		int GetBoneIndex(const std::string &name);
-
-		Matrix4 ConvertData(const std::vector<std::string> &rawData);
 	};
 }

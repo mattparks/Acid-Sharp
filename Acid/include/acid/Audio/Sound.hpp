@@ -2,19 +2,19 @@
 
 #include <string>
 #include "Maths/Vector3.hpp"
-#include "Audio.hpp"
 #include "SoundBuffer.hpp"
+#include "Audio.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Class that represents a loaded sound.
 	/// </summary>
-	class FL_EXPORT Sound
+	class ACID_EXPORT Sound
 	{
 	private:
 		std::shared_ptr<SoundBuffer> m_soundBuffer;
-		unsigned int m_source;
+		ALuint m_source;
 
 		bool m_playing;
 		float m_gain;

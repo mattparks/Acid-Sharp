@@ -1,20 +1,42 @@
 #pragma once
 
-#include "Engine/Engine.hpp"
+#include <array>
 #include "Display/Display.hpp"
+#include "Engine/Engine.hpp"
 
-namespace fl
+namespace acid
 {
+	enum MouseButton
+	{
+		MOUSE_BUTTON_1 = 0,
+		MOUSE_BUTTON_2 = 1,
+		MOUSE_BUTTON_3 = 2,
+		MOUSE_BUTTON_4 = 3,
+		MOUSE_BUTTON_5 = 4,
+		MOUSE_BUTTON_6 = 5,
+		MOUSE_BUTTON_7 = 6,
+		MOUSE_BUTTON_8 = 7,
+		MOUSE_BUTTON_LEFT = 0,
+		MOUSE_BUTTON_RIGHT = 1,
+		MOUSE_BUTTON_MIDDLE = 2,
+		MOUSE_BUTTON_BEGIN_RANGE = MOUSE_BUTTON_1,
+		MOUSE_BUTTON_END_RANGE = MOUSE_BUTTON_8,
+		MOUSE_BUTTON_RANGE_SIZE = (MOUSE_BUTTON_8 - MOUSE_BUTTON_1 + 1),
+		MOUSE_BUTTON_MAX_ENUM = 0x7FFFFFFF
+	};
+
 	/// <summary>
 	/// A module used for the creation, updating and destruction of the mouse.
 	/// </summary>
-	class FL_EXPORT Mouse :
+	class ACID_EXPORT Mouse :
 		public IModule
 	{
 	private:
 		std::string m_mousePath;
 
-		std::array<WsiAction, WSI_MOUSE_BUTTON_END_RANGE> m_mouseButtons;
+		std::array<bool, MOUSE_BUTTON_END_RANGE> m_mouseButtons;
+		float m_lastMousePositionX;
+		float m_lastMousePositionY;
 		float m_mousePositionX;
 		float m_mousePositionY;
 		float m_mouseDeltaX;
@@ -22,15 +44,16 @@ namespace fl
 		float m_mouseDeltaWheel;
 		bool m_displaySelected;
 
+		bool m_lastCursorDisabled;
 		bool m_cursorDisabled;
 
-		friend void CallbackCursorPosition(WsiShell shell, float x, float y, float dx, float dy);
+		friend void CallbackScroll(GLFWwindow *window, double xoffset, double yoffset);
 
-		friend void CallbackCursorEnter(WsiShell shell, VkBool32 entered);
+		friend void CallbackMouseButton(GLFWwindow *window, int button, int action, int mods);
 
-		friend void CallbackScroll(WsiShell shell, float x, float y);
+		friend void CallbackCursorPos(GLFWwindow *window, double xpos, double ypos);
 
-		friend void CallbackMouseButton(WsiShell shell, WsiMouseButton mouseButton, WsiAction action);
+		friend void CallbackCursorEnter(GLFWwindow *window, int entered);
 
 	public:
 		/// <summary>
@@ -78,7 +101,7 @@ namespace fl
 		/// </summary>
 		/// <param name="mouseButton"> The mouse button to test. </param>
 		/// <returns> If the mouse button is currently pressed. </returns>
-		bool GetButton(const WsiMouseButton &mouseButton) const;
+		bool GetButton(const MouseButton &mouseButton) const;
 
 		/// <summary>
 		/// Gets the mouses screen x position.

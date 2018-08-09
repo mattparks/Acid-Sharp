@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Maths/Matrix4.hpp"
 #include "JointData.hpp"
+#include "Maths/Matrix4.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a joint in a "skeleton".
@@ -24,10 +24,10 @@ namespace fl
 	/// The inverseBindTransform is that bind transform in model-space, but inversed.
 	/// </para>
 	/// </summary>
-	class FL_EXPORT Joint
+	class ACID_EXPORT Joint
 	{
 	private:
-		int m_index;
+		uint32_t m_index;
 		std::string m_name;
 		std::vector<Joint *> m_children;
 
@@ -41,7 +41,7 @@ namespace fl
 		/// <param name="index"> The joint's index (ID). </param>
 		/// <param name="name"> The name of the joint. This is how the joint is named in the collada file, and so is used to identify which joint a joint transform in an animation keyframe refers to. </param>
 		/// <param name="bindLocalTransform"> The bone-space transform of the joint in the bind position. </param>
-		Joint(const int &index, const std::string &name, const Matrix4 &bindLocalTransform);
+		Joint(const uint32_t &index, const std::string &name, const Matrix4 &bindLocalTransform);
 
 		~Joint();
 
@@ -61,9 +61,9 @@ namespace fl
 		/// <param name="parentBindTransform"> The model-space bind transform of the parent joint. </param>
 		void CalculateInverseBindTransform(const Matrix4 &parentBindTransform);
 
-		int GetIndex() const { return m_index; }
+		uint32_t GetIndex() const { return m_index; }
 
-		void SetIndex(const int &index) { m_index = index; }
+		void SetIndex(const uint32_t &index) { m_index = index; }
 
 		const std::string &GetName() const { return m_name; }
 

@@ -1,17 +1,20 @@
 #pragma once
 
+#ifdef ACID_BUILD_MACOS
+#include <OpenAL/al.h>
+#include <OpenAL/alc.h>
+#else
+#include <AL/al.h>
+#include <AL/alc.h>
+#endif
 #include "Engine/Engine.hpp"
 
-typedef struct ALCdevice_struct ALCdevice;
-
-typedef struct ALCcontext_struct ALCcontext;
-
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A module used for loading, managing and playing a variety of different sound types.
 	/// </summary>
-	class FL_EXPORT Audio :
+	class ACID_EXPORT Audio :
 		public IModule
 	{
 	private:
@@ -39,12 +42,12 @@ namespace fl
 
 		void Update() override;
 
-		FL_HIDDEN static std::string StringifyResultAl(const int &result);
+		static std::string StringifyResultAl(const int &result);
 
-		FL_HIDDEN static void ErrorAl(const int &result);
+		static void CheckAl(const int &result);
 
-		FL_HIDDEN ALCdevice *GetAlcDevice() const { return m_alDevice; }
+		ALCdevice *GetDevice() const { return m_alDevice; }
 
-		FL_HIDDEN ALCcontext *GetAlcContext() const { return m_alContext; }
+		ALCcontext *GetContext() const { return m_alContext; }
 	};
 }

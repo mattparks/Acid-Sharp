@@ -1,18 +1,18 @@
 #pragma once
 
-#include <string>
 #include <cstring>
+#include <string>
 #include <vector>
 #include <vulkan/vulkan.h>
-#include <VWSI/vulkan_wsi.h>
+#include <GLFW/glfw3.h>
 #include "Engine/Engine.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A module used for the creation, updating and destruction of the display.
 	/// </summary>
-	class FL_EXPORT Display :
+	class ACID_EXPORT Display :
 		public IModule
 	{
 	private:
@@ -36,7 +36,7 @@ namespace fl
 
 		bool m_validationLayers;
 
-		WsiShell m_shell;
+		GLFWwindow *m_window;
 
 		std::vector<const char *> m_instanceLayerList;
 		std::vector<const char *> m_instanceExtensionList;
@@ -44,27 +44,39 @@ namespace fl
 
 		VkDebugReportCallbackEXT m_debugReportCallback;
 
-		VkAllocationCallbacks *m_allocator;
 		VkInstance m_instance;
 		VkSurfaceKHR m_surface;
 		VkSurfaceCapabilitiesKHR m_surfaceCapabilities;
 		VkSurfaceFormatKHR m_surfaceFormat;
 		VkDevice m_logicalDevice;
-		VkQueue m_queue;
+
+		VkSampleCountFlagBits m_msaaSamples;
 
 		VkPhysicalDevice m_physicalDevice;
 		VkPhysicalDeviceProperties m_physicalDeviceProperties;
 		VkPhysicalDeviceFeatures m_physicalDeviceFeatures;
 		VkPhysicalDeviceMemoryProperties m_physicalDeviceMemoryProperties;
-		uint32_t m_graphicsFamilyIndex;
 
-		friend void CallbackPosition(WsiShell shell, uint32_t x, uint32_t y);
+		uint32_t m_graphicsFamily;
+		uint32_t m_presentFamily;
+		uint32_t m_computeFamily;
+		VkQueue m_graphicsQueue;
+		VkQueue m_presentQueue;
+		VkQueue m_computeQueue;
 
-		friend void CallbackSize(WsiShell shell, uint32_t width, uint32_t height, VkBool32 iconified, VkBool32 fullscreen);
+		friend void CallbackError(int error, const char *description);
 
-		friend void CallbackFocus(WsiShell shell, VkBool32 focused);
+		friend void CallbackClose(GLFWwindow *window);
 
-		friend void CallbackClose(WsiShell shell);
+		friend void CallbackFocus(GLFWwindow *window, int focused);
+
+		friend void CallbackPosition(GLFWwindow *window, int xpos, int ypos);
+
+		friend void CallbackSize(GLFWwindow *window, int width, int height);
+
+		friend void CallbackFrame(GLFWwindow *window, int width, int height);
+
+		friend void CallbackIconify(GLFWwindow *window, int iconified);
 
 		friend VKAPI_ATTR VkBool32 VKAPI_CALL CallbackDebug(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objectType, uint64_t object, size_t location, int32_t messageCode, const char *pLayerPrefix, const char *pMessage, void *pUserData);
 
@@ -93,6 +105,8 @@ namespace fl
 		~Display();
 
 		void Update() override;
+
+		uint32_t FindMemoryTypeIndex(const VkPhysicalDeviceMemoryProperties *deviceMemoryProperties, const VkMemoryRequirements *memoryRequirements, const VkMemoryPropertyFlags &requiredProperties);
 
 		/// <summary>
 		/// Gets the width of the display in pixels.
@@ -191,9 +205,13 @@ namespace fl
 		/// <param name="fullscreen"> Weather or not to be fullscreen. </param>
 		void SetFullscreen(const bool &fullscreen);
 
+		static std::string StringifyResultGlfw(const int &result);
+
+		static void CheckGlfw(const int &result);
+
 		static std::string StringifyResultVk(const VkResult &result);
 
-		static void ErrorVk(const VkResult &result);
+		static void CheckVk(const VkResult &result);
 
 		/// <summary>
 		/// Gets if the display is closed.
@@ -225,33 +243,41 @@ namespace fl
 		/// <returns> If the window is minimized. </returns>
 		bool IsIconified() const { return m_iconified; }
 
-		WsiShell GetWsiShell() const { return m_shell; }
+		GLFWwindow *GetWindow() const { return m_window; }
 
-		VkAllocationCallbacks *GetVkAllocator() const { return m_allocator; }
+		VkInstance GetInstance() const { return m_instance; }
 
-		VkInstance GetVkInstance() const { return m_instance; }
+		VkSurfaceKHR GetSurface() const { return m_surface; }
 
-		VkSurfaceKHR GetVkSurface() const { return m_surface; }
+		VkSurfaceCapabilitiesKHR GetSurfaceCapabilities() const { return m_surfaceCapabilities; }
 
-		VkSurfaceCapabilitiesKHR GetVkSurfaceCapabilities() const { return m_surfaceCapabilities; }
+		VkSurfaceFormatKHR GetSurfaceFormat() const { return m_surfaceFormat; }
 
-		VkSurfaceFormatKHR GetVkSurfaceFormat() const { return m_surfaceFormat; }
+		VkDevice GetLogicalDevice() const { return m_logicalDevice; }
 
-		VkDevice GetVkLogicalDevice() const { return m_logicalDevice; }
+		VkSampleCountFlagBits GetMsaaSamples() const { return m_msaaSamples; }
 
-		VkQueue GetVkQueue() const { return m_queue; }
+		VkPhysicalDevice GetPhysicalDevice() const { return m_physicalDevice; }
 
-		VkPhysicalDevice GetVkPhysicalDevice() const { return m_physicalDevice; }
+		VkPhysicalDeviceProperties GetPhysicalDeviceProperties() const { return m_physicalDeviceProperties; }
 
-		VkPhysicalDeviceProperties GetVkPhysicalDeviceProperties() const { return m_physicalDeviceProperties; }
+		VkPhysicalDeviceFeatures GetPhysicalDeviceFeatures() const { return m_physicalDeviceFeatures; }
 
-		VkPhysicalDeviceFeatures GetVkPhysicalDeviceFeatures() const { return m_physicalDeviceFeatures; }
+		VkPhysicalDeviceMemoryProperties GetPhysicalDeviceMemoryProperties() const { return m_physicalDeviceMemoryProperties; }
 
-		VkPhysicalDeviceMemoryProperties GetVkPhysicalDeviceMemoryProperties() const { return m_physicalDeviceMemoryProperties; }
+		VkQueue GetGraphicsQueue() const { return m_graphicsQueue; }
 
-		uint32_t GetVkGraphicsFamilyIndex() const { return m_graphicsFamilyIndex; }
+		VkQueue GetPresentQueue() const { return m_presentQueue; }
+
+		VkQueue GetComputeQueue() const { return m_computeQueue; }
+
+		uint32_t GetGraphicsFamily() const { return m_graphicsFamily; }
+
+		uint32_t GetPresentFamily() const { return m_presentFamily; }
+
+		uint32_t GetComputeFamily() const { return m_computeFamily; }
 	private:
-		void CreateWsi();
+		void CreateGlfw();
 
 		void SetupLayers();
 
@@ -267,9 +293,13 @@ namespace fl
 
 		int ScorePhysicalDevice(const VkPhysicalDevice &device);
 
-		void CreateLogicalDevice();
+		VkSampleCountFlagBits GetMaxUsableSampleCount();
 
 		void CreateSurface();
+
+		void CreateQueueIndices();
+
+		void CreateLogicalDevice();
 
 		static void LogVulkanDevice(const VkPhysicalDeviceProperties &physicalDeviceProperties, const VkPhysicalDeviceFeatures &physicalDeviceFeatures, const VkPhysicalDeviceMemoryProperties &physicalDeviceMemoryProperties);
 

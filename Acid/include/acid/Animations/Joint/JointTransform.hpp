@@ -1,10 +1,10 @@
 #pragma once
 
-#include "Maths/Vector3.hpp"
 #include "Maths/Quaternion.hpp"
+#include "Maths/Vector3.hpp"
 #include "JointTransformData.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents the local bone-space transform of a joint at a certain keyframe during an animation.
@@ -12,7 +12,7 @@ namespace fl
 	/// The transform is stored as a position vector and a quaternion (rotation) so that these values can  be easily interpolated,
 	/// a functionality that this class also provides.
 	/// </summary>
-	class FL_EXPORT JointTransform
+	class ACID_EXPORT JointTransform
 	{
 	private:
 		Vector3 m_position;

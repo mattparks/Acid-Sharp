@@ -5,15 +5,15 @@
 #include "Renderer/Pipelines/ShaderProgram.hpp"
 #include "UniformHandler.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Class that handles a descriptor set.
 	/// </summary>
-	class FL_EXPORT DescriptorsHandler
+	class ACID_EXPORT DescriptorsHandler
 	{
 	private:
-		ShaderProgram *m_shaderProgram;
+		std::shared_ptr<ShaderProgram> m_shaderProgram;
 		DescriptorSet *m_descriptorSet;
 		std::vector<IDescriptor *> m_descriptors;
 		bool m_changed;

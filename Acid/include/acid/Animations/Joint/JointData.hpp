@@ -4,22 +4,22 @@
 #include <vector>
 #include "Maths/Matrix4.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT JointData
+	class ACID_EXPORT JointData
 	{
 	private:
-		int m_index;
+		uint32_t m_index;
 		std::string m_nameId;
 		Matrix4 m_bindLocalTransform;
 
 		std::vector<JointData *> m_children;
 	public:
-		JointData(const int &index, const std::string &nameId, const Matrix4 &bindLocalTransform);
+		JointData(const uint32_t &index, const std::string &nameId, const Matrix4 &bindLocalTransform);
 
 		~JointData();
 
-		int GetIndex() const { return m_index; }
+		uint32_t GetIndex() const { return m_index; }
 
 		std::string GetNameId() const { return m_nameId; }
 

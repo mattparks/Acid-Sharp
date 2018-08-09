@@ -3,9 +3,9 @@
 #include <string>
 #include "Maths/Matrix4.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT JointTransformData
+	class ACID_EXPORT JointTransformData
 	{
 	private:
 		std::string m_jointNameId;

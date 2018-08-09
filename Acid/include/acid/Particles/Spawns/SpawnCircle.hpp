@@ -2,9 +2,9 @@
 
 #include "ISpawnParticle.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT SpawnCircle :
+	class ACID_EXPORT SpawnCircle :
 		public ISpawnParticle
 	{
 	private:

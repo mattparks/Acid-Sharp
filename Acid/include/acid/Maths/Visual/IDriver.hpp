@@ -2,12 +2,12 @@
 
 #include "Maths/Maths.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a driver that changes over time.
 	/// </summary>
-	class FL_EXPORT IDriver
+	class ACID_EXPORT IDriver
 	{
 	private:
 		float m_length;

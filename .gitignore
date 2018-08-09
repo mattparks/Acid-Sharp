@@ -6,8 +6,10 @@ AcidSharp/bin/*
 AcidSharp/obj/*
 AcidSharp.CLI/bin/*
 AcidSharp.CLI/obj/*
-AcidSharp.Tests/bin/*
-AcidSharp.Tests/obj/*
+AcidSharp.Test1/bin/*
+AcidSharp.Test1/obj/*
+AcidSharp.Test2/bin/*
+AcidSharp.Test2/obj/*
 Std-symbols/bin/*
 Std-symbols/obj/*
 packages/*

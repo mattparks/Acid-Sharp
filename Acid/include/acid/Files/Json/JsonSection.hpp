@@ -1,34 +1,32 @@
 #pragma once
 
-#include <string>
 #include <memory>
+#include <string>
 #include <utility>
 #include <vector>
-#include "Helpers/FormatString.hpp"
 #include "Files/LoadedValue.hpp"
+#include "Helpers/FormatString.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT JsonSection
+	class ACID_EXPORT JsonSection
 	{
 	private:
-		std::shared_ptr<JsonSection> m_parent;
-		std::vector<std::shared_ptr<JsonSection>> m_children;
+		JsonSection *m_parent;
+		std::vector<JsonSection *> m_children;
 
 		std::string m_name;
 		std::string m_content;
 	public:
-		JsonSection(std::shared_ptr<JsonSection> parent, const std::string &name, const std::string &content);
+		JsonSection(JsonSection *parent, const std::string &name, const std::string &content);
 
 		~JsonSection();
 
-		std::shared_ptr<JsonSection> GetParent() const { return m_parent; }
+		JsonSection *GetParent() const { return m_parent; }
 
-		std::vector<std::shared_ptr<JsonSection>> GetChildren() const { return m_children; }
+		std::vector<JsonSection *> GetChildren() const { return m_children; }
 
-		void AddChild(std::shared_ptr<JsonSection> child) { m_children.emplace_back(child); }
-
-		void Clear();
+		void AddChild(JsonSection * child) { m_children.emplace_back(child); }
 
 		std::string GetName() const { return m_name; }
 
@@ -38,8 +36,8 @@ namespace fl
 
 		void SetContent(const std::string &content) { m_content = content; }
 
-		static void AppendData(LoadedValue * loadedValue, std::string &data, const int &indentation, const bool &end = false);
+		static void AppendData(LoadedValue *loadedValue, std::stringstream &builder, const int &indentation, const bool &end = false);
 
-		static LoadedValue * Convert(const JsonSection &source, LoadedValue * parent, const bool &isTopSection);
+		static LoadedValue *Convert(const JsonSection &source, LoadedValue *parent, const bool &isTopSection);
 	};
 }

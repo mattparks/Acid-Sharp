@@ -5,15 +5,23 @@ namespace AcidSharp.Tests
 {
     class Scene1 : IScene
     {
-		private IButton _buttonFullscreen;
+        private static readonly Colour _primaryColour = new Colour("#e74c3c");
+        private static readonly float _slideTime = 0.2f;
+
+        private IButton _buttonFullscreen;
 		private IButton _buttonScreenshot;
 		private IButton _buttonExit;
+        private UiStartLogo _uiStartLogo;
+        private SelectorJoystick _selectorJoystick;
 
-		public Scene1() : base(new MainCamera(), new ManagerUis())
+		public Scene1() : base(new MainCamera())
 		{
 			_buttonFullscreen = new ButtonKeyboard({ Key.KeyF11});
 			_buttonScreenshot = new ButtonKeyboard({ Key.KeyF12 });
 			_buttonExit = new ButtonKeyboard({ Key.KeyDelete });
+
+		    _uiStartLogo = new UiStartLogo(Uis.Get().Container);
+		    _selectorJoystick = new SelectorJoystick(JoystickPort.Joystick1, 0, 1, 0, 1);
         }
 
 		public override void Start()
@@ -39,13 +47,23 @@ namespace AcidSharp.Tests
 			if (_buttonScreenshot.WasDown())
 			{
 				var filename = "Screenshots/" + Engine.Get().DateTime + ".png";
-				Screenshot.Capture(filename);
+				Renderer.Get().CaptureScreenshot(filename);
 			}
 
 			if (_buttonExit.WasDown())
 			{
 				Engine.Get().RequestClose(false);
 			}
-		}
+
+		    if (_uiStartLogo.Alpha == 0.0f && _uiStartLogo.IsStarting)
+		    {
+		        _uiStartLogo.SetAlphaDriver(new DriverConstant(0.0f));
+		        _uiStartLogo.SetStarting(false);
+		    }
+        }
+
+        public override bool IsGamePaused => _uiStartLogo.IsStarting;
+        public override Colour UiColour => _primaryColour;
+        public override SelectorJoystick SelectorJoystick => _selectorJoystick;
     }
 }

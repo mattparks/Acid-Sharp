@@ -4,31 +4,19 @@
 #include <string>
 #include "Vector2.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
-	/// Holds a 2x2 matrix.
+	/// Holds a row major 2x2 matrix.
 	/// </summary>
-	class FL_EXPORT Matrix2
+	class ACID_EXPORT Matrix2
 	{
 	public:
 		union
 		{
 			struct
 			{
-				Vector2 *m_0;
-				Vector2 *m_1;
-			};
-
-			struct
-			{
-				float m_00, m_01;
-				float m_10, m_11;
-			};
-
-			struct
-			{
-				float m_elements[2][2];
+				Vector2 m_rows[2];
 			};
 
 			struct
@@ -43,7 +31,8 @@ namespace fl
 		/// <summary>
 		/// Constructor for Matrix2. The matrix is initialised to the identity.
 		/// </summary>
-		Matrix2();
+		/// <param name="diagonal"> The value set to the diagonals. </param>
+		Matrix2(const float &diagonal = 1.0f);
 
 		/// <summary>
 		/// Constructor for Matrix2.
@@ -56,6 +45,12 @@ namespace fl
 		/// </summary>
 		/// <param name="source"> Creates this matrix out of a 4 element array. </param>
 		Matrix2(const float source[4]);
+
+		/// <summary>
+		/// Constructor for Matrix2.
+		/// </summary>
+		/// <param name="source"> Creates this matrix out of a 2 vector array. </param>
+		Matrix2(const Vector2 source[2]);
 
 		/// <summary>
 		/// Deconstructor for Matrix2.
@@ -129,16 +124,10 @@ namespace fl
 		float Determinant() const;
 
 		/// <summary>
-		/// Sets this matrix to 0.
+		/// Gets the submatrix of this matrix.
 		/// </summary>
-		/// <returns> The identity matrix. </returns>
-		Matrix2 SetZero();
-
-		/// <summary>
-		/// Sets this matrix to be the identity matrix.
-		/// </summary>
-		/// <returns> The identity matrix. </returns>
-		Matrix2 SetIdentity();
+		/// <returns> The submatrix. </returns>
+		float GetSubmatrix(const int &row, const int &col) const;
 
 		/// <summary>
 		/// Saves this matrix into a loaded value.
@@ -156,27 +145,35 @@ namespace fl
 
 		bool operator!=(const Matrix2 &other) const;
 
-		Matrix2 operator-();
+		Matrix2 operator-() const;
 
-		FL_EXPORT friend Matrix2 operator+(Matrix2 left, const Matrix2 &right);
+		const Vector2 &operator[](const uint32_t &index) const;
 
-		FL_EXPORT friend Matrix2 operator-(Matrix2 left, const Matrix2 &right);
+		Vector2 &operator[](const uint32_t &index);
 
-		FL_EXPORT friend Matrix2 operator*(Matrix2 left, const Matrix2 &right);
+		ACID_EXPORT friend Matrix2 operator+(const Matrix2 &left, const Matrix2 &right);
 
-		FL_EXPORT friend Matrix2 operator/(Matrix2 left, const Matrix2 &right);
+		ACID_EXPORT friend Matrix2 operator-(const Matrix2 &left, const Matrix2 &right);
 
-		FL_EXPORT friend Matrix2 operator*(Matrix2 left, Vector2 value);
+		ACID_EXPORT friend Matrix2 operator*(const Matrix2 &left, const Matrix2 &right);
 
-		FL_EXPORT friend Matrix2 operator/(Matrix2 left, Vector2 value);
+		ACID_EXPORT friend Matrix2 operator/(const Matrix2 &left, const Matrix2 &right);
 
-		FL_EXPORT friend Matrix2 operator*(Matrix2 left, float value);
+		ACID_EXPORT friend Matrix2 operator*(const Vector2 &left, const Matrix2 &right);
 
-		FL_EXPORT friend Matrix2 operator/(Matrix2 left, float value);
+		ACID_EXPORT friend Matrix2 operator/(const Vector2 &left, const Matrix2 &right);
 
-		FL_EXPORT friend Matrix2 operator*(float value, Matrix2 left);
+		ACID_EXPORT friend Matrix2 operator*(const Matrix2 &left, const Vector2 &right);
 
-		FL_EXPORT friend Matrix2 operator/(float value, Matrix2 left);
+		ACID_EXPORT friend Matrix2 operator/(const Matrix2 &left, const Vector2 &right);
+
+		ACID_EXPORT friend Matrix2 operator*(const float &left, const Matrix2 &right);
+
+		ACID_EXPORT friend Matrix2 operator/(const float &left, const Matrix2 &right);
+
+		ACID_EXPORT friend Matrix2 operator*(const Matrix2 &left, const float &right);
+
+		ACID_EXPORT friend Matrix2 operator/(const Matrix2 &left, const float &right);
 
 		Matrix2 &operator+=(const Matrix2 &other);
 
@@ -186,7 +183,15 @@ namespace fl
 
 		Matrix2 &operator/=(const Matrix2 &other);
 
-		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Matrix2 &matrix);
+		Matrix2 &operator*=(const Vector2 &other);
+
+		Matrix2 &operator/=(const Vector2 &other);
+
+		Matrix2 &operator*=(const float &other);
+
+		Matrix2 &operator/=(const float &other);
+
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Matrix2 &matrix);
 
 		std::string ToString() const;
 	};

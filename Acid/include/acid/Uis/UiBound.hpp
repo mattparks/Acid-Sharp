@@ -3,12 +3,12 @@
 #include <map>
 #include "Maths/Vector2.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A rectangle made of a position and dimension.
 	/// </summary>
-	class FL_EXPORT UiBound
+	class ACID_EXPORT UiBound
 	{
 	public:
 		Vector2 m_position;

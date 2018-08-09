@@ -2,12 +2,12 @@
 
 #include "FontWord.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a line of text during the loading of a text.
 	/// </summary>
-	class FL_EXPORT FontLine
+	class ACID_EXPORT FontLine
 	{
 	private:
 		double m_maxLength;

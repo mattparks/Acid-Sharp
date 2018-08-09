@@ -1,10 +1,12 @@
 #pragma once
 
+#include <memory>
+#include "Renderer/Commands/CommandBuffer.hpp"
 #include "ShaderProgram.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT IPipeline
+	class ACID_EXPORT IPipeline
 	{
 	public:
 		IPipeline()
@@ -15,14 +17,22 @@ namespace fl
 		{
 		}
 
-		virtual ShaderProgram *GetShaderProgram() const = 0;
+		void BindPipeline(const CommandBuffer &commandBuffer) const
+		{
+		//	vkCmdPushConstants(commandBuffer.GetCommandBuffer(), GetPipelineLayout(), VK_SHADER_STAGE_VERTEX_BIT, 0, sizeof(pushConstants), pushConstants.data());
+			vkCmdBindPipeline(commandBuffer.GetCommandBuffer(), GetPipelineBindPoint(), GetPipeline());
+		}
 
-		virtual VkDescriptorSetLayout GetVkDescriptorSetLayout() const = 0;
+		virtual std::shared_ptr<ShaderProgram> GetShaderProgram() const = 0;
 
-		virtual VkDescriptorPool GetVkDescriptorPool() const = 0;
+		virtual VkDescriptorSetLayout GetDescriptorSetLayout() const = 0;
 
-		virtual VkPipeline GetVkPipeline() const = 0;
+		virtual VkDescriptorPool GetDescriptorPool() const = 0;
 
-		virtual VkPipelineLayout GetVkPipelineLayout() const = 0;
+		virtual VkPipeline GetPipeline() const = 0;
+
+		virtual VkPipelineLayout GetPipelineLayout() const = 0;
+
+		virtual VkPipelineBindPoint GetPipelineBindPoint() const = 0;
 	};
 }

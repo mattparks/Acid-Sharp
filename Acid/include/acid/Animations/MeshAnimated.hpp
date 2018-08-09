@@ -3,16 +3,17 @@
 #include "Maths/Maths.hpp"
 #include "Maths/Matrix4.hpp"
 #include "Meshes/Mesh.hpp"
+#include "Objects/IComponent.hpp"
 #include "Animation/AnimationLoader.hpp"
 #include "Geometry/GeometryLoader.hpp"
-#include "Objects/IComponent.hpp"
+#include "Geometry/VertexAnimated.hpp"
 #include "Skeleton/SkeletonLoader.hpp"
 #include "Skin/SkinLoader.hpp"
 #include "Animator.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT MeshAnimated :
+	class ACID_EXPORT MeshAnimated :
 		public Mesh
 	{
 	private:
@@ -39,9 +40,9 @@ namespace fl
 
 		void Write(LoadedValue *destination) override;
 
-		std::string GetName() const override { return "MeshAnimated"; };
-
 		std::shared_ptr<Model> GetModel() const override { return m_model; }
+
+		virtual VertexInput GetVertexInput() const { return VertexAnimated::GetVertexInput(); }
 
 		void SetModel(std::shared_ptr<Model> model) override { m_model = model; }
 

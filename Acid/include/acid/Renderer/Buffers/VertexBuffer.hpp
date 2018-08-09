@@ -2,9 +2,9 @@
 
 #include "Buffer.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT VertexBuffer :
+	class ACID_EXPORT VertexBuffer :
 		public Buffer
 	{
 	private:

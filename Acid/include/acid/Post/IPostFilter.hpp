@@ -1,15 +1,16 @@
 #pragma once
 
 #include "Models/Model.hpp"
-#include "Renderer/Pipelines/Pipeline.hpp"
 #include "Renderer/IRenderer.hpp"
+#include "Renderer/Handlers/DescriptorsHandler.hpp"
+#include "Renderer/Pipelines/Pipeline.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a post effect shader and on application saves the result into a fbo.
 	/// </summary>
-	class FL_EXPORT IPostFilter :
+	class ACID_EXPORT IPostFilter :
 		public IRenderer
 	{
 	protected:

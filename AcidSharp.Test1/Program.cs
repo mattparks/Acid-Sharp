@@ -15,7 +15,7 @@ namespace AcidSharp.Tests
             var engine = new Engine
             {
                 Updater = new MainUpdater()
-            );
+            };
 
             var configManager = new ConfigManager();
             Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");

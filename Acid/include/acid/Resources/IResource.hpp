@@ -2,9 +2,9 @@
 
 #include <string>
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT IResource
+	class ACID_EXPORT IResource
 	{
 	private:
 	public:

@@ -1,18 +1,20 @@
 #pragma once
 
-#include <cstdlib>
-#include <cmath>
 #include <algorithm>
+#include <cmath>
+#include <cstdlib>
 #include "Engine/Exports.hpp"
 
-#define PI 3.14159265358979323846f
-
-namespace fl
+namespace acid
 {
+	static const float PI = 3.14159265358979323846264338f;
+	static const float DEG_TO_RAD = PI / 180.0f;
+	static const float RAD_TO_DEG = 360.0f / PI;
+
 	/// <summary>
 	/// A class that holds many various math functions.
 	/// </summary>
-	class FL_EXPORT Maths
+	class ACID_EXPORT Maths
 	{
 	public:
 		/// <summary>
@@ -59,14 +61,14 @@ namespace fl
 		/// </summary>
 		/// <param name="degrees"> The source angle. </param>
 		/// <returns> The normalized angle. </returns>
-		static float NormalizeDegrees(const float &degrees);
+		static float WrapDegrees(const float &degrees);
 
 		/// <summary>
 		/// Normalizes a angle into the range of 0-2PI.
 		/// </summary>
 		/// <param name="radians"> The source angle. </param>
 		/// <returns> The normalized angle. </returns>
-		static float NormalizeRadians(const float &radians);
+		static float WrapRadians(const float &radians);
 
 		/// <summary>
 		/// Rounds a value to a amount of places after the decimal point.

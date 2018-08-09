@@ -5,7 +5,7 @@
 #include "Engine/Exports.hpp"
 #include "Files/LoadedValue.hpp"
 
-namespace fl
+namespace acid
 {
 	class Vector3;
 
@@ -14,19 +14,19 @@ namespace fl
 	/// <summary>
 	/// Holds a RGBA colour.
 	/// </summary>
-	class FL_EXPORT Colour
+	class ACID_EXPORT Colour
 	{
 	public:
 		union
 		{
 			struct
 			{
-				float m_r, m_g, m_b, m_a;
+				float m_elements[4];
 			};
 
 			struct
 			{
-				float m_elements[4];
+				float m_r, m_g, m_b, m_a;
 			};
 		};
 
@@ -165,13 +165,13 @@ namespace fl
 		/// Gets a colour representing the unit value of this colour.
 		/// </summary>
 		/// <returns> The unit colour. </returns>
-		Colour GetUnit();
+		Colour GetUnit() const;
 
 		/// <summary>
 		/// Gets the hex code from this colour.
 		/// </summary>
 		/// <returns> The hex code. </returns>
-		std::string GetHex();
+		std::string GetHex() const;
 
 		/// <summary>
 		/// Saves this vector into a loaded value.
@@ -217,29 +217,33 @@ namespace fl
 
 		bool operator!=(const float &value) const;
 
-		FL_EXPORT friend Colour operator+(Colour left, const Colour &right);
+		const float &operator[](const uint32_t &index) const;
 
-		FL_EXPORT friend Colour operator-(Colour left, const Colour &right);
+		float &operator[](const uint32_t &index);
 
-		FL_EXPORT friend Colour operator*(Colour left, const Colour &right);
+		ACID_EXPORT friend Colour operator+(Colour left, const Colour &right);
 
-		FL_EXPORT friend Colour operator/(Colour left, const Colour &right);
+		ACID_EXPORT friend Colour operator-(Colour left, const Colour &right);
 
-		FL_EXPORT friend Colour operator+(Colour left, float value);
+		ACID_EXPORT friend Colour operator*(Colour left, const Colour &right);
 
-		FL_EXPORT friend Colour operator-(Colour left, float value);
+		ACID_EXPORT friend Colour operator/(Colour left, const Colour &right);
 
-		FL_EXPORT friend Colour operator*(Colour left, float value);
+		ACID_EXPORT friend Colour operator+(Colour left, float value);
 
-		FL_EXPORT friend Colour operator/(Colour left, float value);
+		ACID_EXPORT friend Colour operator-(Colour left, float value);
 
-		FL_EXPORT friend Colour operator+(float value, Colour left);
+		ACID_EXPORT friend Colour operator*(Colour left, float value);
 
-		FL_EXPORT friend Colour operator-(float value, Colour left);
+		ACID_EXPORT friend Colour operator/(Colour left, float value);
 
-		FL_EXPORT friend Colour operator*(float value, Colour left);
+		ACID_EXPORT friend Colour operator+(float value, Colour left);
 
-		FL_EXPORT friend Colour operator/(float value, Colour left);
+		ACID_EXPORT friend Colour operator-(float value, Colour left);
+
+		ACID_EXPORT friend Colour operator*(float value, Colour left);
+
+		ACID_EXPORT friend Colour operator/(float value, Colour left);
 
 		Colour &operator+=(const Colour &other);
 
@@ -257,7 +261,7 @@ namespace fl
 
 		Colour &operator/=(float value);
 
-		FL_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Colour &vector);
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Colour &vector);
 
 		std::string ToString() const;
 	};

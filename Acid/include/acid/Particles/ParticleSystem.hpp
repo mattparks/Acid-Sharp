@@ -2,23 +2,23 @@
 
 #include <vector>
 #include "Maths/Vector3.hpp"
-#include "Objects/IComponent.hpp"
 #include "Objects/GameObject.hpp"
+#include "Objects/IComponent.hpp"
 #include "Spawns/ISpawnParticle.hpp"
 #include "Particle.hpp"
 #include "ParticleType.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A system of particles that are to be spawned.
 	/// </summary>
-	class FL_EXPORT ParticleSystem :
+	class ACID_EXPORT ParticleSystem :
 		public IComponent
 	{
 	private:
 		std::vector<std::shared_ptr<ParticleType>> m_types;
-		ISpawnParticle *m_spawn;
+		std::shared_ptr<ISpawnParticle> m_spawn;
 
 		float m_pps;
 		float m_averageSpeed;
@@ -46,12 +46,14 @@ namespace fl
 		/// <param name="averageSpeed"> Particle average speed. </param>
 		/// <param name="gravityEffect"> How much gravity will effect the particles. </param>
 		/// <param name="systemOffset"> The offset from the parents centre. </param>
-		ParticleSystem(const std::vector<std::shared_ptr<ParticleType>> &types = std::vector<std::shared_ptr<ParticleType>>(), ISpawnParticle *spawn = nullptr, const float &pps = 5.0f, const float &averageSpeed = 0.2f, const float &gravityEffect = 1.0f, const Vector3 &systemOffset = Vector3::ZERO);
+		ParticleSystem(const std::vector<std::shared_ptr<ParticleType>> &types = std::vector<std::shared_ptr<ParticleType>>(), std::shared_ptr<ISpawnParticle> spawn = nullptr, const float &pps = 5.0f, const float &averageSpeed = 0.2f, const float &gravityEffect = 1.0f, const Vector3 &systemOffset = Vector3::ZERO);
 
 		/// <summary>
 		/// Deconstructor for the particle system.
 		/// </summary>
 		~ParticleSystem();
+
+		void Start() override;
 
 		void Update() override;
 
@@ -69,15 +71,13 @@ namespace fl
 		Vector3 GenerateRandomUnitVector() const;
 
 	public:
-		std::string GetName() const override { return "ParticleSystem"; };
-
 		void AddParticleType(std::shared_ptr<ParticleType> type);
 
-		void RemoveParticleType(std::shared_ptr<ParticleType> type);
+		bool RemoveParticleType(std::shared_ptr<ParticleType> type);
 
-		ISpawnParticle *GetSpawn() const { return m_spawn; }
+		std::shared_ptr<ISpawnParticle> GetSpawn() const { return m_spawn; }
 
-		void SetSpawn(ISpawnParticle *spawn);
+		void SetSpawn(std::shared_ptr<ISpawnParticle> spawn) { m_spawn = spawn; }
 
 		float GetPps() const { return m_pps; }
 

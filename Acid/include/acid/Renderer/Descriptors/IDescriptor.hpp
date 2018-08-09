@@ -1,12 +1,11 @@
 #pragma once
 
 #include <string>
-#include "Display/Display.hpp"
 #include "DescriptorSet.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT IDescriptor
+	class ACID_EXPORT IDescriptor
 	{
 	public:
 		IDescriptor()
@@ -17,6 +16,6 @@ namespace fl
 		{
 		}
 
-		virtual VkWriteDescriptorSet GetVkWriteDescriptor(const uint32_t &binding, const DescriptorSet &descriptorSet) const = 0;
+		virtual VkWriteDescriptorSet GetWriteDescriptor(const uint32_t &binding, const DescriptorSet &descriptorSet) const = 0;
 	};
 }

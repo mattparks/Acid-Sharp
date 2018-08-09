@@ -2,9 +2,9 @@
 
 #include "Maths/Timer.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT UiInputDelay
+	class ACID_EXPORT UiInputDelay
 	{
 	private:
 		Timer m_timerDelay;

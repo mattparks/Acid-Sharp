@@ -3,9 +3,9 @@
 #include "Renderer/IRenderer.hpp"
 #include "Renderer/Pipelines/Pipeline.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT RendererGuis :
+	class ACID_EXPORT RendererGuis :
 		public IRenderer
 	{
 	private:

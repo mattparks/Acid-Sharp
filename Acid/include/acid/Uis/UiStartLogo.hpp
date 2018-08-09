@@ -3,9 +3,9 @@
 #include "Fonts/Text.hpp"
 #include "Guis/Gui.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT UiStartLogo :
+	class ACID_EXPORT UiStartLogo :
 		public UiObject
 	{
 	private:

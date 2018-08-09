@@ -4,9 +4,9 @@
 #include "Maths/Vector2.hpp"
 #include "Maths/Vector3.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT IVertex
+	class ACID_EXPORT IVertex
 	{
 	public:
 		IVertex()

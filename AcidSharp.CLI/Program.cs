@@ -16,7 +16,7 @@ namespace AcidSharp.CLI
                 Indent = true
             };
 
-            using (var writer = XmlWriter.Create(@"C:\Users\mattp\Documents\Acid Workspace\AcidSharp\AcidSharp\ExternalDefinitions.xml", settings))
+            using (var writer = XmlWriter.Create(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\AcidSharp\ExternalDefinitions.xml", settings))
             {
                 library.XmlExport.WriteTo(writer);
             }

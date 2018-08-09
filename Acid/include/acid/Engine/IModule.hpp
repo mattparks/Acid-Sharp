@@ -2,7 +2,7 @@
 
 #include "Exports.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents when a module will update in the game loop.
@@ -19,7 +19,7 @@ namespace fl
 	/// <summary>
 	/// A interface used for defining engine modules.
 	/// </summary>
-	class FL_EXPORT IModule
+	class ACID_EXPORT IModule
 	{
 	public:
 		/// <summary>

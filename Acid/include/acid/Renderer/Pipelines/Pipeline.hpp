@@ -4,28 +4,23 @@
 #include <string>
 #include <vector>
 #include "Textures/Texture.hpp"
-#include "Renderer/Buffers/CommandBuffer.hpp"
-#include "Renderer/Handlers/DescriptorsHandler.hpp"
-#include "Renderer/Handlers/UniformHandler.hpp"
-#include "IPipeline.hpp"
 #include "PipelineCreate.hpp"
 #include "ShaderProgram.hpp"
 
-namespace fl
+namespace acid
 {
 	class DepthStencil;
 
 	/// <summary>
 	/// Class that represents a Vulkan pipeline.
 	/// </summary>
-	class FL_EXPORT Pipeline :
+	class ACID_EXPORT Pipeline :
 		public IPipeline
 	{
 	private:
 		GraphicsStage m_graphicsStage;
 		PipelineCreate m_pipelineCreate;
-		std::vector<PipelineDefine> m_defines;
-		ShaderProgram *m_shaderProgram;
+		std::shared_ptr<ShaderProgram> m_shaderProgram;
 
 		std::vector<VkShaderModule> m_modules;
 		std::vector<VkPipelineShaderStageCreateInfo> m_stages;
@@ -44,39 +39,39 @@ namespace fl
 		VkPipelineViewportStateCreateInfo m_viewportState;
 		VkPipelineMultisampleStateCreateInfo m_multisampleState;
 		VkPipelineDynamicStateCreateInfo m_dynamicState;
+		VkPipelineTessellationStateCreateInfo m_tessellationState;
 	public:
 		/// <summary>
 		/// Creates a new pipeline.
 		/// </summary>
 		/// <param name="graphicsStage"> The pipelines graphics stage. </param>
 		/// <param name="pipelineCreate"> The pipelines creation info. </param>
-		/// <param name="defines"> A list of names that will be added as a #define. </param>
-		Pipeline(const GraphicsStage &graphicsStage, const PipelineCreate &pipelineCreate, const std::vector<PipelineDefine> &defines = {});
+		Pipeline(const GraphicsStage &graphicsStage, const PipelineCreate &pipelineCreate);
 
 		/// <summary>
 		/// Deconstructor for the pipeline.
 		/// </summary>
 		~Pipeline();
 
-		void BindPipeline(const CommandBuffer &commandBuffer) const;
-
 		PipelineCreate GetPipelineCreate() const { return m_pipelineCreate; }
 
-		ShaderProgram *GetShaderProgram() const override { return m_shaderProgram; }
+		std::shared_ptr<ShaderProgram> GetShaderProgram() const override { return m_shaderProgram; }
 
 		GraphicsStage GetGraphicsStage() const { return m_graphicsStage; }
 
 		DepthStencil *GetDepthStencil(const int &stage = -1) const;
 
-		Texture *GetTexture(const unsigned int &i, const int &stage = -1) const;
+		Texture *GetTexture(const uint32_t &i, const int &stage = -1) const;
 
-		VkDescriptorSetLayout GetVkDescriptorSetLayout() const override { return m_descriptorSetLayout; }
+		VkDescriptorSetLayout GetDescriptorSetLayout() const override { return m_descriptorSetLayout; }
 
-		VkDescriptorPool GetVkDescriptorPool() const override { return m_descriptorPool; }
+		VkDescriptorPool GetDescriptorPool() const override { return m_descriptorPool; }
 
-		VkPipeline GetVkPipeline() const override { return m_pipeline; }
+		VkPipeline GetPipeline() const override { return m_pipeline; }
 
-		VkPipelineLayout GetVkPipelineLayout() const override { return m_pipelineLayout; }
+		VkPipelineLayout GetPipelineLayout() const override { return m_pipelineLayout; }
+
+		virtual VkPipelineBindPoint GetPipelineBindPoint() const { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
 	private:
 		void CreateShaderProgram();
 

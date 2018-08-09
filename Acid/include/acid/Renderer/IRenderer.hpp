@@ -1,18 +1,17 @@
 #pragma once
 
-#include "Display/Display.hpp"
-#include "Scenes/ICamera.hpp"
+#include "Renderer/Commands/CommandBuffer.hpp"
 #include "Maths/Vector4.hpp"
-#include "Buffers/CommandBuffer.hpp"
 #include "Pipelines/PipelineCreate.hpp"
+#include "Scenes/ICamera.hpp"
 #include "Renderer.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a sub-renderer in the engine.
 	/// </summary>
-	class FL_EXPORT IRenderer
+	class ACID_EXPORT IRenderer
 	{
 	private:
 		GraphicsStage m_graphicsStage;

@@ -3,12 +3,12 @@
 #include "Engine/Exports.hpp"
 #include "Maths/Colour.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// Represents a fog in the world.
 	/// </summary>
-	class FL_EXPORT Fog
+	class ACID_EXPORT Fog
 	{
 	private:
 		Colour m_colour;

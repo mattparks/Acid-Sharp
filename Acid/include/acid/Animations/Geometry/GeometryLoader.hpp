@@ -1,14 +1,14 @@
 #pragma once
 
+#include "Animations/Skin/SkinLoader.hpp"
 #include "Maths/Vector3.hpp"
 #include "Models/Model.hpp"
-#include "Animations/Skin/SkinLoader.hpp"
 #include "VertexAnimated.hpp"
 #include "VertexAnimatedData.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT GeometryLoader
+	class ACID_EXPORT GeometryLoader
 	{
 	private:
 		LoadedValue *m_meshData;

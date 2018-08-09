@@ -1,16 +1,16 @@
 #pragma once
 
-#include <vector>
 #include <map>
+#include <vector>
 #include "Engine/Engine.hpp"
 #include "Particle.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A manager that manages particles.
 	/// </summary>
-	class FL_EXPORT Particles :
+	class ACID_EXPORT Particles :
 		public IModule
 	{
 	private:

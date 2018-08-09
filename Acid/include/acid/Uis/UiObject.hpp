@@ -1,22 +1,22 @@
 ﻿#pragma once
 
-#include <vector>
-#include <memory>
 #include <functional>
+#include <memory>
+#include <vector>
 #include "Maths/Vector2.hpp"
 #include "Maths/Vector3.hpp"
 #include "Maths/Vector4.hpp"
 #include "Maths/Visual/IDriver.hpp"
 #include "UiBound.hpp"
 
-namespace fl
+namespace acid
 {
 	/// <summary>
 	/// A representation of a object this is rendered to a screen. This object is contained in a parent and has children.
 	/// The screen object has a few values that allow for it to be positioned and scaled, along with other variables that are used when rendering.
 	/// This class can be extended to create a representation for GUI textures, fonts, etc.
 	/// </summary>
-	class FL_EXPORT UiObject
+	class ACID_EXPORT UiObject
 	{
 	private:
 		UiObject *m_parent;
@@ -64,7 +64,7 @@ namespace fl
 		/// Disowns a child from this screen objects children list.
 		/// </summary>
 		/// <param name="child"> The child to disown. </param>
-		void RemoveChild(UiObject *child);
+		bool RemoveChild(UiObject *child);
 
 		/// <summary>
 		/// Adds this object and its children to a list.

@@ -1,21 +1,21 @@
 #pragma once
 
-#include <vector>
 #include <memory>
+#include <vector>
 #include "Physics/Frustum.hpp"
 
-namespace fl
+namespace acid
 {
 	class GameObject;
 
 	class IComponent;
 
-	class ICollider;
+	class Collider;
 
 	/// <summary>
-	/// A data structure that stores objects with a notion of flounder.space.
+	/// A data structure that stores objects with a notion of space.
 	/// </summary>
-	class FL_EXPORT ISpatialStructure
+	class ACID_EXPORT ISpatialStructure
 	{
 	public:
 		/// <summary>
@@ -42,7 +42,8 @@ namespace fl
 		/// Removes an object from the spatial structure.
 		/// </summary>
 		/// <param name="object"> The object to remove. </param>
-		virtual void Remove(GameObject *object) = 0;
+		/// <returns> If the object was removed. </returns>
+		virtual bool Remove(GameObject *object) = 0;
 
 		/// <summary>
 		/// Removes all objects from the spatial structure..
@@ -53,7 +54,7 @@ namespace fl
 		/// Gets the size of this structure.
 		/// </summary>
 		/// <returns> The structures size. </returns>
-		virtual unsigned int GetSize() = 0;
+		virtual uint32_t GetSize() = 0;
 
 		/// <summary>
 		/// Returns a set of all objects in the spatial structure.
@@ -84,7 +85,7 @@ namespace fl
 		/// <param name="result"> The list to store the data into.
 		/// </param>
 		/// <returns> The list of all object in range. </returns>
-		virtual std::vector<GameObject *> QueryBounding(ICollider *range) = 0;
+	//	virtual std::vector<GameObject *> QueryBounding(Collider *range) = 0;
 
 		/// <summary>
 		/// If the structure contains the object.

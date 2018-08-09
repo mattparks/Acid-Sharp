@@ -1,14 +1,19 @@
 #pragma once
 
-#include <string>
 #include <map>
+#include <string>
 #include "Engine/Exports.hpp"
+#include "LoadedValue.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT IFile
+	class ACID_EXPORT IFile
 	{
 	public:
+		IFile()
+		{
+		};
+
 		virtual ~IFile()
 		{
 		};
@@ -22,5 +27,11 @@ namespace fl
 		virtual std::map<std::string, std::string> ConfigReadValues() = 0;
 
 		virtual void ConfigPushValue(const std::string &key, const std::string &value) = 0;
+
+		virtual std::string GetFilename() const = 0;
+
+		virtual void SetFilename(const std::string &filename) = 0;
+
+		virtual LoadedValue *GetParent() const = 0;
 	};
 }

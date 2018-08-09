@@ -3,18 +3,18 @@
 #include <string>
 #include <utility>
 #include <vector>
-#include "Helpers/FormatString.hpp"
 #include "Files/IFile.hpp"
+#include "Helpers/FormatString.hpp"
 #include "JsonSection.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT FileJson :
+	class ACID_EXPORT FileJson :
 		public IFile
 	{
 	private:
 		std::string m_filename;
-		LoadedValue * m_parent;
+		LoadedValue *m_parent;
 	public:
 		FileJson(const std::string &filename);
 
@@ -30,9 +30,13 @@ namespace fl
 
 		void ConfigPushValue(const std::string &key, const std::string &value) override;
 
-		LoadedValue * GetParent() const { return m_parent; }
+		std::string GetFilename() const override { return m_filename; }
 
-		LoadedValue * GetChild(const std::string &name) const { return m_parent->GetChild(name); }
+		void SetFilename(const std::string &filename) override { m_filename = filename; }
+
+		LoadedValue *GetParent() const override { return m_parent; }
+
+		LoadedValue *GetChild(const std::string &name) const { return m_parent->GetChild(name); }
 	private:
 		void Verify();
 	};

@@ -1,14 +1,14 @@
 #pragma once
 
-#include "Display/Display.hpp"
+#include <vulkan/vulkan.h>
 #include "Renderpass/Renderpass.hpp"
 #include "Swapchain/DepthStencil.hpp"
-#include "Swapchain/Swapchain.hpp"
 #include "Swapchain/Framebuffers.hpp"
+#include "Swapchain/Swapchain.hpp"
 
-namespace fl
+namespace acid
 {
-	class FL_EXPORT RenderStage
+	class ACID_EXPORT RenderStage
 	{
 	private:
 		uint32_t m_lastWidth;
