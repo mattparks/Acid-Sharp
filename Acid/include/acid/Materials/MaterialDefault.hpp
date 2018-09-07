@@ -15,7 +15,7 @@ namespace acid
 	{
 	private:
 		bool m_animated;
-		Colour m_baseColor;
+		Colour m_baseDiffuse;
 		std::shared_ptr<Texture> m_diffuseTexture;
 
 		float m_metallic;
@@ -29,8 +29,8 @@ namespace acid
 
 		std::shared_ptr<PipelineMaterial> m_material;
 	public:
-		MaterialDefault(const Colour &baseColor = Colour::WHITE, std::shared_ptr<Texture> diffuseTexture = nullptr,
-						const float &metallic = 0.0f, const float &roughness = 0.0f, std::shared_ptr<Texture> materialTexture = nullptr, std::shared_ptr<Texture> normalTexture = nullptr,
+		MaterialDefault(const Colour &baseDiffuse = Colour::WHITE, const std::shared_ptr<Texture> &diffuseTexture = nullptr,
+						const float &metallic = 0.0f, const float &roughness = 0.0f, const std::shared_ptr<Texture> &materialTexture = nullptr, const std::shared_ptr<Texture> &normalTexture = nullptr,
 						const bool &castsShadows = true, const bool &ignoreLighting = false, const bool &ignoreFog = false
 		);
 
@@ -40,9 +40,9 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		void PushUniforms(UniformHandler &uniformObject) override;
 
@@ -50,13 +50,13 @@ namespace acid
 
 		std::vector<PipelineDefine> GetDefines();
 
-		Colour GetBaseColor() const { return m_baseColor; }
+		Colour GetBaseDiffuse() const { return m_baseDiffuse; }
 
-		void SetBaseColor(const Colour &baseColor) { m_baseColor = baseColor; }
+		void SetBaseDiffuse(const Colour &baseDiffuse) { m_baseDiffuse = baseDiffuse; }
 
 		std::shared_ptr<Texture> GetDiffuseTexture() const { return m_diffuseTexture; }
 
-		void SetDiffuseTexture(std::shared_ptr<Texture> diffuseTexture) { m_diffuseTexture = diffuseTexture; }
+		void SetDiffuseTexture(const std::shared_ptr<Texture> &diffuseTexture) { m_diffuseTexture = diffuseTexture; }
 
 		void TrySetDiffuseTexture(const std::string &filename)
 		{
@@ -76,7 +76,7 @@ namespace acid
 
 		std::shared_ptr<Texture> GetMaterialTexture() const { return m_materialTexture; }
 
-		void SetMaterialTexture(std::shared_ptr<Texture> materialTexture) { m_materialTexture = materialTexture; }
+		void SetMaterialTexture(const std::shared_ptr<Texture> &materialTexture) { m_materialTexture = materialTexture; }
 
 		void TrySetMaterialTexture(const std::string &filename)
 		{
@@ -88,7 +88,7 @@ namespace acid
 
 		std::shared_ptr<Texture> GetNormalTexture() const { return m_normalTexture; }
 
-		void SetNormalTexture(std::shared_ptr<Texture> normalTexture) { m_normalTexture = normalTexture; }
+		void SetNormalTexture(const std::shared_ptr<Texture> &normalTexture) { m_normalTexture = normalTexture; }
 
 		void TrySetNormalTexture(const std::string &filename)
 		{

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <vector>
-#include "Files/LoadedValue.hpp"
+#include "Serialized/Metadata.hpp"
 #include "VertexSkinData.hpp"
 
 namespace acid
@@ -9,28 +9,25 @@ namespace acid
 	class ACID_EXPORT SkinLoader
 	{
 	private:
-		LoadedValue *m_skinData;
+		std::shared_ptr<Metadata> m_skinData;
 
-		int m_maxWeights;
+		uint32_t m_maxWeights;
 
 		std::vector<std::string> m_jointOrder;
-		std::vector<VertexSkinData *> m_verticesSkinData;
+		std::vector<VertexSkinData> m_verticesSkinData;
 	public:
-		SkinLoader(LoadedValue *libraryControllers, const int &maxWeights);
-
-		~SkinLoader();
+		SkinLoader(const std::shared_ptr<Metadata> &libraryControllers, const uint32_t &maxWeights);
 
 		std::vector<std::string> GetJointOrder() const { return m_jointOrder; }
 
-		std::vector<VertexSkinData *> GetVerticesSkinData() const { return m_verticesSkinData; }
-
+		std::vector<VertexSkinData> GetVerticesSkinData() const { return m_verticesSkinData; }
 	private:
 		void LoadJointsList();
 
 		std::vector<float> LoadWeights();
 
-		std::vector<int> GetEffectiveJointsCounts(LoadedValue *weightsDataNode);
+		std::vector<uint32_t> GetEffectiveJointsCounts(std::shared_ptr<Metadata> &weightsDataNode);
 
-		void GetSkinData(LoadedValue *weightsDataNode, const std::vector<int> &counts, const std::vector<float> &weights);
+		void GetSkinData(std::shared_ptr<Metadata> &weightsDataNode, const std::vector<uint32_t> &counts, const std::vector<float> &weights);
 	};
 }

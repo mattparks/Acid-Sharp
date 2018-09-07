@@ -12,11 +12,12 @@ namespace AcidSharp.Tests
             0, 0, // width / height
             new List<Attachment>
             {
+                new Attachment(0, AttachmentType.AttachmentDepth), // depth
                 new Attachment(1, AttachmentType.AttachmentSwapchain) // swapchain
             }, // images
             new List<SubpassType>
             {
-                new SubpassType(0, new List<int>{ 0 })
+                new SubpassType(0, new List<int>{ 1 })
             } // subpasses
         );
 

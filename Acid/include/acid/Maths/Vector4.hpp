@@ -3,7 +3,7 @@
 #include <ostream>
 #include <string>
 #include "Engine/Exports.hpp"
-#include "Files/LoadedValue.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -68,9 +68,6 @@ namespace acid
 		/// <param name="source"> Creates this vector out of a existing colour. </param>
 		Vector4(const Colour &source);
 
-		/// <summary>
-		/// Deconstructor for vector4.
-		/// </summary>
 		~Vector4();
 
 		/// <summary>
@@ -187,12 +184,6 @@ namespace acid
 		/// <returns> The changed vector. </returns>
 		Vector4 SmoothDamp(const Vector4 &target, const Vector4 &rate) const;
 
-		/// <summary>
-		/// Saves this vector into a loaded value.
-		/// </summary>
-		/// <param name="destination"> The destination loaded value. </param>
-		void Write(LoadedValue *destination);
-
 		float GetX() const { return m_x; }
 
 		void SetX(const float &x) { m_x = x; }
@@ -209,13 +200,9 @@ namespace acid
 
 		void SetW(const float &w) { m_w = w; }
 
-		Vector4 &operator=(const Vector4 &other);
+		void Decode(const Metadata &metadata);
 
-		Vector4 &operator=(const Vector3 &other);
-
-		Vector4 &operator=(const Colour &other);
-
-		Vector4 &operator=(LoadedValue *value);
+		void Encode(Metadata &metadata) const;
 
 		bool operator==(const Vector4 &other) const;
 

@@ -40,9 +40,8 @@ namespace AcidSharp.CLI
             parserOptions.UnityBuild = true;
             parserOptions.Verbose = true;
 
-            parserOptions.Defines.Add("ACID_EXPORT=__attribute__ ((visibility (\"default\")))");
-            parserOptions.Defines.Add("ACID_HIDDEN=__attribute__ ((visibility (\"hidden\")))");
-            parserOptions.Defines.Add("BT_NO_SIMD_OPERATOR_OVERLOADS=1");
+        //    parserOptions.Defines.Add("ACID_STATICLIB");
+            parserOptions.Defines.Add("ACID_EXPORTS");
 
             // Sets up other options.
             var options = driver.Options;
@@ -60,6 +59,10 @@ namespace AcidSharp.CLI
             module.SharedLibraryName = "Acid";
             module.OutputNamespace = "";
             module.IncludeDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\Acid\include");
+            module.IncludeDirs.Add(@"D:\Windows Kits\10\Include\10.0.17134.0\shared");
+            module.IncludeDirs.Add(@"D:\Windows Kits\10\Include\10.0.17134.0\um");
+            module.IncludeDirs.Add(@"D:\Windows Kits\10\Include\10.0.17134.0\winrt");
+            module.IncludeDirs.Add(@"D:\Windows Kits\10\Include\10.0.17134.0\ucrt");
             module.Headers.Add(@"acid\Acid.hpp");
             module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\Acid\lib");
             module.Libraries.Add("vulkan-1.lib");

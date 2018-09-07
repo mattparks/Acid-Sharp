@@ -7,6 +7,13 @@
 
 namespace acid
 {
+	enum SoundType
+	{
+		TYPE_GENERAL = 0,
+		TYPE_SOUND = 1,
+		TYPE_MUSIC = 2
+	};
+
 	/// <summary>
 	/// Class that represents a loaded sound.
 	/// </summary>
@@ -14,7 +21,7 @@ namespace acid
 	{
 	private:
 		std::shared_ptr<SoundBuffer> m_soundBuffer;
-		ALuint m_source;
+		uint32_t m_source;
 
 		bool m_playing;
 		float m_gain;

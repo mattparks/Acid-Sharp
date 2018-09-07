@@ -27,7 +27,7 @@ using System.Runtime.InteropServices;
 
 namespace CppSharp
 {
-    internal class SymbolResolver
+    public static class SymbolResolver
     {
         static readonly string[] formats;
         static readonly Func<string, IntPtr> loadImage;
@@ -135,5 +135,6 @@ namespace CppSharp
         static extern IntPtr GetProcAddress(IntPtr hModule, string procName);
 
         #endregion
+
     }
 }

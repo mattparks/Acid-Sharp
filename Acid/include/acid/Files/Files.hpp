@@ -18,10 +18,7 @@ namespace acid
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Files *Get()
-		{
-			return Engine::Get()->GetModule<Files>();
-		}
+		static Files *Get() { return Engine::Get()->GetModule<Files>(); }
 
 		Files();
 

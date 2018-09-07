@@ -13,11 +13,9 @@ namespace acid
 		std::string m_nameId;
 		Matrix4 m_bindLocalTransform;
 
-		std::vector<JointData *> m_children;
+		std::vector<std::shared_ptr<JointData>> m_children;
 	public:
 		JointData(const uint32_t &index, const std::string &nameId, const Matrix4 &bindLocalTransform);
-
-		~JointData();
 
 		uint32_t GetIndex() const { return m_index; }
 
@@ -25,8 +23,8 @@ namespace acid
 
 		Matrix4 GetBindLocalTransform() const { return m_bindLocalTransform; }
 
-		std::vector<JointData *> GetChildren() const { return m_children; }
+		std::vector<std::shared_ptr<JointData>> GetChildren() const { return m_children; }
 
-		void AddChild(JointData *child);
+		void AddChild(const std::shared_ptr<JointData> &child);
 	};
 }

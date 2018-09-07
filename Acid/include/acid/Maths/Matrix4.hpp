@@ -4,6 +4,7 @@
 #include <string>
 #include "Vector3.hpp"
 #include "Vector4.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -59,9 +60,6 @@ namespace acid
 		/// <param name="source"> Creates this matrix out of a 4 vector array. </param>
 		Matrix4(const Vector4 source[4]);
 
-		/// <summary>
-		/// Deconstructor for Matrix4.
-		/// </summary>
 		~Matrix4();
 
 		/// <summary>
@@ -170,7 +168,7 @@ namespace acid
 		/// Gets the submatrix of this matrix.
 		/// </summary>
 		/// <returns> The submatrix. </returns>
-		Matrix3 GetSubmatrix(const int &row, const int &col) const;
+		Matrix3 GetSubmatrix(const int32_t &row, const int32_t &col) const;
 
 		/// <summary>
 		/// Creates a new transformation matrix for a object in 3d space.
@@ -247,17 +245,9 @@ namespace acid
 		/// <returns> Returns the transformation matrix. </returns>
 		static Matrix4 LookAt(const Vector3 &camera, const Vector3 &object, const Vector3 &up = Vector3::UP);
 
-		/// <summary>
-		/// Saves this matrix into a loaded value.
-		/// </summary>
-		/// <param name="destination"> The destination loaded value. </param>
-		void Write(LoadedValue *destination);
+		void Decode(const Metadata &metadata);
 
-		Matrix4 &operator=(const Matrix4 &other);
-
-		Matrix4 &operator=(const float array[16]);
-
-		Matrix4 &operator=(LoadedValue *value);
+		void Encode(Metadata &metadata) const;
 
 		bool operator==(const Matrix4 &other) const;
 

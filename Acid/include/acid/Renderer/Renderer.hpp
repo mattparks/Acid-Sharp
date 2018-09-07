@@ -14,11 +14,11 @@ namespace acid
 		public IModule
 	{
 	private:
-		IManagerRender *m_managerRender;
+		std::unique_ptr<IManagerRender> m_managerRender;
 
-		std::vector<RenderStage *> m_renderStages;
+		std::vector<std::unique_ptr<RenderStage>> m_renderStages;
 
-		Swapchain *m_swapchain;
+		std::unique_ptr<Swapchain> m_swapchain;
 		VkFence m_fenceSwapchainImage;
 		uint32_t m_activeSwapchainImage;
 
@@ -27,30 +27,21 @@ namespace acid
 		VkSemaphore m_semaphore;
 		VkCommandPool m_commandPool;
 
-		CommandBuffer *m_commandBuffer;
+		std::unique_ptr<CommandBuffer> m_commandBuffer;
 	public:
 		/// <summary>
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Renderer *Get()
-		{
-			return Engine::Get()->GetModule<Renderer>();
-		}
+		static Renderer *Get() { return Engine::Get()->GetModule<Renderer>(); }
 
-		/// <summary>
-		/// Creates a new renderer module.
-		/// </summary>
 		Renderer();
 
-		/// <summary>
-		/// Deconstructor for the renderer module.
-		/// </summary>
 		~Renderer();
 
 		void Update() override;
 
-		void CreateRenderpass(std::vector<RenderpassCreate *> renderpassCreates);
+		void CreateRenderpass(const std::vector<RenderpassCreate> &renderpassCreates);
 
 		/// <summary>
 		/// Takes a screenshot of the current image of the display and saves it into a image file.
@@ -62,23 +53,23 @@ namespace acid
 		/// Gets the renderer manager.
 		/// </summary>
 		/// <returns> The renderer manager. </returns>
-		IManagerRender *GetManager() const { return m_managerRender; }
+		IManagerRender *GetManager() const { return m_managerRender.get(); }
 
 		/// <summary>
 		/// Sets the current renderer manager to a new renderer manager.
 		/// </summary>
 		/// <param name="rendererMaster"> The new renderer manager. </param>
-		void SetManager(IManagerRender *managerRender);
+		void SetManager(IManagerRender *managerRender) { m_managerRender.reset(managerRender); }
 
-		std::vector<RenderStage *> GetRenderStages() const { return m_renderStages; }
+		std::vector<std::unique_ptr<RenderStage>> const &GetRenderStages() const { return m_renderStages; }
 
-		RenderStage *GetRenderStage(const uint32_t &i) const { return m_renderStages.at(i); }
+		RenderStage *GetRenderStage(const uint32_t &index) const { return m_renderStages.at(index).get(); }
 
-		Swapchain *GetSwapchain() const { return m_swapchain; }
+		Swapchain *GetSwapchain() const { return m_swapchain.get(); }
 
 		VkCommandPool GetCommandPool() const { return m_commandPool; }
 
-		CommandBuffer *GetCommandBuffer() const { return m_commandBuffer; }
+		CommandBuffer *GetCommandBuffer() const { return m_commandBuffer.get(); }
 
 		uint32_t GetActiveSwapchainImage() const { return m_activeSwapchainImage; }
 

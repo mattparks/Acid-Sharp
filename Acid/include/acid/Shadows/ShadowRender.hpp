@@ -27,12 +27,10 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		void CmdRender(const CommandBuffer &commandBuffer, const Pipeline &pipeline, UniformHandler &uniformScene);
-
-		UniformHandler GetUniformObject() const { return m_uniformObject; }
 	};
 }

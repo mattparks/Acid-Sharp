@@ -20,12 +20,12 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
-		void CmdRender(const CommandBuffer &commandBuffer, UniformHandler &uniformScene);
+		void CmdRender(const CommandBuffer &commandBuffer, UniformHandler &uniformScene, const GraphicsStage &graphicsStage);
 
-		UniformHandler GetUniformObject() const { return m_uniformObject; }
+		bool operator<(const MeshRender &other) const;
 	};
 }

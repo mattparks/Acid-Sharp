@@ -12,9 +12,13 @@ namespace acid
 		Vector3 m_axis;
 		Vector3 m_spawnPosition;
 	public:
-		SpawnLine(const float &length, const Vector3 &axis);
+		SpawnLine(const float &length = 1.0f, const Vector3 &axis = Vector3::RIGHT);
 
 		~SpawnLine();
+
+		void Decode(const Metadata &metadata) override;
+
+		void Encode(Metadata &metadata) const override;
 
 		Vector3 GetBaseSpawnPosition() override;
 

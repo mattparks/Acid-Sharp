@@ -4,8 +4,7 @@
 #include <string>
 #include <utility>
 #include <vector>
-#include "Files/LoadedValue.hpp"
-#include "Helpers/FormatString.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -13,7 +12,7 @@ namespace acid
 	{
 	private:
 		XmlNode *m_parent;
-		std::vector<XmlNode *> m_children;
+		std::vector<std::unique_ptr<XmlNode>> m_children;
 
 		std::string m_attributes;
 		std::string m_content;
@@ -24,7 +23,7 @@ namespace acid
 
 		XmlNode *GetParent() const { return m_parent; }
 
-		std::vector<XmlNode *> GetChildren() const { return m_children; }
+		std::vector<std::unique_ptr<XmlNode>> const &GetChildren() const { return m_children; }
 
 		void AddChild(XmlNode *child) { m_children.emplace_back(child); }
 
@@ -36,8 +35,8 @@ namespace acid
 
 		void SetContent(const std::string &content) { m_content = content; }
 
-		static void AppendData(LoadedValue *loadedValue, std::stringstream &builder, const int &indentation);
+		static void AppendData(const std::shared_ptr<Metadata> &source, std::stringstream &builder, const int32_t &indentation);
 
-		static LoadedValue *Convert(const XmlNode &source, LoadedValue *parent, const bool &isTopSection);
+		static std::shared_ptr<Metadata> &Convert(const XmlNode &source, std::shared_ptr<Metadata> &parent, const bool &isTopSection);
 	};
 }

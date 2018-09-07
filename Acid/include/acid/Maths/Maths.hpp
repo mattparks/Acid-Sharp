@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <cstdint>
 #include <cmath>
 #include <cstdlib>
 #include "Engine/Exports.hpp"
@@ -76,7 +77,7 @@ namespace acid
 		/// <param name="value"> The value to round. </param>
 		/// <param name="place"> How many places after the decimal to round to. </param>
 		/// <returns> The rounded value. </returns>
-		static float RoundToPlace(const float &value, const int &place);
+		static float RoundToPlace(const float &value, const int32_t &place);
 
 		/// <summary>
 		/// Used to floor the value if less than the min.
@@ -85,23 +86,6 @@ namespace acid
 		/// <param name="value"> The value. </param>
 		/// <returns> Returns a value with deadband applied. </returns>
 		static float Deadband(const float &min, const float &value);
-
-		/// <summary>
-		/// Ensures {@code value} is in the range of {@code min} to {@code max}. If {@code value} is greater than {@code max}, this will return {@code max}. If {@code value} is less than {@code min}, this will return {@code min}. Otherwise, {@code value} is returned unchanged.
-		/// </summary>
-		/// <param name="value"> The value to clamp. </param>
-		/// <param name="min"> The smallest value of the result. </param>
-		/// <param name="max"> The largest value of the result. </param>
-		/// <returns> {@code value}, clamped between {@code min} and {@code max}. </returns>
-		static float Clamp(const float &value, const float &min, const float &max);
-
-		/// <summary>
-		/// Limits the value.
-		/// </summary>
-		/// <param name="value"> The value. </param>
-		/// <param name="limit"> The limit. </param>
-		/// <returns> A limited value. </returns>
-		static float Limit(const float &value, const float &limit);
 
 		/// <summary>
 		/// Checks if two values are almost equal.

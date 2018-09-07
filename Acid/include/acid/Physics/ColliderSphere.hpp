@@ -10,7 +10,7 @@ namespace acid
 		public Collider
 	{
 	private:
-		btSphereShape *m_shape;
+		std::unique_ptr<btSphereShape> m_shape;
 		float m_radius;
 	public:
 		ColliderSphere(const float &radius = 1.0f);
@@ -21,9 +21,9 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		btCollisionShape *GetCollisionShape() const override;
 

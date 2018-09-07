@@ -1,7 +1,9 @@
 #pragma once
 
 #include <map>
+#include <memory>
 #include "IModule.hpp"
+#include "Log.hpp"
 
 namespace acid
 {
@@ -11,16 +13,13 @@ namespace acid
 	class ACID_EXPORT ModuleRegister
 	{
 	private:
-		std::map<float, IModule *> m_modules;
+		std::map<float, std::unique_ptr<IModule>> m_modules;
 	public:
 		/// <summary>
 		/// Creates a new module register.
 		/// </summary>
 		ModuleRegister();
 
-		/// <summary>
-		/// Deconstructor for the module register.
-		/// </summary>
 		~ModuleRegister();
 
 		/// <summary>
@@ -45,7 +44,7 @@ namespace acid
 		{
 			for (auto &module : m_modules)
 			{
-				auto casted = dynamic_cast<T *>(module.second);
+				auto casted = dynamic_cast<T *>(module.second.get());
 
 				if (casted != nullptr)
 				{
@@ -73,9 +72,10 @@ namespace acid
 		template<typename T>
 		T *RegisterModule(const ModuleUpdate &update)
 		{
-			T *module = static_cast<T *>(malloc(sizeof(T)));
+			auto module = static_cast<T *>(malloc(sizeof(T)));
 			RegisterModule(module, update);
-			return new(module) T();
+			new(module) T();
+			return module;
 		}
 
 		/// <summary>
@@ -93,13 +93,13 @@ namespace acid
 		template<typename T>
 		bool DeregisterModule()
 		{
-			for (auto &module : m_modules)
+			for (auto it = --m_modules.end(); it != m_modules.begin(); --it)
 			{
-				auto casted = dynamic_cast<T *>(module.second);
+				auto casted = dynamic_cast<T *>((*it).second.get());
 
 				if (casted != nullptr)
 				{
-					DeregisterModule(module.second);
+					m_modules.erase(it);
 					return true;
 				}
 			}
@@ -113,6 +113,6 @@ namespace acid
 		/// <param name="update"> The modules update type. </param>
 		void RunUpdate(const ModuleUpdate &update) const;
 
-		uint32_t GetModuleCount() const { return m_modules.size(); }
+		uint32_t GetModuleCount() const { return static_cast<uint32_t>(m_modules.size()); }
 	};
 }

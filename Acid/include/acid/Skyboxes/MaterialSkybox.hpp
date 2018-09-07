@@ -2,6 +2,7 @@
 
 #include "Materials/IMaterial.hpp"
 #include "Maths/Colour.hpp"
+#include "Maths/Vector2.hpp"
 #include "Textures/Cubemap.hpp"
 
 namespace acid
@@ -21,7 +22,7 @@ namespace acid
 
 		std::shared_ptr<PipelineMaterial> m_material;
 	public:
-		MaterialSkybox(std::shared_ptr<Cubemap> cubemap = nullptr, const Colour &skyColour = Colour::WHITE);
+		MaterialSkybox(const std::shared_ptr<Cubemap> &cubemap = nullptr, const Colour &skyColour = Colour::WHITE);
 
 		~MaterialSkybox();
 
@@ -29,9 +30,9 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		void PushUniforms(UniformHandler &uniformObject) override;
 
@@ -39,7 +40,7 @@ namespace acid
 
 		std::shared_ptr<Cubemap> GetCubemap() const { return m_cubemap; }
 
-		void SetCubemap(std::shared_ptr<Cubemap> cubemap) { m_cubemap = cubemap; }
+		void SetCubemap(const std::shared_ptr<Cubemap> &cubemap) { m_cubemap = cubemap; }
 
 		void TrySetCubemap(const std::string &filename, const std::string &fileExt)
 		{

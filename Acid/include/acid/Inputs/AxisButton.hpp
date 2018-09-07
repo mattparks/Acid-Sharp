@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include "IAxis.hpp"
 #include "IButton.hpp"
 
@@ -12,8 +13,8 @@ namespace acid
 		public IAxis
 	{
 	private:
-		IButton *m_negative;
-		IButton *m_positive;
+		std::unique_ptr<IButton> m_negative;
+		std::unique_ptr<IButton> m_positive;
 	public:
 		/// <summary>
 		/// Creates a new axis button.
@@ -22,9 +23,6 @@ namespace acid
 		/// <param name="positive"> When this button is down, the axis is positive. </param>
 		AxisButton(IButton *negative, IButton *positive);
 
-		/// <summary>
-		/// Deconstructor for the axis joystick.
-		/// </summary>
 		~AxisButton();
 
 		float GetAmount() const override;

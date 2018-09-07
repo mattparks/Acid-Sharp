@@ -14,7 +14,7 @@ namespace acid
 	{
 	private:
 		std::shared_ptr<ShaderProgram> m_shaderProgram;
-		DescriptorSet *m_descriptorSet;
+		std::shared_ptr<DescriptorSet> m_descriptorSet;
 		std::vector<IDescriptor *> m_descriptors;
 		bool m_changed;
 	public:
@@ -28,18 +28,18 @@ namespace acid
 
 		void Push(const std::string &descriptorName, IDescriptor &descriptor) { Push(descriptorName, &descriptor); }
 
-		void Push(const std::string &descriptorName, std::shared_ptr<IDescriptor> descriptor) { Push(descriptorName, descriptor.get()); }
+		void Push(const std::string &descriptorName, const std::shared_ptr<IDescriptor> &descriptor) { Push(descriptorName, descriptor.get()); }
 
 		void Push(const std::string &descriptorName, UniformHandler *uniformHandler);
 
 		void Push(const std::string &descriptorName, UniformHandler &uniformHandler) { Push(descriptorName, &uniformHandler); }
 
-		void Push(const std::string &descriptorName, std::shared_ptr<UniformHandler> uniformHandler) { Push(descriptorName, uniformHandler.get()); }
+		void Push(const std::string &descriptorName, const std::shared_ptr<UniformHandler> &uniformHandler) { Push(descriptorName, uniformHandler.get()); }
 
 		bool Update(const IPipeline &pipeline);
 
 		void BindDescriptor(const CommandBuffer &commandBuffer) { m_descriptorSet->BindDescriptor(commandBuffer); }
 
-		DescriptorSet *GetDescriptorSet() const { return m_descriptorSet; }
+		std::shared_ptr<DescriptorSet> GetDescriptorSet() const { return m_descriptorSet; }
 	};
 }

@@ -12,11 +12,11 @@ namespace acid
 		public Collider
 	{
 	private:
-		btHeightfieldTerrainShape *m_shape;
+		std::unique_ptr<btHeightfieldTerrainShape> m_shape;
 	public:
-		ColliderHeightfield(const int &heightStickWidth, const int &heightStickLength,
-							const void *heightfieldData, const float &heightScale,
-							const float &minHeight, const float &maxHeight, const bool &flipQuadEdges);
+		ColliderHeightfield(const int32_t &heightStickWidth = 100, const int32_t &heightStickLength = 100,
+							const void *heightfieldData = nullptr, const float &heightScale = 1.0f,
+							const float &minHeight = -1.0f, const float &maxHeight = 1.0f, const bool &flipQuadEdges = false);
 
 		~ColliderHeightfield();
 
@@ -24,13 +24,13 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		btCollisionShape *GetCollisionShape() const override;
 
-		void Initialize(const int &heightStickWidth, const int &heightStickLength,
+		void Initialize(const int32_t &heightStickWidth, const int32_t &heightStickLength,
 						const void *heightfieldData, const float &heightScale,
 						const float &minHeight, const float &maxHeight, const bool &flipQuadEdges);
 	};

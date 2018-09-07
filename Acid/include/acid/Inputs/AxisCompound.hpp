@@ -1,5 +1,6 @@
 #pragma once
 
+#include <memory>
 #include <vector>
 #include "IAxis.hpp"
 
@@ -12,7 +13,7 @@ namespace acid
 		public IAxis
 	{
 	private:
-		std::vector<IAxis *> m_axes;
+		std::vector<std::unique_ptr<IAxis>> m_axes;
 	public:
 		/// <summary>
 		/// Creates a new compound axis.
@@ -20,9 +21,6 @@ namespace acid
 		/// <param name="axes"> The axes on the being added. </param>
 		AxisCompound(const std::vector<IAxis *> &axes);
 
-		/// <summary>
-		/// Deconstructor for the compound axis.
-		/// </summary>
 		~AxisCompound();
 
 		float GetAmount() const override;

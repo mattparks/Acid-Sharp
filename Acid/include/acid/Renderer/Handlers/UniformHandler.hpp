@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <memory>
 #include "Renderer/Buffers/UniformBuffer.hpp"
 
 namespace acid
@@ -12,14 +13,14 @@ namespace acid
 	{
 	private:
 		bool m_multipipeline;
-		UniformBlock *m_uniformBlock;
-		UniformBuffer *m_uniformBuffer;
+		std::shared_ptr<UniformBlock> m_uniformBlock;
+		std::unique_ptr<UniformBuffer> m_uniformBuffer;
 		void *m_data;
 		bool m_changed;
 	public:
 		UniformHandler(const bool &multipipeline = false);
 
-		UniformHandler(UniformBlock *uniformBlock, const bool &multipipeline = false);
+		UniformHandler(const std::shared_ptr<UniformBlock> &uniformBlock, const bool &multipipeline = false);
 
 		~UniformHandler();
 
@@ -42,6 +43,12 @@ namespace acid
 
 			if (uniform == nullptr)
 			{
+#ifdef ACID_VERBOSE
+			//	if (m_shaderProgram->ReportedNotFound(uniformName, true)) // TODO
+			//	{
+			//		Log::Error("Could not find uniform attribute in uniform '%s' of name '%s'\n", m_uniformBlock->GetName().c_str(), uniformName.c_str());
+			//	}
+#endif
 				return;
 			}
 
@@ -55,8 +62,8 @@ namespace acid
 			Push(object, static_cast<size_t>(uniform->GetOffset()), realSize);
 		}
 
-		bool Update(UniformBlock *uniformBlock);
+		bool Update(const std::shared_ptr<UniformBlock> &uniformBlock);
 
-		UniformBuffer *GetUniformBuffer() const { return m_uniformBuffer; }
+		UniformBuffer *GetUniformBuffer() const { return m_uniformBuffer.get(); }
 	};
 }

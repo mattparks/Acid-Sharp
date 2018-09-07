@@ -1,13 +1,10 @@
 #pragma once
 
-#ifdef ACID_BUILD_MACOS
-#include <OpenAL/al.h>
-#include <OpenAL/alc.h>
-#else
-#include <AL/al.h>
-#include <AL/alc.h>
-#endif
 #include "Engine/Engine.hpp"
+
+typedef struct ALCdevice_struct ALCdevice;
+
+typedef struct ALCcontext_struct ALCcontext;
 
 namespace acid
 {
@@ -20,34 +17,31 @@ namespace acid
 	private:
 		ALCdevice *m_alDevice;
 		ALCcontext *m_alContext;
+
+		float m_volume;
 	public:
 		/// <summary>
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Audio *Get()
-		{
-			return Engine::Get()->GetModule<Audio>();
-		}
+		static Audio *Get() { return Engine::Get()->GetModule<Audio>(); }
 
-		/// <summary>
-		/// Creates a new audio module.
-		/// </summary>
 		Audio();
 
-		/// <summary>
-		/// Deconstructor for the audio module.
-		/// </summary>
 		~Audio();
 
 		void Update() override;
 
-		static std::string StringifyResultAl(const int &result);
+		ACID_HIDDEN static std::string StringifyResultAl(const int32_t &result);
 
-		static void CheckAl(const int &result);
+		ACID_HIDDEN static void CheckAl(const int32_t &result);
 
-		ALCdevice *GetDevice() const { return m_alDevice; }
+		ACID_HIDDEN ALCdevice *GetDevice() const { return m_alDevice; }
 
-		ALCcontext *GetContext() const { return m_alContext; }
+		ACID_HIDDEN ALCcontext *GetContext() const { return m_alContext; }
+
+		float GetVolume() const { return m_volume; }
+
+		void SetVolume(const float &volume) { m_volume = volume; }
 	};
 }

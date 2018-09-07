@@ -145,7 +145,7 @@ namespace acid
 		std::array<bool, KEY_END_RANGE> m_keyboardKeys;
 		char m_char;
 
-		friend void CallbackKey(GLFWwindow *window, int key, int scancode, int action, int mods);
+		friend void CallbackKey(GLFWwindow *window, int32_t key, int32_t scancode, int32_t action, int32_t mods);
 
 		friend void CallbackChar(GLFWwindow *window, uint32_t codepoint);
 
@@ -154,20 +154,11 @@ namespace acid
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Keyboard *Get()
-		{
-			return Engine::Get()->GetModule<Keyboard>();
-		}
+		static Keyboard *Get() { return Engine::Get()->GetModule<Keyboard>(); }
 
-		/// <summary>
-		/// Creates a new keyboard module.
-		/// </summary>
 		Keyboard();
 
-		/// <summary>
-		/// Deconstructor for the keyboard module.
-		/// </summary>
-		~Keyboard() override;
+		~Keyboard();
 
 		void Update() override;
 

@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <vector>
+#include <optional>
 #include "Maths/Vector3.hpp"
 #include "Objects/GameObject.hpp"
 #include "Objects/IComponent.hpp"
@@ -18,7 +19,7 @@ namespace acid
 	{
 	private:
 		std::vector<std::shared_ptr<ParticleType>> m_types;
-		std::shared_ptr<ISpawnParticle> m_spawn;
+		std::unique_ptr<ISpawnParticle> m_spawn;
 
 		float m_pps;
 		float m_averageSpeed;
@@ -46,23 +47,20 @@ namespace acid
 		/// <param name="averageSpeed"> Particle average speed. </param>
 		/// <param name="gravityEffect"> How much gravity will effect the particles. </param>
 		/// <param name="systemOffset"> The offset from the parents centre. </param>
-		ParticleSystem(const std::vector<std::shared_ptr<ParticleType>> &types = std::vector<std::shared_ptr<ParticleType>>(), std::shared_ptr<ISpawnParticle> spawn = nullptr, const float &pps = 5.0f, const float &averageSpeed = 0.2f, const float &gravityEffect = 1.0f, const Vector3 &systemOffset = Vector3::ZERO);
+		ParticleSystem(const std::vector<std::shared_ptr<ParticleType>> &types = std::vector<std::shared_ptr<ParticleType>>(), ISpawnParticle *spawn = nullptr, const float &pps = 5.0f, const float &averageSpeed = 0.2f, const float &gravityEffect = 1.0f, const Vector3 &systemOffset = Vector3::ZERO);
 
-		/// <summary>
-		/// Deconstructor for the particle system.
-		/// </summary>
 		~ParticleSystem();
 
 		void Start() override;
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 	private:
-		Particle *EmitParticle();
+		std::optional<Particle> EmitParticle();
 
 		float GenerateValue(const float &average, const float &errorMargin) const;
 
@@ -71,13 +69,15 @@ namespace acid
 		Vector3 GenerateRandomUnitVector() const;
 
 	public:
-		void AddParticleType(std::shared_ptr<ParticleType> type);
+		void AddParticleType(const std::shared_ptr<ParticleType> &type);
 
-		bool RemoveParticleType(std::shared_ptr<ParticleType> type);
+		bool RemoveParticleType(const std::shared_ptr<ParticleType> &type);
 
-		std::shared_ptr<ISpawnParticle> GetSpawn() const { return m_spawn; }
+		ISpawnParticle *GetSpawn() const { return m_spawn.get(); }
 
-		void SetSpawn(std::shared_ptr<ISpawnParticle> spawn) { m_spawn = spawn; }
+		void SetSpawn(ISpawnParticle *spawn) { m_spawn.reset(spawn); }
+
+		void TrySetSpawn(const Metadata &spawnNode);
 
 		float GetPps() const { return m_pps; }
 

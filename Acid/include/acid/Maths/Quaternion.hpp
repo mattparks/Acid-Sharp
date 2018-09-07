@@ -4,6 +4,7 @@
 #include <string>
 #include "Matrix4.hpp"
 #include "Vector3.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -60,7 +61,8 @@ namespace acid
 		/// Constructor for Quaternion.
 		/// </summary>
 		/// <param name="source"> Creates this quaternion out of a existing vector (pitch, yaw roll). </param>>
-		Quaternion(const Vector3 &source);
+		/// <param name="w"> Start w. </param>
+		Quaternion(const Vector3 &source, const float &w = 1.0f);
 
 		/// <summary>
 		/// Constructor for Quaternion.
@@ -77,21 +79,11 @@ namespace acid
 		/// <summary>
 		/// Constructor for Quaternion.
 		/// </summary>
-		/// <param name="axis"> The axis to create from. </param>
-		/// <param name="angle"> The angle to rotate the angle around. </param>
-		Quaternion(const Vector3 &axis, const float &angle);
-
-		/// <summary>
-		/// Constructor for Quaternion.
-		/// </summary>
 		/// <param name="axisX"> The X axis. </param>
 		/// <param name="axisY"> The Y axis. </param>
 		/// <param name="axisZ"> The Z axis. </param>
 		Quaternion(const Vector3 &axisX, const Vector3 &axisY, const Vector3 &axisZ);
 
-		/// <summary>
-		/// Deconstructor for Quaternion.
-		/// </summary>
 		~Quaternion();
 
 		/// <summary>
@@ -206,12 +198,6 @@ namespace acid
 		/// <returns> The euler angle representation of this quaternion. </returns>
 		Vector3 ToEuler() const;
 
-		/// <summary>
-		/// Saves this quaternion into a loaded value.
-		/// </summary>
-		/// <param name="destination"> The destination loaded value. </param>
-		void Write(LoadedValue *destination);
-
 		float GetX() const { return m_x; }
 
 		void SetX(const float &x) { m_x = x; }
@@ -228,13 +214,9 @@ namespace acid
 
 		void SetW(const float &w) { m_w = w; }
 
-		Quaternion &operator=(const Quaternion &other);
+		void Decode(const Metadata &metadata);
 
-		Quaternion &operator=(const Vector3 &other);
-
-		Quaternion &operator=(const Matrix4 &other);
-
-		Quaternion &operator=(LoadedValue *value);
+		void Encode(Metadata &metadata) const;
 
 		bool operator==(const Quaternion &other) const;
 

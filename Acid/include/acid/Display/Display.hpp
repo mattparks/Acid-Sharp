@@ -4,8 +4,9 @@
 #include <string>
 #include <vector>
 #include <vulkan/vulkan.h>
-#include <GLFW/glfw3.h>
 #include "Engine/Engine.hpp"
+
+struct GLFWwindow;
 
 namespace acid
 {
@@ -57,26 +58,29 @@ namespace acid
 		VkPhysicalDeviceFeatures m_physicalDeviceFeatures;
 		VkPhysicalDeviceMemoryProperties m_physicalDeviceMemoryProperties;
 
+		VkQueueFlags m_supportedQueues;
 		uint32_t m_graphicsFamily;
 		uint32_t m_presentFamily;
 		uint32_t m_computeFamily;
+		uint32_t m_transferFamily;
 		VkQueue m_graphicsQueue;
 		VkQueue m_presentQueue;
 		VkQueue m_computeQueue;
+		VkQueue m_transferQueue;
 
-		friend void CallbackError(int error, const char *description);
+		friend void CallbackError(int32_t error, const char *description);
 
 		friend void CallbackClose(GLFWwindow *window);
 
-		friend void CallbackFocus(GLFWwindow *window, int focused);
+		friend void CallbackFocus(GLFWwindow *window, int32_t focused);
 
-		friend void CallbackPosition(GLFWwindow *window, int xpos, int ypos);
+		friend void CallbackPosition(GLFWwindow *window, int32_t xpos, int32_t ypos);
 
-		friend void CallbackSize(GLFWwindow *window, int width, int height);
+		friend void CallbackSize(GLFWwindow *window, int32_t width, int32_t height);
 
-		friend void CallbackFrame(GLFWwindow *window, int width, int height);
+		friend void CallbackFrame(GLFWwindow *window, int32_t width, int32_t height);
 
-		friend void CallbackIconify(GLFWwindow *window, int iconified);
+		friend void CallbackIconify(GLFWwindow *window, int32_t iconified);
 
 		friend VKAPI_ATTR VkBool32 VKAPI_CALL CallbackDebug(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objectType, uint64_t object, size_t location, int32_t messageCode, const char *pLayerPrefix, const char *pMessage, void *pUserData);
 
@@ -89,19 +93,10 @@ namespace acid
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Display *Get()
-		{
-			return Engine::Get()->GetModule<Display>();
-		}
+		static Display *Get() { return Engine::Get()->GetModule<Display>(); }
 
-		/// <summary>
-		/// Creates a new display module.
-		/// </summary>
 		Display();
 
-		/// <summary>
-		/// Deconstructor for the display module.
-		/// </summary>
 		~Display();
 
 		void Update() override;
@@ -205,9 +200,9 @@ namespace acid
 		/// <param name="fullscreen"> Weather or not to be fullscreen. </param>
 		void SetFullscreen(const bool &fullscreen);
 
-		static std::string StringifyResultGlfw(const int &result);
+		ACID_HIDDEN static std::string StringifyResultGlfw(const int32_t &result);
 
-		static void CheckGlfw(const int &result);
+		ACID_HIDDEN static void CheckGlfw(const int32_t &result);
 
 		static std::string StringifyResultVk(const VkResult &result);
 
@@ -229,13 +224,13 @@ namespace acid
 		/// Gets the windows Y position of the display in pixels.
 		/// </summary>
 		/// <returns> The windows x position. </returns>
-		int GetWindowXPos() const { return m_positionX; }
+		uint32_t GetWindowXPos() const { return m_positionX; }
 
 		/// <summary>
 		/// Gets the windows Y position of the display in pixels.
 		/// </summary>
 		/// <returns> The windows Y position. </returns>
-		int GetWindowYPos() const { return m_positionY; }
+		uint32_t GetWindowYPos() const { return m_positionY; }
 
 		/// <summary>
 		/// Gets the windows is minimized.
@@ -243,7 +238,7 @@ namespace acid
 		/// <returns> If the window is minimized. </returns>
 		bool IsIconified() const { return m_iconified; }
 
-		GLFWwindow *GetWindow() const { return m_window; }
+		ACID_HIDDEN GLFWwindow *GetWindow() const { return m_window; }
 
 		VkInstance GetInstance() const { return m_instance; }
 
@@ -271,11 +266,15 @@ namespace acid
 
 		VkQueue GetComputeQueue() const { return m_computeQueue; }
 
+		VkQueue GetTransferQueue() const { return m_transferQueue; }
+
 		uint32_t GetGraphicsFamily() const { return m_graphicsFamily; }
 
 		uint32_t GetPresentFamily() const { return m_presentFamily; }
 
 		uint32_t GetComputeFamily() const { return m_computeFamily; }
+
+		uint32_t GetTransferFamily() const { return m_transferFamily; }
 	private:
 		void CreateGlfw();
 
@@ -291,7 +290,7 @@ namespace acid
 
 		VkPhysicalDevice ChoosePhysicalDevice(const std::vector<VkPhysicalDevice> &devices);
 
-		int ScorePhysicalDevice(const VkPhysicalDevice &device);
+		int32_t ScorePhysicalDevice(const VkPhysicalDevice &device);
 
 		VkSampleCountFlagBits GetMaxUsableSampleCount();
 
@@ -301,7 +300,7 @@ namespace acid
 
 		void CreateLogicalDevice();
 
-		static void LogVulkanDevice(const VkPhysicalDeviceProperties &physicalDeviceProperties, const VkPhysicalDeviceFeatures &physicalDeviceFeatures, const VkPhysicalDeviceMemoryProperties &physicalDeviceMemoryProperties);
+		static void LogVulkanDevice(const VkPhysicalDeviceProperties &physicalDeviceProperties);
 
 		static void LogVulkanLayers(const std::vector<VkLayerProperties> &layerProperties, const std::string &type, const bool &showDescription);
 	};

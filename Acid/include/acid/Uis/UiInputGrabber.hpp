@@ -3,7 +3,7 @@
 #include <functional>
 #include "Fonts/Text.hpp"
 #include "Guis/Gui.hpp"
-#include "UiInputDelay.hpp"
+#include "Uis/Uis.hpp"
 #include "UiObject.hpp"
 
 namespace acid
@@ -13,9 +13,9 @@ namespace acid
 	public:
 		virtual ~IUiGrabber() = default;
 
-		virtual int GetCurrent(Text *object) = 0;
+		virtual int32_t GetCurrent(Text *object) = 0;
 
-		virtual std::string GetValue(const int &value) = 0;
+		virtual std::string GetValue(const int32_t &value) = 0;
 	};
 
 	class ACID_EXPORT UiGrabberJoystick :
@@ -26,27 +26,27 @@ namespace acid
 	public:
 		UiGrabberJoystick(const JoystickPort &joystick);
 
-		int GetCurrent(Text *object) override;
+		int32_t GetCurrent(Text *object) override;
 
-		std::string GetValue(const int &value) override;
+		std::string GetValue(const int32_t &value) override;
 	};
 
 	class ACID_EXPORT UiGrabberKeyboard :
 		public IUiGrabber
 	{
 	public:
-		int GetCurrent(Text *object) override;
+		int32_t GetCurrent(Text *object) override;
 
-		std::string GetValue(const int &value) override;
+		std::string GetValue(const int32_t &value) override;
 	};
 
 	class ACID_EXPORT UiGrabberMouse :
 		public IUiGrabber
 	{
 	public:
-		int GetCurrent(Text *object) override;
+		int32_t GetCurrent(Text *object) override;
 
-		std::string GetValue(const int &value) override;
+		std::string GetValue(const int32_t &value) override;
 	};
 
 	class ACID_EXPORT UiInputGrabber :
@@ -54,39 +54,41 @@ namespace acid
 	{
 	private:
 		static const float CHANGE_TIME;
+		static const float FONT_SIZE;
+		static const Vector2 DIMENSION;
 		static const float SCALE_NORMAL;
 		static const float SCALE_SELECTED;
-		static const Colour COLOUR_NORMAL;
 
-		Text *m_text;
-		Gui *m_background;
+		std::unique_ptr<Text> m_text;
+		std::unique_ptr<Gui> m_background;
 
-		IUiGrabber *m_grabber;
+		std::unique_ptr<IUiGrabber> m_grabber;
 
 		std::string m_prefix;
-		int m_value;
+		int32_t m_value;
 
-		UiInputDelay *m_inputDelay;
-		int m_lastKey;
+		int32_t m_lastKey;
 
 		bool m_selected;
 		bool m_mouseOver;
 
 		std::function<void()> m_actionChange;
 	public:
-		UiInputGrabber(UiObject *parent, const Vector3 &position, const std::string &prefix, const int &value, IUiGrabber *grabber, const TextJustify &justify);
+		UiInputGrabber(UiObject *parent, const Vector3 &position, const std::string &prefix, const int32_t &value, IUiGrabber *grabber);
 
 		~UiInputGrabber();
 
 		void UpdateObject() override;
 
+		bool OnActionMouse(const MouseButton &button) override;
+
 		std::string GetPrefix() const { return m_prefix; }
 
 		void SetPrefix(const std::string &prefix);
 
-		int GetValue() const { return m_value; }
+		int32_t GetValue() const { return m_value; }
 
-		void SetValue(const int &value);
+		void SetValue(const int32_t &value);
 
 		void SetActionChange(std::function<void()> action) { m_actionChange = action; }
 	};

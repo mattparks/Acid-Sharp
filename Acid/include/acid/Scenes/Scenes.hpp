@@ -14,7 +14,7 @@ namespace acid
 		public IModule
 	{
 	private:
-		IScene *m_scene;
+		std::unique_ptr<IScene> m_scene;
 
 		ComponentRegister m_componentRegister;
 	public:
@@ -22,33 +22,28 @@ namespace acid
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Scenes *Get()
-		{
-			return Engine::Get()->GetModule<Scenes>();
-		}
+		static Scenes *Get() { return Engine::Get()->GetModule<Scenes>(); }
 
 		/// <summary>
 		/// Creates a new Scenes module.
 		/// </summary>
 		Scenes();
 
-		/// <summary>
-		/// Deconstructor for the Scenes module.
-		/// </summary>
 		~Scenes();
 
 		void Update() override;
 
-		IScene *GetScene() const { return m_scene; }
-
-		void SetScene(IScene *scene);
+		/// <summary>
+		/// Gets the current scene.
+		/// </summary>
+		/// <returns> The current scene. </returns>
+		IScene *GetScene() const { return m_scene.get(); }
 
 		/// <summary>
-		/// Creates a new component from the register.
+		/// Sets the current scene to a new scene.
 		/// </summary>
-		/// <param name="name"> The component name to create. </param>
-		/// <returns> The new component. </returns>
-		IComponent *CreateComponent(const std::string &name) { return m_componentRegister.CreateComponent(name); }
+		/// <param name="scene"> The new scene. </param>
+		void SetScene(IScene *scene) { m_scene.reset(scene); }
 
 		/// <summary>
 		/// Registers a component with the register.
@@ -67,6 +62,13 @@ namespace acid
 		bool DeregisterComponent(const std::string &name) { return m_componentRegister.DeregisterComponent(name); }
 
 		/// <summary>
+		/// Creates a new component from the register.
+		/// </summary>
+		/// <param name="name"> The component name to create. </param>
+		/// <returns> The new component. </returns>
+		IComponent *CreateComponent(const std::string &name) { return m_componentRegister.CreateComponent(name); }
+
+		/// <summary>
 		/// Finds the registered name to a component.
 		/// </summary>
 		/// <param name="compare"> The components to get the registered name of. </param>
@@ -82,7 +84,7 @@ namespace acid
 		/// <summary>
 		/// Gets the scene physics system.
 		/// </summary>
-		/// <returns> The scenes physics syste,. </returns>
+		/// <returns> The scenes physics system. </returns>
 		ScenePhysics *GetPhysics() const { return m_scene->GetPhysics(); }
 
 		/// <summary>
@@ -95,6 +97,6 @@ namespace acid
 		/// Gets if the scene is paused.
 		/// </summary>
 		/// <returns> If the scene is paused. </returns>
-		bool IsGamePaused() { return m_scene->IsGamePaused(); }
+		bool IsGamePaused() const { return m_scene->IsGamePaused(); }
 	};
 }

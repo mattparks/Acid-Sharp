@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include <vector>
 #include "Animations/Skin/VertexSkinData.hpp"
 #include "Maths/Vector3.hpp"
 
@@ -10,56 +9,42 @@ namespace acid
 	class ACID_EXPORT VertexAnimatedData
 	{
 	private:
-		static const uint32_t NO_INDEX;
+		static const int32_t NO_INDEX;
 
 		Vector3 m_position;
 
-		int m_uvIndex;
-		int m_normalIndex;
+		int32_t m_uvIndex;
+		int32_t m_normalIndex;
 		VertexAnimatedData *m_duplicateVertex;
 
-		uint32_t m_index;
-		float m_length;
+		int32_t m_index;
 
-		std::vector<Vector3 *> m_tangents;
-		Vector3 m_averagedTangent;
-
-		VertexSkinData *m_skinData;
+		VertexSkinData m_skinData;
 	public:
-		VertexAnimatedData(const uint32_t &index, const Vector3 &position);
-
-		~VertexAnimatedData();
+		VertexAnimatedData(const int32_t &index, const Vector3 &position);
 
 		Vector3 GetPosition() const { return m_position; }
 
-		int GetUvIndex() const { return m_uvIndex; }
+		int32_t GetUvIndex() const { return m_uvIndex; }
 
-		void SetUvIndex(const int &uvIndex) { m_uvIndex = uvIndex; }
+		void SetUvIndex(const int32_t &uvIndex) { m_uvIndex = uvIndex; }
 
-		int GetNormalIndex() const { return m_normalIndex; }
+		int32_t GetNormalIndex() const { return m_normalIndex; }
 
-		void SetNormalIndex(const int &normalIndex) { m_normalIndex = normalIndex; }
+		void SetNormalIndex(const int32_t &normalIndex) { m_normalIndex = normalIndex; }
 
 		VertexAnimatedData *GetDuplicateVertex() const { return m_duplicateVertex; }
 
 		void SetDuplicateVertex(VertexAnimatedData *duplicateVertex) { m_duplicateVertex = duplicateVertex; }
 
-		uint32_t GetIndex() const { return m_index; }
-
-		float GetLength() const { return m_length; }
-
-		void AddTangent(Vector3 *tangent);
-
-		void AverageTangents();
-
-		Vector3 GetAverageTangent() const { return m_averagedTangent; }
+		int32_t GetIndex() const { return m_index; }
 
 		bool IsSet() const;
 
-		bool HasSameTextureAndNormal(const int &textureIndexOther, const int &normalIndexOther) const;
+		bool HasSameTextureAndNormal(const int32_t &textureIndexOther, const int32_t &normalIndexOther) const;
 
-		VertexSkinData *GetSkinData() const { return m_skinData; }
+		VertexSkinData GetSkinData() const { return m_skinData; }
 
-		void SetSkinData(VertexSkinData *skinData) { m_skinData = skinData; }
+		void SetSkinData(const VertexSkinData &skinData) { m_skinData = skinData; }
 	};
 }

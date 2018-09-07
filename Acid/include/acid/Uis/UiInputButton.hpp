@@ -12,20 +12,23 @@ namespace acid
 	{
 	private:
 		static const float CHANGE_TIME;
+		static const float FONT_SIZE;
+		static const Vector2 DIMENSION;
 		static const float SCALE_NORMAL;
 		static const float SCALE_SELECTED;
-		static const Colour COLOUR_NORMAL;
 
-		Text *m_text;
-		Gui *m_background;
+		std::unique_ptr<Text> m_text;
+		std::unique_ptr<Gui> m_background;
 
 		bool m_mouseOver;
 	public:
-		UiInputButton(UiObject *parent, const Vector2 &position, const std::string &string, const TextJustify &justify);
+		UiInputButton(UiObject *parent, const Vector2 &position, const std::string &string);
 
 		~UiInputButton();
 
 		void UpdateObject() override;
+
+		bool OnActionMouse(const MouseButton &button) override;
 
 		std::string GetText() const { return m_text->GetString(); }
 

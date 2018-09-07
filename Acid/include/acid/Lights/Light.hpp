@@ -35,18 +35,15 @@ namespace acid
 		/// <param name="source"> The source light object. </param>
 		Light(const Light &source);
 
-		/// <summary>
-		/// Deconstructor for light.
-		/// </summary>
 		~Light();
 
 		void Start() override;
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		Colour GetColour() const { return m_colour; }
 
@@ -61,9 +58,5 @@ namespace acid
 		void SetOffset(const Vector3 &offset) { m_offset = offset; }
 
 		Vector3 GetPosition() const { return m_position; }
-
-		Light &operator=(const Light &other);
-
-		Light &operator=(LoadedValue *value);
 	};
 }

@@ -1,32 +1,31 @@
 #pragma once
 
-#include "Animations/Joint/Joint.hpp"
-#include "Files/LoadedValue.hpp"
+#include <optional>
+#include "Animations/Joint/JointData.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
 	class ACID_EXPORT SkeletonLoader
 	{
 	private:
-		LoadedValue *m_armatureData;
+		std::shared_ptr<Metadata> m_armatureData;
 
 		std::vector<std::string> m_boneOrder;
 
-		int m_jointCount;
-		JointData *m_headJoint;
+		uint32_t m_jointCount;
+		std::shared_ptr<JointData> m_headJoint;
 	public:
-		SkeletonLoader(LoadedValue *libraryControllers, const std::vector<std::string> &boneOrder);
+		SkeletonLoader(const std::shared_ptr<Metadata> &libraryControllers, const std::vector<std::string> &boneOrder);
 
-		~SkeletonLoader();
+		uint32_t GetJointCount() const { return m_jointCount; }
 
-		int GetJointCount() const { return m_jointCount; }
-
-		JointData *GetHeadJoint() const { return m_headJoint; }
+		std::shared_ptr<JointData> GetHeadJoint() const { return m_headJoint; }
 	private:
-		JointData *LoadJointData(LoadedValue *jointNode, const bool &isRoot);
+		std::shared_ptr<JointData> LoadJointData(const std::shared_ptr<Metadata> &jointNode, const bool &isRoot);
 
-		JointData *ExtractMainJointData(LoadedValue *jointNode, const bool &isRoot);
+		std::shared_ptr<JointData> ExtractMainJointData(const std::shared_ptr<Metadata> &jointNode, const bool &isRoot);
 
-		int GetBoneIndex(const std::string &name);
+		std::optional<uint32_t> GetBoneIndex(const std::string &name);
 	};
 }

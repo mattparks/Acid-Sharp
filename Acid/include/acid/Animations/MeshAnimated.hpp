@@ -13,6 +13,9 @@
 
 namespace acid
 {
+	/// <summary>
+	/// This class represents an animated armature with a skin mesh.
+	/// </summary>
 	class ACID_EXPORT MeshAnimated :
 		public Mesh
 	{
@@ -20,38 +23,36 @@ namespace acid
 		std::string m_filename;
 
 		std::shared_ptr<Model> m_model;
-		Joint *m_headJoint;
-		Animator *m_animator;
-		Animation *m_animation;
+		std::shared_ptr<Joint> m_headJoint;
+		std::unique_ptr<Animator> m_animator;
+		std::unique_ptr<Animation> m_animation;
 
 		std::vector<Matrix4> m_jointMatrices;
 	public:
 		static const Matrix4 CORRECTION;
-		static const int MAX_JOINTS;
-		static const int MAX_WEIGHTS;
+		static const uint32_t MAX_JOINTS;
+		static const uint32_t MAX_WEIGHTS;
 
 		MeshAnimated(const std::string &filename = "");
 
-		~MeshAnimated();
-
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		std::shared_ptr<Model> GetModel() const override { return m_model; }
 
 		virtual VertexInput GetVertexInput() const { return VertexAnimated::GetVertexInput(); }
 
-		void SetModel(std::shared_ptr<Model> model) override { m_model = model; }
+		void SetModel(const std::shared_ptr<Model> &model) override { m_model = model; }
 
 		void TrySetModel(const std::string &filename) override;
 
 		std::vector<Matrix4> GetJointTransforms() const { return m_jointMatrices; }
 
 	private:
-		Joint *CreateJoints(JointData *data);
+		std::shared_ptr<Joint> CreateJoints(const JointData &data);
 
 		void AddJointsToArray(const Joint &headJoint, std::vector<Matrix4> &jointMatrices);
 	};

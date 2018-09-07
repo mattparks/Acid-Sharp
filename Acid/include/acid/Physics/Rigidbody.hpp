@@ -22,17 +22,15 @@ namespace acid
 		Vector3 m_linearFactor;
 		Vector3 m_angularFactor;
 
-		btTransform *m_worldTransform;
-		btCollisionShape *m_shape;
-		btRigidBody *m_body;
+		btCollisionShape* m_shape;
+		std::unique_ptr<btRigidBody> m_body;
 
-		std::vector<std::shared_ptr<Force>> m_forces;
+		std::vector<std::unique_ptr<Force>> m_forces;
 
 		Vector3 m_linearVelocity;
 		Vector3 m_angularVelocity;
 	public:
-		Rigidbody(const float &mass = 1.0f, const float &friction = 0.2f, const Vector3 &linearFactor = Vector3::ONE,
-				  const Vector3 &angularFactor = Vector3::ONE);
+		Rigidbody(const float &mass = 1.0f, const float &friction = 0.2f, const Vector3 &linearFactor = Vector3::ONE, const Vector3 &angularFactor = Vector3::ONE);
 
 		~Rigidbody();
 
@@ -40,16 +38,16 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		void SetGravity(const Vector3 &gravity);
 
-		std::shared_ptr<Force> AddForce(const std::shared_ptr<Force> &force);
+		Force *AddForce(Force *force);
 
 		template<typename T, typename... Args>
-		std::shared_ptr<Force> AddForce(Args &&... args) { return AddForce(std::make_shared<T>(std::forward<Args>(args)...)); }
+		Force *AddForce(Args &&... args) { return AddForce(new T(std::forward<Args>(args)...)); }
 
 		void ClearForces();
 
@@ -77,6 +75,6 @@ namespace acid
 
 		void SetAngularVelocity(const Vector3 &angularVelocity);
 	private:
-		static btRigidBody *CreateRigidBody(float mass, const btTransform &startTransform, btCollisionShape *shape);
+		static std::unique_ptr<btRigidBody> CreateRigidBody(float mass, const btTransform &startTransform, btCollisionShape* shape);
 	};
 }

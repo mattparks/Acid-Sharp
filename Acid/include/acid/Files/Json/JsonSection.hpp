@@ -4,8 +4,7 @@
 #include <string>
 #include <utility>
 #include <vector>
-#include "Files/LoadedValue.hpp"
-#include "Helpers/FormatString.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -13,7 +12,7 @@ namespace acid
 	{
 	private:
 		JsonSection *m_parent;
-		std::vector<JsonSection *> m_children;
+		std::vector<std::unique_ptr<JsonSection>> m_children;
 
 		std::string m_name;
 		std::string m_content;
@@ -24,9 +23,9 @@ namespace acid
 
 		JsonSection *GetParent() const { return m_parent; }
 
-		std::vector<JsonSection *> GetChildren() const { return m_children; }
+		std::vector<std::unique_ptr<JsonSection>> const &GetChildren() const { return m_children; }
 
-		void AddChild(JsonSection * child) { m_children.emplace_back(child); }
+		void AddChild(JsonSection *child) { m_children.emplace_back(child); }
 
 		std::string GetName() const { return m_name; }
 
@@ -36,8 +35,8 @@ namespace acid
 
 		void SetContent(const std::string &content) { m_content = content; }
 
-		static void AppendData(LoadedValue *loadedValue, std::stringstream &builder, const int &indentation, const bool &end = false);
+		static void AppendData(const std::shared_ptr<Metadata> &source, std::stringstream &builder, const int32_t &indentation, const bool &end = false);
 
-		static LoadedValue *Convert(const JsonSection &source, LoadedValue *parent, const bool &isTopSection);
+		static std::shared_ptr<Metadata> Convert(const JsonSection &source, std::shared_ptr<Metadata> &parent, const bool &isTopSection = true);
 	};
 }

@@ -42,11 +42,14 @@ namespace acid
 		/// <param name="rotation"> The particles rotation. </param>
 		/// <param name="scale"> The particles scale. </param>
 		/// <param name="gravityEffect"> The particles gravity effect. </param>
-		Particle(std::shared_ptr<ParticleType> particleType, const Vector3 &position, const Vector3 &velocity, const float &lifeLength, const float &rotation, const float &scale, const float &gravityEffect);
+		Particle(const std::shared_ptr<ParticleType> &particleType, const Vector3 &position, const Vector3 &velocity, const float &lifeLength, const float &rotation, const float &scale, const float &gravityEffect);
 
 		/// <summary>
-		/// Deconstructor for the particle.
+		/// Creates a new particle object.
 		/// </summary>
+		/// <param name="source"> Creates this particle out of a existing one. </param>
+		Particle(const Particle &source);
+
 		~Particle();
 
 		/// <summary>
@@ -87,6 +90,6 @@ namespace acid
 		bool operator<(const Particle &other) const;
 
 	private:
-		Vector2 CalculateTextureOffset(const int &index) const;
+		Vector2 CalculateTextureOffset(const int32_t &index) const;
 	};
 }

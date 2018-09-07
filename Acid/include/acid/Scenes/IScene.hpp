@@ -14,9 +14,9 @@ namespace acid
 	class ACID_EXPORT IScene
 	{
 	private:
-		ICamera *m_camera;
-		ScenePhysics *m_physics;
-		SceneStructure *m_structure;
+		std::unique_ptr<ICamera> m_camera;
+		std::unique_ptr<ScenePhysics> m_physics;
+		std::unique_ptr<SceneStructure> m_structure;
 		bool m_started;
 	public:
 		/// <summary>
@@ -25,20 +25,10 @@ namespace acid
 		/// <param name="camera"> The scenes camera. </param>
 		IScene(ICamera *camera) :
 			m_camera(camera),
-			m_physics(new ScenePhysics()),
-			m_structure(new SceneStructure()),
+			m_physics(std::make_unique<ScenePhysics>()),
+			m_structure(std::make_unique<SceneStructure>()),
 			m_started(false)
 		{
-		}
-
-		/// <summary>
-		/// Deconstructor for the scene.
-		/// </summary>
-		virtual ~IScene()
-		{
-			delete m_structure;
-			delete m_physics;
-			delete m_camera;
 		}
 
 		virtual void Start() = 0;
@@ -52,29 +42,25 @@ namespace acid
 		/// Gets the current camera object.
 		/// </summary>
 		/// <returns> The current camera. </returns>
-		ICamera *GetCamera() const { return m_camera; }
+		ICamera *GetCamera() const { return m_camera.get(); }
 
 		/// <summary>
 		/// Sets the current camera to a new camera.
 		/// </summary>
 		/// <param name="camera"> The new camera. </param>
-		void SetCamera(ICamera *camera)
-		{
-			delete m_camera; // TODO: Cleanup.
-			m_camera = camera;
-		}
+		void SetCamera(ICamera *camera) { m_camera.reset(camera); }
 
 		/// <summary>
 		/// Gets the scene physics system.
 		/// </summary>
-		/// <returns> The scenes physics syste,. </returns>
-		ScenePhysics *GetPhysics() const { return m_physics; }
+		/// <returns> The scenes physics system. </returns>
+		ScenePhysics *GetPhysics() const { return m_physics.get(); }
 
 		/// <summary>
 		/// Gets the scene object structure.
 		/// </summary>
 		/// <returns> The scene object structure. </returns>
-		SceneStructure *GetStructure() const { return m_structure; }
+		SceneStructure *GetStructure() { return m_structure.get(); }
 
 		/// <summary>
 		/// Gets if this scene has started.
@@ -92,18 +78,18 @@ namespace acid
 		/// Gets if the main menu is open.
 		/// </summary>
 		/// <returns> If the main menu is open. </returns>
-		virtual bool IsGamePaused() = 0;
+		virtual bool IsGamePaused() const = 0;
 
 		/// <summary>
 		/// The primary colour to be used in UI elements.
 		/// </summary>
 		/// <returns> The primary colour. </returns>
-		virtual Colour *GetUiColour() const = 0;
+		virtual Colour GetUiColour() const = 0;
 
 		/// <summary>
 		/// The UI selector for a joystick.
 		/// </summary>
 		/// <returns> The joystick selector. </returns>
-		virtual SelectorJoystick *GetSelectorJoystick() const = 0;
+		virtual SelectorJoystick GetSelectorJoystick() const = 0;
 	};
 }

@@ -13,9 +13,8 @@ namespace acid
 	{
 	private:
 		std::shared_ptr<Model> m_model;
-
 	public:
-		Mesh(std::shared_ptr<Model> model = nullptr);
+		Mesh(const std::shared_ptr<Model> &model = nullptr);
 
 		~Mesh();
 
@@ -23,15 +22,15 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		virtual std::shared_ptr<Model> GetModel() const { return m_model; }
 
 		virtual VertexInput GetVertexInput() const { return VertexModel::GetVertexInput(); }
 
-		virtual void SetModel(std::shared_ptr<Model> model) { m_model = model; }
+		virtual void SetModel(const std::shared_ptr<Model> &model) { m_model = model; }
 
 		virtual void TrySetModel(const std::string &filename);
 	};

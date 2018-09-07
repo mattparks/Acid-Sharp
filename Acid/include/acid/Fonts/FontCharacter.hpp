@@ -1,5 +1,6 @@
 #pragma once
 
+#include <cstdint>
 #include "Engine/Exports.hpp"
 
 namespace acid
@@ -10,16 +11,16 @@ namespace acid
 	class ACID_EXPORT FontCharacter
 	{
 	private:
-		int m_id;
-		double m_textureCoordX;
-		double m_textureCoordY;
-		double m_maxTextureCoordX;
-		double m_maxTextureCoordY;
-		double m_offsetX;
-		double m_offsetY;
-		double m_sizeX;
-		double m_sizeY;
-		double m_advanceX;
+		int32_t m_id;
+		float m_textureCoordX;
+		float m_textureCoordY;
+		float m_maxTextureCoordX;
+		float m_maxTextureCoordY;
+		float m_offsetX;
+		float m_offsetY;
+		float m_sizeX;
+		float m_sizeY;
+		float m_advanceX;
 	public:
 		/// <summary>
 		/// Creates a new character.
@@ -34,31 +35,26 @@ namespace acid
 		/// <param name="sizeX"> The width of the character's quad in screen space. </param>
 		/// <param name="sizeY"> The height of the character's quad in screen space. </param>
 		/// <param name="advanceX"> How far in pixels the cursor should advance after adding this character. </param>
-		FontCharacter(const int &id, const double &textureCoordX, const double &textureCoordY, const double &textureSizeX, const double &textureSizeY, const double &offsetX, const double &offsetY, const double &sizeX, const double &sizeY, const double &advanceX);
+		FontCharacter(const int32_t &id, const float &textureCoordX, const float &textureCoordY, const float &textureSizeX, const float &textureSizeY, const float &offsetX, const float &offsetY, const float &sizeX, const float &sizeY, const float &advanceX);
 
-		/// <summary>
-		/// Deconstructor for the character.
-		/// </summary>
-		~FontCharacter();
+		int32_t GetId() const { return m_id; }
 
-		int GetId() const { return m_id; }
+		float GetTextureCoordX() const { return m_textureCoordX; }
 
-		double GetTextureCoordX() const { return m_textureCoordX; }
+		float GetTextureCoordY() const { return m_textureCoordY; }
 
-		double GetTextureCoordY() const { return m_textureCoordY; }
+		float GetMaxTextureCoordX() const { return m_maxTextureCoordX; }
 
-		double GetMaxTextureCoordX() const { return m_maxTextureCoordX; }
+		float GetMaxTextureCoordY() const { return m_maxTextureCoordY; }
 
-		double GetMaxTextureCoordY() const { return m_maxTextureCoordY; }
+		float GetOffsetX() const { return m_offsetX; }
 
-		double GetOffsetX() const { return m_offsetX; }
+		float GetOffsetY() const { return m_offsetY; }
 
-		double GetOffsetY() const { return m_offsetY; }
+		float GetSizeX() const { return m_sizeX; }
 
-		double GetSizeX() const { return m_sizeX; }
+		float GetSizeY() const { return m_sizeY; }
 
-		double GetSizeY() const { return m_sizeY; }
-
-		double GetAdvanceX() const { return m_advanceX; }
+		float GetAdvanceX() const { return m_advanceX; }
 	};
 }

@@ -12,7 +12,7 @@ namespace acid
 		public Collider
 	{
 	private:
-		btConvexHullShape *m_shape;
+		std::unique_ptr<btConvexHullShape> m_shape;
 		std::shared_ptr<Model> m_model;
 		uint32_t m_points;
 	public:
@@ -24,9 +24,9 @@ namespace acid
 
 		void Update() override;
 
-		void Load(LoadedValue *value) override;
+		void Decode(const Metadata &metadata) override;
 
-		void Write(LoadedValue *destination) override;
+		void Encode(Metadata &metadata) const override;
 
 		btCollisionShape *GetCollisionShape() const override;
 

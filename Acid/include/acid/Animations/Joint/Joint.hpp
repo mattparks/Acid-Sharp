@@ -1,6 +1,6 @@
 #pragma once
 
-#include "JointData.hpp"
+#include <memory>
 #include "Maths/Matrix4.hpp"
 
 namespace acid
@@ -29,21 +29,19 @@ namespace acid
 	private:
 		uint32_t m_index;
 		std::string m_name;
-		std::vector<Joint *> m_children;
+		std::vector<std::shared_ptr<Joint>> m_children;
 
 		Matrix4 m_localBindTransform;
 		Matrix4 m_animatedTransform;
 		Matrix4 m_inverseBindTransform;
 	public:
 		/// <summary>
-		/// Creates a new joint.
+		/// Creates a new skeleton joint.
 		/// </summary>
 		/// <param name="index"> The joint's index (ID). </param>
 		/// <param name="name"> The name of the joint. This is how the joint is named in the collada file, and so is used to identify which joint a joint transform in an animation keyframe refers to. </param>
 		/// <param name="bindLocalTransform"> The bone-space transform of the joint in the bind position. </param>
 		Joint(const uint32_t &index, const std::string &name, const Matrix4 &bindLocalTransform);
-
-		~Joint();
 
 		/// <summary>
 		/// This is called during set-up, after the joints hierarchy has been created. This calculates the model-space bind transform of this joint like so:
@@ -55,7 +53,6 @@ namespace acid
 		/// and "localBindTransform" is the bone-space bind transform of this joint. It the calculates and stores the inverse of this model-space bind transform,
 		/// for use when calculating the final animation transform each frame. It then recursively calls the method for all of the children joints,
 		/// so that they too calculate and store their inverse bind-pose transform.
-		///
 		/// </para>
 		/// </summary>
 		/// <param name="parentBindTransform"> The model-space bind transform of the parent joint. </param>
@@ -65,24 +62,24 @@ namespace acid
 
 		void SetIndex(const uint32_t &index) { m_index = index; }
 
-		const std::string &GetName() const { return m_name; }
+		std::string GetName() const { return m_name; }
 
 		void SetName(const std::string &name) { m_name = name; }
 
-		std::vector<Joint *> GetChildren() const { return m_children; }
+		std::vector<std::shared_ptr<Joint>> GetChildren() const { return m_children; }
 
 		/// <summary>
 		/// Adds a child joint to this joint. Used during the creation of the joint hierarchy. Joints can have multiple children,
 		/// which is why they are stored in a list (e.g. a "hand" joint may have multiple "finger" children joints).
 		/// </summary>
 		/// <param name="child"> The new child joint of this joint. </param>
-		void AddChild(Joint *child);
+		void AddChild(const std::shared_ptr<Joint> &child);
 
 		/// <summary>
 		/// Adds this joint to an array, they for each child calls the same method.
 		/// </summary>
-		/// <param name="joints"> The array to add this and children into. </param>
-		void AddSelfAndChildren(std::vector<Joint *> *children);
+		/// <param name="children"> The array to add this and children into. </param>
+		void AddSelfAndChildren(std::vector<std::shared_ptr<Joint>> &children);
 
 		Matrix4 GetLocalBindTransform() const { return m_localBindTransform; }
 

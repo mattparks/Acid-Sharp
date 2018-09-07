@@ -19,20 +19,6 @@ namespace acid
 	{
 	public:
 		/// <summary>
-		/// Creates a new spatial structure.
-		/// </summary>
-		ISpatialStructure()
-		{
-		}
-
-		/// <summary>
-		/// Deconstructor for the spatial structure.
-		/// </summary>
-		virtual ~ISpatialStructure()
-		{
-		}
-
-		/// <summary>
 		/// Adds a new object to the spatial structure.
 		/// </summary>
 		/// <param name="object"> The object to add. </param>
@@ -61,7 +47,7 @@ namespace acid
 		/// </summary>
 		/// </param>
 		/// <returns> The list specified by of all objects. </returns>
-		virtual std::vector<GameObject *> GetAll() = 0;
+		virtual std::vector<std::unique_ptr<GameObject>> &GetAll() = 0;
 
 		/// <summary>
 		/// Returns a set of all objects in the spatial structure.

@@ -32,9 +32,9 @@ namespace acid
 		public IModule
 	{
 	private:
+		std::array<bool, MOUSE_BUTTON_END_RANGE> m_mouseButtons;
 		std::string m_mousePath;
 
-		std::array<bool, MOUSE_BUTTON_END_RANGE> m_mouseButtons;
 		float m_lastMousePositionX;
 		float m_lastMousePositionY;
 		float m_mousePositionX;
@@ -49,45 +49,24 @@ namespace acid
 
 		friend void CallbackScroll(GLFWwindow *window, double xoffset, double yoffset);
 
-		friend void CallbackMouseButton(GLFWwindow *window, int button, int action, int mods);
+		friend void CallbackMouseButton(GLFWwindow *window, int32_t button, int32_t action, int32_t mods);
 
 		friend void CallbackCursorPos(GLFWwindow *window, double xpos, double ypos);
 
-		friend void CallbackCursorEnter(GLFWwindow *window, int entered);
+		friend void CallbackCursorEnter(GLFWwindow *window, int32_t entered);
 
 	public:
 		/// <summary>
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Mouse *Get()
-		{
-			return Engine::Get()->GetModule<Mouse>();
-		}
+		static Mouse *Get() { return Engine::Get()->GetModule<Mouse>(); }
 
-		/// <summary>
-		/// Creates a new mouse module.
-		/// </summary>
 		Mouse();
 
-		/// <summary>
-		/// Deconstructor for the mouse module.
-		/// </summary>
 		~Mouse();
 
 		void Update() override;
-
-		/// <summary>
-		/// Gets the mouses custom mouse file.
-		/// </summary>
-		/// <returns> The custom mouse file. </returns>
-		std::string GetCustomMouse() const { return m_mousePath; }
-
-		/// <summary>
-		/// Sets the custom mouse file.
-		/// </summary>
-		/// <param name="filename"> The new custom mouse file. </param>
-		void SetCustomMouse(const std::string &filename);
 
 		/// <summary>
 		/// Sets if the operating systems cursor is hidden whilst in the display.
@@ -102,6 +81,18 @@ namespace acid
 		/// <param name="mouseButton"> The mouse button to test. </param>
 		/// <returns> If the mouse button is currently pressed. </returns>
 		bool GetButton(const MouseButton &mouseButton) const;
+
+		/// <summary>
+		/// Gets the mouses custom mouse file.
+		/// </summary>
+		/// <returns> The custom mouse file. </returns>
+		std::string GetCustomMouse() const { return m_mousePath; }
+
+		/// <summary>
+		/// Sets the custom mouse file.
+		/// </summary>
+		/// <param name="filename"> The new custom mouse file. </param>
+		void SetCustomMouse(const std::string &filename);
 
 		/// <summary>
 		/// Gets the mouses screen x position.

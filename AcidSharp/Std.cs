@@ -90,60 +90,13 @@ namespace Std
 
 namespace Std
 {
-    namespace Chrono
-    {
-        namespace TimePoint
-        {
-            [StructLayout(LayoutKind.Explicit, Size = 8)]
-            public unsafe partial struct __Internalc__N_std_N_chrono_S_time_point____N_std_N_chrono_S_steady_clock___N_std_N_chrono_S_duration__K___N_std_S_ratio__VK1_VK1000000000
-            {
-                [FieldOffset(0)]
-                internal global::Std.Chrono.Duration.__Internalc__N_std_N_chrono_S_duration__K___N_std_S_ratio__VK1_VK1000000000 _MyDur;
-            }
-        }
-
-        namespace Duration
-        {
-            [StructLayout(LayoutKind.Explicit, Size = 8)]
-            public unsafe partial struct __Internalc__N_std_N_chrono_S_duration__K___N_std_S_ratio__VK1_VK1000000000
-            {
-                [FieldOffset(0)]
-                internal long _MyRep;
-            }
-        }
-    }
-}
-
-namespace Std
-{
     namespace CompressedPair
     {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_less__f___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f____N_acid_S_IModule__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S4__Vb1_Vb1
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f____N_acid_S_IModule__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1 _Myval2;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f____N_acid_S_IModule__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1
-        {
-            [FieldOffset(0)]
-            internal global::Std.TreeVal.__Internal _Myval2;
-        }
-
         [StructLayout(LayoutKind.Explicit, Size = 32)]
         public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator__C___N_std_S__String_val____N_std_S__Simple_types__C_Vb1
         {
             [FieldOffset(0)]
             internal global::Std.StringVal.__Internalc__N_std_S__String_val____N_std_S__Simple_types__C _Myval2;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_IEvent___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
-        {
-            [FieldOffset(0)]
-            internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
@@ -154,7 +107,7 @@ namespace Std
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_LoadedValue___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Metadata___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
@@ -174,53 +127,67 @@ namespace Std
             internal global::Std.TreeVal.__Internal _Myval2;
         }
 
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_less____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1S1____N_std_S_shared_ptr____N_acid_S_ConfigKey__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S7__Vb1_Vb1
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_JointTransformData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S_shared_ptr____N_acid_S_ConfigKey__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1 _Myval2;
+            internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S_shared_ptr____N_acid_S_ConfigKey__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_less____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1S1____N_acid_S_JointTransform__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S7__Vb1_Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_acid_S_JointTransform__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1 _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_acid_S_JointTransform__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.TreeVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_RowCsv___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Keyframe___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_JsonSection___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_KeyframeData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_XmlNode___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator__f___N_std_S__Vector_val____N_std_S__Simple_types__f_Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_IComponent___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Joint___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_GameObject___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_less__f___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_unique_ptr____N_acid_S_IModule___N_std_S_default_delete__S6___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S4__Vb1_Vb1
         {
             [FieldOffset(0)]
-            internal global::Std.VectorVal.__Internal _Myval2;
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_unique_ptr____N_acid_S_IModule___N_std_S_default_delete__S4___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1 _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_unique_ptr____N_acid_S_IModule___N_std_S_default_delete__S4___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.TreeVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
@@ -245,6 +212,34 @@ namespace Std
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Uniform___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_UniformBlock___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_VertexAttribute___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_DescriptorType___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
         public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator__i___N_std_S__Vector_val____N_std_S__Simple_types__i_Vb1
         {
             [FieldOffset(0)]
@@ -252,42 +247,63 @@ namespace Std
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Attachment___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_VertexSkinData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_SubpassType___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_VertexAnimatedData___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Vector2___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_less__f___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S_allocator__S6___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S4__Vb1_Vb1
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Vector3___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S_allocator__S4___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1 _Myval2;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S_allocator__S4___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S2__Vb1
-        {
-            [FieldOffset(0)]
-            internal global::Std.TreeVal.__Internal _Myval2;
+            internal global::Std.VectorVal.__Internal _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_IResource___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_VertexAnimated___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_JointData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IComponent___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_GameObject___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Matrix4___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
@@ -301,24 +317,66 @@ namespace Std
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IEvent___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_RowCsv___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_JsonSection___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_XmlNode___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IAxis___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IButton___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_E_Key___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
         public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_E_MouseButton___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
         {
             [FieldOffset(0)]
             internal global::Std.VectorVal.__Internal _Myval2;
         }
 
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_UiObject___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_default_delete___nc__c_Vb1
         {
             [FieldOffset(0)]
-            internal global::Std.VectorVal.__Internal _Myval2;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Force___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
-        {
-            [FieldOffset(0)]
-            internal global::Std.VectorVal.__Internal _Myval2;
+            internal global::System.IntPtr _Myval2;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 16)]
@@ -333,6 +391,20 @@ namespace Std
         {
             [FieldOffset(0)]
             internal global::Std.TreeVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_UiObject___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_Force___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1
+        {
+            [FieldOffset(0)]
+            internal global::Std.VectorVal.__Internal _Myval2;
         }
     }
 }
@@ -420,35 +492,6 @@ namespace Std
             if (__ownsNativeInstance)
                 Marshal.FreeHGlobal(__Instance);
             __Instance = IntPtr.Zero;
-        }
-    }
-}
-
-namespace Std
-{
-    namespace SharedPtr
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr _Ptr;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr _Rep;
-        }
-    }
-
-    namespace WeakPtr
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr _Ptr;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr _Rep;
         }
     }
 }
@@ -600,6 +643,495 @@ namespace Std
 
 namespace Std
 {
+    namespace Vector
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_Metadata___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Metadata___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_JointTransformData___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_JointTransformData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_Keyframe___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Keyframe___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_KeyframeData___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_KeyframeData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector__f___N_std_S_allocator__f
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator__f___N_std_S__Vector_val____N_std_S__Simple_types__f_Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_Joint___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Joint___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____S_VkVertexInputBindingDescription___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____S_VkVertexInputBindingDescription___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____S_VkVertexInputAttributeDescription___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____S_VkVertexInputAttributeDescription___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_PipelineDefine___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_PipelineDefine___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_Uniform___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Uniform___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_UniformBlock___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_UniformBlock___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_VertexAttribute___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_VertexAttribute___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_DescriptorType___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_DescriptorType___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector__i___N_std_S_allocator__i
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator__i___N_std_S__Vector_val____N_std_S__Simple_types__i_Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_VertexSkinData___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_VertexSkinData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_VertexAnimatedData___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_VertexAnimatedData___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_Vector2___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Vector2___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_Vector3___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Vector3___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_VertexAnimated___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_VertexAnimated___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_JointData___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_JointData___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_IComponent___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IComponent___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_GameObject___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_GameObject___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_Matrix4___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Matrix4___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector___1C___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator___1C___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_IEvent___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IEvent___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_RowCsv___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_RowCsv___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_JsonSection___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_JsonSection___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_XmlNode___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_XmlNode___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_IAxis___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IAxis___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_IButton___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_IButton___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_E_Key___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_E_Key___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_E_MouseButton___N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_E_MouseButton___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_UiObject___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_UiObject___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_unique_ptr____N_acid_S_Force___N_std_S_default_delete__S1____N_std_S_allocator__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_unique_ptr____N_acid_S_Force___N_std_S_default_delete__S2____N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
+        }
+    }
+
+    namespace VectorVal
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 24)]
+        public unsafe partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr _Myfirst;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr _Mylast;
+
+            [FieldOffset(16)]
+            internal global::System.IntPtr _Myend;
+        }
+    }
+}
+
+namespace Std
+{
+    namespace SharedPtr
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public unsafe partial struct __Internal
+        {
+            [FieldOffset(0)]
+            internal global::System.IntPtr _Ptr;
+
+            [FieldOffset(8)]
+            internal global::System.IntPtr _Rep;
+        }
+    }
+
+    namespace UniquePtr
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IModule___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IModule__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_VertexBuffer___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_VertexBuffer__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IndexBuffer___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IndexBuffer__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_VertexAnimatedData___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_VertexAnimatedData__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IComponent___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IComponent__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_GameObject___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_GameObject__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_Animator___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_Animator__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_Animation___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_Animation__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IEvent___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IEvent__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_JsonSection___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_JsonSection__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_XmlNode___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_XmlNode__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IButton___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IButton__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IAxis___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IAxis__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr___nc___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete___nc__c_Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_Noise___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_Noise__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IFile___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IFile__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_UiObject___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_UiObject__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IDriver___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IDriver__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____S_btCollisionConfiguration___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____S_btCollisionConfiguration__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____S_btBroadphaseInterface___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____S_btBroadphaseInterface__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____S_btCollisionDispatcher___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____S_btCollisionDispatcher__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____S_btSequentialImpulseConstraintSolver___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____S_btSequentialImpulseConstraintSolver__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____S_btDiscreteDynamicsWorld___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____S_btDiscreteDynamicsWorld__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____S_btRigidBody___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____S_btRigidBody__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_Force___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_Force__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_ICamera___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_ICamera__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_ScenePhysics___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_ScenePhysics__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_SceneStructure___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_SceneStructure__S1__Vb1 _Mypair;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 8)]
+        public unsafe partial struct __Internalc__N_std_S_unique_ptr____N_acid_S_IScene___N_std_S_default_delete__S0_
+        {
+            [FieldOffset(0)]
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_default_delete____N_acid_S_IScene__S1__Vb1 _Mypair;
+        }
+    }
+}
+
+namespace Std
+{
     namespace TreeVal
     {
         [StructLayout(LayoutKind.Explicit, Size = 16)]
@@ -619,13 +1151,6 @@ namespace Std
     namespace Map
     {
         [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S_map__f____N_acid_S_IModule___N_std_S_less__f___N_std_S_allocator____N_std_S_pair__1f_S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_less__f___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f____N_acid_S_IModule__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S4__Vb1_Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 16)]
         public unsafe partial struct __Internalc__N_std_S_map____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C_S0____N_std_S_less__S0____N_std_S_allocator____N_std_S_pair__1S0__S0_
         {
             [FieldOffset(0)]
@@ -633,17 +1158,17 @@ namespace Std
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S_map____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S_shared_ptr____N_acid_S_ConfigKey___N_std_S_less__S0____N_std_S_allocator____N_std_S_pair__1S0__S3_
+        public unsafe partial struct __Internalc__N_std_S_map____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_acid_S_JointTransform___N_std_S_less__S0____N_std_S_allocator____N_std_S_pair__1S0__S3_
         {
             [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_less____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1S1____N_std_S_shared_ptr____N_acid_S_ConfigKey__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S7__Vb1_Vb1 _Mypair;
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_less____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1S1____N_acid_S_JointTransform__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S7__Vb1_Vb1 _Mypair;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 16)]
-        public unsafe partial struct __Internalc__N_std_S_map__f___N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S_allocator__S1____N_std_S_less__f___N_std_S_allocator____N_std_S_pair__1f_S0_
+        public unsafe partial struct __Internalc__N_std_S_map__f___N_std_S_unique_ptr____N_acid_S_IModule___N_std_S_default_delete__S1____N_std_S_less__f___N_std_S_allocator____N_std_S_pair__1f_S0_
         {
             [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_less__f___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S_allocator__S6___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S4__Vb1_Vb1 _Mypair;
+            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_less__f___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1f___N_std_S_unique_ptr____N_acid_S_IModule___N_std_S_default_delete__S6___v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S4__Vb1_Vb1 _Mypair;
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 16)]
@@ -653,6 +1178,95 @@ namespace Std
             internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_less____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Compressed_pair____N_std_S_allocator____N_std_S__Tree_node____N_std_S_pair__1S1____N_acid_S_ComponentCreate__v___N_std_S__Tree_val____N_std_S__Tree_simple_types__S7__Vb1_Vb1 _Mypair;
         }
     }
+}
+
+namespace Std
+{
+}
+
+namespace Std
+{
+    namespace Array
+    {
+        [StructLayout(LayoutKind.Explicit, Size = 96)]
+        public unsafe partial struct __Internalc__N_std_S_array____N_std_S_array__f_Vk4_Vk6
+        {
+            [FieldOffset(0)]
+            internal fixed byte _Elems[96];
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 16)]
+        public unsafe partial struct __Internalc__N_std_S_array__f_Vk4
+        {
+            [FieldOffset(0)]
+            internal fixed float _Elems[4];
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 960)]
+        public unsafe partial struct __Internalc__N_std_S_array____N_acid_S_Joystick_Vk15
+        {
+            [FieldOffset(0)]
+            internal fixed byte _Elems[960];
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 348)]
+        public unsafe partial struct __Internalc__N_std_S_array__b_Vk348
+        {
+            [FieldOffset(0)]
+            internal fixed byte _Elems[348];
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 7)]
+        public unsafe partial struct __Internalc__N_std_S_array__b_Vk7
+        {
+            [FieldOffset(0)]
+            internal fixed byte _Elems[7];
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 392)]
+        public unsafe partial struct __Internalc__N_std_S_array____N_std_S_optional____N_acid_S_ButtonJoystick_Vk7
+        {
+            [FieldOffset(0)]
+            internal fixed byte _Elems[392];
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 56)]
+        public unsafe partial struct __Internalc__N_std_S_array____N_acid_S_UiSelectorMouse_Vk7
+        {
+            [FieldOffset(0)]
+            internal fixed byte _Elems[56];
+        }
+    }
+}
+
+namespace Std
+{
+    namespace Chrono
+    {
+        namespace TimePoint
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 8)]
+            public unsafe partial struct __Internalc__N_std_N_chrono_S_time_point____N_std_N_chrono_S_steady_clock___N_std_N_chrono_S_duration__K___N_std_S_ratio__VK1_VK1000000000
+            {
+                [FieldOffset(0)]
+                internal global::Std.Chrono.Duration.__Internalc__N_std_N_chrono_S_duration__K___N_std_S_ratio__VK1_VK1000000000 _MyDur;
+            }
+        }
+
+        namespace Duration
+        {
+            [StructLayout(LayoutKind.Explicit, Size = 8)]
+            public unsafe partial struct __Internalc__N_std_N_chrono_S_duration__K___N_std_S_ratio__VK1_VK1000000000
+            {
+                [FieldOffset(0)]
+                internal long _MyRep;
+            }
+        }
+    }
+}
+
+namespace Std
+{
 }
 
 namespace Std
@@ -684,13 +1298,6 @@ namespace Std
         }
 
         [StructLayout(LayoutKind.Explicit, Size = 64)]
-        public unsafe partial struct __Internalc__N_std_S__Func_class____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C_p0
-        {
-            [FieldOffset(0)]
-            internal global::Std.FuncClass.Storage.__Internal _Mystorage;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 64)]
         public unsafe partial struct __Internalc__N_std_S__Func_class_____N_acid_S_IComponent_p0
         {
             [FieldOffset(0)]
@@ -699,6 +1306,13 @@ namespace Std
 
         [StructLayout(LayoutKind.Explicit, Size = 64)]
         public unsafe partial struct __Internalc__N_std_S__Func_class__b_p1___N_acid_S_IComponent
+        {
+            [FieldOffset(0)]
+            internal global::Std.FuncClass.Storage.__Internal _Mystorage;
+        }
+
+        [StructLayout(LayoutKind.Explicit, Size = 64)]
+        public unsafe partial struct __Internalc__N_std_S__Func_class__b_p1__N_acid_E_MouseButton
         {
             [FieldOffset(0)]
             internal global::Std.FuncClass.Storage.__Internal _Mystorage;
@@ -720,195 +1334,5 @@ namespace Std
             }
         }
 
-    }
-}
-
-namespace Std
-{
-    namespace Vector
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IEvent___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_IEvent___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector_____N_acid_S_LoadedValue___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_LoadedValue___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_RowCsv___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_RowCsv___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector_____N_acid_S_JsonSection___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_JsonSection___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector_____N_acid_S_XmlNode___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_XmlNode___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector_____N_acid_S_IComponent___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_IComponent___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector_____N_acid_S_GameObject___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_GameObject___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____S_VkVertexInputBindingDescription___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____S_VkVertexInputBindingDescription___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____S_VkVertexInputAttributeDescription___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____S_VkVertexInputAttributeDescription___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_PipelineDefine___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_PipelineDefine___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector__i___N_std_S_allocator__i
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator__i___N_std_S__Vector_val____N_std_S__Simple_types__i_Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_Attachment___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_Attachment___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_S_SubpassType___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_S_SubpassType___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_IRenderer___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_IResource___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_IResource___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector___1C___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator___1C___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_acid_E_MouseButton___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_acid_E_MouseButton___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector_____N_acid_S_UiObject___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator_____N_acid_S_UiObject___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internalc__N_std_S_vector____N_std_S_shared_ptr____N_acid_S_Force___N_std_S_allocator__S0_
-        {
-            [FieldOffset(0)]
-            internal global::Std.CompressedPair.__Internalc__N_std_S__Compressed_pair____N_std_S_allocator____N_std_S_shared_ptr____N_acid_S_Force___N_std_S__Vector_val____N_std_S__Simple_types__S1__Vb1 _Mypair;
-        }
-    }
-
-    namespace VectorVal
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 24)]
-        public unsafe partial struct __Internal
-        {
-            [FieldOffset(0)]
-            internal global::System.IntPtr _Myfirst;
-
-            [FieldOffset(8)]
-            internal global::System.IntPtr _Mylast;
-
-            [FieldOffset(16)]
-            internal global::System.IntPtr _Myend;
-        }
-    }
-}
-
-namespace Std
-{
-}
-
-namespace Std
-{
-}
-
-namespace Std
-{
-    namespace Array
-    {
-        [StructLayout(LayoutKind.Explicit, Size = 960)]
-        public unsafe partial struct __Internalc__N_std_S_array____N_acid_S_Joystick_Vk15
-        {
-            [FieldOffset(0)]
-            internal fixed byte _Elems[960];
-        }
-
-        [StructLayout(LayoutKind.Explicit, Size = 7)]
-        public unsafe partial struct __Internalc__N_std_S_array__b_Vk7
-        {
-            [FieldOffset(0)]
-            internal fixed byte _Elems[7];
-        }
     }
 }

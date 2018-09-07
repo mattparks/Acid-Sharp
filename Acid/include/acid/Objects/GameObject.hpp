@@ -12,30 +12,45 @@ namespace acid
 	/// <summary>
 	/// A class that represents a structured game object.
 	/// </summary>
-	class ACID_EXPORT GameObject :
-		public std::enable_shared_from_this<GameObject>
+	class ACID_EXPORT GameObject
 	{
 	private:
 		std::string m_name;
 		Transform m_transform;
-		std::vector<IComponent *> m_components;
+		std::vector<std::unique_ptr<IComponent>> m_components;
 		ISpatialStructure *m_structure;
 		GameObject *m_parent;
-		bool m_removed;
 	public:
+		/// <summary>
+		/// Creates a new Game Object and store it into a structure.
+		/// </summary>
+		/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
+		/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
 		GameObject(const Transform &transform, ISpatialStructure *structure = nullptr);
 
+		/// <summary>
+		/// Creates a new Game Object and store it into a structure.
+		/// </summary>
+		/// <param name="filepath"> The file to load the component data from. </param>
+		/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
+		/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
 		GameObject(const std::string &filepath, const Transform &transform, ISpatialStructure *structure = nullptr);
 
-		virtual ~GameObject();
+		~GameObject();
 
-		virtual void Update();
+		void Update();
 
 		/// <summary>
 		/// Gets all components attached to this game object.
 		/// </summary>
 		/// <returns> The list of components. </returns>
-		std::vector<IComponent *> GetComponents() const { return m_components; }
+		std::vector<std::unique_ptr<IComponent>> const &GetComponents() const { return m_components; }
+
+		/// <summary>
+		/// Gets the count of components attached to this Game Object.
+		/// </summary>
+		/// <returns> The count of components. </returns>
+		uint32_t GetComponentCount() const { return static_cast<uint32_t>(m_components.size()); }
 
 		/// <summary>
 		/// Gets a component by type.
@@ -49,7 +64,7 @@ namespace acid
 
 			for (auto &component : m_components)
 			{
-				auto casted = dynamic_cast<T *>(component);
+				auto casted = dynamic_cast<T *>(component.get());
 
 				if (casted != nullptr)
 				{
@@ -111,12 +126,11 @@ namespace acid
 		{
 			for (auto &component : m_components)
 			{
-				auto casted = dynamic_cast<T *>(component);
+				auto casted = dynamic_cast<T *>(component.get());
 
 				if (casted != nullptr)
 				{
-					RemoveComponent(component);
-					delete component;
+					RemoveComponent(component.get());
 					return true;
 				}
 			}
@@ -130,18 +144,14 @@ namespace acid
 
 		Transform &GetTransform() { return m_transform; }
 
-		void SetTransform(const Transform &transform) { m_transform = transform; }
-
 		ISpatialStructure *GetStructure() const { return m_structure; }
 
 		void SetStructure(ISpatialStructure *structure);
 
-		bool IsRemoved() const { return m_removed; }
+		void StructureRemove();
 
 		GameObject *GetParent() const { return m_parent; }
 
 		void SetParent(GameObject *parent) { m_parent = parent; }
-
-		void StructureRemove();
 	};
 }

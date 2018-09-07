@@ -3,14 +3,15 @@
 #include <functional>
 #include <memory>
 #include <optional>
+#include "Engine/Log.hpp"
 #include "IComponent.hpp"
 
 namespace acid
 {
 	struct ComponentCreate
 	{
-		std::function<IComponent *()> create;
-		std::function<bool(IComponent *)> isSame;
+		std::function<IComponent *()> m_create;
+		std::function<bool(IComponent *)> m_isSame;
 	};
 
 	/// <summary>
@@ -26,17 +27,7 @@ namespace acid
 		/// </summary>
 		ComponentRegister();
 
-		/// <summary>
-		/// Deconstructor for the component register.
-		/// </summary>
 		~ComponentRegister();
-
-		/// <summary>
-		/// Creates a new component from the register.
-		/// </summary>
-		/// <param name="name"> The component name to create. </param>
-		/// <returns> The new component. </returns>
-		IComponent *CreateComponent(const std::string &name);
 
 		/// <summary>
 		/// Registers a component with the register.
@@ -49,16 +40,16 @@ namespace acid
 		{
 			if (m_components.find(name) != m_components.end())
 			{
-				fprintf(stderr, "Component '%s' is already registered!\n", name.c_str());
+				Log::Error("Component '%s' is already registered!\n", name.c_str());
 				return;
 			}
 
 			ComponentCreate componentCreate = {};
-			componentCreate.create = []() -> IComponent *
+			componentCreate.m_create = []() -> IComponent *
 			{
 				return new T();
 			};
-			componentCreate.isSame = [](IComponent *component) -> bool
+			componentCreate.m_isSame = [](IComponent *component) -> bool
 			{
 				return dynamic_cast<T *>(component) != nullptr;
 			};
@@ -72,6 +63,13 @@ namespace acid
 		/// <param name="name"> The components name. </param>
 		/// <returns> If the component was deregistered. </returns>
 		bool DeregisterComponent(const std::string &name);
+
+		/// <summary>
+		/// Creates a new component from the register.
+		/// </summary>
+		/// <param name="name"> The component name to create. </param>
+		/// <returns> The new component. </returns>
+		IComponent *CreateComponent(const std::string &name);
 
 		/// <summary>
 		/// Finds the registered name to a component.

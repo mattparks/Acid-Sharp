@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include "Maths/Matrix4.hpp"
 
 namespace acid
@@ -10,16 +11,13 @@ namespace acid
 	class ACID_EXPORT Frustum
 	{
 	private:
-		float **m_frustumArray;
+		std::array<std::array<float, 4>, 6> m_frustum;
 	public:
 		/// <summary>
 		/// Creates a new frustum.
 		/// </summary>
 		Frustum();
 
-		/// <summary>
-		/// Deconstructor for frustum.
-		/// </summary>
 		~Frustum();
 
 		/// <summary>
@@ -53,6 +51,6 @@ namespace acid
 		bool CubeInFrustum(const Vector3 &min, const Vector3 &max) const;
 
 	private:
-		void NormalizePlane(const int &side);
+		void NormalizePlane(const int32_t &side);
 	};
 }

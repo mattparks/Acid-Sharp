@@ -16,16 +16,13 @@ namespace acid
 		public ISpatialStructure
 	{
 	private:
-		std::vector<GameObject *> m_objects;
+		std::vector<std::unique_ptr<GameObject>> m_objects;
 	public:
 		/// <summary>
 		/// Creates a new basic structure.
 		/// </summary>
 		SceneStructure();
 
-		/// <summary>
-		/// Deconstructor for the basic structure.
-		/// </summary>
 		~SceneStructure();
 
 		void Add(GameObject *object) override;
@@ -34,9 +31,9 @@ namespace acid
 
 		void Clear() override;
 
-		uint32_t GetSize() override { return m_objects.size(); }
+		uint32_t GetSize() override { return static_cast<uint32_t>(m_objects.size()); }
 
-		std::vector<GameObject *> GetAll() override { return m_objects; }
+		std::vector<std::unique_ptr<GameObject>> &GetAll() override { return m_objects; }
 
 		std::vector<GameObject *> QueryAll() override;
 
@@ -56,11 +53,6 @@ namespace acid
 
 			for (auto it = m_objects.begin(); it != m_objects.end(); ++it)
 			{
-				if ((*it)->IsRemoved())
-				{
-					continue;
-				}
-
 				auto component = (*it)->GetComponent<T>();
 
 				if (component != nullptr && (component->IsEnabled() || allowDisabled))
@@ -82,11 +74,6 @@ namespace acid
 		{
 			for (auto it = m_objects.begin(); it != m_objects.end(); ++it)
 			{
-				if ((*it)->IsRemoved())
-				{
-					continue;
-				}
-
 				auto component = (*it)->GetComponent<T>();
 
 				if (component != nullptr && (component->IsEnabled() || allowDisabled))

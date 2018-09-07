@@ -5,11 +5,11 @@
 #include "Maths/Vector2.hpp"
 #include "Maths/Visual/IDriver.hpp"
 #include "Models/Model.hpp"
+#include "Models/VertexModel.hpp"
 #include "Renderer/Handlers/DescriptorsHandler.hpp"
 #include "Renderer/Handlers/UniformHandler.hpp"
 #include "Renderer/Pipelines/Pipeline.hpp"
 #include "Uis/UiObject.hpp"
-#include "Uis/Uis.hpp"
 #include "FontLine.hpp"
 #include "FontType.hpp"
 
@@ -36,7 +36,8 @@ namespace acid
 		DescriptorsHandler m_descriptorSet;
 		UniformHandler m_uniformObject;
 
-		Model *m_model;
+		std::unique_ptr<Model> m_model;
+		uint32_t m_numberLines;
 
 		std::string m_string;
 		std::string m_newString;
@@ -52,10 +53,10 @@ namespace acid
 		bool m_solidBorder;
 		bool m_glowBorder;
 
-		std::shared_ptr<IDriver> m_glowDriver;
+		std::unique_ptr<IDriver> m_glowDriver;
 		float m_glowSize;
 
-		std::shared_ptr<IDriver> m_borderDriver;
+		std::unique_ptr<IDriver> m_borderDriver;
 		float m_borderSize;
 	public:
 		/// <summary>
@@ -70,12 +71,7 @@ namespace acid
 		/// <param name="maxWidth"> The maximum length of a line of this text. </param>
 		/// <param name="kerning"> The kerning (type character spacing multiplier) of this text. </param>
 		/// <param name="leading"> The leading (vertical line spacing multiplier) of this text. </param>
-		Text(UiObject *parent, const UiBound &rectangle, const float &fontSize, const std::string &text, std::shared_ptr<FontType> fontType = FontType::Resource("Fonts/ProximaNova", "Regular"), const TextJustify &justify = JUSTIFY_LEFT, const float &maxWidth = 1.0f, const float &kerning = 0.0f, const float &leading = 0.0f);
-
-		/// <summary>
-		/// Deconstructor for the text.
-		/// </summary>
-		~Text();
+		Text(UiObject *parent, const UiBound &rectangle, const float &fontSize, const std::string &text, const std::shared_ptr<FontType> &fontType = FontType::Resource("Fonts/ProximaNova", "Regular"), const TextJustify &justify = JUSTIFY_LEFT, const float &maxWidth = 1.0f, const float &kerning = 0.0f, const float &leading = 0.0f);
 
 		void UpdateObject() override;
 
@@ -85,7 +81,13 @@ namespace acid
 		/// Gets the text model, which contains all the vertex data for the quads on which the text will be rendered.
 		/// </summary>
 		/// <returns> The model of the text. </returns>
-		Model *GetModel() const { return m_model; }
+		Model *GetModel() const { return m_model.get(); }
+
+		/// <summary>
+		/// Gets the number of lines in this text.
+		/// </summary>
+		/// <returns> The number of lines. </returns>
+		uint32_t GetNumberLines() const { return m_numberLines; }
 
 		/// <summary>
 		/// Gets the string of text represented.
@@ -126,7 +128,7 @@ namespace acid
 		/// <summary>
 		/// Sets the kerning (type character spacing multiplier) of this text.
 		/// </summary>
-		/// <param name="leading"> The new kerning. </param>
+		/// <param name="kerning"> The new kerning. </param>
 		void SetKerning(const float &kerning) { m_kerning = kerning; }
 
 		/// <summary>
@@ -180,8 +182,8 @@ namespace acid
 		/// <summary>
 		/// Sets the border driver, will disable glowing.
 		/// </summary>
-		/// <param name="driver"> The new border driver. </param>
-		void SetBorderDriver(std::shared_ptr<IDriver> driver);
+		/// <param name="borderDriver"> The new border driver. </param>
+		void SetBorderDriver(IDriver *borderDriver);
 
 		/// <summary>
 		/// Sets a new border driver from a type, will disable glowing.
@@ -189,13 +191,13 @@ namespace acid
 		/// <param name="T"> The type of driver to set. </param>
 		/// <param name="args"> The type driver arguments. </param>
 		template<typename T, typename... Args>
-		void SetBorderDriver(Args &&... args) { SetBorderDriver(std::make_shared<T>(std::forward<Args>(args)...)); }
+		void SetBorderDriver(Args &&... args) { SetBorderDriver(new T(std::forward<Args>(args)...)); }
 
 		/// <summary>
 		/// Sets the glow driver, will disable solid borders.
 		/// </summary>
-		/// <param name="driver"> The new glow driver. </param>
-		void SetGlowingDriver(std::shared_ptr<IDriver> driver);
+		/// <param name="glowingDriver"> The new glow driver. </param>
+		void SetGlowingDriver(IDriver *glowingDriver);
 
 		/// <summary>
 		/// Sets a new glow driver from a type, will disable solid borders.
@@ -203,7 +205,7 @@ namespace acid
 		/// <param name="T"> The type of driver to set. </param>
 		/// <param name="args"> The type driver arguments. </param>
 		template<typename T, typename... Args>
-		void SetGlowingDriver(Args &&... args) { SetGlowingDriver(std::make_shared<T>(std::forward<Args>(args)...)); }
+		void SetGlowingDriver(Args &&... args) { SetGlowingDriver(new T(std::forward<Args>(args)...)); }
 
 		/// <summary>
 		/// Disables both solid borders and glow borders.
@@ -235,16 +237,16 @@ namespace acid
 		float CalculateAntialiasSize();
 
 		/// <summary>
-		/// Gets if the text has been loaded to OpenGL.
+		/// Gets if the text has been loaded to a model.
 		/// </summary>
-		/// <returns> If the text has been loaded to OpenGL. </returns>
+		/// <returns> If the text has been loaded to a model. </returns>
 		bool IsLoaded();
 
 	private:
 		/// <summary>
 		/// Takes in an unloaded text and calculate all of the vertices for the quads on which this text will be rendered.
 		/// The vertex positions and texture coords and calculated based on the information from the font file.
-		/// Then takes the information about the vertices of all the quads and stores it in OpenGL.
+		/// Then takes the information about the vertices of all the quads and stores it in a model.
 		/// </summary>
 		void LoadText();
 
@@ -252,12 +254,12 @@ namespace acid
 
 		void CompleteStructure(std::vector<FontLine> &lines, FontLine &currentLine, const FontWord &currentWord);
 
-		std::vector<IVertex *> CreateQuad(const std::vector<FontLine> &lines);
+		std::vector<VertexModel> CreateQuad(const std::vector<FontLine> &lines);
 
-		void AddVerticesForCharacter(const double &cursorX, const double &cursorY, const FontCharacter &character, std::vector<IVertex *> &vertices);
+		void AddVerticesForCharacter(const float &cursorX, const float &cursorY, const FontCharacter &character, std::vector<VertexModel> &vertices);
 
-		void AddVertex(const double &vx, const double &vy, const double &tx, const double &ty, std::vector<IVertex *> &vertices);
+		void AddVertex(const float &vx, const float &vy, const float &tx, const float &ty, std::vector<VertexModel> &vertices);
 
-		void NormalizeQuad(Vector2 *bounding, std::vector<IVertex *> &vertices);
+		void NormalizeQuad(Vector2 &bounding, std::vector<VertexModel> &vertices);
 	};
 }

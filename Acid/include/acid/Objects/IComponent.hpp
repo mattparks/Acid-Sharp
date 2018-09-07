@@ -1,10 +1,7 @@
 #pragma once
 
-#include <functional>
-#include <map>
-#include <string>
 #include "Engine/Exports.hpp"
-#include "Files/LoadedValue.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -24,17 +21,21 @@ namespace acid
 		{
 		}
 
-		virtual ~IComponent()
+		virtual void Start()
 		{
 		}
 
-		virtual void Start() = 0;
+		virtual void Update()
+		{
+		}
 
-		virtual void Update() = 0;
+		virtual void Decode(const Metadata &metadata)
+		{
+		}
 
-		virtual void Load(LoadedValue *value) = 0;
-
-		virtual void Write(LoadedValue *destination) = 0;
+		virtual void Encode(Metadata &metadata) const
+		{
+		}
 
 		GameObject *GetGameObject() const { return m_gameObject; }
 

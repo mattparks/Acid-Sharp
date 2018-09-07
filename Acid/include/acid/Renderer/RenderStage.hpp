@@ -11,30 +11,30 @@ namespace acid
 	class ACID_EXPORT RenderStage
 	{
 	private:
-		uint32_t m_lastWidth;
-		uint32_t m_lastHeight;
+		uint32_t m_stageIndex;
+		RenderpassCreate m_renderpassCreate;
 
-		int m_stageIndex;
-		RenderpassCreate *m_renderpassCreate;
-
-		DepthStencil *m_depthStencil;
-		Renderpass *m_renderpass;
-		Framebuffers *m_framebuffers;
+		std::unique_ptr<DepthStencil> m_depthStencil;
+		std::unique_ptr<Renderpass> m_renderpass;
+		std::unique_ptr<Framebuffers> m_framebuffers;
 
 		std::vector<VkClearValue> m_clearValues;
-		uint32_t m_imageAttachments;
+		std::vector<uint32_t> m_subpassAttachmentCount;
 		bool m_hasDepth;
 		bool m_hasSwapchain;
 
 		bool m_fitDisplaySize;
+
+		uint32_t m_lastWidth;
+		uint32_t m_lastHeight;
 	public:
-		RenderStage(const int &stageIndex, RenderpassCreate *renderpassCreate);
+		RenderStage(const uint32_t &stageIndex, const RenderpassCreate &renderpassCreate);
 
 		~RenderStage();
 
-		void Rebuild(Swapchain *swapchain);
+		void Rebuild(const Swapchain &swapchain);
 
-		uint32_t SubpassCount() const { return static_cast<uint32_t>(m_renderpassCreate->GetSubpasses().size()); };
+		uint32_t SubpassCount() const { return static_cast<uint32_t>(m_renderpassCreate.GetSubpasses().size()); };
 
 		uint32_t GetWidth() const;
 
@@ -42,17 +42,19 @@ namespace acid
 
 		bool IsOutOfDate(const VkExtent2D &extent2D);
 
-		DepthStencil *GetDepthStencil() const { return m_depthStencil; };
+		RenderpassCreate &GetRenderpassCreate() { return m_renderpassCreate; }
 
-		Renderpass *GetRenderpass() const { return m_renderpass; };
+		DepthStencil *GetDepthStencil() const { return m_depthStencil.get(); };
 
-		Framebuffers *GetFramebuffers() const { return m_framebuffers; };
+		Renderpass *GetRenderpass() const { return m_renderpass.get(); };
+
+		Framebuffers *GetFramebuffers() const { return m_framebuffers.get(); };
 
 		VkFramebuffer GetActiveFramebuffer(const uint32_t &activeSwapchainImage) const;
 
 		std::vector<VkClearValue> GetClearValues() const { return m_clearValues; }
 
-		uint32_t GetImageAttachments() const { return m_imageAttachments; }
+		uint32_t GetAttachmentCount(const uint32_t &subpass) const { return m_subpassAttachmentCount[subpass]; }
 
 		bool HasDepth() const { return m_hasDepth; }
 

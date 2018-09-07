@@ -24,7 +24,7 @@ namespace acid
 
 		Fog m_fog;
 	public:
-		static const int MAX_LIGHTS;
+		static const uint32_t MAX_LIGHTS;
 
 		RendererDeferred(const GraphicsStage &graphicsStage);
 

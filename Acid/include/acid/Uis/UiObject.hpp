@@ -3,8 +3,8 @@
 #include <functional>
 #include <memory>
 #include <vector>
+#include "Inputs/Mouse.hpp"
 #include "Maths/Vector2.hpp"
-#include "Maths/Vector3.hpp"
 #include "Maths/Vector4.hpp"
 #include "Maths/Visual/IDriver.hpp"
 #include "UiBound.hpp"
@@ -20,7 +20,7 @@ namespace acid
 	{
 	private:
 		UiObject *m_parent;
-		std::vector<UiObject *> m_children;
+		std::vector<std::unique_ptr<UiObject>> m_children;
 
 		bool m_visible;
 		UiBound m_rectangle;
@@ -29,14 +29,13 @@ namespace acid
 		Vector2 m_positionOffset;
 		Vector4 m_screenTransform;
 
-		std::shared_ptr<IDriver> m_alphaDriver;
+		std::unique_ptr<IDriver> m_alphaDriver;
 		float m_alpha;
 
-		std::shared_ptr<IDriver> m_scaleDriver;
+		std::unique_ptr<IDriver> m_scaleDriver;
 		float m_scale;
 
-		std::function<void()> m_actionLeft;
-		std::function<void()> m_actionRight;
+		std::function<bool(MouseButton)> m_actionClick;
 	public:
 		/// <summary>
 		/// Creates a new screen object.
@@ -45,15 +44,13 @@ namespace acid
 		/// <param name="rectangle"> The rectangle that will represent the bounds of the ui object. </param>
 		UiObject(UiObject *parent, const UiBound &rectangle);
 
-		/// <summary>
-		/// Deconstructor for the screen object.
-		/// </summary>
 		virtual ~UiObject();
 
 		/// <summary>
 		/// Updates this screen object and the extended object.
 		/// </summary>
-		void Update();
+		/// <param name="list"> The list to add to. </param>
+		void Update(std::vector<UiObject *> &list);
 
 		/// <summary>
 		/// Updates the implementation.
@@ -61,18 +58,11 @@ namespace acid
 		virtual void UpdateObject();
 
 		/// <summary>
-		/// Disowns a child from this screen objects children list.
+		/// Called on mouse click along with 'm_actionClick'.
 		/// </summary>
-		/// <param name="child"> The child to disown. </param>
-		bool RemoveChild(UiObject *child);
-
-		/// <summary>
-		/// Adds this object and its children to a list.
-		/// </summary>
-		/// <param name="list"> The list to add to.
-		/// </param>
-		/// <returns> The list that has been added to. </returns>
-		std::vector<UiObject *> *GetAll(std::vector<UiObject *> *list);
+		/// <param name="button"> The mouse button clicked. </param>
+		/// <returns> If this will cancel all events. </returns>
+		virtual bool OnActionMouse(const MouseButton &button);
 
 		/// <summary>
 		/// Gets the parent object.
@@ -86,7 +76,20 @@ namespace acid
 		/// <param name="parent"> The new parent object. </param>
 		void SetParent(UiObject *parent);
 
-		std::vector<UiObject *> GetChildren() const { return m_children; }
+		std::vector<std::unique_ptr<UiObject>> const &GetChildren() const { return m_children; }
+
+		/// <summary>
+		/// Adds a child to this objects children.
+		/// </summary>
+		/// <param name="child"> The child to add. </param>
+		void AddChild(UiObject *child);
+
+		/// <summary>
+		/// Disowns a child from this objects children.
+		/// </summary>
+		/// <param name="child"> The child to disown. </param>
+		/// <returns> If the child was disowned. </returns>
+		bool RemoveChild(UiObject *child);
 
 		bool IsVisible() const;
 
@@ -113,8 +116,8 @@ namespace acid
 		/// <summary>
 		/// Sets the alpha driver.
 		/// </summary>
-		/// <param name="driver"> The new alpha driver. </param>
-		void SetAlphaDriver(std::shared_ptr<IDriver> alphaDriver) { m_alphaDriver = alphaDriver; }
+		/// <param name="alphaDriver"> The new alpha driver. </param>
+		void SetAlphaDriver(IDriver *alphaDriver) { m_alphaDriver.reset(alphaDriver); }
 
 		/// <summary>
 		/// Sets a new alpha driver from a type.
@@ -122,15 +125,15 @@ namespace acid
 		/// <param name="T"> The type of driver to set. </param>
 		/// <param name="args"> The type driver arguments. </param>
 		template<typename T, typename... Args>
-		void SetAlphaDriver(Args &&... args) { SetAlphaDriver(std::make_shared<T>(std::forward<Args>(args)...)); }
+		void SetAlphaDriver(Args &&... args) { SetAlphaDriver(new T(std::forward<Args>(args)...)); }
 
 		float GetAlpha() const;
 
 		/// <summary>
 		/// Sets the scale driver.
 		/// </summary>
-		/// <param name="driver"> The new scale driver. </param>
-		void SetScaleDriver(std::shared_ptr<IDriver> scaleDriver) { m_scaleDriver = scaleDriver; }
+		/// <param name="scaleDriver"> The new scale driver. </param>
+		void SetScaleDriver(IDriver *scaleDriver) { m_scaleDriver.reset(scaleDriver); }
 
 		/// <summary>
 		/// Sets a new scale driver from a type.
@@ -138,12 +141,10 @@ namespace acid
 		/// <param name="T"> The type of driver to set. </param>
 		/// <param name="args"> The type driver arguments. </param>
 		template<typename T, typename... Args>
-		void SetScaleDriver(Args &&... args) { SetScaleDriver(std::make_shared<T>(std::forward<Args>(args)...)); }
+		void SetScaleDriver(Args &&... args) { SetScaleDriver(new T(std::forward<Args>(args)...)); }
 
 		float GetScale() const { return m_scale; }
 
-		void SetActionLeft(std::function<void()> action) { m_actionLeft = action; }
-
-		void SetActionRight(std::function<void()> action) { m_actionRight = action; }
+		void SetActionClick(const std::function<bool(MouseButton)> &actionClick) { m_actionClick = actionClick; }
 	};
 }

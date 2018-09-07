@@ -3,7 +3,7 @@
 #include <ostream>
 #include <string>
 #include "Engine/Exports.hpp"
-#include "Files/LoadedValue.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -87,9 +87,6 @@ namespace acid
 		/// <param name="source"> Creates this colour out of a existing vector. </param>
 		Colour(const Vector4 &source);
 
-		/// <summary>
-		/// Deconstructor for colour.
-		/// </summary>
 		~Colour();
 
 		/// <summary>
@@ -173,12 +170,6 @@ namespace acid
 		/// <returns> The hex code. </returns>
 		std::string GetHex() const;
 
-		/// <summary>
-		/// Saves this vector into a loaded value.
-		/// </summary>
-		/// <param name="destination"> The destination loaded value. </param>
-		void Write(LoadedValue *destination);
-
 		float GetR() const { return m_r; }
 
 		void SetR(const float &r) { m_r = r; }
@@ -195,11 +186,9 @@ namespace acid
 
 		void SetA(const float &a) { m_a = a; }
 
-		Colour &operator=(const Colour &other);
+		void Decode(const Metadata &metadata);
 
-		Colour &operator=(const std::string &hex);
-
-		Colour &operator=(LoadedValue *value);
+		void Encode(Metadata &metadata) const;
 
 		bool operator==(const Colour &other) const;
 
@@ -261,7 +250,7 @@ namespace acid
 
 		Colour &operator/=(float value);
 
-		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Colour &vector);
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Colour &colour);
 
 		std::string ToString() const;
 	};

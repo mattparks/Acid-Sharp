@@ -11,22 +11,19 @@ namespace AcidSharp.Tests
         //  Files.AddSearchPath("Resources/Game");
             Files.AddSearchPath("Resources/Engine");
 
-            // Creates the engine and updater objects.
-            var engine = new Engine
-            {
-                Updater = new MainUpdater()
-            };
+            // Creates the engine.
+            var engine = new Engine();
 
             var configManager = new ConfigManager();
             Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
 
             // Registers modules.
-        //    Worlds.Get().World = new MainWorld();
+			Engine.Get().RegisterModule<World>(ModuleUpdate.UpdateNormal);
 
             // Registers components.
 
             // Initializes modules.
-            Display.Get().Title = "Testing Guis";
+            Display.Get().Title = "Testing C#";
             Display.Get().Icon = "Logos/Tail.png";
             Mouse.Get().CustomMouse = "Guis/Cursor.png";
             Renderer.Get().Manager = new MainRenderer();

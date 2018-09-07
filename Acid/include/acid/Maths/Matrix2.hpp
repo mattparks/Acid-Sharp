@@ -3,6 +3,7 @@
 #include <ostream>
 #include <string>
 #include "Vector2.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -52,9 +53,6 @@ namespace acid
 		/// <param name="source"> Creates this matrix out of a 2 vector array. </param>
 		Matrix2(const Vector2 source[2]);
 
-		/// <summary>
-		/// Deconstructor for Matrix2.
-		/// </summary>
 		~Matrix2();
 
 		/// <summary>
@@ -127,19 +125,11 @@ namespace acid
 		/// Gets the submatrix of this matrix.
 		/// </summary>
 		/// <returns> The submatrix. </returns>
-		float GetSubmatrix(const int &row, const int &col) const;
+		float GetSubmatrix(const int32_t &row, const int32_t &col) const;
 
-		/// <summary>
-		/// Saves this matrix into a loaded value.
-		/// </summary>
-		/// <param name="destination"> The destination loaded value. </param>
-		void Write(LoadedValue *destination);
+		void Decode(const Metadata &metadata);
 
-		Matrix2 &operator=(const Matrix2 &other);
-
-		Matrix2 &operator=(const float array[4]);
-
-		Matrix2 &operator=(LoadedValue *value);
+		void Encode(Metadata &metadata) const;
 
 		bool operator==(const Matrix2 &other) const;
 

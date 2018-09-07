@@ -3,7 +3,7 @@
 #include <ostream>
 #include <string>
 #include "Engine/Exports.hpp"
-#include "Files/LoadedValue.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
@@ -83,9 +83,6 @@ namespace acid
 		/// <param name="source"> Creates this vector out of a existing colour. </param>
 		Vector3(const Colour &source);
 
-		/// <summary>
-		/// Deconstructor for Vector3.
-		/// </summary>
 		~Vector3();
 
 		/// <summary>
@@ -288,12 +285,6 @@ namespace acid
 		/// <returns> The random unitt vector in a code. </returns>
 		static Vector3 RandomUnitVectorWithinCone(const Vector3 &coneDirection, const float &angle);
 
-		/// <summary>
-		/// Saves this vector into a loaded value.
-		/// </summary>
-		/// <param name="destination"> The destination loaded value. </param>
-		void Write(LoadedValue *destination);
-
 		float GetX() const { return m_x; }
 
 		void SetX(const float &x) { m_x = x; }
@@ -306,15 +297,9 @@ namespace acid
 
 		void SetZ(const float &z) { m_z = z; }
 
-		Vector3 &operator=(const Vector3 &other);
+		void Decode(const Metadata &metadata);
 
-		Vector3 &operator=(const Vector2 &other);
-
-		Vector3 &operator=(const Vector4 &other);
-
-		Vector3 &operator=(const Colour &other);
-
-		Vector3 &operator=(LoadedValue *value);
+		void Encode(Metadata &metadata) const;
 
 		bool operator==(const Vector3 &other) const;
 

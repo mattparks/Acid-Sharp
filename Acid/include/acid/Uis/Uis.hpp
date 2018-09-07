@@ -13,26 +13,17 @@ namespace acid
 	{
 	private:
 		UiSelector m_selector;
-		UiObject *m_container;
+		std::unique_ptr<UiObject> m_container;
 		std::vector<UiObject *> m_objects;
 	public:
 		/// <summary>
 		/// Gets this engine instance.
 		/// </summary>
 		/// <returns> The current module instance. </returns>
-		static Uis *Get()
-		{
-			return Engine::Get()->GetModule<Uis>();
-		}
+		static Uis *Get() { return Engine::Get()->GetModule<Uis>(); }
 
-		/// <summary>
-		/// Creates a new uis module.
-		/// </summary>
 		Uis();
 
-		/// <summary>
-		/// Deconstructor for the uis module.
-		/// </summary>
 		~Uis();
 
 		void Update() override;
@@ -41,7 +32,7 @@ namespace acid
 		/// Gets the screen container.
 		/// </summary>
 		/// <returns> The screen container. </returns>
-		UiObject *GetContainer() const { return m_container; }
+		UiObject *GetContainer() const { return m_container.get(); }
 
 		/// <summary>
 		/// Gets the main GUI selector.

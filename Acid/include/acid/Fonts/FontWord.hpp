@@ -12,17 +12,12 @@ namespace acid
 	{
 	private:
 		std::vector<FontCharacter> m_characters;
-		double m_width;
+		float m_width;
 	public:
 		/// <summary>
-		/// Creates a new word.
+		/// Creates a new text word.
 		/// </summary>
 		FontWord();
-
-		/// <summary>
-		/// Deconstructor for the word.
-		/// </summary>
-		~FontWord();
 
 		/// <summary>
 		/// Adds a character to the end of the current word and increases the screen-space width of the word.
@@ -34,6 +29,6 @@ namespace acid
 
 		std::vector<FontCharacter> GetCharacters() const { return m_characters; }
 
-		double GetWidth() const { return m_width; }
+		float GetWidth() const { return m_width; }
 	};
 }

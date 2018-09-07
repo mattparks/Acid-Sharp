@@ -2,11 +2,12 @@
 
 #include "Engine/Exports.hpp"
 #include "Maths/Colour.hpp"
+#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
 	/// <summary>
-	/// Represents a fog in the world.
+	/// Represents a hazy fog in the world.
 	/// </summary>
 	class ACID_EXPORT Fog
 	{
@@ -18,18 +19,21 @@ namespace acid
 		float m_upperLimit;
 	public:
 		/// <summary>
-		/// Creates a new fog.
+		/// Constructor for Fog.
 		/// </summary>
-		/// <param name="colour"> The colour of the fog. </param>
-		/// <param name="density"> How dense the fog will be. </param>
-		/// <param name="gradient"> The gradient of the fog. </param>
-		/// <param name="lowerLimit"> At what height will the skybox fog begin to appear. </param>
-		/// <param name="upperLimit"> At what height will there be skybox no fog. </param>
-		Fog(const Colour &colour, const float &density, const float &gradient, const float &lowerLimit, const float &upperLimit);
+		/// <param name="colour"> The colour of the Fog. </param>
+		/// <param name="density"> How dense the Fog will be. </param>
+		/// <param name="gradient"> The gradient of the Fog. </param>
+		/// <param name="lowerLimit"> At what height will the skybox Fog begin to appear. </param>
+		/// <param name="upperLimit"> At what height will there be skybox no Fog. </param>
+		Fog(const Colour &colour = Colour::WHITE, const float &density = 0.0f, const float &gradient = -1.0f, const float &lowerLimit = 0.0f, const float &upperLimit = 0.0f);
 
 		/// <summary>
-		/// Deconstructor for fog.
+		/// Constructor for Fog.
 		/// </summary>
+		/// <param name="source"> Creates this fog out of a existing one. </param>
+		Fog(const Fog &source);
+
 		~Fog();
 
 		Colour GetColour() const { return m_colour; }
@@ -52,14 +56,12 @@ namespace acid
 
 		void SetUpperLimit(const float &upperLimit) { m_upperLimit = upperLimit; }
 
-		/// <summary>
-		/// Saves this vector into a loaded value.
-		/// </summary>
-		/// <param name="destination"> The destination loaded value. </param>
-		void Write(LoadedValue *destination);
+		void Decode(const Metadata &metadata);
 
-		Fog &operator=(const Fog &other);
+		void Encode(Metadata &metadata) const;
 
-		Fog &operator=(LoadedValue *value);
+		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Fog &fog);
+
+		std::string ToString() const;
 	};
 }

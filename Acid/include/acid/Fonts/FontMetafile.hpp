@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 #include "Files/Files.hpp"
-#include "Resources/Resources.hpp"
+#include "Resources/IResource.hpp"
 #include "FontCharacter.hpp"
 
 namespace acid
@@ -17,45 +17,36 @@ namespace acid
 		public IResource
 	{
 	private:
-		std::map<int, FontCharacter> m_metadata;
+		std::map<int32_t, FontCharacter> m_metadata;
 		std::map<std::string, std::string> m_values;
 
 		std::string m_filename;
-		double m_verticalPerPixelSize;
-		double m_horizontalPerPixelSize;
-		int m_imageWidth;
-		double m_spaceWidth;
-		std::vector<int> m_padding;
-		int m_paddingWidth;
-		int m_paddingHeight;
-		double m_maxSizeY;
+		float m_verticalPerPixelSize;
+		float m_horizontalPerPixelSize;
+		int32_t m_imageWidth;
+		float m_spaceWidth;
+		std::vector<int32_t> m_padding;
+		int32_t m_paddingWidth;
+		int32_t m_paddingHeight;
+		float m_maxSizeY;
 	public:
-		static std::shared_ptr<FontMetafile> Resource(const std::string &filename)
-		{
-			std::string realFilename = Files::SearchFile(filename);
-			auto resource = Resources::Get()->Get(realFilename);
-
-			if (resource != nullptr)
-			{
-				return std::dynamic_pointer_cast<FontMetafile>(resource);
-			}
-
-			auto result = std::make_shared<FontMetafile>(realFilename);
-			Resources::Get()->Add(std::dynamic_pointer_cast<IResource>(result));
-			return result;
-		}
-
 		static const uint32_t PAD_TOP;
 		static const uint32_t PAD_LEFT;
 		static const uint32_t PAD_BOTTOM;
 		static const uint32_t PAD_RIGHT;
-		static const int DESIRED_PADDING;
+		static const int32_t DESIRED_PADDING;
 
 		static const std::string SPLITTER;
 		static const std::string NUMBER_SEPARATOR;
 
-		static const double LINE_HEIGHT;
-		static const int SPACE_ASCII;
+		static const float LINE_HEIGHT;
+		static const int32_t SPACE_ASCII;
+
+		/// <summary>
+		/// Will find an existing metafile with the same filename, or create a new metafile.
+		/// </summary>
+		/// <param name="filename"> The file to load the metafile from. </param>
+		static std::shared_ptr<FontMetafile> Resource(const std::string &filename);
 
 		/// <summary>
 		/// Creates a new meta file.
@@ -63,18 +54,13 @@ namespace acid
 		/// <param name="filepath"> The font file to load from. </param>
 		FontMetafile(const std::string &filename);
 
-		/// <summary>
-		/// Deconstructor for the meta file.
-		/// </summary>
-		~FontMetafile();
-
-		std::optional<FontCharacter> GetCharacter(const int &ascii);
+		std::optional<FontCharacter> GetCharacter(const int32_t &ascii);
 
 		std::string GetFilename() override { return m_filename; }
 
-		double GetSpaceWidth() const { return m_spaceWidth; }
+		float GetSpaceWidth() const { return m_spaceWidth; }
 
-		double GetMaxSizeY() const { return m_maxSizeY; }
+		float GetMaxSizeY() const { return m_maxSizeY; }
 	private:
 		/// <summary>
 		/// Read in the next line and store the variable values.
@@ -105,14 +91,14 @@ namespace acid
 		/// <param name="variable"> The name of the variable.
 		/// </param>
 		/// <returns> The value of the variable. </returns>
-		int GetValueOfVariable(const std::string &variable);
+		int32_t GetValueOfVariable(const std::string &variable);
 
 		/// <summary>
 		/// Gets the array of ints associated with a variable on the current line.
 		/// </summary>
 		/// <param name="variable"> The name of the variable.
 		/// </param>
-		/// <returns> The int array of values associated with the variable. </returns>
-		std::vector<int> GetValuesOfVariable(const std::string &variable);
+		/// <returns> The int32_t array of values associated with the variable. </returns>
+		std::vector<int32_t> GetValuesOfVariable(const std::string &variable);
 	};
 }
