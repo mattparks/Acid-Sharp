@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <memory>
 #include <vector>
 #include "Maths/Matrix4.hpp"
 
@@ -13,9 +14,13 @@ namespace acid
 		std::string m_nameId;
 		Matrix4 m_bindLocalTransform;
 
-		std::vector<std::shared_ptr<JointData>> m_children;
+		std::vector<std::unique_ptr<JointData>> m_children;
 	public:
 		JointData(const uint32_t &index, const std::string &nameId, const Matrix4 &bindLocalTransform);
+
+		JointData(const JointData&) = delete; // FIXME: Temp Fix.
+
+		JointData& operator=(const JointData&) = delete;
 
 		uint32_t GetIndex() const { return m_index; }
 
@@ -23,8 +28,8 @@ namespace acid
 
 		Matrix4 GetBindLocalTransform() const { return m_bindLocalTransform; }
 
-		std::vector<std::shared_ptr<JointData>> GetChildren() const { return m_children; }
+		const std::vector<std::unique_ptr<JointData>> &GetChildren() const { return m_children; }
 
-		void AddChild(const std::shared_ptr<JointData> &child);
+		void AddChild(JointData *child);
 	};
 }

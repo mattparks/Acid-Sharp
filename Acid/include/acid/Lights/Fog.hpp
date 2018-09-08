@@ -1,11 +1,11 @@
 #pragma once
 
-#include "Engine/Exports.hpp"
 #include "Maths/Colour.hpp"
-#include "Serialized/Metadata.hpp"
 
 namespace acid
 {
+	class Metadata;
+
 	/// <summary>
 	/// Represents a hazy fog in the world.
 	/// </summary>

@@ -26,11 +26,11 @@ namespace AcidSharp.Tests
         public void Load()
 		{
 			_audio.Load();
-			Metadata audioData = _audio.GetParent();
+			Metadata audioData = _audio.Parent;
 			Audio.Get().Volume = audioData.GetChild<float>("Master Volume", 1.0f);
 			
 			_graphics.Load();
-			Metadata graphicsData = _graphics.GetParent();
+			Metadata graphicsData = _graphics.Parent;
 			Display.Get().Width = graphicsData.GetChild<uint>("Display Width", 1080);
 			Display.Get().Height = graphicsData.GetChild<uint>("Display Height", 720);
 			Engine.Get().FpsLimit = graphicsData.GetChild<float>("Fps Limit", 0.0f);
@@ -40,11 +40,11 @@ namespace AcidSharp.Tests
 		
         public void Save()
 		{
-			Metadata audioData = _audio->GetParent();
+			Metadata audioData = _audio.GetParent();
 			audioData.SetChild<float>("Master Volume", Audio.Get().Volume);
 			_audio.Save();
 
-			Metadata graphicsData = _graphics->GetParent();
+			Metadata graphicsData = _graphics.GetParent();
 			graphicsData.SetChild<uint>("Display Width", Display.Get().Width);
 			graphicsData.SetChild<uint>("Display Height", Display.Get().GetHeight());
 			graphicsData.SetChild<float>("Fps Limit", Engine.Get().FpsLimit);

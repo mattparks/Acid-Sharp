@@ -3,24 +3,22 @@
 #include <map>
 #include <memory>
 #include "IModule.hpp"
-#include "Log.hpp"
 
 namespace acid
 {
 	/// <summary>
-	/// The default updater for the engine.
+	/// A class that contains and manages modules registered to a engine.
 	/// </summary>
 	class ACID_EXPORT ModuleRegister
 	{
 	private:
 		std::map<float, std::unique_ptr<IModule>> m_modules;
 	public:
-		/// <summary>
-		/// Creates a new module register.
-		/// </summary>
 		ModuleRegister();
 
-		~ModuleRegister();
+		ModuleRegister(const ModuleRegister&) = delete; // FIXME: Temp Fix.
+
+		ModuleRegister& operator=(const ModuleRegister&) = delete;
 
 		/// <summary>
 		/// Fills the module register with default modules.

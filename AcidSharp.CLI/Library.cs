@@ -40,8 +40,8 @@ namespace AcidSharp.CLI
             parserOptions.UnityBuild = true;
             parserOptions.Verbose = true;
 
-        //    parserOptions.Defines.Add("ACID_STATICLIB");
-            parserOptions.Defines.Add("ACID_EXPORTS");
+            parserOptions.Defines.Add("ACID_BUILD_WINDOWS");
+            parserOptions.Defines.Add("ACID_BUILD_MSVC");
 
             // Sets up other options.
             var options = driver.Options;
@@ -66,7 +66,7 @@ namespace AcidSharp.CLI
             module.Headers.Add(@"acid\Acid.hpp");
             module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\Acid\lib");
             module.Libraries.Add("vulkan-1.lib");
-            module.Libraries.Add("OpenAL32.lib");
+        //    module.Libraries.Add("OpenAL32.lib");
             module.Libraries.Add("Acid.lib");
         }
 
@@ -92,9 +92,14 @@ namespace AcidSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
-        //  ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
-        //  ctx.IgnoreHeadersWithName("vulkan/vulkan.h");
-        //  ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
+            ctx.IgnoreHeadersWithName("AL/al.h");
+            ctx.IgnoreHeadersWithName("AL/alc.h");
+            ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
+        //    ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
+
+            ctx.IgnoreHeadersWithName("acid/Audio/stb_vorbis.h");
+            ctx.IgnoreHeadersWithName("acid/Textures/stb_image.h");
+            ctx.IgnoreHeadersWithName("acid/Textures/stb_image_write.h");
 
             ctx.RenameNamespace("acid", "AcidSharp");
         }

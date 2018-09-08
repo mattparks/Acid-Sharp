@@ -98,7 +98,7 @@
       <PreprocessorDefinitions>ACID_BUILD_WINDOWS;ACID_BUILD_MSVC;ACID_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3.lib;glslang.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3dll.lib;glslang.lib;LinearMath.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;Bullet3Common.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <AdditionalLibraryDirectories>$(SolutionDir)Acid\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -114,7 +114,7 @@
       <PreprocessorDefinitions>ACID_BUILD_WINDOWS;ACID_BUILD_MSVC;ACID_STATICLIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3.lib;glslang.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3dll.lib;glslang.lib;LinearMath.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;Bullet3Common.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <AdditionalLibraryDirectories>$(SolutionDir)Acid\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -134,7 +134,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3.lib;glslang.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3dll.lib;glslang.lib;LinearMath.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;Bullet3Common.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <AdditionalLibraryDirectories>$(SolutionDir)Acid\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -154,7 +154,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3.lib;glslang.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;LinearMath.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>vulkan-1.lib;OpenAL32.lib;Acid.lib;glfw3dll.lib;glslang.lib;LinearMath.lib;OGLCompiler.lib;OSDependent.lib;SPIRV.lib;Bullet3Common.lib;BulletCollision.lib;BulletDynamics.lib;BulletInverseDynamics.lib;BulletSoftBody.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreAllDefaultLibraries>
       </IgnoreAllDefaultLibraries>
       <AdditionalLibraryDirectories>$(SolutionDir)Acid\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>

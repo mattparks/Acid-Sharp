@@ -2138,6 +2138,24 @@
       <Parameter type="global::AcidSharp.Matrix4" name="parentBindTransform" />
     </Parameters>
   </Export>
+  <Export name="AddChild" target="Common" source="Joint.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a child joint to this joint. Used during the creation of the joint hierarchy. Joints can have multiple children,
+
+/// which is why they are stored in a list (e.g. a "hand" joint may have multiple "finger" children joints).
+
+/// </summary>
+
+/// <param name="child"> The new child joint of this joint. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Joint" name="child" />
+    </Parameters>
+  </Export>
   <Export name="GetAnimatedTransform" target="Common" source="Joint.hpp">
     <Description>
       <![CDATA[
@@ -3005,6 +3023,376 @@
   <!--
   ***************************************
   **
+  ** Colour.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="r"> The new R value. </param>
+
+/// <param name="g"> The new G value. </param>
+
+/// <param name="b"> The new B value. </param>
+
+/// <param name="a"> The new A value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="r" />
+      <Parameter type="float" name="g" />
+      <Parameter type="float" name="b" />
+      <Parameter type="float" name="a" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="hex"> The new values from HEX. </param>
+
+/// <param name="a"> The new A value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="hex" />
+      <Parameter type="float" name="a" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing vector. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing vector. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector4" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Add" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Subtract" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Subtracts this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this vector with another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Divide" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Divides this vector by another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this vector by a scalar.
+
+/// </summary>
+
+/// <param name="scalar"> The scalar value. </param>
+
+/// <returns> The scaled vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="scalar" />
+    </Parameters>
+  </Export>
+  <Export name="Normalize" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Normalizes this vector.
+
+/// </summary>
+
+/// <returns> The normalized vector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="LengthSquared" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length squared of this vector.
+
+/// </summary>
+
+/// <returns> The length squared. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Length" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length of this vector.
+
+/// </summary>
+
+/// <returns> The length. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Interpolate" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Interpolates between this and another colour.
+
+/// </summary>
+
+/// <param name="other"> The other colour. </param>
+
+/// <param name="blend"> The blend factor. </param>
+
+/// <returns> The interpolated colour. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+      <Parameter type="float" name="blend" />
+    </Parameters>
+  </Export>
+  <Export name="SmoothDamp" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gradually changes this vector to a target.
+
+/// </summary>
+
+/// <param name="target"> The target vector. </param>
+
+/// <param name="rate"> The rate to go from current to the target. </param>
+
+/// <returns> The changed vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="target" />
+      <Parameter type="global::AcidSharp.Colour" name="rate" />
+    </Parameters>
+  </Export>
+  <Export name="GetUnit" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a colour representing the unit value of this colour.
+
+/// </summary>
+
+/// <returns> The unit colour. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetHex" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the hex code from this colour.
+
+/// </summary>
+
+/// <returns> The hex code. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IRenderer.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IRenderer" target="Common" source="IRenderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new renderer.
+
+/// </summary>
+
+/// <param name="graphicsStage"> The graphics stage this renderer will be used in. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GraphicsStage" name="graphicsStage" />
+    </Parameters>
+  </Export>
+  <Export name="Render" target="Common" source="IRenderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Called when the renderer is needed to be rendered.
+
+/// </summary>
+
+/// <param name="clipPlane"> The current clip plane. </param>
+
+/// <param name="camera"> The camera to be used when rendering. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.CommandBuffer" name="commandBuffer" />
+      <Parameter type="global::AcidSharp.Vector4" name="clipPlane" />
+      <Parameter type="global::AcidSharp.ICamera" name="camera" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IResource.hpp
+  **
+  ***************************************
+  -->
+  <Export name="GetFilename" target="Common" source="IResource.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a unique name (most likely a filename) associated with this resource object.
+
+/// </summary>
+
+/// <returns> The objects unique name. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** UiBound.hpp
   **
   ***************************************
@@ -3280,6 +3668,24 @@
   <!--
   ***************************************
   **
+  ** Thread.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Wait" target="Common" source="Thread.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Waits until all jobs have been finished.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Animation.hpp
   **
   ***************************************
@@ -3304,6 +3710,22 @@
   **
   ***************************************
   -->
+  <Export name="Animator" target="Common" source="Animator.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new animator.
+
+/// </summary>
+
+/// <param name="rootJoint"> The root joint of the joint hierarchy which makes up the "skeleton" of the entity. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Joint" name="rootJoint" />
+    </Parameters>
+  </Export>
   <Export name="Update" target="Common" source="Animator.hpp">
     <Description>
       <![CDATA[
@@ -3566,10 +3988,13 @@
 /// </summary>
 
 /// <param name="camera"> The scenes camera. </param>
+
+/// <param name="selectorJoystick"> The joystick controlled UI selector. </param>
 ]]>
     </Description>
     <Parameters>
       <Parameter type="global::AcidSharp.ICamera" name="camera" />
+      <Parameter type="global::AcidSharp.SelectorJoystick" name="selectorJoystick" />
     </Parameters>
   </Export>
   <Export name="Update" target="Common" source="IScene.hpp">
@@ -3610,6 +4035,35 @@
     </Description>
     <Parameters>
       <Parameter type="global::AcidSharp.ICamera" name="camera" />
+    </Parameters>
+  </Export>
+  <Export name="GetSelectorJoystick" target="Common" source="IScene.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the joystick controlled UI selector.
+
+/// </summary>
+
+/// <returns> The joystick selector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetSelectorJoystick" target="Common" source="IScene.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the joystick controlled UI selector.
+
+/// </summary>
+
+/// <param name="selectorJoystick"> The new joystick selector. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.SelectorJoystick" name="selectorJoystick" />
     </Parameters>
   </Export>
   <Export name="GetPhysics" target="Common" source="IScene.hpp">
@@ -3667,62 +4121,16 @@
       <Parameter type="bool" name="started" />
     </Parameters>
   </Export>
-  <Export name="IsGamePaused" target="Common" source="IScene.hpp">
+  <Export name="IsPaused" target="Common" source="IScene.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Gets if the main menu is open.
+/// Gets if the scene is paused.
 
 /// </summary>
 
-/// <returns> If the main menu is open. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetUiColour" target="Common" source="IScene.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// The primary colour to be used in UI elements.
-
-/// </summary>
-
-/// <returns> The primary colour. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetSelectorJoystick" target="Common" source="IScene.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// The UI selector for a joystick.
-
-/// </summary>
-
-/// <returns> The joystick selector. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** IResource.hpp
-  **
-  ***************************************
-  -->
-  <Export name="GetFilename" target="Common" source="IResource.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets a unique name (most likely a filename) associated with this resource object.
-
-/// </summary>
-
-/// <returns> The objects unique name. </returns>
+/// <returns> If the scene is paused. </returns>
 ]]>
     </Description>
   </Export>
@@ -3761,6 +4169,29 @@
 /// </summary>
 
 /// <param name="filename"> The file to load the sound buffer from. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ModelObj.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ModelObj" target="Common" source="ModelObj.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new OBJ model.
+
+/// </summary>
+
+/// <param name="filename"> The file to load the model from. </param>
 ]]>
     </Description>
     <Parameters>
@@ -4087,17 +4518,6 @@
   **
   ***************************************
   -->
-  <Export name="ModuleRegister" target="Common" source="ModuleRegister.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new module register.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
   <Export name="FillRegister" target="Common" source="ModuleRegister.hpp">
     <Description>
       <![CDATA[
@@ -4294,17 +4714,6 @@
   **
   ***************************************
   -->
-  <Export name="ModuleUpdater" target="Common" source="ModuleUpdater.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new updater.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
   <Export name="Update" target="Common" source="ModuleUpdater.hpp">
     <Description>
       <![CDATA[
@@ -4975,313 +5384,6 @@
       <Parameter type="float" name="edge1" />
       <Parameter type="float" name="x" />
     </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Colour.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="r"> The new R value. </param>
-
-/// <param name="g"> The new G value. </param>
-
-/// <param name="b"> The new B value. </param>
-
-/// <param name="a"> The new A value. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="r" />
-      <Parameter type="float" name="g" />
-      <Parameter type="float" name="b" />
-      <Parameter type="float" name="a" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="hex"> The new values from HEX. </param>
-
-/// <param name="a"> The new A value. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="hex" />
-      <Parameter type="float" name="a" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="source"> Creates this colour out of a existing one. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Colour" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="source"> Creates this colour out of a existing vector. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Colour" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for colour.
-
-/// </summary>
-
-/// <param name="source"> Creates this colour out of a existing vector. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector4" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Add" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds this vector to another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Subtract" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Subtracts this vector to another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Multiply" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Multiplies this vector with another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Divide" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Divides this vector by another vector.
-
-/// </summary>
-
-/// <param name="other"> The other vector. </param>
-
-/// <returns> The resultant vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Colour" name="other" />
-    </Parameters>
-  </Export>
-  <Export name="Scale" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Scales this vector by a scalar.
-
-/// </summary>
-
-/// <param name="scalar"> The scalar value. </param>
-
-/// <returns> The scaled vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="scalar" />
-    </Parameters>
-  </Export>
-  <Export name="Normalize" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Normalizes this vector.
-
-/// </summary>
-
-/// <returns> The normalized vector. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="LengthSquared" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the length squared of this vector.
-
-/// </summary>
-
-/// <returns> The length squared. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Length" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the length of this vector.
-
-/// </summary>
-
-/// <returns> The length. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Interpolate" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Interpolates between this and another colour.
-
-/// </summary>
-
-/// <param name="other"> The other colour. </param>
-
-/// <param name="blend"> The blend factor. </param>
-
-/// <returns> The interpolated colour. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Colour" name="other" />
-      <Parameter type="float" name="blend" />
-    </Parameters>
-  </Export>
-  <Export name="SmoothDamp" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gradually changes this vector to a target.
-
-/// </summary>
-
-/// <param name="target"> The target vector. </param>
-
-/// <param name="rate"> The rate to go from current to the target. </param>
-
-/// <returns> The changed vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Colour" name="target" />
-      <Parameter type="global::AcidSharp.Colour" name="rate" />
-    </Parameters>
-  </Export>
-  <Export name="GetUnit" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets a colour representing the unit value of this colour.
-
-/// </summary>
-
-/// <returns> The unit colour. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetHex" target="Common" source="Colour.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the hex code from this colour.
-
-/// </summary>
-
-/// <returns> The hex code. </returns>
-]]>
-    </Description>
   </Export>
   <!--
   ***************************************
@@ -6265,6 +6367,102 @@
 /// <returns> If the cursor is hidden. </returns>
 ]]>
     </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Fog.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Fog" target="Common" source="Fog.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Fog.
+
+/// </summary>
+
+/// <param name="colour"> The colour of the Fog. </param>
+
+/// <param name="density"> How dense the Fog will be. </param>
+
+/// <param name="gradient"> The gradient of the Fog. </param>
+
+/// <param name="lowerLimit"> At what height will the skybox Fog begin to appear. </param>
+
+/// <param name="upperLimit"> At what height will there be skybox no Fog. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="colour" />
+      <Parameter type="float" name="density" />
+      <Parameter type="float" name="gradient" />
+      <Parameter type="float" name="lowerLimit" />
+      <Parameter type="float" name="upperLimit" />
+    </Parameters>
+  </Export>
+  <Export name="Fog" target="Common" source="Fog.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Fog.
+
+/// </summary>
+
+/// <param name="source"> Creates this fog out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Fog" name="source" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Light.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Light" target="Common" source="Light.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new point light.
+
+/// </summary>
+
+/// <param name="colour"> The colour of the light. </param>
+
+/// <param name="radius"> How far the light will have influence (-1 sets this to a directional light). </param>
+
+/// <param name="offset"> The parent offset of the light. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="colour" />
+      <Parameter type="float" name="radius" />
+      <Parameter type="global::AcidSharp.Vector3" name="offset" />
+    </Parameters>
+  </Export>
+  <Export name="Light" target="Common" source="Light.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new point light from a source object.
+
+/// </summary>
+
+/// <param name="source"> The source light object. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Light" name="source" />
+    </Parameters>
   </Export>
   <!--
   ***************************************
@@ -7292,6 +7490,26 @@
   <!--
   ***************************************
   **
+  ** ISpawnParticle.hpp
+  **
+  ***************************************
+  -->
+  <Export name="GetBaseSpawnPosition" target="Common" source="ISpawnParticle.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the base spawn position.
+
+/// </summary>
+
+/// <returns> The base spawn position. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Ray.hpp
   **
   ***************************************
@@ -7375,6 +7593,92 @@
     <Parameters>
       <Parameter type="global::AcidSharp.Vector3" name="position" />
     </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Collider.hpp
+  **
+  ***************************************
+  -->
+  <Export name="InFrustum" target="Common" source="Collider.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if the shape is partially in the view frustum.
+
+/// </summary>
+
+/// <param name="frustum"> The view frustum. </param>
+
+/// <returns> If the shape is partially in the view frustum. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Frustum" name="frustum" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IManagerRender.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Update" target="Common" source="IManagerRender.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Run when updating the renderer manager.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Compute.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Compute" target="Common" source="Compute.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new compute pipeline.
+
+/// </summary>
+
+/// <param name="pipelineCreate"> The compute pipelines creation info. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.ComputeCreate" name="computeCreate" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Resources.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Get" target="Common" source="Resources.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets this engine instance.
+
+/// </summary>
+
+/// <returns> The current module instance. </returns>
+]]>
+    </Description>
   </Export>
   <!--
   ***************************************
@@ -7512,6 +7816,19 @@
 ]]>
     </Description>
   </Export>
+  <Export name="GetSelectorJoystick" target="Common" source="Scenes.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the joystick controlled UI selector.
+
+/// </summary>
+
+/// <returns> The joystick selector. </returns>
+]]>
+    </Description>
+  </Export>
   <Export name="GetPhysics" target="Common" source="Scenes.hpp">
     <Description>
       <![CDATA[
@@ -7538,7 +7855,7 @@
 ]]>
     </Description>
   </Export>
-  <Export name="IsGamePaused" target="Common" source="Scenes.hpp">
+  <Export name="IsPaused" target="Common" source="Scenes.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -7548,6 +7865,199 @@
 /// </summary>
 
 /// <returns> If the scene is paused. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ShadowBox.hpp
+  **
+  ***************************************
+  -->
+  <Export name="ShadowBox" target="Common" source="ShadowBox.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new shadow box and calculates some initial values relating to the camera's view frustum.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="ShadowBox.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the bounds of the shadow box based on the light direction and the camera's view frustum.
+
+/// Will make sure that the box covers the smallest area possible while still ensuring that everything.
+
+/// Objects inside the camera's view (and in range) will be shadowed.
+
+/// </summary>
+
+/// <param name="camera"> The camera object to be used when calculating the shadow boxes size. </param>
+
+/// <param name="lightPosition"> The lights position. </param>
+
+/// <param name="shadowOffset"> The shadows offset. </param>
+
+/// <param name="shadowDistance"> The shadows distance. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.ICamera" name="camera" />
+      <Parameter type="global::AcidSharp.Vector3" name="lightPosition" />
+      <Parameter type="float" name="shadowOffset" />
+      <Parameter type="float" name="shadowDistance" />
+    </Parameters>
+  </Export>
+  <Export name="IsInBox" target="Common" source="ShadowBox.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Test if a bounding sphere intersects the shadow box. Can be used to decide which engine.entities should be rendered in the shadow render pass.
+
+/// </summary>
+
+/// <param name="position"> The centre of the bounding sphere in world space. </param>
+
+/// <param name="radius"> The radius of the bounding sphere.
+
+/// </param>
+
+/// <returns> {@code true} if the sphere intersects the box. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="position" />
+      <Parameter type="float" name="radius" />
+    </Parameters>
+  </Export>
+  <Export name="GetToShadowMapSpaceMatrix" target="Common" source="ShadowBox.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// This biased projection-view matrix is used to convert fragments into "shadow map space" when rendering the main render pass.
+
+/// </summary>
+
+/// <returns> The to-shadow-map-space matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetLightSpaceTransform" target="Common" source="ShadowBox.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the light's "view" matrix
+
+/// </summary>
+
+/// <returns> The light's "view" matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Shadows.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Get" target="Common" source="Shadows.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets this engine instance.
+
+/// </summary>
+
+/// <returns> The current module instance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetShadowBox" target="Common" source="Shadows.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Get the shadow box, so that it can be used by other class to test if engine.entities are inside the box.
+
+/// </summary>
+
+/// <returns> The shadow box. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ThreadPool.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Wait" target="Common" source="ThreadPool.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Waits until all threads are finished.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Uis.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Get" target="Common" source="Uis.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets this engine instance.
+
+/// </summary>
+
+/// <returns> The current module instance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetContainer" target="Common" source="Uis.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the screen container.
+
+/// </summary>
+
+/// <returns> The screen container. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetSelector" target="Common" source="Uis.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the main GUI selector.
+
+/// </summary>
+
+/// <returns> The GUI selector. </returns>
 ]]>
     </Description>
   </Export>

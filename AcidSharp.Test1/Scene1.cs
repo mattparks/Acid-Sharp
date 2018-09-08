@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using AcidSharp;
 
 namespace AcidSharp.Tests
@@ -14,21 +15,20 @@ namespace AcidSharp.Tests
         private UiStartLogo _uiStartLogo;
         private SelectorJoystick _selectorJoystick;
 
-		public Scene1() : base(new MainCamera())
+		public Scene1() : base(new MainCamera(), new SelectorJoystick(JoystickPort.Joystick1, 0, 1, new List<uint>{0, 1}))
 		{
 			_buttonFullscreen = new ButtonKeyboard({ Key.KeyF11});
 			_buttonScreenshot = new ButtonKeyboard({ Key.KeyF12 });
 			_buttonExit = new ButtonKeyboard({ Key.KeyDelete });
 
 		    _uiStartLogo = new UiStartLogo(Uis.Get().Container);
-		    _selectorJoystick = new SelectorJoystick(JoystickPort.Joystick1, 0, 1, 0, 1);
         }
 
 		public override void Start()
 		{
 			// Skybox.
 			var skyboxObject = new GameObject(new Transform(new Vector3(), new Vector3(), 2048.0f));
-			skyboxObject.AddComponent(new Mesh(ShapeSphere.Resource(6, 6, 1.0f)));
+			skyboxObject.AddComponent(new Mesh(ModelSphere.Resource(6, 6, 1.0f)));
 			skyboxObject.AddComponent(new MaterialSkybox(Cubemap.Resource("Objects/SkyboxChapel", ".png"), false));
 			skyboxObject.AddComponent(new MeshRender());
 
@@ -46,7 +46,7 @@ namespace AcidSharp.Tests
 
 			if (_buttonScreenshot.WasDown())
 			{
-				var filename = "Screenshots/" + Engine.Get().DateTime + ".png";
+				var filename = $"Screenshots/{Engine.DateTime}.png";
 				Renderer.Get().CaptureScreenshot(filename);
 			}
 
@@ -62,8 +62,6 @@ namespace AcidSharp.Tests
 		    }
         }
 
-        public override bool IsGamePaused => _uiStartLogo.IsStarting;
-        public override Colour UiColour => _primaryColour;
-        public override SelectorJoystick SelectorJoystick => _selectorJoystick;
+        public override bool IsPaused => _uiStartLogo.IsStarting;
     }
 }
