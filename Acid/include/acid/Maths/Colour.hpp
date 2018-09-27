@@ -80,15 +80,14 @@ namespace acid
 		/// Constructor for colour.
 		/// </summary>
 		/// <param name="source"> Creates this colour out of a existing vector. </param>
-		Colour(const Vector3 &source);
+		/// <param name="a"> The new A value. </param>
+		Colour(const Vector3 &source, const float &a = 1.0f);
 
 		/// <summary>
 		/// Constructor for colour.
 		/// </summary>
 		/// <param name="source"> Creates this colour out of a existing vector. </param>
 		Colour(const Vector4 &source);
-
-		~Colour();
 
 		/// <summary>
 		/// Adds this vector to another vector.
@@ -211,29 +210,29 @@ namespace acid
 
 		float &operator[](const uint32_t &index);
 
-		ACID_EXPORT friend Colour operator+(Colour left, const Colour &right);
+		ACID_EXPORT friend Colour operator+(const Colour &left, const Colour &right);
 
-		ACID_EXPORT friend Colour operator-(Colour left, const Colour &right);
+		ACID_EXPORT friend Colour operator-(const Colour &left, const Colour &right);
 
-		ACID_EXPORT friend Colour operator*(Colour left, const Colour &right);
+		ACID_EXPORT friend Colour operator*(const Colour &left, const Colour &right);
 
-		ACID_EXPORT friend Colour operator/(Colour left, const Colour &right);
+		ACID_EXPORT friend Colour operator/(const Colour &left, const Colour &right);
 
-		ACID_EXPORT friend Colour operator+(Colour left, float value);
+		ACID_EXPORT friend Colour operator+(const float &value, const Colour &left);
 
-		ACID_EXPORT friend Colour operator-(Colour left, float value);
+		ACID_EXPORT friend Colour operator-(const float &value, const Colour &left);
 
-		ACID_EXPORT friend Colour operator*(Colour left, float value);
+		ACID_EXPORT friend Colour operator*(const float &value, const Colour &left);
 
-		ACID_EXPORT friend Colour operator/(Colour left, float value);
+		ACID_EXPORT friend Colour operator/(const float &value, const Colour &left);
 
-		ACID_EXPORT friend Colour operator+(float value, Colour left);
+		ACID_EXPORT friend Colour operator+(const Colour &left, const float &value);
 
-		ACID_EXPORT friend Colour operator-(float value, Colour left);
+		ACID_EXPORT friend Colour operator-(const Colour &left, const float &value);
 
-		ACID_EXPORT friend Colour operator*(float value, Colour left);
+		ACID_EXPORT friend Colour operator*(const Colour &left, const float &value);
 
-		ACID_EXPORT friend Colour operator/(float value, Colour left);
+		ACID_EXPORT friend Colour operator/(const Colour &left, const float &value);
 
 		Colour &operator+=(const Colour &other);
 
@@ -243,13 +242,13 @@ namespace acid
 
 		Colour &operator/=(const Colour &other);
 
-		Colour &operator+=(float value);
+		Colour &operator+=(const float &value);
 
-		Colour &operator-=(float value);
+		Colour &operator-=(const float &value);
 
-		Colour &operator*=(float value);
+		Colour &operator*=(const float &value);
 
-		Colour &operator/=(float value);
+		Colour &operator/=(const float &value);
 
 		ACID_EXPORT friend std::ostream &operator<<(std::ostream &stream, const Colour &colour);
 

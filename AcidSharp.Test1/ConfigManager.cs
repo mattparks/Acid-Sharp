@@ -12,8 +12,7 @@ namespace AcidSharp.Tests
 		{
 			_audio = new FileJson(FileSystem.WorkingDirectory + "/Configs/Audio.json");
 			_graphics = new FileJson(FileSystem.WorkingDirectory + "/Configs/Graphics.json");
-
-			FileSystem.CreateFolder("Configs");
+            
 			Load();
 
 		    Events.Get().AddEvent(new EventTime(2.5f, () =>

@@ -19,31 +19,35 @@ namespace acid
 		std::vector<std::unique_ptr<GameObject>> m_objects;
 	public:
 		/// <summary>
-		/// Creates a new basic structure.
+		/// Creates a new scene structure.
 		/// </summary>
 		SceneStructure();
 
-		~SceneStructure();
-
-		SceneStructure(const SceneStructure&) = delete; // FIXME: Temp Fix.
+		SceneStructure(const SceneStructure&) = delete;
 
 		SceneStructure& operator=(const SceneStructure&) = delete;
 
 		void Add(GameObject *object) override;
 
+		void Add(std::unique_ptr<GameObject> object) override;
+
 		bool Remove(GameObject *object) override;
+
+		bool Move(GameObject *object, ISpatialStructure *structure) override;
 
 		void Clear() override;
 
-		uint32_t GetSize() override { return static_cast<uint32_t>(m_objects.size()); }
+		void Update() override;
 
-		std::vector<std::unique_ptr<GameObject>> &GetAll() override { return m_objects; }
+		uint32_t GetSize() override { return static_cast<uint32_t>(m_objects.size()); }
 
 		std::vector<GameObject *> QueryAll() override;
 
 		std::vector<GameObject *> QueryFrustum(const Frustum &range) override;
 
-	//	std::vector<GameObject *> QueryBounding(Collider *range) override;
+	//	std::vector<GameObject *> QuerySphere(const Vector3 &centre, const Vector3 &radius) override;
+
+	//	std::vector<GameObject *> QueryCube(const Vector3 &min, const Vector3 &max) override;
 
 		/// <summary>
 		/// Returns a set of all components of a type in the spatial structure.

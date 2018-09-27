@@ -1,9 +1,9 @@
 #pragma once
 
-#include "Renderer/Commands/CommandBuffer.hpp"
 #include "Maths/Vector4.hpp"
-#include "Pipelines/PipelineCreate.hpp"
 #include "Scenes/ICamera.hpp"
+#include "Commands/CommandBuffer.hpp"
+#include "Pipelines/PipelineCreate.hpp"
 
 namespace acid
 {
@@ -20,7 +20,7 @@ namespace acid
 		/// Creates a new renderer.
 		/// </summary>
 		/// <param name="graphicsStage"> The graphics stage this renderer will be used in. </param>
-		IRenderer(const GraphicsStage &graphicsStage) :
+		explicit IRenderer(const GraphicsStage &graphicsStage) :
 			m_graphicsStage(graphicsStage),
 			m_enabled(true)
 		{

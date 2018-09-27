@@ -18,6 +18,8 @@ namespace acid
 		Vector3 m_rotation;
 		Vector3 m_scaling;
 	public:
+		static const Transform ZERO;
+
 		/// <summary>
 		/// Constructor for Transform.
 		/// </summary>
@@ -35,7 +37,7 @@ namespace acid
 		/// <param name="position"> The position. </param>
 		/// <param name="rotation"> The rotation. </param>
 		/// <param name="scaling"> The scaling. </param>
-		Transform(const Vector3 &position, const Vector3 &rotation = Vector3::ZERO, const Vector3 &scaling = Vector3::ONE);
+		explicit Transform(const Vector3 &position, const Vector3 &rotation = Vector3::ZERO, const Vector3 &scaling = Vector3::ONE);
 
 		/// <summary>
 		/// Constructor for Transform.
@@ -44,8 +46,6 @@ namespace acid
 		/// <param name="rotation"> The rotation. </param>
 		/// <param name="scale"> The scale. </param>
 		Transform(const Vector3 &position, const Vector3 &rotation, const float &scale);
-
-		~Transform();
 
 		Matrix4 GetWorldMatrix() const;
 

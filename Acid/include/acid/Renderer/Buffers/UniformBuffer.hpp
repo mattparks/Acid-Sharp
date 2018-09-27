@@ -8,19 +8,17 @@
 namespace acid
 {
 	class ACID_EXPORT UniformBuffer :
-		public Buffer,
-		public IDescriptor
+		public IDescriptor,
+		public Buffer
 	{
 	private:
 		VkDescriptorBufferInfo m_bufferInfo;
 	public:
-		UniformBuffer(const VkDeviceSize &size);
-
-		~UniformBuffer();
+		explicit UniformBuffer(const VkDeviceSize &size);
 
 		void Update(const void *newData);
 
-		static DescriptorType CreateDescriptor(const uint32_t &binding, const VkShaderStageFlags &stage);
+		static DescriptorType CreateDescriptor(const uint32_t &binding, const VkShaderStageFlags &stage, const uint32_t &count);
 
 		VkWriteDescriptorSet GetWriteDescriptor(const uint32_t &binding, const DescriptorSet &descriptorSet) const override;
 	};

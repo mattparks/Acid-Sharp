@@ -1,8 +1,6 @@
 #pragma once
 
 #include <vector>
-#include "Models/Model.hpp"
-#include "Renderer/Buffers/UniformBuffer.hpp"
 #include "Renderer/IRenderer.hpp"
 #include "Renderer/Handlers/UniformHandler.hpp"
 #include "Renderer/Pipelines/Pipeline.hpp"
@@ -17,13 +15,10 @@ namespace acid
 		UniformHandler m_uniformScene;
 		Pipeline m_pipeline;
 	public:
-		RendererParticles(const GraphicsStage &graphicsStage);
-
-		~RendererParticles();
+		explicit RendererParticles(const GraphicsStage &graphicsStage);
 
 		void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) override;
-
 	private:
-		Matrix4 ModelMatrix(Particle &particle, const Matrix4 &viewMatrix);
+		ParticleData GetInstanceData(Particle &particle, const Matrix4 &viewMatrix);
 	};
 }

@@ -58,7 +58,7 @@ namespace acid
 
 		DepthStencil *GetDepthStencil(const int32_t &stage = -1) const;
 
-		std::shared_ptr<Texture> GetTexture(const uint32_t &index, const int32_t &stage = -1) const;
+		Texture *GetTexture(const uint32_t &index, const int32_t &stage = -1) const;
 
 		VkDescriptorSetLayout GetDescriptorSetLayout() const override { return m_descriptorSetLayout; }
 
@@ -68,7 +68,7 @@ namespace acid
 
 		VkPipelineLayout GetPipelineLayout() const override { return m_pipelineLayout; }
 
-		virtual VkPipelineBindPoint GetPipelineBindPoint() const { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
+		VkPipelineBindPoint GetPipelineBindPoint() const { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
 	private:
 		void CreateShaderProgram();
 
@@ -80,12 +80,10 @@ namespace acid
 
 		void CreateAttributes();
 
+		void CreatePipeline();
+
 		void CreatePipelinePolygon();
 
-		void CreatePipelinePolygonNoDepth();
-
 		void CreatePipelineMrt();
-
-		void CreatePipelineMrtNoDepth();
 	};
 }

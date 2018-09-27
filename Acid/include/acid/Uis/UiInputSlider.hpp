@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <functional>
+#include "Audio/Sound.hpp"
 #include "Fonts/Text.hpp"
 #include "Guis/Gui.hpp"
 #include "Maths/Timer.hpp"
@@ -21,6 +22,7 @@ namespace acid
 		std::unique_ptr<Text> m_text;
 		std::unique_ptr<Gui> m_background;
 		std::unique_ptr<Gui> m_slider;
+		Sound m_soundClick;
 
 		std::string m_prefix;
 		int32_t m_roundTo;
@@ -36,8 +38,6 @@ namespace acid
 		std::function<void()> m_actionChange;
 	public:
 		UiInputSlider(UiObject *parent, const Vector3 &position, const std::string &prefix, const int32_t &roundTo, const float &progressMin, const float &progressMax, const float &value);
-
-		~UiInputSlider();
 
 		void UpdateObject() override;
 

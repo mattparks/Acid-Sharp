@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <functional>
+#include "Audio/Sound.hpp"
 #include "Fonts/Text.hpp"
 #include "Guis/Gui.hpp"
 #include "Uis/Uis.hpp"
@@ -11,8 +12,6 @@ namespace acid
 	class ACID_EXPORT IUiGrabber
 	{
 	public:
-		virtual ~IUiGrabber() = default;
-
 		virtual int32_t GetCurrent(Text *object) = 0;
 
 		virtual std::string GetValue(const int32_t &value) = 0;
@@ -24,7 +23,7 @@ namespace acid
 	private:
 		JoystickPort m_joystick;
 	public:
-		UiGrabberJoystick(const JoystickPort &joystick);
+		explicit UiGrabberJoystick(const JoystickPort &joystick);
 
 		int32_t GetCurrent(Text *object) override;
 
@@ -61,6 +60,7 @@ namespace acid
 
 		std::unique_ptr<Text> m_text;
 		std::unique_ptr<Gui> m_background;
+		Sound m_soundClick;
 
 		std::unique_ptr<IUiGrabber> m_grabber;
 
@@ -76,11 +76,7 @@ namespace acid
 	public:
 		UiInputGrabber(UiObject *parent, const Vector3 &position, const std::string &prefix, const int32_t &value, IUiGrabber *grabber);
 
-		~UiInputGrabber();
-
 		void UpdateObject() override;
-
-		bool OnActionMouse(const MouseButton &button) override;
 
 		std::string GetPrefix() const { return m_prefix; }
 

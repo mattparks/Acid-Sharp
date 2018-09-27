@@ -22,11 +22,9 @@ namespace acid
 	public:
 		Metadata(const std::string &name, const std::string &value, const std::map<std::string, std::string> &attributes);
 
-		Metadata(const std::string &name = "", const std::string &value = "");
+		explicit Metadata(const std::string &name = "", const std::string &value = "");
 
-		~Metadata();
-
-		Metadata(const Metadata&) = delete; // FIXME: Temp Fix.
+		Metadata(const Metadata&) = delete;
 
 		Metadata& operator=(const Metadata&) = delete;
 
@@ -74,7 +72,7 @@ namespace acid
 		template<typename T>
 		T GetChild(const std::string &name, const T &value)
 		{
-			auto child = FindChild(name);
+			auto child = FindChild(name, false);
 
 			if (child == nullptr)
 			{
@@ -88,7 +86,7 @@ namespace acid
 		template<typename T>
 		void SetChild(const std::string &name, const T &value)
 		{
-			auto child = FindChild(name);
+			auto child = FindChild(name, false);
 
 			if (child == nullptr)
 			{
@@ -102,14 +100,14 @@ namespace acid
 		template<typename T>
 		T Get() const
 		{
-			if constexpr(std::is_same_v<std::string, T>)
+			if constexpr (std::is_same_v<std::string, T>)
 			{
 				return GetString();
 			}
-			else if constexpr(std::is_class_v<T>)
+			else if constexpr (std::is_class_v<T>)
 			{
 				T result = T();
-				result.Decode(*this); // FIXME: Unsafe, unchecked.
+				result.Decode(*this);
 				return result;
 			}
 			else
@@ -121,13 +119,13 @@ namespace acid
 		template<typename T>
 		void Set(const T &value)
 		{
-			if constexpr(std::is_same_v<std::string, T>)
+			if constexpr (std::is_same_v<std::string, T>)
 			{
 				SetString(value);
 			}
-			else if constexpr(std::is_class_v<T>)
+			else if constexpr (std::is_class_v<T>)
 			{
-				value.Encode(*this); // FIXME: Unsafe, unchecked.
+				value.Encode(*this);
 			}
 			else
 			{

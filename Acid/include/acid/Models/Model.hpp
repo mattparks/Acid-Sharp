@@ -41,15 +41,13 @@ namespace acid
 		/// <param name="vertices"> The model vertices. </param>
 		/// <param name="indices"> The model indices. </param>
 		template<typename T>
-		Model(const std::vector<T> &vertices, const std::vector<uint32_t> &indices = {}, const std::string &name = "") :
+		explicit Model(const std::vector<T> &vertices, const std::vector<uint32_t> &indices = {}, const std::string &name = "") :
 			Model()
 		{
 			Initialize(vertices, indices, name);
 		}
 
-		~Model();
-
-		void CmdRender(const CommandBuffer &commandBuffer, const uint32_t &instances = 1);
+		bool CmdRender(const CommandBuffer &commandBuffer, const uint32_t &instances = 1);
 
 		std::string GetFilename() override { return m_filename; }
 

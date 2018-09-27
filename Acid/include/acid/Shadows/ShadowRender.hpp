@@ -21,8 +21,6 @@ namespace acid
 	public:
 		ShadowRender();
 
-		~ShadowRender();
-
 		void Start() override;
 
 		void Update() override;
@@ -31,6 +29,6 @@ namespace acid
 
 		void Encode(Metadata &metadata) const override;
 
-		void CmdRender(const CommandBuffer &commandBuffer, const Pipeline &pipeline, UniformHandler &uniformScene);
+		bool CmdRender(const CommandBuffer &commandBuffer, const Pipeline &pipeline, UniformHandler &uniformScene);
 	};
 }

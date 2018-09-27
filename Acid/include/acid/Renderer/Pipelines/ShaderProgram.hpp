@@ -35,10 +35,6 @@ namespace acid
 		{
 		}
 
-		~Uniform()
-		{
-		}
-
 		std::string GetName() const { return m_name; }
 
 		int32_t GetBinding() const { return m_binding; }
@@ -71,6 +67,13 @@ namespace acid
 		}
 	};
 
+	enum UniformBlockType
+	{
+		BLOCK_UNIFORM = 0,
+		BLOCK_STORAGE = 1,
+		BLOCK_PUSH = 2
+	};
+
 	class ACID_EXPORT UniformBlock
 	{
 	private:
@@ -78,22 +81,20 @@ namespace acid
 		int32_t m_binding;
 		int32_t m_size;
 		VkShaderStageFlags m_stageFlags;
+		UniformBlockType m_type;
 		std::vector<std::unique_ptr<Uniform>> m_uniforms;
 	public:
-		UniformBlock(const std::string &name, const int32_t &binding, const int32_t &size, const VkShaderStageFlags &stageFlags) :
+		UniformBlock(const std::string &name, const int32_t &binding, const int32_t &size, const VkShaderStageFlags &stageFlags, const UniformBlockType &type) :
 			m_name(name),
 			m_binding(binding),
 			m_size(size),
 			m_stageFlags(stageFlags),
+			m_type(type),
 			m_uniforms(std::vector<std::unique_ptr<Uniform>>())
 		{
 		}
 
-		~UniformBlock()
-		{
-		}
-
-		UniformBlock(const UniformBlock&) = delete; // FIXME: Temp Fix.
+		UniformBlock(const UniformBlock&) = delete; 
 
 		UniformBlock& operator=(UniformBlock&) = delete;
 
@@ -133,12 +134,14 @@ namespace acid
 
 		void SetStageFlags(const VkShaderStageFlags &stageFlags) { m_stageFlags = stageFlags; }
 
+		UniformBlockType GetType() const { return m_type; }
+
 		std::vector<std::unique_ptr<Uniform>> &GetUniforms() { return m_uniforms; }
 
 		std::string ToString() const
 		{
 			std::stringstream result;
-			result << "UniformBlock(name '" << m_name << "', binding " << m_binding << ", size " << m_size << ")";
+			result << "UniformBlock(name '" << m_name << "', binding " << m_binding << ", size " << m_size << ", type " << m_type << ")";
 			return result.str();
 		}
 	};
@@ -147,23 +150,23 @@ namespace acid
 	{
 	private:
 		std::string m_name;
+		int32_t m_set;
 		int32_t m_location;
 		int32_t m_size;
 		int32_t m_glType;
 	public:
-		VertexAttribute(const std::string &name, const int32_t &location, const int32_t &size, const int32_t &glType) :
+		VertexAttribute(const std::string &name, const int32_t &set, const int32_t &location, const int32_t &size, const int32_t &glType) :
 			m_name(name),
+			m_set(set),
 			m_location(location),
 			m_size(size),
 			m_glType(glType)
 		{
 		}
 
-		~VertexAttribute()
-		{
-		}
-
 		std::string GetName() const { return m_name; }
+
+		int32_t GetSet() const { return m_set; }
 
 		int32_t GetLocation() const { return m_location; }
 
@@ -174,7 +177,7 @@ namespace acid
 		std::string ToString() const
 		{
 			std::stringstream result;
-			result << "VertexAttribute(name '" << m_name << "', location " << m_location << ", size " << m_size << ", glType " << m_glType << ")";
+			result << "VertexAttribute(name '" << m_name << "', set " << m_set << "', location " << m_location << ", size " << m_size << ", glType " << m_glType << ")";
 			return result.str();
 		}
 	};
@@ -192,11 +195,9 @@ namespace acid
 
 		std::vector<std::string> m_notFoundNames;
 	public:
-		ShaderProgram(const std::string &name);
+		explicit ShaderProgram(const std::string &name);
 
-		~ShaderProgram();
-
-		ShaderProgram(const ShaderProgram&) = delete; // FIXME: Temp Fix.
+		ShaderProgram(const ShaderProgram&) = delete;
 
 		ShaderProgram& operator=(ShaderProgram&) = delete;
 
@@ -215,6 +216,12 @@ namespace acid
 		UniformBlock *GetUniformBlock(const std::string &blockName);
 
 		VertexAttribute *GetVertexAttribute(const std::string &attributeName);
+
+		const std::vector<std::unique_ptr<Uniform>> &GetUniforms() const { return m_uniforms; };
+
+		const std::vector<std::unique_ptr<UniformBlock>> &GetUniformBlocks() const { return m_uniformBlocks; };
+
+		const std::vector<std::unique_ptr<VertexAttribute>> &GetVertexAttributes() const { return m_vertexAttributes; };
 
 		std::vector<DescriptorType> GetDescriptors() const { return m_descriptors; }
 

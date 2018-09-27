@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 #include <functional>
+#include "Audio/Sound.hpp"
 #include "Fonts/Text.hpp"
 #include "Guis/Gui.hpp"
 #include "UiInputDelay.hpp"
@@ -20,6 +21,7 @@ namespace acid
 
 		std::unique_ptr<Text> m_text;
 		std::unique_ptr<Gui> m_background;
+		Sound m_soundClick;
 
 		std::string m_prefix;
 		std::string m_value;
@@ -34,8 +36,6 @@ namespace acid
 		std::function<void()> m_actionChange;
 	public:
 		UiInputText(UiObject *parent, const Vector3 &position, const std::string &prefix, const std::string &value, const int32_t &maxLength);
-
-		~UiInputText();
 
 		void UpdateObject() override;
 

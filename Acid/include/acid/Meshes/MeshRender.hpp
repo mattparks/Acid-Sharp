@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Materials/IMaterial.hpp"
+#include "Renderer/Handlers/DescriptorsHandler.hpp"
+#include "Renderer/Handlers/UniformHandler.hpp"
 #include "Mesh.hpp"
 
 namespace acid
@@ -14,8 +15,6 @@ namespace acid
 	public:
 		MeshRender();
 
-		~MeshRender();
-
 		void Start() override;
 
 		void Update() override;
@@ -24,7 +23,7 @@ namespace acid
 
 		void Encode(Metadata &metadata) const override;
 
-		void CmdRender(const CommandBuffer &commandBuffer, UniformHandler &uniformScene, const GraphicsStage &graphicsStage);
+		bool CmdRender(const CommandBuffer &commandBuffer, UniformHandler &uniformScene, const GraphicsStage &graphicsStage);
 
 		bool operator<(const MeshRender &other) const;
 	};

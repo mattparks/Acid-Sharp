@@ -8,6 +8,7 @@ namespace AcidSharp.Tests
         private static void Main(string[] args)
         {
             // Registers file search paths.
+            Files.SetBaseDirectory(args[0]);
         //  Files.AddSearchPath("Resources/Game");
             Files.AddSearchPath("Resources/Engine");
 
@@ -18,7 +19,7 @@ namespace AcidSharp.Tests
             Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
 
             // Registers modules.
-			Engine.Get().RegisterModule<World>(ModuleUpdate.UpdateNormal);
+			Engine.Get().RegisterModule(new World(), ModuleUpdate.UpdateNormal);
 
             // Registers components.
 

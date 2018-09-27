@@ -2,7 +2,6 @@
 
 #include <vector>
 #include "Renderer/Renderpass/RenderpassCreate.hpp"
-#include "Textures/Texture.hpp"
 
 namespace acid
 {
@@ -17,7 +16,7 @@ namespace acid
 
 		VkExtent2D m_extent;
 	public:
-		Swapchain(const VkExtent2D &extent);
+		explicit Swapchain(const VkExtent2D &extent);
 
 		~Swapchain();
 

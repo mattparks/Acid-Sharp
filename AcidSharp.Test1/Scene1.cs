@@ -57,7 +57,7 @@ namespace AcidSharp.Tests
 
 		    if (_uiStartLogo.Alpha == 0.0f && _uiStartLogo.IsStarting)
 		    {
-		        _uiStartLogo.SetAlphaDriver(new DriverConstant(0.0f));
+		        _uiStartLogo.AlphaDriver = new DriverConstant(0.0f);
 		        _uiStartLogo.SetStarting(false);
 		    }
         }

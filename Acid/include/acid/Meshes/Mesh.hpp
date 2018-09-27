@@ -14,9 +14,7 @@ namespace acid
 	private:
 		std::shared_ptr<Model> m_model;
 	public:
-		Mesh(const std::shared_ptr<Model> &model = nullptr);
-
-		~Mesh();
+		explicit Mesh(const std::shared_ptr<Model> &model = nullptr);
 
 		void Start() override;
 
@@ -28,7 +26,7 @@ namespace acid
 
 		virtual std::shared_ptr<Model> GetModel() const { return m_model; }
 
-		virtual VertexInput GetVertexInput() const { return VertexModel::GetVertexInput(); }
+		virtual VertexInput GetVertexInput(const uint32_t &binding = 0) const { return VertexModel::GetVertexInput(binding); }
 
 		virtual void SetModel(const std::shared_ptr<Model> &model) { m_model = model; }
 

@@ -23,12 +23,16 @@ namespace AcidSharp.Tests
 
 		public MainRenderer() : base(new List<RenderpassCreate>{ RenderPassCreate0 })
         {
-            AddRenderer(new RendererGuis(new GraphicsStage(0, 0)));
-            AddRenderer(new RendererFonts(new GraphicsStage(0, 0)));
         }
 
-		public override void Update()
-		{
-		}
+        public override void Start()
+        {
+            Renderer.Get().AddRenderer(new RendererGuis(new GraphicsStage(0, 0)));
+            Renderer.Get().AddRenderer(new RendererFonts(new GraphicsStage(0, 0)));
+        }
+
+        public override void Update()
+        {
+        }
     }
 }

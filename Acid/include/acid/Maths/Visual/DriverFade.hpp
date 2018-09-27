@@ -24,8 +24,6 @@ namespace acid
 		/// <param name="length"> The time taken to get to the end. </param>
 		DriverFade(const float &start, const float &end, const float &peak, const float &length);
 
-		~DriverFade();
-
 		/// <summary>
 		/// Gets the start time.
 		/// </summary>
@@ -41,7 +39,7 @@ namespace acid
 		/// <summary>
 		/// Gets the end time.
 		/// </summary>
-		/// <returns> The ebd time. </returns>
+		/// <returns> The end time. </returns>
 		float GetEnd() const { return m_end; }
 
 		/// <summary>

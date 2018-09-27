@@ -36,8 +36,6 @@ namespace acid
 		/// </summary>
 		ShadowBox();
 
-		~ShadowBox();
-
 		/// <summary>
 		/// Updates the bounds of the shadow box based on the light direction and the camera's view frustum.
 		/// Will make sure that the box covers the smallest area possible while still ensuring that everything.
@@ -48,7 +46,6 @@ namespace acid
 		/// <param name="shadowOffset"> The shadows offset. </param>
 		/// <param name="shadowDistance"> The shadows distance. </param>
 		void Update(const ICamera &camera, const Vector3 &lightPosition, const float &shadowOffset, const float &shadowDistance);
-
 	private:
 		/// <summary>
 		/// Create the offset for part of the conversion to shadow map space.
@@ -95,7 +92,6 @@ namespace acid
 		void UpdateLightViewMatrix();
 
 		void UpdateViewShadowMatrix();
-
 	public:
 		/// <summary>
 		/// Test if a bounding sphere intersects the shadow box. Can be used to decide which engine.entities should be rendered in the shadow render pass.

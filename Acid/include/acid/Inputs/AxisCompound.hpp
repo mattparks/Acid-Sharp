@@ -19,11 +19,9 @@ namespace acid
 		/// Creates a new compound axis.
 		/// </summary>
 		/// <param name="axes"> The axes on the being added. </param>
-		AxisCompound(const std::vector<IAxis *> &axes);
+		explicit AxisCompound(const std::vector<IAxis *> &axes);
 
-		~AxisCompound();
-
-		AxisCompound(const AxisCompound&) = delete; // FIXME: Temp Fix.
+		AxisCompound(const AxisCompound&) = delete;
 
 		AxisCompound& operator=(const AxisCompound&) = delete;
 

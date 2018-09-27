@@ -22,9 +22,7 @@ namespace acid
 
 		std::shared_ptr<PipelineMaterial> m_material;
 	public:
-		MaterialSkybox(const std::shared_ptr<Cubemap> &cubemap = nullptr, const Colour &skyColour = Colour::WHITE);
-
-		~MaterialSkybox();
+		explicit MaterialSkybox(const std::shared_ptr<Cubemap> &cubemap = nullptr, const Colour &skyColour = Colour::WHITE);
 
 		void Start() override;
 
@@ -66,6 +64,6 @@ namespace acid
 
 		void SetFogLimits(const Vector2 &fogLimits) { m_fogLimits = fogLimits; }
 
-		std::shared_ptr<PipelineMaterial> GetMaterial() const override { return m_material; }
+		std::shared_ptr<PipelineMaterial> GetMaterialPipeline() const override { return m_material; }
 	};
 }

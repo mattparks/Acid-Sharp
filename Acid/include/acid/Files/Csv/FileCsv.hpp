@@ -14,9 +14,7 @@ namespace acid
 		char m_delimiter;
 		std::vector<RowCsv> m_rows;
 	public:
-		FileCsv(const std::string &filename, const char &delimiter = ',');
-
-		~FileCsv();
+		explicit FileCsv(const std::string &filename, const char &delimiter = ',');
 
 		void Load() override;
 

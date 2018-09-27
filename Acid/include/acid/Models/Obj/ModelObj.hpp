@@ -25,9 +25,7 @@ namespace acid
 		/// Creates a new OBJ model.
 		/// </summary>
 		/// <param name="filename"> The file to load the model from. </param>
-		ModelObj(const std::string &filename);
-
-		~ModelObj();
+		explicit ModelObj(const std::string &filename);
 	private:
 		VertexModelData *ProcessDataVertex(const Vector3 &vertex, std::vector<std::unique_ptr<VertexModelData>> &vertices, std::vector<uint32_t> &indices);
 

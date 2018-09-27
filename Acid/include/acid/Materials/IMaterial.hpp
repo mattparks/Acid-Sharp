@@ -3,7 +3,6 @@
 #include "Objects/IComponent.hpp"
 #include "Renderer/Handlers/DescriptorsHandler.hpp"
 #include "Renderer/Handlers/UniformHandler.hpp"
-#include "Renderer/Pipelines/Pipeline.hpp"
 #include "PipelineMaterial.hpp"
 
 namespace acid
@@ -27,6 +26,6 @@ namespace acid
 
 		virtual void PushDescriptors(DescriptorsHandler &descriptorSet) = 0;
 
-		virtual std::shared_ptr<PipelineMaterial> GetMaterial() const = 0;
+		virtual std::shared_ptr<PipelineMaterial> GetMaterialPipeline() const = 0;
 	};
 }

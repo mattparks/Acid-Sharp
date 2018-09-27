@@ -10,7 +10,7 @@
 namespace acid
 {
 	/// <summary>
-	/// A class that represents a structured game object.
+	/// A class that represents a objects that acts as a component container.
 	/// </summary>
 	class ACID_EXPORT GameObject
 	{
@@ -20,25 +20,24 @@ namespace acid
 		std::vector<std::unique_ptr<IComponent>> m_components;
 		ISpatialStructure *m_structure;
 		GameObject *m_parent;
+		bool m_removed;
 	public:
 		/// <summary>
-		/// Creates a new Game Object and store it into a structure.
+		/// Creates a new Game Object and stores it into a structure.
 		/// </summary>
 		/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
 		/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
-		GameObject(const Transform &transform, ISpatialStructure *structure = nullptr);
+		explicit GameObject(const Transform &transform, ISpatialStructure *structure = nullptr);
 
 		/// <summary>
-		/// Creates a new Game Object and store it into a structure.
+		/// Creates a new Game Object and stores it into a structure.
 		/// </summary>
-		/// <param name="filepath"> The file to load the component data from. </param>
+		/// <param name="filename"> The file to load the component data from. </param>
 		/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
 		/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
-		GameObject(const std::string &filepath, const Transform &transform, ISpatialStructure *structure = nullptr);
+		explicit GameObject(const std::string &filename, const Transform &transform = Transform::ZERO, ISpatialStructure *structure = nullptr);
 
-		~GameObject();
-
-		GameObject(const GameObject&) = delete; // FIXME: Temp Fix.
+		GameObject(const GameObject&) = delete; 
 
 		GameObject& operator=(const GameObject&) = delete;
 
@@ -129,13 +128,15 @@ namespace acid
 		template<typename T>
 		bool RemoveComponent()
 		{
-			for (auto &component : m_components)
+			for (auto it = m_components.begin(); it != m_components.end(); ++it)
 			{
-				auto casted = dynamic_cast<T *>(component.get());
+				auto casted = dynamic_cast<T *>((*it).get());
 
 				if (casted != nullptr)
 				{
-					RemoveComponent(component.get());
+					(*it)->SetGameObject(nullptr);
+
+					m_components.erase(it);
 					return true;
 				}
 			}
@@ -149,11 +150,15 @@ namespace acid
 
 		Transform &GetTransform() { return m_transform; }
 
+		void SetTransform(const Transform &transform) { m_transform = transform; }
+
 		ISpatialStructure *GetStructure() const { return m_structure; }
 
 		void SetStructure(ISpatialStructure *structure);
 
-		void StructureRemove();
+		bool IsRemoved() const { return m_removed; }
+
+		void SetRemoved(const bool &removed) { m_removed = removed; }
 
 		GameObject *GetParent() const { return m_parent; }
 

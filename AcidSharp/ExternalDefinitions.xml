@@ -2211,6 +2211,406 @@
   <!--
   ***************************************
   **
+  ** Transform.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+
+/// <param name="source"> Creates this vector out of a transform. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Transform" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+
+/// <param name="position"> The position. </param>
+
+/// <param name="rotation"> The rotation. </param>
+
+/// <param name="scaling"> The scaling. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="position" />
+      <Parameter type="global::AcidSharp.Vector3" name="rotation" />
+      <Parameter type="global::AcidSharp.Vector3" name="scaling" />
+    </Parameters>
+  </Export>
+  <Export name="Transform" target="Common" source="Transform.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Transform.
+
+/// </summary>
+
+/// <param name="position"> The position. </param>
+
+/// <param name="rotation"> The rotation. </param>
+
+/// <param name="scale"> The scale. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="position" />
+      <Parameter type="global::AcidSharp.Vector3" name="rotation" />
+      <Parameter type="float" name="scale" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ISpatialStructure.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Add" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a new object to the spatial structure.
+
+/// </summary>
+
+/// <param name="object"> The object to add. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <Export name="Remove" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes an object from the spatial structure.
+
+/// </summary>
+
+/// <param name="object"> The object to remove. </param>
+
+/// <returns> If the object was removed. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <Export name="Move" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Moves an object to another spatial structure.
+
+/// </summary>
+
+/// <param name="object"> The object to remove. </param>
+
+/// <param name="structure"> The structure to move to. </param>
+
+/// <returns> If the object was moved. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GameObject" name="@object" />
+      <Parameter type="global::AcidSharp.ISpatialStructure" name="structure" />
+    </Parameters>
+  </Export>
+  <Export name="Clear" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes all objects from the spatial structure..
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates all of the game object.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetSize" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the size of this structure.
+
+/// </summary>
+
+/// <returns> The structures size. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Contains" target="Common" source="ISpatialStructure.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// If the structure contains the object.
+
+/// </summary>
+
+/// <param name="object"> The object to check for.
+
+/// </param>
+
+/// <returns> If the structure contains the object. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GameObject" name="@object" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** GameObject.hpp
+  **
+  ***************************************
+  -->
+  <Export name="GameObject" target="Common" source="GameObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new Game Object and stores it into a structure.
+
+/// </summary>
+
+/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
+
+/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Transform" name="transform" />
+      <Parameter type="global::AcidSharp.ISpatialStructure" name="structure" />
+    </Parameters>
+  </Export>
+  <Export name="GameObject" target="Common" source="GameObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new Game Object and stores it into a structure.
+
+/// </summary>
+
+/// <param name="filename"> The file to load the component data from. </param>
+
+/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
+
+/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+      <Parameter type="global::AcidSharp.Transform" name="transform" />
+      <Parameter type="global::AcidSharp.ISpatialStructure" name="structure" />
+    </Parameters>
+  </Export>
+  <Export name="GetComponentCount" target="Common" source="GameObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the count of components attached to this Game Object.
+
+/// </summary>
+
+/// <returns> The count of components. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="AddComponent" target="Common" source="GameObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a component to this game object.
+
+/// </summary>
+
+/// <param name="component"> The component to add. </param>
+
+/// <returns> The added component. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IComponent" name="component" />
+    </Parameters>
+  </Export>
+  <Export name="RemoveComponent" target="Common" source="GameObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes a component from this game object.
+
+/// </summary>
+
+/// <param name="component"> The component to remove. </param>
+
+/// <returns> If the component was removed. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IComponent" name="component" />
+    </Parameters>
+  </Export>
+  <Export name="RemoveComponent" target="Common" source="GameObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes a component from this game object.
+
+/// </summary>
+
+/// <param name="name"> The name of the component to remove. </param>
+
+/// <returns> If the component was removed. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="name" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IComponent.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Start" target="Common" source="IComponent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Run when starting the component if <seealso cref="#m_started"/> is false.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="IComponent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Run when updating the game object this is attached to.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Decode" target="Common" source="IComponent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Used to decode this component from a loaded data format.
+
+/// </summary>
+
+/// <param name="metadata"> The metadata to decode from. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Metadata" name="metadata" />
+    </Parameters>
+  </Export>
+  <Export name="Encode" target="Common" source="IComponent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Used to encode this component into a data format.
+
+/// </summary>
+
+/// <param name="metadata"> The metadata to encode into. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Metadata" name="metadata" />
+    </Parameters>
+  </Export>
+  <Export name="GetGameObject" target="Common" source="IComponent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the game object this components is attached to.
+
+/// </summary>
+
+/// <returns> The registered game object. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetGameObject" target="Common" source="IComponent.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the game object this components is attached to.
+
+/// </summary>
+
+/// <param name="gameObject"> The new game object this is attached to. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GameObject" name="gameObject" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Vector2.hpp
   **
   ***************************************
@@ -2648,284 +3048,6 @@
   <!--
   ***************************************
   **
-  ** Transform.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-
-/// <param name="source"> Creates this vector out of a transform. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Transform" name="source" />
-    </Parameters>
-  </Export>
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-
-/// <param name="position"> The position. </param>
-
-/// <param name="rotation"> The rotation. </param>
-
-/// <param name="scaling"> The scaling. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="position" />
-      <Parameter type="global::AcidSharp.Vector3" name="rotation" />
-      <Parameter type="global::AcidSharp.Vector3" name="scaling" />
-    </Parameters>
-  </Export>
-  <Export name="Transform" target="Common" source="Transform.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for Transform.
-
-/// </summary>
-
-/// <param name="position"> The position. </param>
-
-/// <param name="rotation"> The rotation. </param>
-
-/// <param name="scale"> The scale. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="position" />
-      <Parameter type="global::AcidSharp.Vector3" name="rotation" />
-      <Parameter type="float" name="scale" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** ISpatialStructure.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Add" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds a new object to the spatial structure.
-
-/// </summary>
-
-/// <param name="object"> The object to add. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.GameObject" name="@object" />
-    </Parameters>
-  </Export>
-  <Export name="Remove" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes an object from the spatial structure.
-
-/// </summary>
-
-/// <param name="object"> The object to remove. </param>
-
-/// <returns> If the object was removed. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.GameObject" name="@object" />
-    </Parameters>
-  </Export>
-  <Export name="Clear" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes all objects from the spatial structure..
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetSize" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the size of this structure.
-
-/// </summary>
-
-/// <returns> The structures size. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="Contains" target="Common" source="ISpatialStructure.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// If the structure contains the object.
-
-/// </summary>
-
-/// <param name="object"> The object to check for.
-
-/// </param>
-
-/// <returns> If the structure contains the object. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.GameObject" name="@object" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** GameObject.hpp
-  **
-  ***************************************
-  -->
-  <Export name="GameObject" target="Common" source="GameObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new Game Object and store it into a structure.
-
-/// </summary>
-
-/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
-
-/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Transform" name="transform" />
-      <Parameter type="global::AcidSharp.ISpatialStructure" name="structure" />
-    </Parameters>
-  </Export>
-  <Export name="GameObject" target="Common" source="GameObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new Game Object and store it into a structure.
-
-/// </summary>
-
-/// <param name="filepath"> The file to load the component data from. </param>
-
-/// <param name="transform"> The objects initial world position, rotation, and scale. </param>
-
-/// <param name="structure"> The structure to store the object into, if null it will be stored in the scenes structure. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="filepath" />
-      <Parameter type="global::AcidSharp.Transform" name="transform" />
-      <Parameter type="global::AcidSharp.ISpatialStructure" name="structure" />
-    </Parameters>
-  </Export>
-  <Export name="GetComponentCount" target="Common" source="GameObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the count of components attached to this Game Object.
-
-/// </summary>
-
-/// <returns> The count of components. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="AddComponent" target="Common" source="GameObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds a component to this game object.
-
-/// </summary>
-
-/// <param name="component"> The component to add. </param>
-
-/// <returns> The added component. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.IComponent" name="component" />
-    </Parameters>
-  </Export>
-  <Export name="RemoveComponent" target="Common" source="GameObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes a component from this game object.
-
-/// </summary>
-
-/// <param name="component"> The component to remove. </param>
-
-/// <returns> If the component was removed. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.IComponent" name="component" />
-    </Parameters>
-  </Export>
-  <Export name="RemoveComponent" target="Common" source="GameObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes a component from this game object.
-
-/// </summary>
-
-/// <param name="name"> The name of the component to remove. </param>
-
-/// <returns> If the component was removed. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="name" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** IEvent.hpp
   **
   ***************************************
@@ -2966,6 +3088,365 @@
 /// <returns> If the even will run. </returns>
 ]]>
     </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** FontCharacter.hpp
+  **
+  ***************************************
+  -->
+  <Export name="FontCharacter" target="Common" source="FontCharacter.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new character.
+
+/// </summary>
+
+/// <param name="id"> The ASCII value of the character. </param>
+
+/// <param name="textureCoordX"> The x texture coordinate for the top left corner of the character in the texture atlas. </param>
+
+/// <param name="textureCoordY"> The y texture coordinate for the top left corner of the character in the texture atlas. </param>
+
+/// <param name="textureSizeX"> The width of the character in the texture atlas. </param>
+
+/// <param name="textureSizeY"> The height of the character in the texture atlas. </param>
+
+/// <param name="offsetX"> The x distance from the cursor to the left edge of the character's quad. </param>
+
+/// <param name="offsetY"> The y distance from the cursor to the top edge of the character's quad. </param>
+
+/// <param name="sizeX"> The width of the character's quad in screen space. </param>
+
+/// <param name="sizeY"> The height of the character's quad in screen space. </param>
+
+/// <param name="advanceX"> How far in pixels the cursor should advance after adding this character. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="id" />
+      <Parameter type="float" name="textureCoordX" />
+      <Parameter type="float" name="textureCoordY" />
+      <Parameter type="float" name="textureSizeX" />
+      <Parameter type="float" name="textureSizeY" />
+      <Parameter type="float" name="offsetX" />
+      <Parameter type="float" name="offsetY" />
+      <Parameter type="float" name="sizeX" />
+      <Parameter type="float" name="sizeY" />
+      <Parameter type="float" name="advanceX" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** FontWord.hpp
+  **
+  ***************************************
+  -->
+  <Export name="FontWord" target="Common" source="FontWord.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new text word.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="AddCharacter" target="Common" source="FontWord.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a character to the end of the current word and increases the screen-space width of the word.
+
+/// </summary>
+
+/// <param name="character"> The character to be added. </param>
+
+/// <param name="kerning"> The character kerning. </param>
+
+/// <returns> {@code true} if the character has successfully been added to the word. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.FontCharacter" name="character" />
+      <Parameter type="float" name="kerning" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** UiBound.hpp
+  **
+  ***************************************
+  -->
+  <Export name="UiBound" target="Common" source="UiBound.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for rectangle.
+
+/// </summary>
+
+/// <param name="position"> The object screen position. </param>
+
+/// <param name="reference"> The reference pivot vertex (TopLeft, TopCentre, TopRight, CentreLeft, Centre, CentreRight, BottomLeft, BottomCentre, BottomRight). </param>
+
+/// <param name="aspectPosition"> The if the x position will change with display width. </param>
+
+/// <param name="aspectSize"> The if the width will scale with display width. </param>
+
+/// <param name="dimensions"> The object dimensions. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="position" />
+      <Parameter type="string" name="reference" />
+      <Parameter type="bool" name="aspectPosition" />
+      <Parameter type="bool" name="aspectSize" />
+      <Parameter type="global::AcidSharp.Vector2" name="dimensions" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IDriver.hpp
+  **
+  ***************************************
+  -->
+  <Export name="IDriver" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new driver with a length.
+
+/// </summary>
+
+/// <param name="length"> The drivers length. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="length" />
+    </Parameters>
+  </Export>
+  <Export name="Update" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the driver with the passed time.
+
+/// </summary>
+
+/// <param name="delta"> The time between the last update. </param>
+
+/// <returns> The calculated value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="delta" />
+    </Parameters>
+  </Export>
+  <Export name="GetLength" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length.
+
+/// </summary>
+
+/// <returns> The length. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetLength" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the length.
+
+/// </summary>
+
+/// <param name="length"> The new length. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="length" />
+    </Parameters>
+  </Export>
+  <Export name="Calculate" target="Common" source="IDriver.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the new value.
+
+/// </summary>
+
+/// <param name="time"> The time into the drivers life.
+
+/// </param>
+
+/// <returns> The calculated value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="time" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** UiObject.hpp
+  **
+  ***************************************
+  -->
+  <Export name="UiObject" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new screen object.
+
+/// </summary>
+
+/// <param name="parent"> The parent screen object. </param>
+
+/// <param name="rectangle"> The rectangle that will represent the bounds of the ui object. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.UiObject" name="parent" />
+      <Parameter type="global::AcidSharp.UiBound" name="rectangle" />
+    </Parameters>
+  </Export>
+  <Export name="UpdateObject" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the implementation.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetParent" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the parent object.
+
+/// </summary>
+
+/// <returns> The parent object. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetParent" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes this object from the previous parent and attaches it to another parent.
+
+/// </summary>
+
+/// <param name="parent"> The new parent object. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.UiObject" name="parent" />
+    </Parameters>
+  </Export>
+  <Export name="AddChild" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a child to this objects children.
+
+/// </summary>
+
+/// <param name="child"> The child to add. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.UiObject" name="child" />
+    </Parameters>
+  </Export>
+  <Export name="RemoveChild" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Disowns a child from this objects children.
+
+/// </summary>
+
+/// <param name="child"> The child to disown. </param>
+
+/// <returns> If the child was disowned. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.UiObject" name="child" />
+    </Parameters>
+  </Export>
+  <Export name="GetScreenTransform" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the ui object screen space transform.
+
+/// </summary>
+
+/// <returns> The screen transform. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetAlphaDriver" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the alpha driver.
+
+/// </summary>
+
+/// <param name="alphaDriver"> The new alpha driver. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IDriver" name="alphaDriver" />
+    </Parameters>
+  </Export>
+  <Export name="SetScaleDriver" target="Common" source="UiObject.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the scale driver.
+
+/// </summary>
+
+/// <param name="scaleDriver"> The new scale driver. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IDriver" name="scaleDriver" />
+    </Parameters>
   </Export>
   <!--
   ***************************************
@@ -3108,10 +3589,13 @@
 /// </summary>
 
 /// <param name="source"> Creates this colour out of a existing vector. </param>
+
+/// <param name="a"> The new A value. </param>
 ]]>
     </Description>
     <Parameters>
       <Parameter type="global::AcidSharp.Vector3" name="source" />
+      <Parameter type="float" name="a" />
     </Parameters>
   </Export>
   <Export name="Colour" target="Common" source="Colour.hpp">
@@ -3330,6 +3814,206 @@
   <!--
   ***************************************
   **
+  ** IResource.hpp
+  **
+  ***************************************
+  -->
+  <Export name="GetFilename" target="Common" source="IResource.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a unique name (most likely a filename) associated with this resource object.
+
+/// </summary>
+
+/// <returns> The objects unique name. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Texture.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Texture" target="Common" source="Texture.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new texture object.
+
+/// </summary>
+
+/// <param name="filename"> The file to load the texture from. </param>
+
+/// <param name="mipmap"> If mipmaps will be generated for the texture. </param>
+
+/// <param name="filter"> The type of filtering will be use on the texture. </param>
+
+/// <param name="addressMode"> The sampler address mode to use. </param>
+
+/// <param name="anisotropic"> If anisotropic filtering will be use on the texture. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+      <Parameter type="bool" name="mipmap" />
+      <Parameter type="VkFilter" name="filter" />
+      <Parameter type="VkSamplerAddressMode" name="addressMode" />
+      <Parameter type="bool" name="anisotropic" />
+    </Parameters>
+  </Export>
+  <Export name="Texture" target="Common" source="Texture.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new empty texture object that can be used to render into.
+
+/// </summary>
+
+/// <param name="width"> The textures width. </param>
+
+/// <param name="height"> The textures height. </param>
+
+/// <param name="format"> The textures format. </param>
+
+/// <param name="imageLayout"> The textures image layout </param>
+
+/// <param name="usage"> The textures image usage </param>
+
+/// <param name="filter"> The type of filtering will be use on the texture. </param>
+
+/// <param name="addressMode"> The sampler address mode to use. </param>
+
+/// <param name="samples"> The amount of MSAA samples to use. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="uint32_t" name="width" />
+      <Parameter type="uint32_t" name="height" />
+      <Parameter type="VkFormat" name="format" />
+      <Parameter type="VkImageLayout" name="imageLayout" />
+      <Parameter type="VkImageUsageFlags" name="usage" />
+      <Parameter type="VkFilter" name="filter" />
+      <Parameter type="VkSamplerAddressMode" name="addressMode" />
+      <Parameter type="VkSampleCountFlagBits" name="samples" />
+    </Parameters>
+  </Export>
+  <Export name="Texture" target="Common" source="Texture.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new texture object from a array of pixels.
+
+/// </summary>
+
+/// <param name="width"> The textures width. </param>
+
+/// <param name="height"> The textures height. </param>
+
+/// <param name="pixels"> The inital pixels to use in the texture. <seealso cref="#GetPixels()"/> to get a copy of the pixels, and <seealso cref="#SetPixels()"/> to set the pixels. </param>
+
+/// <param name="format"> The textures format. </param>
+
+/// <param name="imageLayout"> The textures image layout </param>
+
+/// <param name="usage"> The textures image usage </param>
+
+/// <param name="mipmap"> If mipmaps will be generated for the texture. </param>
+
+/// <param name="filter"> The type of filtering will be use on the texture. </param>
+
+/// <param name="addressMode"> The sampler address mode to use. </param>
+
+/// <param name="samples"> The amount of MSAA samples to use. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="uint32_t" name="width" />
+      <Parameter type="uint32_t" name="height" />
+      <Parameter type="IntPtr" name="pixels" />
+      <Parameter type="VkFormat" name="format" />
+      <Parameter type="VkImageLayout" name="imageLayout" />
+      <Parameter type="VkImageUsageFlags" name="usage" />
+      <Parameter type="bool" name="mipmap" />
+      <Parameter type="VkFilter" name="filter" />
+      <Parameter type="VkSamplerAddressMode" name="addressMode" />
+      <Parameter type="VkSampleCountFlagBits" name="samples" />
+    </Parameters>
+  </Export>
+  <Export name="GetPixels" target="Common" source="Texture.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a copy of the textures pixels from memory, after usage is finished remember to delete the result.
+
+/// </summary>
+
+/// <returns> A copy of the textures pixels. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetPixels" target="Common" source="Texture.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Copies the pixels into this textures memory.
+
+/// </summary>
+
+/// <param name="pixels"> The pixels to copy to the image. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="uint8_t" name="pixels" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Model.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Model" target="Common" source="Model.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new empty model.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Particle.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Update" target="Common" source="Particle.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the particle.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** IRenderer.hpp
   **
   ***************************************
@@ -3368,301 +4052,6 @@
       <Parameter type="global::AcidSharp.CommandBuffer" name="commandBuffer" />
       <Parameter type="global::AcidSharp.Vector4" name="clipPlane" />
       <Parameter type="global::AcidSharp.ICamera" name="camera" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** IResource.hpp
-  **
-  ***************************************
-  -->
-  <Export name="GetFilename" target="Common" source="IResource.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets a unique name (most likely a filename) associated with this resource object.
-
-/// </summary>
-
-/// <returns> The objects unique name. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** UiBound.hpp
-  **
-  ***************************************
-  -->
-  <Export name="UiBound" target="Common" source="UiBound.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Constructor for rectangle.
-
-/// </summary>
-
-/// <param name="position"> The object screen position. </param>
-
-/// <param name="reference"> The reference pivot vertex (TopLeft, TopCentre, TopRight, CentreLeft, Centre, CentreRight, BottomLeft, BottomCentre, BottomRight). </param>
-
-/// <param name="aspectPosition"> The if the x position will change with display width. </param>
-
-/// <param name="aspectSize"> The if the width will scale with display width. </param>
-
-/// <param name="dimensions"> The object dimensions. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector2" name="position" />
-      <Parameter type="string" name="reference" />
-      <Parameter type="bool" name="aspectPosition" />
-      <Parameter type="bool" name="aspectSize" />
-      <Parameter type="global::AcidSharp.Vector2" name="dimensions" />
-    </Parameters>
-  </Export>
-  <Export name="UiBound" target="Common" source="UiBound.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new rectangle.
-
-/// </summary>
-
-/// <param name="source"> Creates this rectangle out of a existing one. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.UiBound" name="source" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** IDriver.hpp
-  **
-  ***************************************
-  -->
-  <Export name="IDriver" target="Common" source="IDriver.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new driver with a length.
-
-/// </summary>
-
-/// <param name="length"> The drivers length. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="length" />
-    </Parameters>
-  </Export>
-  <Export name="Update" target="Common" source="IDriver.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates the driver with the passed time.
-
-/// </summary>
-
-/// <param name="delta"> The time between the last update. </param>
-
-/// <returns> The calculated value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="double" name="delta" />
-    </Parameters>
-  </Export>
-  <Export name="Calculate" target="Common" source="IDriver.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Calculates the new value.
-
-/// </summary>
-
-/// <param name="time"> The time into the drivers life.
-
-/// </param>
-
-/// <returns> The calculated value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="time" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** UiObject.hpp
-  **
-  ***************************************
-  -->
-  <Export name="UiObject" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new screen object.
-
-/// </summary>
-
-/// <param name="parent"> The parent screen object. </param>
-
-/// <param name="rectangle"> The rectangle that will represent the bounds of the ui object. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.UiObject" name="parent" />
-      <Parameter type="global::AcidSharp.UiBound" name="rectangle" />
-    </Parameters>
-  </Export>
-  <Export name="UpdateObject" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates the implementation.
-
-/// </summary>
-]]>
-    </Description>
-  </Export>
-  <Export name="OnActionMouse" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Called on mouse click along with 'm_actionClick'.
-
-/// </summary>
-
-/// <param name="button"> The mouse button clicked. </param>
-
-/// <returns> If this will cancel all events. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.MouseButton*" name="button" />
-    </Parameters>
-  </Export>
-  <Export name="GetParent" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the parent object.
-
-/// </summary>
-
-/// <returns> The parent object. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="SetParent" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Removes this object from the previous parent and attaches it to another parent.
-
-/// </summary>
-
-/// <param name="parent"> The new parent object. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.UiObject" name="parent" />
-    </Parameters>
-  </Export>
-  <Export name="AddChild" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Adds a child to this objects children.
-
-/// </summary>
-
-/// <param name="child"> The child to add. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.UiObject" name="child" />
-    </Parameters>
-  </Export>
-  <Export name="RemoveChild" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Disowns a child from this objects children.
-
-/// </summary>
-
-/// <param name="child"> The child to disown. </param>
-
-/// <returns> If the child was disowned. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.UiObject" name="child" />
-    </Parameters>
-  </Export>
-  <Export name="GetScreenTransform" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the ui object screen space transform.
-
-/// </summary>
-
-/// <returns> The screen transform. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="SetAlphaDriver" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets the alpha driver.
-
-/// </summary>
-
-/// <param name="alphaDriver"> The new alpha driver. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.IDriver" name="alphaDriver" />
-    </Parameters>
-  </Export>
-  <Export name="SetScaleDriver" target="Common" source="UiObject.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets the scale driver.
-
-/// </summary>
-
-/// <param name="scaleDriver"> The new scale driver. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.IDriver" name="scaleDriver" />
     </Parameters>
   </Export>
   <!--
@@ -3788,6 +4177,593 @@
     <Parameters>
       <Parameter type="global::AcidSharp.Animation" name="animation" />
     </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** FontLine.hpp
+  **
+  ***************************************
+  -->
+  <Export name="FontLine" target="Common" source="FontLine.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new text line.
+
+/// </summary>
+
+/// <param name="spaceWidth"> The screen-space width of a space character. </param>
+
+/// <param name="maxLength"> The screen-space maximum length of a line. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="spaceWidth" />
+      <Parameter type="float" name="maxLength" />
+    </Parameters>
+  </Export>
+  <Export name="AddWord" target="Common" source="FontLine.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Attempt to add a word to the line. If the line can fit the word in without reaching the maximum line length then the word is added and the line length increased.
+
+/// </summary>
+
+/// <param name="word"> The word to try to add. </param>
+
+/// <returns> {@code true} if the word has successfully been added to the line. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.FontWord" name="word" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Pipeline.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Pipeline" target="Common" source="Pipeline.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new pipeline.
+
+/// </summary>
+
+/// <param name="graphicsStage"> The pipelines graphics stage. </param>
+
+/// <param name="pipelineCreate"> The pipelines creation info. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GraphicsStage" name="graphicsStage" />
+      <Parameter type="global::AcidSharp.PipelineCreate" name="pipelineCreate" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Noise.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Noise" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new multi-type noise object.
+
+/// </summary>
+
+/// <param name="seed"> The seed. </param>
+
+/// <param name="frequency"> The noise frequency. </param>
+
+/// <param name="interp"> The interp type. </param>
+
+/// <param name="noiseType"> The noise type. </param>
+
+/// <param name="octaves"> The amount of octaves to use. </param>
+
+/// <param name="lacunarity"> The lacunarity between octaves. </param>
+
+/// <param name="fractalType"> The fractal noise type. </param>
+
+/// <param name="fractalBounding"> The fractal bounding. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="seed" />
+      <Parameter type="float" name="frequency" />
+      <Parameter type="global::AcidSharp.NoiseInterp*" name="interp" />
+      <Parameter type="global::AcidSharp.NoiseType*" name="noiseType" />
+      <Parameter type="int32_t" name="octaves" />
+      <Parameter type="float" name="lacunarity" />
+      <Parameter type="float" name="gain" />
+      <Parameter type="global::AcidSharp.NoiseFractal*" name="fractalType" />
+      <Parameter type="float" name="fractalBounding" />
+    </Parameters>
+  </Export>
+  <Export name="GetSeed" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the seed used for all noise types.
+
+/// </summary>
+
+/// <returns> The seed. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetSeed" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets seed used for all noise types.
+
+/// </summary>
+
+/// <param name="seed"> The new seed (Default: 1337). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="seed" />
+    </Parameters>
+  </Export>
+  <Export name="GetFrequency" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the frequency used for all noise types.
+
+/// </summary>
+
+/// <returns> The frequency. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetFrequency" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the frequency used for all noise types.
+
+/// </summary>
+
+/// <param name="frequency"> The new frequency (Default: 0.01). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="frequency" />
+    </Parameters>
+  </Export>
+  <Export name="GetInterp" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the interpolation method used for supported noise types.
+
+/// </summary>
+
+/// <returns> The interpolation method. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetInterp" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the interpolation method used to smooth between noise values.
+
+/// </summary>
+
+/// <param name="interp"> The new interpolation method (Default: Quintic). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.NoiseInterp*" name="interp" />
+    </Parameters>
+  </Export>
+  <Export name="GetNoiseType" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the type of noise.
+
+/// </summary>
+
+/// <returns> The type of noise (Default: Simplex). </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetNoiseType" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the type of noise.
+
+/// </summary>
+
+/// <param name="noiseType"> The new noise type. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.NoiseType*" name="noiseType" />
+    </Parameters>
+  </Export>
+  <Export name="GetFractalOctaves" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the octave count for all fractal noise types.
+
+/// </summary>
+
+/// <returns> The octave count (Default: 3). </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetFractalOctaves" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the octave count for all fractal noise types.
+
+/// </summary>
+
+/// <param name="octaves"> The new octaves count (Default: 2.0). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="octaves" />
+    </Parameters>
+  </Export>
+  <Export name="GetFractalLacunarity" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the octave lacunarity for all fractal noise types.
+
+/// </summary>
+
+/// <returns> The octave lacunarity. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetFractalLacunarity" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the octave octave lacunarity for all fractal noise types.
+
+/// </summary>
+
+/// <param name="lacunarity"> The new octave lacunarity (Default: 0.5). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="lacunarity" />
+    </Parameters>
+  </Export>
+  <Export name="GetFractalGain" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the octave gain for all fractal noise types.
+
+/// </summary>
+
+/// <returns> The octave gain. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetFractalGain" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the octave gain for all fractal noise types.
+
+/// </summary>
+
+/// <param name="gain"> The new octave gain. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="gain" />
+    </Parameters>
+  </Export>
+  <Export name="GetFractalType" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the method for combining octaves in all fractal noise types.
+
+/// </summary>
+
+/// <returns> The method for combining octaves. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetFractalType" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the method for combining octaves in all fractal noise types.
+
+/// </summary>
+
+/// <param name="fractalType"> The new method for combining octaves (Default: FBM). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.NoiseFractal*" name="fractalType" />
+    </Parameters>
+  </Export>
+  <Export name="GetCellularDistanceFunction" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance function used in cellular noise calculations.
+
+/// </summary>
+
+/// <returns> The cellular distance function. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetCellularDistanceFunction" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the distance function used in cellular noise calculations.
+
+/// </summary>
+
+/// <param name="cellularDistanceFunction"> The new cellular distance function (Default: Euclidean). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.NoiseCellularFunc*" name="cellularDistanceFunction" />
+    </Parameters>
+  </Export>
+  <Export name="GetCellularReturnType" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the return type from cellular noise calculations.
+
+/// </summary>
+
+/// <returns> The cellular return type. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetCellularReturnType" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the return type from cellular noise calculations.
+
+/// Note: NoiseLookup requires another FastNoise object be set with SetCellularNoiseLookup() to function.
+
+/// </summary>
+
+/// <param name="cellularReturnType"> The new cellular return type (Default: CellValue). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.NoiseCellularReturn*" name="cellularReturnType" />
+    </Parameters>
+  </Export>
+  <Export name="GetCellularNoiseLookup" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the noise used to calculate a cell value if the cellular return type is NoiseLookup.
+
+/// </summary>
+
+/// <returns> The cellular noise lookup. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetCellularNoiseLookup" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the noise used to calculate a cell value if cellular return type is NoiseLookup.
+
+/// The lookup value is acquired through GetNoise() so ensure you SetNoiseType() on the noise lookup, value, Perlin or simplex is recommended.
+
+/// </summary>
+
+/// <param name="noise"> The new cellular noise lookup. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Noise" name="noise" />
+    </Parameters>
+  </Export>
+  <Export name="GetCellularDistance2Indices" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the 2 distance indices used for distance2 return types.
+
+/// </summary>
+
+/// <param name="cellularDistanceIndex0"> The cellular distance at index 0. </param>
+
+/// <param name="cellularDistanceIndex1"> The cellular distance at index 1. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="cellularDistanceIndex0" />
+      <Parameter type="int32_t" name="cellularDistanceIndex1" />
+    </Parameters>
+  </Export>
+  <Export name="SetCellularDistance2Indices" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the 2 distance indices used for distance2 return types.
+
+/// Both indices must be >= 0, index1 must be < 4.
+
+/// </summary>
+
+/// <param name="cellularDistanceIndex0"> The new cellular distance at index 0 (Default: 0). </param>
+
+/// <param name="cellularDistanceIndex1"> The new cellular distance at index 1 (Default: 1). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="cellularDistanceIndex0" />
+      <Parameter type="int32_t" name="cellularDistanceIndex1" />
+    </Parameters>
+  </Export>
+  <Export name="GetCellularJitter" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the maximum distance a cellular point can move from its grid position.
+
+/// </summary>
+
+/// <returns> The cellular maximum distance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetCellularJitter" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the maximum distance a cellular point can move from its grid position.
+
+/// Setting this high will make artifacts more common.
+
+/// </summary>
+
+/// <param name="cellularJitter"> The new cellular maximum distance (Default: 0.45). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="cellularJitter" />
+    </Parameters>
+  </Export>
+  <Export name="GetGradientPerturbAmp" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the maximum warp distance from original location when using GradientPerturb{Fractal}(...).
+
+/// </summary>
+
+/// <returns> The cellular maximum warp distance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetGradientPerturbAmp" target="Common" source="Noise.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the maximum warp distance from original location when using GradientPerturb{Fractal}(...).
+
+/// </summary>
+
+/// <param name="gradientPerturbAmp"> The new cellular maximum warp distance (Default: 1.0). </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="gradientPerturbAmp" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** ISpawnParticle.hpp
+  **
+  ***************************************
+  -->
+  <Export name="GeneratePosition" target="Common" source="ISpawnParticle.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new particle position.
+
+/// </summary>
+
+/// <returns> The new particles position. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** IManagerRender.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Start" target="Common" source="IManagerRender.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Run when starting the renderer manager.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="IManagerRender.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Run when updating the renderer manager.
+
+/// </summary>
+]]>
+    </Description>
   </Export>
   <!--
   ***************************************
@@ -3965,7 +4941,7 @@
       <![CDATA[
 /// <summary>
 
-/// Creates a new basic structure.
+/// Creates a new scene structure.
 
 /// </summary>
 ]]>
@@ -4137,18 +5113,377 @@
   <!--
   ***************************************
   **
-  ** Model.hpp
+  ** FontMetafile.hpp
   **
   ***************************************
   -->
-  <Export name="Model" target="Common" source="Model.hpp">
+  <Export name="FontMetafile" target="Common" source="FontMetafile.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Creates a new empty model.
+/// Creates a new meta file.
 
 /// </summary>
+
+/// <param name="filename"> The font file to load from. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** FontType.hpp
+  **
+  ***************************************
+  -->
+  <Export name="FontType" target="Common" source="FontType.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new text loader.
+
+/// </summary>
+
+/// <param name="filename"> The family file path that the texture atlases and character infos are contained in. </param>
+
+/// <param name="fontStyle"> The style selected to load as this type. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+      <Parameter type="string" name="fontStyle" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Text.hpp
+  **
+  ***************************************
+  -->
+  <Export name="GetModel" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the text model, which contains all the vertex data for the quads on which the text will be rendered.
+
+/// </summary>
+
+/// <returns> The model of the text. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetNumberLines" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the number of lines in this text.
+
+/// </summary>
+
+/// <returns> The number of lines. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetString" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the string of text represented.
+
+/// </summary>
+
+/// <returns> The string of text. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetString" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Changed the current string in this text.
+
+/// </summary>
+
+/// <param name="newString"> The new text, </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="newString" />
+    </Parameters>
+  </Export>
+  <Export name="GetTextJustify" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets how the text should justify.
+
+/// </summary>
+
+/// <returns> How the text should justify. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetMaxWidth" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the maximum length of a line of this text.
+
+/// </summary>
+
+/// <returns> The maximum length of a line. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetMaxWidth" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the maximum length of a line of this text.
+
+/// </summary>
+
+/// <param name="maxWidth"> The new maximum length. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="maxWidth" />
+    </Parameters>
+  </Export>
+  <Export name="GetKerning" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the kerning (type character spacing multiplier) of this text.
+
+/// </summary>
+
+/// <returns> The type kerning. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetKerning" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the kerning (type character spacing multiplier) of this text.
+
+/// </summary>
+
+/// <param name="kerning"> The new kerning. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="kerning" />
+    </Parameters>
+  </Export>
+  <Export name="GetLeading" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the leading (vertical line spacing multiplier) of this text.
+
+/// </summary>
+
+/// <returns> The line leading. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetLeading" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the leading (vertical line spacing multiplier) of this text.
+
+/// </summary>
+
+/// <param name="leading"> The new leading. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="leading" />
+    </Parameters>
+  </Export>
+  <Export name="GetTextColour" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the colour of the text.
+
+/// </summary>
+
+/// <returns> The colour of the text. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetTextColour" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the colour of the text.
+
+/// </summary>
+
+/// <param name="textColour"> The new colour of the text. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="textColour" />
+    </Parameters>
+  </Export>
+  <Export name="GetBorderColour" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the border colour of the text. This is used with border and glow drivers.
+
+/// </summary>
+
+/// <returns> The border colour of the text. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetBorderColour" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the border colour of the text. This is used with border and glow drivers.
+
+/// </summary>
+
+/// <param name="borderColour"> The new border colour of the text. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="borderColour" />
+    </Parameters>
+  </Export>
+  <Export name="SetBorderDriver" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the border driver, will disable glowing.
+
+/// </summary>
+
+/// <param name="borderDriver"> The new border driver. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IDriver" name="borderDriver" />
+    </Parameters>
+  </Export>
+  <Export name="SetGlowDriver" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the glow driver, will disable solid borders.
+
+/// </summary>
+
+/// <param name="glowDriver"> The new glow driver. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IDriver" name="glowDriver" />
+    </Parameters>
+  </Export>
+  <Export name="RemoveBorder" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Disables both solid borders and glow borders.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetTotalBorderSize" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the calculated border size.
+
+/// </summary>
+
+/// <returns> The border size. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetGlowSize" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the size of the glow.
+
+/// </summary>
+
+/// <returns> The glow size. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="CalculateEdgeStart" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance field edge before antialias.
+
+/// </summary>
+
+/// <returns> The distance field edge. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="CalculateAntialiasSize" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance field antialias distance.
+
+/// </summary>
+
+/// <returns> The distance field antialias distance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="IsLoaded" target="Common" source="Text.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if the text has been loaded to a model.
+
+/// </summary>
+
+/// <returns> If the text has been loaded to a model. </returns>
 ]]>
     </Description>
   </Export>
@@ -4173,6 +5508,144 @@
     </Description>
     <Parameters>
       <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** PipelineMaterial.hpp
+  **
+  ***************************************
+  -->
+  <Export name="PipelineMaterial" target="Common" source="PipelineMaterial.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new material pipeline.
+
+/// </summary>
+
+/// <param name="graphicsStage"> Stage the pipeline will be executed on. </param>
+
+/// <param name="pipelineCreate"> Information used to define pipeline properties. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GraphicsStage" name="graphicsStage" />
+      <Parameter type="global::AcidSharp.PipelineCreate" name="pipelineCreate" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Cubemap.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Cubemap" target="Common" source="Cubemap.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new cubemap object.
+
+/// </summary>
+
+/// <param name="filename"> The file base name (path without extension or face name). </param>
+
+/// <param name="fileExt"> The files extension type (ex .png). </param>
+
+/// <param name="mipmap"> If mipmaps will be generated for the texture. </param>
+
+/// <param name="filter"> The type of filtering will be use on the texture. </param>
+
+/// <param name="addressMode"> The sampler address mode to use. </param>
+
+/// <param name="anisotropic"> If anisotropic filtering will be use on the texture. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+      <Parameter type="string" name="fileExt" />
+      <Parameter type="bool" name="mipmap" />
+      <Parameter type="VkFilter" name="filter" />
+      <Parameter type="VkSamplerAddressMode" name="addressMode" />
+      <Parameter type="bool" name="anisotropic" />
+    </Parameters>
+  </Export>
+  <Export name="Cubemap" target="Common" source="Cubemap.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new empty cubemap object that can be used to render into.
+
+/// </summary>
+
+/// <param name="width"> The cubemaps width. </param>
+
+/// <param name="height"> The cubemaps height. </param>
+
+/// <param name="format"> The cubemaps format. </param>
+
+/// <param name="imageLayout"> The cubemaps image layout </param>
+
+/// <param name="usage"> The cubemaps image usage </param>
+
+/// <param name="samples"> The amount of MSAA samples to use. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="uint32_t" name="width" />
+      <Parameter type="uint32_t" name="height" />
+      <Parameter type="VkFormat" name="format" />
+      <Parameter type="VkImageLayout" name="imageLayout" />
+      <Parameter type="VkImageUsageFlags" name="usage" />
+      <Parameter type="VkSampleCountFlagBits" name="samples" />
+    </Parameters>
+  </Export>
+  <Export name="Cubemap" target="Common" source="Cubemap.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A new cubemap object from a array of pixels.
+
+/// </summary>
+
+/// <param name="width"> The cubemaps width. </param>
+
+/// <param name="height"> The cubemaps height. </param>
+
+/// <param name="pixels"> The inital pixels to use in the texture. <seealso cref="#GetPixels()"/> to get a copy of the pixels, and <seealso cref="#SetPixels()"/> to set the pixels. </param>
+
+/// <param name="format"> The cubemaps format. </param>
+
+/// <param name="imageLayout"> The cubemaps image layout </param>
+
+/// <param name="usage"> The cubemaps image usage </param>
+
+/// <param name="mipmap"> If mipmaps will be generated for the cubemap. </param>
+
+/// <param name="filter"> The type of filtering will be use on the cubemap. </param>
+
+/// <param name="addressMode"> The sampler address mode to use. </param>
+
+/// <param name="samples"> The amount of MSAA samples to use. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="uint32_t" name="width" />
+      <Parameter type="uint32_t" name="height" />
+      <Parameter type="IntPtr" name="pixels" />
+      <Parameter type="VkFormat" name="format" />
+      <Parameter type="VkImageLayout" name="imageLayout" />
+      <Parameter type="VkImageUsageFlags" name="usage" />
+      <Parameter type="bool" name="mipmap" />
+      <Parameter type="VkFilter" name="filter" />
+      <Parameter type="VkSamplerAddressMode" name="addressMode" />
+      <Parameter type="VkSampleCountFlagBits" name="samples" />
     </Parameters>
   </Export>
   <!--
@@ -4396,12 +5869,36 @@
       <Parameter type="char" name="token" />
     </Parameters>
   </Export>
-  <Export name="Replace" target="Common" source="String.hpp">
+  <Export name="ReplaceAll" target="Common" source="String.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
 /// Replaces all tokens from a string.
+
+/// </summary>
+
+/// <param name="str"> The string. </param>
+
+/// <param name="token"> The token. </param>
+
+/// <param name="to"> The string to replace the tokens with. </param>
+
+/// <returns> The string with the tokens replaced. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="str" />
+      <Parameter type="string" name="token" />
+      <Parameter type="string" name="to" />
+    </Parameters>
+  </Export>
+  <Export name="ReplaceFirst" target="Common" source="String.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Replaces the first token from a string.
 
 /// </summary>
 
@@ -4443,7 +5940,7 @@
       <![CDATA[
 /// <summary>
 
-/// uppercased a string.
+/// Uppercases a string.
 
 /// </summary>
 
@@ -4454,6 +5951,336 @@
     </Description>
     <Parameters>
       <Parameter type="string" name="str" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Maths.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Random" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Generates a random value from between a range.
+
+/// </summary>
+
+/// <param name="min"> The min value. </param>
+
+/// <param name="max"> The max value. </param>
+
+/// <returns> The randomly selected value within the range. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="min" />
+      <Parameter type="float" name="max" />
+    </Parameters>
+  </Export>
+  <Export name="RandomNormal" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Generates a single value from a normal distribution, using Box-Muller.
+
+/// https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
+
+/// </summary>
+
+/// <param name="standardDeviation"> The standards deviation of the distribution. </param>
+
+/// <param name="mean"> The mean of the distribution. </param>
+
+/// <returns> A normally distributed value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="standardDeviation" />
+      <Parameter type="float" name="mean" />
+    </Parameters>
+  </Export>
+  <Export name="RandomLog" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a number between two numbers, logarithmic.
+
+/// </summary>
+
+/// <param name="min"> The min value. </param>
+
+/// <param name="max"> The max value. </param>
+
+/// <returns> The final random number. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="min" />
+      <Parameter type="float" name="max" />
+    </Parameters>
+  </Export>
+  <Export name="Radians" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts degrees to radians.
+
+/// </summary>
+
+/// <param name="degrees"> The degrees value. </param>
+
+/// <returns> The radians value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="degrees" />
+    </Parameters>
+  </Export>
+  <Export name="Degrees" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts radians to degrees.
+
+/// </summary>
+
+/// <param name="radians"> The radians value. </param>
+
+/// <returns> The degrees value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="radians" />
+    </Parameters>
+  </Export>
+  <Export name="WrapDegrees" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Normalizes a angle into the range of 0-360.
+
+/// </summary>
+
+/// <param name="degrees"> The source angle. </param>
+
+/// <returns> The normalized angle. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="degrees" />
+    </Parameters>
+  </Export>
+  <Export name="WrapRadians" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Normalizes a angle into the range of 0-2PI.
+
+/// </summary>
+
+/// <param name="radians"> The source angle. </param>
+
+/// <returns> The normalized angle. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="radians" />
+    </Parameters>
+  </Export>
+  <Export name="RoundToPlace" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Rounds a value to a amount of places after the decimal point.
+
+/// </summary>
+
+/// <param name="value"> The value to round. </param>
+
+/// <param name="place"> How many places after the decimal to round to. </param>
+
+/// <returns> The rounded value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="value" />
+      <Parameter type="int32_t" name="place" />
+    </Parameters>
+  </Export>
+  <Export name="Deadband" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Used to floor the value if less than the min.
+
+/// </summary>
+
+/// <param name="min"> The minimum value. </param>
+
+/// <param name="value"> The value. </param>
+
+/// <returns> Returns a value with deadband applied. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="min" />
+      <Parameter type="float" name="value" />
+    </Parameters>
+  </Export>
+  <Export name="AlmostEqual" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Checks if two values are almost equal.
+
+/// </summary>
+
+/// <param name="a"> The first value. </param>
+
+/// <param name="b"> The second value. </param>
+
+/// <param name="eps"> EPS is the measure of equality. </param>
+
+/// <returns> If both are almost equal. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="a" />
+      <Parameter type="float" name="b" />
+      <Parameter type="float" name="eps" />
+    </Parameters>
+  </Export>
+  <Export name="SmoothDamp" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gradually changes a value to a target.
+
+/// </summary>
+
+/// <param name="current"> The current value. </param>
+
+/// <param name="target"> The target value. </param>
+
+/// <param name="rate"> The rate to go from current to the target. </param>
+
+/// <returns> The changed value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="current" />
+      <Parameter type="float" name="target" />
+      <Parameter type="float" name="rate" />
+    </Parameters>
+  </Export>
+  <Export name="Lerp" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Lerps two values by a factor.
+
+/// </summary>
+
+/// <param name="a"> The first value. </param>
+
+/// <param name="b"> The second value. </param>
+
+/// <param name="factor"> The factor value. </param>
+
+/// <returns> Returns a lerped value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="a" />
+      <Parameter type="float" name="b" />
+      <Parameter type="float" name="factor" />
+    </Parameters>
+  </Export>
+  <Export name="Interpolate" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Interpolates two values by a factor using linear interpolation.
+
+/// </summary>
+
+/// <param name="a"> The first value. </param>
+
+/// <param name="b"> The second value. </param>
+
+/// <param name="blend"> The blend value. </param>
+
+/// <returns> Returns a interpolated value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="a" />
+      <Parameter type="float" name="b" />
+      <Parameter type="float" name="blend" />
+    </Parameters>
+  </Export>
+  <Export name="InterpolateCosine" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Interpolates two values by a factor using cosine interpolation.
+
+/// </summary>
+
+/// <param name="a"> The first value. </param>
+
+/// <param name="b"> The second value. </param>
+
+/// <param name="blend"> The blend value. </param>
+
+/// <returns> Returns a interpolated value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="a" />
+      <Parameter type="float" name="b" />
+      <Parameter type="float" name="blend" />
+    </Parameters>
+  </Export>
+  <Export name="SmoothlyStep" target="Common" source="Maths.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// A calculation that steps smoothly between two edges.
+
+/// </summary>
+
+/// <param name="edge0"> The inner edge. </param>
+
+/// <param name="edge1"> The outer edge. </param>
+
+/// <param name="x"> The sample. </param>
+
+/// <returns> The resulting stepped value. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="edge0" />
+      <Parameter type="float" name="edge1" />
+      <Parameter type="float" name="x" />
     </Parameters>
   </Export>
   <!--
@@ -5045,344 +6872,52 @@
 ]]>
     </Description>
   </Export>
+  <Export name="SetBaseDirectory" target="Common" source="Files.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the base directory for the search path, called before any calls to <seealso cref="#AddSearchPath()"/>.
+
+/// </summary>
+
+/// <param name="argv0"> The first argument passed to mail. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="argv0" />
+    </Parameters>
+  </Export>
   <Export name="AddSearchPath" target="Common" source="Files.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Adds an file search path.
+/// Adds an file search path, ensure <seealso cref="#SetBaseDirectory()"/> is called once before.
 
 /// </summary>
 
-/// <param name="path"> The task to add. </param>
+/// <param name="path"> The path to add. </param>
 ]]>
     </Description>
     <Parameters>
       <Parameter type="string" name="path" />
     </Parameters>
   </Export>
-  <Export name="SearchFile" target="Common" source="Files.hpp">
+  <Export name="RemoveSearchPath" target="Common" source="Files.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Find a file by partial path in a search path.
+/// Removes a file search path.
 
 /// </summary>
 
-/// <param name="filename"> The filename to find. </param>
-
-/// <returns> The path to the first file found. </returns>
+/// <param name="path"> The path to remove. </param>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filename" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Maths.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Random" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Generates a random value from between a range.
-
-/// </summary>
-
-/// <param name="min"> The min value. </param>
-
-/// <param name="max"> The max value. </param>
-
-/// <returns> The randomly selected value within the range. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="min" />
-      <Parameter type="float" name="max" />
-    </Parameters>
-  </Export>
-  <Export name="RandomNormal" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Generates a single value from a normal distribution, using Box-Muller.
-
-/// https://en.wikipedia.org/wiki/Box%E2%80%93Muller_transform
-
-/// </summary>
-
-/// <param name="standardDeviation"> The standards deviation of the distribution. </param>
-
-/// <param name="mean"> The mean of the distribution. </param>
-
-/// <returns> A normally distributed value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="standardDeviation" />
-      <Parameter type="float" name="mean" />
-    </Parameters>
-  </Export>
-  <Export name="RandomLog" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a number between two numbers, logarithmic.
-
-/// </summary>
-
-/// <param name="min"> The min value. </param>
-
-/// <param name="max"> The max value. </param>
-
-/// <returns> The final random number. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="min" />
-      <Parameter type="float" name="max" />
-    </Parameters>
-  </Export>
-  <Export name="Radians" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Converts degrees to radians.
-
-/// </summary>
-
-/// <param name="degrees"> The degrees value. </param>
-
-/// <returns> The radians value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="degrees" />
-    </Parameters>
-  </Export>
-  <Export name="Degrees" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Converts radians to degrees.
-
-/// </summary>
-
-/// <param name="radians"> The radians value. </param>
-
-/// <returns> The degrees value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="radians" />
-    </Parameters>
-  </Export>
-  <Export name="WrapDegrees" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Normalizes a angle into the range of 0-360.
-
-/// </summary>
-
-/// <param name="degrees"> The source angle. </param>
-
-/// <returns> The normalized angle. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="degrees" />
-    </Parameters>
-  </Export>
-  <Export name="WrapRadians" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Normalizes a angle into the range of 0-2PI.
-
-/// </summary>
-
-/// <param name="radians"> The source angle. </param>
-
-/// <returns> The normalized angle. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="radians" />
-    </Parameters>
-  </Export>
-  <Export name="RoundToPlace" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Rounds a value to a amount of places after the decimal point.
-
-/// </summary>
-
-/// <param name="value"> The value to round. </param>
-
-/// <param name="place"> How many places after the decimal to round to. </param>
-
-/// <returns> The rounded value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="value" />
-      <Parameter type="int32_t" name="place" />
-    </Parameters>
-  </Export>
-  <Export name="Deadband" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Used to floor the value if less than the min.
-
-/// </summary>
-
-/// <param name="min"> The minimum value. </param>
-
-/// <param name="value"> The value. </param>
-
-/// <returns> Returns a value with deadband applied. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="min" />
-      <Parameter type="float" name="value" />
-    </Parameters>
-  </Export>
-  <Export name="AlmostEqual" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Checks if two values are almost equal.
-
-/// </summary>
-
-/// <param name="a"> The first value. </param>
-
-/// <param name="b"> The second value. </param>
-
-/// <param name="eps"> EPS is the measure of equality. </param>
-
-/// <returns> If both are almost equal. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="a" />
-      <Parameter type="float" name="b" />
-      <Parameter type="float" name="eps" />
-    </Parameters>
-  </Export>
-  <Export name="SmoothDamp" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gradually changes a value to a target.
-
-/// </summary>
-
-/// <param name="current"> The current value. </param>
-
-/// <param name="target"> The target value. </param>
-
-/// <param name="rate"> The rate to go from current to the target. </param>
-
-/// <returns> The changed value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="current" />
-      <Parameter type="float" name="target" />
-      <Parameter type="float" name="rate" />
-    </Parameters>
-  </Export>
-  <Export name="Interpolate" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Interpolates two values by a blendFactor using linear interpolation.
-
-/// </summary>
-
-/// <param name="a"> The first value. </param>
-
-/// <param name="b"> The second value. </param>
-
-/// <param name="blend"> The blend value. </param>
-
-/// <returns> Returns a interpolated value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="a" />
-      <Parameter type="float" name="b" />
-      <Parameter type="float" name="blend" />
-    </Parameters>
-  </Export>
-  <Export name="InterpolateCosine" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Interpolates two values by a blendFactor using cosine interpolation.
-
-/// </summary>
-
-/// <param name="a"> The first value. </param>
-
-/// <param name="b"> The second value. </param>
-
-/// <param name="blend"> The blend value. </param>
-
-/// <returns> Returns a interpolated value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="a" />
-      <Parameter type="float" name="b" />
-      <Parameter type="float" name="blend" />
-    </Parameters>
-  </Export>
-  <Export name="SmoothlyStep" target="Common" source="Maths.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// A calculation that steps smoothly between two edges.
-
-/// </summary>
-
-/// <param name="edge0"> The inner edge. </param>
-
-/// <param name="edge1"> The outer edge. </param>
-
-/// <param name="x"> The sample. </param>
-
-/// <returns> The resulting stepped value. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="edge0" />
-      <Parameter type="float" name="edge1" />
-      <Parameter type="float" name="x" />
+      <Parameter type="string" name="path" />
     </Parameters>
   </Export>
   <!--
@@ -5781,11 +7316,403 @@
   <!--
   ***************************************
   **
+  ** Frustum.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Frustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new frustum.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Update" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates a frustum from the view and projection matrix.
+
+/// </summary>
+
+/// <param name="view"> The view matrix. </param>
+
+/// <param name="projection"> The projection matrix. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix4" name="view" />
+      <Parameter type="global::AcidSharp.Matrix4" name="projection" />
+    </Parameters>
+  </Export>
+  <Export name="PointInFrustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Is the point contained in the frustum?
+
+/// </summary>
+
+/// <param name="position"> The points position. </param>
+
+/// <returns> True if contained, false if outside. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="position" />
+    </Parameters>
+  </Export>
+  <Export name="SphereInFrustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Is the sphere contained in the frustum?
+
+/// </summary>
+
+/// <param name="position"> The points position. </param>
+
+/// <param name="radius"> The spheres radius. </param>
+
+/// <returns> True if contained, false if outside. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="position" />
+      <Parameter type="float" name="radius" />
+    </Parameters>
+  </Export>
+  <Export name="CubeInFrustum" target="Common" source="Frustum.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Is the cube contained partially in the frustum?
+
+/// </summary>
+
+/// <param name="min"> The point 1st position. </param>
+
+/// <param name="max"> The point 2nd position. </param>
+
+/// <returns> True if partially contained, false if outside. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="min" />
+      <Parameter type="global::AcidSharp.Vector3" name="max" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Ray.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Ray" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new 3D ray.
+
+/// </summary>
+
+/// <param name="useMouse"> If the ray will use the mouse coords or to start from screenStart. </param>
+
+/// <param name="screenStart"> If useMouse is false then this will be used as the rays start. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="bool" name="useMouse" />
+      <Parameter type="global::AcidSharp.Vector2" name="screenStart" />
+    </Parameters>
+  </Export>
+  <Export name="Update" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the ray to a new position.
+
+/// </summary>
+
+/// <param name="currentPosition"> The new position. </param>
+
+/// <param name="currentPosition"> The mouses xy screen space position. </param>
+
+/// <param name="viewMatrix"> The cameras view matrix. </param>
+
+/// <param name="projectionMatrix"> The projection view matrix. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="currentPosition" />
+      <Parameter type="global::AcidSharp.Vector2" name="mousePosition" />
+      <Parameter type="global::AcidSharp.Matrix4" name="viewMatrix" />
+      <Parameter type="global::AcidSharp.Matrix4" name="projectionMatrix" />
+    </Parameters>
+  </Export>
+  <Export name="GetPointOnRay" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a point on the ray.
+
+/// </summary>
+
+/// <param name="distance"> Distance down the ray to sample. </param>
+
+/// <returns> Returns the destination vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="distance" />
+    </Parameters>
+  </Export>
+  <Export name="ConvertToScreenSpace" target="Common" source="Ray.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts a position from world space to screen space.
+
+/// </summary>
+
+/// <param name="position"> The position to convert. </param>
+
+/// <returns> Returns the destination vector X and Y being screen space coords and Z being the distance to the camera. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="position" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Mouse.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Get" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets this engine instance.
+
+/// </summary>
+
+/// <returns> The current module instance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetCursorHidden" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets if the operating systems cursor is hidden whilst in the display.
+
+/// </summary>
+
+/// <param name="disabled"> If the system cursor should be disabled or hidden when not shown. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="bool" name="disabled" />
+    </Parameters>
+  </Export>
+  <Export name="GetButton" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets whether or not a particular mouse button is currently pressed.
+
+/// <p>Actions: WSI_ACTION_PRESS, WSI_ACTION_RELEASE, WSI_ACTION_REPEAT</p>
+
+/// </summary>
+
+/// <param name="mouseButton"> The mouse button to test. </param>
+
+/// <returns> If the mouse button is currently pressed. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.MouseButton*" name="mouseButton" />
+    </Parameters>
+  </Export>
+  <Export name="GetCustomMouse" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the mouses custom mouse file.
+
+/// </summary>
+
+/// <returns> The custom mouse file. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetCustomMouse" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the custom mouse file.
+
+/// </summary>
+
+/// <param name="filename"> The new custom mouse file. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <Export name="GetPositionX" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the mouses screen x position.
+
+/// </summary>
+
+/// <returns> The mouses x position. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetPositionY" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the mouses screen y position.
+
+/// </summary>
+
+/// <returns> The mouses y position. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetPosition" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the mouse position.
+
+/// </summary>
+
+/// <param name="cursorX"> The x position in screenspace. </param>
+
+/// <param name="cursorY"> The y position in screenspace. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="cursorX" />
+      <Parameter type="float" name="cursorY" />
+    </Parameters>
+  </Export>
+  <Export name="GetDeltaX" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the mouses delta x.
+
+/// </summary>
+
+/// <returns> The mouses delta x. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetDeltaY" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the mouses delta y.
+
+/// </summary>
+
+/// <returns> The mouses delta y. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetDeltaWheel" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the mouses wheel delta.
+
+/// </summary>
+
+/// <returns> The mouses wheel delta. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="IsDisplaySelected" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if the display is selected.
+
+/// </summary>
+
+/// <returns> If the display is selected. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="IsCursorDisabled" target="Common" source="Mouse.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// If the cursor is hidden, the mouse is the display locked if true.
+
+/// </summary>
+
+/// <returns> If the cursor is hidden. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** FileSystem.hpp
   **
   ***************************************
   -->
-  <Export name="FileExists" target="Common" source="FileSystem.hpp">
+  <Export name="GetWorkingDirectory" target="Common" source="FileSystem.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the current working directory.
+
+/// </summary>
+
+/// <returns> If the working directory. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Exists" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -5794,84 +7721,117 @@
 
 /// </summary>
 
-/// <param name="filepath"> The filepath. </param>
+/// <param name="filename"> The filename. </param>
 
 /// <returns> If the file exists. </returns>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
+      <Parameter type="string" name="path" />
     </Parameters>
   </Export>
-  <Export name="DeleteFile" target="Common" source="FileSystem.hpp">
+  <Export name="IsFile" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Deletes a file.
+/// Gets if a path is a file exists.
 
 /// </summary>
 
-/// <param name="filepath"> The filepath. </param>
+/// <param name="path"> The path. </param>
 
-/// <returns> If the file was deleted. </returns>
+/// <returns> If the path is a file. </returns>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
+      <Parameter type="string" name="path" />
     </Parameters>
   </Export>
-  <Export name="CreateFile" target="Common" source="FileSystem.hpp">
+  <Export name="IsDirectory" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Creates a file, and the folder path.
+/// Gets if a path is a directory exists.
 
 /// </summary>
 
-/// <param name="filepath"> The filepath. </param>
+/// <param name="path"> The path. </param>
 
-/// <param name="createFolders"> If folders should also be created. </param>
-
-/// <returns> If the file was created. </returns>
+/// <returns> If the path is a directory. </returns>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
-      <Parameter type="bool" name="createFolders" />
+      <Parameter type="string" name="path" />
     </Parameters>
   </Export>
-  <Export name="ClearFile" target="Common" source="FileSystem.hpp">
+  <Export name="IsReadable" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Clears the contents from a file.
+/// Gets if a path is readable.
 
 /// </summary>
 
-/// <param name="filepath"> The filepath. </param>
+/// <param name="path"> The path. </param>
 
-/// <returns> If the file was cleared. </returns>
+/// <returns> If the path is readable. </returns>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
+      <Parameter type="string" name="path" />
     </Parameters>
   </Export>
-  <Export name="CreateFolder" target="Common" source="FileSystem.hpp">
+  <Export name="IsWriteable" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Creates a directory.
+/// Gets if a path is writeable.
 
 /// </summary>
 
-/// <param name="path"> The directory to create. </param>
+/// <param name="path"> The path. </param>
 
-/// <returns> If the folder was created. </returns>
+/// <returns> If the path is writeable. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="path" />
+    </Parameters>
+  </Export>
+  <Export name="Create" target="Common" source="FileSystem.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a path, will create folders and files.
+
+/// </summary>
+
+/// <param name="path"> The path. </param>
+
+/// <returns> If the path was created. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="path" />
+    </Parameters>
+  </Export>
+  <Export name="Delete" target="Common" source="FileSystem.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Deletes the last element in a path (file or directory).
+
+/// </summary>
+
+/// <param name="path"> The path. </param>
+
+/// <returns> If the path was deleted. </returns>
 ]]>
     </Description>
     <Parameters>
@@ -5887,7 +7847,7 @@
 
 /// </summary>
 
-/// <param name="filepath"> The filepath. </param>
+/// <param name="filename"> The filename. </param>
 
 /// <param name="data"> The text data. </param>
 
@@ -5895,69 +7855,80 @@
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
+      <Parameter type="string" name="filename" />
       <Parameter type="string" name="data" />
     </Parameters>
   </Export>
-  <Export name="GetWorkingDirectory" target="Common" source="FileSystem.hpp">
+  <Export name="ClearFile" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Gets the current working directory.
+/// Clears the contents from a file.
 
 /// </summary>
 
-/// <returns> If the working directory. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="FixPaths" target="Common" source="FileSystem.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
+/// <param name="filename"> The filename. </param>
 
-/// Removes backslashes from directories.
-
-/// </summary>
-
-/// <returns> The path with only forward slashes. </returns>
+/// <returns> If the file was cleared. </returns>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
+      <Parameter type="string" name="filename" />
     </Parameters>
   </Export>
-  <Export name="FindName" target="Common" source="FileSystem.hpp">
+  <Export name="ParentDirectory" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Gets the file name from the full path.
+/// Gets the parent directory of a path.
 
 /// </summary>
+
+/// <param name="path"> The path to get the parent directory of. </param>
+
+/// <returns> The parent directory. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="path" />
+    </Parameters>
+  </Export>
+  <Export name="FileName" target="Common" source="FileSystem.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the file name from a path.
+
+/// </summary>
+
+/// <param name="path"> The path to get the name of. </param>
 
 /// <returns> The file name. </returns>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
+      <Parameter type="string" name="path" />
     </Parameters>
   </Export>
-  <Export name="FindExt" target="Common" source="FileSystem.hpp">
+  <Export name="FileSuffix" target="Common" source="FileSystem.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Gets the file extension from the full path.
+/// Gets the file suffix (extension) from a path.
 
 /// </summary>
 
-/// <returns> The file extension. </returns>
+/// <param name="path"> The path to get the suffix of. </param>
+
+/// <returns> The file suffix. </returns>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="string" name="filepath" />
+      <Parameter type="string" name="path" />
     </Parameters>
   </Export>
   <!--
@@ -6176,201 +8147,6 @@
   <!--
   ***************************************
   **
-  ** Mouse.hpp
-  **
-  ***************************************
-  -->
-  <Export name="Get" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets this engine instance.
-
-/// </summary>
-
-/// <returns> The current module instance. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="SetCursorHidden" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets if the operating systems cursor is hidden whilst in the display.
-
-/// </summary>
-
-/// <param name="disabled"> If the system cursor should be disabled or hidden when not shown. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="bool" name="disabled" />
-    </Parameters>
-  </Export>
-  <Export name="GetButton" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets whether or not a particular mouse button is currently pressed.
-
-/// <p>Actions: WSI_ACTION_PRESS, WSI_ACTION_RELEASE, WSI_ACTION_REPEAT</p>
-
-/// </summary>
-
-/// <param name="mouseButton"> The mouse button to test. </param>
-
-/// <returns> If the mouse button is currently pressed. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.MouseButton*" name="mouseButton" />
-    </Parameters>
-  </Export>
-  <Export name="GetCustomMouse" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the mouses custom mouse file.
-
-/// </summary>
-
-/// <returns> The custom mouse file. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="SetCustomMouse" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets the custom mouse file.
-
-/// </summary>
-
-/// <param name="filename"> The new custom mouse file. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="string" name="filename" />
-    </Parameters>
-  </Export>
-  <Export name="GetPositionX" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the mouses screen x position.
-
-/// </summary>
-
-/// <returns> The mouses x position. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetPositionY" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the mouses screen y position.
-
-/// </summary>
-
-/// <returns> The mouses y position. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="SetPosition" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets the mouse position.
-
-/// </summary>
-
-/// <param name="cursorX"> The x position in screenspace. </param>
-
-/// <param name="cursorY"> The y position in screenspace. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="cursorX" />
-      <Parameter type="float" name="cursorY" />
-    </Parameters>
-  </Export>
-  <Export name="GetDeltaX" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the mouses delta x.
-
-/// </summary>
-
-/// <returns> The mouses delta x. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetDeltaY" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the mouses delta y.
-
-/// </summary>
-
-/// <returns> The mouses delta y. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="GetDeltaWheel" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the mouses wheel delta.
-
-/// </summary>
-
-/// <returns> The mouses wheel delta. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="IsDisplaySelected" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets if the display is selected.
-
-/// </summary>
-
-/// <returns> If the display is selected. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="IsCursorDisabled" target="Common" source="Mouse.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// If the cursor is hidden, the mouse is the display locked if true.
-
-/// </summary>
-
-/// <returns> If the cursor is hidden. </returns>
-]]>
-    </Description>
-  </Export>
-  <!--
-  ***************************************
-  **
   ** Fog.hpp
   **
   ***************************************
@@ -6439,13 +8215,13 @@
 
 /// <param name="radius"> How far the light will have influence (-1 sets this to a directional light). </param>
 
-/// <param name="offset"> The parent offset of the light. </param>
+/// <param name="localOffset"> The parent offset of the light. </param>
 ]]>
     </Description>
     <Parameters>
       <Parameter type="global::AcidSharp.Colour" name="colour" />
       <Parameter type="float" name="radius" />
-      <Parameter type="global::AcidSharp.Vector3" name="offset" />
+      <Parameter type="global::AcidSharp.Vector3" name="localOffset" />
     </Parameters>
   </Export>
   <Export name="Light" target="Common" source="Light.hpp">
@@ -6463,106 +8239,6 @@
     <Parameters>
       <Parameter type="global::AcidSharp.Light" name="source" />
     </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** SmoothFloat.hpp
-  **
-  ***************************************
-  -->
-  <Export name="SmoothFloat" target="Common" source="SmoothFloat.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Creates a new smooth float.
-
-/// </summary>
-
-/// <param name="initialValue"> The initial value. </param>
-
-/// <param name="agility"> The agility for increasing actual. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="initialValue" />
-      <Parameter type="float" name="agility" />
-    </Parameters>
-  </Export>
-  <Export name="Update" target="Common" source="SmoothFloat.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates the driver with the passed time.
-
-/// </summary>
-
-/// <param name="delta"> The time between the last update. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="delta" />
-    </Parameters>
-  </Export>
-  <Export name="SetTarget" target="Common" source="SmoothFloat.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Sets the target for the smooth float.
-
-/// </summary>
-
-/// <param name="target"> The new target. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="target" />
-    </Parameters>
-  </Export>
-  <Export name="GetTarget" target="Common" source="SmoothFloat.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the smooth floats current target.
-
-/// </summary>
-
-/// <returns> The target. </returns>
-]]>
-    </Description>
-  </Export>
-  <Export name="IncreaseTarget" target="Common" source="SmoothFloat.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Increases the smooth floats target.
-
-/// </summary>
-
-/// <param name="increase"> How much to increase the target by. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="increase" />
-    </Parameters>
-  </Export>
-  <Export name="Get" target="Common" source="SmoothFloat.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the currently calculated value.
-
-/// </summary>
-
-/// <returns> The calculated value. </returns>
-]]>
-    </Description>
   </Export>
   <!--
   ***************************************
@@ -7081,6 +8757,106 @@
   <!--
   ***************************************
   **
+  ** SmoothFloat.hpp
+  **
+  ***************************************
+  -->
+  <Export name="SmoothFloat" target="Common" source="SmoothFloat.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Creates a new smooth float.
+
+/// </summary>
+
+/// <param name="initialValue"> The initial value. </param>
+
+/// <param name="agility"> The agility for increasing actual. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="initialValue" />
+      <Parameter type="float" name="agility" />
+    </Parameters>
+  </Export>
+  <Export name="Update" target="Common" source="SmoothFloat.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Updates the driver with the passed time.
+
+/// </summary>
+
+/// <param name="delta"> The time between the last update. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="delta" />
+    </Parameters>
+  </Export>
+  <Export name="SetTarget" target="Common" source="SmoothFloat.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the target for the smooth float.
+
+/// </summary>
+
+/// <param name="target"> The new target. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="target" />
+    </Parameters>
+  </Export>
+  <Export name="GetTarget" target="Common" source="SmoothFloat.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the smooth floats current target.
+
+/// </summary>
+
+/// <returns> The target. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="IncreaseTarget" target="Common" source="SmoothFloat.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Increases the smooth floats target.
+
+/// </summary>
+
+/// <param name="increase"> How much to increase the target by. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="increase" />
+    </Parameters>
+  </Export>
+  <Export name="Get" target="Common" source="SmoothFloat.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the currently calculated value.
+
+/// </summary>
+
+/// <returns> The calculated value. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** DriverBounce.hpp
   **
   ***************************************
@@ -7107,6 +8883,64 @@
       <Parameter type="float" name="length" />
     </Parameters>
   </Export>
+  <Export name="GetStart" target="Common" source="DriverBounce.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the start time.
+
+/// </summary>
+
+/// <returns> The start time. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetStart" target="Common" source="DriverBounce.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the start time.
+
+/// </summary>
+
+/// <param name="start"> The new start time. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="start" />
+    </Parameters>
+  </Export>
+  <Export name="GetEnd" target="Common" source="DriverBounce.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the end time.
+
+/// </summary>
+
+/// <returns> The ebd time. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetEnd" target="Common" source="DriverBounce.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the end time.
+
+/// </summary>
+
+/// <param name="end"> The new end time. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="end" />
+    </Parameters>
+  </Export>
   <!--
   ***************************************
   **
@@ -7124,6 +8958,35 @@
 /// </summary>
 
 /// <param name="constant"> The constant value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="constant" />
+    </Parameters>
+  </Export>
+  <Export name="GetConstant" target="Common" source="DriverConstant.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the constant.
+
+/// </summary>
+
+/// <returns> The constant. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetConstant" target="Common" source="DriverConstant.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the constant.
+
+/// </summary>
+
+/// <param name="constant"> The new constant. </param>
 ]]>
     </Description>
     <Parameters>
@@ -7200,7 +9063,7 @@
 
 /// </summary>
 
-/// <returns> The ebd time. </returns>
+/// <returns> The end time. </returns>
 ]]>
     </Description>
   </Export>
@@ -7278,6 +9141,64 @@
       <Parameter type="float" name="length" />
     </Parameters>
   </Export>
+  <Export name="GetStart" target="Common" source="DriverLinear.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the start time.
+
+/// </summary>
+
+/// <returns> The start time. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetStart" target="Common" source="DriverLinear.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the start time.
+
+/// </summary>
+
+/// <param name="start"> The new start time. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="start" />
+    </Parameters>
+  </Export>
+  <Export name="GetEnd" target="Common" source="DriverLinear.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the end time.
+
+/// </summary>
+
+/// <returns> The ebd time. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetEnd" target="Common" source="DriverLinear.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the end time.
+
+/// </summary>
+
+/// <param name="end"> The new end time. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="end" />
+    </Parameters>
+  </Export>
   <!--
   ***************************************
   **
@@ -7307,6 +9228,64 @@
       <Parameter type="float" name="length" />
     </Parameters>
   </Export>
+  <Export name="GetMin" target="Common" source="DriverSinwave.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the min value.
+
+/// </summary>
+
+/// <returns> The min value. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetMin" target="Common" source="DriverSinwave.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the min value.
+
+/// </summary>
+
+/// <param name="min"> The new min value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="min" />
+    </Parameters>
+  </Export>
+  <Export name="GetMax" target="Common" source="DriverSinwave.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the max value.
+
+/// </summary>
+
+/// <returns> The max value. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetMax" target="Common" source="DriverSinwave.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the max value.
+
+/// </summary>
+
+/// <param name="max"> The new max value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="max" />
+    </Parameters>
+  </Export>
   <!--
   ***************************************
   **
@@ -7334,6 +9313,64 @@
       <Parameter type="float" name="start" />
       <Parameter type="float" name="end" />
       <Parameter type="float" name="length" />
+    </Parameters>
+  </Export>
+  <Export name="GetStart" target="Common" source="DriverSlide.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the start time.
+
+/// </summary>
+
+/// <returns> The start time. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetStart" target="Common" source="DriverSlide.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the start time.
+
+/// </summary>
+
+/// <param name="start"> The new start time. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="start" />
+    </Parameters>
+  </Export>
+  <Export name="GetEnd" target="Common" source="DriverSlide.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the end time.
+
+/// </summary>
+
+/// <returns> The end time. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetEnd" target="Common" source="DriverSlide.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the end time.
+
+/// </summary>
+
+/// <param name="end"> The new end time. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="end" />
     </Parameters>
   </Export>
   <!--
@@ -7393,215 +9430,70 @@
   <!--
   ***************************************
   **
-  ** Frustum.hpp
+  ** Particles.hpp
   **
   ***************************************
   -->
-  <Export name="Frustum" target="Common" source="Frustum.hpp">
+  <Export name="Get" target="Common" source="Particles.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Creates a new frustum.
+/// Gets this engine instance.
 
 /// </summary>
+
+/// <returns> The current module instance. </returns>
 ]]>
     </Description>
   </Export>
-  <Export name="Update" target="Common" source="Frustum.hpp">
+  <Export name="Clear" target="Common" source="Particles.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Updates a frustum from the view and projection matrix.
+/// Clears all particles from the scene.
 
 /// </summary>
-
-/// <param name="view"> The view matrix. </param>
-
-/// <param name="projection"> The projection matrix. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Matrix4" name="view" />
-      <Parameter type="global::AcidSharp.Matrix4" name="projection" />
-    </Parameters>
-  </Export>
-  <Export name="PointInFrustum" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Is the point contained in the frustum?
-
-/// </summary>
-
-/// <param name="position"> The points position. </param>
-
-/// <returns> True if contained, false if outside. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="position" />
-    </Parameters>
-  </Export>
-  <Export name="SphereInFrustum" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Is the sphere contained in the frustum?
-
-/// </summary>
-
-/// <param name="position"> The points position. </param>
-
-/// <param name="radius"> The spheres radius. </param>
-
-/// <returns> True if contained, false if outside. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="position" />
-      <Parameter type="float" name="radius" />
-    </Parameters>
-  </Export>
-  <Export name="CubeInFrustum" target="Common" source="Frustum.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Is the cube contained partially in the frustum?
-
-/// </summary>
-
-/// <param name="min"> The point 1st position. </param>
-
-/// <param name="max"> The point 2nd position. </param>
-
-/// <returns> True if partially contained, false if outside. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="min" />
-      <Parameter type="global::AcidSharp.Vector3" name="max" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** ISpawnParticle.hpp
-  **
-  ***************************************
-  -->
-  <Export name="GetBaseSpawnPosition" target="Common" source="ISpawnParticle.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets the base spawn position.
-
-/// </summary>
-
-/// <returns> The base spawn position. </returns>
 ]]>
     </Description>
   </Export>
   <!--
   ***************************************
   **
-  ** Ray.hpp
+  ** Rigidbody.hpp
   **
   ***************************************
   -->
-  <Export name="Ray" target="Common" source="Ray.hpp">
+  <Export name="Rigidbody" target="Common" source="Rigidbody.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Creates a new 3D ray.
+/// Creates a new rigidbody.
 
 /// </summary>
 
-/// <param name="useMouse"> If the ray will use the mouse coords or to start from screenStart. </param>
+/// <param name="mass"> The mass of the object. </param>
 
-/// <param name="screenStart"> If useMouse is false then this will be used as the rays start. </param>
+/// <param name="friction"> The amount of surface friction. </param>
+
+/// <param name="localTransform"> The parent offset of the body. </param>
+
+/// <param name="linearFactor"> How effected each axis (XYZ) will be to linear movement. </param>
+
+/// <param name="angularFactor"> How effected each axis (XYZ) will be to angular movement. </param>
 ]]>
     </Description>
     <Parameters>
-      <Parameter type="bool" name="useMouse" />
-      <Parameter type="global::AcidSharp.Vector2" name="screenStart" />
+      <Parameter type="float" name="mass" />
+      <Parameter type="float" name="friction" />
+      <Parameter type="global::AcidSharp.Transform" name="localTransform" />
+      <Parameter type="global::AcidSharp.Vector3" name="linearFactor" />
+      <Parameter type="global::AcidSharp.Vector3" name="angularFactor" />
     </Parameters>
   </Export>
-  <Export name="Update" target="Common" source="Ray.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Updates the ray to a new position.
-
-/// </summary>
-
-/// <param name="currentPosition"> The new position. </param>
-
-/// <param name="currentPosition"> The mouses xy screen space position. </param>
-
-/// <param name="viewMatrix"> The cameras view matrix. </param>
-
-/// <param name="projectionMatrix"> The projection view matrix. </param>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="currentPosition" />
-      <Parameter type="global::AcidSharp.Vector2" name="mousePosition" />
-      <Parameter type="global::AcidSharp.Matrix4" name="viewMatrix" />
-      <Parameter type="global::AcidSharp.Matrix4" name="projectionMatrix" />
-    </Parameters>
-  </Export>
-  <Export name="GetPointOnRay" target="Common" source="Ray.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Gets a point on the ray.
-
-/// </summary>
-
-/// <param name="distance"> Distance down the ray to sample. </param>
-
-/// <returns> Returns the destination vector. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="float" name="distance" />
-    </Parameters>
-  </Export>
-  <Export name="ConvertToScreenSpace" target="Common" source="Ray.hpp">
-    <Description>
-      <![CDATA[
-/// <summary>
-
-/// Converts a position from world space to screen space.
-
-/// </summary>
-
-/// <param name="position"> The position to convert. </param>
-
-/// <returns> Returns the destination vector X and Y being screen space coords and Z being the distance to the camera. </returns>
-]]>
-    </Description>
-    <Parameters>
-      <Parameter type="global::AcidSharp.Vector3" name="position" />
-    </Parameters>
-  </Export>
-  <!--
-  ***************************************
-  **
-  ** Collider.hpp
-  **
-  ***************************************
-  -->
-  <Export name="InFrustum" target="Common" source="Collider.hpp">
+  <Export name="InFrustum" target="Common" source="Rigidbody.hpp">
     <Description>
       <![CDATA[
 /// <summary>
@@ -7622,20 +9514,185 @@
   <!--
   ***************************************
   **
-  ** IManagerRender.hpp
+  ** IPostPipeline.hpp
   **
   ***************************************
   -->
-  <Export name="Update" target="Common" source="IManagerRender.hpp">
+  <Export name="IPostPipeline" target="Common" source="IPostPipeline.hpp">
     <Description>
       <![CDATA[
 /// <summary>
 
-/// Run when updating the renderer manager.
+/// Creates a new post pipeline.
+
+/// </summary>
+
+/// <param name="graphicsStage"> The pipelines graphics stage. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.GraphicsStage" name="graphicsStage" />
+    </Parameters>
+  </Export>
+  <Export name="Render" target="Common" source="IPostPipeline.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Renders the post pipeline.
 
 /// </summary>
 ]]>
     </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.CommandBuffer" name="commandBuffer" />
+      <Parameter type="global::AcidSharp.Vector4" name="clipPlane" />
+      <Parameter type="global::AcidSharp.ICamera" name="camera" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** RendererRegister.hpp
+  **
+  ***************************************
+  -->
+  <Export name="AddRenderer" target="Common" source="RendererRegister.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a renderer to this register.
+
+/// </summary>
+
+/// <param name="renderer"> The renderer to add. </param>
+
+/// <returns> The added renderer. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IRenderer" name="renderer" />
+    </Parameters>
+  </Export>
+  <Export name="RemoveRenderer" target="Common" source="RendererRegister.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes a renderer from this register.
+
+/// </summary>
+
+/// <param name="renderer"> The renderer to remove. </param>
+
+/// <returns> If the renderer was removed. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IRenderer" name="renderer" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Renderer.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Get" target="Common" source="Renderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets this engine instance.
+
+/// </summary>
+
+/// <returns> The current module instance. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="CaptureScreenshot" target="Common" source="Renderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Takes a screenshot of the current image of the display and saves it into a image file.
+
+/// </summary>
+
+///	<param name="filename"> The file to save the screenshot to. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="filename" />
+    </Parameters>
+  </Export>
+  <Export name="GetManager" target="Common" source="Renderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the renderer manager.
+
+/// </summary>
+
+/// <returns> The renderer manager. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="SetManager" target="Common" source="Renderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Sets the current renderer manager to a new renderer manager.
+
+/// </summary>
+
+/// <param name="rendererMaster"> The new renderer manager. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IManagerRender" name="managerRender" />
+    </Parameters>
+  </Export>
+  <Export name="AddRenderer" target="Common" source="Renderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds a renderer to this register.
+
+/// </summary>
+
+/// <param name="renderer"> The renderer to add. </param>
+
+/// <returns> The added renderer. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IRenderer" name="renderer" />
+    </Parameters>
+  </Export>
+  <Export name="RemoveRenderer" target="Common" source="Renderer.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Removes a renderer from this register.
+
+/// </summary>
+
+/// <param name="renderer"> The renderer to remove. </param>
+
+/// <returns> If the renderer was removed. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.IRenderer" name="renderer" />
+    </Parameters>
   </Export>
   <!--
   ***************************************

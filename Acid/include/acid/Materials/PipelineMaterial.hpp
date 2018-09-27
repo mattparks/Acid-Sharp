@@ -2,8 +2,8 @@
 
 #include "Models/Model.hpp"
 #include "Renderer/Pipelines/Pipeline.hpp"
+#include "Renderer/RenderStage.hpp"
 #include "Resources/IResource.hpp"
-#include "Textures/Texture.hpp"
 
 namespace acid
 {
@@ -15,7 +15,10 @@ namespace acid
 	{
 	private:
 		std::string m_filename;
-		Pipeline m_pipeline;
+		GraphicsStage m_graphicsStage;
+		PipelineCreate m_pipelineCreate;
+		RenderStage *m_renderStage;
+		std::unique_ptr<Pipeline> m_pipeline;
 	public:
 		/// <summary>
 		/// Will find an existing pipeline with the same stage and create info, or create a new pipeline.
@@ -31,12 +34,15 @@ namespace acid
 		/// <param name="pipelineCreate"> Information used to define pipeline properties. </param>
 		PipelineMaterial(const GraphicsStage &graphicsStage, const PipelineCreate &pipelineCreate);
 
-		~PipelineMaterial();
+		bool BindPipeline(const CommandBuffer &commandBuffer);
 
 		std::string GetFilename() override { return m_filename; }
 
-		Pipeline &GetPipeline() { return m_pipeline; }
+		GraphicsStage GetGraphicsStage() const { return m_graphicsStage; }
 
+		PipelineCreate GetPipelineCreate() const { return m_pipelineCreate; }
+
+		Pipeline *GetPipeline() { return m_pipeline.get(); }
 	private:
 		static std::string ToFilename(const GraphicsStage &graphicsStage, const PipelineCreate &pipelineCreate);
 	};

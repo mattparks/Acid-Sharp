@@ -18,7 +18,7 @@ namespace acid
 		Vector3 m_normal;
 		Vector3 m_tangent;
 	public:
-		VertexModel(const Vector3 &position = Vector3::ZERO, const Vector2 &uv = Vector2::ZERO, const Vector3 &normal = Vector3::ZERO, const Vector3 &tangent = Vector3::ZERO);
+		explicit VertexModel(const Vector3 &position = Vector3::ZERO, const Vector2 &uv = Vector2::ZERO, const Vector3 &normal = Vector3::ZERO, const Vector3 &tangent = Vector3::ZERO);
 
 		Vector3 GetPosition() const override { return m_position; };
 
@@ -36,6 +36,6 @@ namespace acid
 
 		void SetTangent(const Vector3 &tangent) { m_tangent = tangent; };
 
-		static VertexInput GetVertexInput();
+		static VertexInput GetVertexInput(const uint32_t &binding = 0);
 	};
 }

@@ -20,9 +20,7 @@ namespace acid
 		/// Creates a new button keyboard.
 		/// </summary>
 		/// <param name="keys"> The keys on the keyboard being checked. </param>
-		ButtonKeyboard(const std::vector<Key> &keys);
-
-		~ButtonKeyboard();
+		explicit ButtonKeyboard(const std::vector<Key> &keys);
 
 		bool IsDown() const override;
 
