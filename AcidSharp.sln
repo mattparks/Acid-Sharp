@@ -6,6 +6,9 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcidSharp.CLI", "AcidSharp.CLI\AcidSharp.CLI.csproj", "{51E56F30-3801-4A46-BEC8-A89A276CDBEB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcidSharp", "AcidSharp\AcidSharp.csproj", "{34E42697-CA7B-4345-B80F-0590C31FFAAD}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EF20F3C7-19C7-4A66-96BE-0AD8633C9174} = {EF20F3C7-19C7-4A66-96BE-0AD8633C9174}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Std-symbols", "Std-symbols\Std-symbols.vcxproj", "{EF20F3C7-19C7-4A66-96BE-0AD8633C9174}"
 EndProject

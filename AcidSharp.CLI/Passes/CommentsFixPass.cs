@@ -10,7 +10,7 @@ namespace AcidSharp.CLI
 {
     public class PassCommentsFix : TranslationUnitPass
     {
-        private readonly Regex m_rx = new Regex(@"///(?<text>.*)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
+        private readonly Regex _rx = new Regex(@"///(?<text>.*)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
         
         public override bool VisitDeclaration(Declaration declaration)
         {
@@ -23,12 +23,12 @@ namespace AcidSharp.CLI
             {
                 var xDoc = GetOriginalDocumentationDocument(declaration.Comment.Text);
 
-                if (xDoc == null)
+                var xRoot = xDoc?.Root;
+
+                if (xRoot == null)
                 {
                     return false;
                 }
-
-                var xRoot = xDoc.Root;
 
                 declaration.Comment.Kind = CommentKind.BCPLSlash;
                 var fullComment = declaration.Comment.FullComment;
@@ -56,7 +56,8 @@ namespace AcidSharp.CLI
                 foreach (var paramElement in paramElements)
                 {
                     var paramComment = new ParamCommandComment();
-                    paramComment.Arguments.Add(new BlockCommandComment.Argument { Text = paramElement.Attribute("name").Value });
+                    var name = paramElement.Attribute("name");
+                    paramComment.Arguments.Add(new BlockCommandComment.Argument { Text = name?.Value });
                     paramComment.ParagraphComment = new ParagraphComment();
                     StringBuilder paramTextCommentBuilder = new StringBuilder();
 
@@ -87,7 +88,7 @@ namespace AcidSharp.CLI
             var descriptionXmlBuilder = new StringBuilder();
             descriptionXmlBuilder.AppendLine("<description>");
 
-            foreach (Match match in m_rx.Matches(documentationText))
+            foreach (Match match in _rx.Matches(documentationText))
             {
                 var text = match.Groups["text"].Value;
                 descriptionXmlBuilder.Append(text);
@@ -100,7 +101,7 @@ namespace AcidSharp.CLI
                 var descriptionXDoc = XDocument.Parse(descriptionXmlBuilder.ToString());
                 return descriptionXDoc;
             }
-            catch (System.Xml.XmlException e)
+            catch (System.Xml.XmlException exception)
             {
             }
 

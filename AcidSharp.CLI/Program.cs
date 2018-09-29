@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Xml;
 using CppSharp;
 
 namespace AcidSharp.CLI
@@ -8,18 +7,9 @@ namespace AcidSharp.CLI
     {
         static void Main(string[] args)
         {
-            var library = new Library();
+            var library = new Library(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\AcidSharp");
             ConsoleDriver.Run(library);
-
-            var settings = new XmlWriterSettings()
-            {
-                Indent = true
-            };
-
-            using (var writer = XmlWriter.Create(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\AcidSharp\ExternalDefinitions.xml", settings))
-            {
-                library.XmlExport.WriteTo(writer);
-            }
+            library.Dispose();
 
             Console.WriteLine("Press enter to continue...");
             Console.ReadLine();

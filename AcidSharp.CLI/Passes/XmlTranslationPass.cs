@@ -9,24 +9,21 @@ namespace AcidSharp.CLI
 {
     class PassXmlTranslation : TranslationUnitPass
     {
-        private readonly Regex m_rx = new Regex(@"///(?<text>.*)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
-        private readonly XDocument m_document;
-        private readonly XElement m_root;
+        private readonly Regex _rx = new Regex(@"///(?<text>.*)", RegexOptions.ExplicitCapture | RegexOptions.Compiled);
+        private readonly XDocument _document;
+        private readonly XElement _root;
         private string _libraryName;
 
-        public XDocument Document
-        {
-            get { return m_document; }
-        }
+        public XDocument Document => _document;
 
         public PassXmlTranslation(string libraryName)
         {
-            m_document = new XDocument
+            _document = new XDocument
             {
                 Declaration = new XDeclaration("1.0", "UTF-8", "yes")
             };
-            m_root = new XElement("Definitions");
-            m_document.Add(m_root);
+            _root = new XElement("Definitions");
+            _document.Add(_root);
             _libraryName = libraryName;
         }
 
@@ -61,7 +58,7 @@ namespace AcidSharp.CLI
             // Normalize Comments.
             var commentBuilder = new StringBuilder();
 
-            foreach (Match match in m_rx.Matches(decl.Comment.Text))
+            foreach (Match match in _rx.Matches(decl.Comment.Text))
             {
                 var text = match.Groups["text"].Value;
                 text = text.Replace("< 0", "&lt; 0");
@@ -130,12 +127,12 @@ namespace AcidSharp.CLI
                 exportElement.Add(parametersElement);
 
             // Add breaks between Exports from different sources.
-            if (m_root.Elements().Where(e => e.Attribute("source").Value == exportElement.Attribute("source").Value).Count() == 0)
+            if (_root.Elements().Where(e => e.Attribute("source").Value == exportElement.Attribute("source").Value).Count() == 0)
             {
-                m_root.Add(new XComment("\r\n  ***************************************\r\n  **\r\n  ** " + exportElement.Attribute("source").Value + "\r\n  **\r\n  ***************************************\r\n  "));
+                _root.Add(new XComment("\r\n  ***************************************\r\n  **\r\n  ** " + exportElement.Attribute("source").Value + "\r\n  **\r\n  ***************************************\r\n  "));
             }
 
-            m_root.Add(exportElement);
+            _root.Add(exportElement);
             return false;
         }
 

@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+﻿using System.Xml;
 using CppSharp;
 using CppSharp.AST;
 using CppSharp.Generators;
@@ -9,23 +9,27 @@ namespace AcidSharp.CLI
     class Library : ILibrary
     {
         private PassXmlTranslation _xmlExportPass;
+        private string _outputDir;
 
-        public Library()
+        public Library(string outputDir)
         {
             _xmlExportPass = new PassXmlTranslation("AcidSharp");
+            _outputDir = outputDir;
         }
 
-        /// <summary>
-        /// Gets the XDocument of the xml representation.
-        /// </summary>
-        public XDocument XmlExport
+        public void Dispose()
         {
-            get
+            var settings = new XmlWriterSettings()
             {
-                return _xmlExportPass.Document;
+                Indent = true
+            };
+
+            using (var writer = XmlWriter.Create($@"{_outputDir}\ExternalDefinitions.xml", settings))
+            {
+                _xmlExportPass.Document.WriteTo(writer);
             }
         }
-
+        
         /// <summary>
         /// Sets the driver options. First method called.
         /// </summary>
@@ -34,6 +38,7 @@ namespace AcidSharp.CLI
         {
             // Sets up the parser.
             var parserOptions = driver.ParserOptions;
+            parserOptions.SetupMSVC(VisualStudioVersion.VS2017);
             parserOptions.AddArguments("-fcxx-exceptions");
             parserOptions.LanguageVersion = CppSharp.Parser.LanguageVersion.CPP17;
             parserOptions.EnableRTTI = true;
@@ -45,11 +50,11 @@ namespace AcidSharp.CLI
 
             // Sets up other options.
             var options = driver.Options;
-            options.OutputDir = @"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\AcidSharp";
+            options.OutputDir = _outputDir;
             options.GeneratorKind = GeneratorKind.CSharp;
             options.GenerateSingleCSharpFile = true;
             options.MarshalCharAsManagedChar = true;
-            options.GenerateDefaultValuesForArguments = true;
+            options.GenerateDefaultValuesForArguments = false;
             options.GenerateFinalizers = false;
             options.CheckSymbols = false;
             options.Verbose = true;
@@ -66,7 +71,6 @@ namespace AcidSharp.CLI
             module.Headers.Add(@"acid\Acid.hpp");
             module.LibraryDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\Acid\lib");
             module.Libraries.Add("vulkan-1.lib");
-        //    module.Libraries.Add("OpenAL32.lib");
             module.Libraries.Add("Acid.lib");
         }
 
@@ -77,11 +81,8 @@ namespace AcidSharp.CLI
         public void SetupPasses(Driver driver)
         {
             driver.AddTranslationUnitPass(_xmlExportPass);
-            driver.AddTranslationUnitPass(new PassEnumValuesFix());
             driver.AddTranslationUnitPass(new PassObjectNamesFix());
-            driver.AddTranslationUnitPass(new PassConstRefFix());
             driver.AddTranslationUnitPass(new PassCommentsFix());
-            driver.Context.TranslationUnitPasses.RenameDeclsUpperCase(RenameTargets.Any);
             driver.Context.TranslationUnitPasses.AddPass(new FunctionToInstanceMethodPass());
         }
 
@@ -96,8 +97,9 @@ namespace AcidSharp.CLI
             ctx.IgnoreHeadersWithName("AL/alc.h");
             ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
         //    ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
-
+        
             ctx.IgnoreHeadersWithName("acid/Audio/stb_vorbis.h");
+            ctx.IgnoreHeadersWithName("acid/Helpers/dirent.h");
             ctx.IgnoreHeadersWithName("acid/Textures/stb_image.h");
             ctx.IgnoreHeadersWithName("acid/Textures/stb_image_write.h");
 

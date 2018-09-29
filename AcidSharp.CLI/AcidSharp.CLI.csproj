@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{51E56F30-3801-4A46-BEC8-A89A276CDBEB}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FlounderSharp.CLI</RootNamespace>
-    <AssemblyName>FlounderSharp.CLI</AssemblyName>
+    <RootNamespace>AcidSharp.CLI</RootNamespace>
+    <AssemblyName>AcidSharp.CLI</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -68,11 +68,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Library.cs" />
-    <Compile Include="PassCommentsFix.cs" />
-    <Compile Include="PassEnumValuesFix.cs" />
-    <Compile Include="PassConstRefFix.cs" />
-    <Compile Include="PassObjectNamesFix.cs" />
-    <Compile Include="PassXmlTranslation.cs" />
+    <Compile Include="Passes\CommentsFixPass.cs" />
+    <Compile Include="Passes\ObjectNamesPass.cs" />
+    <Compile Include="Passes\XmlTranslationPass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
