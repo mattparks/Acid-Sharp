@@ -3,7 +3,7 @@ using AcidSharp;
 
 namespace AcidSharp.Tests
 {
-    unsafe class Program
+    class Program
     {
         private static void Main(string[] args)
         {
@@ -17,12 +17,15 @@ namespace AcidSharp.Tests
                 9.11f, 0.0f, 0.0f, 1.0f
             };
             var a = new Matrix4(array);
-            Console.WriteLine($"{a[0][0]}, {a[0][1]}, {a[0][2]}, {a[0][3]}\n{a[1][0]}, {a[1][1]}, {a[1][2]}, {a[1][3]}\n{a[2][0]}, {a[2][1]}, {a[2][2]}, {a[2][3]}\n{a[3][0]}, {a[3][1]}, {a[3][2]}, {a[3][3]}");
+            Console.WriteLine($"Matrix4({a[0][0]}, {a[0][1]}, {a[0][2]}, {a[0][3]}, " +
+                              $"{a[1][0]}, {a[1][1]}, {a[1][2]}, {a[1][3]}, " +
+                              $"{a[2][0]}, {a[2][1]}, {a[2][2]}, {a[2][3]}, " +
+                              $"{a[3][0]}, {a[3][1]}, {a[3][2]}, {a[3][3]})");
         //    Console.WriteLine($"{a.ToString()}");
 
-            //    var original = new Vector3(90.0f, 0.0f, 0.0f);
-            //    var quaternion = original.ToQuaternion();
-            //    var restored = quaternion.ToEuler();
+            var original = new Vector3(90.0f, 0.0f, 0.0f);
+            var quaternion = original.ToQuaternion();
+            var restored = quaternion.ToEuler();
 
             //    Console.WriteLine($"Original: {original.ToString()}");
             //    Console.WriteLine($"Quaternion: {quaternion.ToString()}");

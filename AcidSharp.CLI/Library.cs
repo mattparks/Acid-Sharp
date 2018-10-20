@@ -52,7 +52,7 @@ namespace AcidSharp.CLI
             var options = driver.Options;
             options.OutputDir = _outputDir;
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateSingleCSharpFile = true;
+            options.GenerateSingleCSharpFile = false;
             options.MarshalCharAsManagedChar = true;
             options.GenerateDefaultValuesForArguments = false;
             options.GenerateFinalizers = false;

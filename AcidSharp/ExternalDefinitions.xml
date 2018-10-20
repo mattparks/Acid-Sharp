@@ -3,6 +3,316 @@
   <!--
   ***************************************
   **
+  ** Colour.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="r"> The new R value. </param>
+
+/// <param name="g"> The new G value. </param>
+
+/// <param name="b"> The new B value. </param>
+
+/// <param name="a"> The new A value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="r" />
+      <Parameter type="float" name="g" />
+      <Parameter type="float" name="b" />
+      <Parameter type="float" name="a" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="hex"> The new values from HEX. </param>
+
+/// <param name="a"> The new A value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="string" name="hex" />
+      <Parameter type="float" name="a" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing vector. </param>
+
+/// <param name="a"> The new A value. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="source" />
+      <Parameter type="float" name="a" />
+    </Parameters>
+  </Export>
+  <Export name="Colour" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for colour.
+
+/// </summary>
+
+/// <param name="source"> Creates this colour out of a existing vector. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector4" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Add" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Subtract" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Subtracts this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this vector with another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Divide" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Divides this vector by another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this vector by a scalar.
+
+/// </summary>
+
+/// <param name="scalar"> The scalar value. </param>
+
+/// <returns> The scaled vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="scalar" />
+    </Parameters>
+  </Export>
+  <Export name="Normalize" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Normalizes this vector.
+
+/// </summary>
+
+/// <returns> The normalized vector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="LengthSquared" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length squared of this vector.
+
+/// </summary>
+
+/// <returns> The length squared. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Length" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length of this vector.
+
+/// </summary>
+
+/// <returns> The length. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Interpolate" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Interpolates between this and another colour.
+
+/// </summary>
+
+/// <param name="other"> The other colour. </param>
+
+/// <param name="blend"> The blend factor. </param>
+
+/// <returns> The interpolated colour. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="other" />
+      <Parameter type="float" name="blend" />
+    </Parameters>
+  </Export>
+  <Export name="SmoothDamp" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gradually changes this vector to a target.
+
+/// </summary>
+
+/// <param name="target"> The target vector. </param>
+
+/// <param name="rate"> The rate to go from current to the target. </param>
+
+/// <returns> The changed vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Colour" name="target" />
+      <Parameter type="global::AcidSharp.Colour" name="rate" />
+    </Parameters>
+  </Export>
+  <Export name="GetUnit" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets a colour representing the unit value of this colour.
+
+/// </summary>
+
+/// <returns> The unit colour. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetHex" target="Common" source="Colour.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the hex code from this colour.
+
+/// </summary>
+
+/// <returns> The hex code. </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
   ** Maths.hpp
   **
   ***************************************
@@ -328,6 +638,691 @@
       <Parameter type="float" name="edge0" />
       <Parameter type="float" name="edge1" />
       <Parameter type="float" name="x" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Vector2.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+]]>
+    </Description>
+  </Export>
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+
+/// <param name="x"> Start x. </param>
+
+/// <param name="y"> Start y. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="x" />
+      <Parameter type="float" name="y" />
+    </Parameters>
+  </Export>
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+
+/// <param name="source"> Creates this vector out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Vector2" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Vector2.
+
+/// </summary>
+
+/// <param name="source"> Creates this vector out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Add" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Subtract" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Subtracts this vector to another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this vector with another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Divide" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Divides this vector by another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Angle" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the angle between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The angle, in radians. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Dot" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Calculates the dot product of the this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The dot product. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this vector by a scalar.
+
+/// </summary>
+
+/// <param name="scalar"> The scalar value. </param>
+
+/// <returns> The scaled vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="scalar" />
+    </Parameters>
+  </Export>
+  <Export name="Rotate" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Rotates this vector by a angle around the origin.
+
+/// </summary>
+
+/// <param name="angle"> The angle to rotate by, in radians. </param>
+
+/// <returns> The rotated vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="angle" />
+    </Parameters>
+  </Export>
+  <Export name="Rotate" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Rotates this vector by a angle around a rotation axis.
+
+/// </summary>
+
+/// <param name="angle"> The angle to rotate by, in radians. </param>
+
+/// <param name="rotationAxis"> The point to rotate the vector around. </param>
+
+/// <returns> The rotated vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="angle" />
+      <Parameter type="global::AcidSharp.Vector2" name="rotationAxis" />
+    </Parameters>
+  </Export>
+  <Export name="Negate" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Negates this vector.
+
+/// </summary>
+
+/// <returns> The negated vector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Normalize" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Normalizes this vector.
+
+/// </summary>
+
+/// <returns> The normalized vector. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="LengthSquared" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length squared of this vector.
+
+/// </summary>
+
+/// <returns> The length squared. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Length" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the length of this vector.
+
+/// </summary>
+
+/// <returns> The length. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="MaxComponent" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the maximum value in this vector.
+
+/// </summary>
+
+/// <returns> The largest components. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="MinComponent" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the lowest value in this vector.
+
+/// </summary>
+
+/// <returns> The smallest components. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="DistanceSquared" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the distance between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The squared distance. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Distance" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The distance. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="DistanceVector" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the vector distance between this vector and another vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The vector distance. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="InTriangle" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets if this vector is in a triangle.
+
+/// </summary>
+
+/// <param name="v1"> The first triangle vertex. </param>
+
+/// <param name="v2"> The second triangle vertex. </param>
+
+/// <param name="v3"> The third triangle vertex. </param>
+
+/// <returns> If this vector is in a triangle. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="v1" />
+      <Parameter type="global::AcidSharp.Vector2" name="v2" />
+      <Parameter type="global::AcidSharp.Vector2" name="v3" />
+    </Parameters>
+  </Export>
+  <Export name="SmoothDamp" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gradually changes this vector to a target.
+
+/// </summary>
+
+/// <param name="target"> The target vector. </param>
+
+/// <param name="rate"> The rate to go from current to the target. </param>
+
+/// <returns> The changed vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="target" />
+      <Parameter type="global::AcidSharp.Vector2" name="rate" />
+    </Parameters>
+  </Export>
+  <Export name="CartesianToPolar" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts from rectangular to spherical coordinates, this vector is in cartesian (x, y).
+
+/// </summary>
+
+/// <returns> The polar coordinates (radius, theta). </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="PolarToCartesian" target="Common" source="Vector2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Converts from spherical to rectangular coordinates, this vector is in polar (radius, theta).
+
+/// </summary>
+
+/// <returns> The cartesian coordinates (x, y). </returns>
+]]>
+    </Description>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Matrix2.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Matrix2" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix2. The matrix is initialised to the identity.
+
+/// </summary>
+
+/// <param name="diagonal"> The value set to the diagonals. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="diagonal" />
+    </Parameters>
+  </Export>
+  <Export name="Matrix2" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix2.
+
+/// </summary>
+
+/// <param name="source"> Creates this matrix out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix2" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Matrix2" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix2.
+
+/// </summary>
+
+/// <param name="source"> Creates this matrix out of a 4 element array. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float[]" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Matrix2" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix2.
+
+/// </summary>
+
+/// <param name="source"> Creates this matrix out of a 2 vector array. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2[]" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Add" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds this matrix to another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Subtract" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Subtracts this matrix to another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this matrix by another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Divide" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Divides this matrix by another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Transform" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Transforms this matrix by a vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this matrix by a vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector2" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Negate" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Inverts this matrix.
+
+/// </summary>
+
+/// <returns> The inverted matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Invert" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Negates this matrix.
+
+/// </summary>
+
+/// <returns> The negated matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Transpose" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Transposes this matrix.
+
+/// </summary>
+
+/// <returns> The transposed matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Determinant" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Takes the determinant of this matrix.
+
+/// </summary>
+
+/// <returns> The determinant. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetSubmatrix" target="Common" source="Matrix2.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the submatrix of this matrix.
+
+/// </summary>
+
+/// <returns> The submatrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="row" />
+      <Parameter type="int32_t" name="col" />
     </Parameters>
   </Export>
   <!--
@@ -928,6 +1923,272 @@
     <Parameters>
       <Parameter type="global::AcidSharp.Vector3" name="coneDirection" />
       <Parameter type="float" name="angle" />
+    </Parameters>
+  </Export>
+  <!--
+  ***************************************
+  **
+  ** Matrix3.hpp
+  **
+  ***************************************
+  -->
+  <Export name="Matrix3" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix3. The matrix is initialised to the identity.
+
+/// </summary>
+
+/// <param name="diagonal"> The value set to the diagonals. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float" name="diagonal" />
+    </Parameters>
+  </Export>
+  <Export name="Matrix3" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix3.
+
+/// </summary>
+
+/// <param name="source"> Creates this matrix out of a existing one. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix3" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Matrix3" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix3.
+
+/// </summary>
+
+/// <param name="source"> Creates this matrix out of a 9 element array. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="float[]" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Matrix3" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Constructor for Matrix3.
+
+/// </summary>
+
+/// <param name="source"> Creates this matrix out of a 3 vector array. </param>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3[]" name="source" />
+    </Parameters>
+  </Export>
+  <Export name="Add" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Adds this matrix to another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix3" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Subtract" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Subtracts this matrix to another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix3" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this matrix by another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix3" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Multiply" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Multiplies this matrix by a vector.
+
+/// </summary>
+
+/// <param name="other"> The vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Divide" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Divides this matrix by another matrix.
+
+/// </summary>
+
+/// <param name="other"> The other matrix. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Matrix3" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Transform" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Transforms this matrix by a vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant vector. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Scale" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Scales this matrix by a vector.
+
+/// </summary>
+
+/// <param name="other"> The other vector. </param>
+
+/// <returns> The resultant matrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="global::AcidSharp.Vector3" name="other" />
+    </Parameters>
+  </Export>
+  <Export name="Negate" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Inverts this matrix.
+
+/// </summary>
+
+/// <returns> The inverted matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Invert" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Negates this matrix.
+
+/// </summary>
+
+/// <returns> The negated matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Transpose" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Transposes this matrix.
+
+/// </summary>
+
+/// <returns> The transposed matrix. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="Determinant" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Takes the determinant of this matrix.
+
+/// </summary>
+
+/// <returns> The determinant. </returns>
+]]>
+    </Description>
+  </Export>
+  <Export name="GetSubmatrix" target="Common" source="Matrix3.hpp">
+    <Description>
+      <![CDATA[
+/// <summary>
+
+/// Gets the submatrix of this matrix.
+
+/// </summary>
+
+/// <returns> The submatrix. </returns>
+]]>
+    </Description>
+    <Parameters>
+      <Parameter type="int32_t" name="row" />
+      <Parameter type="int32_t" name="col" />
     </Parameters>
   </Export>
   <!--
