@@ -8,13 +8,13 @@ namespace acid
 		public IPostFilter
 	{
 	private:
-		UniformHandler m_uniformScene;
+		PushHandler m_pushScene;
 
 		float m_innerRadius;
 		float m_outerRadius;
 		float m_opacity;
 	public:
-		explicit FilterVignette(const GraphicsStage &graphicsStage);
+		explicit FilterVignette(const GraphicsStage &graphicsStage, const float &innerRadius = 0.15f, const float &outerRadius = 1.35f, const float &opacity = 0.85f);
 
 		void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) override;
 

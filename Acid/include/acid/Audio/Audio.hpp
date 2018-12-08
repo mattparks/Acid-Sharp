@@ -1,5 +1,6 @@
 #pragma once
 
+#include <map>
 #include "Engine/Engine.hpp"
 
 typedef struct ALCdevice_struct ALCdevice;
@@ -8,6 +9,13 @@ typedef struct ALCcontext_struct ALCcontext;
 
 namespace acid
 {
+	enum SoundType
+	{
+		SOUND_TYPE_GENERAL = 0,
+		SOUND_TYPE_EFFECT = 1,
+		SOUND_TYPE_MUSIC = 2
+	};
+
 	/// <summary>
 	/// A module used for loading, managing and playing a variety of different sound types.
 	/// </summary>
@@ -18,7 +26,8 @@ namespace acid
 		ALCdevice *m_alDevice;
 		ALCcontext *m_alContext;
 
-		float m_volume;
+		float m_masterGain;
+		std::map<SoundType, float> m_gains;
 	public:
 		/// <summary>
 		/// Gets this engine instance.
@@ -40,8 +49,12 @@ namespace acid
 
 		ACID_HIDDEN ALCcontext *GetContext() const { return m_alContext; }
 
-		float GetVolume() const { return m_volume; }
+		float GetMasterGain() const { return m_masterGain; }
 
-		void SetVolume(const float &volume) { m_volume = volume; }
+		void SetMasterGain(const float &masterGain) { m_masterGain = masterGain; }
+
+		float GetTypeGain(const SoundType &type) const;
+
+		void SetTypeGain(const SoundType &type, const float &volume);
 	};
 }

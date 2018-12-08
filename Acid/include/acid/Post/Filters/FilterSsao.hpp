@@ -8,15 +8,15 @@ namespace acid
 		public IPostFilter
 	{
 	private:
-		UniformHandler m_uniformScene;
-
-		std::shared_ptr<Texture> m_noise;
-		std::vector<Vector3> m_kernel;
-	public:
 		static const uint32_t SSAO_NOISE_DIM;
 		static const uint32_t SSAO_KERNEL_SIZE;
 		static const float SSAO_RADIUS;
 
+		PushHandler m_pushScene;
+
+		std::shared_ptr<Texture> m_noise;
+		std::vector<Vector3> m_kernel;
+	public:
 		explicit FilterSsao(const GraphicsStage &graphicsStage);
 
 		void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) override;

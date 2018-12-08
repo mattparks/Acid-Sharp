@@ -44,15 +44,12 @@ namespace AcidSharp.CLI
             parserOptions.EnableRTTI = true;
             parserOptions.UnityBuild = true;
             parserOptions.Verbose = true;
-
-            parserOptions.Defines.Add("ACID_BUILD_WINDOWS");
-            parserOptions.Defines.Add("ACID_BUILD_MSVC");
-
+            
             // Sets up other options.
             var options = driver.Options;
             options.OutputDir = _outputDir;
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateSingleCSharpFile = false;
+            options.GenerateSingleCSharpFile = true; // TODO: false
             options.MarshalCharAsManagedChar = true;
             options.GenerateDefaultValuesForArguments = false;
             options.GenerateFinalizers = false;
@@ -63,6 +60,8 @@ namespace AcidSharp.CLI
             var module = options.AddModule("AcidSharp");
             module.SharedLibraryName = "Acid";
             module.OutputNamespace = "";
+            module.Defines.Add("ACID_BUILD_WINDOWS");
+            module.Defines.Add("ACID_BUILD_MSVC");
             module.IncludeDirs.Add(@"C:\Users\mattp\Documents\Acid Workspace\Acid-Sharp\Acid\include");
             module.IncludeDirs.Add(@"D:\Windows Kits\10\Include\10.0.17134.0\shared");
             module.IncludeDirs.Add(@"D:\Windows Kits\10\Include\10.0.17134.0\um");
@@ -93,16 +92,7 @@ namespace AcidSharp.CLI
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
         {
-            ctx.IgnoreHeadersWithName("AL/al.h");
-            ctx.IgnoreHeadersWithName("AL/alc.h");
-            ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
         //    ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
-        
-            ctx.IgnoreHeadersWithName("acid/Audio/stb_vorbis.h");
-            ctx.IgnoreHeadersWithName("acid/Helpers/dirent.h");
-            ctx.IgnoreHeadersWithName("acid/Textures/stb_image.h");
-            ctx.IgnoreHeadersWithName("acid/Textures/stb_image_write.h");
-
             ctx.RenameNamespace("acid", "AcidSharp");
         }
 

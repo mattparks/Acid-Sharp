@@ -8,11 +8,11 @@ namespace acid
 		public IPostFilter
 	{
 	private:
-		UniformHandler m_uniformScene;
+		PushHandler m_pushScene;
 
 		float m_factor;
 	public:
-		explicit FilterDarken(const GraphicsStage &graphicsStage);
+		explicit FilterDarken(const GraphicsStage &graphicsStage, const float &factor = 0.5f);
 
 		void Render(const CommandBuffer &commandBuffer, const Vector4 &clipPlane, const ICamera &camera) override;
 

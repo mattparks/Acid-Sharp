@@ -18,34 +18,34 @@ namespace acid
 		/// <summary>
 		/// Creates a new fade driver.
 		/// </summary>
-		/// <param name="start"> The start time. </param>
-		/// <param name="end"> The end time. </param>
+		/// <param name="start"> The fade start interval (0.0-1.0). </param>
+		/// <param name="end"> The fade end interval (0.0-1.0). </param>
 		/// <param name="peak"> The peak value. </param>
 		/// <param name="length"> The time taken to get to the end. </param>
-		DriverFade(const float &start, const float &end, const float &peak, const float &length);
+		DriverFade(const float &start, const float &end, const float &peak, const Time &length);
 
 		/// <summary>
-		/// Gets the start time.
+		/// Gets the start interval.
 		/// </summary>
-		/// <returns> The start time. </returns>
+		/// <returns> The start interval. </returns>
 		float GetStart() const { return m_start; }
 
 		/// <summary>
-		/// Sets the start time.
+		/// Sets the start interval (0.0-1.0).
 		/// </summary>
-		/// <param name="start"> The new start time. </param>
+		/// <param name="start"> The new start interval. </param>
 		void SetStart(const float &start) { m_start = start; }
 
 		/// <summary>
-		/// Gets the end time.
+		/// Gets the end interval.
 		/// </summary>
-		/// <returns> The end time. </returns>
+		/// <returns> The end interval. </returns>
 		float GetEnd() const { return m_end; }
 
 		/// <summary>
-		/// Sets the end time.
+		/// Sets the end interval (0.0-1.0).
 		/// </summary>
-		/// <param name="end"> The new end time. </param>
+		/// <param name="end"> The new end interval. </param>
 		void SetEnd(const float &end) { m_end = end; }
 
 		/// <summary>
@@ -60,6 +60,6 @@ namespace acid
 		/// <param name="peak"> The new peak value. </param>
 		void SetPeak(const float &peak) { m_peak = peak; }
 	protected:
-		float Calculate(const float &time) override;
+		float Calculate(const float &factor) override;
 	};
 }

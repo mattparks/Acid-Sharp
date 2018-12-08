@@ -22,8 +22,6 @@ namespace acid
 
 		Files();
 
-		~Files();
-
 		void Update() override;
 
 		/// <summary>

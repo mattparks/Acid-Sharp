@@ -8,8 +8,10 @@ namespace AcidSharp.Tests
         private static void Main(string[] args)
         {
             Console.WriteLine($"{Maths.Random(0.0f, 100.0f)}");
+            Console.WriteLine($"{Maths.InterpolateCosine(0.0f, 1.0f, 0.6f)}");
+            Console.WriteLine($"{Maths.Pi}");
 
-            var array = new float[16]
+            /*var array = new float[16]
             {
                 1.0f, 0.0f, 0.0f, 0.0f,
                 -91.3f, 1.0f, 0.0f, 0.0f,
@@ -31,7 +33,7 @@ namespace AcidSharp.Tests
             //    Console.WriteLine($"Quaternion: {quaternion.ToString()}");
             //    Console.WriteLine($"Restored: {restored.ToString()}");
 
-            // Console.WriteLine($"Working Directory: {FileSystem.WorkingDirectory}");
+            // Console.WriteLine($"Working Directory: {FileSystem.WorkingDirectory}");*/
 
             // End program.
             Console.WriteLine("Press enter to continue...");

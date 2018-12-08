@@ -16,12 +16,14 @@ namespace acid
 {
 	struct ParticleData
 	{
-		Matrix4 mvp;
+		Matrix4 modelMatrix;
 		Colour colourOffset;
 		Vector4 offsets;
 		Vector3 blend;
 		float _padding;
 	};
+
+	class Particle;
 
 	/// <summary>
 	/// A definition for what a particle should act and look like.
@@ -39,10 +41,13 @@ namespace acid
 		float m_stageCycles;
 		float m_scale;
 
+		uint32_t m_instances;
+
 		StorageHandler m_storageBuffer;
 		DescriptorsHandler m_descriptorSet;
 	public:
 		static const uint32_t MAX_TYPE_INSTANCES;
+		static const float FRUSTUM_BUFFER;
 
 		/// <summary>
 		/// Will find an existing particle type with the same filename, or create a new particle type.
@@ -72,25 +77,19 @@ namespace acid
 		/// <param name="scale"> The averaged scale for the particle. </param>
 		explicit ParticleType(const std::shared_ptr<Texture> &texture = nullptr, const uint32_t &numberOfRows = 1, const Colour &colourOffset = Colour::BLACK, const float &lifeLength = 10.0f, const float &stageCycles = 1.0f, const float &scale = 1.0f);
 
+		void Update(const std::vector<Particle> &particles);
+
+		bool CmdRender(const CommandBuffer &commandBuffer, const Pipeline &pipeline, UniformHandler &uniformScene);
+
 		void Decode(const Metadata &metadata);
 
 		void Encode(Metadata &metadata) const;
-
-		bool CmdRender(const CommandBuffer &commandBuffer, const Pipeline &pipeline, UniformHandler &uniformScene, const std::vector<ParticleData> &instanceData);
 
 		std::string GetFilename() override { return m_filename; }
 
 		std::shared_ptr<Texture> GetTexture() const { return m_texture; }
 
 		void SetTexture(const std::shared_ptr<Texture> &texture) { m_texture = texture; }
-
-		void TrySetTexture(const std::string &filename)
-		{
-			if (!filename.empty())
-			{
-				m_texture = Texture::Resource(filename);
-			}
-		}
 
 		uint32_t GetNumberOfRows() const { return m_numberOfRows; }
 
@@ -113,5 +112,7 @@ namespace acid
 		void SetScale(const float &scale) { m_scale = scale; }
 	private:
 		static std::string ToFilename(const std::shared_ptr<Texture> &texture, const uint32_t &numberOfRows, const Colour &colourOffset, const float &lifeLength, const float &stageCycles, const float &scale);
+
+		ParticleData GetInstanceData(const Particle &particle);
 	};
 }

@@ -4,7 +4,7 @@
 // Acid exports (prerequisites) file.
 //
 
-#ifdef ACID_BUILD_WINDOWS
+#if defined(ACID_BUILD_WINDOWS)
 #  ifdef ACID_BUILD_MSVC
 #	ifdef ACID_STATICLIB
 #	  define ACID_EXPORT

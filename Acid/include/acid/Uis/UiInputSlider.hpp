@@ -13,7 +13,8 @@ namespace acid
 		public UiObject
 	{
 	private:
-		static const float CHANGE_TIME;
+		static const Time CHANGE_TIME;
+		static const Time SLIDE_TIME;
 		static const float FONT_SIZE;
 		static const Vector2 DIMENSION;
 		static const float SCALE_NORMAL;
@@ -35,7 +36,7 @@ namespace acid
 
 		bool m_hasChange;
 		Timer m_timerChange;
-		std::function<void()> m_actionChange;
+		std::function<void(float)> m_actionChange;
 	public:
 		UiInputSlider(UiObject *parent, const Vector3 &position, const std::string &prefix, const int32_t &roundTo, const float &progressMin, const float &progressMax, const float &value);
 
@@ -57,7 +58,7 @@ namespace acid
 
 		void SetValue(const float &value);
 
-		void SetActionChange(std::function<void()> action) { m_actionChange = action; }
+		void SetActionChange(std::function<void(float)> action) { m_actionChange = action; }
 	private:
 		void UpdateText();
 	};

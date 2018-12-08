@@ -22,6 +22,8 @@ namespace acid
 		PipelineCreate m_pipelineCreate;
 		std::unique_ptr<ShaderProgram> m_shaderProgram;
 
+		std::vector<VkDynamicState> m_dynamicStates;
+
 		std::vector<VkShaderModule> m_modules;
 		std::vector<VkPipelineShaderStageCreateInfo> m_stages;
 
@@ -30,6 +32,7 @@ namespace acid
 
 		VkPipeline m_pipeline;
 		VkPipelineLayout m_pipelineLayout;
+		VkPipelineBindPoint m_pipelineBindPoint;
 
 		VkPipelineInputAssemblyStateCreateInfo m_inputAssemblyState;
 		VkPipelineRasterizationStateCreateInfo m_rasterizationState;
@@ -50,15 +53,19 @@ namespace acid
 
 		~Pipeline();
 
+		DepthStencil *GetDepthStencil(const int32_t &stage = -1) const;
+
+		Texture *GetTexture(const uint32_t &index, const int32_t &stage = -1) const;
+
+		uint32_t GetWidth(const int32_t &stage = -1) const;
+
+		uint32_t GetHeight(const int32_t &stage = -1) const;
+
 		PipelineCreate GetPipelineCreate() const { return m_pipelineCreate; }
 
 		ShaderProgram *GetShaderProgram() const override { return m_shaderProgram.get(); }
 
 		GraphicsStage GetGraphicsStage() const { return m_graphicsStage; }
-
-		DepthStencil *GetDepthStencil(const int32_t &stage = -1) const;
-
-		Texture *GetTexture(const uint32_t &index, const int32_t &stage = -1) const;
 
 		VkDescriptorSetLayout GetDescriptorSetLayout() const override { return m_descriptorSetLayout; }
 
@@ -68,7 +75,7 @@ namespace acid
 
 		VkPipelineLayout GetPipelineLayout() const override { return m_pipelineLayout; }
 
-		VkPipelineBindPoint GetPipelineBindPoint() const { return VK_PIPELINE_BIND_POINT_GRAPHICS; }
+		VkPipelineBindPoint GetPipelineBindPoint() const { return m_pipelineBindPoint; }
 	private:
 		void CreateShaderProgram();
 
@@ -85,5 +92,7 @@ namespace acid
 		void CreatePipelinePolygon();
 
 		void CreatePipelineMrt();
+
+		void CreatePipelineCompute();
 	};
 }
