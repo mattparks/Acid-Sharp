@@ -7416,11 +7416,11 @@ namespace Acid.Sharp
     /// <summary>Represents when a module will update in the game loop.</summary>
     public enum ModuleUpdate
     {
-        ModuleUpdateAlways = 0,
-        ModuleUpdatePre = 1,
-        ModuleUpdateNormal = 2,
-        ModuleUpdatePost = 3,
-        ModuleUpdateRender = 4
+        Always = 0,
+        Pre = 1,
+        Normal = 2,
+        Post = 3,
+        Render = 4
     }
 
     /// <summary>A interface used for defining engine modules.</summary>
@@ -8829,17 +8829,17 @@ namespace Acid.Sharp
 {
     public enum PipelineMode
     {
-        PipelineModePolygon = 0,
-        PipelineModeMrt = 1,
-        PipelineModeCompute = 2
+        Polygon = 0,
+        Mrt = 1,
+        Compute = 2
     }
 
     public enum PipelineDepth
     {
-        PipelineDepthNone = 0,
-        PipelineDepthReadWrite = 1,
-        PipelineDepthRead = 2,
-        PipelineDepthWrite = 3
+        None = 0,
+        ReadWrite = 1,
+        Read = 2,
+        Write = 3
     }
 
     /// <summary>A object that represents position in the renderpass/subpass structure.</summary>
@@ -17685,9 +17685,9 @@ namespace Acid.Sharp
 {
     public enum SoundType
     {
-        SoundTypeGeneral = 0,
-        SoundTypeEffect = 1,
-        SoundTypeMusic = 2
+        General = 0,
+        Effect = 1,
+        Music = 2
     }
 
     /// <summary>A module used for loading, managing and playing a variety of different sound types.</summary>
@@ -27169,21 +27169,21 @@ namespace Acid.Sharp
 {
     public enum MouseButton
     {
-        MouseButton1 = 0,
-        MouseButton2 = 1,
-        MouseButton3 = 2,
-        MouseButton4 = 3,
-        MouseButton5 = 4,
-        MouseButton6 = 5,
-        MouseButton7 = 6,
-        MouseButton8 = 7,
-        MouseButtonLeft = 0,
-        MouseButtonRight = 1,
-        MouseButtonMiddle = 2,
-        MouseButtonBeginRange = 0,
-        MouseButtonEndRange = 7,
-        MouseButtonRangeSize = 8,
-        MouseButtonMaxEnum = 2147483647
+        _1 = 0,
+        _2 = 1,
+        _3 = 2,
+        _4 = 3,
+        _5 = 4,
+        _6 = 5,
+        _7 = 6,
+        _8 = 7,
+        Left = 0,
+        Right = 1,
+        Middle = 2,
+        BeginRange = 0,
+        EndRange = 7,
+        RangeSize = 8,
+        MaxEnum = 2147483647
     }
 
     /// <summary>A module used for the creation, updating and destruction of the mouse.</summary>
@@ -28930,10 +28930,10 @@ namespace Acid.Sharp
     /// <summary>A enum that represents how the text will be justified.</summary>
     public enum TextJustify
     {
-        TextJustifyLeft = 0,
-        TextJustifyCentre = 1,
-        TextJustifyRight = 2,
-        TextJustifyFully = 3
+        Left = 0,
+        Centre = 1,
+        Right = 2,
+        Fully = 3
     }
 
     /// <summary>A object the represents a text in a GUI.</summary>
@@ -32420,131 +32420,131 @@ namespace Acid.Sharp
 {
     public enum Key
     {
-        KeyUnknown = -1,
-        KeySpace = 32,
-        KeyApostrophe = 39,
-        KeyComma = 44,
-        KeyMinus = 45,
-        KeyPeriod = 46,
-        KeySlash = 47,
-        Key0 = 48,
-        Key1 = 49,
-        Key2 = 50,
-        Key3 = 51,
-        Key4 = 52,
-        Key5 = 53,
-        Key6 = 54,
-        Key7 = 55,
-        Key8 = 56,
-        Key9 = 57,
-        KeySemicolon = 59,
-        KeyEqual = 61,
-        KeyA = 65,
-        KeyB = 66,
-        KeyC = 67,
-        KeyD = 68,
-        KeyE = 69,
-        KeyF = 70,
-        KeyG = 71,
-        KeyH = 72,
-        KeyI = 73,
-        KeyJ = 74,
-        KeyK = 75,
-        KeyL = 76,
-        KeyM = 77,
-        KeyN = 78,
-        KeyO = 79,
-        KeyP = 80,
-        KeyQ = 81,
-        KeyR = 82,
-        KeyS = 83,
-        KeyT = 84,
-        KeyU = 85,
-        KeyV = 86,
-        KeyW = 87,
-        KeyX = 88,
-        KeyY = 89,
-        KeyZ = 90,
-        KeyLeftBracket = 91,
-        KeyBackslash = 92,
-        KeyRightBracket = 93,
-        KeyGraveAccent = 96,
-        KeyWorld1 = 161,
-        KeyWorld2 = 162,
-        KeyEscape = 256,
-        KeyEnter = 257,
-        KeyTab = 258,
-        KeyBackspace = 259,
-        KeyInsert = 260,
-        KeyDelete = 261,
-        KeyRight = 262,
-        KeyLeft = 263,
-        KeyDown = 264,
-        KeyUp = 265,
-        KeyPageUp = 266,
-        KeyPageDown = 267,
-        KeyHome = 268,
-        KeyEnd = 269,
-        KeyCapsLock = 280,
-        KeyScrollLock = 281,
-        KeyNumLock = 282,
-        KeyPrintScreen = 283,
-        KeyPause = 284,
-        KeyF1 = 290,
-        KeyF2 = 291,
-        KeyF3 = 292,
-        KeyF4 = 293,
-        KeyF5 = 294,
-        KeyF6 = 295,
-        KeyF7 = 296,
-        KeyF8 = 297,
-        KeyF9 = 298,
-        KeyF10 = 299,
-        KeyF11 = 300,
-        KeyF12 = 301,
-        KeyF13 = 302,
-        KeyF14 = 303,
-        KeyF15 = 304,
-        KeyF16 = 305,
-        KeyF17 = 306,
-        KeyF18 = 307,
-        KeyF19 = 308,
-        KeyF20 = 309,
-        KeyF21 = 310,
-        KeyF22 = 311,
-        KeyF23 = 312,
-        KeyF24 = 313,
-        KeyF25 = 314,
-        KeyPad0 = 320,
-        KeyPad1 = 321,
-        KeyPad2 = 322,
-        KeyPad3 = 323,
-        KeyPad4 = 324,
-        KeyPad5 = 325,
-        KeyPad6 = 326,
-        KeyPad7 = 327,
-        KeyPad8 = 328,
-        KeyPad9 = 329,
-        KeyPadDecimal = 330,
-        KeyPadDivide = 331,
-        KeyPadMultiply = 332,
-        KeyPadSubtract = 333,
-        KeyPadAdd = 334,
-        KeyPadEnter = 335,
-        KeyPadEqual = 336,
-        KeyLeftShift = 340,
-        KeyLeftControl = 341,
-        KeyLeftAlt = 342,
-        KeyLeftSuper = 343,
-        KeyRightShift = 344,
-        KeyRightControl = 345,
-        KeyRightAlt = 346,
-        KeyRightSuper = 347,
-        KeyMenu = 348,
-        KeyBeginRange = -1,
-        KeyEndRange = 348,
-        KeyRangeSize = 350,
-        KeyMaxEnum = 2147483647
+        Unknown = -1,
+        Space = 32,
+        Apostrophe = 39,
+        Comma = 44,
+        Minus = 45,
+        Period = 46,
+        Slash = 47,
+        _0 = 48,
+        _1 = 49,
+        _2 = 50,
+        _3 = 51,
+        _4 = 52,
+        _5 = 53,
+        _6 = 54,
+        _7 = 55,
+        _8 = 56,
+        _9 = 57,
+        Semicolon = 59,
+        Equal = 61,
+        A = 65,
+        B = 66,
+        C = 67,
+        D = 68,
+        E = 69,
+        F = 70,
+        G = 71,
+        H = 72,
+        I = 73,
+        J = 74,
+        K = 75,
+        L = 76,
+        M = 77,
+        N = 78,
+        O = 79,
+        P = 80,
+        Q = 81,
+        R = 82,
+        S = 83,
+        T = 84,
+        U = 85,
+        V = 86,
+        W = 87,
+        X = 88,
+        Y = 89,
+        Z = 90,
+        LeftBracket = 91,
+        Backslash = 92,
+        RightBracket = 93,
+        GraveAccent = 96,
+        World1 = 161,
+        World2 = 162,
+        Escape = 256,
+        Enter = 257,
+        Tab = 258,
+        Backspace = 259,
+        Insert = 260,
+        Delete = 261,
+        Right = 262,
+        Left = 263,
+        Down = 264,
+        Up = 265,
+        PageUp = 266,
+        PageDown = 267,
+        Home = 268,
+        End = 269,
+        CapsLock = 280,
+        ScrollLock = 281,
+        NumLock = 282,
+        PrintScreen = 283,
+        Pause = 284,
+        F1 = 290,
+        F2 = 291,
+        F3 = 292,
+        F4 = 293,
+        F5 = 294,
+        F6 = 295,
+        F7 = 296,
+        F8 = 297,
+        F9 = 298,
+        F10 = 299,
+        F11 = 300,
+        F12 = 301,
+        F13 = 302,
+        F14 = 303,
+        F15 = 304,
+        F16 = 305,
+        F17 = 306,
+        F18 = 307,
+        F19 = 308,
+        F20 = 309,
+        F21 = 310,
+        F22 = 311,
+        F23 = 312,
+        F24 = 313,
+        F25 = 314,
+        Pad0 = 320,
+        Pad1 = 321,
+        Pad2 = 322,
+        Pad3 = 323,
+        Pad4 = 324,
+        Pad5 = 325,
+        Pad6 = 326,
+        Pad7 = 327,
+        Pad8 = 328,
+        Pad9 = 329,
+        PadDecimal = 330,
+        PadDivide = 331,
+        PadMultiply = 332,
+        PadSubtract = 333,
+        PadAdd = 334,
+        PadEnter = 335,
+        PadEqual = 336,
+        LeftShift = 340,
+        LeftControl = 341,
+        LeftAlt = 342,
+        LeftSuper = 343,
+        RightShift = 344,
+        RightControl = 345,
+        RightAlt = 346,
+        RightSuper = 347,
+        Menu = 348,
+        BeginRange = -1,
+        EndRange = 348,
+        RangeSize = 350,
+        MaxEnum = 2147483647
     }
 
     /// <summary>A module used for the creation, updating and destruction of the keyboard keys.</summary>
@@ -33756,9 +33756,9 @@ namespace Acid.Sharp
 {
     public enum AttachmentType
     {
-        AttachmentTypeImage = 0,
-        AttachmentTypeDepth = 1,
-        AttachmentTypeSwapchain = 2
+        Image = 0,
+        Depth = 1,
+        Swapchain = 2
     }
 
     /// <summary>A object that represents an attachment in a renderpass.</summary>
@@ -39339,9 +39339,9 @@ namespace Acid.Sharp
 {
     public enum MeshSort
     {
-        MeshSortNone = 0,
-        MeshSortFront = 1,
-        MeshSortBack = 2
+        None = 0,
+        Front = 1,
+        Back = 2
     }
 
     public unsafe partial class RendererMeshes : global::Acid.Sharp.IRenderer, IDisposable
@@ -41467,24 +41467,24 @@ namespace Acid.Sharp
     public enum SocketStatus
     {
 
-        SocketStatusDone = 0,
+        Done = 0,
 
-        SocketStatusNotReady = 1,
+        NotReady = 1,
 
-        SocketStatusPartial = 2,
+        Partial = 2,
 
-        SocketStatusDisconnected = 3,
+        Disconnected = 3,
 
-        SocketStatusError = 4
+        Error = 4
     }
 
     /// <summary>Types of protocols that the socket can use.</summary>
     public enum SocketType
     {
 
-        SocketTypeTcp = 0,
+        Tcp = 0,
 
-        SocketTypeUdp = 1
+        Udp = 1
     }
 
     /// <summary>Base class for all the socket types.</summary>
@@ -45021,30 +45021,30 @@ namespace Acid.Sharp
 {
     public enum NoiseType
     {
-        NoiseTypeValue = 0,
-        NoiseTypeValuefractal = 1,
-        NoiseTypePerlin = 2,
-        NoiseTypePerlinfractal = 3,
-        NoiseTypeSimplex = 4,
-        NoiseTypeSimplexfractal = 5,
-        NoiseTypeCellular = 6,
-        NoiseTypeWhitenoise = 7,
-        NoiseTypeCubic = 8,
-        NoiseTypeCubicfractal = 9
+        Value = 0,
+        Valuefractal = 1,
+        Perlin = 2,
+        Perlinfractal = 3,
+        Simplex = 4,
+        Simplexfractal = 5,
+        Cellular = 6,
+        Whitenoise = 7,
+        Cubic = 8,
+        Cubicfractal = 9
     }
 
     public enum NoiseInterp
     {
-        NoiseInterpLinear = 0,
-        NoiseInterpHermite = 1,
-        NoiseInterpQuintic = 2
+        Linear = 0,
+        Hermite = 1,
+        Quintic = 2
     }
 
     public enum NoiseFractal
     {
-        NoiseFractalFbm = 0,
-        NoiseFractalBillow = 1,
-        NoiseFractalRigidmulti = 2
+        Fbm = 0,
+        Billow = 1,
+        Rigidmulti = 2
     }
 
     public enum NoiseCellularFunc
@@ -56778,9 +56778,9 @@ namespace Acid.Sharp
 {
     public enum BlurType
     {
-        BlurType5 = 5,
-        BlurType9 = 9,
-        BlurType13 = 13
+        _5 = 5,
+        _9 = 9,
+        _13 = 13
     }
 
     public unsafe partial class FilterBlur : global::Acid.Sharp.IPostFilter, IDisposable

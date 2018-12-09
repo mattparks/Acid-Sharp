@@ -1,7 +1,6 @@
 ﻿using System;
-using AcidSharp;
 
-namespace AcidSharp.Tests
+namespace Acid.Sharp.Tests
 {
     class World : IModule
     {
@@ -44,18 +43,20 @@ namespace AcidSharp.Tests
 		
         public World()
         {
-            _noiseTerrain = new Noise(69124);
-            _noiseTerrain.NoiseType = NoiseType.TypePerlinfractal;
-            _noiseTerrain.Frequency = 0.003f;
-            _noiseTerrain.Interp = NoiseInterp.InterpQuintic;
-            _noiseTerrain.FractalType = NoiseFractal.FractalFbm;
-            _noiseTerrain.FractalOctaves = 5;
-            _noiseTerrain.FractalLacunarity = 2.0f;
-            _noiseTerrain.FractalGain = 0.5f;
+			_noiseTerrain = new Noise(69124)
+			{
+				NoiseType = NoiseType.Perlinfractal,
+				Frequency = 0.003f,
+				Interp = NoiseInterp.Quintic,
+				FractalType = NoiseFractal.Fbm,
+				FractalOctaves = 5,
+				FractalLacunarity = 2.0f,
+				FractalGain = 0.5f
+			};
 
 
-            _driverDay = new DriverLinear(0.0f, 1.0f, 300.0f);
-            _driverDay.Update(50.0f); // Starts during daytime.
+			_driverDay = new DriverLinear(0.0f, 1.0f, Time.Seconds(300.0f));
+            _driverDay.Update(Time.Seconds(50.0f)); // Starts during daytime.
 
             _factorDay = 0.0f;
             _skyboxRotation = new Vector3();

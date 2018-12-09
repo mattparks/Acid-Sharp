@@ -7,8 +7,8 @@
     <ProjectGuid>{34E42697-CA7B-4345-B80F-0590C31FFAAD}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AcidSharp</RootNamespace>
-    <AssemblyName>AcidSharp</AssemblyName>
+    <RootNamespace>Acid.Sharp</RootNamespace>
+    <AssemblyName>Acid.Sharp</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>

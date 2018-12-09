@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using AcidSharp;
 
-namespace AcidSharp.Tests
+namespace Acid.Sharp.Tests
 {
     class MainRenderer : IManagerRender
     {
@@ -12,8 +11,8 @@ namespace AcidSharp.Tests
             0, 0, // width / height
             new List<Attachment>
             {
-                new Attachment(0, AttachmentType.AttachmentDepth), // depth
-                new Attachment(1, AttachmentType.AttachmentSwapchain) // swapchain
+                new Attachment(0, AttachmentType.Depth), // depth
+                new Attachment(1, AttachmentType.Swapchain) // swapchain
             }, // images
             new List<SubpassType>
             {

@@ -61,7 +61,7 @@ namespace AcidSharp.CLI.Passes
 
             foreach (var item in enumeration.Items)
             {
-                item.Name = ToCamelCase(item.Name); // .Replace(@enum.Name, "")
+                item.Name = ToCamelCase(item.Name).Replace(enumeration.Name, ""); // 
             }
 
             return true;

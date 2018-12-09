@@ -1,7 +1,6 @@
 using System;
-using AcidSharp;
 
-namespace AcidSharp.Tests
+namespace Acid.Sharp.Tests
 {
     class MainCamera : ICamera
     {
@@ -32,7 +31,7 @@ namespace AcidSharp.Tests
 
 		public override void Update()
 		{
-			var delta = Math.Min(1.0f / 60.0f, Engine.Get().Delta);
+			var delta = Math.Min(1.0f / 60.0f, Engine.Get().Delta.AsSeconds);
 
             var mouseX = 2.0f * Mouse.Get().DeltaX;
             var mouseY = 2.0f * Mouse.Get().DeltaY;

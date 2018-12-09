@@ -1,7 +1,6 @@
 ﻿using System;
-using AcidSharp;
 
-namespace AcidSharp.Tests
+namespace Acid.Sharp.Tests
 {
     class Program
     {
@@ -19,7 +18,7 @@ namespace AcidSharp.Tests
             Console.WriteLine($"Working Directory: '{FileSystem.WorkingDirectory}'");
 
             // Registers modules.
-			Engine.Get().RegisterModule(new World(), ModuleUpdate.UpdateNormal);
+			Engine.Get().RegisterModule(new World(), ModuleUpdate.Normal);
 
             // Registers components.
 

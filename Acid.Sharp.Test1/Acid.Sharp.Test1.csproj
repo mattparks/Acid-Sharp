@@ -60,7 +60,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Acid.Sharp\Acid.Sharp.csproj">
       <Project>{34e42697-ca7b-4345-b80f-0590c31ffaad}</Project>
-      <Name>Acid.CSharp</Name>
+      <Name>Acid.Sharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

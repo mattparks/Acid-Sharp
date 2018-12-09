@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using AcidSharp;
 
-namespace AcidSharp.Tests
+namespace Acid.Sharp.Tests
 {
     class Scene1 : IScene
     {
@@ -41,7 +40,7 @@ namespace AcidSharp.Tests
 		{
 			if (_buttonFullscreen.WasDown())
 			{
-				Display.Get().SetFullscreen(!Display.Get().IsFullscreen);
+				Display.Get().Fullscreen = !Display.Get().Fullscreen;
 			}
 
 			if (_buttonScreenshot.WasDown())
@@ -55,13 +54,13 @@ namespace AcidSharp.Tests
 				Engine.Get().RequestClose(false);
 			}
 
-		    if (_uiStartLogo.Alpha == 0.0f && _uiStartLogo.IsStarting)
+		    if (_uiStartLogo.Alpha == 0.0f && _uiStartLogo.Starting)
 		    {
 		        _uiStartLogo.AlphaDriver = new DriverConstant(0.0f);
-		        _uiStartLogo.SetStarting(false);
+		        _uiStartLogo.Starting = false;
 		    }
         }
 
-        public override bool IsPaused => _uiStartLogo.IsStarting;
+        public override bool Paused => _uiStartLogo.Starting;
     }
 }
