@@ -19,7 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\AcidSharp\AcidSharp-symbols.cpp" />
+    <ClCompile Include="..\Acid.Sharp\Acid-symbols.cpp" />
+    <ClCompile Include="..\Acid.Sharp\Std-symbols.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

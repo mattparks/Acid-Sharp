@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>AcidSharp</id>
+    <version>0.9.5</version>
+    <authors>Matthew Albrecht</authors>
+    <owners>Matthew Albrecht</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Equilibrium-Games/Acid-Sharp</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Equilibrium-Games/Acid-Sharp/master/Icon.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>true</developmentDependency>
+    <description>https://raw.githubusercontent.com/Equilibrium-Games/Acid/master/README.md</description>
+    <releaseNotes>Updated to new engine name.</releaseNotes>
+    <copyright>Copyright 2018 Equilibrium Games</copyright>
+    <tags>game-engine vulkan</tags>
+    <dependencies>
+	</dependencies>
+  </metadata>
+  <files>
+	<file src="AcidSharp\bin\Release\AcidSharp.dll" target="lib"/>
+	<file src="Acid\lib\*.dll" target="output"/>
+	<file src="Std-symbols\bin\Release_x64\*.dll" target="output"/>
+  </files>
+</package>
