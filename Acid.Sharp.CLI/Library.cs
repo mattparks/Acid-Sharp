@@ -41,7 +41,7 @@ namespace AcidSharp.CLI
             var parserOptions = driver.ParserOptions;
             parserOptions.SetupMSVC(VisualStudioVersion.VS2017);
             parserOptions.AddArguments("-fcxx-exceptions");
-            parserOptions.LanguageVersion = CppSharp.Parser.LanguageVersion.CPP17;
+            parserOptions.LanguageVersion = CppSharp.Parser.LanguageVersion.CPP17_GNU;
             parserOptions.EnableRTTI = true;
             parserOptions.UnityBuild = true;
             parserOptions.Verbose = true;

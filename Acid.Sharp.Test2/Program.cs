@@ -12,12 +12,12 @@ namespace Acid.Sharp.Tests
 			Display.Get().Position = new Vector2(0, 0);
 			Display.Get().Dimensions = new Vector2(1080, 720);
 			var exitCode = engine.Run();
+			
+			//	Console.WriteLine($"{Maths.Random(0.0f, 100.0f)}");
+			//    Console.WriteLine($"{Maths.InterpolateCosine(0.0f, 1.0f, 0.6f)}");
+			//    Console.WriteLine($"{Maths.Pi}");
 
-			/*Console.WriteLine($"{Maths.Random(0.0f, 100.0f)}");
-            Console.WriteLine($"{Maths.InterpolateCosine(0.0f, 1.0f, 0.6f)}");
-            Console.WriteLine($"{Maths.Pi}");
-
-            var array = new float[16]
+			/*var array = new float[16]
             {
                 1.0f, 0.0f, 0.0f, 0.0f,
                 -91.3f, 1.0f, 0.0f, 0.0f,

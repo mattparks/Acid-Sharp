@@ -111,36 +111,36 @@ namespace Acid.Sharp
         /// <param name="string">The string to output.</param>
         public static void Out(string @string)
         {
-        //    var __allocator0 = new global::Std.Allocator<sbyte>();
-        //    var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
-        //    var __arg0 = __basicString0.__Instance;
-        //    __Internal.Out(__arg0);
-        //    __basicString0.Dispose(false);
-        //    __allocator0.Dispose();
+            var __allocator0 = new global::Std.Allocator<sbyte>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            __Internal.Out(__arg0);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
         }
 
         /// <summary>Outputs a error into the console.</summary>
         /// <param name="string">The string to output.</param>
         public static void Error(string @string)
         {
-        //    var __allocator0 = new global::Std.Allocator<sbyte>();
-        //    var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
-        //    var __arg0 = __basicString0.__Instance;
-        //    __Internal.Error(__arg0);
-        //    __basicString0.Dispose(false);
-        //    __allocator0.Dispose();
+            var __allocator0 = new global::Std.Allocator<sbyte>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            __Internal.Error(__arg0);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
         }
 
         /// <summary>Outputs all logs into a file.</summary>
         /// <param name="filename">The filename to output into.</param>
         public static void CreateLog(string filename)
         {
-        //    var __allocator0 = new global::Std.Allocator<sbyte>();
-        //    var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
-        //    var __arg0 = __basicString0.__Instance;
-        //    __Internal.CreateLog(__arg0);
-        //    __basicString0.Dispose(false);
-        //    __allocator0.Dispose();
+            var __allocator0 = new global::Std.Allocator<sbyte>();
+            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
+            var __arg0 = __basicString0.__Instance;
+            __Internal.CreateLog(__arg0);
+            __basicString0.Dispose(false);
+            __allocator0.Dispose();
         }
     }
 }
@@ -3285,29 +3285,29 @@ namespace Acid.Sharp
             [FieldOffset(216)]
             internal global::System.IntPtr m_surface;
 
-         //   [FieldOffset(224)]
-         //   internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
+        //    [FieldOffset(224)]
+        //    internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
 
-         //   [FieldOffset(276)]
-         //   internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
+        //    [FieldOffset(276)]
+        //    internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
 
             [FieldOffset(288)]
             internal global::System.IntPtr m_logicalDevice;
 
-         //   [FieldOffset(296)]
-         //   internal global::VkSampleCountFlagBits m_msaaSamples;
+        //    [FieldOffset(296)]
+        //    internal global::VkSampleCountFlagBits m_msaaSamples;
 
             [FieldOffset(304)]
             internal global::System.IntPtr m_physicalDevice;
 
-         //   [FieldOffset(312)]
-         //   internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
+        //    [FieldOffset(312)]
+        //    internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
 
-         //   [FieldOffset(1136)]
-         //   internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
+        //    [FieldOffset(1136)]
+        //    internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
 
-         //   [FieldOffset(1360)]
-         //   internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
+        //    [FieldOffset(1360)]
+        //    internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
 
             [FieldOffset(1880)]
             internal uint m_supportedQueues;
@@ -3785,15 +3785,15 @@ namespace Acid.Sharp
                 return __stringRet0;
             }
 
-         //   set
-         //   {
-         //       var __allocator0 = new global::Std.Allocator<sbyte>();
-         //       var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
-         //       var __arg0 = __basicString0.__Instance;
-         //       __Internal.SetTitle((__Instance + __PointerAdjustment), __arg0);
-         //       __basicString0.Dispose(false);
-         //       __allocator0.Dispose();
-         //   }
+            set
+            {
+                var __allocator0 = new global::Std.Allocator<sbyte>();
+                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
+                var __arg0 = __basicString0.__Instance;
+                __Internal.SetTitle((__Instance + __PointerAdjustment), __arg0);
+                __basicString0.Dispose(false);
+                __allocator0.Dispose();
+            }
         }
 
         /// <summary>Gets the window's icon file.</summary>
@@ -3811,15 +3811,15 @@ namespace Acid.Sharp
                 return __stringRet0;
             }
 
-         //   set
-         //   {
-         //       var __allocator0 = new global::Std.Allocator<sbyte>();
-         //       var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
-         //       var __arg0 = __basicString0.__Instance;
-         //       __Internal.SetIcon((__Instance + __PointerAdjustment), __arg0);
-         //       __basicString0.Dispose(false);
-         //       __allocator0.Dispose();
-         //   }
+            set
+            {
+                var __allocator0 = new global::Std.Allocator<sbyte>();
+                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
+                var __arg0 = __basicString0.__Instance;
+                __Internal.SetIcon((__Instance + __PointerAdjustment), __arg0);
+                __basicString0.Dispose(false);
+                __allocator0.Dispose();
+            }
         }
 
         /// <summary>Gets if the window requests antialiased images.</summary>
