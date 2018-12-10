@@ -50,11 +50,12 @@ namespace AcidSharp.CLI
             var options = driver.Options;
             options.OutputDir = _outputDir;
             options.GeneratorKind = GeneratorKind.CSharp;
-            options.GenerateSingleCSharpFile = true; // TODO: false
-            options.MarshalCharAsManagedChar = true;
-            options.GenerateDefaultValuesForArguments = false; // FIXME: Crashes when true.
+			options.GenerateSingleCSharpFile = true;
+            options.MarshalCharAsManagedChar = false;
+	        options.GenerateObjectOverrides = true;
+			options.GenerateDefaultValuesForArguments = false; // FIXME: Crashes when true.
             options.GenerateFinalizers = false;
-            options.CheckSymbols = false;
+			options.CheckSymbols = false;
             options.Verbose = true;
 
             // Creates a new module.
@@ -92,8 +93,9 @@ namespace AcidSharp.CLI
         /// <param name="driver"></param>
         /// <param name="ctx"></param>
         public void Preprocess(Driver driver, ASTContext ctx)
-        {
-            ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
+		{
+			ctx.IgnoreHeadersWithName("GLFW/glfw3.h");
+			ctx.IgnoreHeadersWithName("vulkan/vulkan_core.h");
             ctx.RenameNamespace("acid", "Acid.Sharp");
         }
 

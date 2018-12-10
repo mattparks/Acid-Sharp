@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>Acid</id>
+    <version>0.10.9</version>
+    <authors>Matthew Albrecht</authors>
+    <owners>Matthew Albrecht</owners>
+    <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/Equilibrium-Games/Acid-Sharp</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/Equilibrium-Games/Acid/master/Documents/Flask-01-128x128.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>true</developmentDependency>
+    <description>A high speed C++17 Vulkan game engine glued to C#.</description>
+    <releaseNotes>Added in display rendering and fixed C++ scenes.</releaseNotes>
+    <copyright>Copyright 2018 Equilibrium Games</copyright>
+    <tags>game-engine vulkan</tags>
+    <dependencies>
+	</dependencies>
+  </metadata>
+  <files>
+	<file src="Acid.Sharp\bin\Debug\Acid.Sharp.dll" target="lib" />
+	<file src="Std-symbols\bin\Debug_x64\*.dll" target="build\x64\" />
+	<file src="Acid\lib\x64\*.dll" target="build\x64\" />
+    <file src="Acid.targets" target="build\" />
+  </files>
+</package>

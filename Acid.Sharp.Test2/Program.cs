@@ -5,8 +5,15 @@ namespace Acid.Sharp.Tests
     class Program
     {
         private static void Main(string[] args)
-        {
-            Console.WriteLine($"{Maths.Random(0.0f, 100.0f)}");
+		{
+			var engine = new Engine(false);
+			Display.Get().Borderless = true;
+			Display.Get().Floating = true;
+			Display.Get().Position = new Vector2(0, 0);
+			Display.Get().Dimensions = new Vector2(1080, 720);
+			var exitCode = engine.Run();
+
+			/*Console.WriteLine($"{Maths.Random(0.0f, 100.0f)}");
             Console.WriteLine($"{Maths.InterpolateCosine(0.0f, 1.0f, 0.6f)}");
             Console.WriteLine($"{Maths.Pi}");
 
@@ -28,10 +35,10 @@ namespace Acid.Sharp.Tests
             Console.WriteLine($"Quaternion: {quaternion.ToString()}");
             Console.WriteLine($"Restored: {restored.ToString()}");
 
-            Console.WriteLine($"Working Directory: {FileSystem.WorkingDirectory}");
+            Console.WriteLine($"Working Directory: {FileSystem.WorkingDirectory}");*/
 
-            // End program.
-            Console.WriteLine("Press enter to continue...");
+			// End program.
+			Console.WriteLine("Press enter to continue...");
             Console.ReadLine();
         }
     }

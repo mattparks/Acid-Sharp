@@ -6,35 +6,19 @@ using CppSharp.Passes;
 namespace AcidSharp.CLI.Passes
 {
     public class PassObjectNamesFix : TranslationUnitPass
-    {
-        public override bool VisitVariableDecl(Variable variable)
-        {
-            if (AlreadyVisited(variable))
-            {
-                return false;
-            }
+	{
+		public override bool VisitVariableDecl(Variable variable)
+		{
+			if (AlreadyVisited(variable))
+			{
+				return false;
+			}
 
-            variable.Name = ToCamelCase(variable.Name);
-            return true;
-        }
-        
-        public override bool VisitParameterDecl(Parameter parameter)
-        {
-            if (!VisitDeclaration(parameter))
-            {
-                return false;
-            }
-            
-            if (parameter.Name != "object")
-            {
-                return false;
-            }
+			variable.Name = ToCamelCase(variable.Name);
+			return true;
+		}
 
-            parameter.Name = "targetObject";
-            return true;
-        }
-
-        public override bool VisitMethodDecl(Method method)
+		public override bool VisitMethodDecl(Method method)
         {
             if (!VisitDeclaration(method))
             {
@@ -43,12 +27,6 @@ namespace AcidSharp.CLI.Passes
 
             var regex = new Regex(Regex.Escape("Is"));
             method.Name = regex.Replace(method.Name, "Get", 1);
-
-            //if (method.Name == "ToString")
-            //{
-            //    method.IsOverride = true; // TODO
-            //}
-
             return true;
         }
 
@@ -61,7 +39,7 @@ namespace AcidSharp.CLI.Passes
 
             foreach (var item in enumeration.Items)
             {
-                item.Name = ToCamelCase(item.Name).Replace(enumeration.Name, ""); // 
+                item.Name = ToCamelCase(item.Name).Replace(enumeration.Name, ""); 
             }
 
             return true;

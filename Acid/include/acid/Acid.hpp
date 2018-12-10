@@ -4,7 +4,7 @@
 // Acid header file.
 //
 
-#include "Animations/Animation/Animation.hpp"
+/*#include "Animations/Animation/Animation.hpp"
 #include "Animations/Animation/AnimationLoader.hpp"
 #include "Animations/Animator.hpp"
 #include "Animations/Geometry/GeometryLoader.hpp"
@@ -23,7 +23,7 @@
 #include "Audio/Audio.hpp"
 #include "Audio/Sound.hpp"
 #include "Audio/SoundBuffer.hpp"
-//#include "Audio/stb_vorbis.h"
+//#include "Audio/stb_vorbis.h"*/
 #include "Display/Display.hpp"
 #include "Engine/Engine.hpp"
 #include "Engine/Exports.hpp"
@@ -31,7 +31,7 @@
 #include "Engine/Log.hpp"
 #include "Engine/ModuleRegister.hpp"
 #include "Engine/ModuleUpdater.hpp"
-#include "Events/EventChange.hpp"
+/*#include "Events/EventChange.hpp"
 #include "Events/Events.hpp"
 #include "Events/EventStandard.hpp"
 #include "Events/EventTime.hpp"
@@ -230,4 +230,4 @@
 #include "Uis/UiObject.hpp"
 #include "Uis/Uis.hpp"
 #include "Uis/UiSelector.hpp"
-#include "Uis/UiStartLogo.hpp"
+#include "Uis/UiStartLogo.hpp"*/
