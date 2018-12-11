@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>Acid</id>
-    <version>0.10.10</version>
+    <version>0.10.11</version>
     <authors>Matthew Albrecht</authors>
     <owners>Matthew Albrecht</owners>
     <licenseUrl>https://opensource.org/licenses/MIT</licenseUrl>
@@ -11,16 +11,17 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <developmentDependency>true</developmentDependency>
     <description>A high speed C++17 Vulkan game engine glued to C#.</description>
-    <releaseNotes>Dlls are no longer in debug and are in release.</releaseNotes>
+    <releaseNotes>Acid C# now generated Vulkan bindings and uses Nuget.Output for output files.</releaseNotes>
     <copyright>Copyright 2018 Equilibrium Games</copyright>
     <tags>game-engine vulkan</tags>
     <dependencies>
+        <dependency id="Baseclass.Contrib.Nuget.Output" version="2.4.3" />
+        <dependency id="VulkanSharp" version="0.1.10" />
 	</dependencies>
   </metadata>
   <files>
 	<file src="Acid.Sharp\bin\Release\Acid.Sharp.dll" target="lib" />
-	<file src="Std-symbols\bin\Release_x64\*.dll" target="build\x64\" />
-	<file src="Acid\lib\*.dll" target="build\x64\" />
-    <file src="Acid.targets" target="build\" />
+	<file src="Std-symbols\bin\Release_x64\*.dll" target="output" />
+	<file src="Acid\lib\*.dll" target="output" />
   </files>
 </package>

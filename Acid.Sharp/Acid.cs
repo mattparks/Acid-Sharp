@@ -109,39 +109,39 @@ namespace Acid.Sharp
 
         /// <summary>Outputs a message into the console.</summary>
         /// <param name="string">The string to output.</param>
-        public static void Out(string @string)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.Out(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-        }
+        //public static void Out(string @string)
+        //{
+        //    var __allocator0 = new global::Std.Allocator<char>();
+        //    var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
+        //    var __arg0 = __basicString0.__Instance;
+        //    __Internal.Out(__arg0);
+        //    __basicString0.Dispose(false);
+        //    __allocator0.Dispose();
+        //}
 
         /// <summary>Outputs a error into the console.</summary>
         /// <param name="string">The string to output.</param>
-        public static void Error(string @string)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.Error(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-        }
+        //public static void Error(string @string)
+        //{
+        //    var __allocator0 = new global::Std.Allocator<char>();
+        //    var __basicString0 = global::Std.BasicStringExtensions.BasicString(@string, __allocator0);
+        //    var __arg0 = __basicString0.__Instance;
+        //    __Internal.Error(__arg0);
+        //    __basicString0.Dispose(false);
+        //    __allocator0.Dispose();
+        //}
 
         /// <summary>Outputs all logs into a file.</summary>
         /// <param name="filename">The filename to output into.</param>
-        public static void CreateLog(string filename)
-        {
-            var __allocator0 = new global::Std.Allocator<sbyte>();
-            var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
-            var __arg0 = __basicString0.__Instance;
-            __Internal.CreateLog(__arg0);
-            __basicString0.Dispose(false);
-            __allocator0.Dispose();
-        }
+        //public static void CreateLog(string filename)
+        //{
+        //    var __allocator0 = new global::Std.Allocator<char>();
+        //    var __basicString0 = global::Std.BasicStringExtensions.BasicString(filename, __allocator0);
+        //    var __arg0 = __basicString0.__Instance;
+        //    __Internal.CreateLog(__arg0);
+        //    __basicString0.Dispose(false);
+        //    __allocator0.Dispose();
+        //}
     }
 }
 
@@ -454,11 +454,6 @@ namespace Acid.Sharp
             var __ret = new global::Acid.Sharp.Time.__Internal();
             __Internal.OperatorMinus(__arg0, new IntPtr(&__ret));
             return global::Acid.Sharp.Time.__CreateInstance(__ret);
-        }
-
-        public static explicit operator global::Acid.Sharp.Time(long microseconds)
-        {
-            return new global::Acid.Sharp.Time(microseconds);
         }
 
         /// <summary>Constructs a time value from a number of seconds.</summary>
@@ -1315,11 +1310,6 @@ namespace Acid.Sharp
             __Internal.ResetStartTime((__Instance + __PointerAdjustment));
         }
 
-        public static explicit operator global::Acid.Sharp.Timer(global::Acid.Sharp.Time interval)
-        {
-            return new global::Acid.Sharp.Timer(interval);
-        }
-
         /// <summary>Gets what the interval is.</summary>
         /// <param name="interval">The new timer interval.</param>
         /// <remarks>Gets the timers interval (resets timer).</remarks>
@@ -1560,7 +1550,7 @@ namespace Acid.Sharp
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Acid", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
                 EntryPoint="?RegisterModule@Engine@acid@@QEAAPEAVIModule@2@PEAV32@AEBW4ModuleUpdate@2@@Z")]
-            internal static extern global::System.IntPtr RegisterModule(global::System.IntPtr instance, global::System.IntPtr module, global::Acid.Sharp.ModuleUpdate* update);
+            internal static extern global::System.IntPtr RegisterModule(global::System.IntPtr instance, global::System.IntPtr module, global::Acid.Sharp.ModuleUpdate update);
 
             [SuppressUnmanagedCodeSecurity]
             [DllImport("Acid", CallingConvention = global::System.Runtime.InteropServices.CallingConvention.Cdecl,
@@ -1720,7 +1710,7 @@ namespace Acid.Sharp
         /// <summary>Registers a module with the register.</summary>
         /// <param name="module">The modules object.</param>
         /// <param name="update">The modules update type.</param>
-        public global::Acid.Sharp.IModule RegisterModule(global::Acid.Sharp.IModule module, global::Acid.Sharp.ModuleUpdate* update)
+        public global::Acid.Sharp.IModule RegisterModule(global::Acid.Sharp.IModule module, global::Acid.Sharp.ModuleUpdate update)
         {
             var __arg0 = ReferenceEquals(module, null) ? global::System.IntPtr.Zero : module.__Instance;
             var __ret = __Internal.RegisterModule((__Instance + __PointerAdjustment), __arg0, update);
@@ -1747,11 +1737,6 @@ namespace Acid.Sharp
         {
             var __arg0 = &error;
             __Internal.RequestClose((__Instance + __PointerAdjustment), __arg0);
-        }
-
-        public static explicit operator global::Acid.Sharp.Engine(bool emptyRegister)
-        {
-            return new global::Acid.Sharp.Engine(emptyRegister);
         }
 
         /// <summary>Gets this engine instance.</summary>
@@ -1873,7 +1858,7 @@ namespace Acid.Sharp
             {
                 var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
                 __Internal.GetDateTime(new IntPtr(&__ret));
-                var __basicStringRet0 = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
+                var __basicStringRet0 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
                 var __stringRet0 = global::Std.BasicStringExtensions.CStr(__basicStringRet0);
                 __basicStringRet0.Dispose(false);
                 return __stringRet0;
@@ -2772,7 +2757,7 @@ namespace Acid.Sharp
         {
             var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
             __Internal.ToString((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-            var __basicStringRet0 = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
+            var __basicStringRet0 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
             var __stringRet0 = global::Std.BasicStringExtensions.CStr(__basicStringRet0);
             __basicStringRet0.Dispose(false);
             return __stringRet0;
@@ -3285,29 +3270,29 @@ namespace Acid.Sharp
             [FieldOffset(216)]
             internal global::System.IntPtr m_surface;
 
-        //    [FieldOffset(224)]
-        //    internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
+          //  [FieldOffset(224)]
+          //  internal global::VkSurfaceCapabilitiesKHR.__Internal m_surfaceCapabilities;
 
-        //    [FieldOffset(276)]
-        //    internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
+          //  [FieldOffset(276)]
+          //  internal global::VkSurfaceFormatKHR.__Internal m_surfaceFormat;
 
             [FieldOffset(288)]
             internal global::System.IntPtr m_logicalDevice;
 
-        //    [FieldOffset(296)]
-        //    internal global::VkSampleCountFlagBits m_msaaSamples;
+          //  [FieldOffset(296)]
+          //  internal global::VkSampleCountFlagBits m_msaaSamples;
 
             [FieldOffset(304)]
             internal global::System.IntPtr m_physicalDevice;
 
-        //    [FieldOffset(312)]
-        //    internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
+          //  [FieldOffset(312)]
+          //  internal global::VkPhysicalDeviceProperties.__Internal m_physicalDeviceProperties;
 
-        //    [FieldOffset(1136)]
-        //    internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
+          //  [FieldOffset(1136)]
+          //  internal global::VkPhysicalDeviceFeatures.__Internal m_physicalDeviceFeatures;
 
-        //    [FieldOffset(1360)]
-        //    internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
+          //  [FieldOffset(1360)]
+          //  internal global::VkPhysicalDeviceMemoryProperties.__Internal m_physicalDeviceMemoryProperties;
 
             [FieldOffset(1880)]
             internal uint m_supportedQueues;
@@ -3680,7 +3665,7 @@ namespace Acid.Sharp
             var __arg0 = &result;
             var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
             __Internal.StringifyResultGlfw(new IntPtr(&__ret), __arg0);
-            var __basicStringRet0 = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
+            var __basicStringRet0 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
             var __stringRet0 = global::Std.BasicStringExtensions.CStr(__basicStringRet0);
             __basicStringRet0.Dispose(false);
             return __stringRet0;
@@ -3779,21 +3764,21 @@ namespace Acid.Sharp
             {
                 var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
                 __Internal.GetTitle((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                var __basicStringRet0 = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
+                var __basicStringRet0 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
                 var __stringRet0 = global::Std.BasicStringExtensions.CStr(__basicStringRet0);
                 __basicStringRet0.Dispose(false);
                 return __stringRet0;
             }
 
-            set
-            {
-                var __allocator0 = new global::Std.Allocator<sbyte>();
-                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
-                var __arg0 = __basicString0.__Instance;
-                __Internal.SetTitle((__Instance + __PointerAdjustment), __arg0);
-                __basicString0.Dispose(false);
-                __allocator0.Dispose();
-            }
+          //  set
+          //  {
+          //      var __allocator0 = new global::Std.Allocator<char>();
+          //      var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
+          //      var __arg0 = __basicString0.__Instance;
+          //      __Internal.SetTitle((__Instance + __PointerAdjustment), __arg0);
+          //      __basicString0.Dispose(false);
+          //      __allocator0.Dispose();
+          //  }
         }
 
         /// <summary>Gets the window's icon file.</summary>
@@ -3805,21 +3790,21 @@ namespace Acid.Sharp
             {
                 var __ret = new global::Std.BasicString.__Internalc__N_std_S_basic_string__C___N_std_S_char_traits__C___N_std_S_allocator__C();
                 __Internal.GetIcon((__Instance + __PointerAdjustment), new IntPtr(&__ret));
-                var __basicStringRet0 = global::Std.BasicString<sbyte, global::Std.CharTraits<sbyte>, global::Std.Allocator<sbyte>>.__CreateInstance(__ret);
+                var __basicStringRet0 = global::Std.BasicString<char, global::Std.CharTraits<char>, global::Std.Allocator<char>>.__CreateInstance(__ret);
                 var __stringRet0 = global::Std.BasicStringExtensions.CStr(__basicStringRet0);
                 __basicStringRet0.Dispose(false);
                 return __stringRet0;
             }
 
-            set
-            {
-                var __allocator0 = new global::Std.Allocator<sbyte>();
-                var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
-                var __arg0 = __basicString0.__Instance;
-                __Internal.SetIcon((__Instance + __PointerAdjustment), __arg0);
-                __basicString0.Dispose(false);
-                __allocator0.Dispose();
-            }
+          //  set
+          //  {
+          //      var __allocator0 = new global::Std.Allocator<char>();
+          //      var __basicString0 = global::Std.BasicStringExtensions.BasicString(value, __allocator0);
+          //      var __arg0 = __basicString0.__Instance;
+          //      __Internal.SetIcon((__Instance + __PointerAdjustment), __arg0);
+          //      __basicString0.Dispose(false);
+          //      __allocator0.Dispose();
+          //  }
         }
 
         /// <summary>Gets if the window requests antialiased images.</summary>

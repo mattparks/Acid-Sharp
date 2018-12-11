@@ -6,7 +6,8 @@ namespace Acid.Sharp.Tests
     {
         private static void Main(string[] args)
 		{
-			var engine = new Engine(false);
+			var engine = new Engine(true);
+			Engine.Get().RegisterModule(new Display(), ModuleUpdate.Always);
 			Display.Get().Borderless = true;
 			Display.Get().Floating = true;
 			Display.Get().Position = new Vector2(0, 0);

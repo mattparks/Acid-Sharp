@@ -1,6 +1,9 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
+using System.Linq;
 using System.Text.RegularExpressions;
 using CppSharp.AST;
+using CppSharp.AST.Extensions;
 using CppSharp.Passes;
 
 namespace AcidSharp.CLI.Passes
@@ -14,6 +17,7 @@ namespace AcidSharp.CLI.Passes
 				return false;
 			}
 
+			// Global variables should be camel cased.
 			variable.Name = ToCamelCase(variable.Name);
 			return true;
 		}
@@ -25,7 +29,20 @@ namespace AcidSharp.CLI.Passes
                 return false;
             }
 
-            var regex = new Regex(Regex.Escape("Is"));
+			// A fix for explicit constructors with a single parameter.
+	        if (method.IsConstructor && method.IsExplicit && method.Parameters.Count == 1)
+	        {
+				// Only change property on primitive types.
+		    //    var isPrimitive = TypeExtensions.IsPrimitiveType(method.Parameters[0].Type);
+
+		   //     if (isPrimitive)
+		   //     {
+			        method.Parameters[0].Kind = ParameterKind.PropertyValue;
+		   //     }
+	        }
+
+			// Is and Get will refer to the same group almost always.
+	        var regex = new Regex(Regex.Escape("Is"));
             method.Name = regex.Replace(method.Name, "Get", 1);
             return true;
         }
@@ -39,10 +56,22 @@ namespace AcidSharp.CLI.Passes
 
             foreach (var item in enumeration.Items)
             {
-                item.Name = ToCamelCase(item.Name).Replace(enumeration.Name, ""); 
+				// Special camel case, and removes enum name from item.
+                var itemName = ToCamelCase(item.Name).Replace(enumeration.Name, "");
+
+				// Because enum items cannot appear like numbers.
+	            if (Regex.IsMatch(itemName, @"^\d+"))
+	            {
+		            itemName = "E" + itemName;
+	            }
+
+	            item.Name = itemName;
             }
 
-            return true;
+			// Removes item duplicates.
+			enumeration.Items = enumeration.Items.GroupBy(x => x.Name).Select(y => y.First()).ToList();
+
+			return true;
         }
 
         public static string ToCamelCase(string source)

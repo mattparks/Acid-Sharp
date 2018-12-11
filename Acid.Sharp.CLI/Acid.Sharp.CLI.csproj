@@ -67,10 +67,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Library.cs" />
     <Compile Include="Passes\CommentsFixPass.cs" />
     <Compile Include="Passes\ObjectNamesPass.cs" />
-    <Compile Include="Passes\XmlTranslationPass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
